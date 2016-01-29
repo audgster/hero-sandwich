@@ -39,10 +39,10 @@ state</panel_attributes>
 --
 --
 /+ changeState()/
-/+ North()/
-/+ Northeast()/
-/+ East()/
-/+ Southeast()/
+/+ north()/
+/+ northeast()/
+/+ east()/
+/+ southeast()/
 /.../</panel_attributes>
     <additional_attributes/>
   </element>
@@ -56,13 +56,13 @@ state</panel_attributes>
     </coordinates>
     <panel_attributes>*MenuState*
 --
-+ Menu
++ menu
 --
 /+ changeState()/
-/+ North()/
-/+ Northeast()/
-/+ East()/
-/+ Southeast()/
+/+ north()/
+/+ northeast()/
+/+ east()/
+/+ southeast()/
 /.../
 --
 Responsibilities
@@ -84,13 +84,13 @@ exited</panel_attributes>
     </coordinates>
     <panel_attributes>*EntityState*
 --
-+ MovementDirector
++ movementDirector
 --
 /+ changeState()/
-/+ North()/
-/+ Northeast()/
-/+ East()/
-/+ Southeast()/
+/+ north()/
+/+ northeast()/
+/+ east()/
+/+ southeast()/
 /.../
 --
 Responsibilities
@@ -269,8 +269,8 @@ the user is accessing the menu</panel_attributes>
     <panel_attributes>/{Abstract}/
 /Controller/
 --
-+ State
-+ Entity
++ state
++ entity
 --
 + setState(ControllerState)</panel_attributes>
     <additional_attributes/>
@@ -298,10 +298,10 @@ the user is accessing the menu</panel_attributes>
 --
 --
 /+ changeState()/
-/+ North()/
-/+ Northeast()/
-/+ East()/
-/+ Southeast()/
+/+ north()/
+/+ northeast()/
+/+ east()/
+/+ southeast()/
 /.../
 --
 Responsibilities
