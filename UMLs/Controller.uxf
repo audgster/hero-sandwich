@@ -11,8 +11,6 @@
     </coordinates>
     <panel_attributes>*UserController*
 --
-+ State
-+ Avatar
 --
 --
 Responsibilities
@@ -228,8 +226,6 @@ m2=1</panel_attributes>
     </coordinates>
     <panel_attributes>*AiController*
 --
-+ EntityState
-+ Entity
 --
 --
 Responsibilities
