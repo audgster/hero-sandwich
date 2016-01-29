@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
+      <x>660</x>
       <y>220</y>
       <w>230</w>
       <h>260</h>
@@ -14,7 +14,6 @@
 + State
 + Avatar
 --
-+ setState(ControllerState)
 --
 Responsibilities
 -- Handles the user's request,
@@ -32,7 +31,7 @@ state</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>930</x>
+      <x>1010</x>
       <y>230</y>
       <w>210</w>
       <h>150</h>
@@ -52,7 +51,7 @@ state</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1110</x>
+      <x>1190</x>
       <y>580</y>
       <w>250</w>
       <h>270</h>
@@ -79,7 +78,7 @@ exited</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
+      <x>810</x>
       <y>580</y>
       <w>260</w>
       <h>270</h>
@@ -106,7 +105,7 @@ is pressed</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
+      <x>730</x>
       <y>890</y>
       <w>160</w>
       <h>30</h>
@@ -117,7 +116,7 @@ is pressed</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1280</x>
+      <x>1360</x>
       <y>900</y>
       <w>100</w>
       <h>30</h>
@@ -128,7 +127,7 @@ is pressed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>840</x>
       <y>840</y>
       <w>60</w>
       <h>70</h>
@@ -139,7 +138,7 @@ is pressed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1280</x>
+      <x>1360</x>
       <y>840</y>
       <w>60</w>
       <h>80</h>
@@ -150,29 +149,29 @@ is pressed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1030</x>
+      <x>1110</x>
       <y>370</y>
       <w>30</w>
-      <h>120</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>460</y>
+      <x>940</x>
+      <y>510</y>
       <w>370</w>
-      <h>140</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0;350.0;10.0;350.0;120.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;350.0;10.0;350.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
+      <x>880</x>
       <y>280</y>
       <w>150</w>
       <h>40</h>
@@ -185,7 +184,7 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
+      <x>140</x>
       <y>110</y>
       <w>100</w>
       <h>30</h>
@@ -196,7 +195,7 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
+      <x>230</x>
       <y>120</y>
       <w>150</w>
       <h>40</h>
@@ -209,8 +208,8 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>90</y>
+      <x>710</x>
+      <y>30</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -218,23 +217,12 @@ m2=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>690</x>
-      <y>110</y>
-      <w>30</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
+      <x>250</x>
       <y>290</y>
       <w>230</w>
-      <h>150</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>*AiController*
 --
@@ -245,24 +233,26 @@ m2=1</panel_attributes>
 Responsibilities
 -- Handles NPC movements,
 calling the Entity state movement
-methods</panel_attributes>
+methods
+-- Changes to the PauseState when
+the user is accessing the menu</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>160</y>
+      <x>380</x>
+      <y>180</y>
       <w>30</w>
-      <h>150</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
+      <x>580</x>
       <y>160</y>
       <w>100</w>
       <h>120</h>
@@ -273,17 +263,65 @@ methods</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
+      <x>360</x>
       <y>90</y>
       <w>230</w>
-      <h>80</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 /Controller/
 --
 + State
 + Entity
---</panel_attributes>
+--
++ setState(ControllerState)</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>510</y>
+      <w>420</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>580</y>
+      <w>260</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>*PauseState*
+--
+--
+/+ changeState()/
+/+ North()/
+/+ Northeast()/
+/+ East()/
+/+ Southeast()/
+/.../
+--
+Responsibilities
+-- Overrides the all the direction methods
+so that no entity movement will occur
+-- Will change states when the start key 
+is pressed</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>30</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;130.0;10.0</additional_attributes>
   </element>
 </diagram>
