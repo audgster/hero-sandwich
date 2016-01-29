@@ -4,27 +4,36 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>424</x>
-      <y>208</y>
-      <w>184</w>
-      <h>120</h>
+      <x>256</x>
+      <y>48</y>
+      <w>272</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>*Entity*
 --
 name
 --
-move(:Direction): void
+move(:Direction)
+modifyStats(:StatModifer)
+takeDamage(:int)
+healDamage(:int)
+loseLife
+gainXP(:int)
 equip(:Item)
 unequip(:Item)
 dropItem(:Item)
-</panel_attributes>
+--
+Responsibilities
+Update stats during interactions
+Add stat modifiers to stats
+Drop &amp; equip items</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>320</y>
+      <x>632</x>
+      <y>264</y>
       <w>152</w>
       <h>88</h>
     </coordinates>
@@ -32,22 +41,26 @@ dropItem(:Item)
 --
 equipment: List&lt;Item&gt;
 --
-</panel_attributes>
+...</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>408</y>
+      <x>184</x>
+      <y>336</y>
       <w>272</w>
-      <h>120</h>
+      <h>136</h>
     </coordinates>
     <panel_attributes>*Occupation*
 --
-skills: List&lt;Skills&gt;
+skillNames: List&lt;String&gt;
+--
+...
 --
 Responsibilites
+Provides a list of available skill names for menu
+
 Maintains a list of abilities, and queries Stats on 
 which abilities it can use at its current level
 
@@ -57,8 +70,8 @@ which abilities it can use at its current level
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>752</x>
-      <y>464</y>
+      <x>672</x>
+      <y>408</y>
       <w>264</w>
       <h>272</h>
     </coordinates>
@@ -88,19 +101,19 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>320</y>
+      <x>384</x>
+      <y>264</y>
       <w>24</w>
-      <h>104</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>304</y>
+      <x>520</x>
+      <y>248</y>
       <w>128</w>
       <h>72</h>
     </coordinates>
@@ -110,8 +123,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>200</y>
+      <x>520</x>
+      <y>144</y>
       <w>128</w>
       <h>80</h>
     </coordinates>
@@ -121,8 +134,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>320</y>
+      <x>472</x>
+      <y>264</y>
       <w>240</w>
       <h>160</h>
     </coordinates>
@@ -132,10 +145,10 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
-      <y>592</y>
+      <x>280</x>
+      <y>536</y>
       <w>88</w>
-      <h>56</h>
+      <h>32</h>
     </coordinates>
     <panel_attributes>*Summoner*</panel_attributes>
     <additional_attributes/>
@@ -143,10 +156,10 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>592</y>
+      <x>136</x>
+      <y>536</y>
       <w>88</w>
-      <h>56</h>
+      <h>32</h>
     </coordinates>
     <panel_attributes>*Smasher*</panel_attributes>
     <additional_attributes/>
@@ -154,10 +167,10 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>592</y>
+      <x>408</x>
+      <y>536</y>
       <w>88</w>
-      <h>56</h>
+      <h>32</h>
     </coordinates>
     <panel_attributes>*Sneak*</panel_attributes>
     <additional_attributes/>
@@ -165,8 +178,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>520</y>
+      <x>312</x>
+      <y>464</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -176,8 +189,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>544</y>
+      <x>176</x>
+      <y>488</y>
       <w>288</w>
       <h>32</h>
     </coordinates>
@@ -187,8 +200,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>552</y>
+      <x>176</x>
+      <y>496</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -198,8 +211,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>552</y>
+      <x>312</x>
+      <y>496</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -209,8 +222,8 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>592</x>
-      <y>552</y>
+      <x>440</x>
+      <y>496</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -220,22 +233,23 @@ Computes derived stats (level, life, &amp;c.)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>160</y>
+      <x>632</x>
+      <y>104</y>
       <w>176</w>
-      <h>104</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>*Inventory*
 --
 items: List&lt;Item&gt;
-</panel_attributes>
+--
+...</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>464</y>
+      <x>448</x>
+      <y>408</y>
       <w>240</w>
       <h>64</h>
     </coordinates>
@@ -245,8 +259,8 @@ items: List&lt;Item&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>856</x>
-      <y>360</y>
+      <x>776</x>
+      <y>304</y>
       <w>104</w>
       <h>120</h>
     </coordinates>
