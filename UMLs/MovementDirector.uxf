@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>0</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>GameEngine</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>21</x>
+      <y>63</y>
+      <w>238</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>MovementDirector
+--
+executeMovement(direction,entity,level)
+--
+Mediates interaction of subcomponents to execute the movement of an entity
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>371</x>
+      <y>420</y>
+      <w>168</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Map
+--
+Collection&lt;Tile&gt;
+...
+--
+getTile(Position)
+...
+--
+Holds Tiles and their positions
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>371</x>
+      <y>259</y>
+      <w>168</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>LocationManager
+--
+Collection&lt;Entity,Position&gt;
+...
+--
+getPosition(entity)
+getEntity(position)
+updatePosition(entity,newPosition)
+addEntity(entity,position)
+removeEntity(entity)
+...
+--
+Manages positions of entities on the map
+style=wordwrap
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>14</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>231</x>
+      <y>315</y>
+      <w>154</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0;200.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>217</x>
+      <y>0</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>EntityModel
+--
+MovementRule
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>182</y>
+      <w>168</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>MovementRulesEngine
+--
+evaluateRule(tile,entity)
+...
+--
+Determines if entity can move to a particular tile
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>140</y>
+      <w>56</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>189</y>
+      <w>56</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>560</y>
+      <w>154</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>/MovementRule/
+--
+/evaluateRule(Tile)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>119</x>
+      <y>588</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>623</y>
+      <w>154</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>GroundEntityRule
+--
+Whitelist&lt;TileIdentifier&gt;
+--
+evaluateRule(Tile)
+loadRule()
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>322</x>
+      <y>560</y>
+      <w>105</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Entity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>203</x>
+      <y>567</y>
+      <w>133</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>378</x>
+      <y>14</y>
+      <w>112</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Specification for movement subsystem
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>231</x>
+      <y>609</y>
+      <w>140</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Structure for movement rules
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>294</y>
+      <w>168</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>LevelModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>301</x>
+      <y>301</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>371</x>
+      <y>189</y>
+      <w>224</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Note..
+entity.getMovementRule().evaluateRule(tile)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>301</x>
+      <y>196</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+</diagram>

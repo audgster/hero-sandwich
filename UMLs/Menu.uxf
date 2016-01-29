@@ -4,14 +4,19 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>30</y>
-      <w>190</w>
-      <h>130</h>
+      <x>240</x>
+      <y>0</y>
+      <w>210</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/*Menu*/
 --
-settings()
+ListOfOptions: List&lt;Enum&gt;
+currentlySelected: Enum
+--
+scrollUp()
+scrollDown()
+enter()
 --
 Responsibilities
 -- Allow player to select
@@ -23,7 +28,7 @@ options for game
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>510</x>
       <y>250</y>
       <w>280</w>
       <h>110</h>
@@ -40,7 +45,7 @@ Resonsibilites
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
+      <x>10</x>
       <y>240</y>
       <w>280</w>
       <h>140</h>
@@ -60,7 +65,7 @@ Responsibilites
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>510</x>
       <y>370</y>
       <w>280</w>
       <h>100</h>
@@ -80,7 +85,7 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>510</x>
       <y>480</y>
       <w>280</w>
       <h>120</h>
@@ -98,7 +103,7 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>510</x>
       <y>610</y>
       <w>280</w>
       <h>100</h>
@@ -115,35 +120,31 @@ Responsibilities
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>150</y>
+      <x>330</x>
+      <y>190</y>
       <w>200</w>
-      <h>510</h>
+      <h>470</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;490.0;180.0;490.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;450.0;180.0;450.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>40</y>
+      <x>50</x>
+      <y>50</y>
       <w>100</w>
-      <h>110</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>*MenuView*
---
-scrollable()
-click()
-popUp()
-close()
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
+      <x>330</x>
       <y>270</y>
       <w>200</w>
       <h>30</h>
@@ -154,7 +155,7 @@ close()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
+      <x>330</x>
       <y>400</y>
       <w>200</w>
       <h>30</h>
@@ -165,7 +166,7 @@ close()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
+      <x>330</x>
       <y>510</y>
       <w>200</w>
       <h>30</h>
@@ -176,54 +177,43 @@ close()
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>100</y>
+      <x>140</x>
+      <y>60</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>20</y>
+      <x>590</x>
+      <y>40</y>
       <w>150</w>
-      <h>100</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 Drawable
---</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>50</y>
-      <w>210</w>
+      <x>440</x>
+      <y>40</y>
+      <w>170</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>940</x>
-      <y>0</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>550</x>
+      <x>510</x>
       <y>130</y>
       <w>280</w>
       <h>110</h>
@@ -240,19 +230,19 @@ Responsibilites
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
+      <x>280</x>
       <y>270</y>
-      <w>90</w>
+      <w>80</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;10.0;70.0;10.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>190</y>
+      <x>330</x>
+      <y>210</y>
       <w>200</w>
       <h>30</h>
     </coordinates>
