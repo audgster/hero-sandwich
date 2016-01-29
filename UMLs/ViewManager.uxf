@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>50</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>*ViewManager*
+--
+-areaView: AreaView
+-statsView: StatsView
+-menuStack: Stack&lt;MenuView&gt;
+--
++pushMenu(MenuView)
++popMenu(MenuView)
+--
+Responsibilities
+--Arrange the different views on the screen
+--Determine how views are rendered on top eachother
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>60</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/View/
+--
+--
+/+Render()/
+--
+Responsibilities
+--Determines how the model is rendered
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>380</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*AreaView*
+--
+--
++Render()
+--
+Responsibilities
+--Render the game world and its inhabitants
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

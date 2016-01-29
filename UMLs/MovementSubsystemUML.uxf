@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.1.1">
-  <zoom_level>11</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>99</x>
-      <y>11</y>
-      <w>154</w>
-      <h>33</h>
+      <x>49</x>
+      <y>7</y>
+      <w>98</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>EntityController</panel_attributes>
+    <panel_attributes>EntityState</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>33</x>
-      <y>110</y>
-      <w>275</w>
-      <h>132</h>
+      <x>7</x>
+      <y>70</y>
+      <w>182</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>MovementDirector
 --
@@ -31,10 +31,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>363</x>
-      <y>693</y>
-      <w>264</w>
-      <h>110</h>
+      <x>217</x>
+      <y>441</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>/InteractionHandler/
 --
@@ -48,10 +48,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>363</x>
-      <y>825</y>
-      <w>264</w>
-      <h>143</h>
+      <x>217</x>
+      <y>525</y>
+      <w>168</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Map
 --
@@ -68,10 +68,10 @@ Holds Tiles and their positions
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>363</x>
-      <y>143</y>
-      <w>264</w>
-      <h>220</h>
+      <x>217</x>
+      <y>84</y>
+      <w>168</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>LocationManager
 --
@@ -93,10 +93,10 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>33</y>
-      <w>33</w>
-      <h>99</h>
+      <x>84</x>
+      <y>21</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -105,10 +105,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>242</x>
-      <y>11</y>
-      <w>121</w>
-      <h>33</h>
+      <x>140</x>
+      <y>7</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
@@ -116,23 +116,24 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>11</y>
-      <w>143</w>
-      <h>55</h>
+      <x>203</x>
+      <y>7</y>
+      <w>105</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Entity
 --
-EntityIdentifier</panel_attributes>
+MovementRule
+...</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>363</x>
-      <y>374</y>
-      <w>264</w>
-      <h>132</h>
+      <x>217</x>
+      <y>238</y>
+      <w>168</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>MovementRulesEngine
 --
@@ -146,10 +147,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>231</y>
-      <w>231</w>
-      <h>44</h>
+      <x>84</x>
+      <y>147</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;20.0;10.0;20.0;10.0;10.0</additional_attributes>
@@ -157,10 +158,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>242</y>
-      <w>231</w>
-      <h>209</h>
+      <x>84</x>
+      <y>154</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
@@ -168,10 +169,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>583</y>
-      <w>231</w>
-      <h>187</h>
+      <x>84</x>
+      <y>371</y>
+      <w>147</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
@@ -179,10 +180,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>737</y>
-      <w>231</w>
-      <h>198</h>
+      <x>84</x>
+      <y>469</y>
+      <w>147</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
@@ -190,10 +191,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1023</x>
-      <y>66</y>
-      <w>220</w>
-      <h>132</h>
+      <x>637</x>
+      <y>42</y>
+      <w>140</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>/InteractionHandler/
 --
@@ -208,10 +209,10 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1144</x>
-      <y>33</y>
-      <w>209</w>
-      <h>132</h>
+      <x>714</x>
+      <y>21</y>
+      <w>133</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 successor</panel_attributes>
@@ -220,10 +221,10 @@ successor</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1144</x>
-      <y>187</y>
-      <w>33</w>
-      <h>77</h>
+      <x>714</x>
+      <y>119</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -231,10 +232,10 @@ successor</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>891</x>
-      <y>264</y>
-      <w>264</w>
-      <h>110</h>
+      <x>553</x>
+      <y>168</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>AreaOfEffectInteractionHandler
 --
@@ -248,10 +249,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>363</x>
-      <y>528</y>
-      <w>264</w>
-      <h>143</h>
+      <x>217</x>
+      <y>336</y>
+      <w>168</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>/EntityInteractionHandler/
 --
@@ -265,10 +266,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1276</x>
-      <y>264</y>
-      <w>264</w>
-      <h>110</h>
+      <x>798</x>
+      <y>168</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>/ItemInteractionHandler/
 --
@@ -282,10 +283,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1155</x>
-      <y>451</y>
-      <w>264</w>
-      <h>110</h>
+      <x>721</x>
+      <y>287</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>TakeableItmeHandler
 --
@@ -299,10 +300,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1441</x>
-      <y>451</y>
-      <w>264</w>
-      <h>110</h>
+      <x>903</x>
+      <y>287</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>InteractableItemHandler
 --
@@ -316,10 +317,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>990</x>
-      <y>220</y>
-      <w>451</w>
-      <h>66</h>
+      <x>616</x>
+      <y>140</y>
+      <w>287</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -328,10 +329,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1408</x>
-      <y>363</y>
-      <w>33</w>
-      <h>77</h>
+      <x>882</x>
+      <y>231</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -339,10 +340,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1254</x>
-      <y>396</y>
-      <w>341</w>
-      <h>77</h>
+      <x>784</x>
+      <y>252</y>
+      <w>217</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -351,10 +352,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1727</x>
-      <y>451</y>
-      <w>264</w>
-      <h>110</h>
+      <x>1085</x>
+      <y>287</y>
+      <w>168</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>OneShotItemHandler
 --
@@ -368,10 +369,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1562</x>
-      <y>396</y>
-      <w>319</w>
-      <h>77</h>
+      <x>980</x>
+      <y>252</y>
+      <w>203</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -380,10 +381,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>418</y>
-      <w>231</w>
-      <h>198</h>
+      <x>84</x>
+      <y>266</y>
+      <w>147</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
@@ -391,10 +392,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>957</x>
-      <y>627</y>
-      <w>264</w>
-      <h>121</h>
+      <x>595</x>
+      <y>399</y>
+      <w>168</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>/EntityInteractionHandler/
 --
@@ -408,10 +409,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1067</x>
-      <y>737</y>
-      <w>33</w>
-      <h>99</h>
+      <x>665</x>
+      <y>469</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -419,10 +420,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>836</y>
-      <w>264</w>
-      <h>121</h>
+      <x>476</x>
+      <y>532</y>
+      <w>168</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>EnemyEntityInteractionHandler
 --
@@ -436,10 +437,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1089</x>
-      <y>836</y>
-      <w>264</w>
-      <h>121</h>
+      <x>679</x>
+      <y>532</y>
+      <w>168</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>/EntityInteractionHandler/
 --
@@ -453,10 +454,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>847</x>
-      <y>792</y>
-      <w>451</w>
-      <h>66</h>
+      <x>525</x>
+      <y>504</y>
+      <w>287</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -465,10 +466,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1056</x>
-      <y>583</y>
-      <w>275</w>
-      <h>121</h>
+      <x>658</x>
+      <y>371</y>
+      <w>175</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 successor</panel_attributes>
@@ -477,41 +478,41 @@ successor</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>1056</y>
-      <w>242</w>
-      <h>55</h>
+      <x>182</x>
+      <y>672</y>
+      <w>154</w>
+      <h>35</h>
     </coordinates>
-    <panel_attributes>/TerrainRule/
+    <panel_attributes>/MovementRule/
 --
-/evaluateRule(Entity)/
+/evaluateRule(Tile)/
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>407</x>
-      <y>1100</y>
-      <w>33</w>
-      <h>88</h>
+      <x>245</x>
+      <y>700</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>1166</y>
-      <w>242</w>
-      <h>110</h>
+      <x>182</x>
+      <y>735</y>
+      <w>154</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>GrassRule
+    <panel_attributes>GroundEntityRule
 --
-Map&lt;EntityIdentifier, Boolean&gt;
+Whitelist&lt;TileIdentifier&gt;
 --
-evaluateRule(Entity)
+evaluateRule(Tile)
 loadRule()
 ...</panel_attributes>
     <additional_attributes/>
@@ -519,79 +520,33 @@ loadRule()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>726</x>
-      <y>1056</y>
-      <w>165</w>
-      <h>33</h>
+      <x>448</x>
+      <y>672</y>
+      <w>105</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>Tile</panel_attributes>
+    <panel_attributes>Entity</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
-      <y>1067</y>
-      <w>209</w>
-      <h>44</h>
+      <x>329</x>
+      <y>679</y>
+      <w>133</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=1</panel_attributes>
     <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>143</x>
-      <y>1122</y>
-      <w>583</w>
-      <h>66</h>
-    </coordinates>
-    <panel_attributes>lt=-
-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;20.0;510.0;20.0;510.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>572</x>
-      <y>1166</y>
-      <w>242</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>WaterRule
---
-Map&lt;EntityIdentifier, Boolean&gt;
---
-evaluateRule(Entity)
-loadRule()
-...</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>44</x>
-      <y>1166</y>
-      <w>242</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>MountainRule
---
-Map&lt;EntityIdentifier, Boolean&gt;
---
-evaluateRule(Entity)
-loadRule()
-...</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>1397</x>
-      <y>616</y>
-      <w>176</w>
-      <h>66</h>
+      <x>875</x>
+      <y>392</y>
+      <w>112</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Specification for entity interaction subsystem
 style=wordwrap</panel_attributes>
@@ -600,10 +555,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>594</x>
-      <y>33</y>
-      <w>176</w>
-      <h>77</h>
+      <x>364</x>
+      <y>21</y>
+      <w>112</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Specification for movement subsystem
 style=wordwrap</panel_attributes>
@@ -612,10 +567,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1397</x>
-      <y>77</y>
-      <w>176</w>
-      <h>77</h>
+      <x>875</x>
+      <y>49</y>
+      <w>112</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Specification for non-entity interaction subsystem
 style=wordwrap</panel_attributes>
@@ -624,10 +579,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>891</x>
-      <y>1144</y>
-      <w>220</w>
-      <h>33</h>
+      <x>357</x>
+      <y>721</y>
+      <w>140</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Structure for movement rules
 style=wordwrap</panel_attributes>
