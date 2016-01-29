@@ -43,12 +43,20 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
       <x>693</x>
       <y>153</y>
       <w>99</w>
       <h>27</h>
+=======
+      <x>182</x>
+      <y>14</y>
+      <w>77</w>
+      <h>28</h>
+>>>>>>> 06e842f04345b40148ea755378e47115ce1cb0fe
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
   <element>
