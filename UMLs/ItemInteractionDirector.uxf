@@ -63,9 +63,10 @@ m1=1</panel_attributes>
       <x>182</x>
       <y>14</y>
       <w>77</w>
-      <h>21</h>
+      <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
   <element>
