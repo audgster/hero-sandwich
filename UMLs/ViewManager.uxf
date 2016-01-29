@@ -371,7 +371,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>448</x>
+      <x>308</x>
       <y>567</y>
       <w>70</w>
       <h>21</h>
@@ -382,7 +382,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>476</x>
+      <x>329</x>
       <y>462</y>
       <w>56</w>
       <h>119</h>
@@ -390,18 +390,6 @@ style=wordwrap</panel_attributes>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=1, Avatar</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>329</x>
-      <y>462</y>
-      <w>203</w>
-      <h>119</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m2=1, Avatar</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0;220.0;100.0;220.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -418,6 +406,29 @@ m2=1, Avatar</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>245</x>
+      <y>462</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>567</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Stats</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>469</x>
       <y>462</y>
       <w>21</w>
       <h>119</h>
