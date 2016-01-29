@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.1.1">
-  <zoom_level>7</zoom_level>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>91</x>
-      <y>14</y>
-      <w>98</w>
-      <h>21</h>
+      <x>576</x>
+      <y>153</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>GameEngine</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>49</x>
-      <y>77</y>
-      <w>182</w>
-      <h>84</h>
+      <x>522</x>
+      <y>234</y>
+      <w>234</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>InteractionDirector
 --
@@ -29,29 +29,12 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>154</x>
-      <y>189</y>
-      <w>168</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>/InteractionHandler/
---
-executeInteraction(tile,entity)
-...
---
-Initiates chain of handlers for areas of effect and items
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
-      <y>28</y>
-      <w>21</w>
-      <h>63</h>
+      <x>621</x>
+      <y>171</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -60,10 +43,17 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>693</x>
+      <y>153</y>
+      <w>99</w>
+      <h>27</h>
+=======
       <x>182</x>
       <y>14</y>
       <w>77</w>
       <h>28</h>
+>>>>>>> 06e842f04345b40148ea755378e47115ce1cb0fe
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -72,10 +62,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>245</x>
-      <y>14</y>
-      <w>105</w>
-      <h>21</h>
+      <x>774</x>
+      <y>153</y>
+      <w>135</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>EntityModel</panel_attributes>
     <additional_attributes/>
@@ -83,28 +73,28 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
-      <y>154</y>
-      <w>42</w>
-      <h>84</h>
+      <x>621</x>
+      <y>333</y>
+      <w>54</w>
+      <h>108</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>40.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>91</x>
-      <y>329</y>
-      <w>154</w>
-      <h>84</h>
+      <x>657</x>
+      <y>351</y>
+      <w>198</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>/InteractionHandler/
 --
 executeInteraction(tile,entity)
 ...
 --
-Initiates chain of handlers for areas of effect, items, and other entities
+Calls the appropriate execute method depending on what the tile holds
 style=wordwrap
 </panel_attributes>
     <additional_attributes/>
@@ -112,37 +102,25 @@ style=wordwrap
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>182</x>
-      <y>308</y>
-      <w>133</w>
-      <h>84</h>
+      <x>774</x>
+      <y>450</y>
+      <w>27</w>
+      <h>63</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-successor</panel_attributes>
-    <additional_attributes>90.0;100.0;110.0;100.0;110.0;10.0;10.0;10.0;10.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>182</x>
-      <y>406</y>
-      <w>21</w>
-      <h>49</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>21</x>
-      <y>455</y>
-      <w>168</w>
-      <h>70</h>
+      <x>576</x>
+      <y>531</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>AreaOfEffectInteractionHandler
+    <panel_attributes>AreaOfEffectInteraction
 --
-executeInteraction(tile,entity)
+executeInteraction(entity)
 ...
 --
 Handles the interaction for areas of effect
@@ -152,12 +130,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>266</x>
-      <y>455</y>
-      <w>168</w>
-      <h>70</h>
+      <x>900</x>
+      <y>531</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>/ItemInteractionHandler/
+    <panel_attributes>/Item/
 --
 executeInteraction(tile,entity)
 ...
@@ -169,12 +147,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>189</x>
-      <y>574</y>
-      <w>168</w>
-      <h>70</h>
+      <x>801</x>
+      <y>684</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>TakeableItmeHandler
+    <panel_attributes>TakeableItem
 --
 executeInteraction(tile,entity)
 ...
@@ -186,12 +164,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>574</y>
-      <w>168</w>
-      <h>70</h>
+      <x>1035</x>
+      <y>684</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>InteractableItemHandler
+    <panel_attributes>InteractableItem
 --
 executeInteraction(tile,entity)
 ...
@@ -203,22 +181,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>84</x>
-      <y>427</y>
-      <w>287</w>
-      <h>42</h>
+      <x>684</x>
+      <y>477</y>
+      <w>351</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=&lt;-&gt;
 </panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;20.0;390.0;20.0;390.0;40.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;20.0;370.0;20.0;370.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>518</y>
-      <w>21</w>
-      <h>49</h>
+      <x>1008</x>
+      <y>612</y>
+      <w>27</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -226,10 +204,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
-      <y>539</y>
-      <w>217</w>
-      <h>49</h>
+      <x>882</x>
+      <y>639</y>
+      <w>279</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -238,12 +216,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>553</x>
-      <y>574</y>
-      <w>168</w>
-      <h>70</h>
+      <x>1269</x>
+      <y>684</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>OneShotItemHandler
+    <panel_attributes>OneShotItem
 --
 executeInteraction(tile,entity)
 ...
@@ -255,25 +233,130 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>539</y>
-      <w>203</w>
-      <h>49</h>
+      <x>1134</x>
+      <y>639</y>
+      <w>261</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
     <additional_attributes>10.0;20.0;270.0;20.0;270.0;50.0</additional_attributes>
   </element>
   <element>
-    <id>Text</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>343</x>
-      <y>336</y>
-      <w>112</w>
-      <h>49</h>
+      <x>342</x>
+      <y>837</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>Specification for non-entity interaction subsystem
+    <panel_attributes>HealDamageAOE
+--
+executeInteraction(entity)
+...
+--
+Handles the interaction for the heal
+damage AOE
 style=wordwrap</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>837</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>InstaDeathAOE
+--
+executeInteraction(entity)
+...
+--
+Handles the interaction for instant
+death AOE
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>675</x>
+      <y>612</y>
+      <w>27</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>792</y>
+      <w>279</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;20.0;290.0;20.0;290.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>837</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>LevelUpAOE
+--
+executeInteraction(entity)
+...
+--
+Handles the interaction for the level up AOE
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>675</x>
+      <y>792</y>
+      <w>261</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0;270.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>666</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>TakeDamageAOE
+--
+executeInteraction(entity)
+...
+--
+Handles the interaction for the take
+damage AOE
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>702</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
   </element>
 </diagram>
