@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.1.1">
+<diagram program="umlet" version="13.3">
   <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
@@ -104,7 +104,7 @@ m1=1</panel_attributes>
       <w>105</w>
       <h>49</h>
     </coordinates>
-    <panel_attributes>EntityModel
+    <panel_attributes>Entity
 --
 MovementRule
 ...</panel_attributes>
