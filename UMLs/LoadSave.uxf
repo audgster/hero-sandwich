@@ -4,12 +4,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>20</y>
+      <x>120</x>
+      <y>100</y>
       <w>180</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>LoadController
+    <panel_attributes>/LoadController/
 --
 --
 loadGame(savedGame)
@@ -20,12 +20,12 @@ Loads a saved game</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
-      <y>20</y>
+      <x>320</x>
+      <y>100</y>
       <w>180</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>SaveController
+    <panel_attributes>/SaveController/
 --
 --
 saveGame()
