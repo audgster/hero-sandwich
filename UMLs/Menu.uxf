@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>280</x>
-      <y>20</y>
+      <y>30</y>
       <w>190</w>
       <h>130</h>
     </coordinates>
@@ -24,7 +24,7 @@ options for game
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>240</y>
+      <y>250</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
@@ -40,17 +40,20 @@ Resonsibilites
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
-      <y>120</y>
+      <x>40</x>
+      <y>240</y>
       <w>280</w>
-      <h>110</h>
+      <h>140</h>
     </coordinates>
-    <panel_attributes>*EquipmentMenu*
+    <panel_attributes>*CustomizeMenu*
 --
-unEquiptItem(item)
+setGender()
+setOccupation()
+setHairColor()
+...
 --
 Responsibilites
--Menu for Avatar Equipment
+-Menu for customizing Avatar
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -58,7 +61,7 @@ Responsibilites
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>360</y>
+      <y>370</y>
       <w>280</w>
       <h>100</h>
     </coordinates>
@@ -78,7 +81,7 @@ Responsibilities
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>470</y>
+      <y>480</y>
       <w>280</w>
       <h>120</h>
     </coordinates>
@@ -96,7 +99,7 @@ Responsibilities
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>600</y>
+      <y>610</y>
       <w>280</w>
       <h>100</h>
     </coordinates>
@@ -113,7 +116,7 @@ Responsibilities
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>140</y>
+      <y>150</y>
       <w>200</w>
       <h>510</h>
     </coordinates>
@@ -124,7 +127,7 @@ Responsibilities
     <id>UMLClass</id>
     <coordinates>
       <x>90</x>
-      <y>30</y>
+      <y>40</y>
       <w>100</w>
       <h>110</h>
     </coordinates>
@@ -141,7 +144,7 @@ close()
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>160</y>
+      <y>270</y>
       <w>200</w>
       <h>30</h>
     </coordinates>
@@ -152,7 +155,7 @@ close()
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>260</y>
+      <y>400</y>
       <w>200</w>
       <h>30</h>
     </coordinates>
@@ -163,18 +166,7 @@ close()
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>390</y>
-      <w>200</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>370</x>
-      <y>500</y>
+      <y>510</y>
       <w>200</w>
       <h>30</h>
     </coordinates>
@@ -185,22 +177,22 @@ close()
     <id>Relation</id>
     <coordinates>
       <x>180</x>
-      <y>90</y>
+      <y>100</y>
       <w>120</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>10</y>
+      <x>650</x>
+      <y>20</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
-    <panel_attributes>{{interface}}
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
 Drawable
 --</panel_attributes>
     <additional_attributes/>
@@ -209,12 +201,62 @@ Drawable
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>40</y>
-      <w>180</w>
+      <y>50</y>
+      <w>210</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>130</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>*EquipmentMenu*
+--
+unEquiptItem(item)
+--
+Responsibilites
+-Menu for Avatar Equipment
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>270</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>190</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
   </element>
 </diagram>
