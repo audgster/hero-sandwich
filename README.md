@@ -17,3 +17,5 @@ Project Structure:
     * controllers
     * models
     * views
+    * test
+    * util
