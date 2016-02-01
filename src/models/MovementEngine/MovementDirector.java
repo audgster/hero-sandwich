@@ -3,13 +3,10 @@ package models.MovementEngine;
 import models.Entity;
 import models.Level;
 import models.MovementEngine.Interfaces.IMovementDirector;
-import models.MovementEngine.Interfaces.IMovementEngine;
 import util.Direction;
 
-public class MovementEngine implements IMovementEngine
+public class MovementDirector implements IMovementDirector
 {
-    IMovementDirector movementDirector;
-
     @Override
     public boolean executeMovement(Level level, Entity entity, Direction direction) {
         return false;
