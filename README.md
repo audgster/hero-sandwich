@@ -9,11 +9,11 @@ In a world where sandwiches are the ultimate treasure, one hero must fight to br
 Coming soon to your local programming sweatshop AKA OOP with Dave
 
 Project Structure:
-hero-sandwich
-  UMLs
-  libraries
-    junit
-  src
-    controllers
-    models
-    views
+* hero-sandwich
+  * UMLs
+  * libraries
+    * junit
+  * src
+    * controllers
+    * models
+    * views
