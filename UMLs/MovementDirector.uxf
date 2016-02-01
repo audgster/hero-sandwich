@@ -58,7 +58,7 @@ Holds Tiles and their positions
     </coordinates>
     <panel_attributes>LocationManager
 --
-Collection&lt;Entity,Position&gt;
+Collection&lt;models.Entity,Position&gt;
 ...
 --
 getPosition(entity)
@@ -104,7 +104,7 @@ m1=1</panel_attributes>
       <w>105</w>
       <h>49</h>
     </coordinates>
-    <panel_attributes>Entity
+    <panel_attributes>models.Entity
 --
 MovementRule
 ...</panel_attributes>
@@ -199,7 +199,7 @@ loadRule()
       <w>105</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>Entity</panel_attributes>
+    <panel_attributes>models.Entity</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

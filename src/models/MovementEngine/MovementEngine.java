@@ -1,7 +1,13 @@
 package models.MovementEngine;
 
-/**
- * Created by simonnea on 2/1/16.
- */
-public class MovementEngine {
+import models.Entity;
+import util.Direction;
+
+public class MovementEngine implements IMovementEngine
+{
+
+    @Override
+    public boolean executeMovement(Entity entity, Direction direction) {
+        return false;
+    }
 }
