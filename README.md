@@ -7,3 +7,13 @@ In a world where sandwiches are the ultimate treasure, one hero must fight to br
 - Build your sandwich and feed your hungry people
 
 Coming soon to your local programming sweatshop AKA OOP with Dave
+
+Project Structure:
++hero-sandwish
+  +UMLs
+  +libraries
+    +junit
+  +src
+    +controllers
+    +models
+    +views
