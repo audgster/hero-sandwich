@@ -1,9 +1,16 @@
-import models.Entity.Entity;
+package models.items;
 
-public abstract class InteractableItem extends Item {
+import models.entities.Entity;
+
+public class InteractableItem extends Item {
 
     @Override
     public boolean executeInteraction(Entity entity) {
+        return false;
+    }
+
+    @Override
+    public boolean isObstacle() {
         return false;
     }
 }

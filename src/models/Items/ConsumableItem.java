@@ -1,11 +1,16 @@
-package models.Items;
+package models.items;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
-public abstract class ConsumableItem extends Item {
+public class ConsumableItem extends Item {
 
     @Override
     public boolean executeInteraction(Entity entity) {
+        return false;
+    }
+
+    @Override
+    public boolean isObstacle() {
         return false;
     }
 }

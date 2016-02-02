@@ -1,6 +1,6 @@
-package models.Map.Interactions.Interfaces;
+package models.map.interactions.interfaces;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
 public interface IInteractionHandler
 {

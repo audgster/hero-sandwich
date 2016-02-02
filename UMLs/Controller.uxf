@@ -189,7 +189,7 @@ m2=1</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>models.Entity</panel_attributes>
+    <panel_attributes>models.entities</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -230,7 +230,7 @@ m2=1</panel_attributes>
 --
 Responsibilities
 -- Handles NPC movements,
-calling the models.Entity state movement
+calling the models.entities state movement
 methods
 -- Changes to the PauseState when
 the user is accessing the menu</panel_attributes>

@@ -1,6 +1,6 @@
-package models.Map.areaofeffect;
+package models.map.areaofeffect;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
 /**
  * Created by simonnea on 2/1/16.

@@ -1,12 +1,19 @@
-package models.Items;
+package models.items;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
-public abstract class OneShotItem extends Item{
+public class OneShotItem extends Item{
 
     @Override
     public boolean executeInteraction(Entity entity) {
         return false;
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public boolean isObstacle() {
+        return false;
+    }
+>>>>>>> 727a14ddc8c3b9dbebd81d59a052e64f638aaf17
 }

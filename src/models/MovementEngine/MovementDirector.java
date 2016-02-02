@@ -1,9 +1,8 @@
-package models.MovementEngine;
+package models.movementengine;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 import models.Level;
-import models.Map.Interactions.Interfaces.ITileInteractionDirector;
-import models.MovementEngine.Interfaces.IMovementDirector;
+import models.movementengine.interfaces.IMovementDirector;
 import util.Direction;
 
 public class MovementDirector implements IMovementDirector

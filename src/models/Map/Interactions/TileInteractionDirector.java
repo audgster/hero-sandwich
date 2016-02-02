@@ -1,9 +1,9 @@
-package models.Map.Interactions;
+package models.map.interactions;
 
-import models.Entity.Entity;
-import models.Map.Interactions.Interfaces.IInteractionHandler;
-import models.Map.Interactions.Interfaces.ITileInteractionDirector;
-import models.Map.Tile;
+import models.entities.Entity;
+import models.map.interactions.interfaces.IInteractionHandler;
+import models.map.interactions.interfaces.ITileInteractionDirector;
+import models.map.Tile;
 
 import java.util.List;
 

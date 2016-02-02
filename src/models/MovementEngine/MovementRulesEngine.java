@@ -1,8 +1,8 @@
-package models.MovementEngine;
+package models.movementengine;
 
-import models.Entity.Entity;
-import models.MovementEngine.Interfaces.IMovementRulesEngine;
-import models.Map.Tile;
+import models.entities.Entity;
+import models.movementengine.interfaces.IMovementRulesEngine;
+import models.map.Tile;
 
 public class MovementRulesEngine implements IMovementRulesEngine
 {
