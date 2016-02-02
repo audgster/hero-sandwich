@@ -1,9 +1,9 @@
-package models.MovementEngine;
+package models.movementengine;
 
 import models.entities.Entity;
 import models.Level;
-import models.MovementEngine.Interfaces.IMovementDirector;
-import models.MovementEngine.Interfaces.IMovementEngine;
+import models.movementengine.interfaces.IMovementDirector;
+import models.movementengine.interfaces.IMovementEngine;
 import util.Direction;
 
 public class MovementEngine implements IMovementEngine

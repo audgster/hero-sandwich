@@ -1,4 +1,4 @@
-package models.MovementEngine.Interfaces;
+package models.movementengine.interfaces;
 
 import models.entities.Entity;
 import models.Level;
