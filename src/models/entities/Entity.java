@@ -1,5 +1,8 @@
-package models.Entity;
+package models.entities;
 
+
+import models.items.Item;
+import util.Direction;
 
 public class Entity {
     /* ATTRIBUTES */
@@ -22,18 +25,18 @@ public class Entity {
     /* takeDamage(:int):int
     ** Parameters
     ** in: damage taken
-    ** out: Entity's remaining life after taking damage (currentLife)
+    ** out: entities's remaining life after taking damage (currentLife)
     */
     int takeDamage(int amount) {}
     /* healDamage(:int): int
     ** Parameters
     ** in: damage healed
-    ** out: Entity's remaining life after healing damage (currentLife)
+    ** out: entities's remaining life after healing damage (currentLife)
     */
     int healDamage(int amount) {}
     /* loseLife: int
     ** Parameters
-    ** out: number of lives Entity has remaining after losing one (livesLeft)
+    ** out: number of lives entities has remaining after losing one (livesLeft)
     */
     int loseLife() {}
     /* gainXp(:int)

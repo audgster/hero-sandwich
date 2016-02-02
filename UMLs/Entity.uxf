@@ -9,7 +9,7 @@
       <w>272</w>
       <h>224</h>
     </coordinates>
-    <panel_attributes>*models.Entity*
+    <panel_attributes>*models.entities*
 --
 name
 --

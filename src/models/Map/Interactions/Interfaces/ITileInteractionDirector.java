@@ -1,7 +1,7 @@
-package models.Map.Interactions.Interfaces;
+package models.map.interactions.interfaces;
 
-import models.Entity;
-import models.Map.Tile;
+import models.entities.Entity;
+import models.map.Tile;
 
 public interface ITileInteractionDirector
 {

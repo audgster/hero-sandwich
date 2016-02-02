@@ -382,7 +382,7 @@ style=wordwrap</panel_attributes>
       <w>70</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>models.Entity</panel_attributes>
+    <panel_attributes>models.entities</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

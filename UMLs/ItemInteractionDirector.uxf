@@ -59,7 +59,7 @@ m1=1</panel_attributes>
       <w>135</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>models.Entity</panel_attributes>
+    <panel_attributes>models.entities</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -417,7 +417,7 @@ style=wordwrap</panel_attributes>
 executeInteraction(tile,entity)
 ...
 --
-Prevents models.Entity from moving onto the tile
+Prevents models.entities from moving onto the tile
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -440,7 +440,7 @@ style=wordwrap</panel_attributes>
       <w>90</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>models.Entity</panel_attributes>
+    <panel_attributes>models.entities</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

@@ -1,7 +1,8 @@
-package models.Map.Interactions.Interfaces;
+package models.map.interactions.interfaces;
 
-/**
- * Created by simonnea on 2/1/16.
- */
-public interface IInteractionHandler {
+import models.entities.Entity;
+
+public interface IInteractionHandler
+{
+    boolean executeInteraction(Entity entity);
 }

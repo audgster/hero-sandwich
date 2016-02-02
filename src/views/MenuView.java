@@ -1,3 +1,4 @@
+import views.View;
 
 public class MenuView extends View{
 	

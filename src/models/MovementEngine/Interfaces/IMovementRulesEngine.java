@@ -1,7 +1,7 @@
-package models.MovementEngine.Interfaces;
+package models.movementengine.interfaces;
 
-import models.Entity;
-import models.Map.Tile;
+import models.entities.Entity;
+import models.map.Tile;
 
 public interface IMovementRulesEngine
 {
