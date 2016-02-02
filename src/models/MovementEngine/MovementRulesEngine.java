@@ -1,6 +1,6 @@
 package models.MovementEngine;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 import models.MovementEngine.Interfaces.IMovementRulesEngine;
 import models.Map.Tile;
 

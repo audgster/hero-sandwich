@@ -1,8 +1,7 @@
 package models.MovementEngine;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 import models.Level;
-import models.Map.Interactions.Interfaces.ITileInteractionDirector;
 import models.MovementEngine.Interfaces.IMovementDirector;
 import util.Direction;
 

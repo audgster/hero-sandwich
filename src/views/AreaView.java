@@ -1,8 +1,7 @@
 package views;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 import models.Level;
-import views.View;
 
 public class AreaView extends View {
 	

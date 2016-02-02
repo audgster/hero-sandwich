@@ -1,6 +1,6 @@
 package models.Items;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
 public class OneShotItem extends Item{
 

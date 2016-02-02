@@ -1,6 +1,6 @@
 package models.Map.areaofeffect;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 
 public class LevelUpAoE extends AreaOfEffect
 {

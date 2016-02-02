@@ -1,6 +1,6 @@
 package models.MovementEngine.Interfaces;
 
-import models.Entity.Entity;
+import models.entities.Entity;
 import models.Level;
 import util.Direction;
 

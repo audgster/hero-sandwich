@@ -68,7 +68,7 @@ Grid&lt;Tile&gt;</panel_attributes>
     </coordinates>
     <panel_attributes>*EntityManager*
 --
-Collection&lt;models.Entity,Location,Controller&gt;</panel_attributes>
+Collection&lt;models.entities,Location,Controller&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -79,7 +79,7 @@ Collection&lt;models.Entity,Location,Controller&gt;</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>*models.Entity*</panel_attributes>
+    <panel_attributes>*models.entities*</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -406,7 +406,7 @@ updates</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>*models.Entity*</panel_attributes>
+    <panel_attributes>*models.entities*</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

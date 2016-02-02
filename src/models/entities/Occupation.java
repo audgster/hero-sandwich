@@ -1,4 +1,4 @@
-package models.Entity;
+package models.entities;
 
 public class Occupation {
     
