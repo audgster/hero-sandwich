@@ -12,7 +12,8 @@ public AreaView extends View{
 	public void render(){
 		//find the viewable area centred on avatar
 		//for each tile in viewable area
-			//
+			//get info
+			//draw it
 	}
 	
 }

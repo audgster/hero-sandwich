@@ -1,5 +1,5 @@
 
-public class MenuView() extends View{
+public class MenuView extends View{
 	
 	private Menu menu;
 	
