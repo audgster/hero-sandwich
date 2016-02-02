@@ -1,10 +1,9 @@
-package models.Items;
+import models.Entity.Entity;
 
-public class InteractableItem extends Item {
-    /* METHODS */
-    
-    /*  executeInteraction(:Tile,:Entity): void
-    **  in: The Entity initiating the interaction and the Tile it takes place on
-    */
-    void executeInteraction(Tile, Entity) {};
+public abstract class InteractableItem extends Item {
+
+    @Override
+    public boolean executeInteraction(Entity entity) {
+        return false;
+    }
 }

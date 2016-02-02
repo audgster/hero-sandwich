@@ -1,10 +1,12 @@
 package models.Items;
 
-public class OneShotItem extends {
-    /* METHODS */
-    
-    /*  executeInteraction(:Tile,:Entity): void
-    **  in: The Entity initiating the interaction and the Tile it takes place on
-    */
-    void executeInteraction(Tile, Entity) {};
+import models.Entity.Entity;
+
+public abstract class OneShotItem extends Item{
+
+    @Override
+    public boolean executeInteraction(Entity entity) {
+        return false;
+    }
+
 }
