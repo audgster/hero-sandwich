@@ -1,6 +1,6 @@
 package models.MovementEngine;
 
-import models.Entity;
+import models.Entity.Entity;
 import models.Level;
 import models.MovementEngine.Interfaces.IMovementDirector;
 import models.MovementEngine.Interfaces.IMovementEngine;

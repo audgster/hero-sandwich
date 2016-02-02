@@ -1,6 +1,9 @@
 package models.Entity;
 
 
+import models.Items.Item;
+import util.Direction;
+
 public class Entity {
     /* ATTRIBUTES */
     private String name;

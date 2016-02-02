@@ -1,5 +1,11 @@
 package models.Items;
 
-public class ConsumableItem {
+import models.Entity.Entity;
 
+public abstract class ConsumableItem extends Item {
+
+    @Override
+    public boolean executeInteraction(Entity entity) {
+        return false;
+    }
 }

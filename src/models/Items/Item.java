@@ -1,7 +1,6 @@
 package models.Items;
 
-/**
- * Created by simonnea on 2/1/16.
- */
-public class Item {
+import models.Map.Interactions.Interfaces.IInteractionHandler;
+
+public abstract class Item implements IInteractionHandler{
 }

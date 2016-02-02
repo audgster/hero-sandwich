@@ -1,10 +1,15 @@
+package views;
 
-public AreaView extends View{
+import models.Entity.Entity;
+import models.Level;
+import views.View;
+
+public class AreaView extends View {
 	
-	private LevelModel level;
+	private Level level;
 	private Entity avatar;
 	
-	public AreaView(LevelModel level, Entity avatar){
+	public AreaView(Level level, Entity avatar){
 		this.level = level;
 		this.avatar = avatar;
 	}
