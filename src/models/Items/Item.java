@@ -1,6 +1,6 @@
-package models.Items;
+package models.items;
 
-import models.Map.Interactions.Interfaces.IInteractionHandler;
+import models.map.interactions.interfaces.IInteractionHandler;
 
 public abstract class Item implements IInteractionHandler {
     public abstract boolean isObstacle();

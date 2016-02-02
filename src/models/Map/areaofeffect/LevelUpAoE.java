@@ -1,4 +1,4 @@
-package models.Map.areaofeffect;
+package models.map.areaofeffect;
 
 import models.entities.Entity;
 

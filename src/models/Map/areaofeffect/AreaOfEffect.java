@@ -1,6 +1,6 @@
-package models.Map.areaofeffect;
+package models.map.areaofeffect;
 
-import models.Map.Interactions.Interfaces.IInteractionHandler;
+import models.map.interactions.interfaces.IInteractionHandler;
 
 public abstract class AreaOfEffect implements IInteractionHandler
 {
