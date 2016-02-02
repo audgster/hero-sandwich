@@ -1,6 +1,6 @@
 package models.Items;
 
-public class OneShotItem extends {
+public class TakeableItem extends TakeableItem {
     /* METHODS */
     
     /*  executeInteraction(:Tile,:Entity): void
