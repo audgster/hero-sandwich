@@ -1,5 +1,5 @@
-package controller;
-import menu.*;
+package controllers;
+import models.menus.*;
 
 public abstract class ControllerState{
 	public abstract String getName();

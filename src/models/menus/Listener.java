@@ -1,4 +1,4 @@
-package menu;
+package models.menus;
 
 public interface Listener{
   public void update();

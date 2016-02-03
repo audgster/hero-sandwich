@@ -1,6 +1,6 @@
-package controller;
+package controllers;
 import java.awt.event.*;
-import menu.*;
+import models.menus.*;
 
 public class Controller{
 	public ControllerState state;

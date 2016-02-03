@@ -1,7 +1,7 @@
-package menu;
+package models.menus;
 
 import java.util.ArrayList;
-import controller.*;
+import controllers.*;
 
 public abstract class Menu{
   private Selection currentlySelected;

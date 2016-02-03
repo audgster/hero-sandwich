@@ -1,5 +1,5 @@
-package controller;
-import menu.*;
+package controllers;
+import models.menus.*;
 
 public  class MenuState extends ControllerState{
 	private Menu menu;

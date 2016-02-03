@@ -1,4 +1,4 @@
-package menu;
+package models.menus;
 
 import javax.swing.*;
 import java.awt.*;

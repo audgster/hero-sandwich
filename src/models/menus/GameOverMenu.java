@@ -1,4 +1,4 @@
-package menu;
+package models.menus;
 
 import java.util.ArrayList;
 public class GameOverMenu extends Menu{
