@@ -1,2 +1,2 @@
-GroundEntityMovementRule;whitelist;Grass
-AirEntityMovementRule;whitelist;Land,Water
+GroundEntity;whitelist;Grass
+AirEntity;whitelist;Land,Water
