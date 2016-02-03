@@ -2,9 +2,11 @@ package models.map.movementengine;
 
 import models.entities.Entity;
 import models.Level;
+import models.map.Tile;
 import models.map.movementengine.interfaces.IMovementDirector;
 import models.map.movementengine.interfaces.IMovementRulesEngine;
 import util.Direction;
+import util.Position;
 
 public class MovementDirector implements IMovementDirector
 {
@@ -23,8 +25,9 @@ public class MovementDirector implements IMovementDirector
     * Updates location and triggers interactions
     * */
     @Override
-    public boolean executeMovement(Level level, Entity entity, Direction direction) {
-        return false;
+    public Tile executeMovement(Entity entity, Position destinationPosition, Level level)
+    {
+        return level.updatePosition(entity, destinationPosition);
     }
 
     /*
@@ -35,7 +38,16 @@ public class MovementDirector implements IMovementDirector
     * Forwards information to rules engine to check if movement is possible
     * */
     @Override
-    public boolean verifyEntityCanMove(Level level, Entity entity, Direction direction) {
-        return false;
+    public Position getPositionAfterMovement(Level level, Entity entity, Direction direction)
+    {
+        Position currentEntityPosition = level.returnCurrentPosition(entity);
+        Position destinationPosition = currentEntityPosition.incrementPosition(direction);
+
+        Tile tileAtDestination = level.returnTileAt(destinationPosition);
+
+        if(rulesEngine.evaluateRule(tileAtDestination, entity))
+            return destinationPosition;
+        else
+            return currentEntityPosition;
     }
 }

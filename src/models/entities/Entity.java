@@ -79,6 +79,7 @@ public class Entity {
     ** 3) Inventory
     ** 4) Equipment
     */
+<<<<<<< HEAD
 
     /* Accessors */
     public TerrainGroup getTerrainGroup() {
@@ -89,4 +90,9 @@ public class Entity {
 	String str = name;
 	return str;
     }
+=======
+    String toString() {}
+
+    public String getEntityType() { return "entityType"; }
+>>>>>>> 79e9b821099e2cf40127e0b4033333c0feb621b6
 }

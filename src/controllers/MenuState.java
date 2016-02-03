@@ -2,7 +2,7 @@ package controllers;
 import models.menus.*;
 
 public  class MenuState extends ControllerState{
-	private Menu menu;
+	private Menus menu;
 	public String getName(){
 		return "Menu";
 	}
@@ -22,7 +22,7 @@ public  class MenuState extends ControllerState{
 	public void select(){
 		menu.enter();
 	}
-	public void setMenu(Menu menu){
+	public void setMenu(Menus menu){
 		this.menu = menu;
 	}
 }

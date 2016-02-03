@@ -14,5 +14,6 @@ public enum Selection{
   SETGENDER,
   SETHAIRCOLOR,
   SETOCCUPATION,
+  SETNAME,
   EXITGAME;
 }

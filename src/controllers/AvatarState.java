@@ -33,5 +33,5 @@ public  class AvatarState extends ControllerState{
 	public void select(){
 		System.out.println("The pause menu opened");
 	}
-	public void setMenu(Menu menu){};
+	public void setMenu(Menus menu){};
 }
