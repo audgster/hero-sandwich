@@ -1,10 +1,28 @@
 package models.entities;
 
+
+/* DESCRIPTION 
+ * --------------------------------------------------
+ * StatModifiers are owned by EquipableItems, ConsumableItems, AreaEffects, 
+ * and any other class whose role is (at least partially) to modify an Entity's
+ * stats (EntityStats). The derived attributes present in EntityStats are
+ * flat values in this class. They are to be used in the computation of 
+ * an Entity's derived stats. Below is a list of said stats:
+ * - life
+ * - mana
+ * - offRating
+ * - defRating
+ * - armorRating
+ */
 public class StatModifiers extends Stats {
     
     /* ATTRIBUTES */
-    /* ========================= */
-
+    /* ========================= */    
+    private int life;
+    private int mana;
+    private int offRating;
+    private int defRating;
+    private int armorRating;    
     /* ========================= */
     
     /* METHODS */
@@ -24,6 +42,7 @@ public class StatModifiers extends Stats {
 			 int life, int mana,
 			 int offRating, int defRating, int armorRating) {
 	super(str, agl, intel, har, mov);
+	// derived stats
 	this.life = life;
 	this.mana = mana;
 	this.offRating = offRating;
@@ -57,23 +76,18 @@ public class StatModifiers extends Stats {
     /* ========================= */
 
     /* Mutators */
-    @Override    
     public void setLife(int life) {
 	this.life = life;
     }
-    @Override    
     public void setMana(int mana) {
 	this.mana = mana;
     }
-    @Override    
     public void setOffRating(int offRating) {
 	this.offRating = offRating;
     }
-    @Override    
     public void setDefRating(int defRating) {
 	this.defRating = defRating;
     }
-    @Override    
     public void setArmorRating(int armorRating) {
 	this.armorRating = armorRating;
     }
