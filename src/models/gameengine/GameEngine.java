@@ -29,7 +29,7 @@ public class GameEngine implements IGameEngine
     }
 
     private boolean triggerInteraction(Tile tile, Entity entity) {
-        //kick off tile Interaction Director
-        return false;
+
+        return interactionDirector.executeInteraction(tile, entity);
     }
 }
