@@ -4,5 +4,5 @@ import java.util.HashMap;
 
 public interface IMovementRuleInitializer
 {
-    HashMap<Class, IMovementRule> initializeMovementRules();
+    HashMap<String, IMovementRule> initializeMovementRules();
 }

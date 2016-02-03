@@ -18,7 +18,8 @@ public class GameWindow extends JFrame
 		pack();
 
     	setTitle("Hero Sandwich");
-        setSize(1300,1300);
+        //setSize(1300,1300);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);

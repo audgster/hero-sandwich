@@ -1,3 +1,5 @@
+package models.menus;
+
 public class View implements Listener {
   Menu menu;
   public View(Menus menu) {
