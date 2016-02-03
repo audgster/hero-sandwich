@@ -1,5 +1,8 @@
 package models.entities;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class EntityStats extends Stats {
     
     /* ATTRIBUTES */
@@ -8,6 +11,7 @@ public class EntityStats extends Stats {
     private int xp;
     private int currentLife;
     private int currentMana;
+    private List statMods;
     /* ========================= */
     
     /* METHODS */
@@ -19,6 +23,7 @@ public class EntityStats extends Stats {
 	xp = 0;
 	currentLife = 10;
 	currentMana = 5;
+	statMods = new ArrayList();	
     }
     
     /* Fully parameterized constructor */
@@ -29,6 +34,7 @@ public class EntityStats extends Stats {
 	this.xp = xp;
 	this.currentLife = curLife;
 	this.currentMana = curMana;
+	statMods = new ArrayList();	
     }
     
     /* Primary Stats Accessors */
@@ -44,7 +50,11 @@ public class EntityStats extends Stats {
     }
     public int getCurrentMana() {
 	return currentMana;
-    };
+    }
+
+    public List getStatMods() {
+	return statMods;
+    }
     /* ========================= */
     
     /* Derived Stats Accessors */
@@ -87,26 +97,8 @@ public class EntityStats extends Stats {
     public void setCurrentMana(int currentMana) {
 	this.currentMana = currentMana;	
     }
-
-    @Override    
-    public void setLife(int life) {
-	this.life = life;
-    }
-    @Override    
-    public void setMana(int mana) {
-	this.mana = mana;
-    }
-    @Override    
-    public void setOffRating(int offRating) {
-	this.offRating = offRating;
-    }
-    @Override    
-    public void setDefRating(int defRating) {
-	this.defRating = defRating;
-    }
-    @Override    
-    public void setArmorRating(int armorRating) {
-	this.armorRating = armorRating;
+    public void addStatMod(StatModifiers statMod) {
+	statMods.add(statMod);
     }
     
     @Override

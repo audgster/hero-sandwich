@@ -7,12 +7,7 @@ public abstract class Stats {
     private int intellect;
     private int hardiness;
     private int movement;
-    protected int life;
-    protected int mana;
-    protected int offRating;
-    protected int defRating;
-    protected int armorRating;    
-
+ 
     /* METHODS */
     
     /* Default constructor */
@@ -71,12 +66,6 @@ public abstract class Stats {
     public void setMovement(int mov) {
 	movement = mov;
     }
-
-    public abstract void setLife(int life);
-    public abstract void setMana(int mana);
-    public abstract void setOffRating(int offRating);
-    public abstract void setDefRating(int defRating);
-    public abstract void setArmorRating(int armorRating);    
     
     
     public String toString() {
