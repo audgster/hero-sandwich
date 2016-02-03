@@ -1,6 +1,6 @@
 public class View implements Listener {
-  MainMenu menu;
-  public View(MainMenu menu) {
+  Menu menu;
+  public View(Menu menu) {
     this.menu = menu;
     addAsListener();
   }
