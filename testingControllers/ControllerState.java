@@ -9,4 +9,5 @@ public abstract class ControllerState{
 	public abstract void west();
 	public abstract void northWest();
 	public abstract void select();
+	public abstract void setMenu(Menu menu);
 }

@@ -42,5 +42,8 @@ public class Controller{
 			state = new AvatarState();
 		}
 	}
+	public void setMenu(Menu menu){
+		state.setMenu(menu);
+	}
 }
 

@@ -2,24 +2,28 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class MainMenuView extends JPanel {
+public class MainMenuView extends JPanel 
+                          implements Listener{
     private Image sandwich;
     private JLabel gameTitle, newGame, loadGame, exitGame, imagePanel;
     private JPanel bottomPanel;
-    private String title = "Hero Sandwich";
-    private String newG = "New Game";
-    private String loadG = "Load Game";
-    private String exitG = "Exit Game";
+    private MainMenu menuModel;
 
-    public MainMenuView(){
+    public MainMenuView(Menu model){
+        menuModel = (MainMenu) model;
+        menuModel.addListener(this);
         setLayout(new BorderLayout());
         bottomPanel = new JPanel();
             bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.PAGE_AXIS));
         imagePanel = new JLabel(new ImageIcon("sandwich.png"));
-        gameTitle = new JLabel(title);
-        newGame = new JLabel(newG);
-        loadGame = new JLabel(loadG);
-        exitGame = new JLabel(exitG);
+        gameTitle = new JLabel("Hero Sandwich");
+        gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        newGame = new JLabel("New Game", SwingConstants.CENTER);
+                newGame.setHorizontalAlignment(SwingConstants.CENTER);
+        loadGame = new JLabel("Load Game", SwingConstants.CENTER);
+                loadGame.setHorizontalAlignment(SwingConstants.CENTER);
+        exitGame = new JLabel("Exit Game", SwingConstants.CENTER);
+                exitGame.setHorizontalAlignment(SwingConstants.CENTER);
         drawYoSelf();
     }
 
@@ -49,13 +53,30 @@ public class MainMenuView extends JPanel {
             bottomPanel.add(exitGame);
         add(bottomPanel, BorderLayout.PAGE_END);
 
+        newGame.setOpaque(true);
         setVisible(true);
     }
 
     public void update(){
-        newGame.setOpaque(true);
-        exitGame.setOpaque(true);
-        loadGame.setOpaque(true);
+            newGame.setOpaque(false);
+            exitGame.setOpaque(false);
+            loadGame.setOpaque(false);
+        if(menuModel.getCurrentlySelected().toString() == "NEWGAME"){
+            newGame.setOpaque(true);
+            revalidate();
+            repaint();
+        }
+        else if(menuModel.getCurrentlySelected().toString() == "LOADGAME"){
+            loadGame.setOpaque(true);
+            revalidate();
+            repaint();
+        }
+        else{
+            exitGame.setOpaque(true);
+            revalidate();
+            repaint();
+        }
+
     }
 
 }

@@ -31,8 +31,8 @@ public abstract class Menu{
   public void scrollUp(){
     if(listPosition > 0){
       currentlySelected = listOfOptions[--listPosition];
+      notifyListeners();
       //... make view to move using drawable
-      // update();
     }
   }
 

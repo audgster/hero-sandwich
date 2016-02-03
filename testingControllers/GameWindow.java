@@ -5,8 +5,12 @@ public class GameWindow extends JFrame
 						implements KeyListener{
     Controller  avatarController;
 	//creates the game window
+    MainMenuView currentView;
+    Menu menu;
     public GameWindow(){
-    	add(new MainMenuView());
+        menu = new MainMenu();
+        currentView = new MainMenuView(menu);
+    	add(currentView);
 		pack();
 
     	setTitle("Hero Sandwich");
@@ -16,6 +20,7 @@ public class GameWindow extends JFrame
         setLocationRelativeTo(null);
 
         avatarController = new Controller();
+        avatarController.setMenu(menu);
         addKeyListener(this);
 
 	}

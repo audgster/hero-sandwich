@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class MainMenu extends Menu{
   private Selection currentlySelected;
 
@@ -5,7 +6,8 @@ public class MainMenu extends Menu{
    * Default constructor
    */
   public MainMenu(){
-    super(new Selection[]{Selection.NEWGAME, Selection.LOADGAME, Selection.EXIT});
+    super(new Selection[]{Selection.NEWGAME, Selection.LOADGAME, Selection.EXIT},
+          new ArrayList<Listener>());
   }
 
   public void scrollDown(){
@@ -14,16 +16,19 @@ public class MainMenu extends Menu{
 
   public void scrollUp(){
     super.scrollUp();
-
   }
 
   public void enter(){
     System.out.println(getCurrentlySelected().toString());
   }
-  
-  // public Item unEquiptItem(Item item){
-  //   //remove item from Equipted list
-  // }
+
+  public void addListener(Listener listener) {
+    super.addListener(listener);
+  }
+
+  protected void notifyListeners() {
+    super.notifyListeners();
+  }
 
   //get methods
   public Selection[] getListOfOptions(){
