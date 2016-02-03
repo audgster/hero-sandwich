@@ -8,8 +8,4 @@ public class OneShotItem extends Item{
     public boolean executeInteraction(Entity entity) {
         return false;
     }
-
-    public boolean isObstacle() {
-        return false;
-    }
 }
