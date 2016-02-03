@@ -41,21 +41,9 @@ public class GameWindow extends JFrame
 				// option.perform();
         if(input == '5'){
             remove(currentView);
-<<<<<<< HEAD
             //option.perform();
             validate();
             repaint();
-=======
-            if(menu.getCurrentlySelected().toString() == "NEWGAME"){
-
-            }
-            else if(menu.getCurrentlySelected().toString() == "LOADGAME"){
-
-            }
-            else if(menu.getCurrentlySelected().toString() == "EXIT"){
-                System.exit(0);
-            }
->>>>>>> 79e9b821099e2cf40127e0b4033333c0feb621b6
         }
     }
 }
