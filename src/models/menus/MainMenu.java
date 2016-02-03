@@ -1,7 +1,7 @@
 package models.menus;
 
 import java.util.ArrayList;
-public class MainMenu extends Menu{
+public class MainMenu extends Menus{
   private Selection currentlySelected;
 
   /*
@@ -22,7 +22,6 @@ public class MainMenu extends Menu{
 
   public void enter(){
     super.enter();
-    System.out.println(getCurrentlySelected().toString());
   }
 
   public void addListener(Listener listener) {

@@ -1,6 +1,6 @@
 package models.menus;
 import java.util.ArrayList;
-public class InventoryMenu extends Menu{
+public class InventoryMenu extends Menus{
   private Selection currentlySelected;
 
   /*

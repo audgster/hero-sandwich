@@ -1,13 +1,13 @@
 package models.menus;
 import java.util.ArrayList;
 
-public abstract class Menu{
+public abstract class Menus{
   private Selection currentlySelected;
   private Selection[] listOfOptions;
   private ArrayList<Listener> listenerList;
   private int listPosition;
 
-  protected Menu(Selection[] listOfOptions, ArrayList<Listener> listenerList){
+  protected Menus(Selection[] listOfOptions, ArrayList<Listener> listenerList){
     this.listOfOptions = listOfOptions;
     this.listenerList = listenerList;
     listPosition = 0;
@@ -49,7 +49,6 @@ public abstract class Menu{
   }
 
   public void enter(){
-    System.out.println("testing2");
       notifyListeners();
   }
 

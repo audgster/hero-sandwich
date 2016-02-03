@@ -1,7 +1,7 @@
 package models.menus;
 
 import java.util.ArrayList;
-public class EquipmentMenu extends Menu{
+public class EquipmentMenu extends Menus{
   private Selection currentlySelected;
 
   /*

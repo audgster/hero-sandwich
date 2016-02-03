@@ -1,7 +1,8 @@
-package models.menus;
+package views;
 
 import javax.swing.*;
 import java.awt.*;
+import models.menus.*;
 
 
 public class MainMenuView extends JPanel 
@@ -11,7 +12,7 @@ public class MainMenuView extends JPanel
     private JPanel bottomPanel;
     private MainMenu menuModel;
 
-    public MainMenuView(Menu model){
+    public MainMenuView(Menus model){
         menuModel = (MainMenu) model;
         menuModel.addListener(this);
         setLayout(new BorderLayout());

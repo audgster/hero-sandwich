@@ -1,7 +1,7 @@
 package models.menus;
 
 import java.util.ArrayList;
-public class GameOverMenu extends Menu{
+public class GameOverMenu extends Menus{
   private Selection currentlySelected;
 
   /*
