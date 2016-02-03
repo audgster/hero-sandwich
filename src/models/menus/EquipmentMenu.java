@@ -6,7 +6,7 @@ public class EquipmentMenu extends Menu{
    * Default constructor
    */
   public EquipmentMenu(){
-    super(new Selection[]{Selection.START, Selection.PAUSE, Selection.EQUITPTITEM},
+    super(new Selection[]{Selection.START, Selection.PAUSE, Selection.UNEQUITPTITEM},
           new ArrayList<Listener>());
   }
 
