@@ -1,0 +1,2 @@
+# Forcing git to ignore all .class files
+*.class
