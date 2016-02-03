@@ -1,14 +1,14 @@
 package menu;
 
 import java.util.ArrayList;
-public class EquipmentMenu extends Menu{
+public class GameOverMenu extends Menu{
   private Selection currentlySelected;
 
   /*
    * Default constructor
    */
-  public EquipmentMenu(){
-    super(new Selection[]{Selection.START, Selection.PAUSE, Selection.UNEQUITPTITEM},
+  public GameOverMenu(){
+    super(new Selection[]{Selection.EXITGAME, Selection.RESTARTGAME, Selection.SETTING},
           new ArrayList<Listener>());
   }
 

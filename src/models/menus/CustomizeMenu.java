@@ -1,14 +1,14 @@
 package menu;
 
 import java.util.ArrayList;
-public class EquipmentMenu extends Menu{
+public class CustomizeMenu extends Menu{
   private Selection currentlySelected;
 
   /*
    * Default constructor
    */
-  public EquipmentMenu(){
-    super(new Selection[]{Selection.START, Selection.PAUSE, Selection.UNEQUITPTITEM},
+  public CustomizeMenu(){
+    super(new Selection[]{Selection.SETGENDER, Selection.SETOCCUPATION, Selection.SETHAIRCOLOR},
           new ArrayList<Listener>());
   }
 
