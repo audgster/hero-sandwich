@@ -9,7 +9,6 @@ public class InteractableItem extends Item {
         return false;
     }
 
-    @Override
     public boolean isObstacle() {
         return false;
     }

@@ -9,11 +9,7 @@ public class OneShotItem extends Item{
         return false;
     }
 
-<<<<<<< HEAD
-=======
-    @Override
     public boolean isObstacle() {
         return false;
     }
->>>>>>> 727a14ddc8c3b9dbebd81d59a052e64f638aaf17
 }
