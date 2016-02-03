@@ -10,7 +10,7 @@ public class MovementRulesEngine implements IMovementRulesEngine
 {
     IMovementRuleInitializer ruleInitialzer;
 
-    private HashMap<Class, IMovementRule> movementRules;
+    private HashMap<String, IMovementRule> movementRules;
 
     @Override
     public boolean evaluateRule(Tile tile, Entity entity) {
