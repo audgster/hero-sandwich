@@ -21,6 +21,7 @@ public class MainMenu extends Menu{
   }
 
   public void enter(){
+    super.enter();
     System.out.println(getCurrentlySelected().toString());
   }
 

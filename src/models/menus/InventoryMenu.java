@@ -1,5 +1,4 @@
 package models.menus;
-
 import java.util.ArrayList;
 public class InventoryMenu extends Menu{
   private Selection currentlySelected;

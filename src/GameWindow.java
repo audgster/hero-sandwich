@@ -4,14 +4,15 @@ import controllers.*;
 import models.menus.*;
 
 public class GameWindow extends JFrame 
-						implements KeyListener{
+						implements KeyListener, Listener{
     Controller  avatarController;
-	//creates the game window
     MainMenuView currentView;
     Menu menu;
+    char input;
     public GameWindow(){
         menu = new MainMenu();
         currentView = new MainMenuView(menu);
+        menu.addListener(this);
     	add(currentView);
 		pack();
 
@@ -29,9 +30,18 @@ public class GameWindow extends JFrame
 
     //KeyListener methods
     public void keyPressed(KeyEvent e){
-        char input = e.getKeyChar();
+        input = e.getKeyChar();
 		avatarController.executeUserInput(input);
 	}
     public void keyTyped(KeyEvent e){}
     public void keyReleased(KeyEvent e){}
+
+    public void update(){
+        System.out.println("testing " + input);
+        if(input == '5'){
+            remove(currentView);
+            validate();
+            repaint();
+        }
+    }
 }

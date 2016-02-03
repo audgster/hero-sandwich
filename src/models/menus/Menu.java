@@ -1,7 +1,5 @@
 package models.menus;
-
 import java.util.ArrayList;
-import controllers.*;
 
 public abstract class Menu{
   private Selection currentlySelected;
@@ -50,7 +48,10 @@ public abstract class Menu{
     }
   }
 
-  public abstract void enter();
+  public void enter(){
+    System.out.println("testing2");
+      notifyListeners();
+  }
 
   //get methods
   public Selection[] getListOfOptions(){
