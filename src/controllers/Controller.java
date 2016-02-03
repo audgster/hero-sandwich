@@ -1,7 +1,6 @@
 package controller;
-
 import java.awt.event.*;
-
+import menu.*;
 
 public class Controller{
 	public ControllerState state;

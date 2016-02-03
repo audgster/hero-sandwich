@@ -1,3 +1,5 @@
+package menu;
+
 import java.util.ArrayList;
 public class MainMenu extends Menu{
   private Selection currentlySelected;

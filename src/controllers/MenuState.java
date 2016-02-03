@@ -1,4 +1,5 @@
 package controller;
+import menu.*;
 
 public  class MenuState extends ControllerState{
 	private Menu menu;

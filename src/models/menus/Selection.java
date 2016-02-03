@@ -1,3 +1,5 @@
+package menu;
+
 public enum Selection{
   START,
   NEWGAME,

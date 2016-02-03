@@ -1,4 +1,6 @@
 package controller;
+import menu.*;
+
 public  class AvatarState extends ControllerState{
 	public String getName(){
 		return "Avatar";
