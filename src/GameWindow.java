@@ -18,7 +18,6 @@ public class GameWindow extends JFrame
 		pack();
 
     	setTitle("Hero Sandwich");
-        //setSize(1300,1300);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -41,15 +40,9 @@ public class GameWindow extends JFrame
     public void update(){
         if(input == '5'){
             remove(currentView);
-            if(menu.getCurrentlySelected().toString() == "NEWGAME"){
-
-            }
-            else if(menu.getCurrentlySelected().toString() == "LOADGAME"){
-                
-            }
-            else if(menu.getCurrentlySelected().toString() == "EXIT"){
-                System.exit(0);                  
-            }
+            //option.perform();
+            validate();
+            repaint();
         }
     }
 }
