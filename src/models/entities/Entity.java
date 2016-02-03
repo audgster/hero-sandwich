@@ -69,4 +69,6 @@ public class Entity {
     ** 4) Equipment
     */
     String toString() {}
+
+    public String getEntityType() { return "entityType"; }
 }
