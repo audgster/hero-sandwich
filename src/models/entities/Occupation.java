@@ -1,5 +1,5 @@
 package models.entities;
 
-public class Occupation {
+public abstract class Occupation {
     
 }

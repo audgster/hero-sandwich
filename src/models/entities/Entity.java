@@ -1,6 +1,5 @@
 package models.entities;
 
-
 import models.items.Item;
 import util.Direction;
 
@@ -62,5 +61,12 @@ public class Entity {
     ** out: a boolean representing whether or not the drop item action was successful
     */
     boolean dropItem(Item item) {}        
-    
+    /* toString(): String
+    ** out: a string representing the Entities: 
+    ** 1) Occupation
+    ** 2) Stats
+    ** 3) Inventory
+    ** 4) Equipment
+    */
+    String toString() {}
 }
