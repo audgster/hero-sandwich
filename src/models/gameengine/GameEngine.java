@@ -2,10 +2,12 @@ package models.gameengine;
 
 import models.entities.Entity;
 import models.Level;
+import models.map.Tile;
 import models.map.interactions.interfaces.ITileInteractionDirector;
 import models.map.movementengine.interfaces.IMovementDirector;
 import models.gameengine.interfaces.IGameEngine;
 import util.Direction;
+import util.Position;
 
 public class GameEngine implements IGameEngine
 {
@@ -21,11 +23,13 @@ public class GameEngine implements IGameEngine
     @Override
     public boolean changeEntityLocation(Level level, Entity entity, Direction direction)
     {
-        if (movementDirector.verifyEntityCanMove(level, entity, direction))
-            if(movementDirector.executeMovement(level, entity, direction))
-                return triggerInteraction(level, entity, direction);
-        return false;
+        Position destinationPosition = movementDirector.getPositionAfterMovement(level, entity, direction);
+        Tile destinationTile = movementDirector.executeMovement(entity, destinationPosition, level);
+        return triggerInteraction(destinationTile, entity);
     }
 
-    private boolean triggerInteraction(Level level, Entity entity, Direction direction) {return false;};
+    private boolean triggerInteraction(Tile tile, Entity entity) {
+        //kick off tile Interaction Director
+        return false;
+    }
 }
