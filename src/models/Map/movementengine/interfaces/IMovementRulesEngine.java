@@ -1,4 +1,4 @@
-package models.movementengine.interfaces;
+package models.map.movementengine.interfaces;
 
 import models.entities.Entity;
 import models.map.Tile;
