@@ -41,7 +41,7 @@ public class GameWindow extends JFrame
 				// option.perform();
         if(input == '5'){
             remove(currentView);
-            //option.perform();
+            option.execute();
             validate();
             repaint();
         }
