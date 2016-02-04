@@ -2,15 +2,10 @@ package models.items;
 
 import models.entities.Entity;
 
-public class ConsumableItem extends Item {
+public class ConsumableItem extends TakeableItem {
 
     @Override
     public boolean executeInteraction(Entity entity) {
-        return false;
-    }
-
-    @Override
-    public boolean isObstacle() {
         return false;
     }
 }

@@ -1,3 +1,4 @@
+package views;
 
 public class ViewManager extends View{
 	
@@ -12,6 +13,7 @@ public class ViewManager extends View{
 		for(int i = 0; i < menuViews.length; i++){
 			this.menuViews.add(menuViews[i]);
 		}
+		setLayout(new BorderLayuot());
 	}
 	
 	public void setAreaView(AreaView areaView){
@@ -31,6 +33,10 @@ public class ViewManager extends View{
 	}
 	
 	public void render(){
+		
+	}
+	
+	public void update(){
 		
 	}
 	

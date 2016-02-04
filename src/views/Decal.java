@@ -1,7 +1,7 @@
 
 public class Decal implements Drawable{
 	
-	public Image draw(){
+	public void draw(){
 		//return a picture
 	}
 	

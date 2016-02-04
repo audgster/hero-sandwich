@@ -1,6 +1,8 @@
+package models.menus;
+
 public class View implements Listener {
-  MainMenu menu;
-  public View(MainMenu menu) {
+  Menu menu;
+  public View(Menus menu) {
     this.menu = menu;
     addAsListener();
   }

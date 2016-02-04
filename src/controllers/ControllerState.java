@@ -1,3 +1,6 @@
+package controllers;
+import models.menus.*;
+
 public abstract class ControllerState{
 	public abstract String getName();
 	public abstract void north();
@@ -9,4 +12,5 @@ public abstract class ControllerState{
 	public abstract void west();
 	public abstract void northWest();
 	public abstract void select();
+	public abstract void setMenu(Menus menu);
 }

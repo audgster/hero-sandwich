@@ -9,11 +9,11 @@ import java.util.List;
 
 public class TileInteractionDirector implements ITileInteractionDirector
 {
-    List<IInteractionHandler> tileInteractionHandlers;
-
     @Override
     public boolean executeInteraction(Tile tile, Entity entity)
     {
         return false;
     }
+
+    private boolean executeHandler(IInteractionHandler handler, Entity entity) { return false; }
 }

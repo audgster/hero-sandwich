@@ -1,3 +1,6 @@
+package controllers;
+import models.menus.*;
+
 public  class AvatarState extends ControllerState{
 	public String getName(){
 		return "Avatar";
@@ -30,4 +33,5 @@ public  class AvatarState extends ControllerState{
 	public void select(){
 		System.out.println("The pause menu opened");
 	}
+	public void setMenu(Menus menu){};
 }

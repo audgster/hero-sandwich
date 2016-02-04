@@ -1,5 +1,18 @@
 package models.entities;
 
-public class Occupation {
+public abstract class Occupation {
+    /* ATTRIBUTES */
+    /* ========================= */
+    private StatModifiers statMods;
+    /* ========================= */
+
+    /* METHODS */
+    /* ========================= */    
+
+    /* Accessors */
+    public StatModifiers getStatMods() {
+	return statMods;
+    }
     
+    /* ========================= */
 }

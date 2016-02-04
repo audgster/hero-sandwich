@@ -1,4 +1,6 @@
+package controllers;
 import java.awt.event.*;
+import models.menus.*;
 
 public class Controller{
 	public ControllerState state;
@@ -41,6 +43,9 @@ public class Controller{
 		else{
 			state = new AvatarState();
 		}
+	}
+	public void setMenu(Menus menu){
+		state.setMenu(menu);
 	}
 }
 
