@@ -13,6 +13,7 @@ public class ViewManager extends View{
 		for(int i = 0; i < menuViews.length; i++){
 			this.menuViews.add(menuViews[i]);
 		}
+		setLayout(new BorderLayuot());
 	}
 	
 	public void setAreaView(AreaView areaView){
