@@ -2,7 +2,7 @@
 
   public  class SetGenderOption extends Option{
 	public SetGenderOption(){
-		name = "SetGenderOption";
+		name = "Set Gender";
 	}
 	public void execute(){
   	}

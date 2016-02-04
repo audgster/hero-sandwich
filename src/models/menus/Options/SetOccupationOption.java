@@ -2,7 +2,7 @@
 
   public  class SetOccupationOption extends Option{
 	public SetOccupationOption(){
-		name = "SetOccupationOption";
+		name = "Set Occupation";
 	}
 	public void execute(){
   	}

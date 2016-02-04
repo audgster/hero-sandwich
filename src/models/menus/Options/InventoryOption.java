@@ -2,7 +2,7 @@ package models.menus.options;
 
 public class InventoryOption extends Option{
 	public InventoryOption(){
-		name = "InventoryOption";
+		name = "Inventory";
 	}
 	public void execute(){
   	}
