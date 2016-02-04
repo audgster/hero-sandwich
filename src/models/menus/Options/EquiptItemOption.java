@@ -1,4 +1,4 @@
-public class LoadGameOption{
+public class InventoryOption{
   public void execute(){
   }
 }
