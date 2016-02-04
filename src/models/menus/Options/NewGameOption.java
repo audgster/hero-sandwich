@@ -1,9 +1,9 @@
-public class NewGameOption{
-  public Option(){
-  }
+package models.menus.options;
 
-  public void execute(){
-    //Game.createNewGame
-    //will
-  }
+public class NewGameOption extends Option{
+	public NewGameOption(){
+		name = "New Game";
+	}
+  	public void execute(){
+  	}
 }

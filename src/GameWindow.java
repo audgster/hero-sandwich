@@ -2,6 +2,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import controllers.*;
 import models.menus.*;
+import models.menus.options.*;
 import views.*;
 
 public class GameWindow extends JFrame
@@ -37,13 +38,10 @@ public class GameWindow extends JFrame
     public void keyReleased(KeyEvent e){}
 
     public void update(){
-				// Option option = menu.getCurrentlySelected();
-				// option.perform();
+		Option option = menu.getCurrentlySelected();
         if(input == '5'){
             remove(currentView);
-            //option.perform();
-            validate();
-            repaint();
+            option.execute();
         }
     }
 }

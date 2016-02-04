@@ -1,3 +1,4 @@
+package views;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,12 +63,12 @@ public class MainMenuView extends View{
             newGame.setOpaque(false);
             exitGame.setOpaque(false);
             loadGame.setOpaque(false);
-        if(menuModel.getCurrentlySelected().toString() == "NEWGAME"){
+        if(menuModel.getCurrentlySelected().toString() == "NewGameOption"){
             newGame.setOpaque(true);
             revalidate();
             repaint();
         }
-        else if(menuModel.getCurrentlySelected().toString() == "LOADGAME"){
+        else if(menuModel.getCurrentlySelected().toString() == "LoadGameOption"){
             loadGame.setOpaque(true);
             revalidate();
             repaint();

@@ -1,3 +1,8 @@
+package models.menus.options;
+
 public abstract class Option{
-  public abstract void operation();
+  protected String name = "";
+
+  public abstract void execute();
+  public String toString(){return name;};
 }
