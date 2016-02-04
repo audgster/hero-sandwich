@@ -1,3 +1,6 @@
+package views;
+
+import models.entities.Stats;
 
 public class StatsView extends View{
 	
@@ -23,6 +26,10 @@ public class StatsView extends View{
 		draw hardiness icon, set label for hardiness score
 		draw movement speed icon, set label to movement
 		*/
+	}
+	
+	public void update(){
+		
 	}
 	
 }
