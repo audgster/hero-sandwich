@@ -1,6 +1,9 @@
 package views;
 import views.View;
+import models.menus.*;
+import models.menus.options.Option;
 import java.awt.*;
+import javax.swing.*;
 
 public class MenuView extends View{
 	
@@ -21,7 +24,7 @@ public class MenuView extends View{
 	public void render(){
 		removeAll();
 		for(int i = 0; i < options.length; i++){
-			JLabel label = new Jlabel(options[i]);
+			JLabel label = new JLabel(options[i]);
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			label.setBackground(Color.WHITE);
 			if(currentIndex == i){
@@ -30,7 +33,7 @@ public class MenuView extends View{
 			else{
 				label.setOpaque(false);
 			}
-			add(label)
+			add(label);
 		}
 		
 		revalidate();
