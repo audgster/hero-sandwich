@@ -17,35 +17,31 @@ public class MainMenuView extends View{
         setLayout(new BorderLayout());
         bottomPanel = new JPanel();
             bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.PAGE_AXIS));
-        imagePanel = new JLabel(new ImageIcon("sandwich.png"));
+        imagePanel = new JLabel(new ImageIcon("../images/big-sandwich.gif"));
         gameTitle = new JLabel("Hero Sandwich");
-        gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        newGame = new JLabel("New Game", SwingConstants.CENTER);
-                newGame.setHorizontalAlignment(SwingConstants.CENTER);
-        loadGame = new JLabel("Load Game", SwingConstants.CENTER);
-                loadGame.setHorizontalAlignment(SwingConstants.CENTER);
-        exitGame = new JLabel("Exit Game", SwingConstants.CENTER);
-                exitGame.setHorizontalAlignment(SwingConstants.CENTER);
+        newGame = new JLabel("New Game");
+        loadGame = new JLabel("Load Game");
+        exitGame = new JLabel("Exit Game");
         render();
     }
 
     public void render(){
-        setBackground(Color.BLACK);
-            bottomPanel.setBackground(Color.BLACK);
+        setBackground(Color.WHITE);
+            bottomPanel.setBackground(Color.WHITE);
 
-        newGame.setBackground(Color.WHITE);
-        loadGame.setBackground(Color.WHITE);
-        exitGame.setBackground(Color.WHITE);
+        newGame.setBackground(Color.GRAY);
+        loadGame.setBackground(Color.GRAY);
+        exitGame.setBackground(Color.GRAY);
 
-        gameTitle.setFont(new Font("Georgia",Font.ITALIC, 40));
+        gameTitle.setFont(new Font("Georgia",Font.ITALIC, 60));
         newGame.setFont(new Font("Georgia",Font.ITALIC, 40));
         loadGame.setFont(new Font("Georgia",Font.ITALIC, 40));
         exitGame.setFont(new Font("Georgia",Font.ITALIC, 40));
 
-        gameTitle.setForeground(Color.RED);
-        newGame.setForeground(Color.RED);
-        loadGame.setForeground(Color.RED);
-        exitGame.setForeground(Color.RED);
+        gameTitle.setForeground(Color.BLACK);
+        newGame.setForeground(Color.BLACK);
+        loadGame.setForeground(Color.BLACK);
+        exitGame.setForeground(Color.BLACK);
 
         add(gameTitle, BorderLayout.PAGE_START);
         gameTitle.setPreferredSize(new Dimension(1300, 100));
@@ -53,7 +49,7 @@ public class MainMenuView extends View{
             bottomPanel.add(newGame);
             bottomPanel.add(loadGame);
             bottomPanel.add(exitGame);
-        add(bottomPanel, BorderLayout.PAGE_END);
+        add(bottomPanel, BorderLayout.CENTER_LEFT);
 
         newGame.setOpaque(true);
         setVisible(true);
@@ -65,7 +61,6 @@ public class MainMenuView extends View{
             loadGame.setOpaque(false);
         if(menuModel.getCurrentlySelected().toString() == "NewGameOption"){
             newGame.setOpaque(true);
-
         }
         else if(menuModel.getCurrentlySelected().toString() == "LoadGameOption"){
             loadGame.setOpaque(true);
