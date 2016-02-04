@@ -2,13 +2,24 @@ package models.map.areaofeffect;
 
 import models.entities.Entity;
 
-/**
- * Created by simonnea on 2/1/16.
- */
 public class HealDamageAoE extends AreaOfEffect
 {
+    int baseHealingAmount;
+
+    public HealDamageAoE(int healAmount)
+    {
+        baseHealingAmount = healAmount;
+    }
+
     @Override
     public boolean executeInteraction(Entity entity) {
-        return false;
+        entity.healDamage(getHealingAmount());
+
+        return true;
+    }
+
+    public int getHealingAmount()
+    {
+        return baseHealingAmount;
     }
 }
