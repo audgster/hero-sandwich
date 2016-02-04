@@ -14,4 +14,6 @@ public interface ILocationManager
     boolean isOccupied(Position position);
 
     Entity getEntity(Position position);
+
+    Position getPosition(Entity entity);
 }

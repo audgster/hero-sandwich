@@ -5,7 +5,6 @@ import models.map.locationmanager.interfaces.ILocationManager;
 import util.Position;
 import util.TwoWayHashMap;
 
-import java.util.HashMap;
 
 public class LocationManager implements ILocationManager
 {
@@ -31,7 +30,7 @@ public class LocationManager implements ILocationManager
             return false;
         }
 
-        twoWayHashMap.putByKey(position, entity);
+        twoWayHashMap.put(position, entity);
         System.out.println("Successfully added entity@position to manager");
 
         return true;
@@ -66,11 +65,20 @@ public class LocationManager implements ILocationManager
 
     @Override
     public boolean isOccupied(Position position) {
-        return false;
+        return twoWayHashMap.containsKey(position);
     }
 
     @Override
     public Entity getEntity(Position position) {
+        //Should throw exception here
+        if (!twoWayHashMap.containsKey(position))
+            return null;
+
+        return twoWayHashMap.getByKey(position);
+    }
+
+    @Override
+    public Position getPosition(Entity entity) {
         return null;
     }
 }

@@ -19,12 +19,12 @@ public class TwoWayHashMap<K, V>
         return keyFirst.size();
     }
 
-    public V getByValue(K key)
+    public V getByKey(K key)
     {
         return keyFirst.get(key);
     }
 
-    public K getByKey(V value)
+    public K getByValue(V value)
     {
         return valueFirst.get(value);
     }
