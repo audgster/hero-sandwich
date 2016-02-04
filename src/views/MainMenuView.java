@@ -1,12 +1,10 @@
-package views;
 
 import javax.swing.*;
 import java.awt.*;
 import models.menus.*;
 
 
-public class MainMenuView extends JPanel 
-                          implements Listener{
+public class MainMenuView extends View{
     private Image sandwich;
     private JLabel gameTitle, newGame, loadGame, exitGame, imagePanel;
     private JPanel bottomPanel;
@@ -27,10 +25,10 @@ public class MainMenuView extends JPanel
                 loadGame.setHorizontalAlignment(SwingConstants.CENTER);
         exitGame = new JLabel("Exit Game", SwingConstants.CENTER);
                 exitGame.setHorizontalAlignment(SwingConstants.CENTER);
-        drawYoSelf();
+        render();
     }
 
-    public void drawYoSelf(){
+    public void render(){
         setBackground(Color.BLACK);
             bottomPanel.setBackground(Color.BLACK);
 

@@ -1,3 +1,4 @@
+package views;
 import views.View;
 
 public class MenuView extends View{
@@ -9,7 +10,11 @@ public class MenuView extends View{
 	}
 	
 	public void render(){
-		menu.draw(/*screen coordinates*/);
+		
+	}
+	
+	public void update(){
+		
 	}
 	
 }

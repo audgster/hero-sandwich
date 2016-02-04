@@ -1,7 +1,6 @@
-package views;
-import models.menu.Listener;
+import javax.swing.*;
 
-public abstract class View implements Listener{
+public abstract class View extends JPanel implements Listener{
 	
 	public abstract void render();
 	
