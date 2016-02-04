@@ -1,6 +1,9 @@
 package models.menus.options;
 
-public class EquiptmentOption{
-  public void execute(){
-  }
+public class EquiptmentOption extends Option{
+	public EquiptmentOption(){
+		name = "EquiptmentOption";
+	}
+	public void execute(){
+  	}
 }

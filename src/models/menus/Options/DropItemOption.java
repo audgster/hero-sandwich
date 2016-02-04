@@ -1,7 +1,9 @@
 package models.menus.options;
 
 public class DropItemOption extends Option{
-  public void execute(){
-
-  };
+	public DropItemOption(){
+		name = "DropItemOption";
+	}
+	public void execute(){
+  }
 }

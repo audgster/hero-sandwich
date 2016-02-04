@@ -1,8 +1,9 @@
 package models.menus.options;
 
-public class StartOption{
-  public void execute(){
-    //Game.createNewGame
-    //will
-  }
+public class StartOption extends Option{
+	public StartOption(){
+		name = "StartOption";
+	}
+  	public void execute(){
+  	}
 }

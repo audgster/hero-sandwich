@@ -1,7 +1,8 @@
 package models.menus.options;
 
 public abstract class Option{
-  protected
+  protected String name = "";
 
   public abstract void execute();
+  public String toString(){return name;};
 }

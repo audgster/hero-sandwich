@@ -1,6 +1,9 @@
  package models.menus.options;
 
   public  class SetOccupationOption extends Option{
-  public void execute(){
-  }
+	public SetOccupationOption(){
+		name = "SetOccupationOption";
+	}
+	public void execute(){
+  	}
 }
