@@ -81,6 +81,9 @@ public class Entity {
     ** in: the Item to equip
     ** out: a boolean representing whether or not the equip action was successful
     */
+
+    public void levelUp() {}
+
     //boolean equip(Item item) {}
     /* unequip(:Item): boolean
     ** Parameters
@@ -113,5 +116,4 @@ public class Entity {
     }
 
     public String getEntityType() { return "entityType"; }
-
 }

@@ -14,8 +14,8 @@ public class Level {
     // This will talk to the location manager
     public Position returnCurrentPosition(Entity entity) {return new Position();}
 
-    public Tile returnTileAt(Position position) {return new Tile();}
+    public Tile returnTileAt(Position position) {return new Tile("Grass");}
 
     //return current Tile
-    public Tile updatePosition(Entity entity, Position newPosition) {return new Tile();}
+    public Tile updatePosition(Entity entity, Position newPosition) {return new Tile("Grass");}
 }

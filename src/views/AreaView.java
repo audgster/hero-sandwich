@@ -20,4 +20,8 @@ public class AreaView extends View {
 			//draw it
 	}
 	
+	public void update(){
+		
+	}
+	
 }
