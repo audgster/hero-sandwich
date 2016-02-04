@@ -1,5 +1,5 @@
 package models.menus.options;
 
 public abstract class Option{
-  	public abstract void operation();
+  public abstract void execute();
 }
