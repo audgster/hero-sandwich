@@ -1,3 +1,4 @@
+package views;
 
 public class ViewManager extends View{
 	
@@ -31,6 +32,10 @@ public class ViewManager extends View{
 	}
 	
 	public void render(){
+		
+	}
+	
+	public void update(){
 		
 	}
 	
