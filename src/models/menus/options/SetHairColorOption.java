@@ -2,7 +2,7 @@
 
  public  class SetHairColorOption extends Option{
 	public SetHairColorOption(){
-		name = "SetHairColorOption";
+		name = "Set Hair Color";
 	}
 	public void execute(){
   	}
