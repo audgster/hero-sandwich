@@ -4,12 +4,12 @@ import models.menus.options.*;
 import views.*;
 
 public abstract class Menus{
-  private Selection currentlySelected;
-  private Selection[] listOfOptions;
+  private Option currentlySelected;
+  private Option[] listOfOptions;
   private ArrayList<Listener> listenerList;
   private int listPosition;
 
-  protected Menus(Selection[] listOfOptions, ArrayList<Listener> listenerList){
+  protected Menus(Option[] listOfOptions, ArrayList<Listener> listenerList){
     this.listOfOptions = listOfOptions;
     this.listenerList = listenerList;
     listPosition = 0;
@@ -55,11 +55,11 @@ public abstract class Menus{
   }
 
   //get methods
-  public Selection[] getListOfOptions(){
+  public Option[] getListOfOptions(){
     return listOfOptions;
   }
 
-  public Selection getCurrentlySelected(){
+  public Option getCurrentlySelected(){
     return currentlySelected;
   }
 }

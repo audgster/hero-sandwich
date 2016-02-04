@@ -37,18 +37,20 @@ public class Entity {
     ** in: damage taken
     ** out: entities's remaining life after taking damage (currentLife)
     */
-    //int takeDamage(int amount) {}
+    public int takeDamage(int amount) {return 0;}
     /* healDamage(:int): int
     ** Parameters
     ** in: damage healed
     ** out: entities's remaining life after healing damage (currentLife)
     */
-    //int healDamage(int amount) {}
+    public int healDamage(int amount) {return 0;}
+
     /* loseLife: int
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
-    //int loseLife() {}
+    public int loseLife() {return 0;}
+
     /* gainXp(:int)
     ** Parameters
     ** in: the amount of XP gained
@@ -59,6 +61,9 @@ public class Entity {
     ** in: the Item to equip
     ** out: a boolean representing whether or not the equip action was successful
     */
+
+    public void levelUp() {}
+
     //boolean equip(Item item) {}
     /* unequip(:Item): boolean
     ** Parameters
@@ -79,7 +84,6 @@ public class Entity {
     ** 3) Inventory
     ** 4) Equipment
     */
-<<<<<<< HEAD
 
     /* Accessors */
     public TerrainGroup getTerrainGroup() {
@@ -90,9 +94,6 @@ public class Entity {
 	String str = name;
 	return str;
     }
-=======
-    String toString() {}
 
     public String getEntityType() { return "entityType"; }
->>>>>>> 79e9b821099e2cf40127e0b4033333c0feb621b6
 }

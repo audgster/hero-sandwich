@@ -1,4 +1,4 @@
-package models.menus;
+package models.menus.options;
 
 public enum Selection{
   START,

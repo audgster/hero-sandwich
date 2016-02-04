@@ -1,7 +1,6 @@
-public class StartOption{
-  public Option(){
-  }
+package models.menus.options;
 
+public class StartOption{
   public void execute(){
     //Game.createNewGame
     //will
