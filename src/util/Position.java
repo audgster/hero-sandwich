@@ -5,7 +5,7 @@ public class Position
   private int x;
   private int y;
 
-  Position(int x, int y) {
+  public Position(int x, int y) {
     this.x = x;
     this.y = y;
   }
@@ -25,5 +25,5 @@ public class Position
   }
     // Audrey: need this for movement
     // Given a position and a direction, returns a new position
-    public Position incrementPosition(Direction directionMoved) {return new Position();}
+    public Position incrementPosition(Direction directionMoved) {return new Position(0, 0);}
 }
