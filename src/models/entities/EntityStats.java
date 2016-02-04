@@ -11,7 +11,7 @@ public class EntityStats extends Stats {
     private int xp;
     private int currentLife;
     private int currentMana;
-    private List statMods;
+    private List<StatModifiers> statMods;
     /* ========================= */
     
     /* METHODS */
@@ -36,9 +36,49 @@ public class EntityStats extends Stats {
 	this.currentMana = curMana;
 	statMods = new ArrayList();	
     }
+
+    public int addXp(int amount) {
+	xp += amount;
+	return xp;
+    }
     
     /* Primary Stats Accessors */
     /* ========================= */
+    public int getModStrength() {
+	int modStr = getStrength();
+	for ( int i = 0; i != statMods.size(); ++i ) {
+	    modStr += statMods.get(i).getStrength();
+	}
+	return modStr;
+    }
+    public int getModAgility() {
+	int modAgl = getAgility();
+	for ( int i = 0; i != statMods.size(); ++i ) {
+	    modAgl += statMods.get(i).getAgility();
+	}
+	return modAgl;	
+    }
+    public int getModIntellect() {
+	int modIntel = getIntellect();
+	for ( int i = 0; i != statMods.size(); ++i ) {
+	    modIntel += statMods.get(i).getIntellect();
+	}
+	return modIntel;
+    }
+    public int getModHardiness() {
+	int modHar = getHardiness();
+	for ( int i = 0; i != statMods.size(); ++i ) {
+	    modHar += statMods.get(i).getHardiness();
+	}
+	return modHar;
+    }
+    public int getModMovement() {
+	int modMov = getMovement();
+	for ( int i = 0; i != statMods.size(); ++i ) {
+	    modMov += statMods.get(i).getMovement();
+	}
+	return modMov;
+    }
     public int getLivesLeft() {
 	return livesLeft;
     }
@@ -60,31 +100,38 @@ public class EntityStats extends Stats {
     /* Derived Stats Accessors */
     /* ========================= */
     public int getLevel() {
-	return 0;
+	return xp / 100;
     }
     @Override
     public int getLife() {
-	return 0;
+	return getLevel() * getModHardiness();
     }
     @Override
     public int getMana() {
-	return 0;
+	return getLevel() * getModIntellect();
     }
     @Override
     public int getOffRating() {
-	return 0;
+	return getLevel() * getModStrength();
     }
     @Override
     public int getDefRating() {
-	return 0;
+	return getLevel() * getModAgility();
     }
     @Override
     public int getArmorRating() {
-	return 0;
+	return getModHardiness(); // * equipment
     }
     /* ========================= */
 
     /* Mutators */
+    /* Decrements the lives remaining, and returns the number of lives 
+     *  remaining after the decrement      
+     */
+    public int loseLife() {
+	--livesLeft;
+	return livesLeft;
+    }
     public void setLivesLeft(int livesLeft) {
 	this.livesLeft = livesLeft;	
     }

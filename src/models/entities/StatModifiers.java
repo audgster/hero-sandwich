@@ -22,7 +22,8 @@ public class StatModifiers extends Stats {
     private int mana;
     private int offRating;
     private int defRating;
-    private int armorRating;    
+    private int armorRating;
+    // private int duration; -- on wishlist -> used for temp buffs
     /* ========================= */
     
     /* METHODS */

@@ -24,36 +24,58 @@ public class Entity {
 	equipment = new Equipment();
 	tGroup = TerrainGroup.GROUND;
     }    
-    /* move(:Direction)
-    ** Description pending...
-    */
-    void move(Direction direction) {}
+
     /* modifyStats(:StatModifier)
-    ** Description pending...
+    ** Adds a StatModifiers object to the Entity's Stats
     */
-    void modifyStats(StatModifiers statMod) {}
+    void modifyStats(StatModifiers statMod) {
+	stats.addStatMod(statMod);
+    }
     /* takeDamage(:int):int
     ** Parameters
     ** in: damage taken
     ** out: entities's remaining life after taking damage (currentLife)
     */
-    //int takeDamage(int amount) {}
+    int takeDamage(int amount) {
+	stats.setCurrentLife( stats.getCurrentLife() - amount );
+	int remainingLife = stats.getCurrentLife();	
+	if (remainingLife <= 0) {
+	    if ( loseLife() == 0 ) { // if no lives are remaining
+		// Load from last save
+	    }
+	}
+	return remainingLife;
+    }
     /* healDamage(:int): int
     ** Parameters
     ** in: damage healed
     ** out: entities's remaining life after healing damage (currentLife)
     */
-    //int healDamage(int amount) {}
+    int healDamage(int amount) {
+	int currentLife = stats.getCurrentLife();
+	int lifePlusHeal = currentLife + amount;
+	if ( lifePlusHeal > stats.getLife() ) { // if healing pushes life over max
+	    stats.setCurrentLife( stats.getLife() ); // set to max
+	} else {
+	    stats.setCurrentLife( currentLife + lifePlusHeal );
+	}
+	return stats.getCurrentLife();
+    }
     /* loseLife: int
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
-    //int loseLife() {}
-    /* gainXp(:int)
+    int loseLife() {
+	return stats.loseLife();
+    }
+    /* gainXp(:int): int
     ** Parameters
     ** in: the amount of XP gained
+    ** out: the total amount of XP the entity has after the addition
     */
-    void gainXp(int amount) {}
+    int gainXp(int amount) {
+	return stats.addXp(amount);
+    }
     /* equip(:Item): boolean
     ** Parameters
     ** in: the Item to equip
@@ -79,7 +101,6 @@ public class Entity {
     ** 3) Inventory
     ** 4) Equipment
     */
-<<<<<<< HEAD
 
     /* Accessors */
     public TerrainGroup getTerrainGroup() {
@@ -90,9 +111,7 @@ public class Entity {
 	String str = name;
 	return str;
     }
-=======
-    String toString() {}
 
     public String getEntityType() { return "entityType"; }
->>>>>>> 79e9b821099e2cf40127e0b4033333c0feb621b6
+
 }
