@@ -2,11 +2,13 @@ package models.map.movementengine.interfaces;
 
 import models.entities.Entity;
 import models.Level;
+import models.map.Tile;
 import util.Direction;
+import util.Position;
 
 public interface IMovementDirector
 {
-    boolean executeMovement(Level level, Entity entity, Direction direction);
+    Tile executeMovement(Entity entity, Position newPosition, Level level);
 
-    boolean verifyEntityCanMove(Level level, Entity entity, Direction direction);
+    Position getPositionAfterMovement(Level level, Entity entity, Direction direction);
 }

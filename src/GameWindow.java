@@ -4,7 +4,7 @@ import controllers.*;
 import models.menus.*;
 import views.*;
 
-public class GameWindow extends JFrame 
+public class GameWindow extends JFrame
 						implements KeyListener, Listener{
     Controller  avatarController;
     MainMenuView currentView;
@@ -18,7 +18,6 @@ public class GameWindow extends JFrame
 		pack();
 
     	setTitle("Hero Sandwich");
-        //setSize(1300,1300);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -27,7 +26,6 @@ public class GameWindow extends JFrame
         avatarController = new Controller();
         avatarController.setMenu(menu);
         addKeyListener(this);
-
 	}
 
     //KeyListener methods
@@ -39,17 +37,13 @@ public class GameWindow extends JFrame
     public void keyReleased(KeyEvent e){}
 
     public void update(){
+				// Option option = menu.getCurrentlySelected();
+				// option.perform();
         if(input == '5'){
             remove(currentView);
-            if(menu.getCurrentlySelected().toString() == "NEWGAME"){
-
-            }
-            else if(menu.getCurrentlySelected().toString() == "LOADGAME"){
-                
-            }
-            else if(menu.getCurrentlySelected().toString() == "EXIT"){
-                System.exit(0);                  
-            }
+            //option.perform();
+            validate();
+            repaint();
         }
     }
 }

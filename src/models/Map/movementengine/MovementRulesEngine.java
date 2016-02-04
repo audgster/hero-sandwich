@@ -8,12 +8,18 @@ import java.util.HashMap;
 
 public class MovementRulesEngine implements IMovementRulesEngine
 {
-    IMovementRuleInitializer ruleInitialzer;
+    private HashMap<String, IMovementRule> movementRules;
 
-    private HashMap<Class, IMovementRule> movementRules;
+    public MovementRulesEngine(IMovementRuleInitializer ruleInitializer)
+    {
+        movementRules = ruleInitializer.initializeMovementRules();
+    }
 
     @Override
-    public boolean evaluateRule(Tile tile, Entity entity) {
-        return false;
+    public boolean evaluateRule(Tile tile, Entity entity)
+    {
+        IMovementRule rule = movementRules.get(entity.getEntityType());
+
+        return rule.evaluateRule(tile);
     }
 }
