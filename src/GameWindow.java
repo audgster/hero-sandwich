@@ -4,16 +4,19 @@ import controllers.*;
 import models.menus.*;
 import views.*;
 
-public class GameWindow extends JFrame
-						implements KeyListener{
-    Controller  avatarController;
-    MainMenuView currentView;
+public class GameWindow extends JFrame implements KeyListener{
+	
+	Controller  avatarController;
+    ViewManager viewManager;
     Menus menu;
     char input;
+	
     public GameWindow(){
         menu = new MainMenu();
-        currentView = new MainMenuView(menu);
-    	add(currentView);
+        viewManager = new ViewManager();
+		viewManager.addMenuView(new MenuView(menu));
+    	add(viewManager);
+		viewManager.setVisible(true);
 		pack();
 
     	setTitle("Hero Sandwich");
@@ -25,6 +28,10 @@ public class GameWindow extends JFrame
         avatarController = new Controller();
         avatarController.setMenu(menu);
         addKeyListener(this);
+	}
+	
+	public ViewManager getViewManager(){
+		return this.viewManager;
 	}
 
     //KeyListener methods

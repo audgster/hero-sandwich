@@ -17,6 +17,13 @@ public class ViewManager extends View{
 	};
 	private Mode mode;
 	
+	public ViewManager(){
+		this.menuViews = new LinkedList<MenuView>();
+		setLayout(new BorderLayout());
+		setMainMenuMode();
+		update();
+	}
+	
 	public ViewManager(AreaView areaView, StatsView statsView, MenuView... menuViews){
 		this.areaView = areaView;
 		this.statsView = statsView;
@@ -48,6 +55,7 @@ public class ViewManager extends View{
 	public void render(){
 		if(mode == Mode.MAIN_MENU){
 			add(menuViews.get(0), BorderLayout.LINE_START);
+			menuViews.get(0).setVisible(true);
 			JLabel logo = new JLabel("Insert Logo Here");
 			add(logo, BorderLayout.CENTER);
 		}
