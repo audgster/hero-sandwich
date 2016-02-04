@@ -65,20 +65,15 @@ public class MainMenuView extends View{
             loadGame.setOpaque(false);
         if(menuModel.getCurrentlySelected().toString() == "NewGameOption"){
             newGame.setOpaque(true);
-            revalidate();
-            repaint();
+
         }
         else if(menuModel.getCurrentlySelected().toString() == "LoadGameOption"){
             loadGame.setOpaque(true);
-            revalidate();
-            repaint();
         }
         else{
             exitGame.setOpaque(true);
-            revalidate();
-            repaint();
         }
-
+        revalidate();
+        repaint();
     }
-
 }
