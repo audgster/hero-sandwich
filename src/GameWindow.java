@@ -2,11 +2,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import controllers.*;
 import models.menus.*;
-import models.menus.options.*;
 import views.*;
 
 public class GameWindow extends JFrame
-						implements KeyListener, Listener{
+						implements KeyListener{
     Controller  avatarController;
     MainMenuView currentView;
     Menus menu;
@@ -14,7 +13,6 @@ public class GameWindow extends JFrame
     public GameWindow(){
         menu = new MainMenu();
         currentView = new MainMenuView(menu);
-        menu.addListener(this);
     	add(currentView);
 		pack();
 
@@ -36,12 +34,4 @@ public class GameWindow extends JFrame
 	}
     public void keyTyped(KeyEvent e){}
     public void keyReleased(KeyEvent e){}
-
-    public void update(){
-		Option option = menu.getCurrentlySelected();
-        if(input == '5'){
-            remove(currentView);
-            option.execute();
-        }
-    }
 }
