@@ -37,7 +37,7 @@ public class Entity {
     ** in: damage taken
     ** out: entities's remaining life after taking damage (currentLife)
     */
-    public int takeDamage(int amount) {}
+    public int takeDamage(int amount) {return 0;}
     /* healDamage(:int): int
     ** Parameters
     ** in: damage healed
