@@ -2,13 +2,14 @@ package views;
 
 import views.*;
 import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 public class ViewManager extends View{
 	
 	private AreaView areaView;
 	private StatsView statsView;
-	private List<MenuView> menuViews;
+	private java.util.List<MenuView> menuViews;
 	
 	private enum Mode{
 		MAIN_MENU,
@@ -23,7 +24,7 @@ public class ViewManager extends View{
 		for(int i = 0; i < menuViews.length; i++){
 			this.menuViews.add(menuViews[i]);
 		}
-		setLayout(new BorderLayuot());
+		setLayout(new BorderLayout());
 		setMainMenuMode();
 		update();
 	}
@@ -45,12 +46,12 @@ public class ViewManager extends View{
 	}
 	
 	public void render(){
-		if(mode == MAIN_MENU){
+		if(mode == Mode.MAIN_MENU){
 			add(menuViews.get(0), BorderLayout.LINE_START);
 			JLabel logo = new JLabel("Insert Logo Here");
 			add(logo, BorderLayout.CENTER);
 		}
-		else if(mode == GAME){
+		else if(mode == Mode.GAME){
 			///TO-DO
 		}
 		else{
@@ -67,11 +68,11 @@ public class ViewManager extends View{
 	}
 	
 	public void setMainMenuMode(){
-		mode = MAIN_MENU;
+		mode = Mode.MAIN_MENU;
 	}
 	
 	public void setGameMode(){
-		mode = GAME;
+		mode = Mode.GAME;
 	}
 	
 }

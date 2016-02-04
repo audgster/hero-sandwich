@@ -7,17 +7,17 @@ import javax.swing.*;
 
 public class MenuView extends View{
 	
-	private Menu menu;
+	private Menus menu;
 	private String[] options;
 	private int currentIndex;
 	
-	public MenuView(Menu menu){
+	public MenuView(Menus menu){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setMenu(menu);
 		update();
 	}
 	
-	public void setMenu(Menu menu){
+	public void setMenu(Menus menu){
 		this.menu = menu;
 	}
 	
