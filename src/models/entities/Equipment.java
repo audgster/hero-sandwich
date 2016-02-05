@@ -1,11 +1,13 @@
-package models.entities;
+package models.entities.*;
 
 import models.Items.*;
 
 public class Equipment {
 
-    /* ATTRIBUTES */
-    private Equip
 
-    
+    /* ATTRIBUTES */
+
+   
+    //    public boolean addItem(EquipableItem item){}
+
 }
