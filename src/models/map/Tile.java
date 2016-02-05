@@ -1,20 +1,23 @@
 package models.map;
 
+import util.TerrainGroup;
+
 public class Tile
 {
-    private String terrainType;
+    private TerrainGroup terrainType;
 
-    public Tile() {
-	this.terrainType = "GROUND";
+    public Tile()
+    {
+	    this.terrainType = TerrainGroup.GROUND;
     }
 
-    public Tile(String terrainType)
+    public Tile(TerrainGroup terrainType)
     {
         this.terrainType = terrainType;
     }
 
     public String getTerrainType()
     {
-        return this.terrainType.toLowerCase();
+        return this.terrainType.toString().toLowerCase();
     }
 }

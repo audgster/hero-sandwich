@@ -1,7 +1,9 @@
 package models;
 
 import models.entities.Entity;
+import models.map.Map;
 import models.map.Tile;
+import models.map.locationmanager.interfaces.ILocationManager;
 import util.Position;
 
 /*
@@ -10,12 +12,30 @@ import util.Position;
  */
 public class Level {
 
-    // Audrey: need this for movement stuff
-    // This will talk to the location manager
-    public Position returnCurrentPosition(Entity entity) {return new Position();}
+    ILocationManager locationManager;
+    Map map;
 
-    public Tile returnTileAt(Position position) {return new Tile("Grass");}
+    public Level(ILocationManager locationManager, Map map)
+    {
+        this.locationManager = locationManager;
+        this.map = map;
+    }
 
-    //return current Tile
-    public Tile updatePosition(Entity entity, Position newPosition) {return new Tile("Grass");}
+    public Position returnCurrentPosition(Entity entity)
+    {
+        return locationManager.getPosition(entity);
+    }
+
+    public Tile returnTileAt(Position position)
+    {
+        return map.getTileAt(position);
+    }
+
+    public Tile updatePosition(Entity entity, Position newPosition)
+    {
+        if (!locationManager.updateEntityPosition(entity, newPosition))
+            return null;
+
+        return map.getTileAt(newPosition);
+    }
 }

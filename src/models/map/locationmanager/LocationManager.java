@@ -64,7 +64,8 @@ public class LocationManager implements ILocationManager
     }
 
     @Override
-    public boolean isOccupied(Position position) {
+    public boolean isOccupied(Position position)
+    {
         return twoWayHashMap.containsKey(position);
     }
 
@@ -78,7 +79,12 @@ public class LocationManager implements ILocationManager
     }
 
     @Override
-    public Position getPosition(Entity entity) {
-        return null;
+    public Position getPosition(Entity entity)
+    {
+        //Should throw exception here
+        if (!twoWayHashMap.containsValue(entity))
+            return null;
+
+        return twoWayHashMap.getByValue(entity);
     }
 }
