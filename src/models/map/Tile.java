@@ -1,4 +1,4 @@
-package models.map;
+package models.Map;
 
 import util.TerrainGroup;
 import models.map.areaofeffect.*;

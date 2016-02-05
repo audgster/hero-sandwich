@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.items.Item;
+import models.Items.Item;
 import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;

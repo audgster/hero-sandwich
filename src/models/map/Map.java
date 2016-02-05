@@ -1,26 +1,22 @@
-package models.map;
+package models.Map;
 
 import util.Position;
 import java.util.ArrayList;
 
 public class Map
 {
-    private ArrayList< ArrayList<Tile> > grid;
+    private Tile[][] grid;
 
-    /* Constructor: Create an NxN grid */
+    /* Constructor: Create an NxN grid of default Tiles*/
 
     public Map(int N)
     {
-        grid = new ArrayList(N);
+        grid = new Tile[N][N];
 
-        // populate the rows with Lists
+        // populate the grid with Tiles
         for (int i = 0; i < N; ++i) {
-            grid.add( new ArrayList(N) );
-            ArrayList<Tile> row = grid.get(i);
-
-            // populate the columns of the rows with Tiles
             for (int j = 0; j < N; ++j) {
-                row.add( new Tile() );
+                grid[i][j] = new Tile();
             }
         }
     }
@@ -29,6 +25,6 @@ public class Map
 
     public Tile getTileAt(Position p)
     {
-        return grid.get( p.getX() ).get( p.getY() );
+        return grid[ p.getX() ][ p.getY() ];
     }
 }
