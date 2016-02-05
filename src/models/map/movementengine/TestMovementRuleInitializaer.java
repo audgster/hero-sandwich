@@ -2,6 +2,8 @@ package models.map.movementengine;
 
 import models.map.movementengine.interfaces.IMovementRule;
 import models.map.movementengine.interfaces.IMovementRuleInitializer;
+import util.EntityIdentifier;
+import util.TerrainGroup;
 
 import java.util.HashMap;
 
@@ -12,14 +14,14 @@ public class TestMovementRuleInitializaer implements IMovementRuleInitializer
         HashMap<String, IMovementRule> movementRules = new HashMap<>();
 
         IMovementRule groundEntityRule = new MovementRule();
-        groundEntityRule.add("grass");
+        groundEntityRule.add(TerrainGroup.GROUND.toString().toLowerCase());
 
         IMovementRule airEntityRule = new MovementRule();
-        airEntityRule.add("grass");
-        airEntityRule.add("water");
+        airEntityRule.add(TerrainGroup.GROUND.toString().toLowerCase());
+        airEntityRule.add(TerrainGroup.WATER.toString().toLowerCase());
 
-        movementRules.putIfAbsent("groundentity", groundEntityRule);
-        movementRules.putIfAbsent("airentity", airEntityRule);
+        movementRules.putIfAbsent(EntityIdentifier.GROUND.toString().toLowerCase(), groundEntityRule);
+        movementRules.putIfAbsent(EntityIdentifier.AIR.toString().toLowerCase(), airEntityRule);
 
         return movementRules;
     }
