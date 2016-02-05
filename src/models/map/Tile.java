@@ -8,21 +8,21 @@ import java.util.*;
 public class Tile
 {
     private TerrainGroup terrainType;
-	private ArrayList<Item> itemList;
-	private ArrayList<AreaOfEffect> aoeList;
+	private HashSet<Item> itemList;
+	private HashSet<AreaOfEffect> aoeList;
 
     public Tile()
     {
 	    this.terrainType = TerrainGroup.GROUND;
-		this.itemList = new ArrayList<Item>();
-		this.aoeList = new ArrayList<AreaOfEffect>();
+		this.itemList = new HashSet<>();
+		this.aoeList = new HashSet<>();
     }
 
     public Tile(TerrainGroup terrainType)
     {
         this.terrainType = terrainType;
-		this.itemList = new ArrayList<Item>();
-		this.aoeList = new ArrayList<AreaOfEffect>();
+		this.itemList = new HashSet<>();
+		this.aoeList = new HashSet<>();
     }
 
     public String getTerrainType()
@@ -30,11 +30,57 @@ public class Tile
         return this.terrainType.toString().toLowerCase();
     }
 	
-	public ArrayList<Item> getListOfItems(){
+	public Collection<Item> getAllItems()
+    {
 		return itemList;
 	}
 	
-	public ArrayList<AreaOfEffect> getListOfAOEs(){
+	public Collection<AreaOfEffect> getAllAoE()
+    {
 		return aoeList;
 	}
+
+	public void addItem(Item item)
+    {
+        if (itemList.contains(item))
+        {
+            System.out.println("Attempted to add an already existing item");
+            return;
+        }
+
+        itemList.add(item);
+    }
+
+    public void removeItem(Item item)
+    {
+        if (!itemList.contains(item))
+        {
+            System.out.println("Attempted to remove an Item that does not exist");
+            return;
+        }
+
+        itemList.remove(item);
+    }
+
+    public void addAoE(AreaOfEffect AoE)
+    {
+        if (aoeList.contains(AoE))
+        {
+            System.out.println("Attempted to add an already existing AoE");
+            return;
+        }
+
+        aoeList.add(AoE);
+    }
+
+    public void removeAoE(AreaOfEffect AoE)
+    {
+        if (!aoeList.contains(AoE))
+        {
+            System.out.println("Attempted to remove an Item that does not exist");
+            return;
+        }
+
+        aoeList.remove(AoE);
+    }
 }
