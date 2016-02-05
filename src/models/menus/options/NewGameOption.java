@@ -5,5 +5,6 @@ public class NewGameOption extends Option{
 		name = "New Game";
 	}
   	public void execute(){
+				//
   	}
 }

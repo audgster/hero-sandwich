@@ -44,6 +44,10 @@ public abstract class Menus{
     listenerList.add(listener);
   }
 
+  public void removeListener(Listner listener){
+    listenerList.remove(listener);
+  }
+
   protected void notifyListeners() {
     for(int i = 0; i < listenerList.size(); i++) {
       listenerList.get(i).update();
@@ -51,6 +55,7 @@ public abstract class Menus{
   }
 
   public void enter(){
+      currentlySelected.execute();
       notifyListeners();
   }
 
