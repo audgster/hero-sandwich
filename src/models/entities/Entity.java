@@ -85,18 +85,50 @@ public class Entity {
 
     public void levelUp() {}
 
+    public boolean addItem(Item item){
+        return inventory.add(item);
+    }
+    public void removeItem(Item item){
+        inventory.removeItem(item)
+    }
+    public boolean equip(EquipableItem item){
+            if(item.getOccupRestriction() == "" || item.getOccupRestriction() == occupation.toString()){
+                if(stats.compare(item.getStatsRestrictions())){
+                    if(equipment.addItem()){
+                        inventory.removeItem(item);
+                        return true;
+                    }
+                }
+            }
+            else{
+                return false;
+            }
+    }
     //boolean equip(Item item) {}
     /* unequip(:Item): boolean
     ** Parameters
     ** in: the Item to unequip
     ** out: a boolean representing whether or not the unequip action was successful
     */
+
+    public boolean unequip(EquipableItem item){
+        if(inventory.isFull()){
+            return false;
+        }
+        else{
+            inventory.add(item);
+            equipment.remove(item);
+        }
+    }
     //boolean unequip(Item item) {}
     /* dropItem(:Item): boolean 
     ** Parameters
     ** in: the Item to drop
     ** out: a boolean representing whether or not the drop item action was successful
     */
+    public void dropItem(Item item){
+        inventory.remove(item);
+    }
     //boolean dropItem(Item item) {}        
     /* toString(): String
     ** out: a string representing the Entities: 
