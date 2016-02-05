@@ -9,7 +9,7 @@ public class ViewManager extends View{
 	
 	private AreaView areaView;
 	private StatsView statsView;
-	private java.util.List<MenuView> menuViews;
+	private LinkedList<MenuView> menuViews;
 	
 	private enum Mode{
 		MAIN_MENU,
@@ -20,7 +20,6 @@ public class ViewManager extends View{
 	public ViewManager(){
 		this.menuViews = new LinkedList<MenuView>();
 		setLayout(new BorderLayout());
-		setMainMenuMode();
 		update();
 	}
 	
@@ -32,7 +31,6 @@ public class ViewManager extends View{
 			this.menuViews.add(menuViews[i]);
 		}
 		setLayout(new BorderLayout());
-		setMainMenuMode();
 		update();
 	}
 	
@@ -44,18 +42,18 @@ public class ViewManager extends View{
 		this.statsView = statsView;
 	}
 	
-	public void addMenuView(MenuView menuView){
+	public void pushMenuView(MenuView menuView){
 		menuViews.add(menuView);
 	}
 	
-	public void removeMenuView(MenuView menuView){
-		menuViews.remove(menuView);
+	public MenuView popMenuView(){
+		return menuViews.pop();
 	}
 	
 	public void render(){
 		if(mode == Mode.MAIN_MENU){
-			add(menuViews.get(0), BorderLayout.LINE_START);
 			menuViews.get(0).setVisible(true);
+			add(menuViews.get(0), BorderLayout.LINE_START);
 			JLabel logo = new JLabel("Insert Logo Here");
 			add(logo, BorderLayout.CENTER);
 		}
@@ -64,6 +62,7 @@ public class ViewManager extends View{
 		}
 		else{
 			//something screwed up
+			System.out.println("Mode not set");
 		}
 		
 		revalidate();
@@ -71,7 +70,7 @@ public class ViewManager extends View{
 	}
 	
 	public void update(){
-		
+		//something
 		render();
 	}
 	

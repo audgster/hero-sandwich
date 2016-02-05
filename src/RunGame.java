@@ -14,12 +14,5 @@ public class RunGame{
         GameWindow gw = new GameWindow();
 		gw.setVisible(true);
 		
-		/*GameWindow window = new GameWindow(GAME_TITLE);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JLabel titleLabel = new JLabel(GAME_TITLE);
-		titleLabel.setPreferredSize(new Dimension(175, 100));
-		window.getContentPane().add(titleLabel, BorderLayout.CENTER);
-		window.pack();
-		window.setVisible(true);*/
 	}  
 }

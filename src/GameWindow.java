@@ -14,17 +14,19 @@ public class GameWindow extends JFrame implements KeyListener{
     public GameWindow(){
         menu = new MainMenu();
         viewManager = new ViewManager();
-		viewManager.addMenuView(new MenuView(menu));
-    	add(viewManager);
+		viewManager.pushMenuView(new MenuView(menu));
 		viewManager.setVisible(true);
-		pack();
+		viewManager.setMainMenuMode();
+		viewManager.update();
+		add(viewManager);
 
     	setTitle("Hero Sandwich");
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
+        //setVisible(true);
         setLocationRelativeTo(null);
-
+		//pack();
+		
         avatarController = new Controller();
         avatarController.setMenu(menu);
         addKeyListener(this);

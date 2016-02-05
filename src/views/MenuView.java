@@ -18,7 +18,13 @@ public class MenuView extends View{
 	}
 	
 	public void setMenu(Menus menu){
+		
+		if(this.menu != null){
+			menu.removeListener(this);
+		}
 		this.menu = menu;
+		this.menu.addListener(this);
+		
 	}
 	
 	public void render(){
@@ -26,7 +32,7 @@ public class MenuView extends View{
 		for(int i = 0; i < options.length; i++){
 			JLabel label = new JLabel(options[i]);
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
-			label.setBackground(Color.WHITE);
+			label.setBackground(Color.GREEN);
 			if(currentIndex == i){
 				label.setOpaque(true);
 			}
