@@ -29,7 +29,7 @@ public class MainMenuView extends View{
         exitGame = new JLabel("Exit Game");
     }
 
-    public void render(){
+    protected void render(){
         setBackground(Color.WHITE);
         textPanel.setBackground(Color.WHITE);
         centerPanel.setBackground(Color.WHITE);

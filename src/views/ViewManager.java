@@ -50,7 +50,7 @@ public class ViewManager extends View{
 		return menuViews.pop();
 	}
 
-	public void render(){
+	protected void render(){
 		if(mode == Mode.MAIN_MENU){
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
@@ -58,7 +58,7 @@ public class ViewManager extends View{
 			add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.GAME){
-				removeAll();
+			removeAll();
 			///TO-DO
 		}
 		else{

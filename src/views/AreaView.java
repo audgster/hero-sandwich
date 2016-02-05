@@ -13,7 +13,7 @@ public class AreaView extends View {
 		this.avatar = avatar;
 	}
 	
-	public void render(){
+	protected void render(){
 		//find the viewable area centred on avatar
 		//for each tile in viewable area
 			//get info

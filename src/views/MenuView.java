@@ -27,7 +27,7 @@ public class MenuView extends View{
 		
 	}
 	
-	public void render(){
+	protected void render(){
 		removeAll();
 		for(int i = 0; i < options.length; i++){
 			JLabel label = new JLabel(options[i]);

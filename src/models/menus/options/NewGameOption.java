@@ -7,7 +7,7 @@ public class NewGameOption extends Option{
 	}
   	public void execute(ViewManager vm){
 				vm.setGameMode();
-				vm.render();
+				vm.update();
 				System.out.println("In here");
 				//
   	}
