@@ -1,4 +1,4 @@
-package models.Map;
+package models.map;
 
 import util.Position;
 import java.util.ArrayList;
