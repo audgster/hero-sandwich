@@ -5,15 +5,15 @@ import models.menus.*;
 import views.*;
 
 public class GameWindow extends JFrame implements KeyListener{
-	
+
 	Controller  avatarController;
     ViewManager viewManager;
     Menus menu;
     char input;
-	
+
     public GameWindow(){
-        menu = new MainMenu();
         viewManager = new ViewManager();
+				menu = new MainMenu(viewManager);
 		viewManager.pushMenuView(new MenuView(menu));
 		viewManager.setVisible(true);
 		viewManager.setMainMenuMode();
@@ -26,12 +26,12 @@ public class GameWindow extends JFrame implements KeyListener{
         //setVisible(true);
         setLocationRelativeTo(null);
 		//pack();
-		
+
         avatarController = new Controller();
         avatarController.setMenu(menu);
         addKeyListener(this);
 	}
-	
+
 	public ViewManager getViewManager(){
 		return this.viewManager;
 	}
