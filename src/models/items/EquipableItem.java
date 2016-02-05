@@ -1,10 +1,10 @@
 package models.items;
 
-import models.entities.*;
+import models.entities;
 
 public class EquipableItem extends TakeableItem
 {
-	StatModifiers statRestrictions = new StatModifiers();
+	StatModifiers statsRestrictions = new StatModifiers();
 	String occupRestriction = "";
     @Override
     public boolean executeInteraction(Entity entity) {
@@ -18,8 +18,8 @@ public class EquipableItem extends TakeableItem
     	occupRestriction = s;
     }
 
-    public StatModifiers getStatRestrictions(){
-    	return statRestrictions;
+    public StatModifiers getStatsRestrictions(){
+    	return statsRestrictions;
     }
 
     public String getOccupationRestriction(){
