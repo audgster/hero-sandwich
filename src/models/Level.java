@@ -12,7 +12,7 @@ public class Level {
 
     // Audrey: need this for movement stuff
     // This will talk to the location manager
-    public Position returnCurrentPosition(Entity entity) {return new Position();}
+    public Position returnCurrentPosition(Entity entity) {return new Position(1,1);}
 
     public Tile returnTileAt(Position position) {return new Tile("Grass");}
 

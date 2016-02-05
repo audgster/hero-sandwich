@@ -9,8 +9,8 @@ public class MainMenu extends Menus{
   /*
    * Default constructor
    */
-  public MainMenu(){
+  public MainMenu(ViewManager vm){
     super(new Option[]{new NewGameOption(), new LoadGameOption(),
-          new ExitOption()}, new ArrayList<Listener>());
+          new ExitOption()}, new ArrayList<Listener>(), vm);
   }
 }

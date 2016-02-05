@@ -3,15 +3,18 @@ import java.util.ArrayList;
 import models.menus.options.*;
 import views.*;
 
+
 public abstract class Menus{
   private Option currentlySelected;
   private Option[] listOfOptions;
   private ArrayList<Listener> listenerList;
   private int listPosition;
+  private ViewManager vm;
 
-  protected Menus(Option[] listOfOptions, ArrayList<Listener> listenerList){
+  protected Menus(Option[] listOfOptions, ArrayList<Listener> listenerList, ViewManager vm){
     this.listOfOptions = listOfOptions;
     this.listenerList = listenerList;
+    this.vm = vm;
     listPosition = 0;
     currentlySelected = listOfOptions[0];
   }
@@ -55,7 +58,8 @@ public abstract class Menus{
   }
 
   public void enter(){
-      currentlySelected.execute();
+      System.out.println(vm);
+      currentlySelected.execute(vm);
       notifyListeners();
   }
 

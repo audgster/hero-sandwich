@@ -20,6 +20,7 @@ public  class MenuState extends ControllerState{
 	public void west(){}
 	public void northWest(){}
 	public void select(){
+		System.out.println("State");
 		menu.enter();
 	}
 	public void setMenu(Menus menu){
