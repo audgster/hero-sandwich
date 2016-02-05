@@ -1,4 +1,4 @@
-package models.items;
+package models.Items;
 
 import models.map.interactions.interfaces.IInteractionHandler;
 
