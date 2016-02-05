@@ -18,7 +18,7 @@ public class MovementRulesEngine implements IMovementRulesEngine
     @Override
     public boolean evaluateRule(Tile tile, Entity entity)
     {
-        IMovementRule rule = movementRules.get(entity.getEntityType());
+        IMovementRule rule = movementRules.get(entity.getEntityType().toString().toLowerCase());
 
         return rule.evaluateRule(tile);
     }

@@ -2,6 +2,7 @@ package models.entities;
 
 import models.items.Item;
 import util.Direction;
+import util.EntityIdentifier;
 import util.TerrainGroup;
 
 public class Entity {
@@ -11,18 +12,18 @@ public class Entity {
     private EntityStats stats;
     private Inventory inventory;
     private Equipment equipment;
-    private TerrainGroup tGroup;
+    private EntityIdentifier eIdentifier;
     
     /* METHODS */
 
     /* Default constructor */
     public Entity() {
-	occupation = new Smasher();
-	stats = new EntityStats();
-	stats.addStatMod( occupation.getStatMods() );
-	inventory = new Inventory();
-	equipment = new Equipment();
-	tGroup = TerrainGroup.GROUND;
+        occupation = new Smasher();
+        stats = new EntityStats();
+        stats.addStatMod( occupation.getStatMods() );
+        inventory = new Inventory();
+        equipment = new Equipment();
+        eIdentifier = EntityIdentifier.GROUND;
     }    
 
     /* modifyStats(:StatModifier)
@@ -36,7 +37,7 @@ public class Entity {
     ** in: damage taken
     ** out: entities's remaining life after taking damage (currentLife)
     */
-    int takeDamage(int amount) {
+    public int takeDamage(int amount) {
 	stats.setCurrentLife( stats.getCurrentLife() - amount );
 	int remainingLife = stats.getCurrentLife();	
 	if (remainingLife <= 0) {
@@ -51,7 +52,7 @@ public class Entity {
     ** in: damage healed
     ** out: entities's remaining life after healing damage (currentLife)
     */
-    int healDamage(int amount) {
+    public int healDamage(int amount) {
 	int currentLife = stats.getCurrentLife();
 	int lifePlusHeal = currentLife + amount;
 	if ( lifePlusHeal > stats.getLife() ) { // if healing pushes life over max
@@ -106,14 +107,12 @@ public class Entity {
     */
 
     /* Accessors */
-    public TerrainGroup getTerrainGroup() {
-	return tGroup;
+    public EntityIdentifier getEntityType() {
+	return eIdentifier;
     }
     
     public String toString() {
 	String str = name;
 	return str;
     }
-
-    public String getEntityType() { return "entityType"; }
 }
