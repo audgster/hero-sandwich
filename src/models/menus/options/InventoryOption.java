@@ -5,6 +5,6 @@ public class InventoryOption extends Option{
 	public InventoryOption(){
 		name = "Inventory";
 	}
-	public void execute(ViewManger vm){
+	public void execute(ViewManager vm){
   	}
 }

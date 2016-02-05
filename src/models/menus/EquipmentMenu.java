@@ -1,14 +1,18 @@
 package models.menus;
 
-import java.util.ArrayList;
-public class EquipmentMenu extends Menus{
-  private Selection currentlySelected;
+import models.menus.options.*;
+import views.Listener;
+import views.ViewManager;
 
+import java.util.ArrayList;
+
+public class EquipmentMenu extends Menus{
   /*
    * Default constructor
    */
-  public EquipmentMenu(){
-    super(new Selection[]{Selection.START, Selection.PAUSE, Selection.UNEQUITPTITEM},
-          new ArrayList<Listener>());
-  }
+    public EquipmentMenu(ViewManager vm){
+        super(new Option[]{new StartOption(), new PauseOption(),
+                new UnequiptItemOption()}, new ArrayList<Listener>(), vm);
+    }
+
 }
