@@ -10,6 +10,8 @@ public class ViewManager extends View{
 	private AreaView areaView;
 	private StatsView statsView;
 	private LinkedList<MenuView> menuViews;
+	private String titleText = "Hero Sandwich";
+	private Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 50);
 
 	private enum Mode{
 		MAIN_MENU,
@@ -52,6 +54,9 @@ public class ViewManager extends View{
 
 	protected void render(){
 		if(mode == Mode.MAIN_MENU){
+			JLabel title = new JLabel(titleText);
+			title.setFont(titleFont);
+			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
 			JLabel logo = new JLabel("Insert Logo Here");
