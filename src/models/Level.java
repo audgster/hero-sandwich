@@ -5,6 +5,10 @@ import models.map.Map;
 import models.map.Tile;
 import models.map.locationmanager.interfaces.ILocationManager;
 import util.Position;
+import util.TwoWayHashMap;
+
+import java.util.Collection;
+import java.util.Set;
 
 /*
 ** Each level contains a Map and a corresponding LocationManager
@@ -37,5 +41,18 @@ public class Level {
             return null;
 
         return map.getTileAt(newPosition);
+    }
+
+    public Set<Entity> getAllEntitiesIn(Collection<Position> positions)
+    {
+        TwoWayHashMap<Position, Entity> allEntities = new TwoWayHashMap<>();
+
+        for (Position p : positions)
+        {
+            if (locationManager.isOccupied(p))
+                allEntities.put(p, locationManager.getEntity(p));
+        }
+
+        return allEntities.getValueSet();
     }
 }

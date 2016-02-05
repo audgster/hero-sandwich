@@ -1,7 +1,7 @@
 package util;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
 public class TwoWayHashMap<K, V>
 {
@@ -59,5 +59,15 @@ public class TwoWayHashMap<K, V>
     public boolean containsKey(K key)
     {
         return keyFirst.containsKey(key);
+    }
+
+    public Set<K> getKeySet()
+    {
+        return keyFirst.keySet();
+    }
+
+    public Set<V> getValueSet()
+    {
+        return valueFirst.keySet();
     }
 }

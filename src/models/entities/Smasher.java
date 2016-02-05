@@ -15,5 +15,9 @@ public class Smasher extends Occupation {
 	StatModifiers smasherStats = new StatModifiers(str, agl, intel, har, mov, 0, 0, 0, 0, 0);
     }
 
+    public String toString(){
+    	return "Smasher";
+    }
+
     /* ========================= */
 }

@@ -13,6 +13,7 @@ public abstract class Occupation {
     public StatModifiers getStatMods() {
 	return statMods;
     }
+    public abstract String toString();
     
     /* ========================= */
 }

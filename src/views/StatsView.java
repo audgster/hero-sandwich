@@ -10,7 +10,7 @@ public class StatsView extends View{
 		this.avatarStats = avatarStats;
 	}
 	
-	public void render(){
+	protected void render(){
 		/*
 		draw level icon, set label to level
 		draw XP icon, draw XP bar (currXP - lastLevelXP)/(nextLevelXP - lastLevelXP)

@@ -10,6 +10,7 @@ public class MenuView extends View{
 	private Menus menu;
 	private String[] options;
 	private int currentIndex;
+	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 	
 	public MenuView(Menus menu){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -27,12 +28,13 @@ public class MenuView extends View{
 		
 	}
 	
-	public void render(){
+	protected void render(){
 		removeAll();
 		for(int i = 0; i < options.length; i++){
 			JLabel label = new JLabel(options[i]);
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			label.setBackground(Color.GREEN);
+			label.setFont(menuFont);
 			if(currentIndex == i){
 				label.setOpaque(true);
 			}
