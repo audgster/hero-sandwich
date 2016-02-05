@@ -44,7 +44,7 @@ public abstract class Menus{
     listenerList.add(listener);
   }
 
-  public void removeListener(Listner listener){
+  public void removeListener(Listener listener){
     listenerList.remove(listener);
   }
 

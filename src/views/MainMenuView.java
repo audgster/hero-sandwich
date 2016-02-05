@@ -65,10 +65,10 @@ public class MainMenuView extends View{
             newGame.setOpaque(false);
             exitGame.setOpaque(false);
             loadGame.setOpaque(false);
-        if(menuModel.getCurrentlySelected().toString() == "NewGameOption"){
+        if(menuModel.getCurrentlySelected().toString() == "New Game"){
             newGame.setOpaque(true);
         }
-        else if(menuModel.getCurrentlySelected().toString() == "LoadGameOption"){
+        else if(menuModel.getCurrentlySelected().toString() == "Load Game"){
             loadGame.setOpaque(true);
         }
         else{
