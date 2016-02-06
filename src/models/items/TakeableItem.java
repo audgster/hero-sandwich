@@ -11,6 +11,6 @@ public abstract class TakeableItem extends Item
 
     public boolean executeInteraction(Entity entity)
     {
-        return true;
+        return entity.addItem(this);
     }
 }
