@@ -35,6 +35,8 @@ public class EquipableItem extends TakeableItem
     public boolean executeInteraction(Entity entity) {
         return entity.addItem(this);
     }
+
+    /* Mutators */
     public void setStatRestrictions(StatModifiers s){
     	statsRestrictions = s;
     }
@@ -43,6 +45,10 @@ public class EquipableItem extends TakeableItem
     	occupRestriction = s;
     }
 
+    /* Accessors */
+    public EquipmentType getEquipmentType() {
+	return eType;
+    }
     public StatModifiers getStatsRestrictions(){
     	return statsRestrictions;
     }
@@ -67,4 +73,6 @@ public class EquipableItem extends TakeableItem
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
+    }
 }
+    

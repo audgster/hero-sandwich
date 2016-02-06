@@ -62,14 +62,30 @@ public class Inventory {
 	return itemAdded;
     }
 
-    // Removes the item at the indicated slot
+    // Removes the Item at the indicated slot
     // Empty slots are null, so it will return null if the slot is empty
-    public Item remove(int slot){
+    public Item remove(int slot) {
 	Item toBeRemoved = bag.get(slot);
 	bag.set(slot, null);
 	--count;
 	return toBeRemoved;
     }
+
+    // Removes the passed in Item
+    // Returns false if the Item was not found
+    public boolean remove(Item item) {
+	boolean removed = false;
+	int index = bag.indexOf(item);
+	
+	// if Item is not found
+	if (index == -1) {
+	    return !removed;
+	}
+
+	bag.set(index, null);
+	--count;
+	return removed;
+    }    
 
     @Override
     public String toString() {
@@ -79,12 +95,10 @@ public class Inventory {
 	    int rowLength = 5;
 	    Item currentSlot = getItemAt(i);
 	    if (currentSlot == null) {
-		strBuilder.append("| -- Empty Slot -- |");
+		strBuilder.append("| --Empty-- |");
 	    } else {
-		strBuilder.append("| -- " + currentSlot.toString() + " -- |");
+		strBuilder.append("| " + currentSlot.toString() + " |");
 	    }
-	    // create new row
-	    if (i % rowLength == 0 && i != capacity - 1) strBuilder.append("\n");
 	}
 	strBuilder.append("]");
 	String str = strBuilder.toString();

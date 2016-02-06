@@ -22,9 +22,10 @@ public class Entity implements Drawable
 
     /* Default constructor */
     public Entity() {
+	name = "Roast Beef";
         occupation = new Smasher();
         stats = new EntityStats();
-        stats.addStatMod( occupation.getStatMods() );
+        stats.setOccupationMods( occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
         eIdentifier = EntityIdentifier.GROUND;
@@ -73,7 +74,7 @@ public class Entity implements Drawable
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
     int loseLife() {
-	livesRemaining = stats.loseLife();
+	int livesRemaining = stats.loseLife();
 	if ( livesRemaining == 0  ) {
 	    // Game Over
 	}
@@ -86,10 +87,35 @@ public class Entity implements Drawable
     ** out: the total amount of XP the entity has after the addition
     */
     int gainXp(int amount) {
-	return stats.addXp(amount);
+	int oldLevel = stats.getLevel();
+	int newXp = stats.addXp(amount);
+	int newLevel = stats.getLevel();
+	if (newLevel > oldLevel) {
+	    levelUp();
+	}
+	return newXp;
     }
 
-    public void levelUp() {}
+    /* levelUp()
+     * Instantly restores the Entity's life and mana to full
+     * Increases all of the Entity's base stats by a fixed amount
+     * Unlocks new Occupation skills
+     */
+    public void levelUp() {
+
+	// Restore life & mana
+	stats.setCurrentLife( stats.getLife() );
+	stats.setCurrentMana( stats.getMana() );
+
+	// Increase primary stats
+	stats.setStrength( stats.getStrength() + 1 );
+	stats.setAgility( stats.getAgility() + 1 );	
+	stats.setIntellect( stats.getIntellect() + 1 );
+	stats.setHardiness( stats.getHardiness() + 1 );
+	stats.setMovement( stats.getMovement() + 1 );
+
+	// Unlock new skills
+    }
 
     /* addItem(:Item): boolean
     ** Parameters
@@ -107,9 +133,9 @@ public class Entity implements Drawable
     */    
     public boolean equip(EquipableItem item){	
 	boolean successful = true;
-	if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
-	    if(stats.checkRestrictions(item.getStatsRestrictions())){
-		if(equipment.equip(item)){
+	if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() ){
+	    if ( stats.checkRestrictions( item.getStatsRestrictions() ) ){
+		if ( equipment.equip(item) ){
 		    inventory.remove(item);
 		    return successful;
 		}
@@ -130,7 +156,7 @@ public class Entity implements Drawable
         }
 	equipment.unequip(item);
 	inventory.add(item);
-	    return successful;
+	return successful;
     }
 
 
@@ -160,13 +186,20 @@ public class Entity implements Drawable
 
     /* toString(): String
     ** out: a string representing the Entities:
-    ** 1) Occupation
-    ** 2) Stats
-    ** 3) Inventory
-    ** 4) Equipment
+    ** 1) Name
+    ** 2) Occupation
+    ** 3) Stats
+    ** 4) Inventory
+    ** 5) Equipment
     */
     public String toString() {
-	String str = name;
+	StringBuilder strBuilder = new StringBuilder();
+	strBuilder.append("Name: " + name + "\n");
+	strBuilder.append("Occupation: " + occupation.toString() + "\n");
+	strBuilder.append(stats.toString() + "\n");
+	strBuilder.append(inventory.toString() + "\n");
+	strBuilder.append(equipment.toString() + "\n");
+	String str = strBuilder.toString();
 	return str;
     }
 

@@ -11,6 +11,7 @@ public class EntityStats extends Stats {
     private int xp;
     private int currentLife;
     private int currentMana;
+    private StatModifiers occupationStatMods;
     private List<StatModifiers> statMods;
     /* ========================= */
     
@@ -23,6 +24,7 @@ public class EntityStats extends Stats {
 	xp = 0;
 	currentLife = 10;
 	currentMana = 5;
+	occupationStatMods = new StatModifiers();
 	statMods = new ArrayList();	
     }
     
@@ -34,6 +36,7 @@ public class EntityStats extends Stats {
 	this.xp = xp;
 	this.currentLife = curLife;
 	this.currentMana = curMana;
+	occupationStatMods = new StatModifiers();
 	statMods = new ArrayList();	
     }
 
@@ -46,81 +49,116 @@ public class EntityStats extends Stats {
     /* ========================= */
     public int getModStrength() {
 	int modStr = getStrength();
+	// Occupation multipliers
+	modStr *= occupationStatMods.getStrength();
+	// All other modifiers
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modStr += statMods.get(i).getStrength();
 	}
 	return modStr;
     }
+    
     public int getModAgility() {
 	int modAgl = getAgility();
+	// Occupation multipliers
+	modAgl *= occupationStatMods.getAgility();
+	// All other modifiers
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modAgl += statMods.get(i).getAgility();
 	}
 	return modAgl;	
     }
+    
     public int getModIntellect() {
 	int modIntel = getIntellect();
+	// Occupation multipliers	
+	modIntel *= occupationStatMods.getIntellect();
+	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modIntel += statMods.get(i).getIntellect();
 	}
 	return modIntel;
     }
+    
     public int getModHardiness() {
 	int modHar = getHardiness();
+	// Occupation multipliers
+	modHar *= occupationStatMods.getHardiness();	
+	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modHar += statMods.get(i).getHardiness();
 	}
 	return modHar;
     }
+    
     public int getModMovement() {
 	int modMov = getMovement();
+	// Occupation multipliers	
+	modMov *= occupationStatMods.getMovement();	    
+	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modMov += statMods.get(i).getMovement();
 	}
 	return modMov;
     }
+    
     public int getLivesLeft() {
 	return livesLeft;
     }
+    
     public int getXp() {
 	return xp;
     }
+    
     public int getCurrentLife() {
 	return currentLife;
     }
+    
     public int getCurrentMana() {
 	return currentMana;
-    }
+    }   
 
     public List getStatMods() {
 	return statMods;
     }
+    
     /* ========================= */
     
     /* Derived Stats Accessors */
     /* ========================= */
     public int getLevel() {
-	return xp / 100;
+	int experiencePerLevel = 100;
+	return xp / experiencePerLevel;
     }
     @Override
     public int getLife() {
-	return getLevel() * getModHardiness();
+	int modLife = 0;
+	for (int i = 0; i != statMods.size(); ++i) { modLife += statMods.get(i).getLife(); }
+	return getLevel() * getModHardiness() + modLife;
     }
     @Override
     public int getMana() {
-	return getLevel() * getModIntellect();
+	int modMana = 0;
+	for (int i = 0; i != statMods.size(); ++i) { modMana += statMods.get(i).getMana(); }	
+	return getLevel() * getModIntellect() + modMana;
     }
     @Override
     public int getOffRating() {
-	return getLevel() * getModStrength();
+	int modOffRating = 0;
+	for (int i = 0; i != statMods.size(); ++i) { modOffRating += statMods.get(i).getOffRating(); }	
+	return getLevel() * getModStrength() + modOffRating;
     }
     @Override
     public int getDefRating() {
-	return getLevel() * getModAgility();
+	int modDefRating = 0;
+	for (int i = 0; i != statMods.size(); ++i) { modDefRating += statMods.get(i).getDefRating(); }	
+	return getLevel() * getModAgility() + modDefRating;
     }
     @Override
     public int getArmorRating() {
-	return getModHardiness(); // * equipment
+	int modArmorRating = 0;
+	for (int i = 0; i != statMods.size(); ++i) { modArmorRating += statMods.get(i).getArmorRating(); }	
+	return getModHardiness() + modArmorRating;
     }
     /* ========================= */
 
@@ -146,6 +184,9 @@ public class EntityStats extends Stats {
     }
     public void addStatMod(StatModifiers statMod) {
 	statMods.add(statMod);
+    }
+    public void setOccupationMods(StatModifiers statMod) {
+	occupationStatMods = statMod;
     }
     
     @Override
