@@ -89,7 +89,7 @@ public class Entity {
         return inventory.add(item);
     }
     public void removeItem(Item item){
-        inventory.removeItem(item)
+        inventory.removeItem(item);
     }
     public boolean equip(EquipableItem item){
             if(item.getOccupRestriction() == "" || item.getOccupRestriction() == occupation.toString()){
