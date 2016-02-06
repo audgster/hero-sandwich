@@ -5,8 +5,12 @@ import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;
 import views.Drawable;
+import models.Subject;
+import views.Listener;
+import java.util.List;
+import java.util.Iterator;
 
-public class Entity implements Drawable
+public class Entity implements Drawable, Subject
 {
     /* ATTRIBUTES */
     private String name;
@@ -15,23 +19,36 @@ public class Entity implements Drawable
     private Inventory inventory;
     private Equipment equipment;
     private EntityIdentifier eIdentifier;
-
     private Direction directionFacing;
+  private List<Listener> subs; // Only the Avatar uses this
 
     /* METHODS */
 
     /* Default constructor */
     public Entity() {
-	    name = "Roast Beef";
-        occupation = new Smasher();
-        stats = new EntityStats();
-        stats.setOccupationMods( occupation.getStatMods() );
-        inventory = new Inventory();
-        equipment = new Equipment();
-        eIdentifier = EntityIdentifier.GROUND;
-        directionFacing = Direction.NORTH;
+      name = "Roast Beef";
+      occupation = new Smasher();
+      stats = new EntityStats();
+      stats.setOccupationMods( occupation.getStatMods() );
+      inventory = new Inventory();
+      equipment = new Equipment();
+      eIdentifier = EntityIdentifier.GROUND;
+      directionFacing = Direction.NORTH;
     }
 
+    /* Avatar constructor */
+    public Entity() {
+      name = "Hero Sandwich";
+      occupation = null;
+      stats = new EntityStats();
+      inventory = new Inventory();
+      equipment = new Equipment();
+      eIdentifier = EntityIdentifier.GROUND;
+      directionFacing = Direction.NORTH;
+      subs = new List<Listener>();
+    }
+
+  /* Fully parameterized constructor */
     public Entity(String name, Occupation occupation, EntityIdentifier identifier, Direction direction)
     {
         this.name = name;
@@ -43,6 +60,27 @@ public class Entity implements Drawable
         eIdentifier = identifier;
         directionFacing = direction;
     }
+
+  /* IMPLEMENT SUBJECT INTERFACE */
+
+  public void addListener(Listener listener) {
+    subs.add(listener);
+  }
+	
+  public void removeListener(Listener listener) {
+    boolean found = subs.remove(listener);
+    if (!found) 
+      System.err.println("Entity " + name + " could not remove Listener [NOT FOUND]");
+  }
+  
+  public void notifyListeners() {
+    Iterator iter = subs.iterator();
+    while (iter.hasNext() ) {
+      iter.next().update();
+    }
+  }
+
+  /* END SUBJECT INTERFACE */
 
     /* modifyStats(:StatModifier)
     ** Adds a StatModifiers object to the Entity's Stats
