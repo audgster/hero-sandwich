@@ -28,6 +28,32 @@ public abstract class Stats {
 	movement = mov;
     }
 
+    /* Compares the Stats of the caller with those of the
+     * Stats parameter. Returns true iff:
+     * caller stats  >= parameter stats
+     */
+    public boolean checkRestrictions(Stats stats) {
+	boolean passedCheck = false;
+	if ( strength <= stats.getStrength() ) {
+	    return passedCheck;
+	}
+	if ( agility <= stats.getAgility() ) {
+	    return passedCheck;
+	}
+	if ( intellect <= stats.getIntellect() ) {
+	    return passedCheck;
+	}
+	if ( hardiness <= stats.getHardiness() ) {
+	    return passedCheck;
+	}
+	if ( movement <= stats.getMovement() ) {
+	    return passedCheck;
+	}
+	passedCheck = true;
+	return passedCheck;
+    }
+    
+    /* Accessors */
     public int getStrength() {
 	return strength;
     }
@@ -79,9 +105,5 @@ public abstract class Stats {
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
-    }
-
-    public boolean compare(StatModifiers stats){
-      return false;
     }
 }

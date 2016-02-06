@@ -1,30 +1,37 @@
 package models.entities;
 
 import models.items.*;
+import java.util.List;
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<Item> bag;
-    private int capacity;
+    private List<Item> bag;
+    private int capacity; // the maximum size of the Inventory
+    private int count; // the number of items currently in the Inventory
 
     /* Default Constructor */
 
     public Inventory() {
+	count = 0;
 	capacity = 5;
 	bag = new ArrayList(capacity);
-	bag.trimToSize();
+	for (int i = 0; i < capacity; ++i) { bag.add(null); }
     }
 
     /* Parameterized Constructor */
 
     public Inventory(int n) {
+	count = 0;
 	capacity = n;
 	bag = new ArrayList(capacity);
-	bag.trimToSize();
+	for (int i = 0; i < capacity; ++i) { bag.add(null); }	
     }
 
     public boolean isFull() {
-	return false;
+	if (count == capacity) {
+	    return true;
+	}
+	return false;	  
     }
 
     /* Accessors */
@@ -38,22 +45,30 @@ public class Inventory {
      * Returns false if the item could not be added (inventory is full)
      */
     public boolean add(Item item) {
-
-		boolean itemAdded = false;
-		
-		for (int i = 0; i < capacity; ++i) {
-		    // if slot is empty
-		    if ( bag.get(i) == null) {
-				bag.add(i, item);
-				itemAdded = true;
-				break;
-		    }	   
-		}
-		return itemAdded;
+	
+	boolean itemAdded = false;
+	
+	for (int i = 0; i < capacity; ++i) {
+	    // if slot is empty
+	    System.out.println("Bag size: " + bag.size() );
+	    if ( bag.get(i) == null ) {		
+		bag.add(i, item);
+		itemAdded = true;
+		++count;
+		break;
+	    }
+	    System.out.println(bag.get(i));
+	}
+	return itemAdded;
     }
 
-    public void remove(Item item){
-
+    // Removes the item at the indicated slot
+    // Empty slots are null, so it will return null if the slot is empty
+    public Item remove(int slot){
+	Item toBeRemoved = bag.get(slot);
+	bag.set(slot, null);
+	--count;
+	return toBeRemoved;
     }
 
     @Override

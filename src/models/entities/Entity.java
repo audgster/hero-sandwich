@@ -29,7 +29,7 @@ public class Entity implements Drawable
         equipment = new Equipment();
         eIdentifier = EntityIdentifier.GROUND;
         directionFacing = Direction.NORTH;
-    }
+    }    
 
     /* modifyStats(:StatModifier)
     ** Adds a StatModifiers object to the Entity's Stats
@@ -37,6 +37,7 @@ public class Entity implements Drawable
     void modifyStats(StatModifiers statMod) {
 	stats.addStatMod(statMod);
     }
+    
     /* takeDamage(:int):int
     ** Parameters
     ** in: damage taken
@@ -46,12 +47,11 @@ public class Entity implements Drawable
 	stats.setCurrentLife( stats.getCurrentLife() - amount );
 	int remainingLife = stats.getCurrentLife();
 	if (remainingLife <= 0) {
-	    if ( loseLife() == 0 ) { // if no lives are remaining
-		// Load from last save
-	    }
+	    loseLife();
 	}
 	return remainingLife;
     }
+    
     /* healDamage(:int): int
     ** Parameters
     ** in: damage healed
@@ -67,13 +67,19 @@ public class Entity implements Drawable
 	}
 	return stats.getCurrentLife();
     }
+    
     /* loseLife: int
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
     int loseLife() {
-	return stats.loseLife();
+	livesRemaining = stats.loseLife();
+	if ( livesRemaining == 0  ) {
+	    // Game Over
+	}
+	return livesRemaining;
     }
+    
     /* gainXp(:int): int
     ** Parameters
     ** in: the amount of XP gained
@@ -82,72 +88,65 @@ public class Entity implements Drawable
     int gainXp(int amount) {
 	return stats.addXp(amount);
     }
+
+    public void levelUp() {}
+
+    /* addItem(:Item): boolean
+    ** Parameters
+    ** in: the Item to add to this Entity's Inventory
+    ** out: a boolean representing whether or not the item was added (it cannot be if Inventory is full)
+    */
+    public boolean addItem(Item item){
+        return inventory.add(item);
+    }
+
     /* equip(:Item): boolean
     ** Parameters
     ** in: the Item to equip
     ** out: a boolean representing whether or not the equip action was successful
-    */
+    */    
+    public boolean equip(EquipableItem item){	
+	boolean successful = true;
+	if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
+	    if(stats.checkRestrictions(item.getStatsRestrictions())){
+		if(equipment.equip(item)){
+		    inventory.remove(item);
+		    return successful;
+		}
+	    }
+	}
+	return !successful;
+    }
 
-    public void levelUp() {}
-
-    public boolean addItem(Item item){
-        return inventory.add(item);
-    }
-    public void removeItem(Item item){
-        inventory.remove(item);
-    }
-    public boolean equip(EquipableItem item){
-        boolean canEquip = false;
-            if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
-                if(stats.compare(item.getStatsRestrictions())){
-                    if(equipment.addItem(item)){
-                        inventory.remove(item);
-                        canEquip = true;
-                    }
-                }
-            }
-            return canEquip;
-    }
-    //boolean equip(Item item) {}
     /* unequip(:Item): boolean
     ** Parameters
     ** in: the Item to unequip
     ** out: a boolean representing whether or not the unequip action was successful
     */
-
     public boolean unequip(EquipableItem item){
-        if(inventory.isFull()){
-            return false;
+	boolean successful = true;
+        if ( inventory.isFull() ){
+	    return !successful;
         }
-        else{
-            inventory.add(item);
-            equipment.remove(item);
-            return true;
-        }
+	equipment.unequip(item);
+	inventory.add(item);
+	    return successful;
     }
-    //boolean unequip(Item item) {}
-    /* dropItem(:Item): boolean
-    ** Parameters
-    ** in: the Item to drop
-    ** out: a boolean representing whether or not the drop item action was successful
-    */
-    public void dropItem(Item item){
-        inventory.remove(item);
-    }
-    //boolean dropItem(Item item) {}
-    /* toString(): String
-    ** out: a string representing the Entities:
-    ** 1) Occupation
-    ** 2) Stats
-    ** 3) Inventory
-    ** 4) Equipment
-    */
+
 
     /* Accessors */
     public EntityIdentifier getEntityType() {
 	return eIdentifier;
     }
 
+    public Occupation getOccupation() {
+	return occupation;
+    }
+
+    public EntityStats getEntityStats() {
+	return stats;
+    }
+    
     public Inventory getInventory() {
 	return inventory;
     }
@@ -159,6 +158,13 @@ public class Entity implements Drawable
         directionFacing = direction;
     }
 
+    /* toString(): String
+    ** out: a string representing the Entities:
+    ** 1) Occupation
+    ** 2) Stats
+    ** 3) Inventory
+    ** 4) Equipment
+    */
     public String toString() {
 	String str = name;
 	return str;
