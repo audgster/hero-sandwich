@@ -24,7 +24,12 @@ public class GameEngine implements IGameEngine
     @Override
     public boolean changeEntityLocation(Level level, Entity entity, Direction direction)
     {
+        Position currentPosition = level.returnCurrentPosition(entity);
         Position destinationPosition = movementDirector.getPositionAfterMovement(level, entity, direction);
+
+        if (currentPosition.equals(destinationPosition))
+            return false;
+
         Tile destinationTile = movementDirector.executeMovement(entity, destinationPosition, level);
         //trigger any level interactions
         return triggerInteraction(destinationTile, entity);
