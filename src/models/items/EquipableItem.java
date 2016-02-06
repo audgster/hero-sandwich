@@ -4,8 +4,13 @@ import models.entities;
 
 public class EquipableItem extends TakeableItem
 {
-	StatModifiers statsRestrictions = new StatModifiers();
-	String occupRestriction = "";
+    /* ATTRIBUTES */
+    EquipmentType eType;
+    StatModifiers statsRestrictions = new StatModifiers();
+    String occupRestriction = "";
+    
+    
+    
     @Override
     public boolean executeInteraction(Entity entity) {
         return false;
