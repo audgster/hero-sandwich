@@ -4,6 +4,7 @@ import models.map.Map;
 import models.map.Tile;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import util.TerrainGroup;
 
 import java.util.List;
 
@@ -16,8 +17,8 @@ public class TileCreator {
 
     public TileCreator() {}
 
-    public void createTilesOnMap(TestMap map) {
-        TestTile[][] mapGrid = map.getMap();
+    public void createTilesOnMap(Map map) {
+        Tile[][] mapGrid = map.getMapArray();
 
         for(int i = 0; i < tileGroups.size(); i++) {
             Element currentTileGroup = (Element) tileGroups.get(i);
@@ -25,15 +26,15 @@ public class TileCreator {
         }
     }
 
-    private void createTileGroup(TestTile[][] mapGrid, Element tileGroup) {
-        String terrain = getTileGroupTerrainType(tileGroup);
+    private void createTileGroup(Tile[][] mapGrid, Element tileGroup) {
+        TerrainGroup terrain = getTileGroupTerrainType(tileGroup);
         int height = getTileGroupHeight(tileGroup);
         int width = getTileGroupWidth(tileGroup);
         int xOrigin = getTileGroupXOrigin(tileGroup);
         int yOrigin = getTileGroupYOrigin(tileGroup);
         for(int i = 0; i < height; i++) {
             for(int j=0; j < width; j++) {
-                mapGrid[yOrigin+i][xOrigin+j] = new TestTile(terrain, "", "");
+                mapGrid[yOrigin+i][xOrigin+j] = new Tile(terrain);
             }
         }
     }
@@ -54,16 +55,16 @@ public class TileCreator {
         return Integer.parseInt(tileGroup.getAttribute("width"));
     }
 
-    private String getTileGroupTerrainType(Element tileGroup) {
+    private TerrainGroup getTileGroupTerrainType(Element tileGroup) {
         String terrain = tileGroup.getAttribute("terrain");
         if(terrain.equalsIgnoreCase("water"))
-            return "~";
+            return TerrainGroup.WATER;
         else if(terrain.equalsIgnoreCase("mountain"))
-            return "^";
-        else if(terrain.equalsIgnoreCase("land"))
-            return "x";
+            return TerrainGroup.MOUNTAIN;
+        else if(terrain.equalsIgnoreCase("ground"))
+            return TerrainGroup.GROUND;
         else
-            return "ERROR";
+            return null;
     }
 
 }

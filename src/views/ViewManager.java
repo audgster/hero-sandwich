@@ -53,7 +53,13 @@ public class ViewManager extends View{
 	}
 
 	public View popMenuView(){
-		return menuViews.pop();
+		View v = null;
+		if(!menuViews.isEmpty())
+		{
+			v = menuViews.pop();
+
+		}
+		return v;
 	}
 
 	protected void render(){
@@ -72,8 +78,8 @@ public class ViewManager extends View{
 			JLabel cText = new JLabel("Customize View Temp");
 			cText.setFont(titleFont);
 			add(cText, BorderLayout.PAGE_START);
-			menuViews.get(0).setVisible(true);
-			add(menuViews.get(0), BorderLayout.CENTER);
+			menuViews.getLast().setVisible(true);
+			add(menuViews.getLast(), BorderLayout.CENTER);
 		}
 		else if(mode == Mode.GAME){
 			// Map map = new Map();
@@ -100,8 +106,9 @@ public class ViewManager extends View{
 		mode = Mode.MAIN_MENU;
 		areaView = null;
 		statsView = null;
-		menuViews.clear();
-		
+		popMenuView();
+
+
 		MenuView mainMenuView = new MenuView(mainMenu);
 		pushMenuView(mainMenuView);
 		update();
@@ -111,9 +118,9 @@ public class ViewManager extends View{
 		mode = Mode.CUSTOMIZE_MENU;
 		areaView = null;
 		statsView = null;
-		menuViews.clear();
+		popMenuView();
 		
-		MenuView cMenuView = new MenuView(cMenu);
+		View cMenuView = new CustomizeView(cMenu);
 		pushMenuView(cMenuView);
 		update();
 	}
