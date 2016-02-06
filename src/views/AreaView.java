@@ -3,6 +3,7 @@ package views;
 import models.entities.Entity;
 import models.Level;
 import models.map.Tile;
+import models.map.areaofeffect.*;
 import models.items.*;
 import util.*;
 
@@ -22,7 +23,7 @@ public class AreaView extends View {
 
 	private Level level;
 	private Entity avatar;
-	private HashSet<Position> viewablePositions;
+	private Collection<Position> viewablePositions;
 	private int topLeftX;
 	private int topLeftY;
 	private static final int tileSize = 64;
@@ -49,39 +50,42 @@ public class AreaView extends View {
 			}
 			
 			Tile tile = level.returnTileAt(p);
+			BufferedImage tileImage = null;
 			try{
-				Image tileImage = ImageIO.read(new File(tile.getImageId()));
+				tileImage = ImageIO.read(new File(tile.getImageId()));
 			}
 			catch(IOException e){
-				throw e;
+				//throw e;
 				break;
 			}
 			int x = tileSize * (p.getX() - topLeftX);
 			int y = tileSize * (p.getY() - topLeftY);
 			g.drawImage(tileImage, x, y, null);
 			
-			HashSet<AreaOfEffect> aoeSet = tile.getAllAoE();
+			Collection<AreaOfEffect> aoeSet = tile.getAllAoE();
 			for(AreaOfEffect aoe: aoeSet){
 				
+				BufferedImage aoeImage = null;
 				try{
-					Image aoeImage = ImageIO.read(new File(aoe.getImageId()));
+					aoeImage = ImageIO.read(new File(aoe.getImageId()));
 				}
 				catch(IOException e){
-					throw e;
+					//throw e;
 					break;
 				}
 				g.drawImage(aoeImage, x, y, null);
 				
 			}
 			
-			HashSet<Item> itemSet = tile.getAllItems();
+			Collection<Item> itemSet = tile.getAllItems();
 			for(Item item: itemSet){
 				
+				BufferedImage itemImage = null;
 				try{
-					Image itemImage = ImageIO.read(new File(item.getImageId()));
+					itemImage = ImageIO.read(new File(item.getImageId()));
 				}
 				catch(IOException e){
-					throw e;
+					//throw e;
 					break;
 				}
 				g.drawImage(itemImage, x, y, null);
@@ -91,20 +95,21 @@ public class AreaView extends View {
 		}
 		
 		//render the Entities
-		HashSet<Entity> entitySet = level.getAllEntitiesIn(viewablePositions);
+		Collection<Entity> entitySet = level.getAllEntitiesIn(viewablePositions);
 		for(Entity entity: entitySet){
 			
+			BufferedImage entityImage = null;
 			try{
-				Image entityImage = ImageIO.read(new File(entity.getImageId()));
+				entityImage = ImageIO.read(new File(entity.getImageId()));
 			}
 			catch(IOException e){
-				throw e;
+				//throw e;
 				break;
 			}
 			Position p = level.returnCurrentPosition(entity);
 			int x = tileSize * (p.getX() - topLeftX);
 			int y = tileSize * (p.getY() - topLeftY);
-			g.drawImage(tileImage, x, y, null);
+			g.drawImage(entityImage, x, y, null);
 			
 		}
 		
@@ -154,8 +159,8 @@ public class AreaView extends View {
 
 		Position avatarPosition = level.returnCurrentPosition(avatar);
 		//find the viewable area centred on avatar
-		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tilesize);
-		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tilesize);
+		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tileSize);
+		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tileSize);
 
 		//find the top-left tile position
 		topLeftX = avatarPosition.getX() - (numTilesWide / 2);
