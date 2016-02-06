@@ -8,6 +8,7 @@ import views.Drawable;
 import models.Subject;
 import views.Listener;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Entity implements Drawable, Subject
@@ -34,18 +35,7 @@ public class Entity implements Drawable, Subject
       equipment = new Equipment();
       eIdentifier = EntityIdentifier.GROUND;
       directionFacing = Direction.NORTH;
-    }
-
-    /* Avatar constructor */
-    public Entity() {
-      name = "Hero Sandwich";
-      occupation = null;
-      stats = new EntityStats();
-      inventory = new Inventory();
-      equipment = new Equipment();
-      eIdentifier = EntityIdentifier.GROUND;
-      directionFacing = Direction.NORTH;
-      subs = new List<Listener>();
+      subs = new ArrayList<Listener>();
     }
 
   /* Fully parameterized constructor */
@@ -59,6 +49,7 @@ public class Entity implements Drawable, Subject
         equipment = new Equipment();
         eIdentifier = identifier;
         directionFacing = direction;
+	subs = new ArrayList<Listener>();
     }
 
   /* IMPLEMENT SUBJECT INTERFACE */
@@ -210,6 +201,8 @@ public class Entity implements Drawable, Subject
 	inventory.add(item);
 	return successful;
     }
+
+  
 
 
     /* Accessors */
