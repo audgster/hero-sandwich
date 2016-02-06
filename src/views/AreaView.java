@@ -14,12 +14,8 @@ import java.awt.image.BufferedImage;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.lang.Math;
-<<<<<<< HEAD
-import java.util.*;
-=======
 import javax.swing.*;
 
->>>>>>> 382b2e85b5d71bacc75c21da3e11ad8d4a77a6ea
 
 public class AreaView extends View {
 
