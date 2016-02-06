@@ -58,6 +58,21 @@ public class Game
 
     public void printCurrentLevel()
     {
-        System.out.println(levels.get(currentLevel));
+        System.out.println(getCurrentLevel());
+    }
+
+    public Level getCurrentLevel()
+    {
+        return levels.get(currentLevel);
+    }
+
+    public Entity getAvatar()
+    {
+        return avatar;
+    }
+
+    public IGameEngine getGameEngine()
+    {
+        return gameEngine;
     }
 }

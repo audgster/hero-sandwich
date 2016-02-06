@@ -9,7 +9,6 @@ import models.Subject;
 import views.Listener;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Entity implements Drawable, Subject
 {
@@ -49,7 +48,7 @@ public class Entity implements Drawable, Subject
         equipment = new Equipment();
         eIdentifier = identifier;
         directionFacing = direction;
-	subs = new ArrayList<Listener>();
+	   subs = new ArrayList<Listener>();
     }
 
   /* IMPLEMENT SUBJECT INTERFACE */
@@ -65,9 +64,8 @@ public class Entity implements Drawable, Subject
   }
   
   public void notifyListeners() {
-    Iterator iter = subs.iterator();
-    while (iter.hasNext() ) {
-      iter.next().update();
+    for(int i = 0; i < subs.size(); i++){
+        subs.get(i).update();
     }
   }
 

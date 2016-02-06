@@ -25,7 +25,7 @@ public class EntityStats extends Stats {
 	currentLife = 10;
 	currentMana = 5;
 	occupationStatMods = new StatModifiers();
-	statMods = new ArrayList();	
+	statMods = new ArrayList<>();
     }
     
     /* Fully parameterized constructor */
@@ -37,7 +37,7 @@ public class EntityStats extends Stats {
 	this.currentLife = curLife;
 	this.currentMana = curMana;
 	occupationStatMods = new StatModifiers();
-	statMods = new ArrayList();	
+	statMods = new ArrayList<>();
     }
 
     public int addXp(int amount) {
