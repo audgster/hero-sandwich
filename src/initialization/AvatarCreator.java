@@ -11,14 +11,13 @@ public class AvatarCreator
     private String name;
     private Occupation occupation;
 
-    private Entity getDefaultEntity()
-    {
-        return new Entity();
-    }
+    EntityCreator entityCreator;
 
-    private Entity getCustomizedEntity(String name, Occupation occupation, EntityIdentifier identifier, Direction direction)
+    public AvatarCreator()
     {
-        return new Entity(name, occupation, identifier, direction);
+        name = null;
+        occupation = null;
+        entityCreator = new EntityCreator();
     }
 
     public Entity vendCustomEntity()
@@ -27,7 +26,7 @@ public class AvatarCreator
         {
             System.out.println("Avatar Creator: name and occupation were not set");
             System.out.println("Avatar Creator: vending default entity");
-            return getDefaultEntity();
+            return entityCreator.getDefaultEntity();
         }
         else if (name == null)
         {
@@ -42,7 +41,7 @@ public class AvatarCreator
             occupation = new Smasher();
         }
 
-        Entity entity = getCustomizedEntity(name, occupation, EntityIdentifier.GROUND, Direction.NORTH);
+        Entity entity = new Entity(name, occupation, EntityIdentifier.GROUND, Direction.NORTH);
 
         name = null;
         occupation = null;

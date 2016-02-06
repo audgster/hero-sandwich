@@ -1,13 +1,15 @@
 package initialization;
 
+import models.map.Map;
+import models.map.Tile;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import util.TerrainGroup;
 
 import java.util.List;
 
 public class MapCreator {
     private ConfigParser parser;
-    private String baseMapTerrain;
     private Node baseMapNode;
     private List<Node> tileGroups;
     private List<Node> areaEffectGroups;
@@ -17,48 +19,60 @@ public class MapCreator {
     //Get full map tag not just base Terrain -- you need size of map.
     public MapCreator(String mapFile) {
         parser = new ConfigParser(mapFile);
-        baseMapTerrain = parser.getMapBaseTerrain();
         baseMapNode = parser.getBaseMapTag();
         tileGroups = parser.getTileGroups();
         items = parser.getMapItems();
         areaEffectGroups = parser.getAreaEffectGroups();
-        printTileGroups();
-        printAreaEffectGroups();
-        printItems();
+        //printTileGroups();
+        //printAreaEffectGroups();
+        //printItems();
     }
 
-    public TestMap create() {
+    public Map create() {
         int[] mapSize = getMapSize();
-        TestMap map = new TestMap(mapSize[0], mapSize[1]);
+        Map map = new Map(mapSize[0], mapSize[1]);
         setTileGroups(map);
         fillInGrid(map);
         setAreaOfEffectGroups(map);
-        setItems(map);
+        //setItems(map);
+        //map.printMap();
         return map;
     }
 
-    private void setItems(TestMap map) {
+    private void setItems(Map map) {
         ItemCreator itemCreator = new ItemCreator(items);
-        itemCreator.createItemsOnMap(map);
+        //itemCreator.createItemsOnMap(map);
     }
 
-    private void setAreaOfEffectGroups(TestMap map) {
+    private void setAreaOfEffectGroups(Map map) {
         AreaOfEffectCreator areaOfEffectCreator = new AreaOfEffectCreator(areaEffectGroups);
         areaOfEffectCreator.createAreasOfEffectOnMap(map);
     }
 
 
-    private void setTileGroups(TestMap map) {
+    private void setTileGroups(Map map) {
         TileCreator tileCreator = new TileCreator(tileGroups);
         tileCreator.createTilesOnMap(map);
     }
 
-    private void fillInGrid(TestMap map) {
-        TestTile mapGrid[][] = map.getMap();
+    private void fillInGrid(Map map) {
+        Tile mapGrid[][] = map.getMapArray();
         for(int i = 0; i < mapGrid[0].length; i++)
             for (int j = 0; j < mapGrid[0].length; j++)
                 if (mapGrid[i][j] == null)
-                    mapGrid[i][j] = new TestTile("x", "", "");
+                    mapGrid[i][j] = new Tile(getBaseTerrain());
+    }
+
+    private TerrainGroup getBaseTerrain(){
+        String baseMapTerrain = parser.getMapBaseTerrain();
+        if(baseMapTerrain.equalsIgnoreCase("ground"))
+            return TerrainGroup.GROUND;
+        else if(baseMapTerrain.equalsIgnoreCase("water"))
+            return TerrainGroup.WATER;
+        else if(baseMapTerrain.equalsIgnoreCase("mountain"))
+            return TerrainGroup.MOUNTAIN;
+        else
+            return null;
     }
 
     private int[] getMapSize() {
@@ -68,7 +82,9 @@ public class MapCreator {
         int mapSize[] = {Integer.parseInt(x), Integer.parseInt(y)};
         return mapSize;
     }
+}
 
+/*
     private void printAreaEffectGroups() {
         for(int nodeNum = 0; nodeNum < areaEffectGroups.size(); nodeNum++) {
             Node xmlNode = areaEffectGroups.get(nodeNum);
@@ -105,4 +121,4 @@ public class MapCreator {
             System.out.println("y-position: " + item.getAttribute("y-position"));
         }
     }
-}
+ */

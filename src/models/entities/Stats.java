@@ -33,24 +33,25 @@ public abstract class Stats {
      * caller stats  >= parameter stats
      */
     public boolean checkRestrictions(Stats stats) {
-	boolean passedCheck = false;
-	if ( strength <= stats.getStrength() ) {
-	    return passedCheck;
+	
+	boolean failedCheck = false;
+	
+	if ( strength < stats.getStrength() ) {	    
+	    return failedCheck;
 	}
-	if ( agility <= stats.getAgility() ) {
-	    return passedCheck;
+	if ( agility < stats.getAgility() ) {
+	    return failedCheck;
 	}
-	if ( intellect <= stats.getIntellect() ) {
-	    return passedCheck;
+	if ( intellect < stats.getIntellect() ) {
+	    return failedCheck;
 	}
-	if ( hardiness <= stats.getHardiness() ) {
-	    return passedCheck;
+	if ( hardiness < stats.getHardiness() ) {
+	    return failedCheck;
 	}
-	if ( movement <= stats.getMovement() ) {
-	    return passedCheck;
+	if ( movement < stats.getMovement() ) {
+	    return failedCheck;
 	}
-	passedCheck = true;
-	return passedCheck;
+	return !failedCheck;
     }
     
     /* Accessors */

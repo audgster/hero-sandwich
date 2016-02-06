@@ -55,4 +55,12 @@ public class Level {
 
         return allEntities.getValueSet();
     }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Map getMap() {
+        return map;
+    }
 }
