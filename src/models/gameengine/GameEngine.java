@@ -35,9 +35,11 @@ public class GameEngine implements IGameEngine
         return triggerInteraction(destinationTile, entity);
     }
 
-    private boolean triggerInteraction(Tile tile, Entity entity) {
-
-        return tileInteractionDirector.executeInteraction(tile, entity);
+    private boolean triggerInteraction(Tile tile, Entity entity)
+    {
+        if (!(tileInteractionDirector == null))
+            return tileInteractionDirector.executeInteraction(tile, entity);
+        return false;
     }
 
     private boolean triggerLevelInteraction(Level level, Entity entity)
