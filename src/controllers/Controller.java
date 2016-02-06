@@ -53,6 +53,9 @@ public class Controller{
     public void setGame(Game game)
     {
         this.game = game;
+
+        if (state.getName() == "Avatar")
+            state = new AvatarState(this.game);
     }
 	
 	public void setMenu(Menus menu){

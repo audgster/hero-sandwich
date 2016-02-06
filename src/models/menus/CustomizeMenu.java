@@ -10,7 +10,7 @@ public class CustomizeMenu extends Menus{
    * Default constructor
    */
   public CustomizeMenu(ViewManager vm) {
-      super(new Option[]{new SetNameOption(), new SetGenderOption(),
-              new SetOccupationOption(), new SetHairColorOption()}, new ArrayList<Listener>(), vm);
+      super(new Option[]{new SmasherOption(), new SummonerOption(), new SneakOption()}, 
+      new ArrayList<Listener>(), vm);
   }
 }

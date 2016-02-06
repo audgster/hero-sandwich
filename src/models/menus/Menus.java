@@ -65,7 +65,6 @@ public abstract class Menus implements Subject{
   }
 
   public void enter(){
-      System.out.println(vm);
       currentlySelected.execute(vm, cm);
       notifyListeners();
   }

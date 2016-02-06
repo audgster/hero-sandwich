@@ -50,7 +50,6 @@ public class CustomizeView extends View{
 	}
 
 	public void update(){
-
 		Option[] menuOptions = menu.getListOfOptions();
 		Option current = menu.getCurrentlySelected();
 		options = new String[menuOptions.length];

@@ -2,9 +2,9 @@
  import views.*;
  import controllers.*;
 
-  public  class SetOccupationOption extends Option{
-	public SetOccupationOption(){
-		name = "Set Occupation";
+  public  class SummonerOption extends Option{
+	public SummonerOption(){
+		name = "Summoner";
 	}
   public void execute(ViewManager vm, Controller cm){
 		//

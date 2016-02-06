@@ -22,7 +22,7 @@ public class Entity implements Drawable
 
     /* Default constructor */
     public Entity() {
-	name = "Roast Beef";
+	    name = "Roast Beef";
         occupation = new Smasher();
         stats = new EntityStats();
         stats.setOccupationMods( occupation.getStatMods() );
@@ -30,7 +30,19 @@ public class Entity implements Drawable
         equipment = new Equipment();
         eIdentifier = EntityIdentifier.GROUND;
         directionFacing = Direction.NORTH;
-    }    
+    }
+
+    public Entity(String name, Occupation occupation, EntityIdentifier identifier, Direction direction)
+    {
+        this.name = name;
+        this.occupation = occupation;
+        stats = new EntityStats();
+        stats.setOccupationMods( occupation.getStatMods() );
+        inventory = new Inventory();
+        equipment = new Equipment();
+        eIdentifier = identifier;
+        directionFacing = direction;
+    }
 
     /* modifyStats(:StatModifier)
     ** Adds a StatModifiers object to the Entity's Stats
@@ -136,6 +148,7 @@ public class Entity implements Drawable
 	if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() ){
 	    if ( stats.checkRestrictions( item.getStatsRestrictions() ) ){
 		if ( equipment.equip(item) ){
+		    System.out.println("Successfully equipped");		
 		    inventory.remove(item);
 		    modifyStats( item.getStatModifiers() );
 		    return successful;
