@@ -5,40 +5,38 @@ import models.menus.*;
 import views.*;
 
 public class GameWindow extends JFrame implements KeyListener{
+	private Controller  avatarController;
+	private Menus menu;
 
-	Controller  avatarController;
-    ViewManager viewManager;
-    Menus menu;
-    char input;
+  public GameWindow(){
+		createViewManager();
+  	setTitle("Hero Sandwich");
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setLocationRelativeTo(null);
+		createController();
+	}
 
-    public GameWindow(){
-        viewManager = new ViewManager();
+	private void createViewManager(){
+		ViewManager viewManager = new ViewManager();
 		menu = new MainMenu(viewManager);
 		viewManager.setMainMenuMode(menu);
 		viewManager.setVisible(true);
 		add(viewManager);
-
-    	setTitle("Hero Sandwich");
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //setVisible(true);
-        setLocationRelativeTo(null);
-		//pack();
-
-        avatarController = new Controller();
-        avatarController.setMenu(menu);
-        addKeyListener(this);
 	}
 
-	public ViewManager getViewManager(){
-		return this.viewManager;
+	private void createController(){
+		avatarController = new Controller();
+    avatarController.setMenu(menu);
+    addKeyListener(this);
+		menu.setController(avatarController);
 	}
 
-    //KeyListener methods
-    public void keyPressed(KeyEvent e){
-        input = e.getKeyChar();
-		avatarController.executeUserInput(input);
+	//KeyListener methods
+  public void keyPressed(KeyEvent e){
+		avatarController.executeUserInput(e.getKeyChar());
 	}
-    public void keyTyped(KeyEvent e){}
-    public void keyReleased(KeyEvent e){}
+
+  public void keyTyped(KeyEvent e){}
+  public void keyReleased(KeyEvent e){}
 }

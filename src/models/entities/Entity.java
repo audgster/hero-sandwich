@@ -4,8 +4,10 @@ import models.items.*;
 import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;
+import views.Drawable;
 
-public class Entity {
+public class Entity implements Drawable
+{
     /* ATTRIBUTES */
     private String name;
     private Occupation occupation;
@@ -160,5 +162,10 @@ public class Entity {
     public String toString() {
 	String str = name;
 	return str;
+    }
+
+    @Override
+    public String getImageId() {
+        return "Entity_" + occupation.getClass().getSimpleName() + "_" + eIdentifier.toString().toLowerCase();
     }
 }
