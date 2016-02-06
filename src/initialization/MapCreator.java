@@ -7,7 +7,6 @@ import java.util.List;
 
 public class MapCreator {
     private ConfigParser parser;
-    //private ItemCreater itemCreater = new ItemCreator();
     private String baseMapTerrain;
     private Node baseMapNode;
     private List<Node> tileGroups;
@@ -34,11 +33,18 @@ public class MapCreator {
         setTileGroups(map);
         fillInGrid(map);
         setAreaOfEffectGroups(map);
+        setItems(map);
         return map;
     }
 
-    private void setAreaOfEffectGroups(TestMap map) {
+    private void setItems(TestMap map) {
+        ItemCreator itemCreator = new ItemCreator(items);
+        itemCreator.createItemsOnMap(map);
+    }
 
+    private void setAreaOfEffectGroups(TestMap map) {
+        AreaOfEffectCreator areaOfEffectCreator = new AreaOfEffectCreator(areaEffectGroups);
+        areaOfEffectCreator.createAreasOfEffectOnMap(map);
     }
 
 
