@@ -20,8 +20,8 @@ public class TestMovementRuleInitializaer implements IMovementRuleInitializer
         airEntityRule.add(TerrainGroup.GROUND.toString().toLowerCase());
         airEntityRule.add(TerrainGroup.WATER.toString().toLowerCase());
 
-        movementRules.putIfAbsent(EntityIdentifier.GROUND.toString().toLowerCase(), groundEntityRule);
-        movementRules.putIfAbsent(EntityIdentifier.AIR.toString().toLowerCase(), airEntityRule);
+        movementRules.put(EntityIdentifier.GROUND.toString().toLowerCase(), groundEntityRule);
+        movementRules.put(EntityIdentifier.AIR.toString().toLowerCase(), airEntityRule);
 
         return movementRules;
     }
