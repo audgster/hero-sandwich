@@ -128,7 +128,7 @@ public class ViewManager extends View{
 	public void setGameMode(Level level, Entity avatar){
 		mode = Mode.GAME;
 		areaView = new AreaView(level, avatar);
-		statsView = new StatsView(avatar.getEntityStats()/*avatar.getStats()*/);
+		statsView = new StatsView(avatar);
 		menuViews.clear();
 		update();
 	}
