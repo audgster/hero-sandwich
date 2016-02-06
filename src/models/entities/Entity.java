@@ -4,8 +4,10 @@ import models.items.*;
 import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;
+import views.Drawable;
 
-public class Entity {
+public class Entity implements Drawable
+{
     /* ATTRIBUTES */
     private String name;
     private Occupation occupation;
@@ -103,7 +105,7 @@ public class Entity {
     ** in: the Item to equip
     ** out: a boolean representing whether or not the equip action was successful
     */    
-    public boolean equip(EquipableItem item){
+    public boolean equip(EquipableItem item){	
 	boolean successful = true;
 	if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
 	    if(stats.checkRestrictions(item.getStatsRestrictions())){
@@ -126,10 +128,11 @@ public class Entity {
         if ( inventory.isFull() ){
 	    return !successful;
         }
-            inventory.add(item);
-            equipment.equip(item);
+	equipment.unequip(item);
+	inventory.add(item);
 	    return successful;
     }
+
 
     /* Accessors */
     public EntityIdentifier getEntityType() {
@@ -165,5 +168,10 @@ public class Entity {
     public String toString() {
 	String str = name;
 	return str;
+    }
+
+    @Override
+    public String getImageId() {
+        return "Entity_" + occupation.getClass().getSimpleName() + "_" + eIdentifier.toString().toLowerCase();
     }
 }

@@ -7,9 +7,9 @@ public abstract class Stats {
     private int intellect;
     private int hardiness;
     private int movement;
- 
+
     /* METHODS */
-    
+
     /* Default constructor */
     public Stats() {
 	strength = 0;
@@ -92,8 +92,8 @@ public abstract class Stats {
     public void setMovement(int mov) {
 	movement = mov;
     }
-    
-    
+
+
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
 	strBuilder.append("[Stats:");
@@ -101,10 +101,9 @@ public abstract class Stats {
 	strBuilder.append(" " + agility + " ");
 	strBuilder.append(" " + intellect + " ");
 	strBuilder.append(" " + hardiness + " ");
-	strBuilder.append(" " + movement + " ");	
+	strBuilder.append(" " + movement + " ");
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
     }
-
 }

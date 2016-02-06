@@ -67,5 +67,4 @@ public class EquipableItem extends TakeableItem
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
-    }
 }

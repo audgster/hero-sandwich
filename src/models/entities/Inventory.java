@@ -45,7 +45,7 @@ public class Inventory {
      * Returns false if the item could not be added (inventory is full)
      */
     public boolean add(Item item) {
-
+	
 	boolean itemAdded = false;
 	
 	for (int i = 0; i < capacity; ++i) {
