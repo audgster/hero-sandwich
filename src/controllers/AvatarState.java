@@ -11,12 +11,10 @@ public  class AvatarState extends ControllerState{
 	}
 
     Game game;
-    IGameEngine gameEngine;
 
-    public AvatarState(Game game, IGameEngine gameEngine)
+    public AvatarState(Game game)
     {
         this.game = game;
-        this.gameEngine = gameEngine;
     }
 
 	public void north()
@@ -68,7 +66,7 @@ public  class AvatarState extends ControllerState{
 
     private void triggerMotion(Direction direction)
     {
-        if(gameEngine.changeEntityLocation(game.currentLevel, game.avatar, direction)) {
+        if(game.gameEngine.changeEntityLocation(game.currentLevel, game.avatar, direction)) {
             System.out.println("The Avatar moved " + direction.toString().toLowerCase());
         }
         else
