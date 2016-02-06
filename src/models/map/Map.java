@@ -1,7 +1,6 @@
 package models.map;
 
 import util.Position;
-import java.util.ArrayList;
 
 public class Map
 {
@@ -25,6 +24,13 @@ public class Map
 
     public Tile getTileAt(Position p)
     {
-        return grid[ p.getX() ][ p.getY() ];
+        if((p.getX() < 0) || (p.getX() >= grid.length) ||
+				(p.getY() < 0) || (p.getX() >= grid[0].length)){
+			
+			//this might be really bad, maybe throw exception instead?
+			return null;
+			
+		}
+		return grid[ p.getX() ][ p.getY() ];
     }
 }

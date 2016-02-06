@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.Items.*;
+import models.items.*;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -28,7 +28,7 @@ public class Inventory {
     }
 
     /* Accessors */
-    
+
     public Item getItemAt(int slot) {
 	return bag.get(slot);
     }
@@ -37,6 +37,10 @@ public class Inventory {
     // Adds an item to the end of the bag
     public boolean add(Item item) {
 	return false;
+    }
+
+    public void remove(Item item){
+
     }
 
     @Override
@@ -51,8 +55,8 @@ public class Inventory {
 	    } else {
 		strBuilder.append("| -- " + currentSlot.toString() + " -- |");
 	    }
-	    // create new row 
-	    if (i % rowLength == 0 && i != capacity - 1) strBuilder.append("\n");	    
+	    // create new row
+	    if (i % rowLength == 0 && i != capacity - 1) strBuilder.append("\n");
 	}
 	strBuilder.append("]");
 	String str = strBuilder.toString();
