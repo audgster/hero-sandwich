@@ -12,12 +12,13 @@ import util.Position;
 public class GameEngine implements IGameEngine
 {
     private IMovementDirector movementDirector;
-    private ITileInteractionDirector interactionDirector;
+    private ITileInteractionDirector tileInteractionDirector;
+    //private ILevelInteractionDirector levelInteractionDeveloper
 
     public GameEngine (IMovementDirector movementDirector, ITileInteractionDirector interactionDirector)
     {
         this.movementDirector = movementDirector;
-        this.interactionDirector = interactionDirector;
+        this.tileInteractionDirector = interactionDirector;
     }
 
     @Override
@@ -25,11 +26,17 @@ public class GameEngine implements IGameEngine
     {
         Position destinationPosition = movementDirector.getPositionAfterMovement(level, entity, direction);
         Tile destinationTile = movementDirector.executeMovement(entity, destinationPosition, level);
+        //trigger any level interactions
         return triggerInteraction(destinationTile, entity);
     }
 
     private boolean triggerInteraction(Tile tile, Entity entity) {
 
-        return interactionDirector.executeInteraction(tile, entity);
+        return tileInteractionDirector.executeInteraction(tile, entity);
+    }
+
+    private boolean triggerLevelInteraction(Level level, Entity entity)
+    {
+        return false;
     }
 }

@@ -80,4 +80,8 @@ public abstract class Stats {
 	String str = strBuilder.toString();
 	return str;
     }
+
+    public boolean compare(StatModifiers stats){
+
+    }
 }

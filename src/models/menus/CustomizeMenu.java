@@ -1,16 +1,16 @@
 package models.menus;
+import models.menus.options.*;
+import views.Listener;
+import views.ViewManager;
+
 import java.util.ArrayList;
 public class CustomizeMenu extends Menus{
-  private Selection currentlySelected;
 
   /*
    * Default constructor
    */
-  public CustomizeMenu(){
-    super(new Selection[]{Selection.SETNAME, Selection.SETGENDER, Selection.SETOCCUPATION,
-          Selection.SETHAIRCOLOR},
-          new ArrayList<Listener>());
+  public CustomizeMenu(ViewManager vm) {
+      super(new Option[]{new SetNameOption(), new SetGenderOption(),
+              new SetOccupationOption(), new SetHairColorOption()}, new ArrayList<Listener>(), vm);
   }
-
-
 }
