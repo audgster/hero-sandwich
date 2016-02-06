@@ -1,7 +1,5 @@
 package models.items;
 
-import models.entities;
-
 public class EquipableItem extends TakeableItem
 {
     /* ATTRIBUTES */
@@ -29,5 +27,10 @@ public class EquipableItem extends TakeableItem
 
     public String getOccupationRestriction(){
     	return occupRestriction;
+    }
+
+    public EquipableItem(String name)
+    {
+        super(name);
     }
 }

@@ -1,8 +1,9 @@
+package views;
 
-public interface Drawable{
-	
-	public void draw();
+public interface Drawable
+{
+    String getImageId();
 	
 }
-//create an EntityDrawable object that composes an entity
-//EntityDrawable implements Drawable and can access all of entity's data
+
+// Returns image ID
