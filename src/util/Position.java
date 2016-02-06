@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Objects;
+
 public class Position
 {
   private int x;
@@ -28,4 +30,24 @@ public class Position
     public Position incrementPosition(Direction directionMoved) {return new Position(0, 0);}
 
   public Position incrementPosition(Direction directionMoved, int numberOfSquares) {return new Position(0, 0);}
+
+    @Override
+    public boolean equals(Object p)
+    {
+        Position position;
+
+        try
+        {
+            position = (Position) p;
+        }
+        catch (ClassCastException ex)
+        {
+            System.out.println("Position: Invalid cast exception");
+            System.out.println("Position: These obviously can't be equal");
+
+            return false;
+        }
+
+        return (getX() == position.getX()) && (getY() == position.getY());
+    }
 }

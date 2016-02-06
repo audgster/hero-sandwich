@@ -27,6 +27,8 @@ public class GameEngine implements IGameEngine
         Position currentPosition = level.returnCurrentPosition(entity);
         Position destinationPosition = movementDirector.getPositionAfterMovement(level, entity, direction);
 
+        entity.setEntityDirection(direction);
+
         if (currentPosition.equals(destinationPosition))
             return false;
 
