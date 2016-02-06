@@ -1,7 +1,6 @@
 package models.entities;
 
-import models.items.Item;
-import models.items.EquipableItem;
+import models.items.*;
 import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;
@@ -142,6 +141,10 @@ public class Entity {
     /* Accessors */
     public EntityIdentifier getEntityType() {
 	return eIdentifier;
+    }
+
+    public Inventory getInventory() {
+	return inventory;
     }
     
     public String toString() {

@@ -1,17 +1,19 @@
 package models.items;
 
+import models.entities.Entity;
+import models.entities.StatModifiers;
+
 public class EquipableItem extends TakeableItem
 {
     /* ATTRIBUTES */
     EquipmentType eType;
-    StatModifiers statsRestrictions = new StatModifiers();
+    StatModifiers statsBoosts;
+    StatModifiers statsRestrictions;
     String occupRestriction = "";
-    
-    
-    
+            
     @Override
     public boolean executeInteraction(Entity entity) {
-        return false;
+        return entity.addItem(this);
     }
     public StatModifiers setStatRestrictions(StatModifiers s){
     	statRestrictions = s;
@@ -29,8 +31,19 @@ public class EquipableItem extends TakeableItem
     	return occupRestriction;
     }
 
-    public EquipableItem(String name)
+    /* Constructor */
+    public EquipableItem(String name, EquipmentType eType, StatModifiers statsMods, StatModifiers statRestrict, String occRestrict)
     {
         super(name);
+	this.eType = eType;
+	statsBoosts = statsMods;
+	statsRestrictions = statsRestrict;
+	String occupRestriction = occRestrict;
+    }
+
+    @Override
+    String toString() {
+	String str = "";
+	return str;
     }
 }

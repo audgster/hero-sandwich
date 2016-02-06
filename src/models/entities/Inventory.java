@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.Items.*;
+import models.items.*;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -34,9 +34,21 @@ public class Inventory {
     }
 
     /* Mutators */
-    // Adds an item to the end of the bag
+    /* Adds an item to the first available slot in the inventory
+     * Returns false if the item could not be added (inventory is full)
+     */
     public boolean add(Item item) {
-	return false;
+
+	boolean itemAdded = false;
+	
+	for (int i = 0; i < capacity; ++i) {
+	    // if slot is empty
+	    if ( bag.get(i) ) {
+		bag.add(i, item);
+		itemAdded = true;
+		break;
+	    }	   
+	}
     }
 
     @Override

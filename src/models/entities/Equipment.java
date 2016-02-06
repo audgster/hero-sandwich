@@ -1,6 +1,6 @@
-package models.entities.*;
+package models.entities;;
 
-import models.Items.*;
+import models.items.*;
 
 public class Equipment {
 
@@ -9,10 +9,11 @@ public class Equipment {
     private EquipableItem head;
     private EquipableItem chest;
     private EquipableItem legs;
-    private EquipableItem feet;    
+    private EquipableItem feet;
+    private EquipableItem hands;
    
      public boolean addItem(EquipableItem item) {
-	 
+	 return false;
      }
     
 }
