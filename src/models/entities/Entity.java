@@ -97,17 +97,16 @@ public class Entity implements Drawable
         inventory.remove(item);
     }
     public boolean equip(EquipableItem item){
+        boolean canEquip = false;
             if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
                 if(stats.compare(item.getStatsRestrictions())){
                     if(equipment.addItem(item)){
                         inventory.remove(item);
-                        return true;
+                        canEquip = true;
                     }
                 }
             }
-            else{
-                return false;
-            }
+            return canEquip;
     }
     //boolean equip(Item item) {}
     /* unequip(:Item): boolean
@@ -123,6 +122,7 @@ public class Entity implements Drawable
         else{
             inventory.add(item);
             equipment.remove(item);
+            return true;
         }
     }
     //boolean unequip(Item item) {}

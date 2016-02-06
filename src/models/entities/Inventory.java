@@ -39,16 +39,17 @@ public class Inventory {
      */
     public boolean add(Item item) {
 
-	boolean itemAdded = false;
-	
-	for (int i = 0; i < capacity; ++i) {
-	    // if slot is empty
-	    if ( bag.get(i) ) {
-		bag.add(i, item);
-		itemAdded = true;
-		break;
-	    }	   
-	}
+		boolean itemAdded = false;
+		
+		for (int i = 0; i < capacity; ++i) {
+		    // if slot is empty
+		    if ( bag.get(i) == null) {
+				bag.add(i, item);
+				itemAdded = true;
+				break;
+		    }	   
+		}
+		return itemAdded;
     }
 
     public void remove(Item item){

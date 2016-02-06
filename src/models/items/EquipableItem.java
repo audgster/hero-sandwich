@@ -15,11 +15,11 @@ public class EquipableItem extends TakeableItem
     public boolean executeInteraction(Entity entity) {
         return entity.addItem(this);
     }
-    public StatModifiers setStatRestrictions(StatModifiers s){
+    public void setStatRestrictions(StatModifiers s){
     	statsRestrictions = s;
     }
 
-    public String setOccupationRestriction(String s){
+    public void setOccupationRestriction(String s){
     	occupRestriction = s;
     }
 
@@ -35,15 +35,14 @@ public class EquipableItem extends TakeableItem
     public EquipableItem(String name, EquipmentType eType, StatModifiers statsMods, StatModifiers statRestrict, String occRestrict)
     {
         super(name);
-	this.eType = eType;
-	statsBoosts = statsMods;
-	statsRestrictions = statsRestrict;
-	String occupRestriction = occRestrict;
+    	this.eType = eType;
+    	statsBoosts = statsMods;
+    	statsRestrictions = statRestrict;
+    	String occupRestriction = occRestrict;
     }
 
-    @Override
-    String toString() {
-	String str = "";
-	return str;
+    public String toString() {
+	   String str = "";
+	   return str;
     }
 }
