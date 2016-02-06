@@ -12,5 +12,6 @@ public class NewGameOption extends Option{
 		Menus customMenu = new CustomizeMenu(vm);
 		vm.setCustomizeMenuMode(customMenu);
 		cm.setMenu(customMenu);
+		customMenu.setController(cm);
 	}
 }
