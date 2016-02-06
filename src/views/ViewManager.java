@@ -86,6 +86,7 @@ public class ViewManager extends View{
 			// ILocationManager locationManager = new ILocationMangager();
 			//game object will  game.getLevel();
 			add(areaView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/6, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
 		else{

@@ -18,7 +18,7 @@ public class CustomizeView extends View{
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
 	public CustomizeView(Menus menu){
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		setLayout(new FlowLayout());
 		setMenu(menu);
 		update();
 }
