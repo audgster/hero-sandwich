@@ -1,10 +1,15 @@
 package controllers;
-import java.awt.event.*;
+
 import models.menus.*;
+import util.Game;
 
 public class Controller{
 	public ControllerState state;
-	public Controller(){
+
+    private Game game;
+
+	public Controller()
+    {
 		state = new MenuState();
 	}
 
@@ -41,9 +46,14 @@ public class Controller{
 			state = new MenuState();
 		}
 		else{
-			state = new AvatarState();
+			state = new AvatarState(game);
 		}
 	}
+
+    public void setGame(Game game)
+    {
+        this.game = game;
+    }
 	
 	public void setMenu(Menus menu){
 		state.setMenu(menu);
