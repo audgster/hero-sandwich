@@ -8,13 +8,16 @@ public  class MenuState extends ControllerState{
 	}
 
 	public void north(){
+		System.out.println(getName() + " went up");
 		menu.scrollUp();
 	}
 	public void northEast(){}
 	public void east(){}
 	public void southEast(){}
 	public void south(){
+		System.out.println(getName() + " went down");
 		menu.scrollDown();
+
 	}
 	public void southWest(){}
 	public void west(){}
@@ -22,7 +25,9 @@ public  class MenuState extends ControllerState{
 	public void select(){
 		menu.enter();
 	}
-	public void setMenu(Menus menu){
-		this.menu = menu;
+	public void setMenu(Menus newMenu){
+		this.menu = newMenu;
+		System.out.println("The menu model has changed");
+
 	}
 }

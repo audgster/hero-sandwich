@@ -66,12 +66,6 @@ public class ViewManager extends View{
 			add(menuViews.get(0), BorderLayout.LINE_START);
 			JLabel logo = new JLabel("Insert Logo Here");
 			add(logo, BorderLayout.CENTER);
-		}else if(mode == Mode.CUSTOMIZE_MENU){
-			View customView = new CustomizeView(this);
-			removeAll();
-			menuViews.add(customView);
-			add(customView);
-			//pushMenuView(customView);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
 			System.out.println("Customize View");
