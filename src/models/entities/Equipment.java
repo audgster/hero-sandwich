@@ -31,7 +31,7 @@ public class Equipment {
 	if (equipment.get(eType) != null) {
 	    return !successful;
 	}
-
+	
 	equipment.put(eType, item);
 	return successful;	
     }

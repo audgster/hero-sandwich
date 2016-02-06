@@ -48,20 +48,26 @@ public class EntityStats extends Stats {
     /* Primary Stats Accessors */
     /* ========================= */
     public int getModStrength() {
+	
 	int modStr = getStrength();
+	
 	// Occupation multipliers
 	modStr *= occupationStatMods.getStrength();
+		
 	// All other modifiers
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modStr += statMods.get(i).getStrength();
-	}
+	}	
 	return modStr;
     }
     
     public int getModAgility() {
+	
 	int modAgl = getAgility();
+	
 	// Occupation multipliers
 	modAgl *= occupationStatMods.getAgility();
+	
 	// All other modifiers
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modAgl += statMods.get(i).getAgility();
@@ -70,9 +76,12 @@ public class EntityStats extends Stats {
     }
     
     public int getModIntellect() {
+	
 	int modIntel = getIntellect();
+	
 	// Occupation multipliers	
 	modIntel *= occupationStatMods.getIntellect();
+	
 	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modIntel += statMods.get(i).getIntellect();
@@ -81,9 +90,12 @@ public class EntityStats extends Stats {
     }
     
     public int getModHardiness() {
+	
 	int modHar = getHardiness();
+	
 	// Occupation multipliers
-	modHar *= occupationStatMods.getHardiness();	
+	modHar *= occupationStatMods.getHardiness();
+	
 	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modHar += statMods.get(i).getHardiness();
@@ -92,9 +104,12 @@ public class EntityStats extends Stats {
     }
     
     public int getModMovement() {
+	
 	int modMov = getMovement();
+	
 	// Occupation multipliers	
-	modMov *= occupationStatMods.getMovement();	    
+	modMov *= occupationStatMods.getMovement();
+	
 	// All other modifiers	
 	for ( int i = 0; i != statMods.size(); ++i ) {
 	    modMov += statMods.get(i).getMovement();
