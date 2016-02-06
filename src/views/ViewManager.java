@@ -1,20 +1,22 @@
 package views;
 
 import views.*;
+import models.Level;
+import models.entities.Entity;
+import models.menus.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
 public class ViewManager extends View{
 
-	//private AreaView areaView;
+	private AreaView areaView;
 	private StatsView statsView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
 	private Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 50);
 
 	private enum Mode{
-		CUSTOMIZE_MENU,
 		MAIN_MENU,
 		CUSTOMIZE_MENU,
 		GAME
@@ -100,7 +102,7 @@ public class ViewManager extends View{
 		render();
 	}
 
-	public void setMainMenuMode(Menu mainMenu){
+	public void setMainMenuMode(Menus mainMenu){
 		mode = Mode.MAIN_MENU;
 		areaView = null;
 		statsView = null;
@@ -111,8 +113,8 @@ public class ViewManager extends View{
 		update();
 	}
 	
-	public void setCustomizeMenuMode(Menu cMenu){
-		mode = Mode.CUSTOMIZE_MODE;
+	public void setCustomizeMenuMode(Menus cMenu){
+		mode = Mode.CUSTOMIZE_MENU;
 		areaView = null;
 		statsView = null;
 		menuViews.clear();
@@ -125,7 +127,7 @@ public class ViewManager extends View{
 	public void setGameMode(Level level, Entity avatar){
 		mode = Mode.GAME;
 		areaView = new AreaView(level, avatar);
-		statsView = new StatsView(/*avatar.getStats()*/);
+		statsView = new StatsView(avatar.getEntityStats()/*avatar.getStats()*/);
 		menuViews.clear();
 		update();
 	}
