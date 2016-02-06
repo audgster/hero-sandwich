@@ -15,6 +15,8 @@ public class Entity {
     private Equipment equipment;
     private EntityIdentifier eIdentifier;
 
+    private Direction directionFacing;
+
     /* METHODS */
 
     /* Default constructor */
@@ -25,6 +27,7 @@ public class Entity {
         inventory = new Inventory();
         equipment = new Equipment();
         eIdentifier = EntityIdentifier.GROUND;
+        directionFacing = Direction.NORTH;
     }
 
     /* modifyStats(:StatModifier)
@@ -142,6 +145,13 @@ public class Entity {
     /* Accessors */
     public EntityIdentifier getEntityType() {
 	return eIdentifier;
+    }
+
+    public Direction getEntityDirection() {return directionFacing;}
+
+    public void setEntityDirection(Direction direction)
+    {
+        directionFacing = direction;
     }
 
     public String toString() {
