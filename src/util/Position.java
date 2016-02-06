@@ -26,4 +26,6 @@ public class Position
     // Audrey: need this for movement
     // Given a position and a direction, returns a new position
     public Position incrementPosition(Direction directionMoved) {return new Position(0, 0);}
+
+  public Position incrementPosition(Direction directionMoved, int numberOfSquares) {return new Position(0, 0);}
 }

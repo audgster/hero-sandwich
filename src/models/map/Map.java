@@ -1,7 +1,6 @@
 package models.map;
 
 import util.Position;
-import java.util.ArrayList;
 
 public class Map
 {

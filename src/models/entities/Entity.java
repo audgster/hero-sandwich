@@ -1,6 +1,7 @@
 package models.entities;
 
-import models.Items.Item;
+import models.items.Item;
+import models.items.EquipableItem;
 import util.Direction;
 import util.EntityIdentifier;
 import util.TerrainGroup;
