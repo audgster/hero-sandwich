@@ -12,4 +12,7 @@ public class Equipment {
      public boolean addItem(EquipableItem item) {
 
      }
+     public boolean remove(EquipableItem item){
+     	
+     }
 }

@@ -1,5 +1,7 @@
 package models.items;
 
+import models.entities.*;
+
 public class EquipableItem extends TakeableItem
 {
 
@@ -13,7 +15,7 @@ public class EquipableItem extends TakeableItem
         return false;
     }
     public StatModifiers setStatRestrictions(StatModifiers s){
-    	statRestrictions = s;
+    	statsRestrictions = s;
     }
 
     public String setOccupationRestriction(String s){
