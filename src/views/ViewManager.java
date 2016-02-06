@@ -29,21 +29,6 @@ public class ViewManager extends View{
 		update();
 	}
 
-	// public ViewManager(AreaView areaView, StatsView statsView, MenuView... menuViews){
-	// 	this.areaView = areaView;
-	// 	this.statsView = statsView;
-	// 	this.menuViews = new LinkedList<MenuView>();
-	// 	for(int i = 0; i < menuViews.length; i++){
-	// 		this.menuViews.add(menuViews[i]);
-	// 	}
-	// 	setLayout(new BorderLayout());
-	// 	update();
-	// }
-
-	// public void setAreaView(AreaView areaView){
-	// 	this.areaView = areaView;
-	// }
-
 	public void setStatsView(StatsView statsView){
 		this.statsView = statsView;
 	}
@@ -75,8 +60,9 @@ public class ViewManager extends View{
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
 			System.out.println("Customize View");
-			JLabel cText = new JLabel("Customize View Temp");
+			JLabel cText = new JLabel("Select Avatar");
 			cText.setFont(titleFont);
+			cText.setHorizontalAlignment(SwingConstants.CENTER);
 			add(cText, BorderLayout.PAGE_START);
 			menuViews.getLast().setVisible(true);
 			add(menuViews.getLast(), BorderLayout.CENTER);
@@ -113,13 +99,13 @@ public class ViewManager extends View{
 		pushMenuView(mainMenuView);
 		update();
 	}
-	
+
 	public void setCustomizeMenuMode(Menus cMenu){
 		mode = Mode.CUSTOMIZE_MENU;
 		areaView = null;
 		statsView = null;
 		popMenuView();
-		
+
 		View cMenuView = new CustomizeView(cMenu);
 		pushMenuView(cMenuView);
 		update();
