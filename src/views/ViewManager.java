@@ -64,7 +64,11 @@ public class ViewManager extends View{
 		}
 		else if(mode == Mode.GAME){
 			removeAll();
-			///TO-DO
+			// Map map = new Map();
+			// ILocationManager locationManager = new ILocationMangager();
+			//game object will  game.getLevel();
+			areaView = new AreaView();
+			add(areaView);
 		}
 		else{
 			//something screwed up

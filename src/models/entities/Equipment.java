@@ -1,10 +1,8 @@
-package models.entities;;
+package models.entities;
 
 import models.items.*;
 
 public class Equipment {
-
-
     /* ATTRIBUTES */
     private EquipableItem head;
     private EquipableItem chest;
@@ -16,4 +14,7 @@ public class Equipment {
 	 return false;
      }
     
+     public boolean remove(EquipableItem item){
+	 return false;
+     }
 }

@@ -1,8 +1,9 @@
+package views;
 
-public class Decal implements Drawable{
+public class Decal implements Drawable {
 	
-	public void draw(){
-		//return a picture
+	public String getImageId(){
+		return "Decal_" + this.getClass().getSimpleName();
 	}
 	
 }

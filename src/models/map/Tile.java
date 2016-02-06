@@ -3,9 +3,11 @@ package models.map;
 import util.TerrainGroup;
 import models.map.areaofeffect.*;
 import models.items.*;
+import views.Drawable;
+
 import java.util.*;
 
-public class Tile
+public class Tile implements Drawable
 {
     private TerrainGroup terrainType;
 	private HashSet<Item> itemList;
@@ -82,5 +84,10 @@ public class Tile
         }
 
         aoeList.remove(AoE);
+    }
+
+    @Override
+    public String getImageId() {
+        return "Tile_" + terrainType.toString();
     }
 }

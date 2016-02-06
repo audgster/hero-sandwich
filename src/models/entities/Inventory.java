@@ -28,7 +28,7 @@ public class Inventory {
     }
 
     /* Accessors */
-    
+
     public Item getItemAt(int slot) {
 	return bag.get(slot);
     }
@@ -51,6 +51,10 @@ public class Inventory {
 	}
     }
 
+    public void remove(Item item){
+
+    }
+
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
@@ -63,8 +67,8 @@ public class Inventory {
 	    } else {
 		strBuilder.append("| -- " + currentSlot.toString() + " -- |");
 	    }
-	    // create new row 
-	    if (i % rowLength == 0 && i != capacity - 1) strBuilder.append("\n");	    
+	    // create new row
+	    if (i % rowLength == 0 && i != capacity - 1) strBuilder.append("\n");
 	}
 	strBuilder.append("]");
 	String str = strBuilder.toString();

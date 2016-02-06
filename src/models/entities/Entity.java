@@ -13,7 +13,9 @@ public class Entity {
     private Inventory inventory;
     private Equipment equipment;
     private EntityIdentifier eIdentifier;
-    
+
+    private Direction directionFacing;
+
     /* METHODS */
 
     /* Default constructor */
@@ -24,7 +26,8 @@ public class Entity {
         inventory = new Inventory();
         equipment = new Equipment();
         eIdentifier = EntityIdentifier.GROUND;
-    }    
+        directionFacing = Direction.NORTH;
+    }
 
     /* modifyStats(:StatModifier)
     ** Adds a StatModifiers object to the Entity's Stats
@@ -39,7 +42,7 @@ public class Entity {
     */
     public int takeDamage(int amount) {
 	stats.setCurrentLife( stats.getCurrentLife() - amount );
-	int remainingLife = stats.getCurrentLife();	
+	int remainingLife = stats.getCurrentLife();
 	if (remainingLife <= 0) {
 	    if ( loseLife() == 0 ) { // if no lives are remaining
 		// Load from last save
@@ -89,13 +92,13 @@ public class Entity {
         return inventory.add(item);
     }
     public void removeItem(Item item){
-        inventory.removeItem(item);
+        inventory.remove(item);
     }
     public boolean equip(EquipableItem item){
-            if(item.getOccupRestriction() == "" || item.getOccupRestriction() == occupation.toString()){
+            if(item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString()){
                 if(stats.compare(item.getStatsRestrictions())){
-                    if(equipment.addItem()){
-                        inventory.removeItem(item);
+                    if(equipment.addItem(item)){
+                        inventory.remove(item);
                         return true;
                     }
                 }
@@ -121,7 +124,7 @@ public class Entity {
         }
     }
     //boolean unequip(Item item) {}
-    /* dropItem(:Item): boolean 
+    /* dropItem(:Item): boolean
     ** Parameters
     ** in: the Item to drop
     ** out: a boolean representing whether or not the drop item action was successful
@@ -129,9 +132,9 @@ public class Entity {
     public void dropItem(Item item){
         inventory.remove(item);
     }
-    //boolean dropItem(Item item) {}        
+    //boolean dropItem(Item item) {}
     /* toString(): String
-    ** out: a string representing the Entities: 
+    ** out: a string representing the Entities:
     ** 1) Occupation
     ** 2) Stats
     ** 3) Inventory
@@ -147,6 +150,13 @@ public class Entity {
 	return inventory;
     }
     
+    public Direction getEntityDirection() {return directionFacing;}
+
+    public void setEntityDirection(Direction direction)
+    {
+        directionFacing = direction;
+    }
+
     public String toString() {
 	String str = name;
 	return str;
