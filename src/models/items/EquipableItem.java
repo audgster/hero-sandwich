@@ -2,12 +2,11 @@ package models.items;
 
 public class EquipableItem extends TakeableItem
 {
+
     /* ATTRIBUTES */
     EquipmentType eType;
     StatModifiers statsRestrictions = new StatModifiers();
     String occupRestriction = "";
-
-
 
     @Override
     public boolean executeInteraction(Entity entity) {
