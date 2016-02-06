@@ -36,7 +36,7 @@ public class CustomizeView extends View{
 
 			BufferedImage smasherImage = null, sneakImage = null, summonerImage = null;
 			try{
-				smasherImage = ImageIO.read(new File("../images/smasher.gif"));
+				smasherImage = ImageIO.read(new File("../images/groundTile.PNG"));
 				sneakImage = ImageIO.read(new File("../images/smasher.gif"));
 				summonerImage = ImageIO.read(new File("../images/smasher.gif"));
 			}
