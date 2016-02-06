@@ -1,22 +1,25 @@
 package initialization;
 
-import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MapCreator {
     private ConfigParser parser;
     //private ItemCreater itemCreater = new ItemCreator();
     private String baseMapTerrain;
-    ArrayList<Node> tileGroups;
-    ArrayList<Node> areaEffectGroups;
-    ArrayList<Node> items;
+    private Node baseMapNode;
+    private List<Node> tileGroups;
+    private List<Node> areaEffectGroups;
+    private List<Node> items;
 
+
+    //Get full map tag not just base Terrain -- you need size of map.
     public MapCreator(String mapFile) {
         parser = new ConfigParser(mapFile);
         baseMapTerrain = parser.getMapBaseTerrain();
+        baseMapNode = parser.getBaseMapTag();
         tileGroups = parser.getTileGroups();
         items = parser.getMapItems();
         areaEffectGroups = parser.getAreaEffectGroups();
@@ -25,8 +28,39 @@ public class MapCreator {
         printItems();
     }
 
-    public void create() {
+    public TestMap create() {
+        int[] mapSize = getMapSize();
+        TestMap map = new TestMap(mapSize[0], mapSize[1]);
+        setTileGroups(map);
+        fillInGrid(map);
+        setAreaOfEffectGroups(map);
+        return map;
+    }
 
+    private void setAreaOfEffectGroups(TestMap map) {
+
+    }
+
+
+    private void setTileGroups(TestMap map) {
+        TileCreator tileCreator = new TileCreator(tileGroups);
+        tileCreator.createTilesOnMap(map);
+    }
+
+    private void fillInGrid(TestMap map) {
+        TestTile mapGrid[][] = map.getMap();
+        for(int i = 0; i < mapGrid[0].length; i++)
+            for (int j = 0; j < mapGrid[0].length; j++)
+                if (mapGrid[i][j] == null)
+                    mapGrid[i][j] = new TestTile("x", "", "");
+    }
+
+    private int[] getMapSize() {
+        Element mapElement = (Element) baseMapNode;
+        String x = mapElement.getAttribute("width");
+        String y = mapElement.getAttribute("height");
+        int mapSize[] = {Integer.parseInt(x), Integer.parseInt(y)};
+        return mapSize;
     }
 
     private void printAreaEffectGroups() {

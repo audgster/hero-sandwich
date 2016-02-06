@@ -1,7 +1,7 @@
 package initialization;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -32,31 +32,31 @@ public class ConfigParser {
 
     }
 
-    public ArrayList<Node> getTileGroups() {
+    public Node getBaseMapTag() {
+        Node map = mapXML.getElementsByTagName("map").item(0);
+        return map;
+    }
+
+    public List<Node> getTileGroups() {
         NodeList tileGroupNodeList = mapXML.getElementsByTagName("tile-group");
-        ArrayList<Node> tileGroups = makeArrayList(tileGroupNodeList);
+        List<Node> tileGroups = makeFilteredList(tileGroupNodeList);
         return tileGroups;
     }
 
-    public ArrayList<Node> getMapItems() {
+    public List<Node> getMapItems() {
         Node itemsParent = mapXML.getElementsByTagName("items").item(0);
-        ArrayList<Node> items = findItemElements(itemsParent.getChildNodes());
+        List<Node> items = makeFilteredList(itemsParent.getChildNodes());
         return items;
     }
 
-    public ArrayList<Node> getAreaEffectGroups() {
+    public List<Node> getAreaEffectGroups() {
         NodeList areaEffectGroupNodeList = mapXML.getElementsByTagName("area-effect-group");
-        ArrayList<Node> areaEffectGroups = makeArrayList(areaEffectGroupNodeList);
+        List<Node> areaEffectGroups = makeFilteredList(areaEffectGroupNodeList);
         return areaEffectGroups;
     }
 
-    private ArrayList<Node> findItemElements(NodeList items) {
-        ArrayList<Node> itemElements = makeArrayList(items);
-        return itemElements;
-    }
-
-    private ArrayList<Node> makeArrayList(NodeList list) {
-        ArrayList<Node> nodeArray = new ArrayList<Node>();
+    private List<Node> makeFilteredList(NodeList list) {
+        List<Node> nodeArray = new ArrayList<Node>();
         for(int i = 0; i < list.getLength(); i++)
             if(list.item(i).getNodeType() == 1)
                 nodeArray.add(list.item(i));
