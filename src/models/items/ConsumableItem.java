@@ -14,8 +14,7 @@ public class ConsumableItem extends TakeableItem
         this.action = action;
     }
 
-    @Override
-    public boolean executeInteraction(Entity entity)
+    public boolean consume(Entity entity)
     {
         return action.execute(entity);
     }
