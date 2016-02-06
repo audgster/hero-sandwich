@@ -14,7 +14,7 @@ public class Inventory {
     public Inventory() {
 	count = 0;
 	capacity = 5;
-	bag = new ArrayList(capacity);
+	bag = new ArrayList<>(capacity);
 	for (int i = 0; i < capacity; ++i) { bag.add(null); }
     }
 
@@ -23,7 +23,7 @@ public class Inventory {
     public Inventory(int n) {
 	count = 0;
 	capacity = n;
-	bag = new ArrayList(capacity);
+	bag = new ArrayList<>(capacity);
 	for (int i = 0; i < capacity; ++i) { bag.add(null); }	
     }
 

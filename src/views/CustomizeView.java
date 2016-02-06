@@ -18,7 +18,7 @@ public class CustomizeView extends View{
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
 	public CustomizeView(Menus menu){
-		setLayout(new FlowLayout());
+		setLayout(new GridLayout(1,3));
 		setMenu(menu);
 		update();
 }
@@ -45,9 +45,13 @@ public class CustomizeView extends View{
 			}
 			ImageIcon icon = new ImageIcon(smasherImage);
 
+		JPanel panel;
 		for(int i = 0; i < options.length; i++){
+			panel = new JPanel();
+			JLabel img = new JLabel(icon);
+			panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 			JLabel label = new JLabel(options[i]);
-			label.setIcon(icon);
+			// label.setIcon(icon);
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			label.setBackground(Color.GREEN);
 			label.setFont(menuFont);
@@ -57,7 +61,9 @@ public class CustomizeView extends View{
 			else{
 				label.setOpaque(false);
 			}
-			add(label);
+			panel.add(img);
+			panel.add(label);
+			add(panel);
 		}
 
 		revalidate();

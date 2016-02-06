@@ -66,7 +66,7 @@ public  class AvatarState extends ControllerState{
 
     private void triggerMotion(Direction direction)
     {
-        if(game.gameEngine.changeEntityLocation(game.currentLevel, game.avatar, direction)) {
+        if(game.getGameEngine().changeEntityLocation(game.getCurrentLevel(), game.getAvatar(), direction)) {
             System.out.println("The Avatar moved " + direction.toString().toLowerCase());
         }
         else

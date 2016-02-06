@@ -1,5 +1,6 @@
 package controllers;
 
+import models.gameengine.HardCodedGameEngineInitializer;
 import models.menus.*;
 import util.Game;
 
@@ -11,6 +12,7 @@ public class Controller{
 	public Controller()
     {
 		state = new MenuState();
+        game = new Game(new HardCodedGameEngineInitializer());
 	}
 
 	public void executeUserInput(char input){
