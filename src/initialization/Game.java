@@ -2,12 +2,14 @@ package initialization;
 
 
 import models.entities.Entity;
+import models.map.Map;
 
 import java.util.List;
 
 public class Game {
     private List<Level> levels;
     //private Entity avatar;
+    private int levelNumber;
 
     public Game() {}
 
@@ -19,6 +21,9 @@ public class Game {
     public void newGame() {
         GameFacade gameCreator = new GameFacade();
         gameCreator.createNewGame(this);
+        levelNumber = 1;
+        Map map = levels.get(levelNumber-1).getMap();
+        map.printMap();
     }
 
     public void loadGame() {
