@@ -137,6 +137,7 @@ public class Entity implements Drawable
 	    if ( stats.checkRestrictions( item.getStatsRestrictions() ) ){
 		if ( equipment.equip(item) ){
 		    inventory.remove(item);
+		    modifyStats( item.getStatModifiers() );
 		    return successful;
 		}
 	    }
