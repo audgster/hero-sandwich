@@ -1,6 +1,6 @@
-package models.entities.*;
+package models.entities;
 
-import models.Items.*;
+import models.items.*;
 
 public class Equipment {
 

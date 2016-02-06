@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.Items.*;
+import models.items.*;
 import java.util.ArrayList;
 
 public class Inventory {

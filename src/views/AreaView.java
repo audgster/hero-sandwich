@@ -6,6 +6,7 @@ import models.map.Tile;
 import util.*;
 import java.awt.*;
 import java.lang.Math;
+import java.util.*;
 
 public class AreaView extends View {
 	
