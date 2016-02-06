@@ -12,11 +12,12 @@ public class CustomizeView extends View{
 	private int currentIndex;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
-	public CustomizeView(Menus menu){
+	public CustomizeView(ViewManager vm){
+		menu = new CustomizeMenu(vm);
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setMenu(menu);
 		update();
-	}
+}
 
 	public void setMenu(Menus menu){
 

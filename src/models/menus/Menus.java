@@ -2,6 +2,7 @@ package models.menus;
 import java.util.ArrayList;
 import models.menus.options.*;
 import views.*;
+import controllers.*;
 
 
 public abstract class Menus{
@@ -10,6 +11,7 @@ public abstract class Menus{
   private ArrayList<Listener> listenerList;
   private int listPosition;
   private ViewManager vm;
+  private Controller cm;
 
   protected Menus(Option[] listOfOptions, ArrayList<Listener> listenerList, ViewManager vm){
     this.listOfOptions = listOfOptions;
@@ -57,9 +59,13 @@ public abstract class Menus{
     }
   }
 
+  public void setController(Controller cm){
+    this.cm = cm;
+  }
+
   public void enter(){
       System.out.println(vm);
-      currentlySelected.execute(vm);
+      currentlySelected.execute(vm, cm);
       notifyListeners();
   }
 
