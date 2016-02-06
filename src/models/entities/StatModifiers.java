@@ -38,6 +38,28 @@ public class StatModifiers extends Stats {
 	armorRating = 0;	
     }
 
+    /* Array parameterized constructor
+     * The indices of the array correspond to the order of the attributes in the fully parameterized
+     * constructor (below). 
+     * If the full 10 stats are not provided, the remaining stats are initialized to 0 and a warning is printed
+     */
+    public StatModifiers(int[] stats) {
+	try {	    
+	    setStrength ( stats[0] );
+	    setAgility  ( stats[1] );
+	    setIntellect( stats[2] );
+	    setHardiness( stats[3] );
+	    setMovement ( stats[4] );
+	    life = stats[5];
+	    mana = stats[6];
+	    offRating = stats[7];
+	    defRating = stats[8];
+	    armorRating = stats[9];		    
+	} catch ( IndexOutOfBoundsException e ) {
+	    System.err.println("Warning: Stats " + e.getMessage() + "-9 initialized to 0" );
+	}
+    }   
+    
     /* Fully parameterized constructor */
     public StatModifiers(int str, int agl, int intel, int har, int mov,
 			 int life, int mana,
@@ -50,7 +72,7 @@ public class StatModifiers extends Stats {
 	this.defRating = defRating;
 	this.armorRating = armorRating;
     }
-    
+
     
     /* Accessors */
     /* ========================= */
@@ -96,12 +118,15 @@ public class StatModifiers extends Stats {
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
+	strBuilder.append( super.toString() );
 	strBuilder.append("[StatModifiers:");
+	strBuilder.append(" " + life + " ");	
+	strBuilder.append(" " + mana + " ");	
 	strBuilder.append(" " + offRating + " ");
 	strBuilder.append(" " + defRating + " ");
 	strBuilder.append(" " + armorRating + " ");
 	strBuilder.append("]");
-	String str = strBuilder.toString() + super.toString();
+	String str = strBuilder.toString();
 	return str;
     }
 }

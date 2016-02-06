@@ -4,6 +4,6 @@ public class Sneak extends Occupation {
     
 
     public String toString(){
-    	return "Smasher";
+    	return "Sneak";
     }
 }
