@@ -1,13 +1,15 @@
 package views;
 
+import models.entities.Entity;
 import models.entities.Stats;
 
 public class StatsView extends View{
 	
 	private Stats avatarStats;
 	
-	public StatsView(Stats avatarStats){
-		this.avatarStats = avatarStats;
+	public StatsView(Entity avatar){
+		this.avatarStats = avatar.getEntityStats();
+		avatar.addListener(this);
 	}
 	
 	protected void render(){

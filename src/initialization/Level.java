@@ -1,15 +1,17 @@
 package initialization;
 
+import models.map.Map;
+
 public class Level {
-    private TestMap map;
+    private Map map;
     private int levelNumber;
 
-    public Level(int levelNumber, TestMap map) {
+    public Level(int levelNumber, Map map) {
         this.map = map;
         this.levelNumber = levelNumber;
     }
 
-    public void setMap(TestMap map) {
+    public void setMap(Map map) {
         this.map = map;
     }
 
@@ -17,7 +19,7 @@ public class Level {
         this.levelNumber = levelNumber;
     }
 
-    public TestMap getMap() {
+    public Map getMap() {
         return map;
     }
 
