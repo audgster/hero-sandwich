@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.*;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
+import java.awt.Color;
 import javax.swing.JPanel;
 import java.lang.Math;
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class AreaView extends View {
 	private Level level;
 	private Entity avatar;
 	private HashSet<Position> viewablePositions;
+	private int topLeftX;
+	private int topLeftY;
 	private static final int tileSize = 64;
 
 	public AreaView() {
@@ -32,9 +35,87 @@ public class AreaView extends View {
 		this.level = level;
 		this.avatar = avatar;
 	}
-
+	
+	protected void paintComponent(Graphics g){
+		super.paintComponent(g);
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0,getWidth(), getHeight());
+		
+		//render the Tiles, AoEs, and Items
+		for(Position p : viewablePositions){
+			
+			if(level.returnTileAt(p) == null){
+				continue;
+			}
+			
+			Tile tile = level.returnTileAt(p);
+			try{
+				Image tileImage = ImageIO.read(new File(tile.getImageId()));
+			}
+			catch(IOException e){
+				throw e;
+				break;
+			}
+			int x = tileSize * (p.getX() - topLeftX);
+			int y = tileSize * (p.getY() - topLeftY);
+			g.drawImage(tileImage, x, y, null);
+			
+			HashSet<AreaOfEffect> aoeSet = tile.getAllAoE();
+			for(AreaOfEffect aoe: aoeSet){
+				
+				try{
+					Image aoeImage = ImageIO.read(new File(aoe.getImageId()));
+				}
+				catch(IOException e){
+					throw e;
+					break;
+				}
+				g.drawImage(aoeImage, x, y, null);
+				
+			}
+			
+			HashSet<Item> itemSet = tile.getAllItems();
+			for(Item item: itemSet){
+				
+				try{
+					Image itemImage = ImageIO.read(new File(item.getImageId()));
+				}
+				catch(IOException e){
+					throw e;
+					break;
+				}
+				g.drawImage(itemImage, x, y, null);
+				
+			}
+			
+		}
+		
+		//render the Entities
+		HashSet<Entity> entitySet = level.getAllEntitiesIn(viewablePositions);
+		for(Entity entity: entitySet){
+			
+			try{
+				Image entityImage = ImageIO.read(new File(entity.getImageId()));
+			}
+			catch(IOException e){
+				throw e;
+				break;
+			}
+			Position p = level.returnCurrentPosition(entity);
+			int x = tileSize * (p.getX() - topLeftX);
+			int y = tileSize * (p.getY() - topLeftY);
+			g.drawImage(tileImage, x, y, null);
+			
+		}
+		
+	}
+	
 	protected void render(){
-		Graphics g = getComponentGraphics();
+		
+		repaint();
+		//Graphics g = getComponentGraphics();
+		
+		/*
 		int x = 0;
 		int y = 0;
 		BufferedImage tileImg = null;
@@ -43,8 +124,10 @@ public class AreaView extends View {
 			tileImg = ImageIO.read(new File("../images/groundTile.PNG"));
 			avatarImg = ImageIO.read(new File("../images/smasher.gif"));
 		}catch(IOException e){System.out.println("Error");}
-
+		*/
+		
 		//for each tile in viewable area
+		/*
 		for(Position p : viewablePositions){
 			if(level.returnTileAt(p) == null){
 				continue;
@@ -52,7 +135,8 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 
 		}
-
+		*/
+		/*
 		for(int i = 0; i < 10; i++){
 			y = 64 * i;
 			for(int j = 0; j < 10; j++){
@@ -61,7 +145,9 @@ public class AreaView extends View {
 			}
 		}
 		g.drawImage(avatarImg,0,0,64,64,null);
+		*/
 		//use Aud's DoubleHashMap thingy to get the entities
+		
 	}
 
 	public void update(){
@@ -72,8 +158,8 @@ public class AreaView extends View {
 		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tilesize);
 
 		//find the top-left tile position
-		int topLeftX = avatarPosition.getX() - (numTilesWide / 2);
-		int topLeftY = avatarPosition.getY() - (numTilesHigh / 2);
+		topLeftX = avatarPosition.getX() - (numTilesWide / 2);
+		topLeftY = avatarPosition.getY() - (numTilesHigh / 2);
 
 		viewablePositions = new HashSet<Position>();
 		for(int i = 0; i < numTilesWide; i++){
