@@ -1,11 +1,12 @@
 package models.menus;
 import java.util.ArrayList;
+import models.Subject;
 import models.menus.options.*;
 import views.*;
 import controllers.*;
 
 
-public abstract class Menus{
+public abstract class Menus implements Subject{
   private Option currentlySelected;
   private Option[] listOfOptions;
   private ArrayList<Listener> listenerList;
@@ -53,7 +54,7 @@ public abstract class Menus{
     listenerList.remove(listener);
   }
 
-  protected void notifyListeners() {
+  public void notifyListeners() {
     for(int i = 0; i < listenerList.size(); i++) {
       listenerList.get(i).update();
     }

@@ -13,7 +13,7 @@ public class Equipment {
     
     /* Constructor */
     public Equipment() {
-	equipment = new HashMap();
+	equipment = new HashMap<EquipmentType, EquipableItem>();
 	equipment.put(EquipmentType.HELM, null);
 	equipment.put(EquipmentType.ARMOR, null);
 	equipment.put(EquipmentType.LEGGINGS, null);
@@ -66,7 +66,7 @@ public class Equipment {
     public String toString() {	   
 	StringBuilder strBuilder = new StringBuilder();
 	strBuilder.append("[Equipment:\n");
-	Set setOfETypes = equipment.keySet();
+	Set<EquipmentType> setOfETypes = equipment.keySet();
 	Iterator<EquipmentType> iter = setOfETypes.iterator();
 	
 	while ( iter.hasNext() ) {

@@ -1,7 +1,5 @@
 package initialization;
 
-import com.sun.corba.se.impl.oa.poa.AOMEntry;
-
 public class TestTile {
     private String terrain;
     private String AOE;
@@ -27,7 +25,14 @@ public class TestTile {
     }
 
     public String toString() {
-        return terrain;
+        if(AOE != "")
+            return AOE;
+        else if(item != "")
+                return item;
+        else if(terrain != "")
+                return terrain;
+        else
+            return null;
     }
 
 }
