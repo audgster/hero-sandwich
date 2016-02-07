@@ -13,4 +13,10 @@ public abstract class TakeableItem extends Item
     {
         return entity.addItem(this);
     }
+
+  @Override
+  public String toString() {
+    String str = getName();
+    return str;
+  }
 }
