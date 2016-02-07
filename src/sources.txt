@@ -9,7 +9,9 @@
 ./initialization/Driver.java
 ./initialization/EntityCreator.java
 ./initialization/GameFacade.java
+./initialization/GameWriter.java
 ./initialization/ItemCreator.java
+./initialization/Level.java
 ./initialization/LevelCreator.java
 ./initialization/MapCreator.java
 ./initialization/TileCreator.java
@@ -73,8 +75,8 @@
 ./models/menus/MainMenu.java
 ./models/menus/Menus.java
 ./models/menus/options/DropItemOption.java
-./models/menus/options/EquiptItemOption.java
-./models/menus/options/EquiptmentOption.java
+./models/menus/options/EquipItemOption.java
+./models/menus/options/EquipmentOption.java
 ./models/menus/options/ExitOption.java
 ./models/menus/options/InventoryOption.java
 ./models/menus/options/LoadGameOption.java
@@ -89,12 +91,13 @@
 ./models/menus/options/SneakOption.java
 ./models/menus/options/StartOption.java
 ./models/menus/options/SummonerOption.java
-./models/menus/options/UnequiptItemOption.java
+./models/menus/options/UnequipItemOption.java
 ./models/menus/PauseMenu.java
 ./models/Subject.java
 ./RunGame.java
 ./util/Direction.java
 ./util/EntityIdentifier.java
+./util/exceptions/InvalidStatException.java
 ./util/Game.java
 ./util/HardCodedSpriteInitializer.java
 ./util/ISpriteMapInitializer.java
@@ -107,8 +110,11 @@
 ./views/CustomizeView.java
 ./views/Decal.java
 ./views/Drawable.java
+./views/EquipmentView.java
+./views/InventoryView.java
 ./views/Listener.java
 ./views/MenuView.java
+./views/PauseView.java
 ./views/StatsView.java
 ./views/View.java
 ./views/ViewManager.java
