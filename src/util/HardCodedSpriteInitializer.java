@@ -39,7 +39,7 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		//Tile
 		spriteMap.put("Tile_GROUND", "../images/Tile_Ground.png");
 		spriteMap.put("Tile_WATER", "../images/Tile_Water.png");
-		spriteMap.put("Tile_MOUNTAINn", "../images/Tile_Mountain.png");
+		spriteMap.put("Tile_MOUNTAIN", "../images/Tile_Mountain.png");
 
         return spriteMap;
     }
