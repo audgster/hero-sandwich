@@ -23,14 +23,14 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Item_ObstacleItem", "../images/Item_Obstacle.png");
 
         //Entity
-        spriteMap.put("Entity_Smasher_NORTH", "../images/Entity_Smasher_0.png");
-		spriteMap.put("Entity_Smasher_NORTHEAST", "../images/Entity_Smasher_1.png");
-		spriteMap.put("Entity_Smasher_EAST", "../images/Entity_Smasher_2.png");
-		spriteMap.put("Entity_Smasher_SOUTHEAST", "../images/Entity_Smasher_3.png");
-		spriteMap.put("Entity_Smasher_SOUTH", "../images/Entity_Smasher_4.png");
-		spriteMap.put("Entity_Smasher_SOUTHWEST", "../images/Entity_Smasher_5.png");
-		spriteMap.put("Entity_Smasher_WEST", "../images/Entity_Smasher_6.png");
-		spriteMap.put("Entity_Smasher_NORTHWEST", "../images/Entity_Smasher_7.png");
+        spriteMap.put("Entity_Smasher_NORTH", "../images/Entity_Smasher_N.png");
+		spriteMap.put("Entity_Smasher_NORTHEAST", "../images/Entity_Smasher_NE.png");
+		spriteMap.put("Entity_Smasher_EAST", "../images/Entity_Smasher_E.png");
+		spriteMap.put("Entity_Smasher_SOUTHEAST", "../images/Entity_Smasher_SE.png");
+		spriteMap.put("Entity_Smasher_SOUTH", "../images/Entity_Smasher_S.png");
+		spriteMap.put("Entity_Smasher_SOUTHWEST", "../images/Entity_Smasher_SW.png");
+		spriteMap.put("Entity_Smasher_WEST", "../images/Entity_Smasher_W.png");
+		spriteMap.put("Entity_Smasher_NORTHWEST", "../images/Entity_Smasher_NW.png");
 		
         spriteMap.put("Entity_Sneak_0", "../images/Entity_Sneak_0.png");
 		
