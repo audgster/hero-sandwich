@@ -286,6 +286,11 @@ public class Entity implements Drawable, Subject
     {
 	    return inventory;
     }
+
+    public Equipment getEquipment()
+    {
+	return equipment;
+    }
     
     public Direction getEntityDirection()
     {
