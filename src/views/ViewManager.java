@@ -74,6 +74,7 @@ public class ViewManager extends View{
 			//game object will  game.getLevel();
 			areaView.setVisible(true);
 			statsView.setVisible(true);
+			areaView.setPreferredSize(new Dimension(getWidth(), getHeight()));
 			add(areaView, BorderLayout.CENTER);
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
