@@ -47,4 +47,8 @@ public class Game {
     public void printLevel() {
         System.out.println(levels.get(0));
     }
+
+    public Level getLevel(){
+        return levels.get(levelNumber-1);
+    }
 }

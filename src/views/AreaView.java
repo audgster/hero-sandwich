@@ -28,10 +28,6 @@ public class AreaView extends View {
 	private int topLeftY;
 	private static final int tileSize = 64;
 
-	public AreaView() {
-
-	}
-
 	public AreaView(Level level, Entity avatar){
 		this.level = level;
 		this.avatar = avatar;
