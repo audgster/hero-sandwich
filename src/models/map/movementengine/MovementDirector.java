@@ -43,11 +43,14 @@ public class MovementDirector implements IMovementDirector
         Position currentEntityPosition = level.returnCurrentPosition(entity);
         Position destinationPosition = currentEntityPosition.incrementPosition(direction);
 
-        Tile tileAtDestination = level.returnTileAt(destinationPosition);
+        if(level.isValidLocation(destinationPosition)) {
 
-        if(rulesEngine.evaluateRule(tileAtDestination, entity))
-            return destinationPosition;
-        else
-            return currentEntityPosition;
+            Tile tileAtDestination = level.returnTileAt(destinationPosition);
+
+            if (rulesEngine.evaluateRule(tileAtDestination, entity))
+                return destinationPosition;
+        }
+
+        return currentEntityPosition;
     }
 }
