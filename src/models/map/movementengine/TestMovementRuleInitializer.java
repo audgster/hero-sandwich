@@ -7,7 +7,7 @@ import util.TerrainGroup;
 
 import java.util.HashMap;
 
-public class TestMovementRuleInitializaer implements IMovementRuleInitializer
+public class TestMovementRuleInitializer implements IMovementRuleInitializer
 {
     @Override
     public HashMap<String, IMovementRule> initializeMovementRules() {
