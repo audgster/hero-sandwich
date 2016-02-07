@@ -72,12 +72,12 @@ public class ViewManager extends View{
 			// ILocationManager locationManager = new ILocationMangager();
 			//game object will  game.getLevel();
 			add(areaView, BorderLayout.CENTER);
-			statsView.setPreferredSize(new Dimension(getWidth()/6, getHeight()));
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
 		else{
 			//something screwed up
-			System.out.println("Mode not set");
+			System.out.println("Mode not set. No sub-views rendered");
 		}
 
 		revalidate();
@@ -86,6 +86,20 @@ public class ViewManager extends View{
 
 	public void update(){
 		//something
+		if(mode == Mode.MAIN_MENU){
+			menuViews.get(0).update();
+		}
+		else if(mode == Mode.CUSTOMIZE_MENU){
+			menuViews.getLast().update();
+		}
+		else if(mode == Mode.GAME){
+			areaView.update();
+			statsView.update();
+		}
+		else{
+			//nothing updates
+			System.out.println("Mode not set. No sub-views updated");
+		}
 		render();
 	}
 
