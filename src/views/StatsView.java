@@ -17,7 +17,7 @@ public class StatsView extends View{
 	
 	protected void render(){
 		removeAll();
-		setBackground(Color.BLACK);
+		setBackground(Color.BLUE);
 		GridBagConstraints c = new GridBagConstraints();
 		
 		//draw level icon, set label to level

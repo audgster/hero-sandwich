@@ -38,7 +38,7 @@ public class AreaView extends View {
 	
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.setColor(Color.BLACK);
+		g.setColor(Color.RED);
 		g.fillRect(0,0,getWidth(), getHeight());
 		
 		//render the Tiles, AoEs, and Items
