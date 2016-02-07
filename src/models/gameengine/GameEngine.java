@@ -34,6 +34,8 @@ public class GameEngine implements IGameEngine
 
         Tile destinationTile = movementDirector.executeMovement(entity, destinationPosition, level);
         //trigger any level interactions
+
+        System.out.println("[GAMEENGINE] Triggering tile interactions");
         return triggerInteraction(destinationTile, entity);
     }
 
