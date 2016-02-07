@@ -66,7 +66,7 @@ public class StatsView extends View{
 		// 		" / " + avatarStats.getLife());
 		// hpLabel.setFont(statFont);
 		// add(hpLabel, c);
-		JProgreeBar healthBar = new JProgressBar (0,100);
+		JProgressBar healthBar = new JProgressBar (0,100);
 		add(healthBar, c);
 		
 		//draw mana icon, draw manabar currMana/maxMana
