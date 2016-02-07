@@ -34,7 +34,7 @@ public class MapCreator {
         setTileGroups(map);
         fillInGrid(map);
         setAreaOfEffectGroups(map);
-        //setItems(map);
+        setItems(map);
         //map.printMap();
         return map;
     }

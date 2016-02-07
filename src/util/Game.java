@@ -32,10 +32,12 @@ public class Game
 
     public void newGame() {
         GameFacade gameCreator = new GameFacade();
-        //gameCreator.createNewGame(this);
+        gameCreator.createNewGame(this);
         currentLevel = 1;
         Map map = levels.get(currentLevel-1).getMap();
         map.printMap();
+        map.printAoes();
+        map.printItems();
     }
 
     public void loadGame() {
