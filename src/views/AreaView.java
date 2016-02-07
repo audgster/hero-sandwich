@@ -41,6 +41,8 @@ public class AreaView extends View {
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
 		g.fillRect(0,0,getWidth(), getHeight());
+		g.setColor(Color.WHITE);
+		g.drawRect(0,0,getWidth(), getHeight());
 		//I know the AreaView can get its location here
 		update2();
 
