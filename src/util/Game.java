@@ -16,7 +16,7 @@ public class Game
     List<Level> levels;
     private Entity avatar;
     private IGameEngine gameEngine;
-    private Position startPosition = new Position(0,0);
+    private Position startPosition = new Position(5,5);
 
     public Game(IGameEngineInitializer initializer) {
         this.gameEngine = initializer.initialize();
