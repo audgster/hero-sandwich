@@ -70,11 +70,19 @@ public class CustomizeView extends View{
 			gBC.gridy = 0;
 
 			icon = new ImageIcon(images[i]);
-			panel = new JPanel();
 			img = new JLabel(icon);
-			panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-			label = new JLabel(options[i]);
-			// label.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+			add(img, gBC);
+		}
+
+		for(int i = 0; i < options.length; i++){
+			gBC.fill = GridBagConstraints.HORIZONTAL;
+			gBC.ipady = 10;
+			gBC.weightx = 1;
+			gBC.gridx = i;
+			gBC.gridy = 1;
+
+			label = new JLabel(options[i], SwingConstants.CENTER);
 			label.setBackground(Color.GREEN);
 			label.setFont(menuFont);
 			if(currentIndex == i){
@@ -83,11 +91,11 @@ public class CustomizeView extends View{
 			else{
 				label.setOpaque(false);
 			}
-			panel.add(img);
-			panel.add(label);
-			add(panel, gBC);
+			add(label, gBC);
 		}
 	}
+
+
 
 	public void update(){
 		Option[] menuOptions = menu.getListOfOptions();
