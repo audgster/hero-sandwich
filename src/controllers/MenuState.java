@@ -1,31 +1,30 @@
 package controllers;
-import models.menus.*;
 
 public  class MenuState extends ControllerState{
-	private Menus menu;
-	public String getName(){
-		return "Menu";
+	Controller controller;
+	public MenuState(Controller controller){
+		this.controller = controller;
 	}
 
 	public void north(){
-		System.out.println(getName() + " went up");
-		menu.scrollUp();
+		System.out.println(toString() + " went up");
+		controller.scrollUp();
 	}
 	public void northEast(){}
 	public void east(){}
 	public void southEast(){}
 	public void south(){
-		System.out.println(getName() + " went down");
-		menu.scrollDown();
+		System.out.println(toString() + " went down");
+		controller.scrollDown();
 	}
 	public void southWest(){}
 	public void west(){}
 	public void northWest(){}
-	public void select(){
-		menu.enter();
+	public void enter(){
+		controller.enter();
 	}
-	public void setMenu(Menus newMenu){
-		this.menu = newMenu;
 
+	public String toString(){
+		return "Menu";
 	}
 }

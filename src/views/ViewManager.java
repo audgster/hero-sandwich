@@ -12,6 +12,7 @@ public class ViewManager extends View{
 
 	private AreaView areaView;
 	private StatsView statsView;
+	private PauseView pauseView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
 	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
@@ -19,7 +20,8 @@ public class ViewManager extends View{
 	private enum Mode{
 		MAIN_MENU,
 		CUSTOMIZE_MENU,
-		GAME
+		GAME,
+		PAUSE
 	};
 	private Mode mode;
 
@@ -80,6 +82,14 @@ public class ViewManager extends View{
 			add(statsView, BorderLayout.LINE_START);
 			System.out.println("the size of the fram is " + areaView.getWidth());
 		}
+		else if(mode == Mode.PAUSE){
+			pauseView.setVisible(true);
+			statsView.setVisible(true);
+			pauseView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(pauseView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+			add(statsView, BorderLayout.LINE_START);
+		}
 		else{
 			//something screwed up
 			//System.out.println("Mode not set. No sub-views rendered");
@@ -136,6 +146,13 @@ public class ViewManager extends View{
 		mode = Mode.GAME;
 		areaView = new AreaView(level, avatar);
 		statsView = new StatsView(avatar);
+		menuViews.clear();
+		update();
+	}
+
+	public void setPauseMode(Menus pMenu){
+		mode = Mode.PAUSE;
+		pauseView = new PauseView();
 		menuViews.clear();
 		update();
 	}
