@@ -12,6 +12,6 @@ public class InventoryMenu extends Menus{
    */
   public InventoryMenu(ViewManager vm){
     super(new Option[]{new StartOption(), new PauseOption(),
-            new EquiptItemOption(), new DropItemOption()}, new ArrayList<>(), vm);
+            new EquiptItemOption(), new DropItemOption()}, new ArrayList<Listener>(), vm);
   }
 }

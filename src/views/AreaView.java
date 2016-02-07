@@ -115,18 +115,49 @@ public class AreaView extends View {
 			}
 			
 		}
+
+
+
+
+		BufferedImage entityImage = null;
+		try{
+			System.out.println("FOUND THE AVATAR");
+			entityImage = ImageIO.read(new File(
+					spriteMap.getResourcePath(avatar.getImageId())));
+		}
+		catch(IOException e){
+			//throw e;
+			System.out.println("cannot find AVATAR images");
+			
+		}
+		catch(Exception e){
+			//throw e;
+			e.printStackTrace();
+			
+		}
+		Position p = level.returnCurrentPosition(avatar);
+		int x = tileSize * (p.getX() - topLeftX);
+		int y = tileSize * (p.getY() - topLeftY);
+		g.drawImage(entityImage, x, y, null);
 		
+		/*System.out.println("BOUT TO CHECK THE ENTITIES");
+		Collection<Position> tempPos = new HashSet<Position>();
+		tempPos.add(new Position(5,5));
 		//render the Entities
 		Collection<Entity> entitySet = level.getAllEntitiesIn(viewablePositions);
+		System.out.println("amount of entities on the level " + entitySet.size());
+		System.out.println(level.toString());
 		for(Entity entity: entitySet){
-			
+			System.out.println("CHECKING THE ENTITIES");
 			BufferedImage entityImage = null;
 			try{
+				System.out.println("FOUND THE AVATAR");
 				entityImage = ImageIO.read(new File(
 						spriteMap.getResourcePath(entity.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
+				System.out.println("cannot find AVATAR images");
 				break;
 			}
 			catch(Exception e){
@@ -139,7 +170,7 @@ public class AreaView extends View {
 			int y = tileSize * (p.getY() - topLeftY);
 			g.drawImage(entityImage, x, y, null);
 			
-		}
+		}*/
 		
 	}
 	

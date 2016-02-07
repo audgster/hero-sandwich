@@ -87,4 +87,13 @@ public class LocationManager implements ILocationManager
 
         return twoWayHashMap.getByValue(entity);
     }
+
+    //public Position getPosition(int x, int y){
+//
+  //  }
+
+    public String toString()
+    {
+        return twoWayHashMap.toString();
+    }
 }

@@ -19,13 +19,13 @@ import models.*;
 		ac.setName("Brandon");
 		ac.setOccupation(new Sneak());
 		Entity avatar = ac.vendCustomEntity();
+		game.initializeAvatar(avatar);
 
 		Level level = game.getLevel();
-		AreaView area = new AreaView(level, avatar);
 
 		cm.changeState();
 		cm.setGame(game);
+
 		vm.setGameMode(level, avatar);
-		vm.update();
 	}
 }
