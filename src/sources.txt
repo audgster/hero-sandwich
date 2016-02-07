@@ -108,7 +108,6 @@
 ./views/Decal.java
 ./views/Drawable.java
 ./views/Listener.java
-./views/MainMenuView.java
 ./views/MenuView.java
 ./views/StatsView.java
 ./views/View.java
