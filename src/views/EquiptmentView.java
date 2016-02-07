@@ -5,9 +5,9 @@ import models.menus.options.Option;
 import java.awt.*;
 import javax.swing.*;
 
-public class PauseView extends MenuView{
+public class EquiptmentView extends MenuView{
 
-  public PauseView(Menus menu){
+  public EquiptmentView(Menus menu){
     super(menu);
   }
 
