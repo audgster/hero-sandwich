@@ -10,6 +10,7 @@ import util.*;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.lang.Exception;
 import java.util.*;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
@@ -27,6 +28,7 @@ public class AreaView extends View {
 	private int topLeftX;
 	private int topLeftY;
 	private static final int tileSize = 64;
+	private SpriteMap spriteMap = new SpriteMap(new HardCodedSpriteInitializer());
 
 	public AreaView(Level level, Entity avatar){
 		this.level = level;
@@ -48,10 +50,16 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 			BufferedImage tileImage = null;
 			try{
-				tileImage = ImageIO.read(new File(tile.getImageId()));
+				tileImage = ImageIO.read(new File(
+						spriteMap.getResourcePath(tile.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
+				break;
+			}
+			catch(Exception e){
+				//throw e;
+				e.printStackTrace();
 				break;
 			}
 			int x = tileSize * (p.getX() - topLeftX);
@@ -63,10 +71,16 @@ public class AreaView extends View {
 				
 				BufferedImage aoeImage = null;
 				try{
-					aoeImage = ImageIO.read(new File(aoe.getImageId()));
+					aoeImage = ImageIO.read(new File(
+							spriteMap.getResourcePath(aoe.getImageId())));
 				}
 				catch(IOException e){
 					//throw e;
+					break;
+				}
+				catch(Exception e){
+					//throw e;
+					e.printStackTrace();
 					break;
 				}
 				g.drawImage(aoeImage, x, y, null);
@@ -78,10 +92,16 @@ public class AreaView extends View {
 				
 				BufferedImage itemImage = null;
 				try{
-					itemImage = ImageIO.read(new File(item.getImageId()));
+					itemImage = ImageIO.read(new File(
+							spriteMap.getResourcePath(item.getImageId())));
 				}
 				catch(IOException e){
 					//throw e;
+					break;
+				}
+				catch(Exception e){
+					//throw e;
+					e.printStackTrace();
 					break;
 				}
 				g.drawImage(itemImage, x, y, null);
@@ -96,10 +116,16 @@ public class AreaView extends View {
 			
 			BufferedImage entityImage = null;
 			try{
-				entityImage = ImageIO.read(new File(entity.getImageId()));
+				entityImage = ImageIO.read(new File(
+						spriteMap.getResourcePath(entity.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
+				break;
+			}
+			catch(Exception e){
+				//throw e;
+				e.printStackTrace();
 				break;
 			}
 			Position p = level.returnCurrentPosition(entity);

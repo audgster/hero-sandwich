@@ -261,6 +261,6 @@ public class Entity implements Drawable, Subject
 
     @Override
     public String getImageId() {
-        return "Entity_" + occupation.getClass().getSimpleName() + "_" + eIdentifier.toString().toLowerCase();
+        return "Entity_" + occupation.getClass().getSimpleName() + "_" + getEntityDirection().toString();
     }
 }
