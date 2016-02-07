@@ -16,16 +16,16 @@ public class CustomizeView extends View{
 	private String[] options;
 	private int currentIndex;
 	private GridBagConstraints gBC;
+	private Option[] menuOptions;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
 	public CustomizeView(Menus menu){
 		setLayout(new GridBagLayout());
 		setMenu(menu);
 		gBC = new GridBagConstraints();
-		//if (shouldFill) {
-      //natural height, maximum width
-      gBC.fill = GridBagConstraints.HORIZONTAL;
-		//}
+    gBC.fill = GridBagConstraints.HORIZONTAL;
+		menuOptions = menu.getListOfOptions();
+		options = new String[menuOptions.length];
 		update();
 }
 
@@ -51,19 +51,15 @@ public class CustomizeView extends View{
 		}
 
 		createLayout(avatarImages);
-		//JTextField textfield = new JTextField();
-		//add(textfield, BorderLayout.NORTH);
 		revalidate();
 		repaint();
 	}
 
 	private void createLayout(BufferedImage[] images){
 		ImageIcon icon;
-		JPanel panel;
 		JLabel img, label;
 		String[] region = {BorderLayout.WEST, BorderLayout.CENTER, BorderLayout.EAST};
 		for(int i = 0; i < options.length; i++){
-			gBC.fill = GridBagConstraints.HORIZONTAL;
 			gBC.ipady = 40;
 			gBC.weightx = 1;
 			gBC.gridx = i;
@@ -76,7 +72,6 @@ public class CustomizeView extends View{
 		}
 
 		for(int i = 0; i < options.length; i++){
-			gBC.fill = GridBagConstraints.HORIZONTAL;
 			gBC.ipady = 10;
 			gBC.weightx = 1;
 			gBC.gridx = i;
@@ -95,12 +90,8 @@ public class CustomizeView extends View{
 		}
 	}
 
-
-
 	public void update(){
-		Option[] menuOptions = menu.getListOfOptions();
 		Option current = menu.getCurrentlySelected();
-		options = new String[menuOptions.length];
 
 		for(int i = 0; i < menuOptions.length; i++){
 			options[i] = menuOptions[i].toString();
