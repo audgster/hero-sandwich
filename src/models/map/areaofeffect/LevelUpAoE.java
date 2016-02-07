@@ -8,6 +8,7 @@ public class LevelUpAoE extends AreaOfEffect
     public boolean executeInteraction(Entity entity)
     {
         entity.levelUp();
+        System.out.println("[LEVELUPAOE] Entity leveled up");
         return true;
     }
 }

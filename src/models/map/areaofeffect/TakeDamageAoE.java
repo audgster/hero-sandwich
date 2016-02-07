@@ -13,6 +13,7 @@ public class TakeDamageAoE extends AreaOfEffect
 
     @Override
     public boolean executeInteraction(Entity entity) {
+        System.out.println("[TAKEDAMAGEAOE] Healing damage amount: " + getDamageAmount());
         entity.takeDamage(getDamageAmount());
 
         return true;
