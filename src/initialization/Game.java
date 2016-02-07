@@ -3,6 +3,7 @@ package initialization;
 
 import models.entities.Entity;
 import models.map.Map;
+import models.map.Tile;
 
 import java.util.List;
 
@@ -23,7 +24,8 @@ public class Game {
         gameCreator.createNewGame(this);
         levelNumber = 1;
         Map map = levels.get(levelNumber-1).getMap();
-        map.printMap();
+        map.printAoes();
+        //map.printMap();
     }
 
     public void loadGame() {
