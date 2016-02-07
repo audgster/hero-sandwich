@@ -16,9 +16,9 @@ public class Entity implements Drawable, Subject
     /* ATTRIBUTES */
     private String name;
     private Occupation occupation;
-    private EntityStats stats;
-    private Inventory inventory;
-    private Equipment equipment;
+    private EntityStats stats;  //TODO
+    private Inventory inventory; //TODO for item statmodifiers
+    private Equipment equipment; //TODO for item statmodifiers
     private EntityIdentifier eIdentifier;
     private Direction directionFacing;
   private List<Listener> subs; // Only the Avatar uses this
@@ -325,12 +325,21 @@ public class Entity implements Drawable, Subject
         return "Entity_" + occupation.getClass().getSimpleName() + "_" + getEntityDirection().toString();
     }
 
-    public List<String> getGameState() {
+    public List<String> getSaveState() {
         List<String> gameState = new ArrayList<String>();
-        gameState.add("Avatar:\n");
-        gameState.add("\tName: " + name + "\n");
-        //Does the below method give good class name????
-        //gameState.add(occupation.getClass().getSimpleName());
+        gameState.add("Avatar { " + System.getProperty("line.separator"));
+        gameState.add("\tName: " + name + System.getProperty("line.separator"));
+        gameState.add("\tEntityIdentifier: " + eIdentifier.toString() + System.getProperty("line.separator"));
+        gameState.add("\tFacing Direction: " + directionFacing.toString() + System.getProperty("line.separator"));
+        gameState.add("\tOccupation: " + occupation.getClass().getSimpleName() + System.getProperty("line.separator"));
+        gameState.add("\tInventory {" + System.getProperty("line.separator"));
+        gameState.addAll(inventory.getSaveState());
+        gameState.add("\t}" +System.getProperty("line.separator"));
+        gameState.add("\tEquipment {" + System.getProperty("line.separator"));
+        gameState.addAll(equipment.getSaveState());
+        gameState.add("\t}" + System.getProperty("line.separator"));
+        gameState.add("}");
+
 
         return gameState;
     }

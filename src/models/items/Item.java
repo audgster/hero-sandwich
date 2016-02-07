@@ -5,9 +5,11 @@ import models.entities.Entity;
 import models.map.interactions.interfaces.IInteractionHandler;
 import views.Drawable;
 
+import java.util.List;
+
 public abstract class Item implements IInteractionHandler, Drawable
 {
-    String name;
+    protected String name;
 
     public Item(String name)
     {
@@ -34,4 +36,6 @@ public abstract class Item implements IInteractionHandler, Drawable
     public String getImageId() {
         return "Item_" + getName() + this.getClass().getSimpleName();
     }
+
+    public List<String> getSaveState() {return null;}
 }

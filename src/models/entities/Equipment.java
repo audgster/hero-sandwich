@@ -1,9 +1,8 @@
 package models.entities;
 
 import models.items.*;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.Iterator;
+
+import java.util.*;
 
 public class Equipment {
     /* ATTRIBUTES */
@@ -14,11 +13,11 @@ public class Equipment {
     /* Constructor */
     public Equipment() {
 	equipment = new HashMap<EquipmentType, EquipableItem>();
-	equipment.put(EquipmentType.HELM, null);
-	equipment.put(EquipmentType.ARMOR, null);
-	equipment.put(EquipmentType.LEGGINGS, null);
-	equipment.put(EquipmentType.BOOTS, null);
-	equipment.put(EquipmentType.WEAPON, null);	
+	equipment.put(EquipmentType.HELM, new EquipableItem("helmet", EquipmentType.HELM, new StatModifiers()));
+	equipment.put(EquipmentType.ARMOR,  new EquipableItem("Armor", EquipmentType.ARMOR, new StatModifiers()));
+	equipment.put(EquipmentType.LEGGINGS,  new EquipableItem("Leggings", EquipmentType.LEGGINGS, new StatModifiers()));
+	equipment.put(EquipmentType.BOOTS,  new EquipableItem("Boots", EquipmentType.BOOTS, new StatModifiers()));
+	equipment.put(EquipmentType.WEAPON,  new EquipableItem("Weapon", EquipmentType.WEAPON, new StatModifiers()));
     }
     
     /* Equip & Unequip */
@@ -82,5 +81,18 @@ public class Equipment {
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
-    }    
+    }
+
+	//getKeys() and then go get values
+
+	public List<String> getSaveState() {
+		List<String> equipmentList = new ArrayList<String>();
+		Set<EquipmentType> keySet = equipment.keySet();
+		for(EquipmentType key : keySet) {
+			equipmentList.add("\t\t" + equipment.get(key).getClass().getSimpleName() + " {" + System.getProperty("line.separator"));
+			equipmentList.addAll(equipment.get(key).getSaveState());
+			equipmentList.add( "\t\t}" + System.getProperty("line.separator"));
+		}
+		return equipmentList;
+	}
 }

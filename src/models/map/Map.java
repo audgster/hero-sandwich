@@ -4,6 +4,8 @@ import models.items.Item;
 import models.map.areaofeffect.AreaOfEffect;
 import util.Position;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Collection;
 
 public class Map
@@ -94,4 +96,15 @@ public class Map
             System.out.println(item.getImageId() + "(" + x + "," + y + ")");
         }
     }
+/*
+    public List<String> getSaveState() {
+        List<String> state = new ArrayList<String>();
+        for(int i = 0; i < grid[0].length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j].hasItem())
+                    state.add(grid[i][j].getClass().getSimpleName() + " ");
+            }
+        }
+    }
+    */
 }

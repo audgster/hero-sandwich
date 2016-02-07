@@ -1,8 +1,10 @@
 package util;
 
+import initialization.AvatarCreator;
 import initialization.GameFacade;
 import models.Level;
 import models.entities.Entity;
+import models.entities.Smasher;
 import models.gameengine.interfaces.IGameEngine;
 import models.gameengine.interfaces.IGameEngineInitializer;
 import models.map.Map;
@@ -23,7 +25,7 @@ public class Game
     public Game(IGameEngineInitializer initializer) {
         this.gameEngine = initializer.initialize();
         levels = new ArrayList<>();
-        avatar = null;
+        avatar =  new Entity();
         currentLevel = -1;
     }
 
@@ -48,13 +50,22 @@ public class Game
     }
 
     public void saveGame() {
-        List<String> state = avatar.getGameState();
+        AvatarCreator ac = new AvatarCreator();
+        ac.setName("Brandon");
+        ac.setOccupation(new Smasher());
+        Entity avatar = ac.vendCustomEntity();
+        List<String> state = avatar.getSaveState();
+        //TODO equipment state
+        //You wrote some crap in Map for state gathering... go finish it
+
 
         try {
             PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
-            for(String val : state) {
+           for(String val : state) {
+                System.out.println("Here");
                 writer.print(val);
             }
+            writer.close();
         }
         catch (Exception e) {
             e.printStackTrace();
