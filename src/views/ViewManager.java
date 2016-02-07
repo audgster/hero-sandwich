@@ -78,6 +78,7 @@ public class ViewManager extends View{
 			add(areaView, BorderLayout.CENTER);
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
+			System.out.println("the size of the fram is " + areaView.getWidth());
 		}
 		else{
 			//something screwed up

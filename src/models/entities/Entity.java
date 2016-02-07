@@ -1,7 +1,6 @@
 package models.entities;
 
 import models.items.*;
-import org.omg.CORBA.DynAnyPackage.Invalid;
 import util.Direction;
 import util.EntityIdentifier;
 import util.exceptions.InvalidStatException;
@@ -21,7 +20,7 @@ public class Entity implements Drawable, Subject
     private Equipment equipment;
     private EntityIdentifier eIdentifier;
     private Direction directionFacing;
-  private List<Listener> subs; // Only the Avatar uses this
+    private List<Listener> subs; // Only the Avatar uses this
 
     /* METHODS */
 
@@ -320,6 +319,11 @@ public class Entity implements Drawable, Subject
         return str;
     }
 
+    public String getName()
+    {
+        return this.name;
+    }
+
     @Override
     public String getImageId() {
         return "Entity_" + occupation.getClass().getSimpleName() + "_" + getEntityDirection().toString();
@@ -329,7 +333,7 @@ public class Entity implements Drawable, Subject
         List<String> gameState = new ArrayList<String>();
         gameState.add("Avatar:\n");
         gameState.add("\tName: " + name + "\n");
-        //Does the below method give good class name????
+        //Does the below method give good class name???? YES
         //gameState.add(occupation.getClass().getSimpleName());
 
         return gameState;
