@@ -43,7 +43,7 @@ public class AreaView extends View {
 		
 		//render the Tiles, AoEs, and Items
 		for(Position p : viewablePositions){
-			
+			System.out.println("ihave some mothafuking positions");
 			if(level.returnTileAt(p) == null){
 				continue;
 			}
@@ -51,15 +51,18 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 			BufferedImage tileImage = null;
 			try{
+				System.out.println("it found the tile images");
 				tileImage = ImageIO.read(new File(
 						spriteMap.getResourcePath(tile.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
+				System.out.println("cannot find tile images");
 				break;
 			}
 			catch(Exception e){
 				//throw e;
+				System.out.println("sprite error");
 				e.printStackTrace();
 				break;
 			}
@@ -77,10 +80,12 @@ public class AreaView extends View {
 				}
 				catch(IOException e){
 					//throw e;
+					System.out.println("cannot find aoe images");
 					break;
 				}
 				catch(Exception e){
 					//throw e;
+					System.out.println("aoe error");
 					e.printStackTrace();
 					break;
 				}
@@ -184,9 +189,10 @@ public class AreaView extends View {
 		//find the viewable area centred on avatar
 		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tileSize);
 		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tileSize);
-
-
+		
 		System.out.println("Is Avatar Position null? " + (avatarPosition == null));
+		System.out.println("numTilesWide " + getWidth());
+		System.out.println("numTilesHigh " + getHeight());
 		//find the top-left tile position
 		topLeftX = avatarPosition.getX() - (numTilesWide / 2);
 		topLeftY = avatarPosition.getY() - (numTilesHigh / 2);
@@ -194,6 +200,7 @@ public class AreaView extends View {
 		viewablePositions = new HashSet<Position>();
 		for(int i = 0; i < numTilesWide; i++){
 			for(int j = 0; j < numTilesHigh; j++){
+				System.out.println(j);
 				viewablePositions.add(new Position(topLeftX + i, topLeftY + j));
 			}
 		}

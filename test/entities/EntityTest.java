@@ -17,7 +17,7 @@ public class EntityTest
     {
         entity = new Entity("EntityTest",
                 new Smasher(),
-                new EntityStats(10, 10, 10, 10, 10, 3, 0, 100, 100),
+                new EntityStats(10, 10, 10, 10, 10, 3, 0, 100, 100, new Smasher()),
                 EntityIdentifier.GROUND,
                 Direction.NORTH);
 
