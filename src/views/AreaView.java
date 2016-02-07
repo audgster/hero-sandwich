@@ -32,6 +32,7 @@ public class AreaView extends View {
 
 	public AreaView(Level level, Entity avatar){
 		this.level = level;
+		level.addListener(this);
 		this.avatar = avatar;
 		viewablePositions = new HashSet<Position>();
 	}
