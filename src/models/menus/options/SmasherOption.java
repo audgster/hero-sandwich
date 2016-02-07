@@ -5,6 +5,7 @@ import util.*;
 import initialization.AvatarCreator;
 import models.entities.*;
 import models.gameengine.*;
+import models.*;
 
  public  class SmasherOption extends Option{
  	public SmasherOption(){
@@ -24,6 +25,8 @@ import models.gameengine.*;
 
 		cm.changeState();
 		cm.setGame(game);
+		vm.setGameMode(level, avatar);
+		vm.update();
 	}
 }
 

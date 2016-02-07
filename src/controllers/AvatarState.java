@@ -19,41 +19,49 @@ public  class AvatarState extends ControllerState{
 
 	public void north()
     {
+        System.out.println("The avatar moved N");
         triggerMotion(Direction.NORTH);
 	}
 
 	public void northEast()
     {
+        System.out.println("The avatar moved NE");
         triggerMotion(Direction.NORTHEAST);
 	}
 
 	public void east()
     {
+        System.out.println("The avatar moved E");
         triggerMotion(Direction.EAST);
 	}
 
 	public void southEast()
     {
+        System.out.println("The avatar moved SE");
         triggerMotion(Direction.SOUTHEAST);
 	}
 
 	public void south()
     {
+        System.out.println("The avatar moved S");
         triggerMotion(Direction.SOUTH);
 	}
 
 	public void southWest()
     {
+        System.out.println("The avatar moved SW");
         triggerMotion(Direction.SOUTHWEST);
 	}
 
 	public void west()
     {
+        System.out.println("The avatar moved W");
         triggerMotion(Direction.WEST);
 	}
 
 	public void northWest()
     {
+        System.out.println("The avatar moved NW");
         triggerMotion(Direction.NORTHWEST);
 	}
 

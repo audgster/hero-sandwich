@@ -79,6 +79,6 @@ public class Game
     }
 
     public Level getLevel(){
-        return levels.get(currentLevel);
+        return levels.get(currentLevel-1);
     }
 }
