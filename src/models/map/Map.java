@@ -1,5 +1,6 @@
 package models.map;
 
+import models.items.Item;
 import models.map.areaofeffect.AreaOfEffect;
 import util.Position;
 
@@ -61,13 +62,12 @@ public class Map
     }
 
     public void printAoes() {
-        System.out.println("printAoes");
         for(int i = 0; i < grid[0].length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (j + 1 != grid[0].length)
-                    printAoeList(grid[i][j].getAllAoE(), i, j);
+                    printAoeList(grid[i][j].getAllAoE(), j, i);
                 else
-                    printAoeList(grid[i][j].getAllAoE(), i, j);
+                    printAoeList(grid[i][j].getAllAoE(), j, i);
                 }
             }
     }
@@ -75,6 +75,23 @@ public class Map
     private void printAoeList(Collection<AreaOfEffect> aoeList, int x, int y) {
         for(AreaOfEffect aoe : aoeList) {
             System.out.println(aoe.getImageId() + "(" + x + "," + y + ")");
+        }
+    }
+
+    public void printItems() {
+        for(int i = 0; i < grid[0].length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (j + 1 != grid[0].length)
+                    printItemList(grid[i][j].getAllItems(), j, i);
+                else
+                    printItemList(grid[i][j].getAllItems(), j, i);
+            }
+        }
+    }
+
+    private void printItemList(Collection<Item> itemList, int x, int y) {
+        for(Item item : itemList) {
+            System.out.println(item.getImageId() + "(" + x + "," + y + ")");
         }
     }
 }
