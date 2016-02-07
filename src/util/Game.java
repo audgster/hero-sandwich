@@ -16,6 +16,7 @@ public class Game
     List<Level> levels;
     private Entity avatar;
     private IGameEngine gameEngine;
+    private Position startPosition = new Position(0,0);
 
     public Game(IGameEngineInitializer initializer) {
         this.gameEngine = initializer.initialize();
@@ -27,7 +28,7 @@ public class Game
     public Game(List<Level> levels, Entity avatar)
     {
         this.levels = levels;
-        this.avatar = avatar;
+        initializeAvatar(avatar);
     }
 
     public void newGame() {
@@ -35,9 +36,9 @@ public class Game
         gameCreator.createNewGame(this);
         currentLevel = 1;
         Map map = levels.get(currentLevel-1).getMap();
-        map.printMap();
-        map.printAoes();
-        map.printItems();
+        //map.printMap();
+        //map.printAoes();
+        //map.printItems();
     }
 
     public void loadGame() {
@@ -65,7 +66,7 @@ public class Game
 
     public Level getCurrentLevel()
     {
-        return levels.get(currentLevel);
+        return levels.get(currentLevel-1);
     }
 
     public Entity getAvatar()
@@ -80,5 +81,10 @@ public class Game
 
     public Level getLevel(){
         return levels.get(currentLevel-1);
+    }
+
+    public void initializeAvatar(Entity avatar){
+        this.avatar = avatar;
+        getCurrentLevel().addEntity(avatar, startPosition);
     }
 }

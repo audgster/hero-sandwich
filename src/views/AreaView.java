@@ -33,6 +33,7 @@ public class AreaView extends View {
 	public AreaView(Level level, Entity avatar){
 		this.level = level;
 		this.avatar = avatar;
+		viewablePositions = new HashSet<Position>();
 	}
 	
 	protected void paintComponent(Graphics g){
@@ -184,6 +185,8 @@ public class AreaView extends View {
 		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tileSize);
 		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tileSize);
 
+
+		System.out.println("Is Avatar Position null? " + (avatarPosition == null));
 		//find the top-left tile position
 		topLeftX = avatarPosition.getX() - (numTilesWide / 2);
 		topLeftY = avatarPosition.getY() - (numTilesHigh / 2);

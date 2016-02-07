@@ -23,6 +23,8 @@ public class Level {
     {
         this.locationManager = locationManager;
         this.map = map;
+
+
     }
 
     public Position returnCurrentPosition(Entity entity)
@@ -62,5 +64,9 @@ public class Level {
 
     public Map getMap() {
         return map;
+    }
+
+    public void addEntity(Entity entity, Position startPosition){
+        locationManager.addEntity(entity, startPosition);
     }
 }
