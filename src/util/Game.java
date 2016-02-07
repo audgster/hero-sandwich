@@ -75,4 +75,8 @@ public class Game
     {
         return gameEngine;
     }
+
+    public Level getLevel(){
+        return levels.get(currentLevel);
+    }
 }
