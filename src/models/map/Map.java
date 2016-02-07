@@ -1,6 +1,9 @@
 package models.map;
 
+import models.map.areaofeffect.AreaOfEffect;
 import util.Position;
+
+import java.util.Collection;
 
 public class Map
 {
@@ -23,8 +26,6 @@ public class Map
             }
         }
     }
-
-    // need 2nd constructor for adam?
 
     public Tile getTileAt(Position p)
     {
@@ -56,6 +57,24 @@ public class Map
                     System.out.println(grid[i][j].getTerrainType() + " ");
                 }
             }
+        }
+    }
+
+    public void printAoes() {
+        System.out.println("printAoes");
+        for(int i = 0; i < grid[0].length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (j + 1 != grid[0].length)
+                    printAoeList(grid[i][j].getAllAoE(), i, j);
+                else
+                    printAoeList(grid[i][j].getAllAoE(), i, j);
+                }
+            }
+    }
+
+    private void printAoeList(Collection<AreaOfEffect> aoeList, int x, int y) {
+        for(AreaOfEffect aoe : aoeList) {
+            System.out.println(aoe.getImageId() + "(" + x + "," + y + ")");
         }
     }
 }

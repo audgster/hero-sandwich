@@ -41,7 +41,7 @@ public class MapCreator {
 
     private void setItems(Map map) {
         ItemCreator itemCreator = new ItemCreator(items);
-        //itemCreator.createItemsOnMap(map);
+        itemCreator.createItemsOnMap(map);
     }
 
     private void setAreaOfEffectGroups(Map map) {

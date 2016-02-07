@@ -50,7 +50,6 @@ public class Inventory {
 	
 	for (int i = 0; i < capacity; ++i) {
 	    // if slot is empty
-	    System.out.println("Bag size: " + bag.size() );
 	    if ( bag.get(i) == null ) {		
 		bag.add(i, item);
 		itemAdded = true;

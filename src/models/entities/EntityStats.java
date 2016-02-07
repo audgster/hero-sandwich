@@ -203,17 +203,47 @@ public class EntityStats extends Stats {
     public void setOccupationMods(StatModifiers statMod) {
 	occupationStatMods = statMod;
     }
+  /* Attemps to remove the StatModifiers with the same handle as the argument
+   * If successful, returns the StatModifiers removed
+   * Else, returns null
+   */
+  public StatModifiers removeStatMods(StatModifiers statMods) {
+    StatModifiers removedStats = null;
+    int index = this.statMods.indexOf(statMods);
+    // if the StatModifiers is found
+    if ( index != -1 ) {
+      removedStats = this.statMods.get(index);
+      this.statMods.remove(index);
+    }
+    return removedStats;
+  }
     
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
-	strBuilder.append("[EntityStats:");
+	strBuilder.append( super.toString() );
+	strBuilder.append("\n[EntityStats:");
 	strBuilder.append(" " + livesLeft + " ");
 	strBuilder.append(" " + xp + " ");
 	strBuilder.append(" " + currentLife + " ");
 	strBuilder.append(" " + currentMana + " ");
+	strBuilder.append("]\n");
+	strBuilder.append("[ModifiedStats:");
+	strBuilder.append(" " + getModStrength() + " ");
+	strBuilder.append(" " + getModAgility() + " ");
+	strBuilder.append(" " + getModIntellect() + " ");
+	strBuilder.append(" " + getModHardiness() + " ");
+	strBuilder.append(" " + getModMovement() + " ");
+	strBuilder.append("]\n");
+	strBuilder.append("[DerivedStats:");
+	strBuilder.append(" " + getLevel() + " ");
+	strBuilder.append(" " + getLife() + " ");
+	strBuilder.append(" " + getMana() + " ");
+	strBuilder.append(" " + getOffRating() + " ");
+	strBuilder.append(" " + getDefRating() + " ");
+	strBuilder.append(" " + getArmorRating() + " ");
 	strBuilder.append("]");
-	String str = strBuilder.toString() + super.toString();
+	String str = strBuilder.toString();
 	return str;
     }
 }

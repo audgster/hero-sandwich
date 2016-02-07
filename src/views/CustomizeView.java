@@ -34,24 +34,32 @@ public class CustomizeView extends View{
 	protected void render(){
 		removeAll();
 
-			BufferedImage smasherImage = null, sneakImage = null, summonerImage = null;
-			try{
-				smasherImage = ImageIO.read(new File("../images/groundTile.PNG"));
-				sneakImage = ImageIO.read(new File("../images/smasher.gif"));
-				summonerImage = ImageIO.read(new File("../images/smasher.gif"));
-			}
-			catch(IOException e){
-				System.out.println("could not find any files!!!!!!!!!!!!!!!!!!!");
-			}
-			ImageIcon icon = new ImageIcon(smasherImage);
+		BufferedImage[] avatarImages = new BufferedImage[3];
+		try{
+			avatarImages[0] = ImageIO.read(new File("../images/smasher.gif"));
+			avatarImages[1] = ImageIO.read(new File("../images/summoner.png"));
+			avatarImages[2] = ImageIO.read(new File("../images/sneak.jpg"));
+		}
+		catch(IOException e){
+			System.out.println("could not find any files!!!!!!!!!!!!!!!!!!!");
+		}
 
+		createLayout(avatarImages);
+
+		revalidate();
+		repaint();
+	}
+
+	private void createLayout(BufferedImage[] images){
+		ImageIcon icon;
 		JPanel panel;
+		JLabel img, label;
 		for(int i = 0; i < options.length; i++){
+			icon = new ImageIcon(images[i]);
 			panel = new JPanel();
-			JLabel img = new JLabel(icon);
+			img = new JLabel(icon);
 			panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-			JLabel label = new JLabel(options[i]);
-			// label.setIcon(icon);
+			label = new JLabel(options[i]);
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			label.setBackground(Color.GREEN);
 			label.setFont(menuFont);
@@ -65,9 +73,6 @@ public class CustomizeView extends View{
 			panel.add(label);
 			add(panel);
 		}
-
-		revalidate();
-		repaint();
 	}
 
 	public void update(){

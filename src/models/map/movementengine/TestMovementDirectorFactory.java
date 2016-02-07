@@ -11,7 +11,7 @@ public class TestMovementDirectorFactory implements IMovementDirectorFactory
     public IMovementDirector vendNewInstance()
     {
         // Change this to change how your rules are initialized (parsed, hardcoded, etc)
-        IMovementRuleInitializer initializer = new TestMovementRuleInitializaer();
+        IMovementRuleInitializer initializer = new TestMovementRuleInitializer();
 
         // Change this to adjust how you implement the rules engine
         IMovementRulesEngine rulesEngine = new MovementRulesEngine(initializer);

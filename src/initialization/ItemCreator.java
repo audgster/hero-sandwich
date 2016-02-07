@@ -1,5 +1,11 @@
 package initialization;
 
+import models.entities.StatModifiers;
+import models.items.EquipableItem;
+import models.items.EquipmentType;
+import models.items.Item;
+import models.map.Map;
+import models.map.Tile;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -13,14 +19,14 @@ public class ItemCreator {
         this.items = items;
     }
 
-    public void createItemsOnMap(TestMap map) {
-        TestTile[][] mapGrid = map.getMap();
+    public void createItemsOnMap(Map map) {
+        Tile[][] mapGrid = map.getMapArray();
 
         for(int i = 0; i < items.size(); i++) {
             Element currentItem = (Element) items.get(i);
             int x = getItemXPostion(currentItem);
             int y = getItemYPosition(currentItem);
-            mapGrid[y][x].setItem(getType(items.get(i)));
+            mapGrid[y][x].addItem(getType(items.get(i)));
             //createTileGroup(mapGrid, currentTileGroup);
         }
     }
@@ -33,19 +39,19 @@ public class ItemCreator {
         return Integer.parseInt(item.getAttribute("y-position"));
     }
 
-    private String getType(Node item) {
+    private Item getType(Node item) {
         String itemType = item.getNodeName();
         if(itemType == "one-shot")
-            return "O";
-        else if(itemType == "interactable")
-            return "I";
-        else if(itemType == "takable")
-            return "T";
-        else if(itemType == "consumable")
-            return "C";
-        else if(itemType == "equippable")
-            return "E";
+            return null;
+        else if(itemType.equalsIgnoreCase("interactable"))
+            return null;
+        else if(itemType.equalsIgnoreCase("takable"))
+            return null;
+        else if(itemType.equalsIgnoreCase("consumable"))
+            return null;
+        else if(itemType.equalsIgnoreCase("equippable"))
+            return new EquipableItem("equippable", EquipmentType.WEAPON, new StatModifiers());
         else
-            return "ERROR";
+            return null;
     }
 }
