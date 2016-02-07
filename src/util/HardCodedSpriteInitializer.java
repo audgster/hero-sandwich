@@ -16,7 +16,7 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 
         //Items
         spriteMap.put("Item_ConsumableItem", "../images/Item_Consumable.png");
-        spriteMap.put("Item_EquipableItem", "../images/Item_Equipable.png");
+        spriteMap.put("Item_equippableEquipableItem", "../images/Item_Equipable.png");
 		spriteMap.put("Item_TakeableItem", "../images/Item_Takeable.png");
 		spriteMap.put("Item_OneShotItem", "../images/Item_OneShot.png");
 		spriteMap.put("Item_InteractableItem", "../images/Item_Interactable.png");
