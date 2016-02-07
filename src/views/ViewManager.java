@@ -14,7 +14,7 @@ public class ViewManager extends View{
 	private StatsView statsView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
-	private Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 50);
+	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 50);
 
 	private enum Mode{
 		MAIN_MENU,
@@ -51,6 +51,7 @@ public class ViewManager extends View{
 		removeAll();
 		if(mode == Mode.MAIN_MENU){
 			JLabel title = new JLabel(titleText);
+			title.setHorizontalAlignment(SwingConstants.CENTER);
 			title.setFont(titleFont);
 			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
