@@ -6,7 +6,8 @@
 	public SetNameOption(){
 		name = "Set Name";
 	}
-  public void execute(ViewManager vm, Controller cm){
+  public void execute(ViewManager vm, Controller cm)
+  {
 		//
   }
 }

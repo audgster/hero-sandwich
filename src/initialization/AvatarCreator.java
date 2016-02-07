@@ -1,6 +1,7 @@
 package initialization;
 
 import models.entities.Entity;
+import models.entities.EntityStats;
 import models.entities.Occupation;
 import models.entities.Smasher;
 import util.Direction;
@@ -41,7 +42,7 @@ public class AvatarCreator
             occupation = new Smasher();
         }
 
-        Entity entity = new Entity(name, occupation, EntityIdentifier.GROUND, Direction.NORTH);
+        Entity entity = new Entity(name, occupation, new EntityStats(), EntityIdentifier.GROUND, Direction.NORTH);
 
         name = null;
         occupation = null;
