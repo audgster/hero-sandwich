@@ -14,7 +14,7 @@ public class ViewManager extends View{
 	private StatsView statsView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
-	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 50);
+	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
 
 	private enum Mode{
 		MAIN_MENU,
@@ -56,8 +56,8 @@ public class ViewManager extends View{
 			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
-			JLabel logo = new JLabel("Insert Logo Here");
-			add(logo, BorderLayout.CENTER);
+			// JLabel logo = new JLabel("Insert Logo Here");
+			// add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
 			System.out.println("Customize View");

@@ -5,11 +5,6 @@ import models.menus.options.Option;
 import java.awt.*;
 import javax.swing.*;
 
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
-import java.awt.image.BufferedImage;
-
 public class CustomizeView extends View{
 
 	private Menus menu;
@@ -18,7 +13,8 @@ public class CustomizeView extends View{
 	private GridBagConstraints gBC;
 	private Option[] menuOptions;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
-
+	private String[] imgPath = {"../images/smasher.gif", "../images/summoner.png", "../images/sneak.gif"};
+	
 	public CustomizeView(Menus menu){
 		setLayout(new GridBagLayout());
 		setMenu(menu);
@@ -40,22 +36,12 @@ public class CustomizeView extends View{
 	protected void render(){
 		removeAll();
 
-		BufferedImage[] avatarImages = new BufferedImage[3];
-		try{
-			avatarImages[0] = ImageIO.read(new File("../images/smasher.gif"));
-			avatarImages[1] = ImageIO.read(new File("../images/summoner.png"));
-			avatarImages[2] = ImageIO.read(new File("../images/sneak.gif"));
-		}
-		catch(IOException e){
-			System.out.println("could not find any files!");
-		}
-
-		createLayout(avatarImages);
+		createLayout();
 		revalidate();
 		repaint();
 	}
 
-	private void createLayout(BufferedImage[] images){
+	private void createLayout(){
 		ImageIcon icon;
 		JLabel img, label;
 		String[] region = {BorderLayout.WEST, BorderLayout.CENTER, BorderLayout.EAST};
@@ -65,7 +51,7 @@ public class CustomizeView extends View{
 			gBC.gridx = i;
 			gBC.gridy = 0;
 
-			icon = new ImageIcon(images[i]);
+			icon = new ImageIcon(imgPath[i]);
 			img = new JLabel(icon);
 
 			add(img, gBC);
