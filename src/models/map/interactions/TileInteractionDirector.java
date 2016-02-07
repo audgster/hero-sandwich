@@ -18,15 +18,21 @@ public class TileInteractionDirector implements ITileInteractionDirector
     {
         Collection<IInteractionHandler> handlers = new ArrayList<>();
 
+        System.out.println("[TILEINTERACTIONDIRECTOR] Collecting AoE handlers");
         for (AreaOfEffect aoe : tile.getAllAoE())
         {
             handlers.add(aoe);
         }
 
+        System.out.println("[TILEINTERACTIONDIRECTOR] There are " + handlers.size() + " handlers");
+
+        System.out.println("[TILEINTERACTIONDIRECTOR] Collecting item handlers");
         for (Item item : tile.getAllItems())
         {
             handlers.add(item);
         }
+
+        System.out.println("[TILEINTERACTIONDIRECTOR] There are " + handlers.size() + " handlers");
 
         boolean success = true;
 

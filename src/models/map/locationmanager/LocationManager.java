@@ -46,6 +46,9 @@ public class LocationManager implements ILocationManager
 
         twoWayHashMap.removeByValue(entity);
         twoWayHashMap.put(newPosition, entity);
+        System.out.println("Position has been updated");
+
+        System.out.println(twoWayHashMap.getByValue(entity).toString());
 
         return true;
     }
@@ -86,5 +89,14 @@ public class LocationManager implements ILocationManager
             return null;
 
         return twoWayHashMap.getByValue(entity);
+    }
+
+    //public Position getPosition(int x, int y){
+//
+  //  }
+
+    public String toString()
+    {
+        return twoWayHashMap.toString();
     }
 }

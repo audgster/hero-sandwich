@@ -60,7 +60,7 @@ public class ViewManager extends View{
 			// add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
-			System.out.println("Customize View");
+			//System.out.println("Customize View");
 			JLabel cText = new JLabel("Select Avatar");
 			cText.setFont(titleFont);
 			cText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -78,10 +78,11 @@ public class ViewManager extends View{
 			add(areaView, BorderLayout.CENTER);
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
+			System.out.println("the size of the fram is " + areaView.getWidth());
 		}
 		else{
 			//something screwed up
-			System.out.println("Mode not set. No sub-views rendered");
+			//System.out.println("Mode not set. No sub-views rendered");
 		}
 
 		revalidate();
@@ -90,6 +91,7 @@ public class ViewManager extends View{
 
 	public void update(){
 		//something
+		render();
 		if(mode == Mode.MAIN_MENU){
 			menuViews.get(0).update();
 		}
@@ -102,9 +104,9 @@ public class ViewManager extends View{
 		}
 		else{
 			//nothing updates
-			System.out.println("Mode not set. No sub-views updated");
+			//System.out.println("Mode not set. No sub-views updated");
 		}
-		render();
+
 	}
 
 	public void setMainMenuMode(Menus mainMenu){
@@ -126,6 +128,17 @@ public class ViewManager extends View{
 		popMenuView();
 
 		View cMenuView = new CustomizeView(cMenu);
+		pushMenuView(cMenuView);
+		update();
+	}
+
+	public void setInventoryMenuMode(Menus cMenu){
+		mode = Mode.CUSTOMIZE_MENU;
+		areaView = null;
+		statsView = null;
+		popMenuView();
+
+		View cMenuView = new InventoryView(cMenu);
 		pushMenuView(cMenuView);
 		update();
 	}

@@ -70,4 +70,14 @@ public class TwoWayHashMap<K, V>
     {
         return valueFirst.keySet();
     }
+
+    public String toString()
+    {
+        String str = "TwoWyHashMap is as follows:\n";
+        for(K key : getKeySet())
+        {
+            str += key.toString() + "\t" + getByKey(key) + "\n";
+        }
+        return str;
+    }
 }

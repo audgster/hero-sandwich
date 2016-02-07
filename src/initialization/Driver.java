@@ -1,5 +1,8 @@
 package initialization;
 
+import models.gameengine.HardCodedGameEngineInitializer;
+import util.Game;
+
 import java.io.File;
 import java.util.List;
 import java.util.LinkedList;
@@ -13,6 +16,9 @@ public class Driver {
         //parser.parseFile();
         // Game game = new Game();
         // game.newGame();
+        Game game = new Game(new HardCodedGameEngineInitializer());
+        //game.newGame();
+        game.saveGame();
     }
 }
 

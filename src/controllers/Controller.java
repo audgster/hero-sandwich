@@ -33,7 +33,8 @@ public class Controller{
 						
 					}
 					break;
-			case 6: state.east();
+			case 6: System.out.println("The Controller is now in the avatar state");
+			state.east();
 					break;
 			case 7: state.northWest();
 					break;
@@ -47,20 +48,19 @@ public class Controller{
 
 	public void changeState(){
 		if(state.getName() == "Avatar"){
-			state = new MenuState();
+			//state = new MenuState();
+			System.out.println("The Controller is now in the menu state");
 		}
 		else{
 			System.out.println("The Controller is now in the avatar state");
-			state = new AvatarState(game);
+			this.state = new AvatarState(game);
 		}
 	}
 
     public void setGame(Game game)
     {
         this.game = game;
-
-        if (state.getName() == "Avatar")
-            state = new AvatarState(this.game);
+        state = new AvatarState(this.game);
     }
 	
 	public void setMenu(Menus menu){

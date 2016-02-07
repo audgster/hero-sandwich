@@ -1,7 +1,6 @@
 package models.entities;
 
 import models.items.*;
-import org.omg.CORBA.DynAnyPackage.Invalid;
 import util.Direction;
 import util.EntityIdentifier;
 import util.exceptions.InvalidStatException;
@@ -16,12 +15,12 @@ public class Entity implements Drawable, Subject
     /* ATTRIBUTES */
     private String name;
     private Occupation occupation;
-    private EntityStats stats;  //TODO
-    private Inventory inventory; //TODO for item statmodifiers
-    private Equipment equipment; //TODO for item statmodifiers
+    private EntityStats stats;
+    private Inventory inventory;
+    private Equipment equipment;
     private EntityIdentifier eIdentifier;
     private Direction directionFacing;
-  private List<Listener> subs; // Only the Avatar uses this
+    private List<Listener> subs; // Only the Avatar uses this
 
     /* METHODS */
 
@@ -149,7 +148,7 @@ public class Entity implements Drawable, Subject
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
-    int loseLife()
+    public int loseLife()
     {
         int livesRemaining = stats.loseLife();
         notifyListeners();
@@ -287,7 +286,12 @@ public class Entity implements Drawable, Subject
     {
 	    return inventory;
     }
-    
+
+    public Equipment getEquipment()
+    {
+	return equipment;
+    }
+
     public Direction getEntityDirection()
     {
         return directionFacing;
@@ -318,6 +322,11 @@ public class Entity implements Drawable, Subject
         String str = strBuilder.toString();
 
         return str;
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 
     @Override

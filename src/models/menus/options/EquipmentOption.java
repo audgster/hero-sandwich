@@ -2,9 +2,9 @@ package models.menus.options;
 import views.*;
 import controllers.*;
 
-public class EquiptmentOption extends Option{
-	public EquiptmentOption(){
-		name = "Equiptment Option";
+public class EquipmentOption extends Option{
+	public EquipmentOption(){
+		name = "Equipment";
 	}
 	public void execute(ViewManager vm, Controller cm){
 		//

@@ -1,7 +1,5 @@
 package util;
 
-import java.util.Objects;
-
 public class Position
 {
   private int x;
@@ -86,5 +84,12 @@ public class Position
         }
 
         return (getX() == position.getX()) && (getY() == position.getY());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
     }
 }

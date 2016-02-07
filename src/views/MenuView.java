@@ -7,10 +7,10 @@ import javax.swing.*;
 
 public class MenuView extends View{
 
-	private Menus menu;
-	private String[] options;
-	private int currentIndex;
-	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
+	protected Menus menu;
+	protected String[] options;
+	protected int currentIndex;
+	protected Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
 	public MenuView(Menus menu){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

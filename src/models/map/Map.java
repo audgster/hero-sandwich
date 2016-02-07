@@ -1,53 +1,80 @@
 package models.map;
 
+import models.Subject;
 import models.items.Item;
 import models.map.areaofeffect.AreaOfEffect;
 import util.Position;
+import views.Listener;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collection;
+import java.util.List;
 
-public class Map
+public class Map implements Listener, Subject
 {
     private Tile[][] grid;
+    private List<Listener> subjects;
 
-    /* Constructor: Create an NxN grid of default Tiles*/
 
-    public Map(int x, int y) {
-        grid = new Tile[y][x];
+    public Map(int x, int y)
+    {
+        subjects = new ArrayList<>();
+        setMapArray(createDefaultGrid(x, y));
     }
 
     public Map(int N)
     {
-        grid = new Tile[N][N];
+        subjects = new ArrayList<>();
+        setMapArray(createDefaultGrid(N, N));
+    }
 
-        // populate the grid with Tiles
-        for (int i = 0; i < N; ++i) {
-            for (int j = 0; j < N; ++j) {
-                grid[i][j] = new Tile();
+    public Map(Tile[][] tileGrid)
+    {
+        subjects = new ArrayList<>();
+        setMapArray(tileGrid);
+    }
+
+    private Tile[][] createDefaultGrid(int x, int y)
+    {
+        Tile[][] tileGrid = new Tile[y][x];
+
+        for (int i = 0; i < y; ++i) {
+            for (int j = 0; j < x; ++j)
+            {
+                tileGrid[i][j] = new Tile();
             }
         }
+
+        return tileGrid;
     }
 
     public Tile getTileAt(Position p)
     {
-        if((p.getX() < 0) || (p.getX() >= grid.length) ||
-				(p.getY() < 0) || (p.getX() >= grid[0].length)){
-			
-			//this might be really bad, maybe throw exception instead?
-			return null;
-			
-		}
-		return grid[ p.getX() ][ p.getY() ];
+        if(isValidPosition(p))
+            return grid[ p.getX() ][ p.getY() ];
+
+        System.err.println("[MAP] Attempted to get a tile at an invalid position: " + p.toString());
+        return null;
     }
 
-    public Tile[][] getMapArray() {
+    public Tile[][] getMapArray()
+    {
         return grid;
     }
 
-    public void setMapArray(Tile[][] grid) {
+    public void setMapArray(Tile[][] grid)
+    {
         this.grid = grid;
+
+        for (int i = 0; i < grid.length; i++)
+        {
+            for (int j = 0; j < grid[i].length; j++)
+            {
+                grid[i][j].addListener(this);
+            }
+        }
+
+        notifyListeners();
     }
 
     public void printMap() {
@@ -96,15 +123,49 @@ public class Map
             System.out.println(item.getImageId() + "(" + x + "," + y + ")");
         }
     }
-/*
-    public List<String> getSaveState() {
-        List<String> state = new ArrayList<String>();
-        for(int i = 0; i < grid[0].length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if(grid[i][j].hasItem())
-                    state.add(grid[i][j].getClass().getSimpleName() + " ");
-            }
+
+    public boolean isValidPosition(Position p)
+    {
+        if (p.getX() < 0 || p.getX() >= grid[0].length) {
+            System.out.println("Position was not valid b/c x was out of bounds");
+            return false;
+        }
+
+        if (p.getY() < 0 || p.getY() >= grid.length) {
+            System.out.println("Position was not valid b/c y was out of bounds");
+            return false;
+        }
+
+        return true;
+
+    }
+
+    @Override
+    public void update()
+    {
+        notifyListeners();
+    }
+
+    @Override
+    public void addListener(Listener listener)
+    {
+        subjects.add(listener);
+    }
+
+    @Override
+    public void removeListener(Listener listener)
+    {
+        boolean found = subjects.remove(listener);
+
+        if (!found)
+            System.err.println("[MAP] Attempted to remove a non-existent listener [NOT-FOUND]");
+    }
+
+    @Override
+    public void notifyListeners()
+    {
+        for(Listener l : subjects){
+            l.update();
         }
     }
-    */
 }
