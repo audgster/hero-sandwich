@@ -15,11 +15,17 @@ public class CustomizeView extends View{
 	private Menus menu;
 	private String[] options;
 	private int currentIndex;
+	private GridBagConstraints gBC;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
 	public CustomizeView(Menus menu){
-		setLayout(new GridLayout(1,3));
+		setLayout(new GridBagLayout());
 		setMenu(menu);
+		gBC = new GridBagConstraints();
+		//if (shouldFill) {
+      //natural height, maximum width
+      gBC.fill = GridBagConstraints.HORIZONTAL;
+		//}
 		update();
 }
 
@@ -38,14 +44,15 @@ public class CustomizeView extends View{
 		try{
 			avatarImages[0] = ImageIO.read(new File("../images/smasher.gif"));
 			avatarImages[1] = ImageIO.read(new File("../images/summoner.png"));
-			avatarImages[2] = ImageIO.read(new File("../images/sneak.jpg"));
+			avatarImages[2] = ImageIO.read(new File("../images/sneak.gif"));
 		}
 		catch(IOException e){
-			System.out.println("could not find any files!!!!!!!!!!!!!!!!!!!");
+			System.out.println("could not find any files!");
 		}
 
 		createLayout(avatarImages);
-
+		//JTextField textfield = new JTextField();
+		//add(textfield, BorderLayout.NORTH);
 		revalidate();
 		repaint();
 	}
@@ -54,13 +61,20 @@ public class CustomizeView extends View{
 		ImageIcon icon;
 		JPanel panel;
 		JLabel img, label;
+		String[] region = {BorderLayout.WEST, BorderLayout.CENTER, BorderLayout.EAST};
 		for(int i = 0; i < options.length; i++){
+			gBC.fill = GridBagConstraints.HORIZONTAL;
+			gBC.ipady = 40;
+			gBC.weightx = 1;
+			gBC.gridx = i;
+			gBC.gridy = 0;
+
 			icon = new ImageIcon(images[i]);
 			panel = new JPanel();
 			img = new JLabel(icon);
 			panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 			label = new JLabel(options[i]);
-			label.setAlignmentX(Component.CENTER_ALIGNMENT);
+			// label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			label.setBackground(Color.GREEN);
 			label.setFont(menuFont);
 			if(currentIndex == i){
@@ -71,7 +85,7 @@ public class CustomizeView extends View{
 			}
 			panel.add(img);
 			panel.add(label);
-			add(panel);
+			add(panel, gBC);
 		}
 	}
 
