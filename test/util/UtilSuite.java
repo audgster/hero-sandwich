@@ -1,10 +1,12 @@
+package util;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import util.UtilSuite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        UtilSuite.class
+        PositionTest.class
 })
-public class MainSuite
+public class UtilSuite
 {}
+

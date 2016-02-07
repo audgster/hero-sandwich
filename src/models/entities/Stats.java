@@ -12,11 +12,11 @@ public abstract class Stats {
 
     /* Default constructor */
     public Stats() {
-	strength = 0;
-	agility = 0;
-	intellect = 0;
-	hardiness = 0;
-	movement = 0;
+	strength = 1;
+	agility = 1;
+	intellect = 1;
+	hardiness = 1;
+	movement = 1;
     }
 
     /* Fully parameterized constructor */
