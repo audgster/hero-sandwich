@@ -334,6 +334,7 @@ public class Entity implements Drawable, Subject
 
         return gameState;
     }
+
 }
 
 /*
