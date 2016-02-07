@@ -116,7 +116,7 @@ public class ViewManager extends View{
 			//nothing updates
 			//System.out.println("Mode not set. No sub-views updated");
 		}
-		
+
 	}
 
 	public void setMainMenuMode(Menus mainMenu){
@@ -138,6 +138,17 @@ public class ViewManager extends View{
 		popMenuView();
 
 		View cMenuView = new CustomizeView(cMenu);
+		pushMenuView(cMenuView);
+		update();
+	}
+
+	public void setInventoryMenuMode(Menus cMenu){
+		mode = Mode.CUSTOMIZE_MENU;
+		areaView = null;
+		statsView = null;
+		popMenuView();
+
+		View cMenuView = new InventoryView(cMenu);
 		pushMenuView(cMenuView);
 		update();
 	}

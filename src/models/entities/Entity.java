@@ -148,7 +148,7 @@ public class Entity implements Drawable, Subject
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
-    int loseLife()
+    public int loseLife()
     {
         int livesRemaining = stats.loseLife();
         notifyListeners();
@@ -285,6 +285,11 @@ public class Entity implements Drawable, Subject
     public Inventory getInventory()
     {
 	    return inventory;
+    }
+
+    public Equipment getEquipment()
+    {
+	return equipment;
     }
     
     public Direction getEntityDirection()

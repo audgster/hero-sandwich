@@ -50,7 +50,6 @@ public class Level implements Subject, Listener
             System.err.println("[LEVEL] Could not update entity position");
             return null;
         }
-
         System.out.println("[LEVEL] Successfully updated entity to " + newPosition.toString());
         notifyListeners();
         return map.getTileAt(newPosition);
