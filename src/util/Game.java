@@ -7,6 +7,8 @@ import models.gameengine.interfaces.IGameEngine;
 import models.gameengine.interfaces.IGameEngineInitializer;
 import models.map.Map;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +47,17 @@ public class Game
     }
 
     public void saveGame() {
+        List<String> state = avatar.getGameState();
 
+        try {
+            PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
+            for(String val : state) {
+                writer.print(val);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setLevels(List<Level> levels)

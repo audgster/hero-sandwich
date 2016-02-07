@@ -263,4 +263,23 @@ public class Entity implements Drawable, Subject
     public String getImageId() {
         return "Entity_" + occupation.getClass().getSimpleName() + "_" + getEntityDirection().toString();
     }
+
+    public List<String> getGameState() {
+        List<String> gameState = new ArrayList<String>();
+        gameState.add("Avatar:\n");
+        gameState.add("\tName: " + name + "\n");
+        //Does the below method give good class name????
+        //gameState.add(occupation.getClass().getSimpleName());
+
+        return gameState;
+    }
 }
+
+/*
+ private Occupation occupation;
+    private EntityStats stats;
+    private Inventory inventory;
+    private Equipment equipment;
+    private EntityIdentifier eIdentifier;
+    private Direction directionFacing;
+ */
