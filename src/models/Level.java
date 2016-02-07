@@ -6,25 +6,31 @@ import models.map.Tile;
 import models.map.locationmanager.interfaces.ILocationManager;
 import util.Position;
 import util.TwoWayHashMap;
+import views.Listener;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 /*
 ** Each level contains a Map and a corresponding LocationManager
 ** A Game has a list of Levels
  */
-public class Level {
+public class Level implements Subject, Listener
+{
 
     ILocationManager locationManager;
     Map map;
+    private List<Listener> subjects;
 
     public Level(ILocationManager locationManager, Map map)
     {
         this.locationManager = locationManager;
         this.map = map;
+        map.addListener(this);
 
-
+        this.subjects = new ArrayList<>();
     }
 
     public Position returnCurrentPosition(Entity entity)
@@ -39,9 +45,14 @@ public class Level {
 
     public Tile updatePosition(Entity entity, Position newPosition)
     {
-        if (!locationManager.updateEntityPosition(entity, newPosition))
+        System.out.println("[LEVEL] Starting entity position update to " + newPosition.toString());
+        if (!locationManager.updateEntityPosition(entity, newPosition)) {
+            System.err.println("[LEVEL] Could not update entity position");
             return null;
+        }
 
+        System.out.println("[LEVEL] Successfully updated entity to " + newPosition.toString());
+        notifyListeners();
         return map.getTileAt(newPosition);
     }
 
@@ -51,10 +62,10 @@ public class Level {
         //System.out.println("get all entities in size:" + positions.size());
         for (Position p : positions)
         {
-            System.out.println("looking for entity at position: " + p.toString());
+            System.out.println("[LEVEL] looking for entity at position: " + p.toString());
             if (locationManager.isOccupied(p))
             {
-                System.out.println("location manager occupied at position: " + p.toString());
+                System.out.println("[LEVEL] Location manager occupied at position: " + p.toString());
                 allEntities.put(p, locationManager.getEntity(p));
             }
         }
@@ -64,6 +75,8 @@ public class Level {
 
     public void setMap(Map map) {
         this.map = map;
+        map.addListener(this);
+        notifyListeners();
     }
 
     public Map getMap() {
@@ -72,7 +85,13 @@ public class Level {
 
     public void addEntity(Entity entity, Position startPosition){
         locationManager.addEntity(entity, startPosition);
-        System.out.println(locationManager.toString());
+        notifyListeners();
+        System.out.println("[LEVEL] " + locationManager.toString());
+    }
+
+    public boolean isValidLocation(Position p)
+    {
+        return getMap().isValidPosition(p);
     }
 
     public String toString()
@@ -80,7 +99,31 @@ public class Level {
         return locationManager.toString();
     }
 
-    //public Position getPositionAt(int x, int y){
-      //  return locationManager.
-    //}
+    @Override
+    public void addListener(Listener listener)
+    {
+        subjects.add(listener);
+    }
+
+    @Override
+    public void removeListener(Listener listener)
+    {
+        boolean found = subjects.remove(listener);
+
+        if (!found)
+            System.err.println("Level could not remove Listener [NOT FOUND]");
+    }
+
+    @Override
+    public void notifyListeners()
+    {
+        for(int i = 0; i < subjects.size(); i++){
+            subjects.get(i).update();
+        }
+    }
+
+    @Override
+    public void update() {
+        notifyListeners();
+    }
 }
