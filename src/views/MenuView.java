@@ -8,7 +8,7 @@ import javax.swing.*;
 public class MenuView extends View{
 
 	private Menus menu;
-	private String[] options;
+	protected String[] options;
 	private int currentIndex;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
