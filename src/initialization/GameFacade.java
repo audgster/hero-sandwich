@@ -1,9 +1,11 @@
 package initialization;
 
 import models.entities.Entity;
+import util.Game;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Level;
 
 public class GameFacade {
     public GameFacade(){}
