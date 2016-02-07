@@ -1,6 +1,7 @@
 package models.entities;
 
 import models.items.*;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 import util.Direction;
 import util.EntityIdentifier;
 import util.exceptions.InvalidStatException;
@@ -91,12 +92,16 @@ public class Entity implements Drawable, Subject
     */
     public int takeDamage(int amount)
     {
+        // For now silently fail when taking negative damage?
+        if (amount < 0)
+            return stats.getCurrentLife();
+
         int remainingLife = 0;
 
         try {
             int delta = stats.getCurrentLife() - amount;
 
-            if (delta < 0) {
+            if (delta <= 0) {
                 loseLife();
             }
             else {
