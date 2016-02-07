@@ -86,6 +86,14 @@ public class Inventory {
 	return removed;
     }    
 
+  // Swaps the items at two indicies in the Inventory
+  public void swap(int index1, int index2) {
+    Item item1 = bag.get(index1);
+    Item item2 = bag.get(index2);
+    bag.set(index1, item2);
+    bag.set(index2, item1);
+  } 
+
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();

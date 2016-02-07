@@ -1,5 +1,6 @@
 package initialization;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,7 +17,7 @@ public class ConfigParser {
         try {
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            mapXML = docBuilder.parse(fileName);
+            mapXML = docBuilder.parse(new URL(fileName).openStream());
             mapXML.getDocumentElement().normalize();
         }
         catch (Exception e) {
