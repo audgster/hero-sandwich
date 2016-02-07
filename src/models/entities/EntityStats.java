@@ -23,15 +23,19 @@ public class EntityStats extends Stats {
     /* Default constructor */
     public EntityStats() {
         super();
-        setDefaults();
-        occupationStatMods = new StatModifiers();
+        occupationStatMods = new Smasher().getStatMods();
         statMods = new ArrayList<>();
+        setDefaults();
     }
 
     /* Fully parameterized constructor */
     public EntityStats(int str, int agl, int intel, int har, int mov,
-                       int livesLeft, int xp, int curLife, int curMana) {
+                       int livesLeft, int xp, int curLife, int curMana, Occupation occupation) {
         super(str, agl, intel, har, mov);
+
+        occupationStatMods = occupation.getStatMods();
+        statMods = new ArrayList<>();
+
         try {
             setLivesLeft(livesLeft);
             setXp(xp);
@@ -43,17 +47,20 @@ public class EntityStats extends Stats {
             ex.printStackTrace();
             setDefaults();
         }
-
-        occupationStatMods = new StatModifiers();
-        statMods = new ArrayList<>();
     }
 
     private void setDefaults()
     {
-        livesLeft = 3;
-        xp = 0;
-        currentLife = 10;
-        currentMana = 5;
+        try {
+            setLivesLeft(3);
+            setXp(xp);
+            setCurrentLife(10);
+            setCurrentMana(5);
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     public int addXp(int amount) {
@@ -110,6 +117,7 @@ public class EntityStats extends Stats {
         int modHar = getHardiness();
 
         // Occupation multipliers
+        int x = occupationStatMods.getHardiness();
         modHar *= occupationStatMods.getHardiness();
 
         // All other modifiers
@@ -262,7 +270,7 @@ public class EntityStats extends Stats {
         int maxMana = getMana();
 
         if (currentMana > maxMana)
-            this.currentLife = maxMana;
+            this.currentMana = maxMana;
         else
             this.currentMana = currentMana;
     }
