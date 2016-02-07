@@ -76,6 +76,7 @@ public class Entity implements Drawable, Subject
     */
     void modifyStats(StatModifiers statMod) {
 	stats.addStatMod(statMod);
+	notifyListeners();
     }
     
     /* takeDamage(:int):int
@@ -88,7 +89,8 @@ public class Entity implements Drawable, Subject
 	int remainingLife = stats.getCurrentLife();
 	if (remainingLife <= 0) {
 	    loseLife();
-	}
+	} 
+	notifyListeners();
 	return remainingLife;
     }
     
@@ -105,6 +107,7 @@ public class Entity implements Drawable, Subject
 	} else {
 	    stats.setCurrentLife( currentLife + lifePlusHeal );
 	}
+	notifyListeners();
 	return stats.getCurrentLife();
     }
     
@@ -115,8 +118,9 @@ public class Entity implements Drawable, Subject
     int loseLife() {
 	int livesRemaining = stats.loseLife();
 	if ( livesRemaining == 0  ) {
-	    // Game Over
+	  // Game Over
 	}
+	notifyListeners();
 	return livesRemaining;
     }
     
@@ -132,6 +136,7 @@ public class Entity implements Drawable, Subject
 	if (newLevel > oldLevel) {
 	    levelUp();
 	}
+	notifyListeners();
 	return newXp;
     }
 
@@ -152,8 +157,10 @@ public class Entity implements Drawable, Subject
 	stats.setIntellect( stats.getIntellect() + 1 );
 	stats.setHardiness( stats.getHardiness() + 1 );
 	stats.setMovement( stats.getMovement() + 1 );
-
+	
 	// Unlock new skills
+
+	notifyListeners();
     }
 
     /* addItem(:Item): boolean
@@ -162,7 +169,11 @@ public class Entity implements Drawable, Subject
     ** out: a boolean representing whether or not the item was added (it cannot be if Inventory is full)
     */
     public boolean addItem(Item item){
-        return inventory.add(item);
+      boolean itemAdded = inventory.add(item);
+      if (itemAdded) {
+ 	notifyListeners();
+      }
+      return itemAdded;
     }
 
     /* equip(:Item): boolean
@@ -177,6 +188,7 @@ public class Entity implements Drawable, Subject
 		if ( equipment.equip(item) ){
 		    inventory.remove(item);
 		    modifyStats( item.getStatModifiers() );
+		    notifyListeners();
 		    return successful;
 		}
 	    }
@@ -197,6 +209,7 @@ public class Entity implements Drawable, Subject
 	equipment.unequip(item);
 	inventory.add(item);
 	stats.removeStatMods( item.getStatModifiers() );
+	notifyListeners();
 	return successful;
     }
 
