@@ -13,7 +13,11 @@ import models.*;
  	}
 	public void execute(ViewManager vm, Controller cm){
 		Game game = new Game(new HardCodedGameEngineInitializer());
-		game.newGame();		
+		game.newGame();	
+
+		System.out.println("controller1 state is " + cm.state.getName());
+		cm.setGame(game);
+		System.out.println("controller2 state is " + cm.state.getName());
 
 		AvatarCreator ac = new AvatarCreator();
 		ac.setName("Brandon");
@@ -22,9 +26,6 @@ import models.*;
 		game.initializeAvatar(avatar);
 
 		Level level = game.getLevel();
-
-		cm.changeState();
-		cm.setGame(game);
 
 		vm.setGameMode(level, avatar);
 	}
