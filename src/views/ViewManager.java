@@ -71,6 +71,8 @@ public class ViewManager extends View{
 			// Map map = new Map();
 			// ILocationManager locationManager = new ILocationMangager();
 			//game object will  game.getLevel();
+			areaView.setVisible(true);
+			statsView.setVisible(true);
 			add(areaView, BorderLayout.CENTER);
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
