@@ -4,6 +4,7 @@ import models.gameengine.HardCodedGameEngineInitializer;
 import models.menus.*;
 import util.Game;
 
+
 public class Controller{
 	public ControllerState state;
 
@@ -48,6 +49,7 @@ public class Controller{
 			state = new MenuState();
 		}
 		else{
+			System.out.println("The Controller is now in the avatar state");
 			state = new AvatarState(game);
 		}
 	}

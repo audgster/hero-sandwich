@@ -15,12 +15,12 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("AoE_InstaDeath", "../images/AoE_InstaDeath.png");
 
         //Items
-        spriteMap.put("Item_Consumable", "../images/Item_Consumable.png");
-        spriteMap.put("Item_Equipable", "../images/Item_Equipable.png");
-		spriteMap.put("Item_Takeable", "../images/Item_Takeable.png");
-		spriteMap.put("Item_OneShot", "../images/Item_OneShot.png");
-		spriteMap.put("Item_Interactable", "../images/Item_Interactable.png");
-		spriteMap.put("Item_Obstacle", "../images/Item_Obstacle.png");
+        spriteMap.put("Item_ConsumableItem", "../images/Item_Consumable.png");
+        spriteMap.put("Item_EquipableItem", "../images/Item_Equipable.png");
+		spriteMap.put("Item_TakeableItem", "../images/Item_Takeable.png");
+		spriteMap.put("Item_OneShotItem", "../images/Item_OneShot.png");
+		spriteMap.put("Item_InteractableItem", "../images/Item_Interactable.png");
+		spriteMap.put("Item_ObstacleItem", "../images/Item_Obstacle.png");
 
         //Entity
         spriteMap.put("Entity_Smasher_0", "../images/Entity_Smasher_0.png");
@@ -28,9 +28,9 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Entity_Summoner_0", "../images/Entity_Summoner_0.png");
 		
 		//Tile
-		spriteMap.put("Tile_Grass", "../images/Tile_Grass.png");
-		spriteMap.put("Tile_Water", "../images/Tile_Water.png");
-		spriteMap.put("Tile_Mountain", "../images/Tile_Water.png");
+		spriteMap.put("Tile_GROUND", "../images/Tile_Ground.png");
+		spriteMap.put("Tile_WATER", "../images/Tile_Water.png");
+		spriteMap.put("Tile_MOUNTAINn", "../images/Tile_Mountain.png");
 
         return spriteMap;
     }

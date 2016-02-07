@@ -8,15 +8,12 @@
 ./initialization/ConfigParser.java
 ./initialization/Driver.java
 ./initialization/EntityCreator.java
-./initialization/Game.java
 ./initialization/GameFacade.java
 ./initialization/ItemCreator.java
-./initialization/Level.java
 ./initialization/LevelCreator.java
 ./initialization/MapCreator.java
 ./initialization/TestMap.java
 ./initialization/TestTile.java
-./initialization/TextParser.java
 ./initialization/TileCreator.java
 ./models/entities/Entity.java
 ./models/entities/EntityStats.java
