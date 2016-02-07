@@ -2,7 +2,7 @@ package models.menus;
 
 import models.menus.options.*;
 import views.ViewManager;
-
+import views.*;
 import java.util.ArrayList;
 public class GameOverMenu extends Menus{
 
