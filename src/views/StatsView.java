@@ -33,7 +33,7 @@ public class StatsView extends View{
 		avatarName.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(avatarName);
 
-		JLabel avatarOccupation = new JLabel(avatar.getOccupation());
+		JLabel avatarOccupation = new JLabel(avatar.getOccupation().toString());
 		setFontAndColor(avatarOccupation);
 		avatarOccupation.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(avatarOccupation);
@@ -80,6 +80,7 @@ public class StatsView extends View{
 		setFontAndColor(hpLabel);
 		statsPanel.add(hpLabel, c);
 		c.gridx = 1;
+		c.gridwidth = 2;
 		JProgressBar healthBar = new JProgressBar (0, avatarStats.getLife());
 		healthBar.setValue(avatarStats.getCurrentLife());
 		statsPanel.add(healthBar, c);
@@ -87,10 +88,12 @@ public class StatsView extends View{
 		//draw mana icon, draw manabar currMana/maxMana
 		c.gridx = 0;
 		c.gridy = 4;
+		c.gridwidth = 1;
 		JLabel mpLabel = new JLabel("Mp: ");
 		setFontAndColor(mpLabel);
 		statsPanel.add(mpLabel, c);
 		c.gridx = 1;
+		c.gridwidth = 2;
 		JProgressBar manaBar = new JProgressBar (0, avatarStats.getMana());
 		manaBar.setValue(avatarStats.getCurrentMana());
 		statsPanel.add(manaBar, c);
@@ -98,6 +101,7 @@ public class StatsView extends View{
 		//draw offense icon, set label to offense score
 		c.gridx = 0;
 		c.gridy = 5;
+		c.gridwidth = 1;
 		JLabel atkLabel = new JLabel("Atk: ");
 		setFontAndColor(atkLabel);
 		statsPanel.add(atkLabel, c);
