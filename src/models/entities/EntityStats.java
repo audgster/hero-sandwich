@@ -203,6 +203,20 @@ public class EntityStats extends Stats {
     public void setOccupationMods(StatModifiers statMod) {
 	occupationStatMods = statMod;
     }
+  /* Attemps to remove the StatModifiers with the same handle as the argument
+   * If successful, returns the StatModifiers removed
+   * Else, returns null
+   */
+  public StatModifiers removeStatMods(StatModifiers statMods) {
+    StatModifiers removedStats = null;
+    int index = this.statMods.indexOf(statMods);
+    // if the StatModifiers is found
+    if ( index != -1 ) {
+      removedStats = this.statMods.get(index);
+      this.statMods.remove(index);
+    }
+    return removedStats;
+  }
     
     @Override
     public String toString() {

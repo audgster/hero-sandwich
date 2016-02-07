@@ -72,6 +72,7 @@ public class ViewManager extends View{
 			// ILocationManager locationManager = new ILocationMangager();
 			//game object will  game.getLevel();
 			add(areaView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/6, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
 		else{
@@ -114,7 +115,7 @@ public class ViewManager extends View{
 	public void setGameMode(Level level, Entity avatar){
 		mode = Mode.GAME;
 		areaView = new AreaView(level, avatar);
-		//statsView = new StatsView(avatar.getEntityStats()/*avatar.getStats()*/);
+		statsView = new StatsView(avatar);
 		menuViews.clear();
 		update();
 	}

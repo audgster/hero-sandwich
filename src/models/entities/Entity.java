@@ -194,9 +194,10 @@ public class Entity implements Drawable, Subject
 	boolean successful = true;
         if ( inventory.isFull() ){
 	    return !successful;
-        }
+        }	
 	equipment.unequip(item);
 	inventory.add(item);
+	stats.removeStatMods( item.getStatModifiers() );
 	return successful;
     }
 
