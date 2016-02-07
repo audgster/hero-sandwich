@@ -326,4 +326,13 @@ public class EntityStats extends Stats {
         String str = strBuilder.toString();
         return str;
     }
+
+	public List<String> getSaveState() {
+		List<String> state = new ArrayList<String>();
+		state.add("/tlivesLeft: " + Integer.toString(livesLeft));
+		state.add("/tcurrentLife: " + Integer.toString(currentLife));
+		state.add("/tcurrentMana: " + Integer.toString(currentMana));
+		state.add("/txp: " + Integer.toString(xp));
+		return state;
+	}
 }

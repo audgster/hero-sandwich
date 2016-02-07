@@ -11,6 +11,6 @@ public class PauseMenu extends Menus{
    */
   public PauseMenu(ViewManager vm){
     super(new Option[]{new PauseOption(), new ResumeOption(),
-            new UnequiptItemOption()}, new ArrayList<>(), vm);
+            new UnequiptItemOption()}, new ArrayList<Listener>(), vm);
   }
 }

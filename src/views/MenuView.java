@@ -6,28 +6,27 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MenuView extends View{
-	
+
 	private Menus menu;
 	private String[] options;
 	private int currentIndex;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
-	
+
 	public MenuView(Menus menu){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setMenu(menu);
 		update();
 	}
-	
+
 	public void setMenu(Menus menu){
-		
+
 		if(this.menu != null){
 			menu.removeListener(this);
 		}
 		this.menu = menu;
 		this.menu.addListener(this);
-		
 	}
-	
+
 	protected void render(){
 		removeAll();
 		for(int i = 0; i < options.length; i++){
@@ -43,17 +42,20 @@ public class MenuView extends View{
 			}
 			add(label);
 		}
-		
+
+		JLabel imageLabel = new JLabel(new ImageIcon("../images/hero-sandwiche.gif"));
+		add(imageLabel);
+
 		revalidate();
 		repaint();
 	}
-	
+
 	public void update(){
-		
+
 		Option[] menuOptions = menu.getListOfOptions();
 		Option current = menu.getCurrentlySelected();
 		options = new String[menuOptions.length];
-		
+
 		for(int i = 0; i < menuOptions.length; i++){
 			options[i] = menuOptions[i].toString();
 			if(menuOptions[i] == current){
@@ -62,5 +64,5 @@ public class MenuView extends View{
 		}
 		render();
 	}
-	
+
 }
