@@ -2,6 +2,7 @@ package util;
 
 import java.util.Objects;
 
+
 public class Position
 {
   private int x;
@@ -18,6 +19,19 @@ public class Position
 
   public int getY() {
     return y;
+  }
+
+  public boolean equals(Position p)
+  {
+    if(this.getX() != p.getX()){
+      return false;
+    }
+    else if(this.getY() != p.getY()){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
   @Override

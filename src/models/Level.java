@@ -48,11 +48,15 @@ public class Level {
     public Set<Entity> getAllEntitiesIn(Collection<Position> positions)
     {
         TwoWayHashMap<Position, Entity> allEntities = new TwoWayHashMap<>();
-
+        //System.out.println("get all entities in size:" + positions.size());
         for (Position p : positions)
         {
+            System.out.println("looking for entity at position: " + p.toString());
             if (locationManager.isOccupied(p))
+            {
+                System.out.println("location manager occupied at position: " + p.toString());
                 allEntities.put(p, locationManager.getEntity(p));
+            }
         }
 
         return allEntities.getValueSet();
@@ -68,5 +72,15 @@ public class Level {
 
     public void addEntity(Entity entity, Position startPosition){
         locationManager.addEntity(entity, startPosition);
+        System.out.println(locationManager.toString());
     }
+
+    public String toString()
+    {
+        return locationManager.toString();
+    }
+
+    //public Position getPositionAt(int x, int y){
+      //  return locationManager.
+    //}
 }
