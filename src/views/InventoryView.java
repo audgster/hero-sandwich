@@ -5,11 +5,11 @@ import models.menus.options.Option;
 import java.awt.*;
 import javax.swing.*;
 
-public class PauseView extends MenuView{
+public class InventoryView extends MenuView{
 
-  public PauseView(Menus menu){
-    super(menu);
-  }
+  public InventoryView(Menus menu){
+		super(menu);
+	}
 
   protected void render(){
     removeAll();
