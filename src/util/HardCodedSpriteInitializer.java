@@ -9,10 +9,10 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
         HashMap<String, String> spriteMap = new HashMap<>();
 
         //AOE
-        spriteMap.put("AoE_TakeDamage", "../images/AoE_TakeDamage.png");
-		spriteMap.put("AoE_HealDamage", "../images/AoE_HealDamage.png");
-		spriteMap.put("AoE_LevelUp", "../images/AoE_LevelUp.png");
-		spriteMap.put("AoE_InstaDeath", "../images/AoE_InstaDeath.png");
+        spriteMap.put("AoE_TakeDamageAoE", "../images/AoE_TakeDamage.png");
+		spriteMap.put("AoE_HealDamageAoE", "../images/AoE_HealDamage.png");
+		spriteMap.put("AoE_LevelUpAoE", "../images/AoE_LevelUp.png");
+		spriteMap.put("AoE_InstaDeathAoE", "../images/AoE_InstaDeath.png");
 
         //Items
         spriteMap.put("Item_ConsumableItem", "../images/Item_Consumable.png");
