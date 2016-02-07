@@ -77,6 +77,8 @@ public  class AvatarState extends ControllerState{
     {
         if(game.getGameEngine().changeEntityLocation(game.getCurrentLevel(), game.getAvatar(), direction)) {
             System.out.println("The Avatar moved " + direction.toString().toLowerCase());
+            System.out.println("After movement, position is: " +
+                    game.getCurrentLevel().returnCurrentPosition(game.getAvatar()).toString());
         }
         else
         {

@@ -37,9 +37,9 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Entity_Summoner_0", "../images/Entity_Summoner_0.png");
 		
 		//Tile
-		spriteMap.put("Tile_GROUND", "../images/Tile_Ground.png");
-		spriteMap.put("Tile_WATER", "../images/Tile_Water.png");
-		spriteMap.put("Tile_MOUNTAINn", "../images/Tile_Mountain.png");
+		spriteMap.put("Tile_GROUND", "../images/Tile_Ground.gif");
+		spriteMap.put("Tile_WATER", "../images/Tile_Water.gif");
+		spriteMap.put("Tile_MOUNTAIN", "../images/Tile_Mountain.gif");
 
         return spriteMap;
     }
