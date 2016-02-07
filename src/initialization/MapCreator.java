@@ -46,7 +46,7 @@ public class MapCreator {
 
     private void setAreaOfEffectGroups(Map map) {
         AreaOfEffectCreator areaOfEffectCreator = new AreaOfEffectCreator(areaEffectGroups);
-        areaOfEffectCreator.createAreasOfEffectOnMap(map);
+        //areaOfEffectCreator.createAreasOfEffectOnMap(map);
     }
 
 

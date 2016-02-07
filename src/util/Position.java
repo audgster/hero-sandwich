@@ -25,11 +25,48 @@ public class Position
     String str = "Position [" + x + "," + y + "]";
     return str;
   }
-    // Audrey: need this for movement
-    // Given a position and a direction, returns a new position
-    public Position incrementPosition(Direction directionMoved) {return new Position(0, 0);}
 
-  public Position incrementPosition(Direction directionMoved, int numberOfSquares) {return new Position(0, 0);}
+    public Position incrementPosition(Direction directionMoved)
+    {
+        return incrementPosition(directionMoved, 1);
+    }
+
+  public Position incrementPosition(Direction directionMoved, int numberOfSquares)
+  {
+      if (numberOfSquares < 1)
+      {
+          throw new IndexOutOfBoundsException("numberOfSquares not valid");
+      }
+
+      int x = getX();
+      int y = getY();
+
+      switch (directionMoved)
+      {
+          case NORTH: y = y - numberOfSquares;
+              break;
+          case NORTHEAST: y = y - numberOfSquares;
+              x = x + numberOfSquares;
+              break;
+          case EAST: x = x + numberOfSquares;
+              break;
+          case SOUTHEAST: y = y + numberOfSquares;
+              x = x + numberOfSquares;
+              break;
+          case SOUTH: y = y + numberOfSquares;
+              break;
+          case SOUTHWEST: y = y + numberOfSquares;
+              x = x - numberOfSquares;
+              break;
+          case WEST: x = x - numberOfSquares;
+              break;
+          case NORTHWEST: y = y - numberOfSquares;
+              x = x - numberOfSquares;
+              break;
+      }
+
+      return new Position(x,y);
+  }
 
     @Override
     public boolean equals(Object p)

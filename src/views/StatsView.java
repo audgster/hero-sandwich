@@ -17,7 +17,7 @@ public class StatsView extends View{
 	
 	protected void render(){
 		removeAll();
-		setBackground(Color.BLACK);
+		setBackground(Color.WHITE);
 		GridBagConstraints c = new GridBagConstraints();
 		
 		//draw level icon, set label to level
@@ -58,11 +58,11 @@ public class StatsView extends View{
 		add(hpLabel, c);
 		
 		//draw mana icon, draw manabar currMana/maxMana
-		c.gridx = 0;
+		c.gridx = 2;
 		c.gridy = 3;
 		JLabel mpLabel = new JLabel("Mp: ");
 		add(mpLabel, c);
-		c.gridx = 1;
+		c.gridx = 3;
 		mpLabel = new JLabel(avatarStats.getCurrentMana() + 
 				" / " + avatarStats.getMana());
 		add(mpLabel, c);

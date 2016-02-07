@@ -11,8 +11,8 @@ public class Driver {
         //map.printMap();
         //TextParser parser = new TextParser(new File("initialization/config.txt"));
         //parser.parseFile();
-        Game game = new Game();
-        game.newGame();
+        // Game game = new Game();
+        // game.newGame();
     }
 }
 

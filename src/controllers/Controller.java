@@ -30,6 +30,7 @@ public class Controller{
 			case 5: state.select();
 					if(state.getName() == "Avatar"){
 						changeState();
+						
 					}
 					break;
 			case 6: state.east();

@@ -33,16 +33,17 @@ public class AreaView extends View {
 	public AreaView(Level level, Entity avatar){
 		this.level = level;
 		this.avatar = avatar;
+		viewablePositions = new HashSet<Position>();
 	}
 	
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.setColor(Color.BLACK);
+		g.setColor(Color.RED);
 		g.fillRect(0,0,getWidth(), getHeight());
 		
 		//render the Tiles, AoEs, and Items
 		for(Position p : viewablePositions){
-			
+			System.out.println("ihave some mothafuking positions");
 			if(level.returnTileAt(p) == null){
 				continue;
 			}
@@ -50,15 +51,18 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 			BufferedImage tileImage = null;
 			try{
+				System.out.println("it found the tile images");
 				tileImage = ImageIO.read(new File(
 						spriteMap.getResourcePath(tile.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
+				System.out.println("cannot find tile images");
 				break;
 			}
 			catch(Exception e){
 				//throw e;
+				System.out.println("sprite error");
 				e.printStackTrace();
 				break;
 			}
@@ -76,10 +80,12 @@ public class AreaView extends View {
 				}
 				catch(IOException e){
 					//throw e;
+					System.out.println("cannot find aoe images");
 					break;
 				}
 				catch(Exception e){
 					//throw e;
+					System.out.println("aoe error");
 					e.printStackTrace();
 					break;
 				}
@@ -140,40 +146,6 @@ public class AreaView extends View {
 	protected void render(){
 		
 		repaint();
-		//Graphics g = getComponentGraphics();
-		
-		/*
-		int x = 0;
-		int y = 0;
-		BufferedImage tileImg = null;
-		BufferedImage avatarImg = null;
-		try{
-			tileImg = ImageIO.read(new File("../images/groundTile.PNG"));
-			avatarImg = ImageIO.read(new File("../images/smasher.gif"));
-		}catch(IOException e){System.out.println("Error");}
-		*/
-		
-		//for each tile in viewable area
-		/*
-		for(Position p : viewablePositions){
-			if(level.returnTileAt(p) == null){
-				continue;
-			}
-			Tile tile = level.returnTileAt(p);
-
-		}
-		*/
-		/*
-		for(int i = 0; i < 10; i++){
-			y = 64 * i;
-			for(int j = 0; j < 10; j++){
-				x = 64*j;
-				g.drawImage(tileImg,x,y, null);
-			}
-		}
-		g.drawImage(avatarImg,0,0,64,64,null);
-		*/
-		//use Aud's DoubleHashMap thingy to get the entities
 		
 	}
 
@@ -183,7 +155,11 @@ public class AreaView extends View {
 		//find the viewable area centred on avatar
 		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tileSize);
 		int numTilesHigh = (int) Math.ceil(1.0 * getHeight() / tileSize);
-
+		numTilesWide = 5 ;
+		numTilesHigh = 5 ;
+		System.out.println("Is Avatar Position null? " + (avatarPosition == null));
+		System.out.println("numTilesWide " + getWidth());
+		System.out.println("numTilesHigh " + getHeight());
 		//find the top-left tile position
 		topLeftX = avatarPosition.getX() - (numTilesWide / 2);
 		topLeftY = avatarPosition.getY() - (numTilesHigh / 2);
@@ -191,6 +167,7 @@ public class AreaView extends View {
 		viewablePositions = new HashSet<Position>();
 		for(int i = 0; i < numTilesWide; i++){
 			for(int j = 0; j < numTilesHigh; j++){
+				System.out.println(j);
 				viewablePositions.add(new Position(topLeftX + i, topLeftY + j));
 			}
 		}
