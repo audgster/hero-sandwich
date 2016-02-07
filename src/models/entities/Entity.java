@@ -43,7 +43,7 @@ public class Entity implements Drawable, Subject
         this.name = name;
         this.occupation = occupation;
         stats = entityStats;
-        //stats.setOccupationMods( this.occupation.getStatMods() );
+        stats.setOccupationMods( this.occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
         eIdentifier = identifier;
