@@ -93,13 +93,84 @@ public class EntityTest
     * Take Damage
     * */
 
-    /*
-    * Verifies that take damage correctly decrements health for entity when the
-    * damage taken is not more than current health
-    * */
     @Test
     public void takeDamage_nonKillingDamage()
     {
-        Assert.assertTrue(true);
+        // Verifies that damage below current life results in no loss of life
+        // and currentLife is updated to reflect damage
+
+        int initialLife = 40;
+        int initialMana = 10;
+
+        int damageTaken = 10;
+
+        int lifeAfterDamage = initialLife - damageTaken;
+
+        Entity entity = new Entity("EntityTest",
+                new Smasher(),
+                new EntityStats(10, 10, 10, 10, 10, 3, 0, initialLife, initialMana, new Smasher()),
+                EntityIdentifier.GROUND,
+                Direction.NORTH);
+
+        entity.takeDamage(damageTaken);
+
+        EntityStats stats = entity.getEntityStats();
+
+        Assert.assertEquals(stats.getLivesLeft(), 3);
+        Assert.assertEquals(stats.getCurrentLife(), lifeAfterDamage);
+    }
+
+    @Test
+    public void takeDamage_killingDamage_edge()
+    {
+        // Verifies that damage below current life results in no loss of life
+        // and currentLife is updated to reflect damage
+
+        int initialLife = 40;
+        int initialMana = 10;
+
+        int damageTaken = 40;
+
+        int lifeAfterDamage = initialLife - damageTaken;
+
+        Entity entity = new Entity("EntityTest",
+                new Smasher(),
+                new EntityStats(10, 10, 10, 10, 10, 3, 0, initialLife, initialMana, new Smasher()),
+                EntityIdentifier.GROUND,
+                Direction.NORTH);
+
+        entity.takeDamage(damageTaken);
+
+        EntityStats stats = entity.getEntityStats();
+
+        Assert.assertEquals(stats.getLivesLeft(), 2);
+        Assert.assertEquals(stats.getCurrentLife(), lifeAfterDamage);
+    }
+
+    @Test
+    public void takeDamage_killingDamage_excess()
+    {
+        // Verifies that damage below current life results in no loss of life
+        // and currentLife is updated to reflect damage
+
+        int initialLife = 40;
+        int initialMana = 10;
+
+        int damageTaken = 41;
+
+        int lifeAfterDamage = 0;
+
+        Entity entity = new Entity("EntityTest",
+                new Smasher(),
+                new EntityStats(10, 10, 10, 10, 10, 3, 0, initialLife, initialMana, new Smasher()),
+                EntityIdentifier.GROUND,
+                Direction.NORTH);
+
+        entity.takeDamage(damageTaken);
+
+        EntityStats stats = entity.getEntityStats();
+
+        Assert.assertEquals(stats.getLivesLeft(), 2);
+        Assert.assertEquals(stats.getCurrentLife(), lifeAfterDamage);
     }
 }
