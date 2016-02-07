@@ -14,7 +14,7 @@ public class ViewManager extends View{
 	private StatsView statsView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
-	private Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 50);
+	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
 
 	private enum Mode{
 		MAIN_MENU,
@@ -51,12 +51,13 @@ public class ViewManager extends View{
 		removeAll();
 		if(mode == Mode.MAIN_MENU){
 			JLabel title = new JLabel(titleText);
+			title.setHorizontalAlignment(SwingConstants.CENTER);
 			title.setFont(titleFont);
 			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
-			JLabel logo = new JLabel("Insert Logo Here");
-			add(logo, BorderLayout.CENTER);
+			// JLabel logo = new JLabel("Insert Logo Here");
+			// add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
 			System.out.println("Customize View");
@@ -71,13 +72,16 @@ public class ViewManager extends View{
 			// Map map = new Map();
 			// ILocationManager locationManager = new ILocationMangager();
 			//game object will  game.getLevel();
+			areaView.setVisible(true);
+			statsView.setVisible(true);
+			areaView.setPreferredSize(new Dimension(getWidth(), getHeight()));
 			add(areaView, BorderLayout.CENTER);
-			statsView.setPreferredSize(new Dimension(getWidth()/6, getHeight()));
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
 		else{
 			//something screwed up
-			System.out.println("Mode not set");
+			System.out.println("Mode not set. No sub-views rendered");
 		}
 
 		revalidate();
@@ -86,6 +90,20 @@ public class ViewManager extends View{
 
 	public void update(){
 		//something
+		if(mode == Mode.MAIN_MENU){
+			menuViews.get(0).update();
+		}
+		else if(mode == Mode.CUSTOMIZE_MENU){
+			menuViews.getLast().update();
+		}
+		else if(mode == Mode.GAME){
+			areaView.update();
+			statsView.update();
+		}
+		else{
+			//nothing updates
+			System.out.println("Mode not set. No sub-views updated");
+		}
 		render();
 	}
 

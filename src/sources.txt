@@ -12,8 +12,6 @@
 ./initialization/ItemCreator.java
 ./initialization/LevelCreator.java
 ./initialization/MapCreator.java
-./initialization/TestMap.java
-./initialization/TestTile.java
 ./initialization/TileCreator.java
 ./models/entities/Entity.java
 ./models/entities/EntityStats.java

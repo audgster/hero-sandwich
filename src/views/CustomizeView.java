@@ -5,21 +5,23 @@ import models.menus.options.Option;
 import java.awt.*;
 import javax.swing.*;
 
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
-import java.awt.image.BufferedImage;
-
 public class CustomizeView extends View{
 
 	private Menus menu;
 	private String[] options;
 	private int currentIndex;
+	private GridBagConstraints gBC;
+	private Option[] menuOptions;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
-
+	private String[] imgPath = {"../images/smasher.gif", "../images/summoner.png", "../images/sneak.gif"};
+	
 	public CustomizeView(Menus menu){
-		setLayout(new GridLayout(1,3));
+		setLayout(new GridBagLayout());
 		setMenu(menu);
+		gBC = new GridBagConstraints();
+    gBC.fill = GridBagConstraints.HORIZONTAL;
+		menuOptions = menu.getListOfOptions();
+		options = new String[menuOptions.length];
 		update();
 }
 
@@ -34,33 +36,34 @@ public class CustomizeView extends View{
 	protected void render(){
 		removeAll();
 
-		BufferedImage[] avatarImages = new BufferedImage[3];
-		try{
-			avatarImages[0] = ImageIO.read(new File("../images/smasher.gif"));
-			avatarImages[1] = ImageIO.read(new File("../images/summoner.png"));
-			avatarImages[2] = ImageIO.read(new File("../images/sneak.jpg"));
-		}
-		catch(IOException e){
-			System.out.println("could not find any files!!!!!!!!!!!!!!!!!!!");
-		}
-
-		createLayout(avatarImages);
-
+		createLayout();
 		revalidate();
 		repaint();
 	}
 
-	private void createLayout(BufferedImage[] images){
+	private void createLayout(){
 		ImageIcon icon;
-		JPanel panel;
 		JLabel img, label;
+		String[] region = {BorderLayout.WEST, BorderLayout.CENTER, BorderLayout.EAST};
 		for(int i = 0; i < options.length; i++){
-			icon = new ImageIcon(images[i]);
-			panel = new JPanel();
+			gBC.ipady = 40;
+			gBC.weightx = 1;
+			gBC.gridx = i;
+			gBC.gridy = 0;
+
+			icon = new ImageIcon(imgPath[i]);
 			img = new JLabel(icon);
-			panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-			label = new JLabel(options[i]);
-			label.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+			add(img, gBC);
+		}
+
+		for(int i = 0; i < options.length; i++){
+			gBC.ipady = 10;
+			gBC.weightx = 1;
+			gBC.gridx = i;
+			gBC.gridy = 1;
+
+			label = new JLabel(options[i], SwingConstants.CENTER);
 			label.setBackground(Color.GREEN);
 			label.setFont(menuFont);
 			if(currentIndex == i){
@@ -69,16 +72,12 @@ public class CustomizeView extends View{
 			else{
 				label.setOpaque(false);
 			}
-			panel.add(img);
-			panel.add(label);
-			add(panel);
+			add(label, gBC);
 		}
 	}
 
 	public void update(){
-		Option[] menuOptions = menu.getListOfOptions();
 		Option current = menu.getCurrentlySelected();
-		options = new String[menuOptions.length];
 
 		for(int i = 0; i < menuOptions.length; i++){
 			options[i] = menuOptions[i].toString();

@@ -1,9 +1,10 @@
 package models.entities;
 
 import models.items.*;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 import util.Direction;
 import util.EntityIdentifier;
-import util.TerrainGroup;
+import util.exceptions.InvalidStatException;
 import views.Drawable;
 import models.Subject;
 import views.Listener;
@@ -38,12 +39,12 @@ public class Entity implements Drawable, Subject
     }
 
   /* Fully parameterized constructor */
-    public Entity(String name, Occupation occupation, EntityIdentifier identifier, Direction direction)
+    public Entity(String name, Occupation occupation, EntityStats entityStats, EntityIdentifier identifier, Direction direction)
     {
         this.name = name;
         this.occupation = occupation;
-        stats = new EntityStats();
-        stats.setOccupationMods( occupation.getStatMods() );
+        stats = entityStats;
+        stats.setOccupationMods( this.occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
         eIdentifier = identifier;
@@ -53,30 +54,35 @@ public class Entity implements Drawable, Subject
 
   /* IMPLEMENT SUBJECT INTERFACE */
 
-  public void addListener(Listener listener) {
-    subs.add(listener);
-  }
-	
-  public void removeListener(Listener listener) {
-    boolean found = subs.remove(listener);
-    if (!found) 
-      System.err.println("Entity " + name + " could not remove Listener [NOT FOUND]");
-  }
-  
-  public void notifyListeners() {
-    for(int i = 0; i < subs.size(); i++){
-        subs.get(i).update();
+    public void addListener(Listener listener)
+    {
+        subs.add(listener);
     }
-  }
+	
+    public void removeListener(Listener listener)
+    {
+        boolean found = subs.remove(listener);
+
+        if (!found)
+            System.err.println("Entity " + name + " could not remove Listener [NOT FOUND]");
+    }
+  
+    public void notifyListeners()
+    {
+        for(int i = 0; i < subs.size(); i++){
+            subs.get(i).update();
+        }
+    }
 
   /* END SUBJECT INTERFACE */
 
     /* modifyStats(:StatModifier)
     ** Adds a StatModifiers object to the Entity's Stats
     */
-    void modifyStats(StatModifiers statMod) {
-	stats.addStatMod(statMod);
-	notifyListeners();
+    void modifyStats(StatModifiers statMod)
+    {
+        stats.addStatMod(statMod);
+        notifyListeners();
     }
     
     /* takeDamage(:int):int
@@ -84,14 +90,33 @@ public class Entity implements Drawable, Subject
     ** in: damage taken
     ** out: entities's remaining life after taking damage (currentLife)
     */
-    public int takeDamage(int amount) {
-	stats.setCurrentLife( stats.getCurrentLife() - amount );
-	int remainingLife = stats.getCurrentLife();
-	if (remainingLife <= 0) {
-	    loseLife();
-	} 
-	notifyListeners();
-	return remainingLife;
+    public int takeDamage(int amount)
+    {
+        // For now silently fail when taking negative damage?
+        if (amount < 0)
+            return stats.getCurrentLife();
+
+        int remainingLife = 0;
+
+        try {
+            int delta = stats.getCurrentLife() - amount;
+
+            if (delta <= 0) {
+                loseLife();
+            }
+            else {
+                stats.setCurrentLife(delta);
+                remainingLife = delta;
+            }
+
+            notifyListeners();
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
+
+        return remainingLife;
     }
     
     /* healDamage(:int): int
@@ -99,29 +124,36 @@ public class Entity implements Drawable, Subject
     ** in: damage healed
     ** out: entities's remaining life after healing damage (currentLife)
     */
-    public int healDamage(int amount) {
-	int currentLife = stats.getCurrentLife();
-	int lifePlusHeal = currentLife + amount;
-	if ( lifePlusHeal > stats.getLife() ) { // if healing pushes life over max
-	    stats.setCurrentLife( stats.getLife() ); // set to max
-	} else {
-	    stats.setCurrentLife( currentLife + lifePlusHeal );
-	}
-	notifyListeners();
-	return stats.getCurrentLife();
+    public int healDamage(int amount)
+    {
+        int currentLife = stats.getCurrentLife();
+        int lifeToHeal = currentLife + amount;
+        int maxLife = stats.getLife();
+
+        if ( lifeToHeal >  maxLife) { // if healing pushes life over max
+           lifeToHeal = maxLife;
+        }
+
+        try {
+            stats.setCurrentLife(lifeToHeal);
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
+        notifyListeners();
+        return currentLife;
     }
     
     /* loseLife: int
     ** Parameters
     ** out: number of lives entities has remaining after losing one (livesLeft)
     */
-    int loseLife() {
-	int livesRemaining = stats.loseLife();
-	if ( livesRemaining == 0  ) {
-	  // Game Over
-	}
-	notifyListeners();
-	return livesRemaining;
+    int loseLife()
+    {
+        int livesRemaining = stats.loseLife();
+        notifyListeners();
+        return livesRemaining;
     }
     
     /* gainXp(:int): int
@@ -129,15 +161,20 @@ public class Entity implements Drawable, Subject
     ** in: the amount of XP gained
     ** out: the total amount of XP the entity has after the addition
     */
-    int gainXp(int amount) {
-	int oldLevel = stats.getLevel();
-	int newXp = stats.addXp(amount);
-	int newLevel = stats.getLevel();
-	if (newLevel > oldLevel) {
-	    levelUp();
-	}
-	notifyListeners();
-	return newXp;
+    int gainXp(int amount)
+    {
+        int oldLevel = stats.getLevel();
+        int newXp = stats.addXp(amount);
+        int newLevel = stats.getLevel();
+
+        if (newLevel > oldLevel)
+        {
+            levelUp();
+        }
+
+        notifyListeners();
+
+        return newXp;
     }
 
     /* levelUp()
@@ -148,19 +185,25 @@ public class Entity implements Drawable, Subject
     public void levelUp() {
 
 	// Restore life & mana
-	stats.setCurrentLife( stats.getLife() );
-	stats.setCurrentMana( stats.getMana() );
+        try {
+            stats.setCurrentLife(stats.getLife());
+            stats.setCurrentMana(stats.getMana());
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
 
-	// Increase primary stats
-	stats.setStrength( stats.getStrength() + 1 );
-	stats.setAgility( stats.getAgility() + 1 );	
-	stats.setIntellect( stats.getIntellect() + 1 );
-	stats.setHardiness( stats.getHardiness() + 1 );
-	stats.setMovement( stats.getMovement() + 1 );
-	
-	// Unlock new skills
+        // Increase primary stats
+        stats.setStrength( stats.getStrength() + 1 );
+        stats.setAgility( stats.getAgility() + 1 );
+        stats.setIntellect( stats.getIntellect() + 1 );
+        stats.setHardiness( stats.getHardiness() + 1 );
+        stats.setMovement( stats.getMovement() + 1 );
 
-	notifyListeners();
+        // Unlock new skills
+
+        notifyListeners();
     }
 
     /* addItem(:Item): boolean
@@ -168,12 +211,15 @@ public class Entity implements Drawable, Subject
     ** in: the Item to add to this Entity's Inventory
     ** out: a boolean representing whether or not the item was added (it cannot be if Inventory is full)
     */
-    public boolean addItem(Item item){
-      boolean itemAdded = inventory.add(item);
-      if (itemAdded) {
- 	notifyListeners();
-      }
-      return itemAdded;
+    public boolean addItem(Item item)
+    {
+        boolean itemAdded = inventory.add(item);
+        if (itemAdded)
+        {
+ 	        notifyListeners();
+        }
+
+        return itemAdded;
     }
 
     /* equip(:Item): boolean
@@ -181,19 +227,22 @@ public class Entity implements Drawable, Subject
     ** in: the Item to equip
     ** out: a boolean representing whether or not the equip action was successful
     */    
-    public boolean equip(EquipableItem item){	
-	boolean successful = true;
-	if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() ){
-	    if ( stats.checkRestrictions( item.getStatsRestrictions() ) ){
-		if ( equipment.equip(item) ){
-		    inventory.remove(item);
-		    modifyStats( item.getStatModifiers() );
-		    notifyListeners();
-		    return successful;
-		}
-	    }
-	}
-	return !successful;
+    public boolean equip(EquipableItem item)
+    {
+        if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() )
+        {
+	        if ( stats.checkRestrictions( item.getStatsRestrictions() ) )
+            {
+		        if ( equipment.equip(item) )
+                {
+                    inventory.remove(item);
+                    modifyStats( item.getStatModifiers() );
+                    notifyListeners();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /* unequip(:Item): boolean
@@ -201,39 +250,48 @@ public class Entity implements Drawable, Subject
     ** in: the Item to unequip
     ** out: a boolean representing whether or not the unequip action was successful
     */
-    public boolean unequip(EquipableItem item){
-	boolean successful = true;
-        if ( inventory.isFull() ){
-	    return !successful;
-        }	
-	equipment.unequip(item);
-	inventory.add(item);
-	stats.removeStatMods( item.getStatModifiers() );
-	notifyListeners();
-	return successful;
-    }
+    public boolean unequip(EquipableItem item)
+    {
+        if ( inventory.isFull() )
+        {
+	        return false;
+        }
 
-  
+        equipment.unequip(item);
+        inventory.add(item);
+        stats.removeStatMods( item.getStatModifiers() );
+
+        notifyListeners();
+
+        return true;
+    }
 
 
     /* Accessors */
-    public EntityIdentifier getEntityType() {
-	return eIdentifier;
+    public EntityIdentifier getEntityType()
+    {
+	    return eIdentifier;
     }
 
-    public Occupation getOccupation() {
-	return occupation;
+    public Occupation getOccupation()
+    {
+	    return occupation;
     }
 
-    public EntityStats getEntityStats() {
-	return stats;
+    public EntityStats getEntityStats()
+    {
+	    return stats;
     }
     
-    public Inventory getInventory() {
-	return inventory;
+    public Inventory getInventory()
+    {
+	    return inventory;
     }
     
-    public Direction getEntityDirection() {return directionFacing;}
+    public Direction getEntityDirection()
+    {
+        return directionFacing;
+    }
 
     public void setEntityDirection(Direction direction)
     {
@@ -248,15 +306,18 @@ public class Entity implements Drawable, Subject
     ** 4) Inventory
     ** 5) Equipment
     */
-    public String toString() {
-	StringBuilder strBuilder = new StringBuilder();
-	strBuilder.append("Name: " + name + "\n");
-	strBuilder.append("Occupation: " + occupation.toString() + "\n");
-	strBuilder.append(stats.toString() + "\n");
-	strBuilder.append(inventory.toString() + "\n");
-	strBuilder.append(equipment.toString() + "\n");
-	String str = strBuilder.toString();
-	return str;
+    public String toString()
+    {
+        StringBuilder strBuilder = new StringBuilder();
+
+        strBuilder.append("Name: " + name + "\n");
+        strBuilder.append("Occupation: " + occupation.toString() + "\n");
+        strBuilder.append(stats.toString() + "\n");
+        strBuilder.append(inventory.toString() + "\n");
+        strBuilder.append(equipment.toString() + "\n");
+        String str = strBuilder.toString();
+
+        return str;
     }
 
     @Override

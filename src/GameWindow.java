@@ -20,7 +20,7 @@ public class GameWindow extends JFrame implements KeyListener{
 	private void createViewManager(){
 		ViewManager viewManager = new ViewManager();
 		menu = new MainMenu(viewManager);
-		
+
 		viewManager.setMainMenuMode(menu);
 		viewManager.setVisible(true);
 		add(viewManager);
