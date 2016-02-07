@@ -42,11 +42,11 @@ public class AreaView extends View {
 		g.fillRect(0,0,getWidth(), getHeight());
 		//I know the AreaView can get its location here
 		update2();
-		
-		
+
+
 		//render the Tiles, AoEs, and Items
 		for(Position p : viewablePositions){
-			//System.out.println("ihave some mothafuking positions");
+			//System.out.println("[AREAVIEW] ihave some mothafuking positions");
 			if(level.returnTileAt(p) == null){
 				continue;
 			}
@@ -54,18 +54,18 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 			BufferedImage tileImage = null;
 			try{
-				//System.out.println("it found the tile images");
+				//System.out.println("[AREAVIEW] it found the tile images");
 				tileImage = ImageIO.read(new File(
 						spriteMap.getResourcePath(tile.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
-				System.out.println("cannot find tile images");
+				System.out.println("[AREAVIEW] cannot find tile images");
 				break;
 			}
 			catch(Exception e){
 				//throw e;
-				System.out.println("sprite error");
+				System.out.println("[AREAVIEW] sprite error");
 				e.printStackTrace();
 				break;
 			}
@@ -83,12 +83,12 @@ public class AreaView extends View {
 				}
 				catch(IOException e){
 					//throw e;
-					System.out.println("cannot find aoe images");
+					System.out.println("[AREAVIEW] cannot find aoe images");
 					break;
 				}
 				catch(Exception e){
 					//throw e;
-					System.out.println("aoe error");
+					System.out.println("[AREAVIEW] aoe error");
 					e.printStackTrace();
 					break;
 				}
@@ -124,13 +124,13 @@ public class AreaView extends View {
 
 		BufferedImage entityImage = null;
 		try{
-			System.out.println("FOUND THE AVATAR");
 			entityImage = ImageIO.read(new File(
 					spriteMap.getResourcePath(avatar.getImageId())));
+			System.out.println("[AREAVIEW] FOUND THE AVATAR");
 		}
 		catch(IOException e){
 			//throw e;
-			System.out.println("cannot find AVATAR images");
+			System.out.println("[AREAVIEW] cannot find AVATAR images");
 			
 		}
 		catch(Exception e){
@@ -211,9 +211,9 @@ public class AreaView extends View {
 		render();
 
 	}
-	
+
 	private void update2(){
-		
+
 		Position avatarPosition = level.returnCurrentPosition(avatar);
 		//find the viewable area centred on avatar
 		int numTilesWide = (int) Math.ceil(1.0 * getWidth() / tileSize);
@@ -233,7 +233,7 @@ public class AreaView extends View {
 				viewablePositions.add(new Position(topLeftX + i, topLeftY + j));
 			}
 		}
-		
+
 	}
 
 }
