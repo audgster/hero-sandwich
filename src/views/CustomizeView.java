@@ -13,7 +13,7 @@ public class CustomizeView extends View{
 	private GridBagConstraints gBC;
 	private Option[] menuOptions;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
-	private String[] imgPath = {"../images/smasher.gif", "../images/summoner.png", "../images/sneak.gif"};
+	private String[] imgPath = {"../images/smasher.gif", "../images/summoner.gif", "../images/sneak.gif"};
 	
 	public CustomizeView(Menus menu){
 		setLayout(new GridBagLayout());
