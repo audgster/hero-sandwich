@@ -2,6 +2,8 @@ package initialization;
 
 
 import models.map.Map;
+import models.Level;
+import models.map.locationmanager.LocationManager;
 
 public class LevelCreator {
 
@@ -10,7 +12,7 @@ public class LevelCreator {
     public Level createLevel() {
         MapCreator mapCreator = new MapCreator("initialization/config.xml");
         Map map = mapCreator.create();
-        return new Level(1, map);
+        return new Level(new LocationManager(), map);
 
     }
 

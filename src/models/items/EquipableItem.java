@@ -65,7 +65,7 @@ public class EquipableItem extends TakeableItem
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
-	//	strBuilder.append( super.toString() );
+	strBuilder.append("Equipment Name: " + getName() + "\n");
 	strBuilder.append("Equipment Type: " + eType.name() + "\n");	
 	strBuilder.append("Stat Boosts: " + statsBoosts.toString() + "\n");	
 	strBuilder.append("Stats Restrictions: " + statsRestrictions.toString() + "\n");

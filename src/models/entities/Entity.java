@@ -175,7 +175,6 @@ public class Entity implements Drawable, Subject
 	if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() ){
 	    if ( stats.checkRestrictions( item.getStatsRestrictions() ) ){
 		if ( equipment.equip(item) ){
-		    System.out.println("Successfully equipped");		
 		    inventory.remove(item);
 		    modifyStats( item.getStatModifiers() );
 		    return successful;

@@ -221,13 +221,29 @@ public class EntityStats extends Stats {
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
-	strBuilder.append("[EntityStats:");
+	strBuilder.append( super.toString() );
+	strBuilder.append("\n[EntityStats:");
 	strBuilder.append(" " + livesLeft + " ");
 	strBuilder.append(" " + xp + " ");
 	strBuilder.append(" " + currentLife + " ");
 	strBuilder.append(" " + currentMana + " ");
+	strBuilder.append("]\n");
+	strBuilder.append("[ModifiedStats:");
+	strBuilder.append(" " + getModStrength() + " ");
+	strBuilder.append(" " + getModAgility() + " ");
+	strBuilder.append(" " + getModIntellect() + " ");
+	strBuilder.append(" " + getModHardiness() + " ");
+	strBuilder.append(" " + getModMovement() + " ");
+	strBuilder.append("]\n");
+	strBuilder.append("[DerivedStats:");
+	strBuilder.append(" " + getLevel() + " ");
+	strBuilder.append(" " + getLife() + " ");
+	strBuilder.append(" " + getMana() + " ");
+	strBuilder.append(" " + getOffRating() + " ");
+	strBuilder.append(" " + getDefRating() + " ");
+	strBuilder.append(" " + getArmorRating() + " ");
 	strBuilder.append("]");
-	String str = strBuilder.toString() + super.toString();
+	String str = strBuilder.toString();
 	return str;
     }
 }
