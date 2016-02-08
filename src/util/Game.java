@@ -53,6 +53,8 @@ public class Game
         GameFacade gameCreator = new GameFacade();
         gameCreator.createNewGame(this);
         currentLevel = 1;
+		initializeAvatar(this.avatar);
+		
     }
 
     public void saveGame() {

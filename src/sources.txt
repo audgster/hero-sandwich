@@ -84,6 +84,7 @@
 ./models/menus/options/Option.java
 ./models/menus/options/PauseOption.java
 ./models/menus/options/ResumeOption.java
+./models/menus/options/SaveGameOption.java
 ./models/menus/options/SetGenderOption.java
 ./models/menus/options/SetHairColorOption.java
 ./models/menus/options/SetNameOption.java
