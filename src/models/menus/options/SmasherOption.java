@@ -30,6 +30,8 @@ import models.menus.*;
 
     Menus inventoryMenu = new InventoryMenu(vm, avatar);
     Menus equipmentMenu = new EquipmentMenu(vm, avatar);
+    vm.setInventoryMenu(inventoryMenu);
+    vm.setEquipmentMenu(equipmentMenu);
 
 		vm.setGameMode(level, avatar);
 	}

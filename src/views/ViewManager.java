@@ -15,6 +15,8 @@ public class ViewManager extends View{
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
 	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
+	private Menus inventoryMenu;
+	private Menus equipmentMenu;
 
 	private enum Mode{
 		MAIN_MENU,
@@ -29,8 +31,24 @@ public class ViewManager extends View{
 		update();
 	}
 
+	public Menus getInventoryMenu(){
+		return this.inventoryMenu;
+	}
+
+	public Menus getEquipmentMenu(){
+		return this.equipmentMenu;
+	}
+
 	public void setStatsView(StatsView statsView){
 		this.statsView = statsView;
+	}
+
+	public void setInventoryMenu(Menus inventoryMenu){
+		this.inventoryMenu = inventoryMenu;
+	}
+
+	public void setEquipmentMenu(Menus equipmentMenu){
+		this.equipmentMenu = equipmentMenu;
 	}
 
 	public void pushMenuView(View menuView){
@@ -132,13 +150,13 @@ public class ViewManager extends View{
 		update();
 	}
 
-	public void setInventoryMenuMode(Menus cMenu){
+	public void setInventoryMenuMode(){
 		mode = Mode.CUSTOMIZE_MENU;
 		areaView = null;
 		statsView = null;
 		popMenuView();
 
-		View cMenuView = new InventoryView(cMenu);
+		View cMenuView = new InventoryView(this.inventoryMenu);
 		pushMenuView(cMenuView);
 		update();
 	}
