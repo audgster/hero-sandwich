@@ -19,7 +19,6 @@ import java.util.Set;
  */
 public class Level implements Subject, Listener
 {
-
     ILocationManager locationManager;
     Map map;
     private List<Listener> subjects;
@@ -45,6 +44,7 @@ public class Level implements Subject, Listener
 
     public Tile updatePosition(Entity entity, Position newPosition)
     {
+
         System.out.println("[LEVEL] Starting entity position update to " + newPosition.toString());
         if (!locationManager.updateEntityPosition(entity, newPosition)) {
             System.err.println("[LEVEL] Could not update entity position");

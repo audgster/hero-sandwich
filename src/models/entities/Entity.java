@@ -21,6 +21,7 @@ public class Entity implements Drawable, Subject
     private EntityIdentifier eIdentifier;
     private Direction directionFacing;
     private List<Listener> subs; // Only the Avatar uses this
+    private boolean isDead;
 
     /* METHODS */
 
@@ -35,6 +36,7 @@ public class Entity implements Drawable, Subject
       eIdentifier = EntityIdentifier.GROUND;
       directionFacing = Direction.NORTH;
       subs = new ArrayList<Listener>();
+      isDead = false;
     }
 
   /* Fully parameterized constructor */
@@ -151,6 +153,9 @@ public class Entity implements Drawable, Subject
     public int loseLife()
     {
         int livesRemaining = stats.loseLife();
+        if(livesRemaining == 0){
+            isDead = true;
+        }
         notifyListeners();
         return livesRemaining;
     }
@@ -360,6 +365,10 @@ public class Entity implements Drawable, Subject
 
 
         return gameState;
+    }
+    
+    public boolean getIsDead(){
+        return isDead;
     }
 }
 

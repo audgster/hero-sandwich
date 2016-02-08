@@ -7,6 +7,7 @@ public class ResumeOption extends Option{
 		name = "Resume";
 	}
 	public void execute(ViewManager vm, Controller cm){
-		//
+		cm.changeState();
+		vm.setGameModeAgain();
   }
 }

@@ -1,6 +1,7 @@
 package models.items;
 
 import models.entities.Entity;
+import models.map.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,15 @@ public abstract class TakeableItem extends Item
         super(name);
     }
 
-    public boolean executeInteraction(Entity entity)
+    public boolean executeInteraction(Entity entity, Tile tile)
     {
-        return entity.addItem(this);
+        if (entity.addItem(this))
+        {
+            tile.removeItem(this);
+            return true;
+        }
+
+        return false;
     }
 
   @Override

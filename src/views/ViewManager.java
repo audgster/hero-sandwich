@@ -7,23 +7,29 @@ import models.menus.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import controllers.*;
 
 public class ViewManager extends View{
 
 	private AreaView areaView;
 	private StatsView statsView;
 	private PauseView pauseView;
+	private InventoryView inventoryView;
+	private EquipmentView equipmentView;
+	private GameOverView gameOverView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
 	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
-	private Menus inventoryMenu;
-	private Menus equipmentMenu;
+	private Menus inventoryMenu, equipmentMenu, gameOverMenu;
 
 	private enum Mode{
 		MAIN_MENU,
 		CUSTOMIZE_MENU,
 		GAME,
-		PAUSE
+		PAUSE,
+		INVENTORY_MENU,
+		EQUIPMENT_MENU,
+		DEAD
 	};
 	private Mode mode;
 
@@ -34,11 +40,14 @@ public class ViewManager extends View{
 	}
 
 	public Menus getInventoryMenu(){
-		return this.inventoryMenu;
+		return inventoryMenu;
 	}
 
 	public Menus getEquipmentMenu(){
-		return this.equipmentMenu;
+		return equipmentMenu;
+	}
+	public Menus getGameOverMenu(){
+		return gameOverMenu;
 	}
 
 	public void setStatsView(StatsView statsView){
@@ -51,6 +60,9 @@ public class ViewManager extends View{
 
 	public void setEquipmentMenu(Menus equipmentMenu){
 		this.equipmentMenu = equipmentMenu;
+	}
+	public void setGameOverMenu(Menus gameOverMenu){
+		this.gameOverMenu = gameOverMenu;
 	}
 
 	public void pushMenuView(View menuView){
@@ -76,11 +88,8 @@ public class ViewManager extends View{
 			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
-			// JLabel logo = new JLabel("Insert Logo Here");
-			// add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
-			//System.out.println("Customize View");
 			JLabel cText = new JLabel("Select Avatar");
 			cText.setFont(titleFont);
 			cText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -89,9 +98,6 @@ public class ViewManager extends View{
 			add(menuViews.getLast(), BorderLayout.CENTER);
 		}
 		else if(mode == Mode.GAME){
-			// Map map = new Map();
-			// ILocationManager locationManager = new ILocationMangager();
-			//game object will  game.getLevel();
 			areaView.setVisible(true);
 			statsView.setVisible(true);
 			areaView.setPreferredSize(new Dimension(getWidth(), getHeight()));
@@ -107,6 +113,27 @@ public class ViewManager extends View{
 			add(pauseView, BorderLayout.CENTER);
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
+		}
+		else if(mode == Mode.INVENTORY_MENU){
+			inventoryView.setVisible(true);
+			statsView.setVisible(true);
+			inventoryView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(inventoryView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+			add(statsView, BorderLayout.LINE_START);
+		}
+		else if(mode == Mode.EQUIPMENT_MENU){
+			equipmentView.setVisible(true);
+			statsView.setVisible(true);
+			equipmentView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(equipmentView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+			add(statsView, BorderLayout.LINE_START);
+		}
+		else if(mode == Mode.DEAD){
+			statsView.setVisible(true);
+			gameOverView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(gameOverView, BorderLayout.CENTER);
 		}
 		else{
 			//something screwed up
@@ -127,14 +154,18 @@ public class ViewManager extends View{
 			menuViews.getLast().update();
 		}
 		else if(mode == Mode.GAME){
-			areaView.update();
-			statsView.update();
+			if(areaView.getAvatar().getIsDead()){
+				setGameOverMode();
+			}
+			else{
+				areaView.update();
+				statsView.update();
+			}
 		}
 		else{
 			//nothing updates
 			//System.out.println("Mode not set. No sub-views updated");
 		}
-
 	}
 
 	public void setMainMenuMode(Menus mainMenu){
@@ -142,7 +173,6 @@ public class ViewManager extends View{
 		areaView = null;
 		statsView = null;
 		popMenuView();
-
 
 		MenuView mainMenuView = new MenuView(mainMenu);
 		pushMenuView(mainMenuView);
@@ -161,13 +191,20 @@ public class ViewManager extends View{
 	}
 
 	public void setInventoryMenuMode(){
-		mode = Mode.CUSTOMIZE_MENU;
-		areaView = null;
-		statsView = null;
+		mode = Mode.INVENTORY_MENU;
 		popMenuView();
 
-		View cMenuView = new InventoryView(this.inventoryMenu);
-		pushMenuView(cMenuView);
+		inventoryView = new InventoryView(inventoryMenu);
+		pushMenuView(inventoryView);
+		update();
+	}
+
+	public void setEquipmentMenuMode(){
+		mode = Mode.EQUIPMENT_MENU;
+		popMenuView();
+
+		equipmentView = new EquipmentView(equipmentMenu);
+		pushMenuView(equipmentView);
 		update();
 	}
 
@@ -179,10 +216,28 @@ public class ViewManager extends View{
 		update();
 	}
 
+	public void setGameModeAgain(){
+		mode = Mode.GAME;
+		menuViews.clear();
+		update();
+	}
+
 	public void setPauseMode(Menus pMenu){
 		mode = Mode.PAUSE;
 		pauseView = new PauseView(pMenu);
+		menuViews.push(pauseView);
+		update();
+	}
+
+	public void setGameOverMode(){
+		mode = Mode.DEAD;
+		System.out.println("The AVATAR is DEAD!!!!!!!!!!!!!!!!!!");
+		gameOverView = new GameOverView(gameOverMenu);
+		Controller.getController().setMenu(gameOverMenu);
+		Controller.getController().changeState();
+		gameOverMenu.setController(Controller.getController());
 		menuViews.clear();
+
 		update();
 	}
 

@@ -23,12 +23,6 @@ public abstract class Item implements IInteractionHandler, Drawable
     }
 
     @Override
-    public boolean executeInteraction(Entity entity, Tile tile)
-    {
-        return false;
-    }
-
-    @Override
     public boolean executeInteraction(Level level) {
         return false;
     }

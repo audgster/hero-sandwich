@@ -1,9 +1,8 @@
 package initialization;
 
 import models.entities.StatModifiers;
-import models.items.EquipableItem;
-import models.items.EquipmentType;
-import models.items.Item;
+import models.items.*;
+import models.items.actions.AddConstantHealthAction;
 import models.map.Map;
 import models.map.Tile;
 import org.w3c.dom.Element;
@@ -19,14 +18,15 @@ public class ItemCreator {
         this.items = items;
     }
 
-    public void createItemsOnMap(Map map) {
-        Tile[][] mapGrid = map.getMapArray();
+    public void createItemsOnMap(Tile[][] tileGrid) {
 
         for(int i = 0; i < items.size(); i++) {
             Element currentItem = (Element) items.get(i);
             int x = getItemXPostion(currentItem);
             int y = getItemYPosition(currentItem);
-            mapGrid[y][x].addItem(getType(items.get(i)));
+            tileGrid[y][x].addItem(getInstance(items.get(i),
+                    currentItem.getAttribute("name"),
+                    Integer.parseInt(currentItem.getAttribute("base"))));
             //createTileGroup(mapGrid, currentTileGroup);
         }
     }
@@ -39,18 +39,30 @@ public class ItemCreator {
         return Integer.parseInt(item.getAttribute("y-position"));
     }
 
-    private Item getType(Node item) {
+    private Item getInstance(Node item, String itemName, int base) {
         String itemType = item.getNodeName();
-        if(itemType == "one-shot")
-            return null;
+        if(itemType == "one-shot") {
+            Item oneShot = new StatModifyingOneShotItem(itemName, new AddConstantHealthAction(base));
+            System.out.println(oneShot.getImageId());
+            return oneShot;
+        }
         else if(itemType.equalsIgnoreCase("interactable"))
+        {
             return null;
-        else if(itemType.equalsIgnoreCase("takable"))
+        }
+        else if(itemType.equalsIgnoreCase("takeable")) {
             return null;
-        else if(itemType.equalsIgnoreCase("consumable"))
-            return null;
-        else if(itemType.equalsIgnoreCase("equippable"))
-            return new EquipableItem("equippable", EquipmentType.WEAPON, new StatModifiers());
+        }
+        else if(itemType.equalsIgnoreCase("consumable")) {
+            Item consumable = new StatModifyingConsumableItem(itemName, new AddConstantHealthAction(base));
+            System.out.println(consumable.getImageId());
+            return consumable;
+        }
+        else if(itemType.equalsIgnoreCase("equippable")) {
+            Item equip = new EquipableItem(itemName, EquipmentType.WEAPON, new StatModifiers());
+            System.out.println(equip.getImageId());
+            return equip;
+        }
         else
             return null;
     }

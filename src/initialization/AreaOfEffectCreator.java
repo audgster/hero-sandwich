@@ -17,12 +17,10 @@ public class AreaOfEffectCreator {
         this.areaEffectGroups = areaEffectGroups;
     }
 
-    public void createAreasOfEffectOnMap(Map map) {
-        Tile[][] mapGrid = map.getMapArray();
-
+    public void createAreasOfEffectOnMap(Tile[][] tileGrid) {
         for(int i = 0; i < areaEffectGroups.size(); i++) {
             Element currentAoe = (Element) areaEffectGroups.get(i);
-            createAoeGroup(mapGrid, currentAoe);
+            createAoeGroup(tileGrid, currentAoe);
         }
     }
 
@@ -40,13 +38,13 @@ public class AreaOfEffectCreator {
 
     private AreaOfEffect getAoe(String type) {
         if(type.equalsIgnoreCase("heal-damage"))
-            return new HealDamageAoE(100);
+            return new HealDamageAoE(1);
         else if(type.equalsIgnoreCase("insta-death"))
             return new InstaDeathAoE();
         else if(type.equalsIgnoreCase("level-up"))
             return new LevelUpAoE();
         else if(type.equalsIgnoreCase("take-damage"))
-            return new TakeDamageAoE(10);
+            return new TakeDamageAoE(1);
         else
             return null;
     }

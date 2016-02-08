@@ -14,9 +14,18 @@ public class Controller{
 	private Menus menu;
     private Game game;
     private ViewManager vm;
+    private static Controller avatarController = null;
 
-	public Controller()
+	public static Controller getController()
     {
+    	if(avatarController == null){
+    		avatarController = new Controller();
+    	}
+    	return avatarController;
+
+	}
+
+	private Controller(){
 		state = new MenuState(this);
         game = new Game(new HardCodedGameEngineInitializer());
 	}
@@ -71,11 +80,9 @@ public class Controller{
 
 	public void changeState(){
 		if(state.toString() == "Avatar"){
-			System.out.println("The Controller is now in the menu state");
 			state = new MenuState(this);
 		}
 		else{
-			System.out.println("The Controller is now in the avatar state");
 			state = new AvatarState(this);
 		}
 	}
@@ -95,8 +102,8 @@ public class Controller{
     public void openPauseMenu(){
     	changeState();
     	menu = new PauseMenu(vm);
-    	System.out.println("THE START OF SOMETHING NEW");
     	vm.setPauseMode(menu);
+    	menu.setController(this);
     }
 
     public void scrollUp(){
@@ -108,6 +115,4 @@ public class Controller{
     public void enter(){
     	menu.enter();
     }
-
-
 }
