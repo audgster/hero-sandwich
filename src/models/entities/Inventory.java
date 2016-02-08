@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Inventory {
-    private List<Item> bag;
+    private ArrayList<Item> bag;
     private int capacity; // the maximum size of the Inventory
     private int count; // the number of items currently in the Inventory
 
@@ -45,7 +45,7 @@ public class Inventory {
 	return bag.get(slot);
     }
 
-    public List<Item> getInventory() {
+    public ArrayList<Item> getInventory() {
 	return bag;
     }
 
