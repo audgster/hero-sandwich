@@ -2,6 +2,9 @@ package models.items.actions;
 
 import models.entities.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddConstantHealthAction extends StatModifyAction
 {
     public AddConstantHealthAction(int baseHealthIncrease)
