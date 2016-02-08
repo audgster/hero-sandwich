@@ -45,7 +45,7 @@ public class Inventory {
 	return bag.get(slot);
     }
 
-    public ArrayList<Item> getInventory() {
+    public List<Item> getInventory() {
 	return bag;
     }
 
