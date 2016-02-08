@@ -2,6 +2,7 @@ package util;
 
 import initialization.AvatarCreator;
 import initialization.GameFacade;
+import initialization.GameLoader;
 import models.Level;
 import models.entities.Entity;
 import models.entities.Smasher;
@@ -47,7 +48,11 @@ public class Game
     }
 
     public void loadGame() {
-
+        GameLoader gameLoader = new GameLoader(new File("initialization/saveFile.txt"));
+        this.avatar = gameLoader.parseFile();
+        GameFacade gameCreator = new GameFacade();
+        gameCreator.createNewGame(this);
+        currentLevel = 1;
     }
 
     public void saveGame() {
@@ -59,8 +64,7 @@ public class Game
         avatar.loseLife();
         avatar.loseLife();
         List<String> state = avatar.getSaveState();
-        //TODO equipment state
-        //You wrote some crap in Map for state gathering... go finish it
+        //You wrote some stuff in Map for state gathering... go finish it
 
 
         try {
