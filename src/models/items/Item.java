@@ -52,5 +52,5 @@ public abstract class Item implements Drawable, IInteractionHandler
       return description;
     }
 
-    public List<String> getSaveState() {return null;}
+    public abstract List<String> getSaveState();
 }

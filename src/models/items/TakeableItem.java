@@ -72,4 +72,10 @@ public class TakeableItem extends Item
         result = 31 * result + name.hashCode();
         return result;
     }
+    public  List<String> getSaveState(){
+      List<String> state = new ArrayList<String>();
+      state.add("Name: " + getName() + " " + System.getProperty("line.separator") + " ");
+      return state;
+    }
+
 }

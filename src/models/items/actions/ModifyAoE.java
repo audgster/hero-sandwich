@@ -14,7 +14,7 @@ public class ModifyAoE implements IAction
     @Override
     public boolean execute(Entity entity, Tile tile)
     {
-        TakeableItem item = new TakeableItem("Magic AoE Wand");
+        TakeableItem item = new TakeableItem("Magic-AoE-Wand");
 
         boolean hasItem = entity.getInventory().hasItem(item);
 

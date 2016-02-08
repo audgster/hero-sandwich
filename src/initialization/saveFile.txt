@@ -1,27 +1,27 @@
 Avatar { 
  AvatarName: Brandon
  EntityIdentifier: GROUND
- FacingDirection: EAST
+ FacingDirection: NORTH
  Occupation: Smasher
  EntityStats {
- livesLeft: 2
- xp: 300
- strength: 4
- agility: 4
- intellect: 4
- hardiness: 4
- movement: 13
- currentLife: 12
- currentMana: 112
+ livesLeft: 3
+ xp: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ currentLife: 1
+ currentMana: 7
  }
  Inventory {
  capacity: 5
  bag {
  EquipableItem {
- Name: Super Sayan Sword 
+ Name: Super-Sayan-Sword 
  EquipmentType: WEAPON
  StatBoost {
- life: 0
+ life: 1
  mana: 0
  offensiveRating: 0
  defensiveRating: 0
@@ -33,7 +33,7 @@ Avatar {
  movement: 10
  }
  StatRestrictions { 
- life: 0
+ life: 1
  mana: 0
  offensiveRating: 0
  defensiveRating: 0
@@ -44,10 +44,42 @@ Avatar {
  hardiness: 1
  movement: 10
  }
- OccupationRestriction: none
+ OccupationRestriction: 
+ }
+ TakeableItem {
+ Name: Magic-AoE-Wand 
  }
  EquipableItem {
- Name: The Boots Of Awesome 
+ Name: The-Boots-Of-Awesome 
+ EquipmentType: WEAPON
+ StatBoost {
+ life: 1
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 1
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ OccupationRestriction: 
+ }
+ EquipableItem {
+ Name: Super-Sayan-Sword 
  EquipmentType: WEAPON
  StatBoost {
  life: 0
@@ -74,6 +106,9 @@ Avatar {
  movement: 10
  }
  OccupationRestriction: none
+ }
+ TakeableItem {
+ Name: Magic-AoE-Wand 
  }
  }
  Equipment {

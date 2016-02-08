@@ -5,7 +5,7 @@ import models.entities.*;
 import models.items.ConsumableItem;
 import models.items.EquipableItem;
 import models.items.EquipmentType;
-import models.items.Item;
+import models.items.*;
 import models.items.actions.AddConstantHealthAction;
 import models.items.actions.IAction;
 import models.items.actions.StatModifyAction;
@@ -184,7 +184,26 @@ public class GameLoader {
         }
         else if(token.equalsIgnoreCase("ConsumableItem"))
             return createConsumbleItem(scanner);
+        else if(token.equalsIgnoreCase("TakeableItem")) {
+            Item takeableItem = createTakeableItem(scanner);
+            scanner.next();
+            scanner.next();
+            return takeableItem;
+          }
         return null;
+    }
+
+    private Item createTakeableItem(Scanner scanner) {
+      scanner.next();
+      while (scanner.hasNext()) {
+          String token = removeLineSeparator(scanner.next());
+          if (token.equalsIgnoreCase("}"))
+              break;
+          else if(token.equalsIgnoreCase("Name:")) {
+              return new TakeableItem(removeLineSeparator(scanner.next()));
+            }
+      }
+      return null;
     }
 
     private Item createConsumbleItem(Scanner scanner) {
@@ -304,7 +323,7 @@ public class GameLoader {
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("currentLife:"))
-                try { 
+                try {
                     int currentLife = Integer.parseInt(removeLineSeparator(scanner.next()));
                     System.out.println("HELLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOO" + currentLife);
                     entityStats.setCurrentLife(currentLife); }
