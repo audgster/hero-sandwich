@@ -2,6 +2,7 @@ package initialization;
 
 
 import models.entities.*;
+import models.items.EquipableItem;
 import models.items.EquipmentType;
 import models.items.Item;
 import util.Direction;
@@ -122,6 +123,7 @@ public class GameLoader {
         StatModifiers statBoost = new StatModifiers();
         StatModifiers statRestrictions = new StatModifiers();
         EquipmentType equipmentType = EquipmentType.HELM;
+        String occupationRestriction = "";
         while (scanner.hasNext()) {
             String token = removeLineSeparator(scanner.next());
             if (token.equalsIgnoreCase("}"))
@@ -146,9 +148,7 @@ public class GameLoader {
             }
 
         }
-        //System.out.println(equipmentType);
-        //call constructor with parsed data in return
-        return null;
+        return new EquipableItem(name, equipmentType, statBoost, statRestrictions, occupationRestriction);
     }
 
     private StatModifiers createNextStatModifier(Scanner scanner) {
