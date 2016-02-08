@@ -140,6 +140,11 @@ public class StatModifiers extends Stats {
 		state.add("\t\t\t\toffensiveRating: " + offRating + System.getProperty("line.separator"));
 		state.add("\t\t\t\tdefensiveRating: " + defRating + System.getProperty("line.separator"));
 		state.add("\t\t\t\tarmorRating: " + armorRating + System.getProperty("line.separator"));
+		state.add("\t\t\t\tstrength: " + getStrength() + System.getProperty("line.separator"));
+		state.add("\t\t\t\tagility: " + getAgility() + System.getProperty("line.separator"));
+		state.add("\t\t\t\tintellect: " + getIntellect() + System.getProperty("line.separator"));
+		state.add("\t\t\t\thardiness: " + getHardiness() + System.getProperty("line.separator"));
+		state.add("\t\t\t\tmovement: " + getMovement() + System.getProperty("line.separator"));
 		return state;
 	}
 }
