@@ -1,0 +1,198 @@
+Avatar { 
+ AvatarName: Brandon
+ EntityIdentifier: GROUND
+ FacingDirection: NORTH
+ Occupation: Smasher
+ EntityStats {
+ livesLeft: 1
+ currentLife: 4004
+ currentMana: 199
+ xp: 67
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ Inventory {
+ capacity: 5
+ bag {
+ ConsumableItem {
+ Name: Potion
+ AddConstantHealthAction {
+ StatModifyAction: 10
+ }
+ }
+ ConsumableItem {
+ Name: Potion
+ AddConstantHealthAction {
+ StatModifyAction: 10
+ }
+ }
+ ConsumableItem {
+ Name: Potion
+ AddConstantHealthAction {
+ StatModifyAction: 10
+ }
+ }
+ ConsumableItem {
+ Name: Potion
+ AddConstantHealthAction {
+ StatModifyAction: 10
+ }
+ }
+ ConsumableItem {
+ Name: Potion
+ AddConstantHealthAction {
+ StatModifyAction: 10
+ }
+ }
+ }
+ Equipment {
+ EquipableItem { 
+ Name: Armor 
+ EquipmentType: ARMOR
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+ Name: Weapon 
+ EquipmentType: WEAPON
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+ Name: Boots 
+ EquipmentType: BOOTS
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+ Name: helmet 
+ EquipmentType: HELM
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+ Name: Leggings 
+ EquipmentType: LEGGINGS
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ }
+ }
