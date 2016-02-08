@@ -1,18 +1,18 @@
 Avatar { 
  AvatarName: Brandon
  EntityIdentifier: GROUND
- FacingDirection: NORTH
+ FacingDirection: EAST
  Occupation: Smasher
  EntityStats {
- livesLeft: 1
- currentLife: 2
- currentMana: 28
- xp: 100
- strength: 2
- agility: 2
- intellect: 2
- hardiness: 2
- movement: 11
+ livesLeft: 2
+ xp: 300
+ strength: 4
+ agility: 4
+ intellect: 4
+ hardiness: 4
+ movement: 13
+ currentLife: 12
+ currentMana: 112
  }
  Inventory {
  capacity: 5
