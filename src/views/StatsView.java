@@ -136,7 +136,7 @@ public class StatsView extends View{
 		//draw offense icon, set label to offense score
 		c.gridx = 0;
 		c.gridy = 8;
-		c.gridwidth = 1;
+		c.gridwidth = 2;
 		c.fill = GridBagConstraints.NONE;
 		JLabel atkLabel = new JLabel("Atk: " + avatarStats.getOffRating());
 		setFontAndColor(atkLabel);
