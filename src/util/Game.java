@@ -56,6 +56,8 @@ public class Game
         ac.setOccupation(new Smasher());
         Entity avatar = ac.vendCustomEntity();
         avatar.gainXp(67);
+        avatar.loseLife();
+        avatar.loseLife();
         List<String> state = avatar.getSaveState();
         //TODO equipment state
         //You wrote some crap in Map for state gathering... go finish it

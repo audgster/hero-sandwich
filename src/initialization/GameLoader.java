@@ -74,29 +74,62 @@ public class GameLoader {
         System.out.println(entityIdentifier);
         System.out.println(facingDirection);
         System.out.println(occupation);
+        System.out.println(entityStats.getCurrentLife());
+        System.out.println(entityStats.getLivesLeft());
         System.out.println(entityStats.getStrength() + " " + entityStats.getAgility() + " " + entityStats.getIntellect() + " " + entityStats.getHardiness() + " " + entityStats.getModMovement());
+        System.out.println(" " + equipment.getArmor() + equipment.getBoots() + equipment.getHelm() + equipment.getLeggings() + equipment.getWeapon());
         return new Entity();
     }
 
     private Equipment makeEquipment(Scanner scanner) {
         scanner.next();
-        /*
-        String initialToken = removeLineSeparator(scanner.next());
+        Equipment equipment = new Equipment();
             while (scanner.hasNext()) {
                 String token = removeLineSeparator(scanner.next());
                 if (token.equalsIgnoreCase("}"))
                     break;
-                else if(token.equalsIgnoreCase("bag")) {
-                    ignoreBagSyntax(scanner);
-                }
                 else {
                     System.out.println("Adding item");
-                    Item item = getNextItem(token, scanner);
-                    inventory.add(item);
+                    EquipableItem item = getNextEquipableItem(scanner);
+                    equipment.equip(item);
                 }
             }
-            */
-        return new Equipment();
+
+        return equipment;
+    }
+
+    private EquipableItem getNextEquipableItem(Scanner scanner) {
+        scanner.next();
+        String name = "";
+        StatModifiers statBoost = new StatModifiers();
+        StatModifiers statRestrictions = new StatModifiers();
+        EquipmentType equipmentType = EquipmentType.HELM;
+        String occupationRestriction = "";
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+
+            else if(token.equalsIgnoreCase("Name:"))
+                name = removeLineSeparator(scanner.next());
+
+            else if(token.equalsIgnoreCase("EquipmentType:"))
+                equipmentType = EquipmentType.valueOf(removeLineSeparator(scanner.next()));
+
+            else if(token.equalsIgnoreCase("StatBoost"))
+                statBoost = createNextStatModifier(scanner);
+
+            else if(token.equalsIgnoreCase("StatRestrictions"))
+                statRestrictions = createNextStatModifier(scanner);
+
+            else if(token.equalsIgnoreCase("OccupationRestriction:")) {
+                token = removeLineSeparator(scanner.next());
+                if(token.equalsIgnoreCase("none"))
+                    continue;
+            }
+
+        }
+        return new EquipableItem(name, equipmentType, statBoost, statRestrictions, occupationRestriction);
     }
 
     private Inventory makeInventory(Scanner scanner) {
