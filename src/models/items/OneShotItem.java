@@ -31,7 +31,9 @@ public abstract class OneShotItem extends Item
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
         state.add("Name: " + name + System.getProperty("line.separator") + " ");
-        //Add action save capability
+        state.add(action.getClass().getSimpleName() + " {" + System.getProperty("line.separator") + " ");
+        state.addAll(action.getSaveState());
+        state.add("}" + System.getProperty("line.separator") + " ");
         return state;
     }
 }

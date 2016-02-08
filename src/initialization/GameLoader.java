@@ -2,9 +2,13 @@ package initialization;
 
 
 import models.entities.*;
+import models.items.ConsumableItem;
 import models.items.EquipableItem;
 import models.items.EquipmentType;
 import models.items.Item;
+import models.items.actions.AddConstantHealthAction;
+import models.items.actions.IAction;
+import models.items.actions.StatModifyAction;
 import util.Direction;
 import util.EntityIdentifier;
 
@@ -82,9 +86,7 @@ public class GameLoader {
     }
     
     private Equipment makeEquipment(Scanner scanner) {
-    //
-    //
-    //}
+
 
         scanner.next();
         Equipment equipment = new Equipment();
@@ -93,7 +95,6 @@ public class GameLoader {
                 if (token.equalsIgnoreCase("}"))
                     break;
                 else {
-                    System.out.println("Adding item");
                     EquipableItem item = getNextEquipableItem(scanner);
                     equipment.equip(item);
                 }
@@ -145,13 +146,15 @@ public class GameLoader {
             Inventory inventory = new Inventory(capacity);
             while (scanner.hasNext()) {
                 String token = removeLineSeparator(scanner.next());
-                if (token.equalsIgnoreCase("}"))
+                if (token.equalsIgnoreCase("}")) {
+                    System.out.println("break");
                     break;
+                }
                 else if(token.equalsIgnoreCase("bag")) {
                     ignoreBagSyntax(scanner);
                 }
                 else {
-                    System.out.println("Adding item");
+                    System.out.println("Adding ite");
                     Item item = getNextItem(token, scanner);
                     inventory.add(item);
                 }
@@ -171,8 +174,42 @@ public class GameLoader {
     }
 
     private Item getNextItem(String token, Scanner scanner) {
+        System.out.println(token);
         if(token.equalsIgnoreCase("EquipableItem")) {
             return createEquippableItem(scanner);
+        }
+        else if(token.equalsIgnoreCase("ConsumableItem"))
+            return createConsumbleItem(scanner);
+        return null;
+    }
+
+    private Item createConsumbleItem(Scanner scanner) {
+        scanner.next();
+        String name = "";
+        IAction action = null;
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+            else if (token.equalsIgnoreCase("Name:"))
+                name = removeLineSeparator(scanner.next());
+
+            else if (token.equalsIgnoreCase("AddConstantHealthAction"))
+                action = createAddConstantHealthAction(scanner);
+
+        }
+        scanner.next();
+        return new ConsumableItem(name, action);
+    }
+
+    private IAction createAddConstantHealthAction(Scanner scanner) {
+        scanner.next();
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+            else if(token.equalsIgnoreCase("StatModifyAction:"))
+                return new AddConstantHealthAction(Integer.parseInt(removeLineSeparator(scanner.next())));
         }
         return null;
     }

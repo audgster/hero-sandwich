@@ -23,7 +23,7 @@ public class ConsumableItem extends TakeableItem
         return action.execute(entity);
     }
 
-    @Override
+
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
         state.add("Name: " + name + System.getProperty("line.separator") + " ");

@@ -19,7 +19,7 @@ public class Inventory {
 	bag = new ArrayList<>(capacity);
 		for (int i = 0; i < capacity; ++i) {
             //bag.add(null);
-			bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
+			bag.add(new ConsumableItem("Potion", new AddConstantHealthAction(10))/*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
 		}
     }
 
