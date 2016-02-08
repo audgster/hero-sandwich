@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Inventory {
-    private List<Item> bag;
+    private ArrayList<Item> bag;
     private int capacity; // the maximum size of the Inventory
     private int count; // the number of items currently in the Inventory
 
@@ -18,8 +18,8 @@ public class Inventory {
 	capacity = 5;
 	bag = new ArrayList<>(capacity);
 		for (int i = 0; i < capacity; ++i) {
-            //bag.add(null);
-			bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
+            bag.add(null);
+			//bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
 		}
     }
 
@@ -45,7 +45,7 @@ public class Inventory {
 	return bag.get(slot);
     }
 
-    public List<Item> getInventory() {
+    public ArrayList<Item> getInventory() {
 	return bag;
     }
 
@@ -65,7 +65,7 @@ public class Inventory {
 		++count;
 		break;
 	    }
-	    //System.out.println(bag.get(i));
+	    System.out.println(bag.get(i));
 	}
 	return itemAdded;
     }
