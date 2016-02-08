@@ -2,6 +2,7 @@ package models.items;
 
 import models.Level;
 import models.entities.Entity;
+import models.map.Tile;
 import models.map.interactions.interfaces.IInteractionHandler;
 import views.Drawable;
 
@@ -22,7 +23,7 @@ public abstract class Item implements IInteractionHandler, Drawable
     }
 
     @Override
-    public boolean executeInteraction(Entity entity)
+    public boolean executeInteraction(Entity entity, Tile tile)
     {
         return false;
     }

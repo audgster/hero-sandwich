@@ -77,8 +77,8 @@ public class Position
         }
         catch (ClassCastException ex)
         {
-            System.out.println("Position: Invalid cast exception");
-            System.out.println("Position: These obviously can't be equal");
+            System.out.println("[POSITION] Invalid cast exception");
+            System.out.println("[POSITION] These obviously can't be equal");
 
             return false;
         }

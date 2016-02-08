@@ -1,6 +1,7 @@
 package models.map.areaofeffect;
 
 import models.entities.Entity;
+import models.map.Tile;
 
 public class TakeDamageAoE extends AreaOfEffect
 {
@@ -12,7 +13,7 @@ public class TakeDamageAoE extends AreaOfEffect
     }
 
     @Override
-    public boolean executeInteraction(Entity entity) {
+    public boolean executeInteraction(Entity entity, Tile tile) {
         System.out.println("[TAKEDAMAGEAOE] Healing damage amount: " + getDamageAmount());
         entity.takeDamage(getDamageAmount());
 

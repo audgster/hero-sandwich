@@ -16,9 +16,9 @@ import models.menus.*;
 		Game game = new Game(new HardCodedGameEngineInitializer());
 		game.newGame();
 
-		System.out.println("controller1 state is " + cm.state.getName());
+		System.out.println("controller1 state is " + cm.state.toString());
 		cm.setGame(game);
-		System.out.println("controller2 state is " + cm.state.getName());
+		System.out.println("controller2 state is " + cm.state.toString());
 
 		AvatarCreator ac = new AvatarCreator();
 		ac.setName("Brandon");
@@ -30,6 +30,8 @@ import models.menus.*;
 
     Menus inventoryMenu = new InventoryMenu(vm, avatar);
     Menus equipmentMenu = new EquipmentMenu(vm, avatar);
+    vm.setInventoryMenu(inventoryMenu);
+    vm.setEquipmentMenu(equipmentMenu);
 
 		vm.setGameMode(level, avatar);
 	}
