@@ -26,7 +26,7 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Item_The Boots Of AwesomeEquipableItem", "../images/TheBootsOfAwesome.gif");
 
         spriteMap.put("Item_Healing Super PotionStatModifyingOneShotItem", "../images/Item_Equipable.png");
-        spriteMap.put("Item_Mediocre Healing PostionStatModifyingConsumableItem", "../images/Item_Equipable.png");
+        spriteMap.put("Item_Mediocre Healing PotionStatModifyingConsumableItem", "../images/Item_Equipable.png");
 
         //Entity
         spriteMap.put("Entity_Smasher_NORTH", "../images/Entity_Smasher_N.gif");
