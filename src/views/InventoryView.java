@@ -46,8 +46,9 @@ public class InventoryView extends MenuView{
     // put JLabels in a column
     menuPanel.setLayout( new BoxLayout(menuPanel, BoxLayout.Y_AXIS ) );
     menuPanel.setBorder(grayMatteBorder);
-    for(int i = 0; i < options.length; i++){
-      JLabel label = new JLabel(options[i]);
+    ArrayList<Item> listOfItems = inventory.getInventory();
+    for(int i = 0; i < listOfItems.size(); i++){
+      JLabel label = new JLabel(listOfItems.get(i).getName());
       label.setAlignmentX(Component.CENTER_ALIGNMENT);
       label.setBackground(Color.GREEN);
       label.setFont(menuFont);
