@@ -1,88 +1,71 @@
 package controllers;
-import models.entities.Entity;
-import models.gameengine.interfaces.IGameEngine;
-import models.menus.*;
+
 import util.Direction;
-import util.Game;
 
 public  class AvatarState extends ControllerState{
-	public String getName(){
+	Controller controller;
+
+    public String toString(){
 		return "Avatar";
 	}
 
-    Game game;
-
-    public AvatarState(Game game)
+    public AvatarState(Controller controller)
     {
-        this.game = game;
+        this.controller = controller;
     }
 
 	public void north()
     {
         System.out.println("The avatar moved N");
-        triggerMotion(Direction.NORTH);
+        controller.triggerMotion(Direction.NORTH);
 	}
 
 	public void northEast()
     {
         System.out.println("The avatar moved NE");
-        triggerMotion(Direction.NORTHEAST);
+        controller.triggerMotion(Direction.NORTHEAST);
 	}
 
 	public void east()
     {
         System.out.println("The avatar moved E");
-        triggerMotion(Direction.EAST);
+        controller.triggerMotion(Direction.EAST);
 	}
 
 	public void southEast()
     {
         System.out.println("The avatar moved SE");
-        triggerMotion(Direction.SOUTHEAST);
+        controller.triggerMotion(Direction.SOUTHEAST);
 	}
 
 	public void south()
     {
         System.out.println("The avatar moved S");
-        triggerMotion(Direction.SOUTH);
+        controller.triggerMotion(Direction.SOUTH);
 	}
 
 	public void southWest()
     {
         System.out.println("The avatar moved SW");
-        triggerMotion(Direction.SOUTHWEST);
+        controller.triggerMotion(Direction.SOUTHWEST);
 	}
 
 	public void west()
     {
         System.out.println("The avatar moved W");
-        triggerMotion(Direction.WEST);
+        controller.triggerMotion(Direction.WEST);
 	}
 
 	public void northWest()
     {
         System.out.println("The avatar moved NW");
-        triggerMotion(Direction.NORTHWEST);
+        controller.triggerMotion(Direction.NORTHWEST);
 	}
 
-	public void select()
+	public void enter()
     {
 		System.out.println("The pause menu opened");
+        controller.openPauseMenu();
         
 	}
-
-	public void setMenu(Menus menu){};
-
-    private void triggerMotion(Direction direction)
-    {
-        if(game.getGameEngine().changeEntityLocation(game.getCurrentLevel(), game.getAvatar(), direction)) {
-            System.out.println("The Avatar moved " + direction.toString().toLowerCase());
-            System.out.println("After movement, position is: " +
-                    game.getCurrentLevel().returnCurrentPosition(game.getAvatar()).toString());
-        }
-        else
-        {
-            System.out.println("The Avatar did not move");
-        }
-    }
 }

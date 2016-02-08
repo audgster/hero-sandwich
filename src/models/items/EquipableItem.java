@@ -1,6 +1,10 @@
 package models.items;
 
 import models.entities.*;
+import models.map.Tile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EquipableItem extends TakeableItem
 {
@@ -18,7 +22,7 @@ public class EquipableItem extends TakeableItem
 	this.eType = eType;
 	statsBoosts = statsMods;
 	statsRestrictions = new StatModifiers();
-	occupRestriction = "";
+	occupRestriction = "none";
     }
 
     /* Fully Parameterized Constructor */
@@ -32,8 +36,15 @@ public class EquipableItem extends TakeableItem
     }
     
     @Override
-    public boolean executeInteraction(Entity entity) {
-        return entity.addItem(this);
+    public boolean executeInteraction(Entity entity, Tile tile)
+    {
+        if (entity.addItem(this))
+        {
+            tile.removeItem(this);
+            return true;
+        }
+
+        return false;
     }
 
     /* Mutators */
@@ -73,6 +84,20 @@ public class EquipableItem extends TakeableItem
 	strBuilder.append("]");
 	String str = strBuilder.toString();
 	return str;
+    }
+
+    public List<String> getSaveState() {
+        List<String> state = new ArrayList<String>();
+        state.add("\t\t\tName: " + getName() + System.getProperty("line.separator"));
+        state.add("\t\t\tEquipmentType: " + eType.name() + System.getProperty("line.separator"));
+        state.add("\t\t\tStat Boost{ " + System.getProperty("line.separator"));
+        state.addAll(statsBoosts.getSaveState());
+        state.add("\t\t\t}" + System.getProperty("line.separator"));
+        state.add("\t\t\tStat Restrictions{ " + System.getProperty("line.separator"));
+        state.addAll(statsRestrictions.getSaveState());
+        state.add("\t\t\t}" + System.getProperty("line.separator"));
+        state.add("\t\t\tOccupation Restriction: " + occupRestriction + System.getProperty("line.separator"));
+        return state;
     }
 }
     

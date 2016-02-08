@@ -1,7 +1,10 @@
 package models.entities;
 
 
-/* DESCRIPTION 
+import java.util.ArrayList;
+import java.util.List;
+
+/* DESCRIPTION
  * --------------------------------------------------
  * StatModifiers are owned by EquipableItems, ConsumableItems, AreaEffects, 
  * and any other class whose role is (at least partially) to modify an Entity's
@@ -129,4 +132,14 @@ public class StatModifiers extends Stats {
 	String str = strBuilder.toString();
 	return str;
     }
+
+	public List<String> getSaveState() {
+		List<String> state = new ArrayList<String>();
+		state.add("\t\t\t\tlife: " + life + System.getProperty("line.separator"));
+		state.add("\t\t\t\tmana: " + mana + System.getProperty("line.separator"));
+		state.add("\t\t\t\toffensiveRating: " + offRating + System.getProperty("line.separator"));
+		state.add("\t\t\t\tdefensiveRating: " + defRating + System.getProperty("line.separator"));
+		state.add("\t\t\t\tarmorRating: " + armorRating + System.getProperty("line.separator"));
+		return state;
+	}
 }

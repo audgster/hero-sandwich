@@ -2,6 +2,10 @@ package models.items;
 
 import models.entities.Entity;
 import models.items.actions.IAction;
+import models.map.Tile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class OneShotItem extends Item
 {
@@ -15,8 +19,19 @@ public abstract class OneShotItem extends Item
     }
 
     @Override
-    public boolean executeInteraction(Entity entity)
+    public boolean executeInteraction(Entity entity, Tile tile)
     {
-        return action.execute(entity);
+        action.execute(entity);
+        tile.removeItem(this);
+
+        return true;
+    }
+
+    @Override
+    public List<String> getSaveState() {
+        List<String> state = new ArrayList<String>();
+        state.add("\t\t\t\t" + "Name: " + name + System.getProperty("line.separator"));
+        //Add action save capability
+        return state;
     }
 }

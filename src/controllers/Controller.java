@@ -1,19 +1,47 @@
 package controllers;
 
 import models.gameengine.HardCodedGameEngineInitializer;
+import models.gameengine.interfaces.IGameEngine;
+import models.entities.Entity;
 import models.menus.*;
+import util.Direction;
 import util.Game;
+import views.*;
 
 
 public class Controller{
 	public ControllerState state;
-
+	private Menus menu;
     private Game game;
+    private ViewManager vm;
 
 	public Controller()
     {
-		state = new MenuState();
+		state = new MenuState(this);
         game = new Game(new HardCodedGameEngineInitializer());
+	}
+
+	public void setGame(Game game)
+    {
+        this.game = game;
+        state = new AvatarState(this);
+    }
+    public Game getGame(){
+    	return game;
+    }
+	
+	public void setMenu(Menus menu){
+		this.menu = menu;
+	}
+	public Menus getMenu(){
+		return menu;
+	}
+
+	public void setViewManager(ViewManager vm){
+		this.vm = vm;
+	}
+	public ViewManager getViewManager(){
+		return vm;
 	}
 
 	public void executeUserInput(char input){
@@ -27,14 +55,9 @@ public class Controller{
 					break;
 			case 4: state.west();
 					break;
-			case 5: state.select();
-					if(state.getName() == "Avatar"){
-						changeState();
-						
-					}
+			case 5: state.enter();
 					break;
-			case 6: System.out.println("The Controller is now in the avatar state");
-			state.east();
+			case 6:	state.east();
 					break;
 			case 7: state.northWest();
 					break;
@@ -47,23 +70,44 @@ public class Controller{
 	}
 
 	public void changeState(){
-		if(state.getName() == "Avatar"){
-			//state = new MenuState();
+		if(state.toString() == "Avatar"){
 			System.out.println("The Controller is now in the menu state");
+			state = new MenuState(this);
 		}
 		else{
 			System.out.println("The Controller is now in the avatar state");
-			this.state = new AvatarState(game);
+			state = new AvatarState(this);
 		}
 	}
 
-    public void setGame(Game game)
+	public void triggerMotion(Direction direction)
     {
-        this.game = game;
-        state = new AvatarState(this.game);
+        if(game.getGameEngine().changeEntityLocation(game.getCurrentLevel(), game.getAvatar(), direction)) {
+            System.out.println("The Avatar moved " + direction.toString().toLowerCase());
+            System.out.println("After movement, position is: " +
+                    game.getCurrentLevel().returnCurrentPosition(game.getAvatar()).toString());
+        }
+        else
+        {
+            System.out.println("The Avatar did not move");
+        }
     }
-	
-	public void setMenu(Menus menu){
-		state.setMenu(menu);
-	}
+    public void openPauseMenu(){
+    	changeState();
+    	menu = new PauseMenu(vm);
+    	System.out.println("THE START OF SOMETHING NEW");
+    	vm.setPauseMode(menu);
+    }
+
+    public void scrollUp(){
+    	menu.scrollUp();
+    }
+    public void scrollDown(){
+    	menu.scrollDown();
+    }
+    public void enter(){
+    	menu.enter();
+    }
+
+
 }
