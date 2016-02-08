@@ -9,7 +9,6 @@ public class InventoryOption extends Option{
 	}
 	public void execute(ViewManager vm, Controller cm){
 		Menus inventoryMenu = vm.getInventoryMenu();
-
 		cm.setMenu(inventoryMenu);
 		vm.setInventoryMenuMode();
   }

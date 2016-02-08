@@ -28,11 +28,13 @@ import models.menus.*;
 
 		Level level = game.getLevel();
 
-    Menus inventoryMenu = new InventoryMenu(vm, avatar);
-    Menus equipmentMenu = new EquipmentMenu(vm, avatar);
-    vm.setInventoryMenu(inventoryMenu);
-    vm.setEquipmentMenu(equipmentMenu);
-
+    	Menus inventoryMenu = new InventoryMenu(vm, avatar);
+    	inventoryMenu.setController(cm);
+    	Menus equipmentMenu = new EquipmentMenu(vm, avatar);
+    	equipmentMenu.setController(cm);
+    	vm.setInventoryMenu(inventoryMenu);
+    	vm.setEquipmentMenu(equipmentMenu);
+    	
 		vm.setGameMode(level, avatar);
 	}
 }
