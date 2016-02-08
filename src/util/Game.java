@@ -26,6 +26,7 @@ public class Game
         this.gameEngine = initializer.initialize();
         levels = new ArrayList<>();
         avatar =  new Entity();
+        //avatar.getSaveState();
         currentLevel = -1;
     }
 
@@ -54,6 +55,7 @@ public class Game
         ac.setName("Brandon");
         ac.setOccupation(new Smasher());
         Entity avatar = ac.vendCustomEntity();
+        avatar.gainXp(67);
         List<String> state = avatar.getSaveState();
         //TODO equipment state
         //You wrote some crap in Map for state gathering... go finish it
