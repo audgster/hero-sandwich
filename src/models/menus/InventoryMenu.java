@@ -20,8 +20,10 @@ public class InventoryMenu extends Menus{
             new EquipItemOption(), new DropItemOption()}, new ArrayList<Listener>(), vm);
     this.avatar = avatar;
     this.listOfItems = avatar.getInventory().getBag();
-    currentlySelectedItem = listOfItems.get(0);
-    System.out.println("the avatar" + this.avatar);
+  }
+
+  public void setCurrentlySelectedItem(Item item){
+    this.currentlySelectedItem = item;
   }
 
   public Item getCurrentlySelectedItem(){

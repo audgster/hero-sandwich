@@ -45,9 +45,7 @@ public class AvatarCreator
         }
 
         Entity entity = new Entity(name, occupation, new EntityStats(), EntityIdentifier.GROUND, Direction.NORTH);
-        Item item = new EquipableItem("food", EquipmentType.HELM, new StatModifiers());
-        item.setDescription("Yummy food!");
-        entity.addItem(item);
+      
         name = null;
         occupation = null;
 
