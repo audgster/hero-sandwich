@@ -1,0 +1,23 @@
+Game Name: Hero Sandwich!
+
+Group Members:
+Mitchell Burgunder
+Matthew Diaz
+Brandon Duong
+Adam Fortier
+Clay Hausen
+Audrey Simonne
+
+Instructions on how to build program from source:
+
+1. Using your command line utility, navigate to directory ~/hero-sandwich/src where the ~ represents the parent directory in which you placed hero-sandwich.
+
+2. Run "javac @sources.txt" to compile all the .java files to .class files
+
+3. Run "jar cmf0 MANIFEST.MF hero-sandwich.jar RunGame.class Gamewindow.class controllers resources initialization models util views"
+
+4.To run the newly created jar, run "java -jar hero-sandwich.jar"
+
+Troubleshooting:
+
+Should you encounter errors, try running "find. -name *.java > sources.txt" before step 2
