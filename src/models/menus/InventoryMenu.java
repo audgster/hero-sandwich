@@ -24,8 +24,8 @@ public class InventoryMenu extends Menus{
     System.out.println("the avatar" + this.avatar);
   }
 
-  public Entity getAvatar(){
-    return this.avatar;
+  public Item getCurrentlySelectedItem(){
+    return this.currentlySelectedItem;
   }
 
   public void enter(){
@@ -46,6 +46,10 @@ public class InventoryMenu extends Menus{
       currentlySelectedItem = listOfItems.get(--listPosition);
       notifyListeners();
     }
+  }
+
+  public Entity getAvatar(){
+    return avatar;
   }
 
 }

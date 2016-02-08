@@ -17,17 +17,18 @@ public class InventoryView extends View{
   private Entity avatar;
   private Inventory inventory;
   private Equipment equipment;
-  private int inventoryCapacity;
+  private ArrayList<Item> inventoryBag;
   protected String[] options;
-  protected Menus menu;
+  protected InventoryMenu menu;
   protected int currentIndex;
   private String[] items;
   protected Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
   public InventoryView(Menus menu, Entity avatar){
+    this.menu = (InventoryMenu)menu;
     this.avatar = avatar;
-    inventory = avatar.getInventory();
-    inventoryCapacity = inventory.getCapacity();
+    this.inventory = avatar.getInventory();
+    this.inventoryBag = inventory.getBag();
     this.equipment = avatar.getEquipment();
     setLayout(new GridBagLayout());
     update();
@@ -79,8 +80,8 @@ public class InventoryView extends View{
     menuPanel.setLayout( new BoxLayout(menuPanel, BoxLayout.Y_AXIS ) );
     menuPanel.setBorder(grayMatteBorder);
 
-    for(int i = 0; i < inventoryCapacity; i++){
-      currentItem = inventory.getItemAt(i);
+    for(int i = 0; i < inventoryBag.size(); i++){
+      currentItem = inventoryBag.get(i);
       JLabel label;
       if(currentItem != null){
         label = new JLabel(currentItem.getName());
@@ -136,6 +137,13 @@ public class InventoryView extends View{
   }
 
   public void update(){
+    Item currentlySelectedItem = menu.getCurrentlySelectedItem();
+    for(int i = 0; i < inventoryBag.size(); i++){
+			if(inventoryBag.get(i) == currentlySelectedItem){
+				currentIndex = i;
+			}
+		}
+
     render();
   }
 }

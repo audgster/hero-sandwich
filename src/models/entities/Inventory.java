@@ -64,9 +64,10 @@ public class Inventory {
 	for (int i = 0; i < capacity; ++i) {
 	    // if slot is empty
 	    if ( bag.get(i) == null ) {
-		bag.add(i, item);
-		itemAdded = true;
-		++count;
+        bag.remove(i);
+		    bag.add(i, item);
+		    itemAdded = true;
+		    ++count;
 		break;
 	    }
 	    System.out.println(bag.get(i));
