@@ -111,6 +111,7 @@
 ./views/Decal.java
 ./views/Drawable.java
 ./views/EquipmentView.java
+./views/GameOverView.java
 ./views/InventoryView.java
 ./views/Listener.java
 ./views/MenuView.java

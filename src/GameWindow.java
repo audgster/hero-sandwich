@@ -29,7 +29,7 @@ public class GameWindow extends JFrame implements KeyListener{
 	}
 
 	private void createController(){
-		avatarController = new Controller();
+		avatarController = Controller.getController();
     	avatarController.setMenu(menu);
     	avatarController.setViewManager(viewManager);
 

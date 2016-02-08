@@ -14,9 +14,18 @@ public class Controller{
 	private Menus menu;
     private Game game;
     private ViewManager vm;
+    private static Controller avatarController = null;
 
-	public Controller()
+	public static Controller getController()
     {
+    	if(avatarController == null){
+    		avatarController = new Controller();
+    	}
+    	return avatarController;
+
+	}
+
+	private Controller(){
 		state = new MenuState(this);
         game = new Game(new HardCodedGameEngineInitializer());
 	}

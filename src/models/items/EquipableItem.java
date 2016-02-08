@@ -34,18 +34,6 @@ public class EquipableItem extends TakeableItem
 	statsRestrictions = statsRestrict;
 	occupRestriction = occRestrict;
     }
-    
-    @Override
-    public boolean executeInteraction(Entity entity, Tile tile)
-    {
-        if (entity.addItem(this))
-        {
-            tile.removeItem(this);
-            return true;
-        }
-
-        return false;
-    }
 
     /* Mutators */
     public void setStatRestrictions(StatModifiers s){
