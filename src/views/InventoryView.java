@@ -7,12 +7,19 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import java.awt.Dimension;
+import models.entities.*;
 
 public class InventoryView extends MenuView{
+  private Entity avatar;
+  private Inventory inventory;
+  private Equipment equipment;
 
   public InventoryView(Menus menu){
 		super(menu);
 		setLayout( new GridBagLayout());
+    avatar = ((InventoryMenu)menu).getAvatar();
+    inventory = avatar.getInventory();
+    equipment = avatar.getEquipment();
     update();
 	}
 

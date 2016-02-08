@@ -17,4 +17,8 @@ public class InventoryMenu extends Menus{
             new EquipItemOption(), new DropItemOption()}, new ArrayList<Listener>(), vm);
     this.avatar = avatar;
   }
+
+  public Entity getAvatar(){
+    return this.avatar;
+  }
 }
