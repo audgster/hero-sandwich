@@ -54,6 +54,7 @@ public class Entity implements Drawable, Subject
         eIdentifier = identifier;
         directionFacing = direction;
 	    subs = new ArrayList<Listener>();
+        isDead = false;
 	    //	    setDefaultStats();
     }
 
@@ -70,6 +71,8 @@ public class Entity implements Drawable, Subject
 	applyEquipmentStatMods(equipment); 
         eIdentifier = identifier;
         directionFacing = direction;
+        isDead = false;
+
 	    //setDefaultStats();
     }    
 
