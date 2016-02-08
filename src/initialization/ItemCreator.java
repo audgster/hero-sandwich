@@ -3,6 +3,7 @@ package initialization;
 import models.entities.StatModifiers;
 import models.items.*;
 import models.items.actions.AddConstantHealthAction;
+import models.items.actions.ModifyAoE;
 import models.map.Map;
 import models.map.Tile;
 import org.w3c.dom.Element;
@@ -41,17 +42,21 @@ public class ItemCreator {
 
     private Item getInstance(Node item, String itemName, int base) {
         String itemType = item.getNodeName();
-        if(itemType == "one-shot") {
+        if(itemType.equalsIgnoreCase("one-shot")) {
             Item oneShot = new StatModifyingOneShotItem(itemName, new AddConstantHealthAction(base));
             System.out.println(oneShot.getImageId());
             return oneShot;
         }
         else if(itemType.equalsIgnoreCase("interactable"))
         {
-            return null;
+            Item interactable = new InteractableItem(itemName, new ModifyAoE());
+            System.out.println(interactable.getImageId());
+            return interactable;
         }
         else if(itemType.equalsIgnoreCase("takeable")) {
-            return null;
+            Item takeable = new TakeableItem(itemName);
+            System.out.println(takeable.getImageId());
+            return takeable;
         }
         else if(itemType.equalsIgnoreCase("consumable")) {
             Item consumable = new StatModifyingConsumableItem(itemName, new AddConstantHealthAction(base));
@@ -63,7 +68,12 @@ public class ItemCreator {
             System.out.println(equip.getImageId());
             return equip;
         }
-        else
+        else if(itemType.equalsIgnoreCase("obstacle"))
+        {
+            Item obstacle = new ObstacleItem(itemName);
+            System.out.println(obstacle.getImageId());
+            return obstacle;
+        }
             return null;
     }
 }
