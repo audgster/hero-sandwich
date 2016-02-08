@@ -1,11 +1,8 @@
 package views;
-import views.View;
 import models.menus.*;
-import models.menus.options.Option;
+
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.BorderFactory;
 
 public class EquipmentView extends MenuView{
 
@@ -22,7 +19,7 @@ public class EquipmentView extends MenuView{
     JLabel inventoryTitle = new JLabel("Equipment");
     JLabel[] grids = new JLabel[5];
 
-    String imgPath = "../images/blank_slot.jpg";
+    String imgPath = "resources/images/blank_slot.jpg";
     gBC.anchor = GridBagConstraints.PAGE_START;
     gBC.weighty = 0.2;
     inventoryTitle.setFont(menuFont);

@@ -10,7 +10,7 @@ public class LevelCreator {
     public LevelCreator(){}
 
     public Level createLevel() {
-        MapCreator mapCreator = new MapCreator("images/config.xml");
+        MapCreator mapCreator = new MapCreator("src/resources/config/config.xml");
         Map map = mapCreator.create();
         return new Level(new LocationManager(), map);
     }
