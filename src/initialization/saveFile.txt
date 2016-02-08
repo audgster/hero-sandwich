@@ -18,98 +18,46 @@ Avatar {
  capacity: 5
  bag {
  ConsumableItem {
- Name: PotionUp
+ Name: Potion
  AddConstantHealthAction {
- StatModifyAction: 50
+ StatModifyAction: 10
  }
  }
  ConsumableItem {
- Name: PotionUp
+ Name: Potion
  AddConstantHealthAction {
- StatModifyAction: 50
+ StatModifyAction: 10
  }
  }
  ConsumableItem {
- Name: PotionUp
+ Name: Potion
  AddConstantHealthAction {
- StatModifyAction: 50
+ StatModifyAction: 10
  }
  }
  ConsumableItem {
- Name: PotionUp
+ Name: Potion
  AddConstantHealthAction {
- StatModifyAction: 50
+ StatModifyAction: 10
  }
  }
  ConsumableItem {
- Name: PotionUp
+ Name: Potion
  AddConstantHealthAction {
- StatModifyAction: 50
+ StatModifyAction: 10
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
  }
  }
  }
  Equipment {
  EquipableItem { 
+<<<<<<< HEAD
  Name: Boots 
  EquipmentType: BOOTS
- StatBoost {
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- StatRestrictions { 
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- OccupationRestriction: none
- }
- EquipableItem { 
- Name: helmet 
- EquipmentType: HELM
- StatBoost {
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- StatRestrictions { 
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- OccupationRestriction: none
- }
- EquipableItem { 
+=======
  Name: Armor 
  EquipmentType: ARMOR
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
  StatBoost {
  life: 0
  mana: 0
@@ -137,37 +85,115 @@ Avatar {
  OccupationRestriction: none
  }
  EquipableItem { 
- Name: Leggings 
- EquipmentType: LEGGINGS
- StatBoost {
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- StatRestrictions { 
- life: 0
- mana: 0
- offensiveRating: 0
- defensiveRating: 0
- armorRating: 0
- strength: 112
- agility: 111
- intellect: 199
- hardiness: 1001
- movement: 10
- }
- OccupationRestriction: none
- }
- EquipableItem { 
+<<<<<<< HEAD
+ Name: helmet 
+ EquipmentType: HELM
+=======
  Name: Weapon 
  EquipmentType: WEAPON
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+<<<<<<< HEAD
+ Name: Armor 
+ EquipmentType: ARMOR
+=======
+ Name: Boots 
+ EquipmentType: BOOTS
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+<<<<<<< HEAD
+ Name: Leggings 
+ EquipmentType: LEGGINGS
+=======
+ Name: helmet 
+ EquipmentType: HELM
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 112
+ agility: 111
+ intellect: 199
+ hardiness: 1001
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem { 
+<<<<<<< HEAD
+ Name: Weapon 
+ EquipmentType: WEAPON
+=======
+ Name: Leggings 
+ EquipmentType: LEGGINGS
+>>>>>>> 3882f60f3ac95d5fd44c9e3f24b2d7e3a48bc7c0
  StatBoost {
  life: 0
  mana: 0
