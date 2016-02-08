@@ -49,6 +49,7 @@ public class GameLoader {
         Occupation occupation = new Sneak();
         EntityStats entityStats = new EntityStats();
         Inventory inventory = new Inventory();
+        Equipment equipment = new Equipment();
         while(scanner.hasNext()) {
             String token = removeLineSeparator(scanner.next());
             if(token.equalsIgnoreCase("AvatarName:"))
@@ -61,10 +62,10 @@ public class GameLoader {
                 occupation = makeIntoOccupation(scanner.next());
             else if(token.equalsIgnoreCase("EntityStats"))
                 entityStats = makeEntityStats(scanner);
-            else if(token.equalsIgnoreCase("Inventory")) {
+            else if(token.equalsIgnoreCase("Inventory"))
                 inventory = makeInventory(scanner);
-            }
-
+            else if(token.equalsIgnoreCase("Equipment"))
+                equipment = makeEquipment(scanner);
 
 
         }
@@ -75,6 +76,10 @@ public class GameLoader {
         System.out.println(occupation);
         System.out.println(entityStats.getStrength() + " " + entityStats.getAgility() + " " + entityStats.getIntellect() + " " + entityStats.getHardiness() + " " + entityStats.getModMovement());
         return new Entity();
+    }
+
+    private Equipment makeEquipment(Scanner scanner) {
+
     }
 
     private Inventory makeInventory(Scanner scanner) {
