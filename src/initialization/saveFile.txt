@@ -1,0 +1,81 @@
+Avatar { 
+ AvatarName: Brandon
+ EntityIdentifier: GROUND
+ FacingDirection: NORTH
+ Occupation: Smasher
+ EntityStats {
+ livesLeft: 1
+ currentLife: 2
+ currentMana: 28
+ xp: 100
+ strength: 2
+ agility: 2
+ intellect: 2
+ hardiness: 2
+ movement: 11
+ }
+ Inventory {
+ capacity: 5
+ bag {
+ EquipableItem {
+ Name: Super Sayan Sword 
+ EquipmentType: WEAPON
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ EquipableItem {
+ Name: The Boots Of Awesome 
+ EquipmentType: WEAPON
+ StatBoost {
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ StatRestrictions { 
+ life: 0
+ mana: 0
+ offensiveRating: 0
+ defensiveRating: 0
+ armorRating: 0
+ strength: 1
+ agility: 1
+ intellect: 1
+ hardiness: 1
+ movement: 10
+ }
+ OccupationRestriction: none
+ }
+ }
+ Equipment {
+ }
+ }

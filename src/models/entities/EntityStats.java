@@ -269,6 +269,7 @@ public class EntityStats extends Stats {
             this.currentLife = maxLife;
         else
             this.currentLife = currentLife;
+        System.out.println("I AM HEREEE" + currentLife);
     }
 
     public void setCurrentMana(int currentMana) throws InvalidStatException
@@ -339,7 +340,7 @@ public class EntityStats extends Stats {
 	public List<String> getSaveState() {
 		List<String> state = new ArrayList<String>();
 		state.add("livesLeft: " + Integer.toString(livesLeft) + System.getProperty("line.separator") + " ");
-		state.add("currentLife: " + Integer.toString(currentLife) + System.getProperty("line.separator") + " ");
+		state.add("currentLife: " + currentLife + System.getProperty("line.separator") + " ");
 		state.add("currentMana: " + Integer.toString(currentMana) + System.getProperty("line.separator") + " ");
 		state.add("xp: " + Integer.toString(xp) + System.getProperty("line.separator") + " ");
         state.add("strength: " + getStrength() + System.getProperty("line.separator") + " ");

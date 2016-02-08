@@ -50,7 +50,7 @@ public class Entity implements Drawable, Subject
         stats.setOccupationMods( this.occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
-        equipment.tempSaveState();
+        //equipment.tempSaveState();
         eIdentifier = identifier;
         directionFacing = direction;
 	    subs = new ArrayList<Listener>();

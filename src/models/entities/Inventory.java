@@ -132,9 +132,11 @@ public class Inventory {
 		//state.add("count: " + Integer.toString(count) + System.getProperty("line.separator") + " ");
 		state.add("bag {" + System.getProperty("line.separator") + " ");
 		for(Item item : bag) {
-			state.add(item.getClass().getSimpleName() + " {" + System.getProperty("line.separator") + " ");
-			state.addAll(item.getSaveState());
-			state.add("}" + System.getProperty("line.separator") + " ");
+			if (item != null){
+				state.add(item.getClass().getSimpleName() + " {" + System.getProperty("line.separator") + " ");
+				state.addAll(item.getSaveState());
+				state.add("}" + System.getProperty("line.separator") + " ");	
+			}
 		}
 		return state;
 	}
