@@ -122,14 +122,14 @@ public class ViewManager extends View{
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
-		else if(mode == Mode.EQUIPMENT_MENU){
-			equipmentView.setVisible(true);
-			statsView.setVisible(true);
-			equipmentView.setPreferredSize(new Dimension(getWidth(), getHeight()));
-			add(equipmentView, BorderLayout.CENTER);
-			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
-			add(statsView, BorderLayout.LINE_START);
-		}
+		// else if(mode == Mode.EQUIPMENT_MENU){
+		// 	equipmentView.setVisible(true);
+		// 	statsView.setVisible(true);
+		// 	equipmentView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+		// 	add(equipmentView, BorderLayout.CENTER);
+		// 	statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+		// 	add(statsView, BorderLayout.LINE_START);
+		// }
 		else if(mode == Mode.DEAD){
 			statsView.setVisible(true);
 			gameOverView.setPreferredSize(new Dimension(getWidth(), getHeight()));
