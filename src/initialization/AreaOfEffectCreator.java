@@ -38,13 +38,13 @@ public class AreaOfEffectCreator {
 
     private AreaOfEffect getAoe(String type) {
         if(type.equalsIgnoreCase("heal-damage"))
-            return new HealDamageAoE(100);
+            return new HealDamageAoE(1);
         else if(type.equalsIgnoreCase("insta-death"))
             return new InstaDeathAoE();
         else if(type.equalsIgnoreCase("level-up"))
             return new LevelUpAoE();
         else if(type.equalsIgnoreCase("take-damage"))
-            return new TakeDamageAoE(10);
+            return new TakeDamageAoE(1);
         else
             return null;
     }

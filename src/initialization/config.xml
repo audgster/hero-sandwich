@@ -7,15 +7,12 @@
         <area-effect-group type="insta-death" height="3" width="2" x-origin="15" y-origin="12"/>
         <area-effect-group type="heal-damage" height="1" width="1" x-origin="3" y-origin="3"/>
         <area-effect-group type="level-up" height="1" width="1" x-origin="13" y-origin="13"/>
-        <!--takeDamage-->
+        <area-effect-group type="take-damage" height="2" width="4" x-origin="13" y-origin="3"/>
         <items>
-            <!-- Only supported for Equippable at the moment
-            <one-shot x-position="19" y-position="19"/>
-            <interactable x-position="10" y-position="10"/>
-            <takable x-position="0" y-position="0"/>
-            -->
-            <equippable x-position="5" y-position="10"/>
-            <equippable x-position="10" y-position="13"/>
+            <one-shot name="Healing Super Potion" base="4" x-position="19" y-position="19"/>
+            <consumable name="Mediocre Healing Postion" base="1" x-position="4" y-position="4"/>
+            <equippable name="Super Sayan Sword" base="0" x-position="5" y-position="10"/>
+            <equippable name="The Boots Of Awesome" base="0" x-position="10" y-position="13"/>
         </items>
     </map>
 </setup>
