@@ -31,7 +31,6 @@ public class Controller{
     }
 	
 	public void setMenu(Menus menu){
-		System.out.println("It set the model  "+ menu);
 		this.menu = menu;
 	}
 	public Menus getMenu(){
@@ -72,11 +71,9 @@ public class Controller{
 
 	public void changeState(){
 		if(state.toString() == "Avatar"){
-			System.out.println("The Controller is now in the menu state");
 			state = new MenuState(this);
 		}
 		else{
-			System.out.println("The Controller is now in the avatar state");
 			state = new AvatarState(this);
 		}
 	}
@@ -96,7 +93,6 @@ public class Controller{
     public void openPauseMenu(){
     	changeState();
     	menu = new PauseMenu(vm);
-    	System.out.println("THE START OF SOMETHING NEW");
     	vm.setPauseMode(menu);
     	menu.setController(this);
     }
@@ -110,6 +106,4 @@ public class Controller{
     public void enter(){
     	menu.enter();
     }
-
-
 }

@@ -206,6 +206,12 @@ public class ViewManager extends View{
 		update();
 	}
 
+	public void setGameModeAgain(){
+		mode = Mode.GAME;
+		menuViews.clear();
+		update();
+	}
+
 	public void setPauseMode(Menus pMenu){
 		mode = Mode.PAUSE;
 		pauseView = new PauseView(pMenu);

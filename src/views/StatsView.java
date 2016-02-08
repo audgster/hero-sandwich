@@ -23,7 +23,7 @@ public class StatsView extends View{
 		setBackground(Color.BLACK);
 		GridBagConstraints c = new GridBagConstraints();
 
-		String imgPath = "../images/smasher.gif";
+		String imgPath = "../images/" + avatar.getOccupation().toString() + ".gif";
 		JLabel img = new JLabel(new ImageIcon(imgPath));
 		img.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(img);
