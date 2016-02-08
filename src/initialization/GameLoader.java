@@ -65,7 +65,7 @@ public class GameLoader {
             else if(token.equalsIgnoreCase("Inventory"))
                 inventory = makeInventory(scanner);
             else if(token.equalsIgnoreCase("Equipment"))
-                equipment = makeEquipment(scanner);
+		equipment = null;
 
 
         }
@@ -80,8 +80,12 @@ public class GameLoader {
         System.out.println(" " + equipment.getArmor() + equipment.getBoots() + equipment.getHelm() + equipment.getLeggings() + equipment.getWeapon());
         return new Entity();
     }
+    
+    //private Equipment makeEquipment(Scanner scanner) {
+    //
+    //
+    //}
 
-    private Equipment makeEquipment(Scanner scanner) {
         scanner.next();
         Equipment equipment = new Equipment();
             while (scanner.hasNext()) {
@@ -131,6 +135,7 @@ public class GameLoader {
         }
         return new EquipableItem(name, equipmentType, statBoost, statRestrictions, occupationRestriction);
     }
+
 
     private Inventory makeInventory(Scanner scanner) {
         scanner.next();
