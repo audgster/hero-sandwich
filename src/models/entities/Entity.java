@@ -183,6 +183,12 @@ public class Entity implements Drawable, Subject
      */
     public void levelUp() {
 
+        int level = getEntityStats().getLevel();
+        int xpOverLevel = getEntityStats().getXp() - ((level - 1) * 100);
+        int xpToNextLevel = 100 - xpOverLevel;
+
+        getEntityStats().addXp(xpToNextLevel);
+
 	// Restore life & mana
         try {
             stats.setCurrentLife(stats.getLife());
