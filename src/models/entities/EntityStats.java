@@ -329,10 +329,15 @@ public class EntityStats extends Stats {
 
 	public List<String> getSaveState() {
 		List<String> state = new ArrayList<String>();
-		state.add("/tlivesLeft: " + Integer.toString(livesLeft));
-		state.add("/tcurrentLife: " + Integer.toString(currentLife));
-		state.add("/tcurrentMana: " + Integer.toString(currentMana));
-		state.add("/txp: " + Integer.toString(xp));
+		state.add("\t\tlivesLeft: " + Integer.toString(livesLeft) + System.getProperty("line.separator"));
+		state.add("\t\tcurrentLife: " + Integer.toString(currentLife) + System.getProperty("line.separator"));
+		state.add("\t\tcurrentMana: " + Integer.toString(currentMana) + System.getProperty("line.separator"));
+		state.add("\t\txp: " + Integer.toString(xp) + System.getProperty("line.separator"));
+        state.add("\t\tstrength: " + getStrength() + System.getProperty("line.separator"));
+        state.add("\t\tagility: " + getAgility() + System.getProperty("line.separator"));
+        state.add("\t\tintellect: " + getIntellect() + System.getProperty("line.separator"));
+        state.add("\t\thardiness: " + getHardiness() + System.getProperty("line.separator"));
+        state.add("\t\tmovement: " + getMovement() + System.getProperty("line.separator"));
 		return state;
 	}
 }

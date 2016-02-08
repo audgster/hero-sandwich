@@ -90,10 +90,10 @@ public class EquipableItem extends TakeableItem
         List<String> state = new ArrayList<String>();
         state.add("\t\t\tName: " + getName() + System.getProperty("line.separator"));
         state.add("\t\t\tEquipmentType: " + eType.name() + System.getProperty("line.separator"));
-        state.add("\t\t\tStat Boost{ " + System.getProperty("line.separator"));
+        state.add("\t\t\tStat Boost { " + System.getProperty("line.separator"));
         state.addAll(statsBoosts.getSaveState());
         state.add("\t\t\t}" + System.getProperty("line.separator"));
-        state.add("\t\t\tStat Restrictions{ " + System.getProperty("line.separator"));
+        state.add("\t\t\tStat Restrictions { " + System.getProperty("line.separator"));
         state.addAll(statsRestrictions.getSaveState());
         state.add("\t\t\t}" + System.getProperty("line.separator"));
         state.add("\t\t\tOccupation Restriction: " + occupRestriction + System.getProperty("line.separator"));

@@ -23,9 +23,8 @@ public class StatsView extends View{
 		removeAll();
 		setBackground(Color.BLACK);
 		GridBagConstraints c = new GridBagConstraints();
-		
-		//change this to work with the entity's occupation and HCSI thingy
-		String imgPath = "../images/smasher.gif";
+
+		String imgPath = "../images/" + avatar.getOccupation().toString() + ".gif";
 		JLabel img = new JLabel(new ImageIcon(imgPath));
 		img.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(img);

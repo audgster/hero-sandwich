@@ -19,14 +19,13 @@ public class ItemCreator {
         this.items = items;
     }
 
-    public void createItemsOnMap(Map map) {
-        Tile[][] mapGrid = map.getMapArray();
+    public void createItemsOnMap(Tile[][] tileGrid) {
 
         for(int i = 0; i < items.size(); i++) {
             Element currentItem = (Element) items.get(i);
             int x = getItemXPostion(currentItem);
             int y = getItemYPosition(currentItem);
-            mapGrid[y][x].addItem(getType(items.get(i)));
+            tileGrid[y][x].addItem(getType(items.get(i)));
             //createTileGroup(mapGrid, currentTileGroup);
         }
     }

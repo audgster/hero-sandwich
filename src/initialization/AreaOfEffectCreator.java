@@ -17,12 +17,10 @@ public class AreaOfEffectCreator {
         this.areaEffectGroups = areaEffectGroups;
     }
 
-    public void createAreasOfEffectOnMap(Map map) {
-        Tile[][] mapGrid = map.getMapArray();
-
+    public void createAreasOfEffectOnMap(Tile[][] tileGrid) {
         for(int i = 0; i < areaEffectGroups.size(); i++) {
             Element currentAoe = (Element) areaEffectGroups.get(i);
-            createAoeGroup(mapGrid, currentAoe);
+            createAoeGroup(tileGrid, currentAoe);
         }
     }
 

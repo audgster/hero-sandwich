@@ -183,6 +183,12 @@ public class Entity implements Drawable, Subject
      */
     public void levelUp() {
 
+        int level = getEntityStats().getLevel();
+        int xpOverLevel = getEntityStats().getXp() - ((level - 1) * 100);
+        int xpToNextLevel = 100 - xpOverLevel;
+
+        getEntityStats().addXp(xpToNextLevel);
+
 	// Restore life & mana
         try {
             stats.setCurrentLife(stats.getLife());
@@ -341,6 +347,9 @@ public class Entity implements Drawable, Subject
         gameState.add("\tEntityIdentifier: " + eIdentifier.toString() + System.getProperty("line.separator"));
         gameState.add("\tFacing Direction: " + directionFacing.toString() + System.getProperty("line.separator"));
         gameState.add("\tOccupation: " + occupation.getClass().getSimpleName() + System.getProperty("line.separator"));
+        gameState.add("\tEntityStats {" + System.getProperty("line.separator"));
+        gameState.addAll(stats.getSaveState());
+        gameState.add("\t}" + System.getProperty("line.separator"));
         gameState.add("\tInventory {" + System.getProperty("line.separator"));
         gameState.addAll(inventory.getSaveState());
         gameState.add("\t}" +System.getProperty("line.separator"));
