@@ -1,17 +1,13 @@
 package views;
-import views.View;
 import models.menus.*;
-import models.menus.options.Option;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
-import java.awt.Dimension;
 import models.entities.*;
 import java.util.ArrayList;
 import models.items.*;
-
-
 
 public class InventoryView extends View{
   private Entity avatar;
@@ -113,7 +109,7 @@ public class InventoryView extends View{
     equipmentPanel.setBorder(grayMatteBorder);
     GridBagConstraints subGBC = new GridBagConstraints();
     JLabel[] grids = new JLabel[5];
-    String imgPath = "../images/blank_slot.jpg";
+    String imgPath = "resources/images/blank_slot.jpg";
 
     for(int i = 0; i < 4; i++){
       grids[i] = new JLabel(new ImageIcon(imgPath));

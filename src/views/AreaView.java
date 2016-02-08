@@ -57,13 +57,13 @@ public class AreaView extends View {
 			Tile tile = level.returnTileAt(p);
 			BufferedImage tileImage = null;
 			try{
-				//System.out.println("[AREAVIEW] it found the tile images");
+				//System.out.println("[AREAVIEW] it found the tile resources");
 				tileImage = ImageIO.read(new File(
 						spriteMap.getResourcePath(tile.getImageId())));
 			}
 			catch(IOException e){
 				//throw e;
-				System.out.println("[AREAVIEW] cannot find tile images");
+				System.out.println("[AREAVIEW] cannot find tile resources");
 				break;
 			}
 			catch(Exception e){
@@ -86,7 +86,7 @@ public class AreaView extends View {
 				}
 				catch(IOException e){
 					//throw e;
-					System.out.println("[AREAVIEW] cannot find aoe images");
+					System.out.println("[AREAVIEW] cannot find aoe resources");
 					break;
 				}
 				catch(Exception e){
@@ -133,7 +133,7 @@ public class AreaView extends View {
 		}
 		catch(IOException e){
 			//throw e;
-			System.out.println("[AREAVIEW] cannot find AVATAR images");
+			System.out.println("[AREAVIEW] cannot find AVATAR resources");
 			
 		}
 		catch(Exception e){
@@ -165,7 +165,7 @@ public class AreaView extends View {
 			}
 			catch(IOException e){
 				//throw e;
-				System.out.println("cannot find AVATAR images");
+				System.out.println("cannot find AVATAR resources");
 				break;
 			}
 			catch(Exception e){

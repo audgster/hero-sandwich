@@ -2,9 +2,13 @@ package initialization;
 
 
 import models.entities.*;
+import models.items.ConsumableItem;
 import models.items.EquipableItem;
 import models.items.EquipmentType;
 import models.items.Item;
+import models.items.actions.AddConstantHealthAction;
+import models.items.actions.IAction;
+import models.items.actions.StatModifyAction;
 import util.Direction;
 import util.EntityIdentifier;
 
@@ -26,20 +30,22 @@ public class GameLoader {
         }
     }
 
-    public void parseFile() {
+    public Entity parseFile() {
         scanner.useDelimiter(" ");
-        printScanner();
+        return getAvatar();
     }
 
-    private void printScanner() {
+    private Entity getAvatar() {
         int i = 0;
+        Entity avatar = null;
         while(scanner.hasNext()){
             i+=1;
             String token = scanner.next();
             token = token.replace(System.getProperty("line.separator"), "");
             if(token.equalsIgnoreCase("Avatar"))
-                loadAvatar(scanner);
+                avatar = loadAvatar(scanner);
         }
+        return avatar;
     }
 
     private Entity loadAvatar(Scanner scanner) {
@@ -65,7 +71,7 @@ public class GameLoader {
             else if(token.equalsIgnoreCase("Inventory"))
                 inventory = makeInventory(scanner);
             else if(token.equalsIgnoreCase("Equipment"))
-                equipment = null;
+		            equipment = makeEquipment(scanner);
 
 
         }
@@ -74,13 +80,67 @@ public class GameLoader {
         System.out.println(entityIdentifier);
         System.out.println(facingDirection);
         System.out.println(occupation);
+        System.out.println(entityStats.getCurrentLife());
+        System.out.println(entityStats.getLivesLeft());
         System.out.println(entityStats.getStrength() + " " + entityStats.getAgility() + " " + entityStats.getIntellect() + " " + entityStats.getHardiness() + " " + entityStats.getModMovement());
-        return new Entity();
+        System.out.println(" " + equipment.getArmor() + equipment.getBoots() + equipment.getHelm() + equipment.getLeggings() + equipment.getWeapon());
+        return new Entity(name, occupation, entityStats, inventory, equipment, entityIdentifier, facingDirection);
     }
 
-    // private Equipment makeEquipment(Scanner scanner) {
-    //
-    // }
+
+    private Equipment makeEquipment(Scanner scanner) {
+
+
+        scanner.next();
+        Equipment equipment = new Equipment();
+            while (scanner.hasNext()) {
+                String token = removeLineSeparator(scanner.next());
+                if (token.equalsIgnoreCase("}"))
+                    break;
+                else {
+                    EquipableItem item = getNextEquipableItem(scanner);
+                    equipment.equip(item);
+                }
+            }
+
+        return equipment;
+    }
+
+
+    private EquipableItem getNextEquipableItem(Scanner scanner) {
+        scanner.next();
+        String name = "";
+        StatModifiers statBoost = new StatModifiers();
+        StatModifiers statRestrictions = new StatModifiers();
+        EquipmentType equipmentType = EquipmentType.HELM;
+        String occupationRestriction = "";
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+
+            else if(token.equalsIgnoreCase("Name:"))
+                name = removeLineSeparator(scanner.next());
+
+            else if(token.equalsIgnoreCase("EquipmentType:"))
+                equipmentType = EquipmentType.valueOf(removeLineSeparator(scanner.next()));
+
+            else if(token.equalsIgnoreCase("StatBoost"))
+                statBoost = createNextStatModifier(scanner);
+
+            else if(token.equalsIgnoreCase("StatRestrictions"))
+                statRestrictions = createNextStatModifier(scanner);
+
+            else if(token.equalsIgnoreCase("OccupationRestriction:")) {
+                token = removeLineSeparator(scanner.next());
+                if(token.equalsIgnoreCase("none"))
+                    continue;
+            }
+
+        }
+        return new EquipableItem(name, equipmentType, statBoost, statRestrictions, occupationRestriction);
+    }
+
 
     private Inventory makeInventory(Scanner scanner) {
         scanner.next();
@@ -90,13 +150,15 @@ public class GameLoader {
             Inventory inventory = new Inventory(capacity);
             while (scanner.hasNext()) {
                 String token = removeLineSeparator(scanner.next());
-                if (token.equalsIgnoreCase("}"))
+                if (token.equalsIgnoreCase("}")) {
+                    System.out.println("break");
                     break;
+                }
                 else if(token.equalsIgnoreCase("bag")) {
                     ignoreBagSyntax(scanner);
                 }
                 else {
-                    System.out.println("Adding item");
+                    System.out.println("Adding ite");
                     Item item = getNextItem(token, scanner);
                     inventory.add(item);
                 }
@@ -116,8 +178,42 @@ public class GameLoader {
     }
 
     private Item getNextItem(String token, Scanner scanner) {
+        System.out.println(token);
         if(token.equalsIgnoreCase("EquipableItem")) {
             return createEquippableItem(scanner);
+        }
+        else if(token.equalsIgnoreCase("ConsumableItem"))
+            return createConsumbleItem(scanner);
+        return null;
+    }
+
+    private Item createConsumbleItem(Scanner scanner) {
+        scanner.next();
+        String name = "";
+        IAction action = null;
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+            else if (token.equalsIgnoreCase("Name:"))
+                name = removeLineSeparator(scanner.next());
+
+            else if (token.equalsIgnoreCase("AddConstantHealthAction"))
+                action = createAddConstantHealthAction(scanner);
+
+        }
+        scanner.next();
+        return new ConsumableItem(name, action);
+    }
+
+    private IAction createAddConstantHealthAction(Scanner scanner) {
+        scanner.next();
+        while (scanner.hasNext()) {
+            String token = removeLineSeparator(scanner.next());
+            if (token.equalsIgnoreCase("}"))
+                break;
+            else if(token.equalsIgnoreCase("StatModifyAction:"))
+                return new AddConstantHealthAction(Integer.parseInt(removeLineSeparator(scanner.next())));
         }
         return null;
     }
@@ -220,29 +316,29 @@ public class GameLoader {
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("strength:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setStrength(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("agility:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setAgility(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("intellect:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setIntellect(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("hardiness:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setHardiness(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("movement:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setMovement(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
 
         }
 
-        return new EntityStats();
+        return entityStats;
     }
 
     private Occupation makeIntoOccupation(String occupation) {

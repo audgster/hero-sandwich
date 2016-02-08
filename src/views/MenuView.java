@@ -1,5 +1,4 @@
 package views;
-import views.View;
 import models.menus.*;
 import models.menus.options.Option;
 import java.awt.*;
@@ -43,7 +42,7 @@ public class MenuView extends View{
 			add(label);
 		}
 
-		JLabel imageLabel = new JLabel(new ImageIcon("../images/hero-sandwiche.gif"));
+		JLabel imageLabel = new JLabel(new ImageIcon("resources/images/hero-sandwiche.gif"));
 		add(imageLabel);
 
 		revalidate();

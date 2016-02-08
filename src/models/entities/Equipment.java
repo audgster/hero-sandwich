@@ -12,14 +12,16 @@ public class Equipment {
     
     /* Constructor */
     public Equipment() {
-	equipment = new HashMap<EquipmentType, EquipableItem>();
-	equipment.put(EquipmentType.HELM, new EquipableItem("helmet", EquipmentType.HELM, new StatModifiers()));
-	equipment.put(EquipmentType.ARMOR,  new EquipableItem("Armor", EquipmentType.ARMOR, new StatModifiers()));
-	equipment.put(EquipmentType.LEGGINGS,  new EquipableItem("Leggings", EquipmentType.LEGGINGS, new StatModifiers()));
-	equipment.put(EquipmentType.BOOTS,  new EquipableItem("Boots", EquipmentType.BOOTS, new StatModifiers()));
-	equipment.put(EquipmentType.WEAPON,  new EquipableItem("Weapon", EquipmentType.WEAPON, new StatModifiers()));
+		equipment = new HashMap<EquipmentType, EquipableItem>();
     }
-    
+
+	public void tempSaveState() {
+		equipment.put(EquipmentType.HELM, new EquipableItem("helmet", EquipmentType.HELM, new StatModifiers()));
+		equipment.put(EquipmentType.ARMOR,  new EquipableItem("Armor", EquipmentType.ARMOR, new StatModifiers()));
+		equipment.put(EquipmentType.LEGGINGS,  new EquipableItem("Leggings", EquipmentType.LEGGINGS, new StatModifiers()));
+		equipment.put(EquipmentType.BOOTS,  new EquipableItem("Boots", EquipmentType.BOOTS, new StatModifiers()));
+		equipment.put(EquipmentType.WEAPON,  new EquipableItem("Weapon", EquipmentType.WEAPON, new StatModifiers()));
+	}
     /* Equip & Unequip */
     public boolean equip(EquipableItem item) {
 
@@ -89,7 +91,7 @@ public class Equipment {
 		List<String> equipmentList = new ArrayList<String>();
 		Set<EquipmentType> keySet = equipment.keySet();
 		for(EquipmentType key : keySet) {
-			equipmentList.add(equipment.get(key).getClass().getSimpleName() + " { " + System.getProperty("line.separator"));
+			equipmentList.add(equipment.get(key).getClass().getSimpleName() + " { " + System.getProperty("line.separator") + " ");
 			equipmentList.addAll(equipment.get(key).getSaveState());
 			equipmentList.add( "}" + System.getProperty("line.separator") + " ");
 		}

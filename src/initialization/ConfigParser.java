@@ -18,7 +18,7 @@ public class ConfigParser {
         try {
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            mapXML = docBuilder.parse(ResourceUtil.getResourceURL(fileName).openStream());
+            mapXML = docBuilder.parse(fileName);
             mapXML.getDocumentElement().normalize();
         }
         catch (Exception e) {

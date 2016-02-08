@@ -9,6 +9,7 @@
 ./initialization/Driver.java
 ./initialization/EntityCreator.java
 ./initialization/GameFacade.java
+./initialization/GameLoader.java
 ./initialization/GameWriter.java
 ./initialization/ItemCreator.java
 ./initialization/Level.java
@@ -31,12 +32,14 @@
 ./models/gameengine/interfaces/IGameEngineInitializer.java
 ./models/items/actions/AddConstantHealthAction.java
 ./models/items/actions/IAction.java
+./models/items/actions/ModifyAoE.java
 ./models/items/actions/StatModifyAction.java
 ./models/items/ConsumableItem.java
 ./models/items/EquipableItem.java
 ./models/items/EquipmentType.java
 ./models/items/InteractableItem.java
 ./models/items/Item.java
+./models/items/ObstacleItem.java
 ./models/items/OneShotItem.java
 ./models/items/StatModifyingConsumableItem.java
 ./models/items/StatModifyingOneShotItem.java
@@ -84,6 +87,7 @@
 ./models/menus/options/Option.java
 ./models/menus/options/PauseOption.java
 ./models/menus/options/ResumeOption.java
+./models/menus/options/SaveGameOption.java
 ./models/menus/options/SetGenderOption.java
 ./models/menus/options/SetHairColorOption.java
 ./models/menus/options/SetNameOption.java
@@ -116,6 +120,7 @@
 ./views/Listener.java
 ./views/MenuView.java
 ./views/PauseView.java
+./views/StatsProgressBarUI.java
 ./views/StatsView.java
 ./views/View.java
 ./views/ViewManager.java

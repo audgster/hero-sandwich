@@ -8,7 +8,7 @@ import views.Drawable;
 
 import java.util.List;
 
-public abstract class Item implements IInteractionHandler, Drawable
+public abstract class Item implements Drawable, IInteractionHandler
 {
     protected String name;
     protected String description;
@@ -25,13 +25,23 @@ public abstract class Item implements IInteractionHandler, Drawable
     }
 
     @Override
-    public boolean executeInteraction(Level level) {
+    public String getImageId() {
+        return "Item_" + getName() + this.getClass().getSimpleName();
+    }
+
+    public boolean allowMovement()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean executeInteraction(Entity entity, Tile tile) {
         return false;
     }
 
     @Override
-    public String getImageId() {
-        return "Item_" + getName() + this.getClass().getSimpleName();
+    public boolean executeInteraction(Level level) {
+        return false;
     }
 
     public void setDescription(String description) {

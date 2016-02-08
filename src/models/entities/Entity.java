@@ -6,6 +6,7 @@ import util.EntityIdentifier;
 import util.exceptions.InvalidStatException;
 import views.Drawable;
 import models.Subject;
+import models.items.EquipableItem;
 import views.Listener;
 import java.util.List;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class Entity implements Drawable, Subject
       directionFacing = Direction.NORTH;
       subs = new ArrayList<Listener>();
       isDead = false;
-      setDefaultStats();
+      //setDefaultStats();
     }
 
   /* Fully parameterized constructor */
@@ -49,11 +50,28 @@ public class Entity implements Drawable, Subject
         stats.setOccupationMods( this.occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
+        equipment.tempSaveState();
         eIdentifier = identifier;
         directionFacing = direction;
 	    subs = new ArrayList<Listener>();
-        setDefaultStats();
+	    //	    setDefaultStats();
     }
+
+  /* More Fully parameterized constructor */
+    public Entity(String name, Occupation occupation, EntityStats entityStats, Inventory inventory, Equipment equipment, EntityIdentifier identifier, Direction direction)
+    {
+        this.name = name;
+        this.occupation = occupation;
+        stats = entityStats;
+        stats.setOccupationMods( this.occupation.getStatMods() );
+        this.inventory = inventory;
+        this.equipment = equipment;
+        subs = new ArrayList<Listener>();
+	applyEquipmentStatMods(equipment); 
+        eIdentifier = identifier;
+        directionFacing = direction;
+	    //setDefaultStats();
+    }    
 
     public void setDefaultStats(){
         try {
@@ -64,6 +82,21 @@ public class Entity implements Drawable, Subject
         {
             ex.printStackTrace();
         }
+    }
+
+    private void applyEquipmentStatMods(Equipment equipment) {
+	ArrayList<EquipableItem> items = new ArrayList();
+	items.add( equipment.getHelm() );
+	items.add( equipment.getArmor() );
+	items.add( equipment.getLeggings() );
+	items.add( equipment.getBoots() );
+	items.add( equipment.getWeapon() );	
+	for (int i = 0; i < items.size(); ++i) {
+	    EquipableItem currentItem = items.get(i);
+	    if ( currentItem != null ) {
+		modifyStats( currentItem.getStatModifiers() );
+	    }
+	}
     }
 
   /* IMPLEMENT SUBJECT INTERFACE */
@@ -83,8 +116,8 @@ public class Entity implements Drawable, Subject
   
     public void notifyListeners()
     {
-        for(int i = 0; i < subs.size(); i++){
-            subs.get(i).update();
+        for(Listener listener :subs ){
+            listener.update();
         }
     }
 
@@ -178,7 +211,7 @@ public class Entity implements Drawable, Subject
     ** in: the amount of XP gained
     ** out: the total amount of XP the entity has after the addition
     */
-    int gainXp(int amount)
+    public int gainXp(int amount)
     {
         int oldLevel = stats.getLevel();
         int newXp = stats.addXp(amount);
@@ -372,6 +405,7 @@ public class Entity implements Drawable, Subject
         gameState.addAll(inventory.getSaveState());
         gameState.add("}" +System.getProperty("line.separator") + " ");
         gameState.add("Equipment {" + System.getProperty("line.separator") + " ");
+        System.out.println("Here");
         gameState.addAll(equipment.getSaveState());
         gameState.add("}" + System.getProperty("line.separator") + " ");
         gameState.add("}");

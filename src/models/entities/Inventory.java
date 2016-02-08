@@ -2,7 +2,6 @@ package models.entities;
 
 import models.items.*;
 import models.items.actions.AddConstantHealthAction;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class Inventory {
 	bag = new ArrayList<>(capacity);
 		for (int i = 0; i < capacity; ++i) {
             bag.add(null);
-			//bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
+			//bag.add(new ConsumableItem("Potion", new AddConstantHealthAction(10))/*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
 		}
     }
 
@@ -49,6 +48,12 @@ public class Inventory {
       return bag;
     }
 
+	public boolean hasItem(Item item)
+	{
+		return bag.contains(item);
+	}
+
+
     public int getCapacity(){
         return capacity;
       }
@@ -70,7 +75,7 @@ public class Inventory {
 		    ++count;
 		break;
 	    }
-	    System.out.println(bag.get(i));
+	    //System.out.println(bag.get(i));
 	}
 	return itemAdded;
     }

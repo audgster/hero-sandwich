@@ -1,7 +1,6 @@
 package views;
 
 import models.entities.*;
-import views.StatsProgressBarUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +29,7 @@ public class StatsView extends View{
 		c.ipady = 20;
 		//c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
-		String imgPath = "../images/" + avatar.getOccupation().toString() + ".gif";
+		String imgPath = "resources/images/" + avatar.getOccupation().toString() + ".gif";
 		JLabel img = new JLabel(new ImageIcon(imgPath));
 		img.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(img, c);
