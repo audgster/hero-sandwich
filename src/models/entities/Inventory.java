@@ -18,8 +18,8 @@ public class Inventory {
 	capacity = 5;
 	bag = new ArrayList<>(capacity);
 		for (int i = 0; i < capacity; ++i) {
-            bag.add(null);
-			//bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
+            //bag.add(null);
+			bag.add(new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
 		}
     }
 
@@ -45,6 +45,10 @@ public class Inventory {
 	return bag.get(slot);
     }
 
+    public List<Item> getInventory() {
+	return bag;
+    }
+
     /* Mutators */
     /* Adds an item to the first available slot in the inventory
      * Returns false if the item could not be added (inventory is full)
@@ -61,7 +65,7 @@ public class Inventory {
 		++count;
 		break;
 	    }
-	    System.out.println(bag.get(i));
+	    //System.out.println(bag.get(i));
 	}
 	return itemAdded;
     }
