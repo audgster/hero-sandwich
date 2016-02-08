@@ -35,6 +35,7 @@ public class InventoryView extends View{
 	}
 
   protected void render(){
+    System.out.println("Hey bob");
     removeAll();
     Border grayMatteBorder = BorderFactory.createMatteBorder( 1, 1, 1, 1, Color.black);
     GridBagConstraints mainGBC = new GridBagConstraints();
@@ -53,7 +54,7 @@ public class InventoryView extends View{
     add(title, mainGBC);
 
 
-    // draw info panel
+    // draw Info panel
     JPanel infoPanel = new JPanel();
     // put JLabels in a column
     infoPanel.setLayout( new BoxLayout(infoPanel, BoxLayout.Y_AXIS ) );
@@ -74,7 +75,7 @@ public class InventoryView extends View{
     mainGBC.gridwidth = 1;
     add(infoPanel, mainGBC);
 
-    // draw menu panel
+    // draw Inventory panel
     JPanel menuPanel = new JPanel();
     // put JLabels in a column
     menuPanel.setLayout( new BoxLayout(menuPanel, BoxLayout.Y_AXIS ) );

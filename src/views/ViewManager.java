@@ -196,6 +196,7 @@ public class ViewManager extends View{
 		System.out.println("The avatar is in setInvetory11111111" + avatar);
 		inventoryView = new InventoryView(iMenu, avatar);
 		pushMenuView(inventoryView);
+		iMenu.addListener(inventoryView);
 		update();
 	}
 

@@ -15,6 +15,5 @@ public class InventoryOption extends Option{
 		cm.setMenu(inventoryMenu);
 		vm.setInventoryMenuMode(inventoryMenu, avatar);
 		inventoryMenu.setController(cm);
-
   }
 }

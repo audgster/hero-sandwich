@@ -31,7 +31,7 @@ public class InventoryMenu extends Menus{
   }
 
   public void enter(){
-    this.avatar.addItem(currentlySelectedItem);
+    this.avatar.equip((EquipableItem)currentlySelectedItem);
     notifyListeners();
   }
 
@@ -40,6 +40,7 @@ public class InventoryMenu extends Menus{
     if(listPosition < listOfItems.size() - 1){
       currentlySelectedItem = listOfItems.get(++listPosition);
       notifyListeners();
+      System.out.println("Cowssssssssss");
     }
   }
 
