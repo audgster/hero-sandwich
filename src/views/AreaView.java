@@ -236,7 +236,8 @@ public class AreaView extends View {
 				viewablePositions.add(new Position(topLeftX + i, topLeftY + j));
 			}
 		}
-
 	}
-
+	public Entity getAvatar(){
+		return avatar;
+	}
 }

@@ -10,8 +10,8 @@ public class GameOverMenu extends Menus{
    * Default constructor
    */
   public GameOverMenu(ViewManager vm){
-      super(new Option[]{new ExitOption(), new NewGameOption(),
-              new LoadGameOption()}, new ArrayList<Listener>(), vm);
+      super(new Option[]{new NewGameOption(),
+              new LoadGameOption(), new ExitOption()}, new ArrayList<Listener>(), vm);
   }
 
 }
