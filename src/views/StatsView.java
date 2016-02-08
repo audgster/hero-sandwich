@@ -16,45 +16,58 @@ public class StatsView extends View{
 		this.avatar = avatar;
 		this.avatarStats = avatar.getEntityStats();
 		avatar.addListener(this);
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new GridBagLayout());
 	}
 	
 	protected void render(){
 		removeAll();
 		setBackground(Color.BLACK);
 		GridBagConstraints c = new GridBagConstraints();
-
+		
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 4;
+		c.ipady = 20;
+		//c.fill = GridBagConstraints.BOTH;
+		c.anchor = GridBagConstraints.CENTER;
 		String imgPath = "../images/" + avatar.getOccupation().toString() + ".gif";
 		JLabel img = new JLabel(new ImageIcon(imgPath));
 		img.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(img);
-
+		add(img, c);
+		
+		c.gridx = 0;
+		c.gridy = 1;
 		JLabel avatarName = new JLabel(avatar.getName());
 		setFontAndColor(avatarName);
 		avatarName.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(avatarName);
-
+		add(avatarName, c);
+		
+		c.gridx = 0;
+		c.gridy = 2;
 		JLabel avatarOccupation = new JLabel(avatar.getOccupation().toString());
 		setFontAndColor(avatarOccupation);
 		avatarOccupation.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(avatarOccupation);
+		add(avatarOccupation, c);
 
-		JPanel statsPanel = new JPanel(new GridBagLayout());
-		statsPanel.setBackground(Color.BLACK);
+		//JPanel statsPanel = new JPanel(new GridBagLayout());
+		//statsPanel.setBackground(Color.BLACK);
 		//draw level icon, set label to level
 		c.gridx = 0;
-		c.gridy = 0;
+		c.gridy = 3;
+		c.gridwidth = 1;
+		c.ipady = 0;
+		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
 		JLabel levelLabel = new JLabel("Lvl: " + avatarStats.getLevel());
 		setFontAndColor(levelLabel);
-		statsPanel.add(levelLabel, c);
+		add(levelLabel, c);
 		
 		//draw XP icon, draw XP bar (currXP - lastLevelXP)/(nextLevelXP - lastLevelXP)
 		c.gridx = 0;
-		c.gridy = 1;
+		c.gridy = 4;
 		JLabel xpLabel = new JLabel("Xp: ");
 		setFontAndColor(xpLabel);
-		statsPanel.add(xpLabel, c);
+		add(xpLabel, c);
 		c.gridx = 1;
 		c.gridwidth = 3;
 		c.fill = GridBagConstraints.BOTH;
@@ -67,23 +80,23 @@ public class StatsView extends View{
 		xpBar.setBorderPainted(false);
 		xpBar.setUI(new StatsProgressBarUI());
 		xpBar.setValue(avatarStats.getXp()%100);
-		statsPanel.add(xpBar, c);
+		add(xpBar, c);
 		
 		//draw lives icon, set label to numLives
 		c.gridx = 0;
-		c.gridy = 2;
+		c.gridy = 5;
 		c.gridwidth = 1;
 		c.fill = GridBagConstraints.NONE;
 		JLabel livesLabel = new JLabel("Loaves: " + avatarStats.getLivesLeft());
 		setFontAndColor(livesLabel);
-		statsPanel.add(livesLabel, c);
+		add(livesLabel, c);
 		
 		//draw health icon, draw lifebar currHealth/maxHealth
 		c.gridx = 0;
-		c.gridy = 3;
+		c.gridy = 6;
 		JLabel hpLabel = new JLabel("Hp: ");
 		setFontAndColor(hpLabel);
-		statsPanel.add(hpLabel, c);
+		add(hpLabel, c);
 		c.gridx = 1;
 		c.gridwidth = 3;
 		c.fill = GridBagConstraints.BOTH;
@@ -96,16 +109,16 @@ public class StatsView extends View{
 		healthBar.setBorderPainted(false);
 		healthBar.setUI(new StatsProgressBarUI());
 		healthBar.setValue(avatarStats.getCurrentLife());
-		statsPanel.add(healthBar, c);
+		add(healthBar, c);
 
 		//draw mana icon, draw manabar currMana/maxMana
 		c.gridx = 0;
-		c.gridy = 4;
+		c.gridy = 7;
 		c.gridwidth = 1;
 		c.fill = GridBagConstraints.NONE;
 		JLabel mpLabel = new JLabel("Mp: ");
 		setFontAndColor(mpLabel);
-		statsPanel.add(mpLabel, c);
+		add(mpLabel, c);
 		c.gridx = 1;
 		c.gridwidth = 3;
 		c.fill = GridBagConstraints.BOTH;
@@ -118,67 +131,65 @@ public class StatsView extends View{
 		manaBar.setBorderPainted(false);
 		manaBar.setUI(new StatsProgressBarUI());
 		manaBar.setValue(avatarStats.getCurrentMana());
-		statsPanel.add(manaBar, c);
+		add(manaBar, c);
 		
 		//draw offense icon, set label to offense score
 		c.gridx = 0;
-		c.gridy = 5;
+		c.gridy = 8;
 		c.gridwidth = 1;
 		c.fill = GridBagConstraints.NONE;
 		JLabel atkLabel = new JLabel("Atk: " + avatarStats.getOffRating());
 		setFontAndColor(atkLabel);
-		statsPanel.add(atkLabel, c);
+		add(atkLabel, c);
 		
 		//draw defense icon, set label defense score
 		c.gridx = 2;
-		c.gridy = 5;
+		c.gridy = 8;
 		JLabel defLabel = new JLabel("Def: " + avatarStats.getDefRating());
 		setFontAndColor(defLabel);
-		statsPanel.add(defLabel, c);
+		add(defLabel, c);
 		
 		//draw movement speed icon, set label to movement
 		c.gridx = 0;
-		c.gridy = 6;
+		c.gridy = 9;
 		JLabel spdLabel = new JLabel("Spd: " + avatarStats.getModMovement());
 		setFontAndColor(spdLabel);
-		statsPanel.add(spdLabel, c);
+		add(spdLabel, c);
 		
 		//draw armor icon, set label to armor score
 		c.gridx = 2;
-		c.gridy = 6;
+		c.gridy = 9;
 		JLabel armLabel = new JLabel("Arm: " + avatarStats.getArmorRating());
 		setFontAndColor(armLabel);
-		statsPanel.add(armLabel, c);
+		add(armLabel, c);
 		
 		//draw strength icon, set label to strength score
 		c.gridx = 0;
-		c.gridy = 7;
+		c.gridy = 11;
 		JLabel strLabel = new JLabel("Str: " + avatarStats.getModStrength());
 		setFontAndColor(strLabel);
-		statsPanel.add(strLabel, c);
+		add(strLabel, c);
 		
 		//draw agility icon, set label to agility score
 		c.gridx = 2;
-		c.gridy = 7;
+		c.gridy = 11;
 		JLabel aglLabel = new JLabel("Agl: " + avatarStats.getModAgility());
 		setFontAndColor(aglLabel);
-		statsPanel.add(aglLabel, c);
+		add(aglLabel, c);
 		
 		//draw intellect icon, set label to intellect score
 		c.gridx = 0;
-		c.gridy = 8;
+		c.gridy = 12;
 		JLabel intLabel = new JLabel("Int: " + avatarStats.getModIntellect());
 		setFontAndColor(intLabel);
-		statsPanel.add(intLabel, c);
+		add(intLabel, c);
 		
 		//draw hardiness icon, set label for hardiness score
 		c.gridx = 2;
-		c.gridy = 8;
+		c.gridy = 12;
 		JLabel hrdLabel = new JLabel("Hrd: " + avatarStats.getModHardiness());
 		setFontAndColor(hrdLabel);
-		statsPanel.add(hrdLabel, c);
-
-		add(statsPanel);
+		add(hrdLabel, c);
 		
 	}
 	
