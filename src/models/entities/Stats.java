@@ -36,10 +36,10 @@ public abstract class Stats {
      * caller stats  >= parameter stats
      */
     public boolean checkRestrictions(Stats stats) {
-	
+
 	boolean failedCheck = false;
-	
-	if ( strength < stats.getStrength() ) {	    
+
+	if ( strength < stats.getStrength() ) {
 	    return failedCheck;
 	}
 	if ( agility < stats.getAgility() ) {
@@ -56,7 +56,7 @@ public abstract class Stats {
 	}
 	return !failedCheck;
     }
-    
+
     /* Accessors */
     public int getStrength() {
 	return strength;
@@ -100,13 +100,12 @@ public abstract class Stats {
 
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
-	strBuilder.append("[Stats:");
-	strBuilder.append(" " + strength + " ");
-	strBuilder.append(" " + agility + " ");
-	strBuilder.append(" " + intellect + " ");
-	strBuilder.append(" " + hardiness + " ");
-	strBuilder.append(" " + movement + " ");
-	strBuilder.append("]");
+	strBuilder.append("Stats");
+	strBuilder.append("\nStrength: " + strength);
+	strBuilder.append("\nAgility: " + agility);
+	strBuilder.append("\nIntelligence: " + intellect);
+	strBuilder.append("\nHardiness: " + hardiness);
+	strBuilder.append("\nMovement: " + movement);
 	String str = strBuilder.toString();
 	return str;
     }

@@ -86,7 +86,8 @@ public class GameLoader {
         System.out.println(" " + equipment.getArmor() + equipment.getBoots() + equipment.getHelm() + equipment.getLeggings() + equipment.getWeapon());
         return new Entity(name, occupation, entityStats, inventory, equipment, entityIdentifier, facingDirection);
     }
-    
+
+
     private Equipment makeEquipment(Scanner scanner) {
 
 
@@ -104,6 +105,7 @@ public class GameLoader {
 
         return equipment;
     }
+
 
     private EquipableItem getNextEquipableItem(Scanner scanner) {
         scanner.next();

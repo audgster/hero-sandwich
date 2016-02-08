@@ -43,7 +43,7 @@ public class GameOverView extends View{
 			add(label);
 		}
 
-		//JLabel imageLabel = new JLabel(new ImageIcon("../images/hero-sandwiche.gif"));
+		//JLabel imageLabel = new JLabel(new ImageIcon("../resources/hero-sandwiche.gif"));
 		//.add(imageLabel);
 
 		revalidate();

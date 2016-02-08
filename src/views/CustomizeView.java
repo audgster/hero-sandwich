@@ -1,5 +1,4 @@
 package views;
-import views.View;
 import models.menus.*;
 import models.menus.options.Option;
 import java.awt.*;
@@ -13,7 +12,7 @@ public class CustomizeView extends View{
 	private GridBagConstraints gBC;
 	private Option[] menuOptions;
 	private Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
-	private String[] imgPath = {"../images/smasher.gif", "../images/summoner.gif", "../images/sneak.gif"};
+	private String[] imgPath = {"resources/images/smasher.gif", "resources/images/summoner.gif", "resources/images/sneak.gif"};
 	
 	public CustomizeView(Menus menu){
 		setLayout(new GridBagLayout());

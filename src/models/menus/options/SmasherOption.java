@@ -26,20 +26,18 @@ import models.menus.*;
 		Entity avatar = ac.vendCustomEntity();
 		avatar.addListener(vm);
 		game.initializeAvatar(avatar);
-
+    
 		Level level = game.getLevel();
 
-    	Menus inventoryMenu = new InventoryMenu(vm, avatar);
-    	inventoryMenu.setController(cm);
-    	Menus equipmentMenu = new EquipmentMenu(vm, avatar);
-    	equipmentMenu.setController(cm);
-    	vm.setInventoryMenu(inventoryMenu);
-    	vm.setEquipmentMenu(equipmentMenu);
+    //System.out.println("In Smasher Option" + avatar.getInventory().getInventory()[0].toString());
+  	Menus inventoryMenu = new InventoryMenu(vm, avatar);
+  	inventoryMenu.setController(cm);
+  	vm.setInventoryMenu(inventoryMenu);
 
-    	Menus gameOverMenu = new GameOverMenu(vm);
-    	gameOverMenu.setController(cm);
-    	vm.setGameOverMenu(gameOverMenu);
-    	
+  	Menus gameOverMenu = new GameOverMenu(vm);
+  	gameOverMenu.setController(cm);
+  	vm.setGameOverMenu(gameOverMenu);
+
 		vm.setGameMode(level, avatar);
 	}
 }

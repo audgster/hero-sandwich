@@ -6,6 +6,8 @@ import models.entities.Occupation;
 import models.entities.Smasher;
 import util.Direction;
 import util.EntityIdentifier;
+import models.items.*;
+import models.entities.StatModifiers;
 
 public class AvatarCreator
 {
@@ -43,7 +45,7 @@ public class AvatarCreator
         }
 
         Entity entity = new Entity(name, occupation, new EntityStats(), EntityIdentifier.GROUND, Direction.NORTH);
-
+      
         name = null;
         occupation = null;
 
