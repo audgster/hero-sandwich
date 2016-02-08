@@ -18,9 +18,9 @@ public class ConsumableItem extends TakeableItem
         this.action = action;
     }
 
-    public boolean consume(Entity entity)
+    public boolean consume(Entity entity, Tile tile)
     {
-        return action.execute(entity);
+        return action.execute(entity, tile);
     }
 
 

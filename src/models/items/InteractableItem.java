@@ -1,8 +1,10 @@
 package models.items;
 
+import models.Level;
 import models.entities.Entity;
 import models.items.actions.IAction;
 import models.map.Tile;
+import models.map.interactions.interfaces.IInteractionHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,12 @@ public class InteractableItem extends Item
     @Override
     public boolean executeInteraction(Entity entity, Tile tile)
     {
-        return action.execute(entity);
+        return action.execute(entity, tile);
+    }
+
+    @Override
+    public boolean executeInteraction(Level level) {
+        return false;
     }
 
     @Override

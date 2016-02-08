@@ -18,8 +18,8 @@ public class Inventory {
 	capacity = 5;
 	bag = new ArrayList<>(capacity);
 		for (int i = 0; i < capacity; ++i) {
-            //bag.add(null);
-			bag.add(new ConsumableItem("Potion", new AddConstantHealthAction(10))/*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
+            bag.add(null);
+			//bag.add(new ConsumableItem("Potion", new AddConstantHealthAction(10))/*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/); /*new EquipableItem("megaArmor" , EquipmentType.ARMOR, new StatModifiers())*/ //new ConsumableItem("Potion", new AddConstantHealthAction(10))
 		}
     }
 
@@ -44,6 +44,11 @@ public class Inventory {
     public Item getItemAt(int slot) {
 	return bag.get(slot);
     }
+
+	public boolean hasItem(Item item)
+	{
+		return bag.contains(item);
+	}
 
     public ArrayList<Item> getInventory() {
 	return bag;

@@ -1,6 +1,7 @@
 package models.items.actions;
 
 import models.entities.Entity;
+import models.map.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class AddConstantHealthAction extends StatModifyAction
     }
 
     @Override
-    public boolean execute(Entity entity)
+    public boolean execute(Entity entity, Tile tile)
     {
         entity.healDamage(getModificationAmount());
 
