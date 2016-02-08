@@ -1,6 +1,7 @@
 package views;
 
 import models.entities.*;
+import views.StatsProgressBarUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +23,8 @@ public class StatsView extends View{
 		removeAll();
 		setBackground(Color.BLACK);
 		GridBagConstraints c = new GridBagConstraints();
-
+		
+		//change this to work with the entity's occupation and HCSI thingy
 		String imgPath = "../images/smasher.gif";
 		JLabel img = new JLabel(new ImageIcon(imgPath));
 		img.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -43,6 +45,7 @@ public class StatsView extends View{
 		//draw level icon, set label to level
 		c.gridx = 0;
 		c.gridy = 0;
+		c.anchor = GridBagConstraints.LINE_START;
 		JLabel levelLabel = new JLabel("Lvl: ");
 		setFontAndColor(levelLabel);
 		statsPanel.add(levelLabel, c);
@@ -58,13 +61,24 @@ public class StatsView extends View{
 		setFontAndColor(xpLabel);
 		statsPanel.add(xpLabel, c);
 		c.gridx = 1;
-		xpLabel = new JLabel("" + avatarStats.getXp());
-		setFontAndColor(xpLabel);
-		statsPanel.add(xpLabel, c);
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.BOTH;
+		JProgressBar xpBar = new JProgressBar (0, 100);
+		xpBar.setStringPainted(true);
+		xpBar.setString((avatarStats.getXp()%100) + "/" + "100");
+		setFontAndColor(xpBar);
+		xpBar.setBackground(Color.BLACK);
+		xpBar.setForeground(Color.GREEN);
+		xpBar.setBorderPainted(false);
+		xpBar.setUI(new StatsProgressBarUI());
+		xpBar.setValue(avatarStats.getXp()%100);
+		statsPanel.add(xpBar, c);
 		
 		//draw lives icon, set label to numLives
 		c.gridx = 0;
 		c.gridy = 2;
+		c.gridwidth = 1;
+		c.fill = GridBagConstraints.NONE;
 		JLabel livesLabel = new JLabel("Loaves: ");
 		setFontAndColor(livesLabel);
 		statsPanel.add(livesLabel, c);
@@ -80,8 +94,16 @@ public class StatsView extends View{
 		setFontAndColor(hpLabel);
 		statsPanel.add(hpLabel, c);
 		c.gridx = 1;
-		c.gridwidth = 2;
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.BOTH;
 		JProgressBar healthBar = new JProgressBar (0, avatarStats.getLife());
+		healthBar.setStringPainted(true);
+		healthBar.setString(avatarStats.getCurrentLife()+"/"+avatarStats.getLife());
+		setFontAndColor(healthBar);
+		healthBar.setBackground(Color.BLACK);
+		healthBar.setForeground(Color.RED);
+		healthBar.setBorderPainted(false);
+		healthBar.setUI(new StatsProgressBarUI());
 		healthBar.setValue(avatarStats.getCurrentLife());
 		statsPanel.add(healthBar, c);
 
@@ -89,12 +111,21 @@ public class StatsView extends View{
 		c.gridx = 0;
 		c.gridy = 4;
 		c.gridwidth = 1;
+		c.fill = GridBagConstraints.NONE;
 		JLabel mpLabel = new JLabel("Mp: ");
 		setFontAndColor(mpLabel);
 		statsPanel.add(mpLabel, c);
 		c.gridx = 1;
-		c.gridwidth = 2;
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.BOTH;
 		JProgressBar manaBar = new JProgressBar (0, avatarStats.getMana());
+		manaBar.setStringPainted(true);
+		manaBar.setString(avatarStats.getCurrentMana()+"/"+avatarStats.getMana());
+		setFontAndColor(manaBar);
+		manaBar.setBackground(Color.BLACK);
+		manaBar.setForeground(Color.BLUE);
+		manaBar.setBorderPainted(false);
+		manaBar.setUI(new StatsProgressBarUI());
 		manaBar.setValue(avatarStats.getCurrentMana());
 		statsPanel.add(manaBar, c);
 		
@@ -102,6 +133,7 @@ public class StatsView extends View{
 		c.gridx = 0;
 		c.gridy = 5;
 		c.gridwidth = 1;
+		c.fill = GridBagConstraints.NONE;
 		JLabel atkLabel = new JLabel("Atk: ");
 		setFontAndColor(atkLabel);
 		statsPanel.add(atkLabel, c);
@@ -195,8 +227,8 @@ public class StatsView extends View{
 		
 		render();
 	}
-	public void setFontAndColor(JLabel label){
-		label.setFont(statFont);
-		label.setForeground(Color.WHITE);
+	public void setFontAndColor(JComponent component){
+		component.setFont(statFont);
+		component.setForeground(Color.WHITE);
 	}
 }
