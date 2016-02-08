@@ -7,8 +7,8 @@ import controllers.*;
 
 
 public abstract class Menus implements Subject{
-  private Option currentlySelected;
-  private Option[] listOfOptions;
+  public Option currentlySelected;
+  public Option[] listOfOptions;
   private ArrayList<Listener> listenerList;
   protected int listPosition;
   private ViewManager vm;

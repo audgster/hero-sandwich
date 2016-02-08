@@ -18,6 +18,7 @@ public class InventoryView extends View{
   protected InventoryMenu menu;
   protected int currentIndex;
   private String[] items;
+  private JPanel backPanel = new JPanel();
   protected Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
   public InventoryView(Menus menu, Entity avatar){
@@ -33,6 +34,7 @@ public class InventoryView extends View{
   protected void render(){
     System.out.println("Hey bob");
     removeAll();
+    backPanel.removeAll();
     Border grayMatteBorder = BorderFactory.createMatteBorder( 1, 1, 1, 1, Color.black);
     GridBagConstraints mainGBC = new GridBagConstraints();
 
@@ -89,11 +91,16 @@ public class InventoryView extends View{
       label.setAlignmentX(Component.CENTER_ALIGNMENT);
       label.setBackground(Color.GREEN);
       label.setFont(menuFont);
-      if(currentIndex == i){
+      if(currentIndex == i && menu.getCurrentlySelected() == null){
         label.setOpaque(true);
+        backPanel.setOpaque(false);
+      }
+      else if(menu.getCurrentlySelected() != null){
+        backPanel.setOpaque(true);
       }
       else{
         label.setOpaque(false);
+        backPanel.setOpaque(false);
       }
       menuPanel.add(label);
     }
@@ -128,6 +135,19 @@ public class InventoryView extends View{
     mainGBC.gridx = 2;
     mainGBC.weightx = 0.5;
     add(equipmentPanel, mainGBC);
+
+
+    // draw back Panel
+    backPanel.setBorder(grayMatteBorder);
+    JLabel backText = new JLabel("Back");
+    backText.setAlignmentX(Component.CENTER_ALIGNMENT);
+    backText.setFont(menuFont);
+    backPanel.add(backText);
+    mainGBC.gridx = 0;
+    mainGBC.gridy = 2;
+    mainGBC.weighty = 0.1;
+    mainGBC.gridwidth = 3;
+    add(backPanel, mainGBC);
 
     revalidate();
     repaint();
