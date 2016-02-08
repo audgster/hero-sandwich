@@ -2,6 +2,7 @@ package models.map.movementengine;
 
 import models.entities.Entity;
 import models.Level;
+import models.items.Item;
 import models.map.Tile;
 import models.map.movementengine.interfaces.IMovementDirector;
 import models.map.movementengine.interfaces.IMovementRulesEngine;
@@ -47,7 +48,14 @@ public class MovementDirector implements IMovementDirector
 
             Tile tileAtDestination = level.returnTileAt(destinationPosition);
 
-            if (rulesEngine.evaluateRule(tileAtDestination, entity))
+            boolean allowMovement = true;
+
+            for (Item i : tileAtDestination.getAllItems())
+            {
+                allowMovement = allowMovement && i.allowMovement();
+            }
+
+            if (rulesEngine.evaluateRule(tileAtDestination, entity) && allowMovement)
                 return destinationPosition;
         }
 

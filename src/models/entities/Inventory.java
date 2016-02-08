@@ -45,6 +45,11 @@ public class Inventory {
 	return bag.get(slot);
     }
 
+	public boolean hasItem(Item item)
+	{
+		return bag.contains(item);
+	}
+
     public ArrayList<Item> getInventory() {
 	return bag;
     }

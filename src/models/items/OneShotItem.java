@@ -3,6 +3,7 @@ package models.items;
 import models.entities.Entity;
 import models.items.actions.IAction;
 import models.map.Tile;
+import models.map.interactions.interfaces.IInteractionHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public abstract class OneShotItem extends Item
     @Override
     public boolean executeInteraction(Entity entity, Tile tile)
     {
-        action.execute(entity);
+        action.execute(entity, tile);
         tile.removeItem(this);
 
         return true;
