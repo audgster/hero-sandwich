@@ -30,37 +30,36 @@ public class MapCreator {
 
     public Map create() {
         int[] mapSize = getMapSize();
-        Map map = new Map(mapSize[0], mapSize[1]);
-        setTileGroups(map);
-        fillInGrid(map);
-        setAreaOfEffectGroups(map);
-        setItems(map);
+        Tile[][] mapGrid = new Tile[mapSize[0]][mapSize[1]];
+        setTileGroups(mapGrid);
+        fillInGrid(mapGrid);
+        setAreaOfEffectGroups(mapGrid);
+        setItems(mapGrid);
         //map.printMap();
-        return map;
+        return new Map(mapGrid);
     }
 
-    private void setItems(Map map) {
+    private void setItems(Tile[][] tileGrid) {
         ItemCreator itemCreator = new ItemCreator(items);
-        itemCreator.createItemsOnMap(map);
+        itemCreator.createItemsOnMap(tileGrid);
     }
 
-    private void setAreaOfEffectGroups(Map map) {
+    private void setAreaOfEffectGroups(Tile[][] tileGrid) {
         AreaOfEffectCreator areaOfEffectCreator = new AreaOfEffectCreator(areaEffectGroups);
-        areaOfEffectCreator.createAreasOfEffectOnMap(map);
+        areaOfEffectCreator.createAreasOfEffectOnMap(tileGrid);
     }
 
 
-    private void setTileGroups(Map map) {
+    private void setTileGroups(Tile[][] tileGrid) {
         TileCreator tileCreator = new TileCreator(tileGroups);
-        tileCreator.createTilesOnMap(map);
+        tileCreator.createTilesOnMap(tileGrid);
     }
 
-    private void fillInGrid(Map map) {
-        Tile mapGrid[][] = map.getMapArray();
-        for(int i = 0; i < mapGrid[0].length; i++)
-            for (int j = 0; j < mapGrid[0].length; j++)
-                if (mapGrid[i][j] == null)
-                    mapGrid[i][j] = new Tile(getBaseTerrain());
+    private void fillInGrid(Tile[][] tileGrid) {
+        for(int i = 0; i < tileGrid[0].length; i++)
+            for (int j = 0; j < tileGrid[0].length; j++)
+                if (tileGrid[i][j] == null)
+                    tileGrid[i][j] = new Tile(getBaseTerrain());
     }
 
     private TerrainGroup getBaseTerrain(){

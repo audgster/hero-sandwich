@@ -17,12 +17,10 @@ public class TileCreator {
 
     public TileCreator() {}
 
-    public void createTilesOnMap(Map map) {
-        Tile[][] mapGrid = map.getMapArray();
-
+    public void createTilesOnMap(Tile[][] tileGrid) {
         for(int i = 0; i < tileGroups.size(); i++) {
             Element currentTileGroup = (Element) tileGroups.get(i);
-            createTileGroup(mapGrid, currentTileGroup);
+            createTileGroup(tileGrid, currentTileGroup);
         }
     }
 
