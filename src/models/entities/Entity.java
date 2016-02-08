@@ -37,6 +37,7 @@ public class Entity implements Drawable, Subject
       directionFacing = Direction.NORTH;
       subs = new ArrayList<Listener>();
       isDead = false;
+      setDefaultStats();
     }
 
   /* Fully parameterized constructor */
@@ -50,7 +51,19 @@ public class Entity implements Drawable, Subject
         equipment = new Equipment();
         eIdentifier = identifier;
         directionFacing = direction;
-	   subs = new ArrayList<Listener>();
+	    subs = new ArrayList<Listener>();
+        setDefaultStats();
+    }
+
+    public void setDefaultStats(){
+        try {
+            stats.setCurrentLife(stats.getLife());
+            stats.setCurrentMana(stats.getMana());
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
   /* IMPLEMENT SUBJECT INTERFACE */
@@ -194,7 +207,14 @@ public class Entity implements Drawable, Subject
 
         getEntityStats().addXp(xpToNextLevel);
 
-	// Restore life & mana
+        // Increase primary stats
+        stats.setStrength( stats.getStrength() + 1 );
+        stats.setAgility( stats.getAgility() + 1 );
+        stats.setIntellect( stats.getIntellect() + 1 );
+        stats.setHardiness( stats.getHardiness() + 1 );
+        stats.setMovement( stats.getMovement() + 1 );
+
+        // Restore life & mana
         try {
             stats.setCurrentLife(stats.getLife());
             stats.setCurrentMana(stats.getMana());
@@ -203,13 +223,6 @@ public class Entity implements Drawable, Subject
         {
             ex.printStackTrace();
         }
-
-        // Increase primary stats
-        stats.setStrength( stats.getStrength() + 1 );
-        stats.setAgility( stats.getAgility() + 1 );
-        stats.setIntellect( stats.getIntellect() + 1 );
-        stats.setHardiness( stats.getHardiness() + 1 );
-        stats.setMovement( stats.getMovement() + 1 );
 
         // Unlock new skills
 
