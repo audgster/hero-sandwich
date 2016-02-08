@@ -29,7 +29,7 @@ public class InventoryMenu extends Menus{
   }
 
   public void enter(){
-    this.avatar.equip((EquipableItem)currentlySelectedItem);
+    this.avatar.addItem(currentlySelectedItem);
     notifyListeners();
   }
 
