@@ -45,6 +45,10 @@ public class Inventory {
 	return bag.get(slot);
     }
 
+    public List<Item> getInventory() {
+	return bag;
+    }
+
     /* Mutators */
     /* Adds an item to the first available slot in the inventory
      * Returns false if the item could not be added (inventory is full)
