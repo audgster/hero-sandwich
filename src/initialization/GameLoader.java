@@ -30,20 +30,22 @@ public class GameLoader {
         }
     }
 
-    public void parseFile() {
+    public Entity parseFile() {
         scanner.useDelimiter(" ");
-        printScanner();
+        return getAvatar();
     }
 
-    private void printScanner() {
+    private Entity getAvatar() {
         int i = 0;
+        Entity avatar = null;
         while(scanner.hasNext()){
             i+=1;
             String token = scanner.next();
             token = token.replace(System.getProperty("line.separator"), "");
             if(token.equalsIgnoreCase("Avatar"))
-                loadAvatar(scanner);
+                avatar = loadAvatar(scanner);
         }
+        return avatar;
     }
 
     private Entity loadAvatar(Scanner scanner) {
@@ -82,7 +84,7 @@ public class GameLoader {
         System.out.println(entityStats.getLivesLeft());
         System.out.println(entityStats.getStrength() + " " + entityStats.getAgility() + " " + entityStats.getIntellect() + " " + entityStats.getHardiness() + " " + entityStats.getModMovement());
         System.out.println(" " + equipment.getArmor() + equipment.getBoots() + equipment.getHelm() + equipment.getLeggings() + equipment.getWeapon());
-        return new Entity();
+        return new Entity(name, occupation, entityStats, inventory, equipment, entityIdentifier, facingDirection);
     }
     
     private Equipment makeEquipment(Scanner scanner) {

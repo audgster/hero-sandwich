@@ -66,10 +66,10 @@ public class Entity implements Drawable, Subject
         stats.setOccupationMods( this.occupation.getStatMods() );
         this.inventory = inventory;
         this.equipment = equipment;
+        subs = new ArrayList<Listener>();
 	applyEquipmentStatMods(equipment); 
         eIdentifier = identifier;
         directionFacing = direction;
-	    subs = new ArrayList<Listener>();
 	    //setDefaultStats();
     }    
 
@@ -116,8 +116,8 @@ public class Entity implements Drawable, Subject
   
     public void notifyListeners()
     {
-        for(int i = 0; i < subs.size(); i++){
-            subs.get(i).update();
+        for(Listener listener :subs ){
+            listener.update();
         }
     }
 
