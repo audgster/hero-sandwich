@@ -38,23 +38,23 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Entity_Smasher_WEST", "../images/Entity_Smasher_W.gif");
 		spriteMap.put("Entity_Smasher_NORTHWEST", "../images/Entity_Smasher_NW.gif");
 		
-        spriteMap.put("Entity_Sneak_NORTH", "../images/Entity_Sneak_N.png");
-		spriteMap.put("Entity_Sneak_NORTHEAST", "../images/Entity_Sneak_NE.png");
-		spriteMap.put("Entity_Sneak_EAST", "../images/Entity_Sneak_E.png");
-		spriteMap.put("Entity_Sneak_SOUTHEAST", "../images/Entity_Sneak_SE.png");
-		spriteMap.put("Entity_Sneak_SOUTH", "../images/Entity_Sneak_S.png");
-		spriteMap.put("Entity_Sneak_SOUTHWEST", "../images/Entity_Sneak_SW.png");
-		spriteMap.put("Entity_Sneak_WEST", "../images/Entity_Sneak_W.png");
-		spriteMap.put("Entity_Sneak_NORTHWEST", "../images/Entity_Sneak_NW.png");
+        spriteMap.put("Entity_Sneak_NORTH", "../images/Entity_Sneak_N.gif");
+		spriteMap.put("Entity_Sneak_NORTHEAST", "../images/Entity_Sneak_NE.gif");
+		spriteMap.put("Entity_Sneak_EAST", "../images/Entity_Sneak_E.gif");
+		spriteMap.put("Entity_Sneak_SOUTHEAST", "../images/Entity_Sneak_SE.gif");
+		spriteMap.put("Entity_Sneak_SOUTH", "../images/Entity_Sneak_S.gif");
+		spriteMap.put("Entity_Sneak_SOUTHWEST", "../images/Entity_Sneak_SW.gif");
+		spriteMap.put("Entity_Sneak_WEST", "../images/Entity_Sneak_W.gif");
+		spriteMap.put("Entity_Sneak_NORTHWEST", "../images/Entity_Sneak_NW.gif");
 		
-		spriteMap.put("Entity_Summoner_NORTH", "../images/Entity_Summoner_N.png");
-		spriteMap.put("Entity_Summoner_NORTHEAST", "../images/Entity_Summoner_NE.png");
-		spriteMap.put("Entity_Summoner_EAST", "../images/Entity_Summoner_E.png");
-		spriteMap.put("Entity_Summoner_SOUTHEAST", "../images/Entity_Summoner_SE.png");
-		spriteMap.put("Entity_Summoner_SOUTH", "../images/Entity_Summoner_S.png");
-		spriteMap.put("Entity_Summoner_SOUTHWEST", "../images/Entity_Summoner_SW.png");
-		spriteMap.put("Entity_Summoner_WEST", "../images/Entity_Summoner_W.png");
-		spriteMap.put("Entity_Summoner_NORTHWEST", "../images/Entity_Summoner_NW.png");
+		spriteMap.put("Entity_Summoner_NORTH", "../images/Entity_Summoner_N.gif");
+		spriteMap.put("Entity_Summoner_NORTHEAST", "../images/Entity_Summoner_NE.gif");
+		spriteMap.put("Entity_Summoner_EAST", "../images/Entity_Summoner_E.gif");
+		spriteMap.put("Entity_Summoner_SOUTHEAST", "../images/Entity_Summoner_SE.gif");
+		spriteMap.put("Entity_Summoner_SOUTH", "../images/Entity_Summoner_S.gif");
+		spriteMap.put("Entity_Summoner_SOUTHWEST", "../images/Entity_Summoner_SW.gif");
+		spriteMap.put("Entity_Summoner_WEST", "../images/Entity_Summoner_W.gif");
+		spriteMap.put("Entity_Summoner_NORTHWEST", "../images/Entity_Summoner_NW.gif");
 		
 		//Tile
 		spriteMap.put("Tile_GROUND", "../images/Tile_Ground.gif");

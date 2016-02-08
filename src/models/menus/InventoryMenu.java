@@ -13,7 +13,7 @@ public class InventoryMenu extends Menus{
    * Default constructor
    */
   public InventoryMenu(ViewManager vm, Entity avatar){
-    super(new Option[]{new StartOption(), new PauseOption(),
+    super(new Option[]{new ResumeOption(), new PauseOption(),
             new EquipItemOption(), new DropItemOption()}, new ArrayList<Listener>(), vm);
     this.avatar = avatar;
   }
