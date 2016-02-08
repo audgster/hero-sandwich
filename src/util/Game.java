@@ -58,17 +58,7 @@ public class Game
     }
 
     public void saveGame() {
-        AvatarCreator ac = new AvatarCreator();
-        ac.setName("Brandon");
-        ac.setOccupation(new Smasher());
-        Entity avatar = ac.vendCustomEntity();
-        avatar.gainXp(67);
-        avatar.loseLife();
-        avatar.loseLife();
         List<String> state = avatar.getSaveState();
-        //You wrote some stuff in Map for state gathering... go finish it
-
-
         try {
             PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
            for(String val : state) {

@@ -304,7 +304,10 @@ public class GameLoader {
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("currentLife:"))
-                try { entityStats.setCurrentLife(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { 
+                    int currentLife = Integer.parseInt(removeLineSeparator(scanner.next()));
+                    System.out.println("HELLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOO" + currentLife);
+                    entityStats.setCurrentLife(currentLife); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("currentMana:"))

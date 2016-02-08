@@ -139,6 +139,7 @@ public class InventoryView extends View{
 
     // draw back Panel
     backPanel.setBorder(grayMatteBorder);
+    backPanel.setBackground(Color.GREEN);
     JLabel backText = new JLabel("Back");
     backText.setAlignmentX(Component.CENTER_ALIGNMENT);
     backText.setFont(menuFont);
