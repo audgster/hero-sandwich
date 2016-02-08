@@ -73,6 +73,24 @@ public class EquipableItem extends TakeableItem
 	return statsBoosts;
     }
 
+
+    /* Mutators */
+    public void setEType(EquipmentType eType) {
+	this.eType = eType;
+    }
+
+    public void setStatsBoosts(StatModifiers statsBoosts) {
+	this.statsBoosts = statsBoosts;
+    }
+
+    public void setStatsRestrictions(StatModifiers statRestrictions) {
+	this.statsRestrictions = statsRestrictions;
+    }
+
+    public void setOccupRestriction(String occupRestriction) {
+	this.occupRestriction = occupRestriction;
+    }
+
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
