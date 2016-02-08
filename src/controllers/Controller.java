@@ -95,6 +95,7 @@ public class Controller{
     public void openPauseMenu(){
     	changeState();
     	menu = new PauseMenu(vm);
+    	System.out.println("THE START OF SOMETHING NEW");
     	vm.setPauseMode(menu);
     }
 

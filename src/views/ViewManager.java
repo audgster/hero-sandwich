@@ -163,7 +163,7 @@ public class ViewManager extends View{
 
 	public void setPauseMode(Menus pMenu){
 		mode = Mode.PAUSE;
-		pauseView = new PauseView();
+		pauseView = new PauseView(pMenu);
 		menuViews.clear();
 		update();
 	}
