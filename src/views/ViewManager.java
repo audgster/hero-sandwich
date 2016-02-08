@@ -80,11 +80,8 @@ public class ViewManager extends View{
 			add(title, BorderLayout.PAGE_START);
 			menuViews.get(0).setVisible(true);
 			add(menuViews.get(0), BorderLayout.LINE_START);
-			// JLabel logo = new JLabel("Insert Logo Here");
-			// add(logo, BorderLayout.CENTER);
 		}
 		else if(mode == Mode.CUSTOMIZE_MENU){
-			//System.out.println("Customize View");
 			JLabel cText = new JLabel("Select Avatar");
 			cText.setFont(titleFont);
 			cText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -93,9 +90,6 @@ public class ViewManager extends View{
 			add(menuViews.getLast(), BorderLayout.CENTER);
 		}
 		else if(mode == Mode.GAME){
-			// Map map = new Map();
-			// ILocationManager locationManager = new ILocationMangager();
-			//game object will  game.getLevel();
 			areaView.setVisible(true);
 			statsView.setVisible(true);
 			areaView.setPreferredSize(new Dimension(getWidth(), getHeight()));

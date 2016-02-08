@@ -12,22 +12,27 @@ public class EquipmentView extends MenuView{
   public EquipmentView(Menus menu){
     super(menu);
     setLayout(new GridBagLayout());
+    update();
   }
 
   protected void render(){
     removeAll();
-    Border blackline = BorderFactory.createLineBorder(Color.black);
+    GridBagConstraints gBC = new GridBagConstraints();
+    JLabel inventoryTitle = new JLabel("Equipment");
+    JLabel[] grids = new JLabel[5];
+    String imgPath = "../images/blank_slot.jpg";
 
-    JPanel equipmentContainer = new JPanel(new GridLayout(2,5));
-    String imgPath = "../images/avatar.gif";
-    JLabel[] grids = new JLabel[10];
-    for(int i = 0; i < 10; i++){
+    gBC.anchor = GridBagConstraints.PAGE_START;
+    inventoryTitle.setFont(menuFont);
+    add(inventoryTitle, gBC);
+
+    for(int i = 0; i < 4; i++){
       grids[i] = new JLabel(new ImageIcon(imgPath));
-      grids[i].setBorder(blackline);
-      equipmentContainer.add(grids[i]);
+      gBC.insets = new Insets(10,0,0,0); 
+      gBC.gridx = 0;
+      gBC.gridy = i + 1;
+      add(grids[i], gBC);
     }
-
-    add(equipmentContainer);
 
     revalidate();
     repaint();
