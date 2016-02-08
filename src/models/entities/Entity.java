@@ -49,6 +49,7 @@ public class Entity implements Drawable, Subject
         stats.setOccupationMods( this.occupation.getStatMods() );
         inventory = new Inventory();
         equipment = new Equipment();
+        equipment.tempSaveState();
         eIdentifier = identifier;
         directionFacing = direction;
 	    subs = new ArrayList<Listener>();
@@ -178,7 +179,7 @@ public class Entity implements Drawable, Subject
     ** in: the amount of XP gained
     ** out: the total amount of XP the entity has after the addition
     */
-    int gainXp(int amount)
+    public int gainXp(int amount)
     {
         int oldLevel = stats.getLevel();
         int newXp = stats.addXp(amount);
@@ -372,6 +373,7 @@ public class Entity implements Drawable, Subject
         gameState.addAll(inventory.getSaveState());
         gameState.add("}" +System.getProperty("line.separator") + " ");
         gameState.add("Equipment {" + System.getProperty("line.separator") + " ");
+        System.out.println("Here");
         gameState.addAll(equipment.getSaveState());
         gameState.add("}" + System.getProperty("line.separator") + " ");
         gameState.add("}");

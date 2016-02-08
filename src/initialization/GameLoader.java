@@ -79,7 +79,24 @@ public class GameLoader {
     }
 
     private Equipment makeEquipment(Scanner scanner) {
-
+        scanner.next();
+        /*
+        String initialToken = removeLineSeparator(scanner.next());
+            while (scanner.hasNext()) {
+                String token = removeLineSeparator(scanner.next());
+                if (token.equalsIgnoreCase("}"))
+                    break;
+                else if(token.equalsIgnoreCase("bag")) {
+                    ignoreBagSyntax(scanner);
+                }
+                else {
+                    System.out.println("Adding item");
+                    Item item = getNextItem(token, scanner);
+                    inventory.add(item);
+                }
+            }
+            */
+        return new Equipment();
     }
 
     private Inventory makeInventory(Scanner scanner) {
@@ -220,29 +237,29 @@ public class GameLoader {
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("strength:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setStrength(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("agility:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setAgility(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("intellect:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setIntellect(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("hardiness:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setHardiness(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
             else if (token.equalsIgnoreCase("movement:"))
-                try { entityStats.setXp(Integer.parseInt(removeLineSeparator(scanner.next()))); }
+                try { entityStats.setMovement(Integer.parseInt(removeLineSeparator(scanner.next()))); }
                 catch (Exception e) { e.printStackTrace(); }
 
 
         }
 
-        return new EntityStats();
+        return entityStats;
     }
 
     private Occupation makeIntoOccupation(String occupation) {
