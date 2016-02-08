@@ -19,6 +19,8 @@ public class Driver {
         Game game = new Game(new HardCodedGameEngineInitializer());
         //game.newGame();
         game.saveGame();
+        GameLoader parser = new GameLoader(new File("initialization/saveFile.txt"));
+        parser.parseFile();
     }
 }
 

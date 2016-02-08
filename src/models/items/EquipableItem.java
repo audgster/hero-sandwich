@@ -94,15 +94,15 @@ public class EquipableItem extends TakeableItem
 
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
-        state.add("\t\t\tName: " + getName() + System.getProperty("line.separator"));
-        state.add("\t\t\tEquipmentType: " + eType.name() + System.getProperty("line.separator"));
-        state.add("\t\t\tStat Boost { " + System.getProperty("line.separator"));
+        state.add("Name: " + getName() + " " + System.getProperty("line.separator") + " ");
+        state.add("EquipmentType: " + eType.name() + System.getProperty("line.separator") + " ");
+        state.add("StatBoost {" + System.getProperty("line.separator") + " ");
         state.addAll(statsBoosts.getSaveState());
-        state.add("\t\t\t}" + System.getProperty("line.separator"));
-        state.add("\t\t\tStat Restrictions { " + System.getProperty("line.separator"));
+        state.add("}" + System.getProperty("line.separator") + " ");
+        state.add("StatRestrictions { " + System.getProperty("line.separator") + " ");
         state.addAll(statsRestrictions.getSaveState());
-        state.add("\t\t\t}" + System.getProperty("line.separator"));
-        state.add("\t\t\tOccupation Restriction: " + occupRestriction + System.getProperty("line.separator"));
+        state.add("}" + System.getProperty("line.separator") + " ");
+        state.add("OccupationRestriction: " + occupRestriction + System.getProperty("line.separator") + " ");
         return state;
     }
 }

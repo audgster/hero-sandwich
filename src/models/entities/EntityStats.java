@@ -39,8 +39,8 @@ public class EntityStats extends Stats {
         try {
             setLivesLeft(livesLeft);
             setXp(xp);
-            setCurrentLife(curLife);
-            setCurrentMana(curMana);
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
         }
         catch (InvalidStatException ex)
         {
@@ -54,8 +54,8 @@ public class EntityStats extends Stats {
         try {
             setLivesLeft(3);
             setXp(xp);
-            setCurrentLife(10);
-            setCurrentMana(5);
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
         }
         catch (InvalidStatException ex)
         {
@@ -231,6 +231,15 @@ public class EntityStats extends Stats {
             return 0;
 
         --livesLeft;
+        // Restore life & mana
+        try {
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
         return livesLeft;
     }
 
@@ -329,15 +338,15 @@ public class EntityStats extends Stats {
 
 	public List<String> getSaveState() {
 		List<String> state = new ArrayList<String>();
-		state.add("\t\tlivesLeft: " + Integer.toString(livesLeft) + System.getProperty("line.separator"));
-		state.add("\t\tcurrentLife: " + Integer.toString(currentLife) + System.getProperty("line.separator"));
-		state.add("\t\tcurrentMana: " + Integer.toString(currentMana) + System.getProperty("line.separator"));
-		state.add("\t\txp: " + Integer.toString(xp) + System.getProperty("line.separator"));
-        state.add("\t\tstrength: " + getStrength() + System.getProperty("line.separator"));
-        state.add("\t\tagility: " + getAgility() + System.getProperty("line.separator"));
-        state.add("\t\tintellect: " + getIntellect() + System.getProperty("line.separator"));
-        state.add("\t\thardiness: " + getHardiness() + System.getProperty("line.separator"));
-        state.add("\t\tmovement: " + getMovement() + System.getProperty("line.separator"));
+		state.add("livesLeft: " + Integer.toString(livesLeft) + System.getProperty("line.separator") + " ");
+		state.add("currentLife: " + Integer.toString(currentLife) + System.getProperty("line.separator") + " ");
+		state.add("currentMana: " + Integer.toString(currentMana) + System.getProperty("line.separator") + " ");
+		state.add("xp: " + Integer.toString(xp) + System.getProperty("line.separator") + " ");
+        state.add("strength: " + getStrength() + System.getProperty("line.separator") + " ");
+        state.add("agility: " + getAgility() + System.getProperty("line.separator") + " ");
+        state.add("intellect: " + getIntellect() + System.getProperty("line.separator") + " ");
+        state.add("hardiness: " + getHardiness() + System.getProperty("line.separator") + " ");
+        state.add("movement: " + getMovement() + System.getProperty("line.separator") + " ");
 		return state;
 	}
 }

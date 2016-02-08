@@ -135,16 +135,16 @@ public class StatModifiers extends Stats {
 
 	public List<String> getSaveState() {
 		List<String> state = new ArrayList<String>();
-		state.add("\t\t\t\tlife: " + life + System.getProperty("line.separator"));
-		state.add("\t\t\t\tmana: " + mana + System.getProperty("line.separator"));
-		state.add("\t\t\t\toffensiveRating: " + offRating + System.getProperty("line.separator"));
-		state.add("\t\t\t\tdefensiveRating: " + defRating + System.getProperty("line.separator"));
-		state.add("\t\t\t\tarmorRating: " + armorRating + System.getProperty("line.separator"));
-		state.add("\t\t\t\tstrength: " + getStrength() + System.getProperty("line.separator"));
-		state.add("\t\t\t\tagility: " + getAgility() + System.getProperty("line.separator"));
-		state.add("\t\t\t\tintellect: " + getIntellect() + System.getProperty("line.separator"));
-		state.add("\t\t\t\thardiness: " + getHardiness() + System.getProperty("line.separator"));
-		state.add("\t\t\t\tmovement: " + getMovement() + System.getProperty("line.separator"));
+		state.add("life: " + life + System.getProperty("line.separator") + " ");
+		state.add("mana: " + mana + System.getProperty("line.separator") + " ");
+		state.add("offensiveRating: " + offRating + System.getProperty("line.separator") + " ");
+		state.add("defensiveRating: " + defRating + System.getProperty("line.separator") + " ");
+		state.add("armorRating: " + armorRating + System.getProperty("line.separator") + " ");
+		state.add("strength: " + getStrength() + System.getProperty("line.separator") + " ");
+		state.add("agility: " + getAgility() + System.getProperty("line.separator") + " ");
+		state.add("intellect: " + getIntellect() + System.getProperty("line.separator") + " ");
+		state.add("hardiness: " + getHardiness() + System.getProperty("line.separator") + " ");
+		state.add("movement: " + getMovement() + System.getProperty("line.separator") + " ");
 		return state;
 	}
 }
