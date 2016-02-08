@@ -1,11 +1,9 @@
 package util;
 
-import initialization.AvatarCreator;
 import initialization.GameFacade;
 import initialization.GameLoader;
 import models.Level;
 import models.entities.Entity;
-import models.entities.Smasher;
 import models.gameengine.interfaces.IGameEngine;
 import models.gameengine.interfaces.IGameEngineInitializer;
 import models.map.Map;
@@ -48,7 +46,7 @@ public class Game
     }
 
     public void loadGame() {
-        GameLoader gameLoader = new GameLoader(new File("initialization/saveFile.txt"));
+        GameLoader gameLoader = new GameLoader(new File("resources/config/saveFile.txt"));
         this.avatar = gameLoader.parseFile();
         GameFacade gameCreator = new GameFacade();
         gameCreator.createNewGame(this);
@@ -60,7 +58,7 @@ public class Game
     public void saveGame() {
         List<String> state = avatar.getSaveState();
         try {
-            PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
+            PrintWriter writer = new PrintWriter(new File("resources/config/saveFile.txt"));
            for(String val : state) {
                 writer.print(val);
             }

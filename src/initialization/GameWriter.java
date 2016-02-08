@@ -8,7 +8,7 @@ public class GameWriter {
 
     public GameWriter() {
         try {
-            PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
+            PrintWriter writer = new PrintWriter(new File("resources/config/saveFile.txt"));
         }
         catch (Exception e) {
             e.printStackTrace();

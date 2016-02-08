@@ -4,8 +4,6 @@ import models.gameengine.HardCodedGameEngineInitializer;
 import util.Game;
 
 import java.io.File;
-import java.util.List;
-import java.util.LinkedList;
 
 public class Driver {
     public static void main(String[] args) {
@@ -19,7 +17,7 @@ public class Driver {
         Game game = new Game(new HardCodedGameEngineInitializer());
         //game.newGame();
         game.saveGame();
-        GameLoader parser = new GameLoader(new File("initialization/saveFile.txt"));
+        GameLoader parser = new GameLoader(new File("resources/config/saveFile.txt"));
         parser.parseFile();
     }
 }

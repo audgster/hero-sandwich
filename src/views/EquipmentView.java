@@ -1,4 +1,5 @@
 package views;
+import models.items.Item;
 import models.menus.*;
 
 import java.awt.*;
@@ -26,6 +27,8 @@ public class EquipmentView extends MenuView{
     add(inventoryTitle, gBC);
 
     for(int i = 0; i < 4; i++){
+
+
       grids[i] = new JLabel(new ImageIcon(imgPath));
       //gBC.insets = new Insets(10,0,0,0);
       gBC.gridx = 0;

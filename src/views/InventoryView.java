@@ -8,6 +8,8 @@ import javax.swing.BorderFactory;
 import models.entities.*;
 import java.util.ArrayList;
 import models.items.*;
+import util.HardCodedSpriteInitializer;
+import util.SpriteMap;
 
 public class InventoryView extends View{
   private Entity avatar;
@@ -20,6 +22,7 @@ public class InventoryView extends View{
   private String[] items;
   private JPanel backPanel = new JPanel();
   protected Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
+    private SpriteMap spriteMap = new SpriteMap(new HardCodedSpriteInitializer());
 
   public InventoryView(Menus menu, Entity avatar){
     this.menu = (InventoryMenu)menu;
@@ -32,7 +35,6 @@ public class InventoryView extends View{
 	}
 
   protected void render(){
-    System.out.println("Hey bob");
     removeAll();
     backPanel.removeAll();
     Border grayMatteBorder = BorderFactory.createMatteBorder( 1, 1, 1, 1, Color.black);
@@ -118,13 +120,39 @@ public class InventoryView extends View{
     JLabel[] grids = new JLabel[5];
     String imgPath = "resources/images/blank_slot.jpg";
 
-    for(int i = 0; i < 4; i++){
-      grids[i] = new JLabel(new ImageIcon(imgPath));
-      subGBC.insets = new Insets(10,0,0,0);  //top padding
-      subGBC.gridx = 0;
-      subGBC.gridy = i;
-      equipmentPanel.add(grids[i], subGBC);
+    int j = 0;
+
+    for (EquipableItem i : equipment.getEquipped())
+    {
+        try {
+            grids[j] = new JLabel(new ImageIcon(spriteMap.getResourcePath(i.getImageId())));
+        }
+        catch (Exception ex)
+        {
+            grids[j] = new JLabel(new ImageIcon(imgPath));
+        }
+
+        subGBC.insets = new Insets(10,0,0,0);  //top padding
+        subGBC.gridx = 0;
+        subGBC.gridy = j;
+        equipmentPanel.add(grids[j], subGBC);
+        j++;
     }
+
+    while (j < 4)
+    {
+        grids[j] = new JLabel(new ImageIcon(imgPath));
+
+        subGBC.insets = new Insets(10,0,0,0);  //top padding
+        subGBC.gridx = 0;
+        subGBC.gridy = j;
+        equipmentPanel.add(grids[j], subGBC);
+
+        j++;
+    }
+
+
+
     grids[4] = new JLabel(new ImageIcon(imgPath));
     subGBC.gridx = 1;
     subGBC.gridy = 1;

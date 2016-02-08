@@ -42,6 +42,11 @@ public class Equipment {
 	equipment.put(eType, null);
     }
 
+	public Collection<EquipableItem> getEquipped()
+	{
+		return equipment.values();
+	}
+
     /* Accessors */
     public EquipableItem getHelm() {
 	return equipment.get(EquipmentType.HELM);
