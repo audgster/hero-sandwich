@@ -38,14 +38,14 @@ public class TileInteractionDirector implements ITileInteractionDirector
 
         for (IInteractionHandler handler : handlers)
         {
-            success = success && executeHandler(handler, entity);
+            success = success && executeHandler(handler, entity, tile);
         }
 
         return success;
     }
 
-    private boolean executeHandler(IInteractionHandler handler, Entity entity)
+    private boolean executeHandler(IInteractionHandler handler, Entity entity, Tile tile)
     {
-        return handler.executeInteraction(entity);
+        return handler.executeInteraction(entity, tile);
     }
 }

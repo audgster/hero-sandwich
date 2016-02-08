@@ -1,6 +1,7 @@
 package models.items;
 
 import models.entities.*;
+import models.map.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,15 @@ public class EquipableItem extends TakeableItem
     }
     
     @Override
-    public boolean executeInteraction(Entity entity) {
-        return entity.addItem(this);
+    public boolean executeInteraction(Entity entity, Tile tile)
+    {
+        if (entity.addItem(this))
+        {
+            tile.removeItem(this);
+            return true;
+        }
+
+        return false;
     }
 
     /* Mutators */

@@ -2,6 +2,7 @@ package models.items;
 
 import models.entities.Entity;
 import models.items.actions.IAction;
+import models.map.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class InteractableItem extends Item
     }
 
     @Override
-    public boolean executeInteraction(Entity entity)
+    public boolean executeInteraction(Entity entity, Tile tile)
     {
         return action.execute(entity);
     }

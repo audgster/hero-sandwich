@@ -53,7 +53,7 @@ public class Map implements Listener, Subject
         if(isValidPosition(p))
             return grid[ p.getX() ][ p.getY() ];
 
-        System.err.println("[MAP] Attempted to get a tile at an invalid position: " + p.toString());
+        //System.err.println("[MAP] Attempted to get a tile at an invalid position: " + p.toString());
         return null;
     }
 
@@ -127,12 +127,12 @@ public class Map implements Listener, Subject
     public boolean isValidPosition(Position p)
     {
         if (p.getX() < 0 || p.getX() >= grid[0].length) {
-            System.out.println("Position was not valid b/c x was out of bounds");
+            //System.out.println("[MAP] Position was not valid b/c x was out of bounds");
             return false;
         }
 
         if (p.getY() < 0 || p.getY() >= grid.length) {
-            System.out.println("Position was not valid b/c y was out of bounds");
+            //System.out.println("[MAP] Position was not valid b/c y was out of bounds");
             return false;
         }
 
