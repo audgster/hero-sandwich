@@ -38,7 +38,14 @@ public class InventoryMenu extends Menus{
       currentlySelected.execute(vm, cm);
     }
     else{
-      this.avatar.equip((EquipableItem)currentlySelectedItem);
+      EquipableItem eq;
+      try{
+        eq = (EquipableItem)currentlySelectedItem;
+      }catch(ClassCastException ex){
+        return;
+      }
+
+      this.avatar.equip(eq);
       notifyListeners();
     }
   }

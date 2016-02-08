@@ -288,7 +288,7 @@ public class Entity implements Drawable, Subject
     */    
     public boolean equip(EquipableItem item)
     {
-        if ( item.getOccupationRestriction() == "" || item.getOccupationRestriction() == occupation.toString() )
+        if ( item.getOccupationRestriction() == "none" || item.getOccupationRestriction() == occupation.toString() )
         {
 	        if ( stats.checkRestrictions( item.getStatsRestrictions() ) )
             {
