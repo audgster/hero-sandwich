@@ -20,7 +20,7 @@ public abstract class StatModifyAction implements IAction
     @Override
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
-        state.add("\t\t\t\t\tStatModifyAction: " + baseModifier + System.getProperty("line.separator"));
+        state.add("StatModifyAction: " + baseModifier + System.getProperty("line.separator") + " ");
         return state;
     }
 }

@@ -89,9 +89,9 @@ public class Equipment {
 		List<String> equipmentList = new ArrayList<String>();
 		Set<EquipmentType> keySet = equipment.keySet();
 		for(EquipmentType key : keySet) {
-			equipmentList.add("\t\t" + equipment.get(key).getClass().getSimpleName() + " {" + System.getProperty("line.separator"));
+			equipmentList.add(equipment.get(key).getClass().getSimpleName() + " { " + System.getProperty("line.separator"));
 			equipmentList.addAll(equipment.get(key).getSaveState());
-			equipmentList.add( "\t\t}" + System.getProperty("line.separator"));
+			equipmentList.add( "}" + System.getProperty("line.separator") + " ");
 		}
 		return equipmentList;
 	}

@@ -19,7 +19,7 @@ public abstract class Stats {
 	agility = 1;
 	intellect = 1;
 	hardiness = 1;
-	movement = 1;
+	movement = 10;
     }
 
     /* Fully parameterized constructor */

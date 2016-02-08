@@ -25,10 +25,10 @@ public class ConsumableItem extends TakeableItem
     @Override
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
-        state.add("\t\t\t\t" + "Name: " + name + System.getProperty("line.separator"));
-        state.add("\t\t\t\t" + action.getClass().getSimpleName() + " {" + System.getProperty("line.separator"));
+        state.add("Name: " + name + System.getProperty("line.separator") + " ");
+        state.add(action.getClass().getSimpleName() + " {" + System.getProperty("line.separator") + " ");
         state.addAll(action.getSaveState());
-        state.add("\t\t\t\t}" + System.getProperty("line.separator"));
+        state.add("}" + System.getProperty("line.separator") + " ");
         return state;
     }
 }

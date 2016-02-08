@@ -26,7 +26,7 @@ public abstract class TakeableItem extends Item
     @Override
     public List<String> getSaveState() {
         List<String> state = new ArrayList<String>();
-        state.add("\t\t\t\t" + "Name: " + name + System.getProperty("line.separator"));
+        state.add("Name: " + name + System.getProperty("line.separator") + " ");
         //Add action save capability
         return state;
     }
