@@ -11,10 +11,12 @@ import java.util.List;
 public abstract class Item implements IInteractionHandler, Drawable
 {
     protected String name;
+    protected String description;
 
     public Item(String name)
     {
         this.name = name;
+        this.description = "";
     }
 
     public String getName()
@@ -30,6 +32,14 @@ public abstract class Item implements IInteractionHandler, Drawable
     @Override
     public String getImageId() {
         return "Item_" + getName() + this.getClass().getSimpleName();
+    }
+
+    public void setDescription(String description) {
+      this.description = description;
+    }
+
+    public String getDescription(){
+      return description;
     }
 
     public List<String> getSaveState() {return null;}

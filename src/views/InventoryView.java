@@ -8,24 +8,33 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import java.awt.Dimension;
 import models.entities.*;
+import java.util.ArrayList;
+import models.items.*;
 
-public class InventoryView extends MenuView{
+
+
+public class InventoryView extends View{
   private Entity avatar;
   private Inventory inventory;
   private Equipment equipment;
+  private int inventoryCapacity;
+  protected String[] options;
+  protected Menus menu;
+  protected int currentIndex;
+  private String[] items;
+  protected Font menuFont = new Font("Comic Sans MS", Font.PLAIN, 40);
 
-  public InventoryView(Menus menu){
-		super(menu);
-		setLayout( new GridBagLayout());
-    avatar = ((InventoryMenu)menu).getAvatar();
+  public InventoryView(Menus menu, Entity avatar){
+    this.avatar = avatar;
     inventory = avatar.getInventory();
-    equipment = avatar.getEquipment();
+    inventoryCapacity = inventory.getCapacity();
+    this.equipment = avatar.getEquipment();
+    setLayout(new GridBagLayout());
     update();
 	}
 
   protected void render(){
     removeAll();
-
     Border grayMatteBorder = BorderFactory.createMatteBorder( 1, 1, 1, 1, Color.black);
     GridBagConstraints mainGBC = new GridBagConstraints();
 
@@ -37,18 +46,48 @@ public class InventoryView extends MenuView{
     title.setFont(menuFont);
     titlePanel.add(title);
     mainGBC.gridx = 0;
+    mainGBC.gridy = 0;
     mainGBC.weighty = 0.1;
+    mainGBC.gridwidth = 3;
     add(title, mainGBC);
 
+
+    // draw info panel
+    JPanel infoPanel = new JPanel();
+    // put JLabels in a column
+    infoPanel.setLayout( new BoxLayout(infoPanel, BoxLayout.Y_AXIS ) );
+    infoPanel.setBorder(grayMatteBorder);
+    JLabel currentItemInfo;
+    Item currentItem = inventory.getItemAt(currentIndex);
+    if(currentItem != null){
+      currentItemInfo = new JLabel(currentItem.getDescription());
+    }else{
+      currentItemInfo = new JLabel("No Item Selected");
+    }
+    currentItemInfo.setFont(menuFont);
+    infoPanel.add(currentItemInfo);
+    mainGBC.gridy = 1;
+    mainGBC.gridx = 0;
+    mainGBC.weightx = 0.5;
+    mainGBC.weighty = 0.9;
+    mainGBC.gridwidth = 1;
+    add(infoPanel, mainGBC);
 
     // draw menu panel
     JPanel menuPanel = new JPanel();
     // put JLabels in a column
     menuPanel.setLayout( new BoxLayout(menuPanel, BoxLayout.Y_AXIS ) );
     menuPanel.setBorder(grayMatteBorder);
-    ArrayList<Item> listOfItems = inventory.getInventory();
-    for(int i = 0; i < listOfItems.size(); i++){
-      JLabel label = new JLabel(listOfItems.get(i).getName());
+
+    for(int i = 0; i < inventoryCapacity; i++){
+      currentItem = inventory.getItemAt(i);
+      JLabel label;
+      if(currentItem != null){
+        label = new JLabel(currentItem.getName());
+      }else{
+        label = new JLabel("----");
+      }
+
       label.setAlignmentX(Component.CENTER_ALIGNMENT);
       label.setBackground(Color.GREEN);
       label.setFont(menuFont);
@@ -60,37 +99,12 @@ public class InventoryView extends MenuView{
       }
       menuPanel.add(label);
     }
-    mainGBC.gridy = 1;
-    mainGBC.gridx = 0;
-    mainGBC.weightx = 0.5;
-    mainGBC.fill = GridBagConstraints.BOTH;
-    mainGBC.weighty = 0.9;
-    add(menuPanel, mainGBC);
 
-    // draw inventory panel
-    JPanel inventoryPanel = new JPanel();
-    // put JLabels in a column
-    inventoryPanel.setLayout( new BoxLayout(inventoryPanel, BoxLayout.Y_AXIS ) );
-
-
-    inventoryPanel.setBorder(grayMatteBorder);
-    for(int i = 0; i < options.length; i++){
-      JLabel label = new JLabel(options[i]);
-      label.setAlignmentX(Component.CENTER_ALIGNMENT);
-      label.setBackground(Color.GREEN);
-      label.setFont(menuFont);
-      if(currentIndex == i){
-        label.setOpaque(true);
-      }
-      else{
-        label.setOpaque(false);
-      }
-      inventoryPanel.add(label);
-    }
     mainGBC.gridy = 1;
     mainGBC.gridx = 1;
     mainGBC.weightx = 0.5;
-    add(inventoryPanel, mainGBC);
+    mainGBC.fill = GridBagConstraints.BOTH;
+    add(menuPanel, mainGBC);
 
 
     JPanel equipmentPanel = new JPanel(new GridBagLayout());
@@ -119,5 +133,9 @@ public class InventoryView extends MenuView{
 
     revalidate();
     repaint();
+  }
+
+  public void update(){
+    render();
   }
 }

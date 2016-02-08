@@ -10,7 +10,7 @@ public abstract class Menus implements Subject{
   private Option currentlySelected;
   private Option[] listOfOptions;
   private ArrayList<Listener> listenerList;
-  private int listPosition;
+  protected int listPosition;
   private ViewManager vm;
   private Controller cm;
 

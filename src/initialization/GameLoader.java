@@ -65,7 +65,7 @@ public class GameLoader {
             else if(token.equalsIgnoreCase("Inventory"))
                 inventory = makeInventory(scanner);
             else if(token.equalsIgnoreCase("Equipment"))
-                equipment = makeEquipment(scanner);
+                equipment = null;
 
 
         }
@@ -78,9 +78,9 @@ public class GameLoader {
         return new Entity();
     }
 
-    private Equipment makeEquipment(Scanner scanner) {
-
-    }
+    // private Equipment makeEquipment(Scanner scanner) {
+    //
+    // }
 
     private Inventory makeInventory(Scanner scanner) {
         scanner.next();

@@ -6,6 +6,8 @@ import models.entities.Occupation;
 import models.entities.Smasher;
 import util.Direction;
 import util.EntityIdentifier;
+import models.items.*;
+import models.entities.StatModifiers;
 
 public class AvatarCreator
 {
@@ -43,7 +45,9 @@ public class AvatarCreator
         }
 
         Entity entity = new Entity(name, occupation, new EntityStats(), EntityIdentifier.GROUND, Direction.NORTH);
-
+        Item item = new EquipableItem("food", EquipmentType.HELM, new StatModifiers());
+        item.setDescription("Yummy food!");
+        entity.addItem(item);
         name = null;
         occupation = null;
 

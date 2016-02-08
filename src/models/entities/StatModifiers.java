@@ -6,10 +6,10 @@ import java.util.List;
 
 /* DESCRIPTION
  * --------------------------------------------------
- * StatModifiers are owned by EquipableItems, ConsumableItems, AreaEffects, 
+ * StatModifiers are owned by EquipableItems, ConsumableItems, AreaEffects,
  * and any other class whose role is (at least partially) to modify an Entity's
  * stats (EntityStats). The derived attributes present in EntityStats are
- * flat values in this class. They are to be used in the computation of 
+ * flat values in this class. They are to be used in the computation of
  * an Entity's derived stats. Below is a list of said stats:
  * - life
  * - mana
@@ -18,9 +18,9 @@ import java.util.List;
  * - armorRating
  */
 public class StatModifiers extends Stats {
-    
+
     /* ATTRIBUTES */
-    /* ========================= */    
+    /* ========================= */
     private int life;
     private int mana;
     private int offRating;
@@ -28,7 +28,7 @@ public class StatModifiers extends Stats {
     private int armorRating;
     // private int duration; -- on wishlist -> used for temp buffs
     /* ========================= */
-    
+
     /* METHODS */
 
     /* Default constructors */
@@ -38,16 +38,16 @@ public class StatModifiers extends Stats {
 	mana = 0;
 	offRating = 0;
 	defRating = 0;
-	armorRating = 0;	
+	armorRating = 0;
     }
 
     /* Array parameterized constructor
      * The indices of the array correspond to the order of the attributes in the fully parameterized
-     * constructor (below). 
+     * constructor (below).
      * If the full 10 stats are not provided, the remaining stats are initialized to 0 and a warning is printed
      */
     public StatModifiers(int[] stats) {
-	try {	    
+	try {
 	    setStrength ( stats[0] );
 	    setAgility  ( stats[1] );
 	    setIntellect( stats[2] );
@@ -57,12 +57,12 @@ public class StatModifiers extends Stats {
 	    mana = stats[6];
 	    offRating = stats[7];
 	    defRating = stats[8];
-	    armorRating = stats[9];		    
+	    armorRating = stats[9];
 	} catch ( IndexOutOfBoundsException e ) {
 	    System.err.println("Warning: Stats " + e.getMessage() + "-9 initialized to 0" );
 	}
-    }   
-    
+    }
+
     /* Fully parameterized constructor */
     public StatModifiers(int str, int agl, int intel, int har, int mov,
 			 int life, int mana,
@@ -76,26 +76,26 @@ public class StatModifiers extends Stats {
 	this.armorRating = armorRating;
     }
 
-    
+
     /* Accessors */
     /* ========================= */
     @Override
     public int getLife() {
 	return life;
     }
-    @Override    
+    @Override
     public int getMana() {
 	return mana;
     }
-    @Override    
+    @Override
     public int getOffRating() {
 	return offRating;
     }
-    @Override    
+    @Override
     public int getDefRating() {
 	return defRating;
     }
-    @Override    
+    @Override
     public int getArmorRating() {
 	return armorRating;
     }
@@ -117,18 +117,16 @@ public class StatModifiers extends Stats {
     public void setArmorRating(int armorRating) {
 	this.armorRating = armorRating;
     }
-    
+
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
 	strBuilder.append( super.toString() );
-	strBuilder.append("[StatModifiers:");
-	strBuilder.append(" " + life + " ");	
-	strBuilder.append(" " + mana + " ");	
-	strBuilder.append(" " + offRating + " ");
-	strBuilder.append(" " + defRating + " ");
-	strBuilder.append(" " + armorRating + " ");
-	strBuilder.append("]");
+	strBuilder.append("\nLife: " + life);
+	strBuilder.append("\nMana: " + mana);
+	strBuilder.append("\nOffensive Rating: " + offRating);
+	strBuilder.append("\nDefensive Rating: " + defRating);
+	strBuilder.append("\nArmor Rating: " + armorRating);
 	String str = strBuilder.toString();
 	return str;
     }

@@ -190,11 +190,11 @@ public class ViewManager extends View{
 		update();
 	}
 
-	public void setInventoryMenuMode(){
+	public void setInventoryMenuMode(Menus iMenu, Entity avatar){
 		mode = Mode.INVENTORY_MENU;
 		popMenuView();
-
-		inventoryView = new InventoryView(inventoryMenu);
+		System.out.println("The avatar is in setInvetory11111111" + avatar);
+		inventoryView = new InventoryView(iMenu, avatar);
 		pushMenuView(inventoryView);
 		update();
 	}

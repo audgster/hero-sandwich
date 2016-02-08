@@ -29,37 +29,41 @@ public class Inventory {
 	count = 0;
 	capacity = n;
 	bag = new ArrayList<>(capacity);
-	for (int i = 0; i < capacity; ++i) { bag.add(null); }	
+	for (int i = 0; i < capacity; ++i) { bag.add(null); }
     }
 
     public boolean isFull() {
 	if (count == capacity) {
 	    return true;
 	}
-	return false;	  
+	return false;
     }
 
     /* Accessors */
 
     public Item getItemAt(int slot) {
-	return bag.get(slot);
+	     return bag.get(slot);
     }
 
-    public ArrayList<Item> getInventory() {
-	return bag;
+    public ArrayList<Item> getBag(){
+      return bag;
     }
+
+    public int getCapacity(){
+        return capacity;
+      }
 
     /* Mutators */
     /* Adds an item to the first available slot in the inventory
      * Returns false if the item could not be added (inventory is full)
      */
     public boolean add(Item item) {
-	
+
 	boolean itemAdded = false;
-	
+
 	for (int i = 0; i < capacity; ++i) {
 	    // if slot is empty
-	    if ( bag.get(i) == null ) {		
+	    if ( bag.get(i) == null ) {
 		bag.add(i, item);
 		itemAdded = true;
 		++count;
@@ -84,7 +88,7 @@ public class Inventory {
     public boolean remove(Item item) {
 	boolean removed = false;
 	int index = bag.indexOf(item);
-	
+
 	// if Item is not found
 	if (index == -1) {
 	    return !removed;
@@ -93,7 +97,7 @@ public class Inventory {
 	bag.set(index, null);
 	--count;
 	return removed;
-    }    
+    }
 
   // Swaps the items at two indicies in the Inventory
   public void swap(int index1, int index2) {
@@ -101,7 +105,7 @@ public class Inventory {
     Item item2 = bag.get(index2);
     bag.set(index1, item2);
     bag.set(index2, item1);
-  } 
+  }
 
     @Override
     public String toString() {

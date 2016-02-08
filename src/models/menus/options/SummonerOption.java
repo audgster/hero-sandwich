@@ -28,7 +28,7 @@ import models.menus.*;
 		game.initializeAvatar(avatar);
 
 		Level level = game.getLevel();
-
+    System.out.println("The avatar is "  + avatar);
     	Menus inventoryMenu = new InventoryMenu(vm, avatar);
     	inventoryMenu.setController(cm);
     	Menus equipmentMenu = new EquipmentMenu(vm, avatar);
@@ -39,7 +39,7 @@ import models.menus.*;
     	Menus gameOverMenu = new GameOverMenu(vm);
     	gameOverMenu.setController(cm);
     	vm.setGameOverMenu(gameOverMenu);
-    	
+
 		vm.setGameMode(level, avatar);
 	}
 }

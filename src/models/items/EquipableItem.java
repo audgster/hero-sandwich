@@ -79,12 +79,20 @@ public class EquipableItem extends TakeableItem
 	this.occupRestriction = occupRestriction;
     }
 
+    // @Override
+    // public String getDescription(){
+    //   // String stats = statsBoosts.toString();
+    //
+    //   // return stats;
+    //
+    // }
+
     @Override
     public String toString() {
 	StringBuilder strBuilder = new StringBuilder();
 	strBuilder.append("Equipment Name: " + getName() + "\n");
-	strBuilder.append("Equipment Type: " + eType.name() + "\n");	
-	strBuilder.append("Stat Boosts: " + statsBoosts.toString() + "\n");	
+	strBuilder.append("Equipment Type: " + eType.name() + "\n");
+	strBuilder.append("Stat Boosts: " + statsBoosts.toString() + "\n");
 	strBuilder.append("Stats Restrictions: " + statsRestrictions.toString() + "\n");
 	strBuilder.append("Occupation Restriction: " + occupRestriction + "\n");
 	strBuilder.append("]");
@@ -106,4 +114,3 @@ public class EquipableItem extends TakeableItem
         return state;
     }
 }
-    
