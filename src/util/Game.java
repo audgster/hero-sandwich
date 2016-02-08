@@ -62,7 +62,6 @@ public class Game
         try {
             PrintWriter writer = new PrintWriter(new File("initialization/saveFile.txt"));
            for(String val : state) {
-                System.out.println("Here");
                 writer.print(val);
             }
             writer.close();

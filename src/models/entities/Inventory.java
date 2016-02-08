@@ -119,13 +119,13 @@ public class Inventory {
 
 	public List<String> getSaveState() {
 		List<String> state = new ArrayList<String>();
-		state.add("\t\tcapacity: " + Integer.toString(capacity) + System.getProperty("line.separator"));
-		state.add("\t\tcount: " + Integer.toString(count) + System.getProperty("line.separator"));
-		state.add("\t\tbag {" + System.getProperty("line.separator"));
+		state.add("capacity: " + Integer.toString(capacity) + System.getProperty("line.separator") + " ");
+		//state.add("count: " + Integer.toString(count) + System.getProperty("line.separator") + " ");
+		state.add("bag {" + System.getProperty("line.separator") + " ");
 		for(Item item : bag) {
-			state.add("\t\t\t" + item.getClass().getSimpleName() + " {" + System.getProperty("line.separator"));
+			state.add(item.getClass().getSimpleName() + " {" + System.getProperty("line.separator") + " ");
 			state.addAll(item.getSaveState());
-			state.add("\t\t\t}" + System.getProperty("line.separator"));
+			state.add("}" + System.getProperty("line.separator") + " ");
 		}
 		return state;
 	}
