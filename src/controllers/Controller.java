@@ -31,6 +31,7 @@ public class Controller{
     }
 	
 	public void setMenu(Menus menu){
+		System.out.println("It set the model  "+ menu);
 		this.menu = menu;
 	}
 	public Menus getMenu(){
@@ -97,6 +98,7 @@ public class Controller{
     	menu = new PauseMenu(vm);
     	System.out.println("THE START OF SOMETHING NEW");
     	vm.setPauseMode(menu);
+    	menu.setController(this);
     }
 
     public void scrollUp(){

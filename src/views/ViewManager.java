@@ -13,6 +13,8 @@ public class ViewManager extends View{
 	private AreaView areaView;
 	private StatsView statsView;
 	private PauseView pauseView;
+	private InventoryView inventoryView;
+	private EquipmentView equipmentView;
 	private LinkedList<View> menuViews;
 	private String titleText = "Hero Sandwich";
 	private Font titleFont = new Font("Comic Sans MS", Font.ITALIC, 80);
@@ -23,7 +25,9 @@ public class ViewManager extends View{
 		MAIN_MENU,
 		CUSTOMIZE_MENU,
 		GAME,
-		PAUSE
+		PAUSE,
+		INVENTORY_MENU,
+		EQUIPMENT_MENU
 	};
 	private Mode mode;
 
@@ -108,6 +112,22 @@ public class ViewManager extends View{
 			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
 			add(statsView, BorderLayout.LINE_START);
 		}
+		else if(mode == Mode.INVENTORY_MENU){
+			inventoryView.setVisible(true);
+			statsView.setVisible(true);
+			inventoryView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(inventoryView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+			add(statsView, BorderLayout.LINE_START);
+		}
+		else if(mode == Mode.EQUIPMENT_MENU){
+			equipmentView.setVisible(true);
+			statsView.setVisible(true);
+			equipmentView.setPreferredSize(new Dimension(getWidth(), getHeight()));
+			add(equipmentView, BorderLayout.CENTER);
+			statsView.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
+			add(statsView, BorderLayout.LINE_START);
+		}
 		else{
 			//something screwed up
 			//System.out.println("Mode not set. No sub-views rendered");
@@ -161,13 +181,20 @@ public class ViewManager extends View{
 	}
 
 	public void setInventoryMenuMode(){
-		mode = Mode.CUSTOMIZE_MENU;
-		areaView = null;
-		statsView = null;
+		mode = Mode.INVENTORY_MENU;
 		popMenuView();
 
-		View cMenuView = new InventoryView(this.inventoryMenu);
-		pushMenuView(cMenuView);
+		inventoryView = new InventoryView(this.inventoryMenu);
+		pushMenuView(inventoryView);
+		update();
+	}
+
+	public void setEquipmentMenuMode(){
+		mode = Mode.EQUIPMENT_MENU;
+		popMenuView();
+
+		equipmentView = new EquipmentView(this.equipmentMenu);
+		pushMenuView(equipmentView);
 		update();
 	}
 
@@ -182,7 +209,7 @@ public class ViewManager extends View{
 	public void setPauseMode(Menus pMenu){
 		mode = Mode.PAUSE;
 		pauseView = new PauseView(pMenu);
-		menuViews.clear();
+		menuViews.push(pauseView);
 		update();
 	}
 
