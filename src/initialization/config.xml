@@ -7,6 +7,7 @@
         <area-effect-group type="insta-death" height="3" width="2" x-origin="15" y-origin="12"/>
         <area-effect-group type="heal-damage" height="1" width="1" x-origin="3" y-origin="3"/>
         <area-effect-group type="level-up" height="1" width="1" x-origin="13" y-origin="13"/>
+        <area-effect-group type="take-damage" height="2" width="4" x-origin="13" y-origin="3"/>
         <!--takeDamage-->
         <items>
             <!-- Only supported for Equippable at the moment
