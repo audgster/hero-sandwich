@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 
 public class InventoryMenu extends Menus{
-  // private Option currentlySelected;
   private Entity avatar;
   private Item currentlySelectedItem;
   private ArrayList<Item> listOfItems;
@@ -21,6 +20,7 @@ public class InventoryMenu extends Menus{
             new EquipItemOption(), new DropItemOption()}, new ArrayList<Listener>(), vm);
     this.avatar = avatar;
     this.listOfItems = avatar.getInventory().getBag();
+    currentlySelectedItem = listOfItems.get(0);
     System.out.println("the avatar" + this.avatar);
   }
 

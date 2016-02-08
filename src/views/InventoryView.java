@@ -138,6 +138,8 @@ public class InventoryView extends View{
 
   public void update(){
     Item currentlySelectedItem = menu.getCurrentlySelectedItem();
+    System.out.println("The current selected item is " + currentlySelectedItem);
+    System.out.println("The item in position 0 is" + inventoryBag.get(0));
     for(int i = 0; i < inventoryBag.size(); i++){
 			if(inventoryBag.get(i) == currentlySelectedItem){
 				currentIndex = i;
