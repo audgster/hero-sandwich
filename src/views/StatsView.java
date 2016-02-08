@@ -84,7 +84,7 @@ public class StatsView extends View{
 		JProgressBar healthBar = new JProgressBar (0, avatarStats.getLife());
 		healthBar.setValue(avatarStats.getCurrentLife());
 		statsPanel.add(healthBar, c);
-		
+
 		//draw mana icon, draw manabar currMana/maxMana
 		c.gridx = 0;
 		c.gridy = 4;
