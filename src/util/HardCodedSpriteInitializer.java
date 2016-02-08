@@ -9,10 +9,10 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
         HashMap<String, String> spriteMap = new HashMap<>();
 
         //AOE
-        spriteMap.put("AoE_TakeDamageAoE", "../images/AoE_TakeDamage.png");
-		spriteMap.put("AoE_HealDamageAoE", "../images/AoE_HealDamage.png");
-		spriteMap.put("AoE_LevelUpAoE", "../images/AoE_LevelUp.png");
-		spriteMap.put("AoE_InstaDeathAoE", "../images/AoE_InstaDeath.png");
+        spriteMap.put("AoE_TakeDamageAoE", "../images/AoE_TakeDamage.gif");
+		spriteMap.put("AoE_HealDamageAoE", "../images/AoE_HealDamage.gif");
+		spriteMap.put("AoE_LevelUpAoE", "../images/AoE_LevelUp.gif");
+		spriteMap.put("AoE_InstaDeathAoE", "../images/AoE_InstaDeath.gif");
 
         //Items
         spriteMap.put("Item_ConsumableItem", "../images/Item_Consumable.png");
@@ -21,6 +21,12 @@ public class HardCodedSpriteInitializer implements ISpriteMapInitializer
 		spriteMap.put("Item_OneShotItem", "../images/Item_OneShot.png");
 		spriteMap.put("Item_InteractableItem", "../images/Item_Interactable.png");
 		spriteMap.put("Item_ObstacleItem", "../images/Item_Obstacle.png");
+
+		spriteMap.put("Item_Super Sayan SwordEquipableItem", "../images/SuperSayanSword.gif");
+		spriteMap.put("Item_The Boots Of AwesomeEquipableItem", "../images/TheBootsOfAwesome.gif");
+
+        spriteMap.put("Item_Healing Super PotionStatModifyingOneShotItem", "../images/Item_Equipable.png");
+        spriteMap.put("Item_Mediocre Healing PostionStatModifyingConsumableItem", "../images/Item_Equipable.png");
 
         //Entity
         spriteMap.put("Entity_Smasher_NORTH", "../images/Entity_Smasher_N.png");
