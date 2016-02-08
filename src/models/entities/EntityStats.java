@@ -39,8 +39,8 @@ public class EntityStats extends Stats {
         try {
             setLivesLeft(livesLeft);
             setXp(xp);
-            setCurrentLife(curLife);
-            setCurrentMana(curMana);
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
         }
         catch (InvalidStatException ex)
         {
@@ -54,8 +54,8 @@ public class EntityStats extends Stats {
         try {
             setLivesLeft(3);
             setXp(xp);
-            setCurrentLife(10);
-            setCurrentMana(5);
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
         }
         catch (InvalidStatException ex)
         {
@@ -231,6 +231,15 @@ public class EntityStats extends Stats {
             return 0;
 
         --livesLeft;
+        // Restore life & mana
+        try {
+            setCurrentLife(getLife());
+            setCurrentMana(getMana());
+        }
+        catch (InvalidStatException ex)
+        {
+            ex.printStackTrace();
+        }
         return livesLeft;
     }
 

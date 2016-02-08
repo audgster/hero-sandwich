@@ -17,6 +17,7 @@ public class EquipmentView extends MenuView{
 
   protected void render(){
     removeAll();
+
     GridBagConstraints gBC = new GridBagConstraints();
     JLabel inventoryTitle = new JLabel("Equipment");
     JLabel[] grids = new JLabel[5];
