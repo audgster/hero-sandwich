@@ -9,18 +9,6 @@ import java.awt.geom.*;
 
 public class StatsProgressBarUI extends BasicProgressBarUI {
 	
-	/*
-	@Override
-    protected Dimension getPreferredInnerVertical() {
-        return new Dimension(20, 146);
-    }
-
-    @Override
-    protected Dimension getPreferredInnerHorizontal() {
-        return new Dimension(146, 20);
-    }
-	*/
-	
 	@Override
 	protected void paintDeterminate(Graphics g, JComponent c) {
 		
@@ -60,27 +48,15 @@ public class StatsProgressBarUI extends BasicProgressBarUI {
 		Point2D start = new Point2D.Double(x, y);
 		Point2D end = new Point2D.Double(x, y + iInnerHeight);
 		
-		/*
-		float[] dist = {0.0f, 0.25f, 1.0f};
-		Color[] colors = {progressBar.getForeground(), progressBar.getForeground().brighter(), progressBar.getForeground().darker()};
-		LinearGradientPaint p = new LinearGradientPaint(start, end, dist, colors);
-		
-		g2d.setPaint(p);
-		*/
-		
 		RoundRectangle2D fill = new RoundRectangle2D.Double(iStrokWidth * 2, iStrokWidth * 2,
 				iInnerWidth, iInnerHeight, iInnerHeight, iInnerHeight);
 		
 		g2d.fill(fill);
-		/*
-		Point textPoint = getStringPlacement(g2d, progressBar.getString(),
-				progressBar.getX(), progressBar.getY(), progressBar.getWidth(),
-				progressBar.getHeight());
-		*/
 		
 		g2d.setFont(progressBar.getFont());
-		g2d.setColor(progressBar.getBackground());
-		g2d.setXORMode(progressBar.getForeground());
+		//g2d.setColor(progressBar.getBackground());
+		//g2d.setXORMode(progressBar.getForeground());
+		g2d.setColor(Color.WHITE);
 		FontMetrics fm = g2d.getFontMetrics(progressBar.getFont());
 		String string = progressBar.getString();
 		int stringHeight = fm.getHeight();
