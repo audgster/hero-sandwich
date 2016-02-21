@@ -12,6 +12,7 @@ public class Avatar{
        private int movementSpeed = 1;
        private int changeAvatar = 0;
        private char direction=' ';
+       private int animationSpeed = 0;
 
 
 
@@ -29,11 +30,14 @@ public class Avatar{
             }
 	}
     public void tick(){
-        if(x%64!=0){
-            if(direction=='w')goUp();
-            if(direction=='a')goLeft();
-            if(direction=='s')goDown();
-            if(direction=='d')goRight();
+        if(x%64!=0 || y%64!=0){
+            if(animationSpeed%6==0){
+                if(direction=='w')goUp();
+                if(direction=='a')goLeft();
+                if(direction=='s')goDown();
+                if(direction=='d')goRight();
+            }
+            animationSpeed++;
         }
     }
     public void change(){
@@ -46,13 +50,21 @@ public class Avatar{
     public void executeUserInput(char input){
         int newInput =  (int) input - 48;
         switch(input){
-            case 'w': goUp();
+            case 'w': if(y%64==0){
+                        goUp();
+                      }
                     break;
-            case 'a': goLeft();
+            case 'a': if(x%64==0){
+                        goLeft();
+                      }
                     break;
-            case 's': goDown();
+            case 's': if(y%64==0){
+                        goDown();
+                      }
                     break;
-            case 'd': goRight();
+            case 'd': if(x%64==0){
+                        goRight();
+                      }
                     break;
             default: break;
         }

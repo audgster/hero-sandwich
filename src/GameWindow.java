@@ -104,9 +104,7 @@ public class GameWindow extends Canvas implements Runnable, KeyListener{
 		g.setFont(new Font("TimesRoman", Font.BOLD, 15)); 
 		int stringWidth = g.getFontMetrics().stringWidth(frameRate);
 		g.drawString(frameRate, getWidth()-stringWidth,getHeight());
-
-		System.out.println(frameRate);
-
+		
 		g.dispose();
 		bs.show();
 	}
