@@ -34,6 +34,7 @@ public class GameWindow extends Canvas implements Runnable, KeyListener{
 	private int[] tiles = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 	private Tile tile = new Tile();
 	private Avatar avatar = new Avatar();
+	private int sizeMultiplier = 1.5;
 
 
 	public GameWindow(){
@@ -87,16 +88,18 @@ public class GameWindow extends Canvas implements Runnable, KeyListener{
 		//draws the tiles on the map
 		int w = 0,h = 0;
 		for(int t = 0; t < 130; t++){
-			if(w == getWidth()/image.getWidth()+1){
+			if(w == getWidth()/(image.getWidth()*sizeMultiplier)+1){
 				h++;
 				w = 0;
 			}
-			g.drawImage(image, w*image.getWidth(), h*image.getHeight(),null);
+			g.drawImage(image, w*image.getWidth()*sizeMultiplier, h*image.getHeight()*sizeMultiplier,
+							   image.getWidth()*sizeMultiplier, image.getHeight()*sizeMultiplier, null);
 			w++;
 		}
 
 		//draws the avatar on the map
-		g.drawImage(avatar.image, avatar.x, avatar.y,null);
+		g.drawImage(avatar.image, avatar.x*sizeMultiplier, avatar.y*sizeMultiplier,
+					avatar.image.getWidth()*sizeMultiplier, avatar.image.getHeight()*sizeMultiplier, null);
 
 
 		//draws the frame rate string to bottom right of screen
