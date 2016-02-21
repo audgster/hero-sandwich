@@ -18,12 +18,12 @@ public class Avatar{
 	public Avatar(){
        image = null;
             try {
-                    image = ImageIO.read(Tile.class.getResourceAsStream("sprite_avatar2.png"));
+                    image = ImageIO.read(Tile.class.getResourceAsStream("sprite_avatar2.gif"));
             } catch (IOException e) {
                     e.printStackTrace();
             }
             try {
-                    image2 = ImageIO.read(Tile.class.getResourceAsStream("sprite_avatar1.png"));
+                    image2 = ImageIO.read(Tile.class.getResourceAsStream("sprite_avatar1.gif"));
             } catch (IOException e) {
                     e.printStackTrace();
             }
