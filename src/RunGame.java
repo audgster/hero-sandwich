@@ -1,29 +1,31 @@
-import models.entities.Entity;
-import models.entities.EntityStats;
-import models.entities.Smasher;
-import util.Direction;
-import util.EntityIdentifier;
+import java.net.URL;
 
-public class RunGame{
+import javafx.application.Application;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-	public static void main(String[] args)
-  	{
-        GameWindow gw = new GameWindow();
-        gw.setVisible(true);
+public class RunGame extends Application{
 
-    // Entity entity = new Entity("EntityTest",
-    //         new Smasher(),
-    //         new EntityStats(10, 10, 10, 10, 10, 3, 0, 100, 100),
-    //         EntityIdentifier.GROUND,
-    //         Direction.NORTH);
+    public static void main(String args[]){
+        launch(args);
+    }
 
-    // System.out.println(entity.getEntityStats().getLife());
-    // System.out.println(entity.getEntityStats().getCurrentLife());
+    @Override
+    public void start(Stage primaryStage) {
+      final URL resource = getClass().getResource("themeSong.mp3");
+      final Media media = new Media(resource.toString());
+      final MediaPlayer mediaPlayer = new MediaPlayer(media);
+      mediaPlayer.setOnEndOfMedia(new Runnable() {
+       	public void run() {
+        	mediaPlayer.seek(Duration.ZERO);
+        }
+      });
+      mediaPlayer.play();
 
-    // Entity entity2 = new Entity();
+         GameWindow gw = new GameWindow(); 
+         gw.start();
 
-
-    // System.out.println(entity2.getEntityStats().getLife());
-    // System.out.println(entity2.getEntityStats().getCurrentLife());
-	}
+    }
 }
