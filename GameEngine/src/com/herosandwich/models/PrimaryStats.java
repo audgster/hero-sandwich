@@ -2,6 +2,8 @@ package com.herosandwich.models;
 
 public class PrimaryStats
 {
+    private int lives;
+
     private int strength;
     private int agility;
     private int intellect;
@@ -10,8 +12,10 @@ public class PrimaryStats
     private int experience;
     private int movement;
 
-    public PrimaryStats(int strength, int agility, int intellect, int hardiness, int experience, int movement)
+    public PrimaryStats(int lives, int strength, int agility, int intellect, int hardiness, int experience, int movement)
     {
+        this.lives = lives;
+
         this.strength = strength;
         this.agility = agility;
         this.intellect = intellect;
@@ -22,12 +26,19 @@ public class PrimaryStats
 
     public PrimaryStats()
     {
+        this.lives = 0;
+
         this.strength = 0;
         this.agility = 0;
         this.intellect = 0;
         this.hardiness = 0;
         this.experience = 0;
         this.movement = 0;
+    }
+
+    public int getLives()
+    {
+        return lives;
     }
 
     public int getStrength()
@@ -58,6 +69,11 @@ public class PrimaryStats
     public int getMovement()
     {
         return movement;
+    }
+
+    public void setLives(int lives)
+    {
+        this.lives = lives;
     }
 
     public void setStrength(int strength)
