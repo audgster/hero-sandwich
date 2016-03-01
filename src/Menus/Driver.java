@@ -19,12 +19,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Driver {
-    //public static void main(String []args) {
+public class Driver extends Application {
+    public static void main(String []args) {
         launch(args);
     }
 
-/*
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Welcome to JavaFX");
         GridPane gridPane = new GridPane();
