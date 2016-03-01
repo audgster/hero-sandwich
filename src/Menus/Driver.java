@@ -19,18 +19,13 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
-public class FirstMenu extends Application {
+public class Driver extends Application {
     public static void main(String []args) {
         launch(args);
     }
 
     public void start(Stage primaryStage) {
-
-    }
-/*
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hero-Sandwich");
+        primaryStage.setTitle("Welcome to JavaFX");
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setVgap(10);
@@ -94,9 +89,31 @@ public class FirstMenu extends Application {
     }
 
     private void setSceneTitle(GridPane gridPane) {
-        Text screenTitle = new Text("Hero-Sandwich");
+        Text screenTitle = new Text("Welcome");
         screenTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPane.add(screenTitle, 0, 0, 2, 1);
+    }
+
+
+
+    /*
+    Hello World Example
+    @Override
+    public void start(Stage primaryStage) {
+        //primaryStage.setTitle("Hello World");
+        Button button = new Button();
+        button.setText("Say 'Hello World'!");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              System.out.println("Hello World!");
+            }
+        });
+
+        StackPane root = new StackPane();
+        root.getChildren().add(button);
+        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.show();
     }
     */
 
