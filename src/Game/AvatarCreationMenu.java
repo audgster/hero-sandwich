@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 
 
@@ -23,6 +24,7 @@ public class AvatarCreationMenu{
 
 	public void createScene(Stage primaryStage){
 		Label text = new Label("Testing Chalk Font");
+		//text.setFont(Font.loadFont("file:../../resources/fonts/chalk_font_family.ttf", 120));
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
