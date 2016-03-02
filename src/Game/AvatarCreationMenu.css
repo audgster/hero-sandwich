@@ -1,0 +1,9 @@
+@font-face {
+	font-family: CHALK;
+	scr:uri('chalk_font_family.ttf');
+}
+
+.label{
+	-fx-font-family: 'CHALK';
+	-fx-font-size: 100px;
+}
