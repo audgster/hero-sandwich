@@ -15,7 +15,7 @@ public class GameWindow extends Application{
     @Override
     public void start(Stage primaryStage) {
     	primaryStage.setTitle("HeroSandwich");
-    	MainMenu main = new MainMenu(HEIGHT*SCALE, WIDTH*SCALE);
-        main.createScene(primaryStage);
+    	MainMenu main = new MainMenu();
+        main.renderMenu(primaryStage);
     }
 }

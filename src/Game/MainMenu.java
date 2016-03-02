@@ -1,5 +1,6 @@
 package Game;
 
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.Scene;
@@ -14,18 +15,12 @@ import javafx.scene.layout.VBox;
 
 
 public class MainMenu{
-	private double height, width;
-	public MainMenu(double height, double width){
-		this.height = height;
-		this.width = width;
-	}
 
-	public void createScene(Stage primaryStage){
+	public void renderMenu(Stage primaryStage){
 		GridPane layout = createLayout();
-		Scene scene = new Scene(layout, height, width);
+		Scene scene = new Scene(layout, 600, 500);
 		primaryStage.setScene(scene);
-        scene.getStylesheets().add
-            (MainMenu.class.getResource("MainMenu.css").toExternalForm());
+        scene.getStylesheets().add(MainMenu.class.getResource("MainMenu.css").toExternalForm());
         primaryStage.show();
 	}
 
@@ -40,28 +35,41 @@ public class MainMenu{
 
 	private GridPane populateLayout(GridPane layout){
 		//creates main menu image
-		Image image = new Image("Game/gameLogo.gif");
-		ImageView iv = new ImageView();
-	    iv.setFitWidth(100);
-	    iv.setFitHeight(100);
-		iv.setImage(image);
-		layout.add(iv,0,0);
+		//Image image = new Image("Game/gameLogo.gif");
+		addMainMenuImage(layout);
 
-		//creates main menu title
-		Label gameTitle = new Label("Hero Sandwich");
-		VBox vBoxTemp = new VBox();
-		vBoxTemp.setAlignment(Pos.BOTTOM_CENTER);
-		vBoxTemp.getChildren().add(gameTitle);
-		layout.add(vBoxTemp,0,1);
+		setMenuTitle(layout, "Hero Sandwich");
 
-		//creates main menu options
+		addMainMenuOptions(layout);
+
+		return layout;
+	}
+
+	private void addMainMenuImage(GridPane layout) {
+		HBox imageBox = new HBox();
+		ImageView image = new ImageView();
+		image.setFitWidth(200);
+		image.setFitHeight(200);
+		image.setId("image");
+		imageBox.getChildren().add(image);
+		imageBox.setAlignment(Pos.CENTER);
+		layout.add(imageBox, 0, 0);
+	}
+
+	private void addMainMenuOptions(GridPane layout) {
 		VBox vBox = new VBox();
 		vBox = createCenteredBottomButton(vBox, "New Game");
 		vBox = createCenteredBottomButton(vBox, "Load Game");
 		vBox = createCenteredBottomButton(vBox, "Exit");
 		layout.add(vBox,0,3);
+	}
 
-		return layout;
+	private void setMenuTitle(GridPane layout, String title) {
+		Label gameTitle = new Label(title);
+		VBox vBoxTemp = new VBox();
+		vBoxTemp.setAlignment(Pos.BOTTOM_CENTER);
+		vBoxTemp.getChildren().add(gameTitle);
+		layout.add(vBoxTemp,0,1);
 	}
 
 	private VBox createCenteredBottomButton(VBox vBox, String title){
