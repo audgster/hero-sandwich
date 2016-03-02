@@ -33,6 +33,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+//Mortal Combat Game menu
 public class GameWindow2 extends Application {
 
     private static final Font FONT = Font.font("", FontWeight.BOLD, 18);
