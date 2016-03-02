@@ -46,8 +46,8 @@ public class Driver extends Application {
 
     private void setSignInButton(GridPane gridPane) {
         Button signInButton = new Button("Sign In");
-        HBox hBoxButton = new HBox(10);
-        hBoxButton.setAlignment(Pos.BOTTOM_RIGHT);
+        HBox hBoxButton = new HBox();
+        hBoxButton.setAlignment(Pos.BOTTOM_CENTER);
         hBoxButton.getChildren().add(signInButton);
         gridPane.add(hBoxButton, 1, 3, 1, 1);
 

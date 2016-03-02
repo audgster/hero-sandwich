@@ -1,0 +1,9 @@
+.label {
+    -fx-font: FONT.DEFAULT;
+    -fx-underline: true;
+    -fx-font-size: NORMAL;
+}
+
+#image-view {
+    -fx-image: url("http://cdn1-www.cattime.com/assets/uploads/gallery/25-cat-memes/Cat-meme_024.jpg");
+}
