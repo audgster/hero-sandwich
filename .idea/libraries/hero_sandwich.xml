@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="hero-sandwich">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/hero-sandwich.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
