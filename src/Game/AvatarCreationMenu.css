@@ -2,8 +2,57 @@
 	font-family: 'Chalk-hand-lettering-shaded_dem';
 	src:url('../../resources/fonts/chalk_font_family.ttf');
 }
+.root{
+	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
+	-fx-background-size: cover;
+}
+#background_rectangle{
+	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
+}
+#Smasher_image{
+	-fx-image: url('../../resources/images/grayscale_smasher.gif');
+	-fx-opacity: 0.75;
+}
+#Smasher_image2{
+	-fx-image: url('gameLogo.gif');
+	-fx-opacity: 0.75;
+}
+#Sneak_image{
+	-fx-image: url('../../resources/images/grayscale_sneak.gif');
+	-fx-opacity: 0.75;
+}
+#Sneak_image2{
+	-fx-image: url('../../resources/images/sneak.gif');
+	-fx-opacity: 0.75;
+}
+#Summoner_image{
+	-fx-image: url('../../resources/images/grayscale_summoner.gif');
+	-fx-opacity: 0.75;
+}
+#Summoner_image2{
+	-fx-image: url('../../resources/images/summoner.gif');
+	-fx-opacity: 0.75;
+}
+#menu_title{
+	-fx-font-family: 'Chalk-hand-lettering-shaded_dem';
+	-fx-font-size: 75px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.5;
+}
+#buttons{
+	-fx-font-family: 'Chalk-hand-lettering-shaded_dem';
+	-fx-font-size: 20px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.5;
+}
 
 .label{
 	-fx-font-family: 'Chalk-hand-lettering-shaded_dem';
-	-fx-font-size: 100px;
+	-fx-font-size: 30px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.5;
 }
+
