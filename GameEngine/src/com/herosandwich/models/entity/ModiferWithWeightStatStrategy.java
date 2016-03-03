@@ -1,4 +1,4 @@
-package com.herosandwich.models;
+package com.herosandwich.models.entity;
 
 public class ModiferWithWeightStatStrategy extends DeriveStatStrategy
 {

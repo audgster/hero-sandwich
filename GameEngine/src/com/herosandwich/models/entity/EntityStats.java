@@ -1,4 +1,4 @@
-package com.herosandwich.models;
+package com.herosandwich.models.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,18 @@ public class EntityStats
         primaryStats = new PrimaryStats();
         derivedStats = new DerivedStats(strategy);
         flatBonus = new ArrayList<>();
-        totalStats = new DerivedStats(strategy);
+        totalStats = new DerivedStats();
+
+        updateDerivedStats();
+        calculateTotalDerivedStats();
+    }
+
+    public EntityStats()
+    {
+        primaryStats = new PrimaryStats();
+        derivedStats = new DerivedStats();
+        flatBonus = new ArrayList<>();
+        totalStats = new DerivedStats();
 
         updateDerivedStats();
         calculateTotalDerivedStats();
@@ -29,7 +40,7 @@ public class EntityStats
     {
         primaryStats = new PrimaryStats();
         derivedStats = new DerivedStats(strategy);
-        totalStats = new DerivedStats(strategy);
+        totalStats = new DerivedStats();
         flatBonus = new ArrayList<>();
         addPrimaryStats(occupation);
 
@@ -159,6 +170,9 @@ public class EntityStats
         if (valid)
         {
             flatBonus.add(stat);
+
+            if (flatBonus.size() > 50)
+                compressFlatBonus();
         }
 
         calculateTotalDerivedStats();
@@ -188,6 +202,32 @@ public class EntityStats
         }
 
         return true;
+    }
+
+    private void compressFlatBonus()
+    {
+        int[] statArray = new int[6];
+
+
+        for (DerivedStats d : flatBonus)
+        {
+            statArray[0] += d.getLevel();
+            statArray[1] += d.getLife();
+            statArray[2] += d.getMana();
+            statArray[3] += d.getOffensiveRating();
+            statArray[4] += d.getDefensiveRating();
+            statArray[5] += d.getArmorRating();
+        }
+
+        flatBonus.clear();
+
+        flatBonus.add(new DerivedStats(
+                statArray[0],
+                statArray[1],
+                statArray[2],
+                statArray[3],
+                statArray[4],
+                statArray[5]));
     }
 
     /*
