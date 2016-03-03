@@ -15,6 +15,8 @@ public class GameWindow extends Application{
     @Override
     public void start(Stage primaryStage) {
         AvatarCreationMenu ac = new AvatarCreationMenu();
-        ac.createScene(primaryStage);
+        //ac.createScene(primaryStage);
+        InventoryMenu inventoryMenu = new InventoryMenu();
+        inventoryMenu.renderMenu(primaryStage);
     }
 }

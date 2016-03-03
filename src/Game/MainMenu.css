@@ -1,5 +1,6 @@
 .root {
-     -fx-background-image: url("gameLogo.jpg");
+     -fx-background-image: url("gameLogo.gif");
+     -fx-background-size: cover;
 }
 
 #image {
