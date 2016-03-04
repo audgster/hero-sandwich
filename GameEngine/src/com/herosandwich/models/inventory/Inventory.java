@@ -1,7 +1,7 @@
 package com.herosandwich.models.inventory;
 
 import com.herosandwich.models.items.Item;
-import com.herosandwich.models.items.TakeableItem;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
 
 import java.util.ArrayList;
 import java.util.List;

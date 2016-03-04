@@ -1,6 +1,6 @@
-package com.herosandwich.models.items;
+package com.herosandwich.models.items.takeableItems;
 
-public class ConsumableItem extends TakeableItem{
+public class ConsumableItem extends TakeableItem {
   public ConsumableItem(String name){
     super(name);
   }

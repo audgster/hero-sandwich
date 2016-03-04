@@ -1,6 +1,8 @@
-package com.herosandwich.models.items;
+package com.herosandwich.models.items.takeableItems;
 
-public abstract class TakeableItem extends Item{
+import com.herosandwich.models.items.Item;
+
+public abstract class TakeableItem extends Item {
   public TakeableItem(String name){
       super(name);
   }

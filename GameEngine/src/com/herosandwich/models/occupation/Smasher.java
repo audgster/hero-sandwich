@@ -9,19 +9,30 @@ public class Smasher extends Property{
     private int oneHandedWeaponSkill = 1;
     private int twoHandedWeaponSkill = 1;
 
-    public void brawl(){
+    //possibly visitor pattern!!
+    public void attack(){
+        if(true){
+            oneHandedAttack();
+        }else if(false){
+            twoHandedAttack();
+        }else{
+            brawl();
+        }
+    }
+
+    private void brawl(){
         if(successfulAction(brawlSkill) ){
 
         }
     }
 
-    public void oneHandedAttack(){
+    private void oneHandedAttack(){
         if(successfulAction(oneHandedWeaponSkill) ){
 
         }
     }
 
-    public void twoHandedAttack(){
+    private void twoHandedAttack(){
         if(successfulAction(twoHandedWeaponSkill) ){
 
         }

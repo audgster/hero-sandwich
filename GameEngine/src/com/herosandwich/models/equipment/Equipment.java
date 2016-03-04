@@ -1,7 +1,7 @@
 package com.herosandwich.models.equipment;
 
-import com.herosandwich.models.items.EquipableItem;
-import com.herosandwich.models.items.TakeableItem;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 
 import java.util.HashMap;
 

@@ -1,6 +1,5 @@
 package com.herosandwich.models.items;
 
-import com.herosandwich.models.*;
 import com.herosandwich.models.entity.Entity;
 
 public abstract class Item{
