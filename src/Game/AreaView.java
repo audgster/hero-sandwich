@@ -9,21 +9,19 @@ import javafx.scene.paint.Color;
 
 
 
-public class AreaView{
+public class AreaView implements Runnable {
 	public AreaView(){}
 
-	public void createScene(Stage primaryStage){
-		Group root = new Group();
-		Scene scene = new Scene(root, primaryStage.getHeight(), primaryStage.getWidth(), Color.BLACK);
-		final Canvas canvas = new Canvas(600, 600);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
+	public void renderAreaView(Stage primaryStage) {
+		Thread gameLoop = new Thread(this);
 
-		gc.setFill(Color.BLUE);
-		gc.fillRect(0,0,500,500);
-		root.getChildren().add(canvas);
-
-		primaryStage.setScene(scene);
-		primaryStage.show();
-		System.out.println(primaryStage.getHeight());
 	}
+
+	@Override
+	public void run(){
+
+	}
+
+
+
 }
