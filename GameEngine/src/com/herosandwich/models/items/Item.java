@@ -1,6 +1,7 @@
 package com.herosandwich.models.items;
 
 import com.herosandwich.models.*;
+import com.herosandwich.models.entity.Entity;
 
 public abstract class Item{
   protected String name;
@@ -13,5 +14,5 @@ public abstract class Item{
     return name;
   };
 
-  //public void executeInteraction( Entity entity){}
+  public void executeInteraction( Entity entity){}
 }
