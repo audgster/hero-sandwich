@@ -1,3 +1,13 @@
 .root {
-     -fx-background-image: url("gameLogo.jpg");
+     -fx-background-image: url("gameLogo.gif");
+     -fx-background-size: cover;
+}
+
+#image {
+    -fx-image: url("gameLogo.gif");
+}
+
+.label {
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 40;
 }

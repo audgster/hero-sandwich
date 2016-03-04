@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'Chalk-hand-lettering-shaded_dem';
+	scr:uri('chalk_font_family.ttf');
+}
+
+
+.menu-item {
+    -fx-font-family: 'Chalk-hand-lettering-shaded_dem';
+    -fx-text-fill: white;
+}

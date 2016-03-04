@@ -1,3 +1,5 @@
+package Game;
+
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -37,7 +39,7 @@ import javafx.util.Duration;
 //Mortal Combat Game menu
 public class GameWindow2 extends Application {
 
-    private static final Font FONT = Font.font("", FontWeight.BOLD, 18);
+    //private static final Font FONT = Font.font("", FontWeight.BOLD, 18);
 
     private VBox menuBox;
     private int currentItem = 0;
@@ -48,7 +50,8 @@ public class GameWindow2 extends Application {
 
     private Parent createContent() throws Exception {
         Pane root = new Pane();
-        root.setPrefSize(900, 600);
+        root.getStylesheets().add("GameWindow2.css");
+        //root.setPrefSize(900, 600);
 
         // InputStream is = Files.newInputStream(Paths.get("game_bg.jpg"));
         // Image img = new Image(is);
@@ -66,6 +69,7 @@ public class GameWindow2 extends Application {
         HBox hbox = new HBox(15, frame1, frame2, frame3);
         hbox.setTranslateX(120);
         hbox.setTranslateY(50);
+        hbox.setId("top-frame-HBox");
 
         MenuItem itemExit = new MenuItem("EXIT");
         itemExit.setOnActivate(() -> System.exit(0));
@@ -87,7 +91,7 @@ public class GameWindow2 extends Application {
         about.setTranslateX(50);
         about.setTranslateY(500);
         about.setFill(Color.WHITE);
-        about.setFont(FONT);
+        //about.setFont(FONT);
         about.setOpacity(0.2);
 
         getMenuItem(0).setActive(true);
@@ -109,7 +113,7 @@ public class GameWindow2 extends Application {
                 ft.setToValue(0);
 
                 ParallelTransition pt = new ParallelTransition(tt, ft);
-                pt.setOnFinished(e -> {
+                pt.setOnFinished(event -> {
                     inbox.setTranslateY(-150);
                     inbox.setText("You have " + ++messages + " new message(-s)");
 
@@ -135,7 +139,7 @@ public class GameWindow2 extends Application {
         letters.setAlignment(Pos.CENTER);
         for (int i = 0; i < title.length(); i++) {
             Text letter = new Text(title.charAt(i) + "");
-            letter.setFont(FONT);
+            //letter.setFont(FONT);
             letter.setFill(Color.WHITE);
             letters.getChildren().add(letter);
 
@@ -156,7 +160,7 @@ public class GameWindow2 extends Application {
         letters.setAlignment(Pos.CENTER);
         for (int i = 0; i < title.length(); i++) {
             Text letter = new Text(title.charAt(i) + "");
-            letter.setFont(FONT);
+            //letter.setFont(FONT);
             letter.setFill(Color.WHITE);
             letter.setOpacity(0);
             letters.getChildren().add(letter);
@@ -199,7 +203,7 @@ public class GameWindow2 extends Application {
             setAlignment(Pos.CENTER);
 
             text = new Text(name);
-            text.setFont(FONT);
+            //text.setFont(FONT);
             text.setEffect(new GaussianBlur(2));
 
             getChildren().addAll(c1, text, c2);

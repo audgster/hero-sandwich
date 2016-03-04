@@ -1,0 +1,28 @@
+.root {
+    -fx-background-color: black;
+}
+
+@font-face {
+	font-family: 'MyCustomfont';
+	src: url('chalk_font_family.ttf');
+}
+
+#title {
+    -fx-font-family: 'MyCustomfont';
+    -fx-font-size: 40;
+    -fx-text-fill: white;
+}
+
+#grid-positions {
+    -fx-fill: gray;
+}
+
+#grid-positions-text {
+    -fx-font-family: 'Chalk-hand-lettering-shaded_dem';
+    -fx-font-size: 12;
+    -fx-text-fill: white;
+}
+
+#grid {
+    //-fx-background-color: white;
+}
