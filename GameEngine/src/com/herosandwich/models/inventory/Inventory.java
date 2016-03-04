@@ -1,6 +1,8 @@
 package com.herosandwich.models.inventory;
 
 import com.herosandwich.models.items.Item;
+import com.herosandwich.models.items.TakeableItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,21 +10,28 @@ import java.util.List;
  * Created by matthewdiaz on 3/4/16.
  */
 public class Inventory {
-    private List<Item> inventory;
+    private List<TakeableItem> inventory;
+    private int capacity;
 
     public Inventory(){
         inventory = new ArrayList();
     }
 
-    public void insertItem(Item item){
+    public boolean insertItem(TakeableItem item)
+    {
+        if (inventory.size() == capacity)
+            return false;
+
         inventory.add(item);
+        return true;
     }
 
-    public boolean removeItem(Item item){
+    public boolean removeItem(Item item)
+    {
         return inventory.remove(item);
     }
 
-    public List<Item> getInventory(){
+    public List<TakeableItem> getInventory(){
         return inventory;
     }
 }
