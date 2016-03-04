@@ -1,7 +1,5 @@
 package com.herosandwich.models.entity;
 
-import java.util.HashMap;
-
 public class Player extends Character {
 
     // Overriding for the freeing of skill points

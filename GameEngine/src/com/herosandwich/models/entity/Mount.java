@@ -3,15 +3,40 @@ package com.herosandwich.models.entity;
 public class Mount extends Entity
 {
     private Entity rider;
+    private int movement;
+
+    /*
+    * Constructors
+    * */
 
     public Mount()
     {
-        rider = null;
+        this.rider = null;
+        this.movement = 1;
     }
 
     public Mount(Entity entity)
     {
         this.rider = entity;
+        this.movement = 1;
+    }
+
+    public Mount(int movement)
+    {
+        this.rider = null;
+        this.movement = movement;
+    }
+
+    public Mount(Entity rider, int movement)
+    {
+        this.rider = rider;
+        this.movement = movement;
+    }
+
+    public Mount(Mount mount)
+    {
+        this.rider = mount.getRider();
+        this.movement = mount.getMovement();
     }
 
     /*
@@ -21,6 +46,12 @@ public class Mount extends Entity
     public Entity getRider()
     {
         return this.rider;
+    }
+
+    @Override
+    public int getMovement()
+    {
+        return this.movement;
     }
 
     // Which methods should be forwarded to the rider?
