@@ -11,5 +11,5 @@ public enum EquipmentSlots
     LEFTARM,
     RIGHTARM,
     LEFTHAND,
-    RIGHTHAND,
+    RIGHTHAND
 }
