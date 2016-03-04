@@ -15,7 +15,6 @@ public class PrimaryStats
     public PrimaryStats(int lives, int strength, int agility, int intellect, int hardiness, int experience, int movement)
     {
         this.lives = lives;
-
         this.strength = strength;
         this.agility = agility;
         this.intellect = intellect;

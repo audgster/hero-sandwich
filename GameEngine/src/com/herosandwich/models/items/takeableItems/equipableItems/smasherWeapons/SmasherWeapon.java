@@ -1,4 +1,5 @@
 package com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons;
+import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 
 /**
@@ -6,11 +7,13 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
  */
 
 public abstract class SmasherWeapon extends EquipableItem {
-    public SmasherWeapon(String name){
-        super(name);
+    public SmasherWeapon(String name, DerivedStats dervidedStat){
+        super(name, dervidedStat);
     }
 
-    public boolean isPickable(){
-        return true;
+    @Override
+    public void getPickedUp(){
+        //Only pickable if entity has occupation Smasher
     }
+
 }

@@ -1,4 +1,5 @@
 package com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons;
+import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 
 /**
@@ -6,8 +7,13 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
  */
 
 public abstract class SneakWeapon extends EquipableItem {
-    public SneakWeapon(String name){
-        super(name);
+    public SneakWeapon(String name, DerivedStats dervidedStat){
+        super(name, dervidedStat);
+    }
+
+    @Override
+    public void getPickedUp(){
+        //Only pickable if entity has occupation Sneak
     }
 
 }

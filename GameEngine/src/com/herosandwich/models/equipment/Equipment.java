@@ -36,6 +36,17 @@ public class Equipment {
     {
         TakeableItem returnItem = null;
 
+        if (equipment.containsKey(location)){
+            returnItem = equipment.get(location);
+            equipment.remove(returnItem);
+        }
+
+        return returnItem;
+    }
+
+    public EquipableItem getEquipableItem(EquipmentSlots location){
+        EquipableItem returnItem = null;
+
         if (equipment.containsKey(location))
             returnItem = equipment.get(location);
 

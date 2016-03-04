@@ -1,15 +1,40 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.models.equipment.Equipment;
+import com.herosandwich.models.equipment.EquipmentSlots;
+import com.herosandwich.models.inventory.Inventory;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Smasher;
+
+import java.util.HashMap;
+import java.util.List;
+
 public abstract class Entity
 {
     /*
     * Stats
     * */
     private EntityStats stats;
+    private Property occupation;
+    private Inventory inventory;
+    private Equipment equipment;
 
     public Entity()
     {
         stats = new EntityStats();
+        occupation = new Smasher();
+        inventory = new Inventory();
+        equipment = new Equipment();
+    }
+
+    public Entity(Property occupation)
+    {
+        this.occupation = occupation;
+        stats = new EntityStats();
+        inventory = new Inventory();
+        equipment = new Equipment();
     }
 
     /*
@@ -81,6 +106,37 @@ public abstract class Entity
     public int getArmorRating()
     {
         return stats.getArmorRating();
+    }
+
+    public Property getOccupation(){ return occupation; }
+
+    public List<TakeableItem> getInventory(){ return inventory.getInventory(); }
+
+    public HashMap<EquipmentSlots, EquipableItem> getEquipment(){ return equipment.getEquipment(); }
+
+    public EquipableItem getEquipedItem(EquipmentSlots location){
+        return equipment.getEquipableItem(location);
+    }
+
+    public void insertItemToInventory(TakeableItem item){
+        inventory.insertItem(item);
+    }
+
+    public void equipItem(EquipableItem item, EquipmentSlots location){
+        if(inventory.removeItem(item)) {
+            equipment.insertItem(item, location);
+        }
+    }
+
+    public boolean removeItemFromInventory(TakeableItem item){
+        return inventory.removeItem(item);
+    }
+
+    public void removeItemFromEquipment(EquipmentSlots location){
+        TakeableItem item = equipment.removeItem(location);
+        if(item != null){
+            inventory.insertItem(item);
+        }
     }
 
     /*
