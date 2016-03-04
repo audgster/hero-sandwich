@@ -26,8 +26,9 @@ public class AvatarCreationMenu{
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
-	public void createScene(Stage primaryStage){
+	public void createScene(Stage primaryStage){        
         root = new BorderPane();
+            root.setPrefSize(900,600);
 		Label menuTitle = new Label("Occupation Menu");
 			menuTitle.setId("menu_title");
 			root.setTop(menuTitle);
@@ -40,7 +41,12 @@ public class AvatarCreationMenu{
         createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
         root.setCenter(smasherMenu);
-		Scene scene = new Scene(root,900,600);
+
+        PauseMenu pm = new PauseMenu();
+        StackPane pauseMenu = pm.createScene(root);
+        Scene scene = new Scene(pauseMenu,900,600);
+        //Scene scene = new Scene(root,900,600);
+
         primaryStage.setScene(scene);
         scene.getStylesheets().add
             (AvatarCreationMenu.class.getResource("AvatarCreationMenu.css").toExternalForm());
@@ -48,8 +54,9 @@ public class AvatarCreationMenu{
 	}
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
-        StackPane next = createBtn("NEXT");
+        StackPane next = createBtn("Next");
         root.setRight(next);
+        root.setAlignment(next,Pos.CENTER_RIGHT);
         next.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu, sneakMenu,"next");
@@ -66,8 +73,9 @@ public class AvatarCreationMenu{
         });
 	}
 	private void createPreviousBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
-        StackPane previous = createBtn("PREVIOUS");  
+        StackPane previous = createBtn("Previous");  
         root.setLeft(previous);
+        root.setAlignment(previous,Pos.CENTER_LEFT);
         previous.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu,summonerMenu,"previous");
@@ -102,6 +110,7 @@ public class AvatarCreationMenu{
     }
     private StackPane createBtn(String btnName){
         StackPane btn = new StackPane();
+            btn.setMaxSize(250,30);
         Label btnText = new Label(btnName);
             btnText.setId("button_text");
         Rectangle bg = new Rectangle(150, 30);
@@ -160,6 +169,7 @@ class OccupationMenu extends Parent{
             btnStart.setAlignment(Pos.CENTER);
             btnStart.getChildren().addAll(bg, text);
     		btnStart.setVisible(false);
+            btnStart.setMaxSize(250,30);
 
         btnStart.setOnMouseEntered(event -> {
             bg.setId("button_rectangle2");

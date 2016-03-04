@@ -10,13 +10,11 @@ public class GameWindow extends Application{
     }
     @Override
     public void start(Stage primaryStage) {
-         AvatarCreationMenu acm = new AvatarCreationMenu();
-         acm.createScene(primaryStage);
-        // MainMenu mm = new MainMenu();
-        // mm.createScene(primaryStage);
-        //AreaView av = new AreaView();
-        //av.createScene(primaryStage);
+        AvatarCreationMenu acm = new AvatarCreationMenu();
+        acm.createScene(primaryStage);
         //InventoryMenu im = new InventoryMenu();
         //im.renderMenu(primaryStage);
+        //PauseMenu pm = new PauseMenu();
+       // pm.createScene(primaryStage);
     }
 }

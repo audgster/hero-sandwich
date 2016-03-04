@@ -21,17 +21,22 @@ import javafx.stage.Stage;
 
 public class InventoryMenu {
     private BorderPane content = new BorderPane();
+    private Pane inventoryView;
 
-    public void renderMenu(Stage primaryStage) {
-        Scene inventoryScene = new Scene(content, 900, 600, Color.BLACK);
-        inventoryScene.getStylesheets().add("Game/InventoryMenu.css");
+    public Pane renderMenu(Pane root) {
+        //Scene inventoryScene = new Scene(content, 900, 600, Color.BLACK);
+       // inventoryScene.getStylesheets().add("Game/InventoryMenu.css");
+        content.setId("inventory_bg");
         setTitle("Inventory");
         setInventoryGrid();
         setLeft();
         setRight();
         setBottomBar();
-        primaryStage.setScene(inventoryScene);
-        primaryStage.show();
+        //primaryStage.setScene(inventoryScene);
+        //primaryStage.show();
+        inventoryView = root;
+        inventoryView.getChildren().add(content);
+        return inventoryView;
     }
 
     private void setBottomBar() {
@@ -82,12 +87,17 @@ public class InventoryMenu {
         topBar.setId("top-bar");
 
         Label titleText = new Label(title);
-        titleText.setId("title");
+        titleText.setId("menu_title");
+        titleText.setOnMouseClicked(event -> {
+            removeInventoryView();
+        });
 
         topBar.getChildren().add(titleText);
         content.setTop(topBar);
     }
-
+    private void removeInventoryView(){
+        inventoryView.getChildren().remove(content);
+    }
 
 
     /*

@@ -10,6 +10,10 @@
 	-fx-image: url('../../resources/images/grayscale_smasher.gif');
 	-fx-opacity: 0.75;
 }
+#inventory_bg{
+	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
+	-fx-background-size: cover;
+}
 #Smasher_image2{
 	-fx-image: url('gameLogo.gif');
 	-fx-opacity: 0.75;
@@ -42,7 +46,7 @@
 	-fx-font-size: 20px;
 	-fx-text-fill: white;
 	-fx-font-weight: bold;
-	-fx-opacity: 0.5;
+	-fx-opacity: 0.75;
 }
 #button_rectangle{
 	-fx-fill: black;
@@ -53,7 +57,7 @@
 	-fx-font-size: 20px;
 	-fx-text-fill: black;
 	-fx-font-weight: bold;
-	-fx-opacity: 0.5;
+	-fx-opacity: 0.75;
 }
 #button_rectangle2{
 	-fx-fill: white;
