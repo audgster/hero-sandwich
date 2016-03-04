@@ -1,29 +1,65 @@
 package Game;
 
 import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 
 
 
-public class AreaView{
+
+public class AreaView implements Runnable{
+	private String frameRate="";
+	private boolean running;
+	private int tickCount = 0;
+
 	public AreaView(){}
-
 	public void createScene(Stage primaryStage){
-		Group root = new Group();
-		Scene scene = new Scene(root, primaryStage.getHeight(), primaryStage.getWidth(), Color.BLACK);
-		final Canvas canvas = new Canvas(600, 600);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
+		start();
+	}
+	public synchronized void start(){
+		running = true;
+		new Thread(this).start();
+	}
+	public synchronized void stop(){
+		running = false;
+	}
+	private void render(){
+	}
+	private void tick(){
+		tickCount++;
+	}
+	public void run(){
+		long lastTime = System.nanoTime();
+		double nsPerTick = 1000000000D/60D; //how many ticks per second
 
-		gc.setFill(Color.BLUE);
-		gc.fillRect(0,0,500,500);
-		root.getChildren().add(canvas);
+		int ticks = 0;
+		int frames = 0;
 
-		primaryStage.setScene(scene);
-		primaryStage.show();
-		System.out.println(primaryStage.getHeight());
+		long lastTimer = System.currentTimeMillis();
+		double delta = 0;
+		while(running){
+			long now = System.nanoTime();
+			delta += (now - lastTime)/nsPerTick;
+			lastTime = now;
+
+			boolean shouldRender= false;
+			while(delta >= 1){
+				ticks++;
+				tick();
+				delta -= 1;
+				shouldRender = true;
+			}
+			if(shouldRender){
+				frames++;
+				render();
+			}
+
+			if(System.currentTimeMillis()-lastTimer >= 1000){
+				lastTimer += 1000;
+				frameRate = frames + " fps";
+				frames = 0;
+				ticks = 0;
+				System.out.println(frameRate);
+
+			}
+		}
 	}
 }
