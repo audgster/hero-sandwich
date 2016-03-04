@@ -28,10 +28,6 @@ public class AvatarCreationMenu{
 	}
 	public void createScene(Stage primaryStage){
         root = new BorderPane();
-        //create background
-        Rectangle bg = new Rectangle(900, 600);
-        	bg.setId("background_rectangle");
-
 		Label menuTitle = new Label("Occupation Menu");
 			menuTitle.setId("menu_title");
 			root.setTop(menuTitle);
@@ -39,9 +35,7 @@ public class AvatarCreationMenu{
 
         OccupationMenu smasherMenu = new OccupationMenu("Smasher");
         OccupationMenu sneakMenu = new OccupationMenu("Sneak");
-        	sneakMenu.setTranslateY(-95);
         OccupationMenu summonerMenu = new OccupationMenu("Summoner");
-        	summonerMenu.setTranslateY(-95);
         createNextBtn(smasherMenu,sneakMenu,summonerMenu);
         createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
@@ -91,6 +85,7 @@ public class AvatarCreationMenu{
 	}
     private void createTransitions(OccupationMenu oldMenu, OccupationMenu newMenu, String direction){
         int multiplier = 1;
+        newMenu.setTranslateY(0);
         if(direction == "previous") multiplier = -1;
         TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), oldMenu);
         tt1.setToX(multiplier*600);
@@ -102,27 +97,25 @@ public class AvatarCreationMenu{
         tt1.setOnFinished(evt -> {
             root.setCenter(newMenu);
             oldMenu.setTranslateX(0);
-            oldMenu.setTranslateY(0);   
             oldMenu.toggleButton(true);
         });
     }
     private StackPane createBtn(String btnName){
         StackPane btn = new StackPane();
         Label btnText = new Label(btnName);
-            btnText.setId("buttons");
+            btnText.setId("button_text");
         Rectangle bg = new Rectangle(150, 30);
-        bg.setOpacity(0.6);
-        bg.setFill(Color.BLACK);
+            bg.setId("button_rectangle");
         btn.setAlignment(Pos.CENTER);
         btn.getChildren().addAll(bg, btnText);
         btn.setVisible(true);
         btn.setOnMouseEntered(event -> {
-            bg.setFill(Color.WHITE);
-            btnText.setTextFill(Color.BLACK);
+            bg.setId("button_rectangle2");
+            btnText.setId("button_text2");
         });
         btn.setOnMouseExited(event -> {
-            bg.setFill(Color.BLACK);
-            btnText.setTextFill(Color.WHITE);
+            bg.setId("button_rectangle");
+            btnText.setId("button_text");
         });
         return btn;
     }
@@ -160,26 +153,25 @@ class OccupationMenu extends Parent{
 	private StackPane createStartButton(String occupation){
         StackPane btnStart;
         Label text = new Label("Start Game");
+            text.setId("button_text");
         Rectangle bg = new Rectangle(250, 30);
-            bg.setOpacity(0.6);
-            bg.setFill(Color.BLACK);
+            bg.setId("button_rectangle");
         btnStart = new StackPane();
             btnStart.setAlignment(Pos.CENTER);
             btnStart.getChildren().addAll(bg, text);
     		btnStart.setVisible(false);
 
-    		btnStart.setOnMouseEntered(event -> {
-
-                bg.setFill(Color.WHITE);
-                text.setTextFill(Color.BLACK);
-            });
-            btnStart.setOnMouseExited(event -> {
-                bg.setFill(Color.BLACK);
-                text.setTextFill(Color.WHITE);
-            }); 
-            btnStart.setOnMouseClicked(event -> {
-                System.out.println("The occupation "+occupation+" was picked.");
-            });  
+        btnStart.setOnMouseEntered(event -> {
+            bg.setId("button_rectangle2");
+            text.setId("button_text2");
+        });
+        btnStart.setOnMouseExited(event -> {
+            bg.setId("button_rectangle");
+            text.setId("button_text");
+        });
+        btnStart.setOnMouseClicked(event -> {
+            System.out.println("The occupation "+occupation+" was picked.");
+        });  
         return btnStart;
 	}
 	private VBox createOccupationInfo(String occupation){
@@ -189,8 +181,6 @@ class OccupationMenu extends Parent{
 			occupationImage.setToggleGroup(group);
 			occupationImage.setOnAction((ActionEvent e) -> {
 				selected = !selected;
-				setTranslateY(0);
-				setTranslateX(0);
 	    		toggleButton(false);
 			});
 	    Label occupationDescription = new Label(occupation+" Description");
