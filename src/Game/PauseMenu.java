@@ -43,10 +43,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class PauseMenu {
-    private StackPane pauseMenu,root;
+public class PauseMenu implements Menu {
+    private Pane pauseMenu,root;
     private Pane menu;
-    public StackPane createScene(Pane menu){
+
+    @Override
+    public Pane createMenu(Pane menu){
         this.menu = menu;
         pauseMenu = createPauseMenu();
         root = new StackPane();
@@ -121,7 +123,7 @@ public class PauseMenu {
             StackPane inventory = createBtn("Inventory");
                 inventory.setOnMouseClicked(event -> {
                     InventoryMenu im = new InventoryMenu();
-                    root = (StackPane) im.renderMenu(root);
+                    root =  im.createMenu(root);
                 });
             StackPane equipment = createBtn("Equipment");
             StackPane quit = createBtn("Quit");
