@@ -2,6 +2,9 @@ package com.herosandwich.models.entity;
 
 public abstract class Entity
 {
+    /*
+    * Stats
+    * */
     private EntityStats stats;
 
     public Entity()
