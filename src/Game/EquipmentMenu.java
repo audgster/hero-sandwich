@@ -23,8 +23,9 @@ public class EquipmentMenu implements Menu {
 
     @Override
 
-    public Pane createMenu(Pane root) {
+    public void createMenu(Pane root) {
         content.setId("menu_bg");
+            content.setMinSize(900,600);
         setTop("Equipment");
         setEquipmentGrid();
         //setLeft();
