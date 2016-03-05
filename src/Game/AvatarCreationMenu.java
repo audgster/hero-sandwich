@@ -21,13 +21,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class AvatarCreationMenu{
+public class AvatarCreationMenu implements Menu{
 	private int currentMenu;
 	private BorderPane root;
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
-	public void createScene(Stage primaryStage){        
+	public Pane createMenu(Pane display){        
         root = new BorderPane();
             root.setPrefSize(900,600);
 		Label menuTitle = new Label("Occupation Menu");
@@ -45,13 +45,8 @@ public class AvatarCreationMenu{
 
         PauseMenu pm = new PauseMenu();
         Pane pauseMenu = pm.createMenu(root);
-        Scene scene = new Scene(pauseMenu,900,600);
-        //Scene scene = new Scene(root,900,600);
 
-        primaryStage.setScene(scene);
-        scene.getStylesheets().add
-            (AvatarCreationMenu.class.getResource("AvatarCreationMenu.css").toExternalForm());
-        primaryStage.show();
+        return pauseMenu;
 	}
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
