@@ -47,12 +47,12 @@ public class MainMenu implements Menu{
     private ImageView mainMenuImg;
     private StackPane content;
     private Pane mainMenuView;
-    public Pane createMenu(Pane root){
+    
+    public void createMenu(Pane root){
         mainMenuView = root;
         content = createMainMenuOptions();
         content.getChildren().addAll(createMainMenuImage());
         mainMenuView.getChildren().addAll(content);
-        return mainMenuView;
     }
 
     private void removeMainMenuView(){

@@ -36,7 +36,6 @@ public class InventoryMenu implements Menu {
 
         inventoryView = root;
         inventoryView.getChildren().add(content);
-        return inventoryView;
     }
 
 

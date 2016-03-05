@@ -14,8 +14,7 @@ public class AreaView implements Runnable, Menu {
 	public AreaView(){}
 
 	@Override
-	public Pane createMenu(Pane root) {
-		return null;
+	public void createMenu(Pane root) {
 	}
 
 	public void createScene(Stage primaryStage){

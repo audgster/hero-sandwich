@@ -31,7 +31,6 @@ public class EquipmentMenu implements Menu {
 
         equipmentMenu = root;
         equipmentMenu.getChildren().add(content);
-        return equipmentMenu;
     }
 
 

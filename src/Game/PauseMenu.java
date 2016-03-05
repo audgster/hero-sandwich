@@ -36,6 +36,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
@@ -46,31 +47,32 @@ import javafx.util.Duration;
 public class PauseMenu implements Menu {
     private Pane content;
     private Pane pauseMenuView;
-    private Pane previousMenu;
+    private Node previousMenu;
 
     @Override
     public void createMenu(Pane display){
+        System.out.println("Pause menu was created");
         pauseMenuView = display;
-        int index = avatarCreationView.getChildren().size()-1;
-            previousMenu = avatarCreationView.getChildren().get(index);
+        int index = pauseMenuView.getChildren().size()-1;
+            previousMenu = pauseMenuView.getChildren().get(index);
         content = createPauseMenu();
-            content.setOnKeyPressed(event -> {
+            previousMenu.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ESCAPE) {
                     doTransition();
                 }
             });
         pauseMenuView.getChildren().add(content);
-        return ;
     }
 
     public void doTransition(){
+        System.out.println("the pause menu is hsowing");
         if (!content.isVisible()) {
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5), content);
             ft.setFromValue(0);
             ft.setToValue(1);
             content.setVisible(true);
             ft.play();
-            pauseMenuView.setOpacity(0.5);
+            previousMenu.setOpacity(0.5);
         }
         else {
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5), content);
@@ -78,7 +80,7 @@ public class PauseMenu implements Menu {
             ft.setToValue(0);
             ft.setOnFinished(evt -> content.setVisible(false));
             ft.play();
-            pauseMenuView.setOpacity(1);
+            previousMenu.setOpacity(1);
         }
     }
 
@@ -125,12 +127,12 @@ public class PauseMenu implements Menu {
             StackPane inventory = createBtn("Inventory");
                 inventory.setOnMouseClicked(event -> {
                     InventoryMenu im = new InventoryMenu();
-                    content =  im.createMenu(content);
+                    im.createMenu(pauseMenuView);
                 });
             StackPane equipment = createBtn("Equipment");
             equipment.setOnMouseClicked(event -> {
-                EquipmentMenu equipmentMenu = new EquipmentMenu();
-                content =  equipmentMenu.createMenu(content);
+                EquipmentMenu em = new EquipmentMenu();
+                em.createMenu(pauseMenuView);
             });
             StackPane quit = createBtn("Quit");
                 quit.setOnMouseClicked(event -> {
@@ -141,9 +143,9 @@ public class PauseMenu implements Menu {
         pauseOptions.setTranslateX(-200);
 
         StackPane pauseMenu = new StackPane();
-        content.getChildren().addAll(bg,title,pauseOptions);
-            content.setAlignment(title,Pos.CENTER);
-        content.setVisible(false);
-        return content;
+        pauseMenu.getChildren().addAll(bg,title,pauseOptions);
+            pauseMenu.setAlignment(title,Pos.CENTER);
+        pauseMenu.setVisible(false);
+        return pauseMenu;
     }
 }

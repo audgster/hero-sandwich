@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
@@ -25,7 +26,7 @@ public class AvatarCreationMenu implements Menu{
 	private int currentMenu;
 	private BorderPane content;
     private Pane avatarCreationView;
-    private Pane previousMenu;
+    private Node previousMenu;
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
@@ -33,8 +34,8 @@ public class AvatarCreationMenu implements Menu{
     public void createMenu(Pane display) {
         avatarCreationView = display;
         int index = avatarCreationView.getChildren().size()-1;
-            previous = avatarCreationView.getChildren().get(index);
-            previous.setVisible(false);
+            previousMenu = avatarCreationView.getChildren().get(index);
+            previousMenu.setVisible(false);
         content = new BorderPane();
             content.setId("menu_bg");
             content.setPrefSize(900,600);
@@ -54,7 +55,6 @@ public class AvatarCreationMenu implements Menu{
 
         PauseMenu pm = new PauseMenu();
         pm.createMenu(avatarCreationView);    
-        return avatarCreationView;
     }
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
