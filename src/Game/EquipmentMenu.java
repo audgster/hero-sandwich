@@ -3,40 +3,35 @@ package Game;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextBoundsType;
-import javafx.stage.Stage;
 
-import java.util.Stack;
-
-
-public class InventoryMenu implements Menu {
+/**
+ * Created by adamfortier on 3/4/16.
+ */
+public class EquipmentMenu implements Menu {
     private BorderPane content = new BorderPane();
-    private Pane inventoryView;
+    private Pane equipmentMenu;
 
     @Override
     public Pane createMenu(Pane root) {
         content.setId("inventory-equipment_bg");
-        setTop("Inventory");
+        setTop("Equipment");
         setInventoryGrid();
-        setLeft();
+        //setLeft();
         setRight();
 
-        inventoryView = root;
-        inventoryView.getChildren().add(content);
-        return inventoryView;
+        equipmentMenu = root;
+        equipmentMenu.getChildren().add(content);
+        return equipmentMenu;
     }
 
 
@@ -110,18 +105,28 @@ public class InventoryMenu implements Menu {
             InventoryItem inventoryItem = new InventoryItem(new ImageView(new Image("Game/gameLogo.gif")), content, Integer.toString(i));
             inventoryItem.setToggleGroup(group);
             inventoryItem.addMouseClickEvent();
-            if(i < 6) {
-                grid.add(inventoryItem, i, 0, 1, 1);
+            if(i < 8 && i > 3) {
+                grid.add(inventoryItem, 1, i-4, 1, 1);
             }
-            else {
-                grid.add(inventoryItem, i-6, 1, 1, 1);
+            else if(i == 1) {
+                grid.add(inventoryItem, 0, i, 1, 1);
+            }
+            else if(i == 9) {
+                grid.add(inventoryItem, 2, i-8, 1, 1);
             }
         }
+
+//        grid.getChildren().get(0).setOpacity(0);
+//        grid.getChildren().get(2).setOpacity(0);
+//        grid.getChildren().get(3).setOpacity(0);
+//        grid.getChildren().get(8).setOpacity(0);
+//        grid.getChildren().get(10).setOpacity(0);
+//        grid.getChildren().get(11).setOpacity(0);
 
         grid.setVgap(5);
         grid.setHgap(5);
 
-        content.setCenter(grid);
+        content.setLeft(grid);
 
     }
 
@@ -140,7 +145,7 @@ public class InventoryMenu implements Menu {
     }
 
     private void removeInventoryView(){
-        inventoryView.getChildren().remove(content);
+        equipmentMenu.getChildren().remove(content);
     }
 
 
@@ -160,7 +165,7 @@ public class InventoryMenu implements Menu {
             this.item = item;
             this.content = content;
             super.setId("inventory-items");
-         }
+        }
 
         public void addMouseClickEvent() {
             super.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -181,11 +186,11 @@ public class InventoryMenu implements Menu {
         }
 
         private void initButtons() {
-            HBox horitonalContainer = new HBox(10);
+            VBox horitonalContainer = new VBox(10);
             initUseButton(horitonalContainer);
-            initDropButton(horitonalContainer);
-            horitonalContainer.setAlignment(Pos.CENTER);
-            content.setBottom(horitonalContainer);
+            //initDropButton(horitonalContainer);
+            horitonalContainer.setAlignment(Pos.BOTTOM_CENTER);
+            content.setCenter(horitonalContainer);
 
             setUseButtonClickEvent();
             setDropButtonClickEvent();
@@ -220,7 +225,7 @@ public class InventoryMenu implements Menu {
             super.setGraphic(image);
         }
 
-        private void initDropButton(HBox horizontalContainer) {
+        private void initDropButton(VBox horizontalContainer) {
             Label buttonText = new Label("Drop");
             buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
@@ -236,13 +241,13 @@ public class InventoryMenu implements Menu {
 
         }
 
-        private void initUseButton(HBox horizontalContainer) {
-            Label buttonText = new Label("Use");
+        private void initUseButton(VBox horizontalContainer) {
+            Label buttonText = new Label("Unequip");
             buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
             backGround.setId("button_rectangle");
             useButton.setAlignment(Pos.CENTER);
-            useButton.setPadding(new Insets(5, 5, 5, 5));
+            useButton.setPadding(new Insets(5, 5, 45, 5));
             useButton.getChildren().addAll(backGround, buttonText);
             useButton.setVisible(true);
             horizontalContainer.getChildren().add(useButton);

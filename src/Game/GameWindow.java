@@ -18,7 +18,7 @@ public class GameWindow extends Application{
 
         primaryStage.setScene(menu);
         menu.getStylesheets().add
-                (AvatarCreationMenu.class.getResource("GameWindow.css").toExternalForm());
+                (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
         //InventoryMenu im = new InventoryMenu();
         //im.renderMenu(primaryStage);
