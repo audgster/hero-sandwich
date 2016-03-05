@@ -13,8 +13,16 @@ public class Inventory {
     private List<TakeableItem> inventory;
     private int capacity;
 
-    public Inventory(){
-        inventory = new ArrayList();
+    public Inventory()
+    {
+        inventory = new ArrayList<>(10);
+        capacity = 10;
+    }
+
+    public Inventory(int capacity)
+    {
+        inventory = new ArrayList<>(capacity);
+        this.capacity = capacity;
     }
 
     public boolean insertItem(TakeableItem item)
