@@ -59,7 +59,7 @@ public class EquipmentMenu implements Menu {
 
     private void addBackButtonClickEvent(StackPane backButton) {
         backButton.setOnMouseClicked(event -> {
-            removeInventoryView();
+            removeEquipmentView();
         });
     }
 
@@ -144,7 +144,7 @@ public class EquipmentMenu implements Menu {
         content.setTop(topBar);
     }
 
-    private void removeInventoryView(){
+    private void removeEquipmentView(){
         equipmentMenu.getChildren().remove(content);
     }
 
@@ -186,7 +186,8 @@ public class EquipmentMenu implements Menu {
         }
 
         private void initButtons() {
-            VBox horitonalContainer = new VBox(10);
+            VBox horitonalContainer = new VBox(60);
+            horitonalContainer.getChildren().add(new ImageView(new Image("Game/gameLogo.gif")));
             initUseButton(horitonalContainer);
             //initDropButton(horitonalContainer);
             horitonalContainer.setAlignment(Pos.BOTTOM_CENTER);
