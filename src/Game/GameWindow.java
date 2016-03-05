@@ -24,7 +24,7 @@ public class GameWindow extends Application{
         //im.renderMenu(primaryStage);
         //PauseMenu pm = new PauseMenu();
        // pm.createScene(primaryStage);
-        MainMenu mm = new MainMenu();
-        mm.createMenu(primaryStage);
+        //MainMenu mm = new MainMenu();
+        //mm.createMenu(primaryStage);
     }
 }
