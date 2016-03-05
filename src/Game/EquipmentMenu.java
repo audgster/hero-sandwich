@@ -25,7 +25,7 @@ public class EquipmentMenu implements Menu {
     public void createMenu(Pane root) {
         content.setId("inventory-equipment_bg");
         setTop("Equipment");
-        setInventoryGrid();
+        setEquipmentGrid();
         //setLeft();
         setRight();
 
@@ -59,7 +59,7 @@ public class EquipmentMenu implements Menu {
 
     private void addBackButtonClickEvent(StackPane backButton) {
         backButton.setOnMouseClicked(event -> {
-            removeInventoryView();
+            removeEquipmentView();
         });
     }
 
@@ -94,7 +94,7 @@ public class EquipmentMenu implements Menu {
         content.setRight(filler);
     }
 
-    private void setInventoryGrid() {
+    private void setEquipmentGrid() {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
         grid.setPadding(new Insets(25,25,25,25));
@@ -102,17 +102,17 @@ public class EquipmentMenu implements Menu {
 
         ToggleGroup group = new ToggleGroup();
         for(int i = 0; i < 12; i++) {
-            InventoryItem inventoryItem = new InventoryItem(new ImageView(new Image("Game/gameLogo.gif")), content, Integer.toString(i));
-            inventoryItem.setToggleGroup(group);
-            inventoryItem.addMouseClickEvent();
+            EquipmentItem equipmentItem = new EquipmentItem(new ImageView(new Image("Game/gameLogo.gif")), content, Integer.toString(i));
+            equipmentItem.setToggleGroup(group);
+            equipmentItem.addMouseClickEvent();
             if(i < 8 && i > 3) {
-                grid.add(inventoryItem, 1, i-4, 1, 1);
+                grid.add(equipmentItem, 1, i-4, 1, 1);
             }
             else if(i == 1) {
-                grid.add(inventoryItem, 0, i, 1, 1);
+                grid.add(equipmentItem, 0, i, 1, 1);
             }
             else if(i == 9) {
-                grid.add(inventoryItem, 2, i-8, 1, 1);
+                grid.add(equipmentItem, 2, i-8, 1, 1);
             }
         }
 
@@ -144,7 +144,7 @@ public class EquipmentMenu implements Menu {
         content.setTop(topBar);
     }
 
-    private void removeInventoryView(){
+    private void removeEquipmentView(){
         equipmentMenu.getChildren().remove(content);
     }
 
@@ -152,13 +152,13 @@ public class EquipmentMenu implements Menu {
     /*
         Used to display inventory items and make them clickable
      */
-    private class InventoryItem extends ToggleButton {
+    private class EquipmentItem extends ToggleButton {
         StackPane useButton = new StackPane();
         StackPane dropButton = new StackPane();
         BorderPane content;
         String item;
 
-        public InventoryItem(ImageView image, BorderPane content, String item) {
+        public EquipmentItem(ImageView image, BorderPane content, String item) {
             super("", image);
             image.setFitHeight(100);
             image.setFitWidth(100);
@@ -186,11 +186,13 @@ public class EquipmentMenu implements Menu {
         }
 
         private void initButtons() {
-            VBox horitonalContainer = new VBox(10);
+            VBox horitonalContainer = new VBox(60);
+            horitonalContainer.getChildren().add(new ImageView(new Image("Game/gameLogo.gif")));
             initUseButton(horitonalContainer);
             //initDropButton(horitonalContainer);
-            horitonalContainer.setAlignment(Pos.BOTTOM_CENTER);
-            content.setCenter(horitonalContainer);
+            horitonalContainer.setAlignment(Pos.CENTER);
+            horitonalContainer.setPadding(new Insets(0,100,0,0));
+            content.setRight(horitonalContainer);
 
             setUseButtonClickEvent();
             setDropButtonClickEvent();

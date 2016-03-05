@@ -14,11 +14,11 @@ public class GameWindow extends Application{
     @Override
     public void start(Stage primaryStage) {
         MainMenu mm = new MainMenu();
-        Pane rootView = mm.createMenu(new Pane());
-        Scene window = new Scene(rootView,900,600);
-        primaryStage.setScene(window);
-        window.getStylesheets().add
-            (GameWindow.class.getResource("AvatarCreationMenu.css").toExternalForm());
+        Pane root = mm.createMenu(new Pane());
+        Scene display = new Scene(root,900,600);
+        primaryStage.setScene(display);
+        display.getStylesheets().add
+            (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
     }
 }
