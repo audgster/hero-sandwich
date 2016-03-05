@@ -10,7 +10,7 @@
 	-fx-image: url('../../resources/images/grayscale_smasher.gif');
 	-fx-opacity: 0.75;
 }
-#inventory-equipment_bg{
+#menu_bg{
 	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
 	-fx-background-size: cover;
 }
