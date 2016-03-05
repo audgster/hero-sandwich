@@ -75,11 +75,8 @@ public class MainMenu implements Menu{
             title.setPadding(new Insets(25,25,25,25));
         StackPane newGame = createBtn("New Game");
             newGame.setOnMouseClicked(event -> {
-                System.out.println("Starting a new game");
                 AvatarCreationMenu acm = new AvatarCreationMenu();
-                Pane avatarCreationView = acm.createMenu(content);
-                mainMenuView.getChildren().add(avatarCreationView);
-                content.setVisible(false);
+                acm.createMenu(mainMenuView);
             });
         StackPane loadGame = createBtn("Load Game");
         StackPane exit = createBtn("Exit");

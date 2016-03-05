@@ -22,7 +22,7 @@ public class EquipmentMenu implements Menu {
     private Pane equipmentMenu;
 
     @Override
-    public Pane createMenu(Pane root) {
+    public void createMenu(Pane root) {
         content.setId("inventory-equipment_bg");
         setTop("Equipment");
         setInventoryGrid();

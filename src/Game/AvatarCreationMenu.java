@@ -23,63 +23,44 @@ import javafx.util.Duration;
 
 public class AvatarCreationMenu implements Menu{
 	private int currentMenu;
-	private BorderPane root;
+	private BorderPane content;
+    private Pane avatarCreationView;
+    private Pane previousMenu;
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
-	public Pane createMenu(Pane display){        
-        root = new BorderPane();
-            root.setPrefSize(900,600);
-		Label menuTitle = new Label("Occupation Menu");
-			menuTitle.setId("menu_title");
-			root.setTop(menuTitle);
-			root.setAlignment(menuTitle,Pos.CENTER);
-
-        OccupationMenu smasherMenu = new OccupationMenu("Smasher");
-        OccupationMenu sneakMenu = new OccupationMenu("Sneak");
-        OccupationMenu summonerMenu = new OccupationMenu("Summoner");
-        createNextBtn(smasherMenu,sneakMenu,summonerMenu);
-        createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
-
-        root.setCenter(smasherMenu);
-
-        PauseMenu pm = new PauseMenu();
-        Pane pauseMenu = pm.createMenu(root);
-
-        return pauseMenu;
-	}
-
     @Override
-    public Pane createMenu(Pane display) {
-        root = new BorderPane();
-        root.setPrefSize(900,600);
-        Label menuTitle = new Label("Occupation Menu");
-        menuTitle.setId("menu_title");
-        root.setTop(menuTitle);
-        root.setAlignment(menuTitle,Pos.CENTER);
+    public void createMenu(Pane display) {
+        avatarCreationView = display;
+        int index = avatarCreationView.getChildren().size()-1;
+            previous = avatarCreationView.getChildren().get(index);
+            previous.setVisible(false);
+        content = new BorderPane();
+            content.setId("menu_bg");
+            content.setPrefSize(900,600);
 
+        Label menuTitle = new Label("Occupation Menu");
+            menuTitle.setId("menu_title");
+            content.setTop(menuTitle);
+            content.setAlignment(menuTitle,Pos.CENTER);
         OccupationMenu smasherMenu = new OccupationMenu("Smasher");
+            content.setCenter(smasherMenu);
         OccupationMenu sneakMenu = new OccupationMenu("Sneak");
         OccupationMenu summonerMenu = new OccupationMenu("Summoner");
-        createNextBtn(smasherMenu,sneakMenu,summonerMenu);
-        createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
+            createNextBtn(smasherMenu,sneakMenu,summonerMenu);
+            createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
-        root.setCenter(smasherMenu);
+        avatarCreationView.getChildren().add(content);
 
         PauseMenu pm = new PauseMenu();
-        Pane pauseMenu = pm.createMenu(root);
-        Scene scene = new Scene(pauseMenu,900,600);
-        //Scene scene = new Scene(root,900,600);
-
-        //display.getChildren().add(root);
-        display.getChildren().add(pauseMenu);
-        return display;
+        pm.createMenu(avatarCreationView);    
+        return avatarCreationView;
     }
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
         StackPane next = createBtn("Next");
-        root.setRight(next);
-        root.setAlignment(next,Pos.CENTER_RIGHT);
+        content.setRight(next);
+        content.setAlignment(next,Pos.CENTER_RIGHT);
         next.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu, sneakMenu,"next");
@@ -97,8 +78,8 @@ public class AvatarCreationMenu implements Menu{
 	}
 	private void createPreviousBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
         StackPane previous = createBtn("Previous");  
-        root.setLeft(previous);
-        root.setAlignment(previous,Pos.CENTER_LEFT);
+        content.setLeft(previous);
+        content.setAlignment(previous,Pos.CENTER_LEFT);
         previous.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu,summonerMenu,"previous");
@@ -119,36 +100,36 @@ public class AvatarCreationMenu implements Menu{
         newMenu.setTranslateY(0);
         if(direction == "previous") multiplier = -1;
         TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), oldMenu);
-        tt1.setToX(multiplier*600);
-        tt1.play();
+            tt1.setToX(multiplier*600);
+            tt1.play();
         TranslateTransition tt2 = new TranslateTransition(Duration.seconds(1.0), newMenu);
-        newMenu.setTranslateX(multiplier*-600);
-        tt2.setToX(0);
-        tt2.play();
-        tt1.setOnFinished(evt -> {
-            root.setCenter(newMenu);
-            oldMenu.setTranslateX(0);
-            oldMenu.toggleButton(true);
-        });
+            newMenu.setTranslateX(multiplier*-600);
+            tt2.setToX(0);
+            tt2.play();
+            tt1.setOnFinished(evt -> {
+                content.setCenter(newMenu);
+                oldMenu.setTranslateX(0);
+                oldMenu.toggleButton(true);
+            });
     }
     private StackPane createBtn(String btnName){
-        StackPane btn = new StackPane();
-            btn.setMaxSize(250,30);
         Label btnText = new Label(btnName);
             btnText.setId("button_text");
         Rectangle bg = new Rectangle(150, 30);
             bg.setId("button_rectangle");
-        btn.setAlignment(Pos.CENTER);
-        btn.getChildren().addAll(bg, btnText);
-        btn.setVisible(true);
-        btn.setOnMouseEntered(event -> {
-            bg.setId("button_rectangle2");
-            btnText.setId("button_text2");
-        });
-        btn.setOnMouseExited(event -> {
-            bg.setId("button_rectangle");
-            btnText.setId("button_text");
-        });
+        StackPane btn = new StackPane();
+            btn.setMaxSize(250,30);
+            btn.setAlignment(Pos.CENTER);
+            btn.getChildren().addAll(bg, btnText);
+            btn.setVisible(true);
+            btn.setOnMouseEntered(event -> {
+                bg.setId("button_rectangle2");
+                btnText.setId("button_text2");
+            });
+            btn.setOnMouseExited(event -> {
+                bg.setId("button_rectangle");
+                btnText.setId("button_text");
+            });
         return btn;
     }
 }

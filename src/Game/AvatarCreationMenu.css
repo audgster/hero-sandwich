@@ -14,6 +14,10 @@
 	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
 	-fx-background-size: cover;
 }
+#menu_bg{
+	-fx-background-image: url('../../resources/images/chalkboard_bg.jpg');
+	-fx-background-size: cover;
+}
 #Smasher_image2{
 	-fx-image: url('gameLogo.gif');
 	-fx-opacity: 0.75;

@@ -5,5 +5,5 @@ import javafx.scene.layout.Pane;
 
 
 public interface Menu {
-    public Pane createMenu(Pane root);
+    public void createMenu(Pane root);
 }

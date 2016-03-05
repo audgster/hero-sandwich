@@ -27,7 +27,7 @@ public class InventoryMenu implements Menu {
     private Pane inventoryView;
 
     @Override
-    public Pane createMenu(Pane root) {
+    public void createMenu(Pane root) {
         content.setId("inventory-equipment_bg");
         setTop("Inventory");
         setInventoryGrid();
