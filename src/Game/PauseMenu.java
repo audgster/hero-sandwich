@@ -126,6 +126,10 @@ public class PauseMenu implements Menu {
                     root =  im.createMenu(root);
                 });
             StackPane equipment = createBtn("Equipment");
+            equipment.setOnMouseClicked(event -> {
+                EquipmentMenu equipmentMenu = new EquipmentMenu();
+                root =  equipmentMenu.createMenu(root);
+            });
             StackPane quit = createBtn("Quit");
                 quit.setOnMouseClicked(event -> {
                     System.exit(0);

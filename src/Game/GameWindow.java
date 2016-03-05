@@ -1,6 +1,8 @@
 package Game;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
