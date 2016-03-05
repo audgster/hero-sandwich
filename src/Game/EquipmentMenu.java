@@ -149,6 +149,10 @@ public class EquipmentMenu implements Menu {
         equipmentMenu.getChildren().remove(content);
     }
 
+    public void setEquipmentView(Pane display) {
+        display.getChildren().add(content);
+    }
+
 
     /*
         Used to display inventory items and make them clickable

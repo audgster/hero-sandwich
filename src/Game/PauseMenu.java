@@ -48,6 +48,8 @@ public class PauseMenu implements Menu {
     private Pane content;
     private Pane pauseMenuView;
     private Node previousMenu;
+    private InventoryMenu inventoryMenu = null;
+    private EquipmentMenu equipmentMenu = null;
 
     @Override
     public void createMenu(Pane display){
@@ -126,13 +128,11 @@ public class PauseMenu implements Menu {
             StackPane load = createBtn("Load");
             StackPane inventory = createBtn("Inventory");
                 inventory.setOnMouseClicked(event -> {
-                    InventoryMenu im = new InventoryMenu();
-                    im.createMenu(pauseMenuView);
+                    getInventoryMenu();
                 });
             StackPane equipment = createBtn("Equipment");
             equipment.setOnMouseClicked(event -> {
-                EquipmentMenu em = new EquipmentMenu();
-                em.createMenu(pauseMenuView);
+                getEquipmentMenu();
             });
             StackPane quit = createBtn("Quit");
                 quit.setOnMouseClicked(event -> {
@@ -147,5 +147,25 @@ public class PauseMenu implements Menu {
             pauseMenu.setAlignment(title,Pos.CENTER);
         pauseMenu.setVisible(false);
         return pauseMenu;
+    }
+
+    private void getInventoryMenu() {
+        if(inventoryMenu == null) {
+            inventoryMenu = new InventoryMenu();
+            inventoryMenu.createMenu(pauseMenuView);
+        }
+        else {
+            inventoryMenu.setInventoryView(pauseMenuView);
+        }
+    }
+
+    private void getEquipmentMenu() {
+        if(equipmentMenu == null) {
+            equipmentMenu = new EquipmentMenu();
+            equipmentMenu.createMenu(pauseMenuView);
+        }
+        else {
+            equipmentMenu.setEquipmentView(pauseMenuView);
+        }
     }
 }

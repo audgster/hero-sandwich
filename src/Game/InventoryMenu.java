@@ -25,6 +25,7 @@ import java.util.Stack;
 public class InventoryMenu implements Menu {
     private BorderPane content = new BorderPane();
     private Pane inventoryView;
+    GridPane grid = new GridPane();
 
     @Override
 
@@ -100,8 +101,11 @@ public class InventoryMenu implements Menu {
         content.setRight(filler);
     }
 
+    public void setInventoryView(Pane display) {
+        display.getChildren().add(content);
+    }
+
     private void setInventoryGrid() {
-        GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
         grid.setPadding(new Insets(25,25,25,25));
         grid.setId("grid");
