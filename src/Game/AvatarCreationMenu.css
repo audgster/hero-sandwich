@@ -70,4 +70,15 @@
 	-fx-font-weight: bold;
 	-fx-opacity: 0.5;
 }
-
+#smasher_image{
+	-fx-image: url('../../resources/images/Entity_Smasher_S.gif');
+	-fx-opacity: 0.9;
+}
+#sneak_image{
+	-fx-image: url('../../resources/images/Entity_Sneak_S.gif');
+	-fx-opacity: 0.9;
+}
+#summoner_image{
+	-fx-image: url('../../resources/images/Entity_Summoner_S.gif');
+	-fx-opacity: 0.9;
+}
