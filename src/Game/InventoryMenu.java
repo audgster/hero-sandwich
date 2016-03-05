@@ -19,28 +19,72 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextBoundsType;
 import javafx.stage.Stage;
 
-public class InventoryMenu {
+import java.util.Stack;
+
+
+public class InventoryMenu implements Menu {
     private BorderPane content = new BorderPane();
     private Pane inventoryView;
 
-    public Pane renderMenu(Pane root) {
-        //Scene inventoryScene = new Scene(content, 900, 600, Color.BLACK);
-       // inventoryScene.getStylesheets().add("Game/InventoryMenu.css");
+    @Override
+    public Pane createMenu(Pane root) {
         content.setId("inventory_bg");
-        setTitle("Inventory");
+        setTop("Inventory");
         setInventoryGrid();
         setLeft();
         setRight();
-        setBottomBar();
-        //primaryStage.setScene(inventoryScene);
-        //primaryStage.show();
+
         inventoryView = root;
         inventoryView.getChildren().add(content);
         return inventoryView;
     }
 
-    private void setBottomBar() {
 
+    private HBox getBackButton() {
+        StackPane backButton = new StackPane();
+        HBox container = new HBox();
+        Label buttonText = new Label("Back");
+        buttonText.setAlignment(Pos.CENTER);
+        buttonText.setId("button_text");
+        Rectangle backGround = new Rectangle(150, 30);
+        backGround.setId("button_rectangle");
+        backButton.setAlignment(Pos.CENTER);
+        backButton.setPadding(new Insets(5, 5, 5, 45));
+        backButton.getChildren().addAll(backGround, buttonText);
+        backButton.setVisible(true);
+
+        addHoverEvent(backButton, backGround, buttonText);
+        addBackButtonClickEvent(backButton);
+
+        //return backButton;
+        container.getChildren().add(backButton);
+        container.setAlignment(Pos.CENTER_LEFT);
+        return container;
+    }
+
+    private void addBackButtonClickEvent(StackPane backButton) {
+        backButton.setOnMouseClicked(event -> {
+            removeInventoryView();
+        });
+    }
+
+    private void addHoverEvent(StackPane button, Shape backGround, Label buttonText) {
+        addMouseEnteredEvent(button, backGround, buttonText);
+        addMouseExitEvent(button, backGround, buttonText);
+    }
+
+    private void addMouseEnteredEvent(StackPane button, Shape backGround, Label buttonText) {
+        button.setOnMouseEntered(event -> {
+            backGround.setFill(Color.WHITE);
+            buttonText.setTextFill(Color.BLACK);
+        });
+    }
+
+    private void addMouseExitEvent(StackPane button, Shape backGround, Label buttonText) {
+        button.setOnMouseExited(event -> {
+            backGround.setFill(Color.BLACK);
+            buttonText.setTextFill(Color.WHITE);
+        });
     }
 
     private void setLeft() {
@@ -81,20 +125,20 @@ public class InventoryMenu {
 
     }
 
-    private void setTitle(String title) {
-        HBox topBar = new HBox();
-        topBar.setAlignment(Pos.CENTER);
-        topBar.setId("top-bar");
+    private void setTop(String title) {
+        StackPane topBar = new StackPane();
+        HBox titleBox = new HBox();
+        titleBox.setAlignment(Pos.CENTER);
 
         Label titleText = new Label(title);
         titleText.setId("menu_title");
-        titleText.setOnMouseClicked(event -> {
-            removeInventoryView();
-        });
 
-        topBar.getChildren().add(titleText);
+        titleBox.getChildren().add(titleText);
+        topBar.getChildren().addAll(titleBox, getBackButton());
+
         content.setTop(topBar);
     }
+
     private void removeInventoryView(){
         inventoryView.getChildren().remove(content);
     }
@@ -137,11 +181,11 @@ public class InventoryMenu {
         }
 
         private void initButtons() {
-            HBox horitonalContianer = new HBox(10);
-            initUseButton(horitonalContianer);
-            initDropButton(horitonalContianer);
-            horitonalContianer.setAlignment(Pos.CENTER);
-            content.setBottom(horitonalContianer);
+            HBox horitonalContainer = new HBox(10);
+            initUseButton(horitonalContainer);
+            initDropButton(horitonalContainer);
+            horitonalContainer.setAlignment(Pos.CENTER);
+            content.setBottom(horitonalContainer);
 
             setUseButtonClickEvent();
             setDropButtonClickEvent();
@@ -151,7 +195,9 @@ public class InventoryMenu {
             useButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+
                     System.out.println("Item:" + item + " used!");
+                    itemUsedOrDroppedSelected();
                 }
             });
         }
@@ -161,12 +207,12 @@ public class InventoryMenu {
                 @Override
                 public void handle(MouseEvent event) {
                     System.out.println("Item:" + item + " dropped!");
-                    itemUsedOrSelected();
+                    itemUsedOrDroppedSelected();
                 }
             });
         }
 
-        private void itemUsedOrSelected() {
+        private void itemUsedOrDroppedSelected() {
             ImageView image = new ImageView(new Image("Game/gameLogo.jpg"));
 
             image.setFitHeight(100);
@@ -176,9 +222,9 @@ public class InventoryMenu {
 
         private void initDropButton(HBox horizontalContainer) {
             Label buttonText = new Label("Drop");
-            buttonText.setId("button-text");
+            buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
-            backGround.setId("button-background");
+            backGround.setId("button_rectangle");
             dropButton.setAlignment(Pos.CENTER);
             dropButton.getChildren().addAll(backGround, buttonText);
             dropButton.setPadding(new Insets(5, 5, 5, 5));
@@ -192,9 +238,9 @@ public class InventoryMenu {
 
         private void initUseButton(HBox horizontalContainer) {
             Label buttonText = new Label("Use");
-            buttonText.setId("button-text");
+            buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
-            backGround.setId("button-background");
+            backGround.setId("button_rectangle");
             useButton.setAlignment(Pos.CENTER);
             useButton.setPadding(new Insets(5, 5, 5, 5));
             useButton.getChildren().addAll(backGround, buttonText);

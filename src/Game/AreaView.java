@@ -1,16 +1,23 @@
 package Game;
 
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 
 
-public class AreaView implements Runnable{
+public class AreaView implements Runnable, Menu {
 	private String frameRate="";
 	private boolean running;
 	private int tickCount = 0;
 
 	public AreaView(){}
+
+	@Override
+	public Pane createMenu(Pane root) {
+		return null;
+	}
+
 	public void createScene(Stage primaryStage){
 		start();
 	}

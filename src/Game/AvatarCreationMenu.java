@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
@@ -43,7 +44,7 @@ public class AvatarCreationMenu{
         root.setCenter(smasherMenu);
 
         PauseMenu pm = new PauseMenu();
-        StackPane pauseMenu = pm.createScene(root);
+        Pane pauseMenu = pm.createMenu(root);
         Scene scene = new Scene(pauseMenu,900,600);
         //Scene scene = new Scene(root,900,600);
 
