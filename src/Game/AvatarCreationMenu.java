@@ -27,7 +27,7 @@ public class AvatarCreationMenu implements Menu{
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
-	public void createScene(Stage primaryStage){        
+	public Pane createMenu(Pane display){        
         root = new BorderPane();
             root.setPrefSize(900,600);
 		Label menuTitle = new Label("Occupation Menu");
@@ -45,13 +45,8 @@ public class AvatarCreationMenu implements Menu{
 
         PauseMenu pm = new PauseMenu();
         Pane pauseMenu = pm.createMenu(root);
-        Scene scene = new Scene(pauseMenu,900,600);
-        //Scene scene = new Scene(root,900,600);
 
-        primaryStage.setScene(scene);
-        scene.getStylesheets().add
-            (AvatarCreationMenu.class.getResource("AvatarCreationMenu.css").toExternalForm());
-        primaryStage.show();
+        return pauseMenu;
 	}
 
     @Override

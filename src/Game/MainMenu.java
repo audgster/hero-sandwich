@@ -43,18 +43,20 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MainMenu {
+public class MainMenu implements Menu{
     private ImageView mainMenuImg;
-    public void createMenu(Stage primaryStage){
+    private StackPane content;
+    private Pane mainMenuView;
+    public Pane createMenu(Pane root){
+        mainMenuView = root;
+        content = createMainMenuOptions();
+        content.getChildren().addAll(createMainMenuImage());
+        mainMenuView.getChildren().addAll(content);
+        return mainMenuView;
+    }
 
-        StackPane mainMenu = createMainMenuOptions();
-        mainMenu.getChildren().addAll(createMainMenuImage());
-
-        Scene scene = new Scene(mainMenu,900,600);
-        primaryStage.setScene(scene);
-        scene.getStylesheets().add
-            (MainMenu.class.getResource("AvatarCreationMenu.css").toExternalForm());
-        primaryStage.show();
+    private void removeMainMenuView(){
+        mainMenuView.getChildren().remove(content);
     }
 
     private ImageView createMainMenuImage(){
@@ -72,9 +74,18 @@ public class MainMenu {
             title.setId("menu_title");
             title.setPadding(new Insets(25,25,25,25));
         StackPane newGame = createBtn("New Game");
+            newGame.setOnMouseClicked(event -> {
+                System.out.println("Starting a new game");
+                AvatarCreationMenu acm = new AvatarCreationMenu();
+                Pane avatarCreationView = acm.createMenu(content);
+                mainMenuView.getChildren().add(avatarCreationView);
+                content.setVisible(false);
+            });
         StackPane loadGame = createBtn("Load Game");
         StackPane exit = createBtn("Exit");
-
+            exit.setOnMouseClicked(event -> {
+                System.exit(0);
+            });
         mainOptions.getChildren().addAll(title,newGame,loadGame,exit);
         StackPane mainMenu = new StackPane();
         mainMenu.getChildren().addAll(mainOptions);
