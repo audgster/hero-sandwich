@@ -201,8 +201,6 @@ class OccupationMenu extends Parent{
 	    VBox vbox = new VBox(10);
     	    vbox.getChildren().addAll(occupationName,occupationImage,occupationDescription);
     	    vbox.setAlignment(Pos.CENTER);
-            vbox.setTranslateY(0);
-            vbox.setTranslateX(0);
         return vbox;
 	}
 	public void toggleButton(boolean reset){
