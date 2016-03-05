@@ -47,7 +47,7 @@ public class MainMenu implements Menu{
     private ImageView mainMenuImg;
     private StackPane content;
     private Pane mainMenuView;
-    
+
     public void createMenu(Pane root){
         mainMenuView = root;
         content = createMainMenuOptions();
@@ -64,7 +64,8 @@ public class MainMenu implements Menu{
             mainMenuImg.setId("");
             mainMenuImg.setFitWidth(200);
             mainMenuImg.setFitHeight(200);
-            mainMenuImg.setTranslateX(200);
+            mainMenuImg.setTranslateX(250);
+            mainMenuImg.setTranslateY(175);
         return mainMenuImg;
     }
 
