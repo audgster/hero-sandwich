@@ -123,12 +123,11 @@ public abstract class Entity
     }
 
     public void equipItem(EquipableItem item, EquipmentSlots location){
-        if(inventory.removeItem(item)) {
-            equipment.insertItem(item, location);
-        }
+        inventory.removeItem(item);
+        equipment.insertItem(item, location);
     }
 
-    public boolean removeItemFromInventory(TakeableItem item){
+    public TakeableItem removeItemFromInventory(TakeableItem item){
         return inventory.removeItem(item);
     }
 

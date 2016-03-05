@@ -34,9 +34,13 @@ public class Inventory {
         return true;
     }
 
-    public boolean removeItem(Item item)
+    public TakeableItem removeItem(TakeableItem item)
     {
-        return inventory.remove(item);
+        TakeableItem removedItem = null;
+        if(inventory.remove(item)){
+            removedItem = item;
+        }
+        return removedItem;
     }
 
     public List<TakeableItem> getInventory(){

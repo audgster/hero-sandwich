@@ -11,14 +11,6 @@ import com.herosandwich.models.occupation.Sneak;
  */
 public class Tester {
 
-    public static void main(String args[]){
-        Entity i = new Player();
-        if(  i.getOccupation() instanceof Sneak){
-          System.out.println("yep");
-        }else{
-            System.out.println("No good");
-        }
-    }
 
 
 }

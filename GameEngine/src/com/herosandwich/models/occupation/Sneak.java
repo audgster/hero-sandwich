@@ -1,6 +1,10 @@
 package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
+
+import java.util.List;
 
 public class Sneak extends Property{
     private int creepSkill = 1;
@@ -15,22 +19,32 @@ public class Sneak extends Property{
         //needs to reset value of modification when exits creep mode
     }
 
-    public void detectAndRemoveTrap(Entity npc){
+    //will complete when Tile exists!!
+    public void detectAndRemoveTrap(Entity entity){
         if(successfulAction(this.detectionSkill) ){
 
         }
     }
 
-    public void pickPocket(){
+    /* very poor way of doing this. But first attempt!
+     * Clay had a very cool idea that when entity interacts
+     * player can pick the item that they want get from the npc!! :)
+     */
+    public void pickPocket(Entity entity, Entity npc){
         if(successfulAction(this.pickPocketSkill) ){
-
+            List<TakeableItem> nPCItems =  npc.getInventory();
+            TakeableItem item = npc.removeItemFromInventory(nPCItems.get(0));
+            entity.insertItemToInventory(item);
         }
     }
 
-    public void rangedWeaponAttack(){
+    public int rangedWeaponAttack(Entity entity, SneakWeapon weapon){
+        int damage = 0;
         if(successfulAction(this.weaponSkill) ){
-
+            damage += entity.getOffensiveRating(); //damage from entity
+            damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
         }
+        return damage;
     }
 
     @Override
