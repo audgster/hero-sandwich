@@ -1,6 +1,8 @@
 package Game;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
@@ -10,8 +12,14 @@ public class GameWindow extends Application{
     }
     @Override
     public void start(Stage primaryStage) {
+        Pane root = new Pane();
         AvatarCreationMenu acm = new AvatarCreationMenu();
-        acm.createScene(primaryStage);
+        Scene menu = new Scene(acm.createMenu(root), 900, 600);
+
+        primaryStage.setScene(menu);
+        menu.getStylesheets().add
+                (AvatarCreationMenu.class.getResource("GameWindow.css").toExternalForm());
+        primaryStage.show();
         //InventoryMenu im = new InventoryMenu();
         //im.renderMenu(primaryStage);
         //PauseMenu pm = new PauseMenu();

@@ -21,7 +21,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class AvatarCreationMenu{
+public class AvatarCreationMenu implements Menu{
 	private int currentMenu;
 	private BorderPane root;
 	public AvatarCreationMenu(){
@@ -53,6 +53,33 @@ public class AvatarCreationMenu{
             (AvatarCreationMenu.class.getResource("AvatarCreationMenu.css").toExternalForm());
         primaryStage.show();
 	}
+
+    @Override
+    public Pane createMenu(Pane display) {
+        root = new BorderPane();
+        root.setPrefSize(900,600);
+        Label menuTitle = new Label("Occupation Menu");
+        menuTitle.setId("menu_title");
+        root.setTop(menuTitle);
+        root.setAlignment(menuTitle,Pos.CENTER);
+
+        OccupationMenu smasherMenu = new OccupationMenu("Smasher");
+        OccupationMenu sneakMenu = new OccupationMenu("Sneak");
+        OccupationMenu summonerMenu = new OccupationMenu("Summoner");
+        createNextBtn(smasherMenu,sneakMenu,summonerMenu);
+        createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
+
+        root.setCenter(smasherMenu);
+
+        PauseMenu pm = new PauseMenu();
+        Pane pauseMenu = pm.createMenu(root);
+        Scene scene = new Scene(pauseMenu,900,600);
+        //Scene scene = new Scene(root,900,600);
+
+        //display.getChildren().add(root);
+        display.getChildren().add(pauseMenu);
+        return display;
+    }
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
         StackPane next = createBtn("Next");
