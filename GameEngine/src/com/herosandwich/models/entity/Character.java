@@ -65,7 +65,7 @@ public class Character extends Entity {
     }
 
     public boolean equipItem(EquipableItem item, EquipmentSlots location){
-        if(inventory.removeItem(item)) {
+        if(inventory.removeItem(item) != null) {
             TakeableItem itemReplaced = equipment.insertItem(item, location);
 
             if (itemReplaced != null)
@@ -76,7 +76,7 @@ public class Character extends Entity {
         return false;
     }
 
-    public boolean removeItemFromInventory(TakeableItem item){
+    public TakeableItem removeItemFromInventory(TakeableItem item){
         return inventory.removeItem(item);
     }
 
