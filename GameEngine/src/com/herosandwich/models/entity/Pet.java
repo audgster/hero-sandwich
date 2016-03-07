@@ -1,6 +1,6 @@
 package com.herosandwich.models.entity;
 
-public class Pet extends Character
+public class Pet extends Entity
 {
     // Include behaviors for mischief
 }
