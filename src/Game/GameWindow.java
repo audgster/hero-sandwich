@@ -17,7 +17,7 @@ public class GameWindow extends Application{
         Scene display = new Scene(rootView,900,600);
         primaryStage.setScene(display);
         display.getStylesheets().add
-            (GameWindow.class.getResource("AvatarCreationMenu.css").toExternalForm());
+            (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
     }
 }
