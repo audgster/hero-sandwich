@@ -92,7 +92,8 @@ public class Character extends Entity {
         return false;
     }
 
-    public TakeableItem removeItemFromInventory(TakeableItem item){
+    public TakeableItem removeItemFromInventory(TakeableItem item)
+    {
         return inventory.removeItem(item);
     }
 
@@ -110,7 +111,7 @@ public class Character extends Entity {
     * Skill Methods
     * */
 
-    public int getNumberOfSkillPoints(String skill)
+    public int getNumberOfSkillPoints(Skill skill)
     {
         if (skillPoints.containsKey(skill))
             return skillPoints.get(skill);
@@ -118,7 +119,7 @@ public class Character extends Entity {
         return 0;
     }
 
-    public boolean allocateSkillPoints(String skill, int numberOfPoints)
+    public boolean allocateSkillPoints(Skill skill, int numberOfPoints)
     {
         if (numberOfPoints < 1)
             return false;

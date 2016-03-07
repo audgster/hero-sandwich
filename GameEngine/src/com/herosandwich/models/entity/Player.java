@@ -42,7 +42,7 @@ public class Player extends Character {
             availablePoints += points;
     }
 
-    public boolean allocateSkillPoints(String skill, int numberOfPoints)
+    public boolean allocateSkillPoints(Skill skill, int numberOfPoints)
     {
         if (numberOfPoints > availablePoints)
             return false;

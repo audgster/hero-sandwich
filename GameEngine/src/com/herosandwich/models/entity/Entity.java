@@ -1,8 +1,5 @@
 package com.herosandwich.models.entity;
 
-import com.herosandwich.models.occupation.Property;
-import com.herosandwich.models.occupation.Smasher;
-
 public abstract class Entity
 {
     /*
