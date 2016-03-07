@@ -11,14 +11,14 @@ public class Sneak extends Property{
     private int creepSkill;
     private int detectionSkill;
     private int pickPocketSkill;
-    private int weaponSkill;
+    private int rangedWeaponSkill;
 
     public Sneak(Character c){
         super(c);
         this.creepSkill = 0;
         this.detectionSkill = 0;
         this.pickPocketSkill = 0;
-        this.weaponSkill = 0;
+        this.rangedWeaponSkill = 0;
     }
 
     public void creep(){
@@ -49,7 +49,7 @@ public class Sneak extends Property{
 
     public int rangedWeaponAttack(SneakWeapon weapon){
         int damage = 0;
-        if(successfulAction(this.weaponSkill) ){
+        if(successfulAction(this.rangedWeaponSkill) ){
             damage += character.getOffensiveRating(); //damage from entity
             damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
         }
@@ -61,7 +61,7 @@ public class Sneak extends Property{
         this.creepSkill = character.getNumberOfSkillPoints("creepSkill");
         this.detectionSkill =character.getNumberOfSkillPoints("detectionSkill");
         this.pickPocketSkill = character.getNumberOfSkillPoints("pickPocketSkill");
-        this.weaponSkill = character.getNumberOfSkillPoints("weaponSkill");
+        this.rangedWeaponSkill = character.getNumberOfSkillPoints("weaponSkill");
     }
 
 }

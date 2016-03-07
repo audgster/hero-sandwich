@@ -1,6 +1,7 @@
 package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Skill;
 
 public class Summoner extends Property{
     private int baneSkill;
@@ -43,7 +44,7 @@ public class Summoner extends Property{
 
     @Override
     public void updateOccupationSkills(){
-        this.baneSkill = character.getNumberOfSkillPoints("baneSkill");
+        this.baneSkill = character.getNumberOfSkillPoints(Skill.BANE);
         this.boonSkill = character.getNumberOfSkillPoints("boonSkill");
         this.enchantmentSkill = character.getNumberOfSkillPoints("enchantmentSkill");
         this.staffSkill = character.getNumberOfSkillPoints("staffSkill");
