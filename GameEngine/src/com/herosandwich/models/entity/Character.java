@@ -6,9 +6,7 @@ import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 public class Character extends Entity {
 
