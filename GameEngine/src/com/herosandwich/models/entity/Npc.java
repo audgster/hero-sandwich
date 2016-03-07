@@ -10,12 +10,21 @@ public class Npc extends Character
     private Attitude attitudeTowardsPlayer;
     private Trade trade;
 
+    private String[] thingsToSay;
+    private HashMap<Character, Integer> conversations;
+
     public Npc()
     {
         attitudeTowardsPlayer = Attitude.NEUTRAL;
         trade = new Trade();
+
+        thingsToSay = new String[5];
+        conversations = new HashMap<>();
     }
 
+    /*
+    * Attitude towards Player
+    * */
     public void setAttitudeTowardsPlayer(Attitude attitude)
     {
         attitudeTowardsPlayer = attitude;
@@ -67,6 +76,9 @@ public class Npc extends Character
         }
     }
 
+    /*
+    * Trading
+    * */
     public List<TakeableItem> trade(HashMap<TakeableItem, Integer> itemsFromBuyer)
     {
         if (trade.validateTrade(itemsFromBuyer))
@@ -77,7 +89,36 @@ public class Npc extends Character
         return Trade.convertFromMap(itemsFromBuyer);
     }
 
-    // Talk
+    /*
+    * Talking
+    * */
+    public String talk(Character c)
+    {
+        if (conversations.containsKey(c))
+        {
+            int thingToSayIndex = conversations.get(c);
 
-    // Attack?
+            int nextThingToSay = (thingToSayIndex + 1) > thingsToSay.length ? 0 : thingToSayIndex + 1;
+
+            conversations.replace(c, nextThingToSay);
+
+            return thingsToSay[thingToSayIndex];
+        }
+        else
+        {
+            conversations.put(c, 1);
+            return thingsToSay[0];
+        }
+    }
+
+    public void updateThingsToSay(String[] thingsToSay)
+    {
+        this.thingsToSay = thingsToSay;
+
+        conversations.clear();
+    }
+
+    /*
+    * Attacking
+    * */
 }
