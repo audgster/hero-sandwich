@@ -1,6 +1,4 @@
-package models.map;
-
-import models.map.PositionHex;
+package com.herosandwich.models.map;
 
 public enum DirectionHex{
 
