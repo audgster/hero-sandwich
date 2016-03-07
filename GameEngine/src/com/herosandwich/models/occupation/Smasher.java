@@ -2,6 +2,7 @@ package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
@@ -55,9 +56,9 @@ public class Smasher extends Property{
 
     @Override
     public void updateOccupationSkills(){
-        this.brawlSkill = character.getNumberOfSkillPoints("brawlSkill");
-        this.oneHandedWeaponSkill = character.getNumberOfSkillPoints("oneHandedSkill");
-        this.twoHandedWeaponSkill = character.getNumberOfSkillPoints("twoHandedSkill");
+        this.brawlSkill = character.getNumberOfSkillPoints(Skill.BRAWL);
+        this.oneHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
+        this.twoHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
 }

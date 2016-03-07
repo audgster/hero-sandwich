@@ -19,7 +19,7 @@ public class Character extends Entity {
     /*
     * Skill points
     * */
-    private HashMap<String, Integer> skillPoints;
+    private HashMap<Skill, Integer> skillPoints;
     private int availablePoints;
 
     public Character()
@@ -98,7 +98,7 @@ public class Character extends Entity {
             availablePoints += points;
     }
 
-    public int getNumberOfSkillPoints(String skill)
+    public int getNumberOfSkillPoints(Skill skill)
     {
         if (skillPoints.containsKey(skill))
             return skillPoints.get(skill);
@@ -106,7 +106,7 @@ public class Character extends Entity {
         return 0;
     }
 
-    public boolean allocateSkillPoints(String skill, int numberOfPoints)
+    public boolean allocateSkillPoints(Skill skill, int numberOfPoints)
     {
         if (numberOfPoints > availablePoints)
             return false;
@@ -119,7 +119,7 @@ public class Character extends Entity {
         return true;
     }
 
-    private HashMap<String, Integer> getSkillPoints()
+    private HashMap<Skill, Integer> getSkillPoints()
     {
         return this.skillPoints;
     }

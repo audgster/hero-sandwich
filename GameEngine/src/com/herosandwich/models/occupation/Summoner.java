@@ -45,9 +45,9 @@ public class Summoner extends Property{
     @Override
     public void updateOccupationSkills(){
         this.baneSkill = character.getNumberOfSkillPoints(Skill.BANE);
-        this.boonSkill = character.getNumberOfSkillPoints("boonSkill");
-        this.enchantmentSkill = character.getNumberOfSkillPoints("enchantmentSkill");
-        this.staffSkill = character.getNumberOfSkillPoints("staffSkill");
+        this.boonSkill = character.getNumberOfSkillPoints(Skill.BOON);
+        this.enchantmentSkill = character.getNumberOfSkillPoints(Skill.ENCHANTMENT);
+        this.staffSkill = character.getNumberOfSkillPoints(Skill.STAFF);
     }
 
 }

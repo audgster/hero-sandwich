@@ -2,6 +2,7 @@ package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
 
@@ -58,10 +59,10 @@ public class Sneak extends Property{
 
     @Override
     public void updateOccupationSkills(){
-        this.creepSkill = character.getNumberOfSkillPoints("creepSkill");
-        this.detectionSkill =character.getNumberOfSkillPoints("detectionSkill");
-        this.pickPocketSkill = character.getNumberOfSkillPoints("pickPocketSkill");
-        this.rangedWeaponSkill = character.getNumberOfSkillPoints("weaponSkill");
+        this.creepSkill = character.getNumberOfSkillPoints(Skill.CREEP);
+        this.detectionSkill = character.getNumberOfSkillPoints(Skill.DETECTION);
+        this.pickPocketSkill = character.getNumberOfSkillPoints(Skill.PICK_POCKET);
+        this.rangedWeaponSkill = character.getNumberOfSkillPoints(Skill.RANGED_WEAPON);
     }
 
 }
