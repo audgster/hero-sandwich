@@ -116,6 +116,7 @@ public class Character extends Entity {
         Integer points = skillPoints.get(skill) + numberOfPoints;
         skillPoints.replace(skill, points);
         availablePoints -= points;
+        getOccupation().updateOccupationSkills();
 
         return true;
     }

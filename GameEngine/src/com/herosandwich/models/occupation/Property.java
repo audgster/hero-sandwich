@@ -1,8 +1,15 @@
 package com.herosandwich.models.occupation;
 
 
+import com.herosandwich.models.entity.Character;
 
 public abstract class Property{
+    protected Character character;
+
+    public Property(Character c){
+        this.character = c;
+    }
+
 
     public boolean successfulAction(int skillLevel){
         int prob = (int) Math.ceil(Math.random() * 100) + skillLevel;
@@ -12,5 +19,5 @@ public abstract class Property{
         return false;
     }
 
-    public abstract void levelUp(int skill1lIncrease, int skill2Increase, int skill3Increase, int skill4Increase );
+    public abstract void updateOccupationSkills();
 }

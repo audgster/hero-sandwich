@@ -1,12 +1,20 @@
 package com.herosandwich.models.occupation;
 
-import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.entity.Character;
 
 public class Summoner extends Property{
-    private int baneSkill = 1;
-    private int boonSkill = 1;
-    private int enchantmentSkill = 1;
-    private int staffSkill = 1;
+    private int baneSkill;
+    private int boonSkill;
+    private int enchantmentSkill;
+    private int staffSkill;
+
+    public Summoner(Character c){
+        super(c);
+        this.baneSkill = 0;
+        this.boonSkill = 0;
+        this.enchantmentSkill = 0;
+        this.staffSkill = 0;
+    }
 
     public void attackWithStaff(){
         if(successfulAction(this.staffSkill) ){
@@ -33,11 +41,12 @@ public class Summoner extends Property{
         }
     }
 
-
-    public void levelUp(int baneIncrease, int boonIncrease, int enchantmentIncrease, int staffIncrease){
-        this.baneSkill += baneIncrease;
-        this.boonSkill += boonIncrease;
-        this.enchantmentSkill += enchantmentIncrease;
-        this.staffSkill += staffIncrease;
+    @Override
+    public void updateOccupationSkills(){
+        this.baneSkill = character.getNumberOfSkillPoints("baneSkill");
+        this.boonSkill = character.getNumberOfSkillPoints("boonSkill");
+        this.enchantmentSkill = character.getNumberOfSkillPoints("enchantmentSkill");
+        this.staffSkill = character.getNumberOfSkillPoints("staffSkill");
     }
+
 }
