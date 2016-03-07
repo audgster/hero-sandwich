@@ -9,19 +9,12 @@ public abstract class Entity
     * Stats
     * */
     private EntityStats stats;
-    private Property occupation;
 
     public Entity()
     {
         stats = new EntityStats();
-        occupation = new Smasher();
     }
 
-    public Entity(Property occupation)
-    {
-        this.occupation = occupation;
-        stats = new EntityStats();
-    }
 
     /*
     * Accessors
@@ -93,8 +86,6 @@ public abstract class Entity
     {
         return stats.getArmorRating();
     }
-
-    public Property getOccupation(){ return occupation; }
 
     /*
     * Modifiers

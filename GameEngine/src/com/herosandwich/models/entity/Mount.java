@@ -249,7 +249,7 @@ public class Mount extends Character
     @Override
     public boolean modifyMaxMana(int mana)
     {
-        return rider.modifyMaxLife(mana);
+        return rider.modifyMaxMana(mana);
     }
 
     @Override

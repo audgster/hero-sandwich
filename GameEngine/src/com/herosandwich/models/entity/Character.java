@@ -5,10 +5,17 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Smasher;
 
 import java.util.HashMap;
 
 public class Character extends Entity {
+
+    /*
+    * Occupation
+    * */
+    private Property occupation;
 
     /*
     * Equipment and Inventory
@@ -20,7 +27,6 @@ public class Character extends Entity {
     * Skill points
     * */
     private HashMap<Skill, Integer> skillPoints;
-    private int availablePoints;
 
     public Character()
     {
@@ -28,6 +34,8 @@ public class Character extends Entity {
 
         inventory = new Inventory();
         equipment = new Equipment();
+
+        occupation = new Smasher(this);
     }
 
     public Character(Character character)
@@ -36,6 +44,16 @@ public class Character extends Entity {
 
         this.inventory = character.getInventory();
         this.equipment = character.getEquipment();
+        this.occupation = character.getOccupation();
+    }
+
+    /*
+    * Occupation
+    * */
+
+    public Property getOccupation()
+    {
+        return occupation;
     }
 
     /*
@@ -92,13 +110,7 @@ public class Character extends Entity {
     * Skill Methods
     * */
 
-    public void giveAvailablePoints(int points)
-    {
-        if (points > 0)
-            availablePoints += points;
-    }
-
-    public int getNumberOfSkillPoints(Skill skill)
+    public int getNumberOfSkillPoints(String skill)
     {
         if (skillPoints.containsKey(skill))
             return skillPoints.get(skill);
@@ -106,14 +118,13 @@ public class Character extends Entity {
         return 0;
     }
 
-    public boolean allocateSkillPoints(Skill skill, int numberOfPoints)
+    public boolean allocateSkillPoints(String skill, int numberOfPoints)
     {
-        if (numberOfPoints > availablePoints)
+        if (numberOfPoints < 1)
             return false;
 
         Integer points = skillPoints.get(skill) + numberOfPoints;
         skillPoints.replace(skill, points);
-        availablePoints -= points;
         getOccupation().updateOccupationSkills();
 
         return true;
