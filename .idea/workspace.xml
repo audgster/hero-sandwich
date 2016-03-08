@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="004a0e74-1a39-497b-870f-884a83228835" name="Default" comment="" />
+    <list default="true" id="004a0e74-1a39-497b-870f-884a83228835" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="C:\Users\Brandon\Documents\GitHub\hero-sandwich\src\Game\item_bg.jpg" />
+      <change type="MODIFICATION" beforePath="C:\Users\Brandon\Documents\GitHub\hero-sandwich\src\Game\gameLogo.gif" afterPath="C:\Users\Brandon\Documents\GitHub\hero-sandwich\src\Game\gameLogo.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine/src/res/images/smasher.gif" afterPath="$PROJECT_DIR$/GameEngine/src/res/images/smasher.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="hero-sandwich.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -422,7 +427,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="736" extended-state="7" />
+    <frame x="-8" y="-8" width="1296" height="736" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
