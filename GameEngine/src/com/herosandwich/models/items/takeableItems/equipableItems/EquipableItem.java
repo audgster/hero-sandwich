@@ -20,6 +20,4 @@ public abstract class EquipableItem extends TakeableItem {
     public void statModifierOnEquip(Entity entity){
 
     }
-
-
 }

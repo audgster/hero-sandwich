@@ -22,7 +22,7 @@ public class PositionHex{
     }
 
     public PositionHex getPosInDirection(DirectionHex dir){
-        return dir.getPosInDirection(q, r, s);
+        return dir.getPosInDirection(this);
     }
 
     public int getQ(){
@@ -51,6 +51,13 @@ public class PositionHex{
         return (this.getQ() == ((PositionHex)p).getQ() &&
                 this.getR() == ((PositionHex)p).getR() &&
                 this.getS() == ((PositionHex)p).getS());
+    }
+
+    public static int distanceTo(PositionHex p1, PositionHex p2){
+        int sum = Math.abs(p1.getQ() - p2.getQ()) +
+                Math.abs(p1.getR() - p2.getR()) +
+                Math.abs(p1.getS() - p2.getS());
+        return sum / 2;
     }
 
 }

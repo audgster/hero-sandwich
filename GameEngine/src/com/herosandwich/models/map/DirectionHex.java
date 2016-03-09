@@ -31,8 +31,8 @@ public enum DirectionHex{
         return sMod;
     }
 
-    public PositionHex getPosInDirection(int q, int r, int s){
-        return new PositionHex(q + qMod, r + rMod, s + sMod);
+    public PositionHex getPosInDirection(PositionHex p){
+        return new PositionHex(p.getQ() + qMod, p.getR() + rMod, p.getS() + sMod);
     }
 
 }

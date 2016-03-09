@@ -3,12 +3,14 @@ package com.herosandwich.models.occupation;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Skill;
+import com.herosandwich.models.equipment.EquipmentSlots;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 
 public class Smasher extends Property{
-    //Skills will range from 1 to 100
+    //Skills will range from 0 to 100
     private int brawlSkill;
     private int oneHandedWeaponSkill;
     private int twoHandedWeaponSkill;
@@ -22,11 +24,13 @@ public class Smasher extends Property{
     }
 
     //maybe state pattern.
-    public int attack(OneHandedWeapon weapon){
+    public int attack(){
+        EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
+
         int damage = 0;
         if(successfulAction(oneHandedWeaponSkill) ){
             damage += character.getOffensiveRating();
-            damage += weapon.getWeaponsOffensiveRating();
+            damage += item.getWeaponsOffensiveRating();
             damage *=1.5;// One handed weapons are stronger than normal
         }
         return damage;
