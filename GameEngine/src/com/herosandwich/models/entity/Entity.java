@@ -1,7 +1,14 @@
 package com.herosandwich.models.entity;
 
-public abstract class Entity
+import com.herosandwich.util.visitor.EntityVisitor;
+
+public class Entity
 {
+    /*
+    * Naming
+    * */
+    private String name;
+
     /*
     * Stats
     * */
@@ -10,12 +17,24 @@ public abstract class Entity
     public Entity()
     {
         stats = new EntityStats();
+
+        currentLife = getMaxLife();
+        currentMana = getMaxMana();
+
+        name = "Merp entity";
     }
 
+    private int currentLife;
+    private int currentMana;
 
     /*
     * Accessors
     * */
+
+    public String getName()
+    {
+        return name;
+    }
 
     //Primary Stats
     public int getLives()
@@ -84,9 +103,25 @@ public abstract class Entity
         return stats.getArmorRating();
     }
 
+    // Other
+    public int getCurrentLife()
+    {
+        return this.currentLife;
+    }
+
+    public int getCurrentMana()
+    {
+        return this.currentMana;
+    }
+
     /*
     * Modifiers
     * */
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
     //Primary stat modifiers
     public boolean modifyLives(int delta)
@@ -150,7 +185,59 @@ public abstract class Entity
         return stats.addDerivedStat(new DerivedStats(0,0,0,0,0,rating));
     }
 
+    // Other modifiers
+
+    public void modifyCurrentLife(int delta)
+    {
+        int newCurrentLife = getCurrentLife() + delta;
+        int maxLife = getMaxLife();
+
+        if (newCurrentLife > maxLife)
+        {
+            newCurrentLife = maxLife;
+        }
+        else if (newCurrentLife <= 0)
+        {
+            if (getLives() == 1)
+            {
+                newCurrentLife = 0;
+                modifyLives(-1);
+            }
+            else
+            {
+                newCurrentLife = maxLife;
+                modifyLives(-1);
+            }
+        }
+
+        this.currentLife = newCurrentLife;
+    }
+
+    public void modifyCurrentMana(int delta)
+    {
+        int newCurrentMana = getCurrentMana() + delta;
+        int maxMana = getMaxMana();
+
+        if (newCurrentMana > maxMana)
+        {
+            newCurrentMana = maxMana;
+        }
+        else if (newCurrentMana <= 0)
+        {
+            newCurrentMana = 0;
+        }
+
+        this.currentLife = newCurrentMana;
+    }
+
     /*
     * Methods
     * */
+
+    // Hook for visitor
+    public void accept(EntityVisitor eVisitor)
+    {
+        eVisitor.visit(this);
+    }
+
 }

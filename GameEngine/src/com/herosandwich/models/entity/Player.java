@@ -1,5 +1,7 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.util.visitor.EntityVisitor;
+
 public class Player extends Character {
 
     private int availablePoints;
@@ -52,5 +54,11 @@ public class Player extends Character {
         getOccupation().updateOccupationSkills();
 
         return result;
+    }
+
+    // Hook for visitor
+    public void accept(EntityVisitor eVisitor)
+    {
+        eVisitor.visit(this);
     }
 }

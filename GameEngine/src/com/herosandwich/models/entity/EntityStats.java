@@ -206,6 +206,9 @@ public class EntityStats
 
     private void compressFlatBonus()
     {
+        if (flatBonus.size() == 1)
+            return;
+
         int[] statArray = new int[6];
 
 
@@ -301,6 +304,53 @@ public class EntityStats
     {
     return primaryStats.getMovement();
     }
+
+    /*
+    * Accessors - bonus stats
+    * */
+
+    public int getFlatBonusLevel()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getLevel();
+    }
+
+    public int getFlatBonusLife()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getLife();
+    }
+
+    public int getFlatBonusMana()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getMana();
+    }
+
+    public int getFlatBonusOffensiveRating()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getOffensiveRating();
+    }
+
+    public int getFlatBonusDefensiveRating()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getDefensiveRating();
+    }
+
+    public int getFlatBonusArmorRating()
+    {
+        compressFlatBonus();
+
+        return flatBonus.get(0).getArmorRating();
+    }
+
 
     /*
     * Modify with delta - Primary

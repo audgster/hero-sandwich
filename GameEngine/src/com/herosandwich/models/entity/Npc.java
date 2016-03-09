@@ -1,6 +1,7 @@
 package com.herosandwich.models.entity;
 
 import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.util.visitor.EntityVisitor;
 
 import java.util.HashMap;
 import java.util.List;
@@ -121,4 +122,10 @@ public class Npc extends Character
     /*
     * Attacking
     * */
+
+    // Hook for visitor
+    public void accept(EntityVisitor eVisitor)
+    {
+        eVisitor.visit(this);
+    }
 }

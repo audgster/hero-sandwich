@@ -7,6 +7,7 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
+import com.herosandwich.util.visitor.EntityVisitor;
 
 import java.util.HashMap;
 
@@ -134,5 +135,11 @@ public class Character extends Entity {
     private HashMap<Skill, Integer> getSkillPoints()
     {
         return this.skillPoints;
+    }
+
+    // Hook for visitor
+    public void accept(EntityVisitor eVisitor)
+    {
+        eVisitor.visit(this);
     }
 }
