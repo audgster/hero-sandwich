@@ -1,6 +1,8 @@
 package  com.herosandwich.menus;
 
-import javafx.animation.FadeTransition;
+import com.herosandwich.models.entity.Player;
+import com.herosandwich.models.occupation.*;
+
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -8,19 +10,13 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.paint.Color;
-import javafx.scene.Scene;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.control.TextField;
 
 public class AvatarCreationMenu implements Menu{
 	private int currentMenu;
@@ -30,7 +26,7 @@ public class AvatarCreationMenu implements Menu{
 	public AvatarCreationMenu(){
 		currentMenu=1;
 	}
-    @Override
+
     public void createMenu(Pane display) {
         avatarCreationView = display;
         int index = avatarCreationView.getChildren().size()-1;
@@ -38,16 +34,18 @@ public class AvatarCreationMenu implements Menu{
             previousMenu.setVisible(false);
         content = new BorderPane();
             content.setId("menu_bg");
-            content.setPrefSize(900,600);
+            content.setPrefSize(1200,800);
 
         Label menuTitle = new Label("Occupation Menu");
             menuTitle.setId("menu_title");
             content.setTop(menuTitle);
-            content.setAlignment(menuTitle,Pos.CENTER);
-        OccupationMenu smasherMenu = new OccupationMenu("Smasher");
+            BorderPane.setAlignment(menuTitle, Pos.CENTER);
+
+        Player p = new Player();
+        OccupationMenu smasherMenu = new OccupationMenu(new Smasher(p));
+        OccupationMenu sneakMenu = new OccupationMenu(new Sneak(p));
+        OccupationMenu summonerMenu = new OccupationMenu(new Summoner(p));
             content.setCenter(smasherMenu);
-        OccupationMenu sneakMenu = new OccupationMenu("Sneak");
-        OccupationMenu summonerMenu = new OccupationMenu("Summoner");
             createNextBtn(smasherMenu,sneakMenu,summonerMenu);
             createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
@@ -60,7 +58,7 @@ public class AvatarCreationMenu implements Menu{
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
         StackPane next = createBtn("Next");
         content.setRight(next);
-        content.setAlignment(next,Pos.CENTER_RIGHT);
+        BorderPane.setAlignment(next,Pos.CENTER_RIGHT);
         next.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu, sneakMenu,"next");
@@ -79,7 +77,7 @@ public class AvatarCreationMenu implements Menu{
 	private void createPreviousBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
         StackPane previous = createBtn("Previous");  
         content.setLeft(previous);
-        content.setAlignment(previous,Pos.CENTER_LEFT);
+        BorderPane.setAlignment(previous,Pos.CENTER_LEFT);
         previous.setOnMouseClicked(event -> {
         	if(currentMenu==1) {
                 createTransitions(smasherMenu,summonerMenu,"previous");
@@ -98,7 +96,7 @@ public class AvatarCreationMenu implements Menu{
     private void createTransitions(OccupationMenu oldMenu, OccupationMenu newMenu, String direction){
         int multiplier = 1;
         newMenu.setTranslateY(0);
-        if(direction == "previous") multiplier = -1;
+        if(direction.equals("previous")) multiplier = -1;
         TranslateTransition tt1 = new TranslateTransition(Duration.seconds(0.5), oldMenu);
             tt1.setToX(multiplier*600);
             tt1.play();
@@ -139,8 +137,11 @@ class OccupationMenu extends Parent{
 	private StackPane btnStart;
 	private ToggleButton occupationImage;
 	private ImageView grayscaleImg, coloredImg;
+    private TextField avatarName;
+    private Property occupation;
 
-	public OccupationMenu(String occupation){
+	public OccupationMenu(Property occupation){
+        this.occupation = occupation;
         BorderPane occupationMenu = new BorderPane();
             occupationMenu.setMaxSize(900,600);
             occupationMenu.setTranslateX(0);
@@ -154,16 +155,25 @@ class OccupationMenu extends Parent{
             coloredImg.setFitWidth(300);
             coloredImg.setFitHeight(300);
 
+        avatarName = new TextField(occupation.toString());
+            avatarName.setMaxSize(250, 30);
+            avatarName.setVisible(false);
+            avatarName.setAlignment(Pos.CENTER);
 		btnStart = createStartButton(occupation);
-            occupationMenu.setBottom(btnStart);
-            occupationMenu.setAlignment(btnStart,Pos.BOTTOM_CENTER);
+        VBox bottomPane = new VBox(15);
+            bottomPane.setPadding(new Insets(25,0,25,0));
+            bottomPane.getChildren().addAll(avatarName, btnStart);
+            bottomPane.setAlignment(Pos.CENTER);
+            occupationMenu.setBottom(bottomPane);
+            BorderPane.setAlignment(bottomPane, Pos.BOTTOM_CENTER);
 		VBox occupationInfo = createOccupationInfo(occupation);
             occupationMenu.setCenter(occupationInfo);
-            occupationMenu.setAlignment(occupationInfo, Pos.CENTER);
+            BorderPane.setAlignment(occupationInfo, Pos.CENTER);
 
 		getChildren().addAll(occupationMenu);
 	}
-	private StackPane createStartButton(String occupation){
+	private StackPane createStartButton(Property occupation){
+        //creates the Start button
         StackPane btnStart;
         Label text = new Label("Start Game");
             text.setId("button_text");
@@ -175,6 +185,7 @@ class OccupationMenu extends Parent{
     		btnStart.setVisible(false);
             btnStart.setMaxSize(250,30);
 
+        //handles the mouse events associated with the start button
         btnStart.setOnMouseEntered(event -> {
             bg.setId("button_rectangle2");
             text.setId("button_text2");
@@ -184,12 +195,19 @@ class OccupationMenu extends Parent{
             text.setId("button_text");
         });
         btnStart.setOnMouseClicked(event -> {
-            System.out.println("The occupation "+occupation+" was picked.");
-        });  
+            String name = avatarName.getCharacters().toString();
+            if(!name.equals("")&&!name.equals(occupation.toString())){
+                System.out.println(avatarName.getCharacters()+" picked the occupation "+occupation+".");
+            }
+            else{
+                System.out.println("Please input a valid name.");
+            }
+        });
         return btnStart;
 	}
-	private VBox createOccupationInfo(String occupation){
-	    Label occupationName = new Label(occupation);
+	private VBox createOccupationInfo(Property occupation){
+        //create the occupation info, ie. the occupation name, image, and description
+	    Label occupationName = new Label(occupation.toString());
 		ToggleGroup group = new ToggleGroup();
 		occupationImage = new ToggleButton ("",grayscaleImg);
 			occupationImage.setToggleGroup(group);
@@ -204,13 +222,17 @@ class OccupationMenu extends Parent{
         return vbox;
 	}
 	public void toggleButton(boolean reset){
-		if(selected && !reset){
-			occupationImage.setGraphic(coloredImg);
-    		btnStart.setVisible(true);
-		}
+        //toggles the occupation image from grayscaled to colored
+		if(selected && !reset) {
+            occupationImage.setGraphic(coloredImg);
+            btnStart.setVisible(true);
+            avatarName.setVisible(true);
+            avatarName.setText(occupation.toString());
+        }
 		else{
 			occupationImage.setGraphic(grayscaleImg);
  			btnStart.setVisible(false);
+            avatarName.setVisible(false);
  			selected = false;
 		}
 	}

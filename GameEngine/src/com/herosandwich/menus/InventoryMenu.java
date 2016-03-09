@@ -3,35 +3,27 @@ package  com.herosandwich.menus;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextBoundsType;
-import javafx.stage.Stage;
-
-import java.util.Stack;
 
 
 public class InventoryMenu implements Menu {
     private BorderPane content = new BorderPane();
     private Pane inventoryView;
     GridPane grid = new GridPane();
+    private InventoryItem selectedItem = null;
 
     @Override
 
     public void createMenu(Pane root) {
         content.setId("menu_bg");
-            content.setMinSize(900,600);
+            content.setMinSize(1200,800);
         setTop("Inventory");
         setInventoryGrid();
         setLeft();
@@ -112,7 +104,7 @@ public class InventoryMenu implements Menu {
 
         ToggleGroup group = new ToggleGroup();
         for(int i = 0; i < 12; i++) {
-            InventoryItem inventoryItem = new InventoryItem(new ImageView(new Image("res/images/smasher.gif")), content, Integer.toString(i));
+            InventoryItem inventoryItem = new InventoryItem(content, Integer.toString(i));
             inventoryItem.setToggleGroup(group);
             inventoryItem.addMouseClickEvent();
             if(i < 6) {
@@ -153,16 +145,21 @@ public class InventoryMenu implements Menu {
         Used to display inventory items and make them clickable
      */
     private class InventoryItem extends ToggleButton {
-        StackPane useButton = new StackPane();
-        StackPane dropButton = new StackPane();
+        HBox horizontalContainer = null;
+        StackPane useButton;
+        StackPane dropButton;
         BorderPane content;
         String item;
+        Boolean selected = false;
 
-        public InventoryItem(ImageView image, BorderPane content, String item) {
-            super("", image);
-            image.setFitHeight(100);
-            image.setFitWidth(100);
-            this.item = item;
+        public InventoryItem(BorderPane content, String item2) {
+            super("");
+            item = "res/images/" + "smasher" + ".gif";
+            ImageView image = new ImageView(new Image(item));
+                this.setGraphic(image);
+                image.setFitHeight(100);
+                image.setFitWidth(100);
+            this.item = item2;
             this.content = content;
             super.setId("inventory-items");
          }
@@ -171,26 +168,47 @@ public class InventoryMenu implements Menu {
             super.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("Toggle was Clicked");
-                    addButtons();
-                    event.consume();
+                    if(item != null){
+                        addButtons();
+                        toggleButtons(selected);
+                        event.consume();
+                    }
+                    setSelectedItem();
                 }
             });
+        }
 
-
-            //Add untoggle and remove buttons
+        private void setSelectedItem(){
+            if(selectedItem != this && selectedItem != null) {
+                selectedItem.toggleButtons(false);
+            }
+            selectedItem = this;
         }
 
         private void addButtons() {
-            initButtons();
+            if(horizontalContainer == null){
+                initButtons();
+            }
+        }
+
+
+        private void toggleButtons(boolean select) {
+            if(selected){
+                initButtons();
+            }
+            else{
+                content.getChildren().remove(horizontalContainer);
+            }
+            selected = !select;
+
         }
 
         private void initButtons() {
-            HBox horitonalContainer = new HBox(10);
-            initUseButton(horitonalContainer);
-            initDropButton(horitonalContainer);
-            horitonalContainer.setAlignment(Pos.CENTER);
-            content.setBottom(horitonalContainer);
+            horizontalContainer = new HBox(10);
+            initUseButton(horizontalContainer);
+            initDropButton(horizontalContainer);
+            horizontalContainer.setAlignment(Pos.CENTER);
+            content.setBottom(horizontalContainer);
 
             setUseButtonClickEvent();
             setDropButtonClickEvent();
@@ -219,13 +237,16 @@ public class InventoryMenu implements Menu {
 
         private void itemUsedOrDroppedSelected() {
             ImageView image = new ImageView(new Image("res/images/item_bg.jpg"));
-
             image.setFitHeight(100);
             image.setFitWidth(100);
             super.setGraphic(image);
+            item = null;
+            selectedItem = null;
+            toggleButtons(selected);
         }
 
         private void initDropButton(HBox horizontalContainer) {
+            dropButton = new StackPane();
             Label buttonText = new Label("Drop");
             buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
@@ -242,6 +263,7 @@ public class InventoryMenu implements Menu {
         }
 
         private void initUseButton(HBox horizontalContainer) {
+            useButton = new StackPane();
             Label buttonText = new Label("Use");
             buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(150, 30);
@@ -274,5 +296,4 @@ public class InventoryMenu implements Menu {
             });
         }
     }
-
 }

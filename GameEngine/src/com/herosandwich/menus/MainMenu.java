@@ -1,53 +1,20 @@
 package  com.herosandwich.menus;
 
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.effect.Glow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.scene.input.KeyCode;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.Parent;
-import javafx.scene.paint.Color;
-import javafx.scene.Scene;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class MainMenu implements Menu{
     private ImageView mainMenuImg;
     private StackPane content;
     private Pane mainMenuView;
 
+    @Override
     public void createMenu(Pane root){
         mainMenuView = root;
         content = createMainMenuOptions();
@@ -86,6 +53,7 @@ public class MainMenu implements Menu{
             });
         mainOptions.getChildren().addAll(title,newGame,loadGame,exit);
         StackPane mainMenu = new StackPane();
+        mainMenu.setPrefSize(1200,800);
         mainMenu.getChildren().addAll(mainOptions);
         mainOptions.setTranslateY(75);
         return mainMenu;
@@ -93,7 +61,7 @@ public class MainMenu implements Menu{
 
     private StackPane createBtn(String btnName){
         StackPane btn = new StackPane();
-            btn.setMaxSize(250,30);
+            btn.setMaxSize(250, 30);
         Label btnText = new Label(btnName);
             btnText.setId("button_text");
         Rectangle bg = new Rectangle(150, 30);
@@ -113,10 +81,10 @@ public class MainMenu implements Menu{
         return btn;
     }
     private void setImageView(String option){
-        if(option == "Load Game"){
+        if(option.equals("Load Game")){
             mainMenuImg.setId("sneak_image");
         }
-        else if(option == "Exit"){
+        else if(option.equals("Exit")){
             mainMenuImg.setId("summoner_image");
         }
         else{

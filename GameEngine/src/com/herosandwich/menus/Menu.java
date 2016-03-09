@@ -1,6 +1,5 @@
 package  com.herosandwich.menus;
 
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 

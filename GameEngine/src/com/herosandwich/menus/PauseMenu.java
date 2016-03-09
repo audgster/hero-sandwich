@@ -1,48 +1,17 @@
 package  com.herosandwich.menus;
 
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.effect.Glow;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.paint.Color;
-import javafx.scene.Scene;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class PauseMenu implements Menu {
     private Pane content;
@@ -53,7 +22,6 @@ public class PauseMenu implements Menu {
 
     @Override
     public void createMenu(Pane display){
-        System.out.println("Pause menu was created");
         pauseMenuView = display;
         int index = pauseMenuView.getChildren().size()-1;
             previousMenu = pauseMenuView.getChildren().get(index);
@@ -67,7 +35,6 @@ public class PauseMenu implements Menu {
     }
 
     public void doTransition(){
-        System.out.println("the pause menu is hsowing");
         if (!content.isVisible()) {
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5), content);
             ft.setFromValue(0);
@@ -108,7 +75,7 @@ public class PauseMenu implements Menu {
     }
 
     public StackPane createPauseMenu(){
-        Rectangle bg = new Rectangle(900, 600);
+        Rectangle bg = new Rectangle(1200,800);
             bg.setOpacity(0.75);
             bg.setFill(Color.BLACK);
             bg.setEffect(new GaussianBlur(3.5));
@@ -144,7 +111,7 @@ public class PauseMenu implements Menu {
 
         StackPane pauseMenu = new StackPane();
         pauseMenu.getChildren().addAll(bg,title,pauseOptions);
-            pauseMenu.setAlignment(title,Pos.CENTER);
+            StackPane.setAlignment(title,Pos.CENTER);
         pauseMenu.setVisible(false);
         return pauseMenu;
     }

@@ -61,4 +61,7 @@ public class Smasher extends Property{
         this.twoHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
+    public String toString(){
+        return "Smasher";
+    }
 }

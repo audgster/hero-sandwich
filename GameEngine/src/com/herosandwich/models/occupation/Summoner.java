@@ -50,4 +50,7 @@ public class Summoner extends Property{
         this.staffSkill = character.getNumberOfSkillPoints(Skill.STAFF);
     }
 
+    public String toString(){
+        return "Summoner";
+    }
 }
