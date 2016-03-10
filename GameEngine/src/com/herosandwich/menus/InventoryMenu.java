@@ -180,7 +180,7 @@ public class InventoryMenu implements Menu {
 
         private void setSelectedItem(){
             if(selectedItem != this && selectedItem != null) {
-                selectedItem.toggleButtons(false);
+                selectedItem.toggleButtons(true);
             }
             selectedItem = this;
         }
@@ -193,14 +193,13 @@ public class InventoryMenu implements Menu {
 
 
         private void toggleButtons(boolean select) {
+            selected = !select;
             if(selected){
                 initButtons();
             }
             else{
                 content.getChildren().remove(horizontalContainer);
             }
-            selected = !select;
-
         }
 
         private void initButtons() {
