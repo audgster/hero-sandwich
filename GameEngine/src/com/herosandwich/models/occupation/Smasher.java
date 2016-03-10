@@ -16,8 +16,7 @@ public class Smasher extends Property{
     private int twoHandedWeaponSkill;
 
 
-    public Smasher(Character c){
-        super(c);
+    public Smasher(){
         this.brawlSkill = 0;
         this.oneHandedWeaponSkill = 0;
         this.twoHandedWeaponSkill  = 0;
@@ -25,12 +24,12 @@ public class Smasher extends Property{
 
     //maybe state pattern.
     public int attack(){
-        EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
+       // EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
 
         int damage = 0;
         if(successfulAction(oneHandedWeaponSkill) ){
-            damage += character.getOffensiveRating();
-            damage += item.getWeaponsOffensiveRating();
+         //   damage += character.getOffensiveRating();
+           // damage += item.getWeaponsOffensiveRating();
             damage *=1.5;// One handed weapons are stronger than normal
         }
         return damage;
@@ -40,7 +39,7 @@ public class Smasher extends Property{
     public int attack(TwoHandedWeapon weapon){
         int damage = 0;
         if(successfulAction(twoHandedWeaponSkill) ){
-            damage += character.getOffensiveRating();
+         //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
             damage *=2;// Two handed weapons are very powerful than normal
         }
@@ -50,7 +49,7 @@ public class Smasher extends Property{
     public int attack(BrawlWeapon weapon){
         int damage = 0;
         if(successfulAction(brawlSkill) ){
-            damage += character.getOffensiveRating();
+         //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
            // One handed weapons are stronger than normal
         }
@@ -59,10 +58,10 @@ public class Smasher extends Property{
 
 
     @Override
-    public void updateOccupationSkills(){
-        this.brawlSkill = character.getNumberOfSkillPoints(Skill.BRAWL);
-        this.oneHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
-        this.twoHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
+    public void updateOccupationSkills(Character c){
+        this.brawlSkill = c.getNumberOfSkillPoints(Skill.BRAWL);
+        this.oneHandedWeaponSkill = c.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
+        this.twoHandedWeaponSkill = c.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
     @Override

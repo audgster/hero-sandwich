@@ -4,11 +4,6 @@ package com.herosandwich.models.occupation;
 import com.herosandwich.models.entity.Character;
 
 public abstract class Property{
-    protected Character character;
-
-    public Property(Character c){
-        this.character = c;
-    }
 
 
     public boolean successfulAction(int skillLevel){
@@ -19,5 +14,5 @@ public abstract class Property{
         return false;
     }
 
-    public abstract void updateOccupationSkills();
+    public abstract void updateOccupationSkills(Character c);
 }

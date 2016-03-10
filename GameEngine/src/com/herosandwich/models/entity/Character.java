@@ -36,7 +36,7 @@ public class Character extends Entity {
         inventory = new Inventory();
         equipment = new Equipment();
 
-        occupation = new Smasher(this);
+        occupation = new Smasher();
     }
 
     public Character(Character character)
@@ -127,7 +127,7 @@ public class Character extends Entity {
 
         Integer points = skillPoints.get(skill) + numberOfPoints;
         skillPoints.replace(skill, points);
-        getOccupation().updateOccupationSkills();
+        occupation.updateOccupationSkills(this);
 
         return true;
     }
