@@ -29,9 +29,12 @@ public class Map {
         return tileMap.get(pos);
     }
 
-    public HashMap<PositionHex, Tile> drawLine(PositionHex origin, int range, DirectionHex dir){
+    public HashMap<PositionHex, Tile> drawLine(PositionHex origin, int range, DirectionHex dir, boolean includeOrigin){
         PositionHex current = origin.getPosInDirection(dir);
         HashMap<PositionHex, Tile> line = new HashMap<PositionHex, Tile>();
+        if(includeOrigin){
+            line.put(origin, getTile(origin));
+        }
         for(int i = 0; i < range; i++){
             line.put(current, getTile(current));
             current = current.getPosInDirection(dir);
@@ -39,9 +42,12 @@ public class Map {
         return line;
     }
 
-    public HashMap<PositionHex, Tile> drawCone(PositionHex origin, int range, DirectionHex dir){
+    public HashMap<PositionHex, Tile> drawCone(PositionHex origin, int range, DirectionHex dir, boolean includeOrigin){
         PositionHex current = origin.getPosInDirection(dir);
         HashMap<PositionHex, Tile> cone = new HashMap<PositionHex, Tile>();
+        if(includeOrigin){
+            cone.put(origin, getTile(origin));
+        }
         for(int i = 0; i < range; i++){
             cone.put(current, getTile(current));
             PositionHex left = current.getPosInDirection(DirectionHex.clockwise(dir));
@@ -57,10 +63,13 @@ public class Map {
         return cone;
     }
 
-    public HashMap<PositionHex, Tile> drawCircle(PositionHex origin, int range){
+    public HashMap<PositionHex, Tile> drawCircle(PositionHex origin, int range, boolean includeOrigin){
         DirectionHex currentDir = DirectionHex.SOUTH_EAST;
         PositionHex current = origin.getPosInDirection(DirectionHex.NORTH);
         HashMap<PositionHex, Tile> circle = new HashMap<PositionHex, Tile>();
+        if(includeOrigin){
+            circle.put(origin, getTile(origin));
+        }
         for(int i = 0; i < range; i++){
             for(int j = 0; j < 6; j++){
                 for(int k = 0; k <= i; k++){
