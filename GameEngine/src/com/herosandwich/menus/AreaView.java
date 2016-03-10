@@ -15,26 +15,31 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AreaView extends Application {
+public class AreaView implements Menu {
     static int frame = 0;
     private ImagePattern land = new ImagePattern(new Image("com/herosandwich/menus/land6.jpg"));
+    private Pane areaView;
+    private Group content;
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Group root = new Group();
-        Scene scene = new Scene(root, 900, 600, Color.BLACK);
-        Canvas canvas = new Canvas(250, 250);
-        HexagonGrid hexagonGrid = new HexagonGrid(300, 10 , root);
+    public void createMenu(Pane display){
+        content = new Group();
+            content.setFocusTraversable(true);
 
-        System.out.println(frame++);
+        Rectangle bg = new Rectangle(1200,800, Color.BLACK);
+            content.getChildren().add(bg);
+            new HexagonGrid(300,10,content);
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        areaView = display;
+        areaView.getChildren().add(content);
 
-
+        PauseMenu pm = new PauseMenu();
+            pm.createMenu(areaView);
     }
 
     private class HexagonGrid {

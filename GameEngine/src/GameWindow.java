@@ -11,15 +11,19 @@ public class GameWindow extends Application{
     }
     @Override
     public void start(Stage primaryStage) {
-MainMenu mm = new MainMenu();
-Pane rootView = new Pane();
-mm.createMenu(rootView);
+        Pane rootView = new Pane();
+
+        //MainMenu mm = new MainMenu();
+        AreaView mm = new AreaView();
+        mm.createMenu(rootView);
+
         Scene display = new Scene(rootView,1200,800);
         primaryStage.setScene(display);
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.setTitle("Hero Sandwich");
+
         display.getStylesheets().add
         (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
-        }
-        }
+    }
+}

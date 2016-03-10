@@ -16,21 +16,24 @@ import javafx.scene.Node;
 public class PauseMenu implements Menu {
     private Pane content;
     private Pane pauseMenuView;
-    private Node previousMenu;
+    private Node bgMenu;
     private InventoryMenu inventoryMenu = null;
     private EquipmentMenu equipmentMenu = null;
 
     @Override
     public void createMenu(Pane display){
         pauseMenuView = display;
+
         int index = pauseMenuView.getChildren().size()-1;
-            previousMenu = pauseMenuView.getChildren().get(index);
-        content = createPauseMenu();
-            previousMenu.setOnKeyPressed(event -> {
+            bgMenu = pauseMenuView.getChildren().get(index);
+            bgMenu.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ESCAPE) {
                     doTransition();
                 }
             });
+
+        content = createPauseMenu();
+
         pauseMenuView.getChildren().add(content);
     }
 
@@ -41,7 +44,7 @@ public class PauseMenu implements Menu {
             ft.setToValue(1);
             content.setVisible(true);
             ft.play();
-            previousMenu.setOpacity(0.5);
+            //bgMenu.setOpacity(0.5);
         }
         else {
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5), content);
@@ -49,7 +52,7 @@ public class PauseMenu implements Menu {
             ft.setToValue(0);
             ft.setOnFinished(evt -> content.setVisible(false));
             ft.play();
-            previousMenu.setOpacity(1);
+            //bgMenu.setOpacity(1);
         }
     }
 
@@ -62,7 +65,6 @@ public class PauseMenu implements Menu {
             bg.setId("button_rectangle");
         btn.setAlignment(Pos.CENTER);
         btn.getChildren().addAll(bg, btnText);
-        btn.setVisible(true);
         btn.setOnMouseEntered(event -> {
             bg.setId("button_rectangle2");
             btnText.setId("button_text2");

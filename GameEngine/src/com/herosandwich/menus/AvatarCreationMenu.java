@@ -42,17 +42,16 @@ public class AvatarCreationMenu implements Menu{
             BorderPane.setAlignment(menuTitle, Pos.CENTER);
 
         Player p = new Player();
-        OccupationMenu smasherMenu = new OccupationMenu(new Smasher(p));
-        OccupationMenu sneakMenu = new OccupationMenu(new Sneak(p));
-        OccupationMenu summonerMenu = new OccupationMenu(new Summoner(p));
+        OccupationMenu smasherMenu = new OccupationMenu(new Smasher(p),avatarCreationView);
+        OccupationMenu sneakMenu = new OccupationMenu(new Sneak(p),avatarCreationView);
+        OccupationMenu summonerMenu = new OccupationMenu(new Summoner(p),avatarCreationView);
             content.setCenter(smasherMenu);
             createNextBtn(smasherMenu,sneakMenu,summonerMenu);
             createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
         avatarCreationView.getChildren().add(content);
-
-        PauseMenu pm = new PauseMenu();
-        pm.createMenu(avatarCreationView);    
+        //PauseMenu pm = new PauseMenu();
+        //pm.createMenu(avatarCreationView);
     }
 
 	private void createNextBtn(OccupationMenu smasherMenu,OccupationMenu sneakMenu,OccupationMenu summonerMenu){
@@ -139,9 +138,11 @@ class OccupationMenu extends Parent{
 	private ImageView grayscaleImg, coloredImg;
     private TextField avatarName;
     private Property occupation;
+    private Pane avatarCreationView;
 
-	public OccupationMenu(Property occupation){
+	public OccupationMenu(Property occupation,Pane avatarCreationView){
         this.occupation = occupation;
+        this.avatarCreationView = avatarCreationView;
         BorderPane occupationMenu = new BorderPane();
             occupationMenu.setMaxSize(900,600);
             occupationMenu.setTranslateX(0);
@@ -196,8 +197,9 @@ class OccupationMenu extends Parent{
         });
         btnStart.setOnMouseClicked(event -> {
             String name = avatarName.getCharacters().toString();
-            if(!name.equals("")&&!name.equals(occupation.toString())){
+            if(!name.equals("")){
                 System.out.println(avatarName.getCharacters()+" picked the occupation "+occupation+".");
+                createGame(occupation);
             }
             else{
                 System.out.println("Please input a valid name.");
@@ -236,4 +238,8 @@ class OccupationMenu extends Parent{
  			selected = false;
 		}
 	}
+    private void createGame(Property occupation){
+        AreaView av = new AreaView();
+        av.createMenu(avatarCreationView);
+    }
 }
