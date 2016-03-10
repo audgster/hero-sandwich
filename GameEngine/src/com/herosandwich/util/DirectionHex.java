@@ -1,4 +1,4 @@
-package com.herosandwich.models.map;
+package com.herosandwich.util;
 
 public enum DirectionHex{
 
