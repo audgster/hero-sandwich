@@ -2,6 +2,7 @@ package com.herosandwich.models.equipment;
 
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.HashMap;
 
@@ -56,5 +57,10 @@ public class Equipment {
     public HashMap<EquipmentSlots, EquipableItem> getEquipment()
     {
         return equipment;
+    }
+
+    public void accept(EquipmentVisitor visitor)
+    {
+        visitor.visit(this);
     }
 }

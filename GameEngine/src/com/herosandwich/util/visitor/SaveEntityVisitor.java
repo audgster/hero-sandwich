@@ -5,8 +5,9 @@ import com.herosandwich.models.entity.Character;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.Text;
 
-public class SaveEntityVisitor implements EntityVisitor
+public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
 {
     private Document doc;
 
@@ -20,37 +21,36 @@ public class SaveEntityVisitor implements EntityVisitor
     @Override
     public void visit(Entity entity)
     {
-        retreiveStats(entity);
+        retrieveStats(entity);
     }
 
     @Override
     public void visit(Character character)
     {
-        retreiveStats(character);
+        retrieveStats(character);
+        retriveOccupation(character);
+        retrieveInventory(character);
+        retrieveEquipment(character);
     }
 
     @Override
     public void visit(Pet pet)
     {
-        retreiveStats(pet);
+        retrieveStats(pet);
     }
 
     @Override
     public void visit(Npc npc) {
-
+        retrieveStats(npc);
     }
 
     @Override
     public void visit(Player player) {
-
+        retrieveStats(player);
     }
 
-    public Node retriveSavedEntity()
-    {
-        return this.entityNode;
-    }
 
-    private void retreiveStats(Entity entity)
+    private void retrieveStats(Entity entity)
     {
         String name = entity.getName();
 
@@ -82,5 +82,43 @@ public class SaveEntityVisitor implements EntityVisitor
         statsElement.setAttribute("currentMana" , Integer.toString(currentMana));
 
         entityNode.appendChild(statsElement);
+    }
+
+    private void retriveOccupation(Character character)
+    {
+        String occupation = character.getOccupation().toString();
+
+        Element occup = doc.createElement("occupation");
+
+        Text occupText = doc.createTextNode(occupation);
+
+        occup.appendChild(occupText);
+
+        entityNode.appendChild(occup);
+    }
+
+    private void retrieveInventory(Character character)
+    {
+        SaveInventoryVisitor visitor = new SaveInventoryVisitor(doc);
+        character.getInventory().accept(visitor);
+
+        entityNode.appendChild(visitor.retreiveSavedObject());
+    }
+
+    private void retrieveEquipment(Character character)
+    {
+        SaveEquipmentVisitor visitor = new SaveEquipmentVisitor(doc);
+        character.getEquipment().accept(visitor);
+
+        entityNode.appendChild(visitor.retreiveSavedObject());
+    }
+
+    @Override
+    public Node retreiveSavedObject() {
+        Node node = this.entityNode;
+
+        this.entityNode = null;
+
+        return node;
     }
 }

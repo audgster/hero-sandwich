@@ -7,8 +7,8 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 public abstract class EquipableItem extends TakeableItem {
     protected DerivedStats derivedStats;
 
-    public EquipableItem(String name, DerivedStats derivedStat){
-        super(name);
+    public EquipableItem(String name, DerivedStats derivedStat, int itemId){
+        super(name, itemId);
         derivedStats = derivedStat;
     }
 

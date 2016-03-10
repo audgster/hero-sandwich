@@ -65,7 +65,9 @@ public class Sneak extends Property{
         this.rangedWeaponSkill = character.getNumberOfSkillPoints(Skill.RANGED_WEAPON);
     }
 
-    public String toString(){
+
+    @Override
+    public String toString() {
         return "Sneak";
     }
 }

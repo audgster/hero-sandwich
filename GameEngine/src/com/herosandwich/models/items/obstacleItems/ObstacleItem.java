@@ -6,7 +6,7 @@ import com.herosandwich.models.items.Item;
  * Created by matthewdiaz on 3/9/16.
  */
 public class ObstacleItem extends Item{
-    public ObstacleItem(String name){
-        super(name);
+    public ObstacleItem(String name, int itemId){
+        super(name, itemId);
     }
 }
