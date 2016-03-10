@@ -35,4 +35,12 @@ public enum DirectionHex{
         return new PositionHex(p.getQ() + qMod, p.getR() + rMod, p.getS() + sMod);
     }
 
+    public static DirectionHex clockwise(DirectionHex dir){
+        return DirectionHex.values()[(dir.ordinal() + 1) % 6];
+    }
+
+    public static DirectionHex counterClockwise(DirectionHex dir){
+        return DirectionHex.values()[(dir.ordinal() - 1) % 6];
+    }
+
 }

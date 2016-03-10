@@ -19,4 +19,12 @@ public class Tile {
         this.terrain = terrain;
     }
 
+    public PositionHex getPosition(){
+        return pos;
+    }
+
+    public Terrain getTerrain(){
+        return terrain;
+    }
+
 }
