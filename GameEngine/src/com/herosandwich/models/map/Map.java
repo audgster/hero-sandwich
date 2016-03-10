@@ -1,5 +1,8 @@
 package com.herosandwich.models.map;
 
+import com.herosandwich.util.DirectionHex;
+import com.herosandwich.util.PositionHex;
+
 import java.util.HashMap;
 
 /**
