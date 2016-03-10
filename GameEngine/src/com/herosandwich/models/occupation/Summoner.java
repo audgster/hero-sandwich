@@ -50,4 +50,9 @@ public class Summoner extends Property{
         this.staffSkill = character.getNumberOfSkillPoints(Skill.STAFF);
     }
 
+    @Override
+    public String toString()
+    {
+        return "summoner";
+    }
 }

@@ -7,8 +7,8 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
  */
 
 public abstract class SmasherWeapon extends EquipableItem {
-    public SmasherWeapon(String name, DerivedStats dervidedStat){
-        super(name, dervidedStat);
+    public SmasherWeapon(String name, DerivedStats dervidedStat, int itemId){
+        super(name, dervidedStat, itemId);
     }
 
     @Override
