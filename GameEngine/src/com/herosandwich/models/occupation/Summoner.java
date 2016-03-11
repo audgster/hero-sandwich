@@ -44,15 +44,15 @@ public class Summoner extends Property{
                 @Override
                 public void run() {
                     for(int i = 0; i < 10; i++){
-                        owner.modifyCurrentLife(2);
-
+                        owner.modifyCurrentLife(-2);
+                        System.out.println(owner.getCurrentLife());
                         try{
                             Thread.sleep(1000);
                         }catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                    System.out.println(owner.getCurrentLife());
+
                 }
             });
             t1.start();
