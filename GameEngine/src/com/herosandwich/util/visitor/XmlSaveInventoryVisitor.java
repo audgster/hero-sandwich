@@ -6,12 +6,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-public class SaveInventoryVisitor implements InventoryVisitor
+public class XmlSaveInventoryVisitor implements InventoryVisitor
 {
     private Document doc;
     private Element inventory = null;
 
-    public SaveInventoryVisitor(Document doc)
+    public XmlSaveInventoryVisitor(Document doc)
     {
         this.doc = doc;
     }
