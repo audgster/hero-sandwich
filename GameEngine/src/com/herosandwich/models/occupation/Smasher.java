@@ -67,6 +67,6 @@ public class Smasher extends Property{
 
 @Override
     public String toString() {
-    return "Smasher";
+        return "Smasher";
     }
 }
