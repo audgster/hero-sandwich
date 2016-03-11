@@ -38,16 +38,30 @@ public class Summoner extends Property{
 
     // magic that heals Character over 10 seconds!
     public void boonSpell(){
+        //boon spell is disallowed at full health
+        if(owner.getCurrentLife() ==  owner.getMaxLife() ){
+            return;
+        }
+
         if(successfulAction(this.boonSkill) ){
-            //uses mana!
+            //uses mana! Mana reduction depends on Strength of spell
             owner.modifyCurrentMana(-5);
 
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    int healingAmount = (int)(1 + (boonSkill*.2));
+
                     for(int i = 0; i < 10; i++){
-                        owner.modifyCurrentLife(2);
+                        owner.modifyCurrentLife(healingAmount);
                         System.out.println(owner.getCurrentLife());
+
+                        //if after healing, current heal is the same as max heal
+                        //end boon healing
+                        if(owner.getCurrentLife() ==  owner.getMaxLife() ){
+                            return;
+                        }
+
                         try{
                             Thread.sleep(1000);
                         }catch (InterruptedException e) {
@@ -58,14 +72,15 @@ public class Summoner extends Property{
                 }
             });
             thread.start();
-            //enchantmentSkill.modifyCurrentLife(2);//increase life by 2 per second
         }
     }
 
     public void enchantmentSpell(Character npc){
         if(successfulAction(this.enchantmentSkill) ){
             owner.modifyCurrentMana(-5);
+
         }else{
+
             // make the target hostile
         }
     }
