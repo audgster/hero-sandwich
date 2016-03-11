@@ -31,12 +31,14 @@ public class Character extends Entity {
 
     public Character()
     {
+        super();
+
         skillPoints = new HashMap<>();
 
         inventory = new Inventory();
         equipment = new Equipment();
 
-        occupation = new Smasher();
+        occupation = new Smasher(this);
     }
 
     public Character(Property occupation)

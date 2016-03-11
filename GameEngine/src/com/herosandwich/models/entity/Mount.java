@@ -192,7 +192,10 @@ public class Mount extends Character
     @Override
     public int getNumberOfSkillPoints(Skill skill)
     {
-        return rider.getNumberOfSkillPoints(skill);
+        if (rider != null) {
+            return rider.getNumberOfSkillPoints(skill);
+        }
+        return 0;
     }
 
     /*
