@@ -4,5 +4,5 @@ import com.herosandwich.models.inventory.Inventory;
 
 public interface InventoryVisitor
 {
-    void visit(Inventory inventory);
+    void visitInventory(Inventory inventory);
 }

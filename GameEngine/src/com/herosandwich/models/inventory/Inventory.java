@@ -1,6 +1,5 @@
 package com.herosandwich.models.inventory;
 
-import com.herosandwich.models.items.Item;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.util.visitor.InventoryVisitor;
 
@@ -50,6 +49,6 @@ public class Inventory {
 
     public void accept(InventoryVisitor visitor)
     {
-        visitor.visit(this);
+        visitor.visitInventory(this);
     }
 }
