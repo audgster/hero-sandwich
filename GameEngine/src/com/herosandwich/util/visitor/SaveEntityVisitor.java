@@ -7,7 +7,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
-public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
+import java.util.HashMap;
+import java.util.Map;
+
+public class SaveEntityVisitor implements EntityVisitor
 {
     private Document doc;
 
@@ -28,9 +31,10 @@ public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
     public void visit(Character character)
     {
         retrieveStats(character);
-        retriveOccupation(character);
+        retrieveOccupation(character);
         retrieveInventory(character);
         retrieveEquipment(character);
+        retrieveSkillPoints(character);
     }
 
     @Override
@@ -42,11 +46,19 @@ public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
     @Override
     public void visit(Npc npc) {
         retrieveStats(npc);
+        retrieveOccupation(npc);
+        retrieveInventory(npc);
+        retrieveEquipment(npc);
+        retrieveSkillPoints(npc);
     }
 
     @Override
     public void visit(Player player) {
         retrieveStats(player);
+        retrieveOccupation(player);
+        retrieveInventory(player);
+        retrieveEquipment(player);
+        retrieveSkillPoints(player);
     }
 
 
@@ -84,13 +96,13 @@ public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
         entityNode.appendChild(statsElement);
     }
 
-    private void retriveOccupation(Character character)
+    private void retrieveOccupation(Character character)
     {
         String occupation = character.getOccupation().toString();
 
         Element occup = doc.createElement("occupation");
 
-        Text occupText = doc.createTextNode(occupation);
+        Text occupText = doc.createTextNode(occupation.toLowerCase());
 
         occup.appendChild(occupText);
 
@@ -102,7 +114,7 @@ public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
         SaveInventoryVisitor visitor = new SaveInventoryVisitor(doc);
         character.getInventory().accept(visitor);
 
-        entityNode.appendChild(visitor.retreiveSavedObject());
+        entityNode.appendChild(visitor.retrieveSavedObject());
     }
 
     private void retrieveEquipment(Character character)
@@ -110,11 +122,52 @@ public class SaveEntityVisitor extends SaveVisitor implements EntityVisitor
         SaveEquipmentVisitor visitor = new SaveEquipmentVisitor(doc);
         character.getEquipment().accept(visitor);
 
-        entityNode.appendChild(visitor.retreiveSavedObject());
+        entityNode.appendChild(visitor.retrieveSavedObject());
     }
 
-    @Override
-    public Node retreiveSavedObject() {
+    private void retrieveSkillPoints(Character character)
+    {
+        Element skills = doc.createElement("skillpoints");
+
+        HashMap<Skill, Integer> skillPoints = character.getSkillPoints();
+
+        for (Map.Entry<Skill, Integer> e : skillPoints.entrySet())
+        {
+            Element skill = doc.createElement("skill");
+
+            skill.setAttribute("skillName", e.getKey().toString().toLowerCase());
+            skill.setAttribute("pointAmount", e.getValue().toString().toLowerCase());
+
+            skills.appendChild(skill);
+        }
+
+        entityNode.appendChild(skills);
+    }
+
+    private void retrieveSkillPoints(Player player)
+    {
+        Element skills = doc.createElement("skillpoints");
+
+        int available = player.getAvailablePoints();
+
+        skills.setAttribute("available", Integer.toString(available));
+
+        HashMap<Skill, Integer> skillPoints = player.getSkillPoints();
+
+        for (Map.Entry<Skill, Integer> e : skillPoints.entrySet())
+        {
+            Element skill = doc.createElement("skill");
+
+            skill.setAttribute("skillName", e.getKey().toString().toLowerCase());
+            skill.setAttribute("pointAmount", e.getValue().toString().toLowerCase());
+
+            skills.appendChild(skill);
+        }
+
+        entityNode.appendChild(skills);
+    }
+
+    public Node retrieveSavedObject() {
         Node node = this.entityNode;
 
         this.entityNode = null;
