@@ -16,8 +16,9 @@ public abstract class EquipableItem extends TakeableItem {
         return derivedStats.getOffensiveRating();
     }
 
-     //will increase players stats
-    public void statModifierOnEquip(Entity entity){
-
+     //derived Stats of Item
+    //needs to be called my character when item is equipped
+    public DerivedStats getDerivedStats(){
+        return derivedStats;
     }
 }

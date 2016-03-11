@@ -27,24 +27,26 @@ public class Summoner extends Property{
         }
     }
 
-
     // bane - magic that does damage or harm.
+    //Summoner's attack
     public void baneSpell(){
         if(successfulAction(this.baneSkill) ){
-            //character.modifyCurrentMana(-10);
+            owner.modifyCurrentMana(-5);
 
         }
     }
 
-    //uses mana!
+    // magic that heals Character over 10 seconds!
     public void boonSpell(){
         if(successfulAction(this.boonSkill) ){
-            // magic that heals, temporarily grants (partial) immunities and defensive bonuses!
-            Thread t1 = new Thread(new Runnable() {
+            //uses mana!
+            owner.modifyCurrentMana(-5);
+
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     for(int i = 0; i < 10; i++){
-                        owner.modifyCurrentLife(-2);
+                        owner.modifyCurrentLife(2);
                         System.out.println(owner.getCurrentLife());
                         try{
                             Thread.sleep(1000);
@@ -55,14 +57,16 @@ public class Summoner extends Property{
 
                 }
             });
-            t1.start();
+            thread.start();
             //enchantmentSkill.modifyCurrentLife(2);//increase life by 2 per second
         }
     }
 
-    public void enchantmentSpell(){
+    public void enchantmentSpell(Character npc){
         if(successfulAction(this.enchantmentSkill) ){
-          //  enchantmentSkill.modifyCurrentMana(-10);
+            owner.modifyCurrentMana(-5);
+        }else{
+            // make the target hostile
         }
     }
 

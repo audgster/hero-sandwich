@@ -24,11 +24,31 @@ public class Sneak extends Property{
         updateOccupationSkills();
     }
 
-    public void creep(Character c){
+
+    //increase Character's Creep Skill. Character movement is also slowed.
+    //For now creep mode will last for 5 seconds after being activated. After
+    //those 5 seconds are complete the stats go back to normal
+    public void creep(){
         if(successfulAction(this.creepSkill) ){
-            c.modifyAgilty(30);
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int creepIncrease = 10 + creepSkill;
+                    owner.allocateSkillPoints(Skill.CREEP, creepIncrease);
+                    owner.modifyMovement(-5);
+                    try{
+                        Thread.sleep(5000);
+                    }catch(InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    //reset value of creep skill and movement speed back to normal
+                    owner.allocateSkillPoints(Skill.CREEP, -creepIncrease);
+                    owner.modifyMovement(5);
+                }
+            });
+            thread.start();
         }
-        //needs to reset value of modification when exits creep mode
+
     }
 
     //will complete when Tile exists!!
