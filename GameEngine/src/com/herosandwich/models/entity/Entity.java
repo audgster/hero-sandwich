@@ -3,8 +3,9 @@ package com.herosandwich.models.entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
+import javafx.geometry.Pos;
 
-public class Entity
+public abstract class Entity
 {
     /*
     * Naming
@@ -31,17 +32,39 @@ public class Entity
 
         name = "Entity Dave";
 
-        this.position = new PositionHex(0,0,0);
-        this.direction = DirectionHex.SOUTH;
+        this.position = null;
+        this.direction = null;
     }
 
-    public Entity(String name, EntityStats stats){
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy){
         this.name = name;
-        this.stats = stats;
+        this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
         currentMana = getMaxMana();
-        this.position = new PositionHex(0,0,0);
-        this.direction = DirectionHex.SOUTH;
+        this.position = null;
+        this.direction = null;
+    }
+
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, PositionHex pos, DirectionHex dir){
+        this.name = name;
+        this.stats = new EntityStats(strategy, stats);
+        currentLife = getMaxLife();
+        currentMana = getMaxMana();
+        this.position = pos;
+        this.direction = dir;
+    }
+
+    public Entity(Entity entity)
+    {
+        name = entity.getName();
+
+        this.stats = entity.getStats();
+
+        currentLife = entity.getCurrentLife();
+        currentMana = entity.getCurrentMana();
+
+        position = entity.getPosition();
+        direction = entity.getDirection();
     }
 
     private int currentLife;
@@ -50,6 +73,11 @@ public class Entity
     /*
     * Accessors
     * */
+
+    private EntityStats getStats()
+    {
+        return this.stats;
+    }
 
     public String getName()
     {

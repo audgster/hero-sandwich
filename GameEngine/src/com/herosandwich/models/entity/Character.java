@@ -7,11 +7,13 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
+import com.herosandwich.util.DirectionHex;
+import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 import java.util.HashMap;
 
-public class Character extends Entity {
+public abstract class Character extends Entity {
 
     /*
     * Occupation
@@ -41,14 +43,24 @@ public class Character extends Entity {
         occupation = new Smasher(this);
     }
 
-    public Character(String name, EntityStats stats, Property occupation)
+    public Character(Entity entity, Property occupation)
     {
-        super(name, stats);
+        super(entity);
         occupation.setOwner(this);
         this.occupation = occupation;
         skillPoints = new HashMap<>();
         inventory = new Inventory();
         equipment = new Equipment();
+    }
+
+    public Character(Character character)
+    {
+        super(character);
+
+        this.occupation = character.getOccupation();
+        this.skillPoints = character.getSkillPoints();
+        this.inventory = character.getInventory();
+        this.equipment = character.getEquipment();
     }
 
     /*

@@ -16,6 +16,7 @@ public class Npc extends Character
 
     public Npc()
     {
+        super();
         attitudeTowardsPlayer = Attitude.NEUTRAL;
         trade = new Trade();
 
@@ -23,9 +24,34 @@ public class Npc extends Character
         conversations = new HashMap<>();
     }
 
+    public Npc(Character character, Attitude attitude, Trade trade, String[] thgs2say)
+    {
+        super(character);
+
+        this.attitudeTowardsPlayer = attitude;
+        this.trade = trade;
+        this.thingsToSay = thgs2say;
+
+        conversations = new HashMap<>();
+    }
+
+    public Npc(Npc npc)
+    {
+        super(npc);
+        this.attitudeTowardsPlayer = npc.getAttitudeTowardsPlayer();
+        this.conversations = npc.getConversations();
+        this.thingsToSay = npc.getThingsToSay();
+        this.trade = npc.getTrade();
+    }
+
     /*
     * Attitude towards Player
     * */
+    public Attitude getAttitudeTowardsPlayer()
+    {
+        return attitudeTowardsPlayer != null ? attitudeTowardsPlayer : Attitude.NEUTRAL;
+    }
+
     public void setAttitudeTowardsPlayer(Attitude attitude)
     {
         attitudeTowardsPlayer = attitude;
@@ -90,6 +116,11 @@ public class Npc extends Character
         return Trade.convertFromMap(itemsFromBuyer);
     }
 
+    private Trade getTrade()
+    {
+        return this.trade;
+    }
+
     /*
     * Talking
     * */
@@ -110,6 +141,16 @@ public class Npc extends Character
             conversations.put(c, 1);
             return thingsToSay[0];
         }
+    }
+
+    private HashMap<Character, Integer> getConversations()
+    {
+        return this.conversations;
+    }
+
+    private String[] getThingsToSay()
+    {
+        return this.thingsToSay;
     }
 
     public void updateThingsToSay(String[] thingsToSay)
