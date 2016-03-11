@@ -5,6 +5,7 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.DirectionHex;
@@ -97,6 +98,18 @@ public abstract class Character extends Entity {
     }
 
     public boolean equipItem(EquipableItem item, EquipmentSlots location){
+        //check for correct occupation
+        String itemClass = item.getOccupationWeaponRestriction().toString().toLowerCase();
+        if(itemClass.equalsIgnoreCase(OccupationWeaponRestriction.EVERYONE.toString())){
+            return addToEquipment(item,location);
+        }else if(itemClass.equalsIgnoreCase(getOccupation().toString())){
+            return addToEquipment(item,location);
+        }else{
+            return false;
+        }
+    }
+
+    private boolean addToEquipment(EquipableItem item, EquipmentSlots location){
         if(inventory.removeItem(item) != null) {
             TakeableItem itemReplaced = equipment.insertItem(item, location);
 
