@@ -1,5 +1,7 @@
 package com.herosandwich.models.items;
 
+import com.herosandwich.util.visitor.ItemVisitor;
+
 public abstract class Item{
     protected String name;
     private int itemId;
@@ -18,5 +20,9 @@ public abstract class Item{
     public int getItemId()
     {
         return itemId;
+    }
+
+    public void accept(ItemVisitor visitor){
+        visitor.visitItem(this);
     }
 }

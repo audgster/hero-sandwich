@@ -28,6 +28,8 @@ public class Map {
         tileMap = new HashMap<PositionHex, Tile>();
     }
 
+
+
     public Tile getTile(PositionHex pos){
         return tileMap.get(pos);
     }
