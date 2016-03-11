@@ -39,13 +39,13 @@ public class Character extends Entity {
         occupation = new Smasher();
     }
 
-    public Character(Character character)
+    public Character(Property occupation)
     {
-        this.skillPoints = character.getSkillPoints();
-
-        this.inventory = character.getInventory();
-        this.equipment = character.getEquipment();
-        this.occupation = character.getOccupation();
+        occupation.setOwner(this);
+        this.occupation = occupation;
+        skillPoints = new HashMap<>();
+        inventory = new Inventory();
+        equipment = new Equipment();
     }
 
     /*
@@ -127,7 +127,7 @@ public class Character extends Entity {
 
         Integer points = skillPoints.get(skill) + numberOfPoints;
         skillPoints.replace(skill, points);
-        occupation.updateOccupationSkills(this);
+        occupation.updateOccupationSkills();
 
         return true;
     }

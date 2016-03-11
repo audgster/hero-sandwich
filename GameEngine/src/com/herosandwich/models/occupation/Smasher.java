@@ -1,12 +1,8 @@
 package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Skill;
-import com.herosandwich.models.equipment.EquipmentSlots;
-import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 
 public class Smasher extends Property{
@@ -15,11 +11,16 @@ public class Smasher extends Property{
     private int oneHandedWeaponSkill;
     private int twoHandedWeaponSkill;
 
-
     public Smasher(){
         this.brawlSkill = 0;
         this.oneHandedWeaponSkill = 0;
-        this.twoHandedWeaponSkill  = 0;
+        this.twoHandedWeaponSkill = 0;
+    }
+
+
+    public Smasher(Character owner){
+        super(owner);
+        updateOccupationSkills();
     }
 
     //maybe state pattern.
@@ -58,10 +59,10 @@ public class Smasher extends Property{
 
 
     @Override
-    public void updateOccupationSkills(Character c){
-        this.brawlSkill = c.getNumberOfSkillPoints(Skill.BRAWL);
-        this.oneHandedWeaponSkill = c.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
-        this.twoHandedWeaponSkill = c.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
+    public void updateOccupationSkills(){
+        this.brawlSkill = owner.getNumberOfSkillPoints(Skill.BRAWL);
+        this.oneHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
+        this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
     @Override

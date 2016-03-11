@@ -16,6 +16,11 @@ public class Summoner extends Property{
         this.staffSkill = 0;
     }
 
+    public Summoner(Character owner){
+        super(owner);
+        updateOccupationSkills();
+    }
+
     public void attackWithStaff(){
         if(successfulAction(this.staffSkill) ){
 
@@ -34,9 +39,23 @@ public class Summoner extends Property{
     //uses mana!
     public void boonSpell(){
         if(successfulAction(this.boonSkill) ){
-            // magic that heals, temporarily grants (partial) immunities and defensive bonuses, improves stats, and other beneficial things.
-            //character.modifyCurrentMana(-10);
+            // magic that heals, temporarily grants (partial) immunities and defensive bonuses!
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i = 0; i < 10; i++){
+                        owner.modifyCurrentLife(2);
 
+                        try{
+                            Thread.sleep(1000);
+                        }catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    System.out.println(owner.getCurrentLife());
+                }
+            });
+            t1.start();
             //enchantmentSkill.modifyCurrentLife(2);//increase life by 2 per second
         }
     }
@@ -48,11 +67,11 @@ public class Summoner extends Property{
     }
 
     @Override
-    public void updateOccupationSkills(Character c){
-        this.baneSkill = c.getNumberOfSkillPoints(Skill.BANE);
-        this.boonSkill = c.getNumberOfSkillPoints(Skill.BOON);
-        this.enchantmentSkill = c.getNumberOfSkillPoints(Skill.ENCHANTMENT);
-        this.staffSkill = c.getNumberOfSkillPoints(Skill.STAFF);
+    public void updateOccupationSkills(){
+        this.baneSkill = owner.getNumberOfSkillPoints(Skill.BANE);
+        this.boonSkill = owner.getNumberOfSkillPoints(Skill.BOON);
+        this.enchantmentSkill = owner.getNumberOfSkillPoints(Skill.ENCHANTMENT);
+        this.staffSkill = owner.getNumberOfSkillPoints(Skill.STAFF);
     }
 
     @Override
