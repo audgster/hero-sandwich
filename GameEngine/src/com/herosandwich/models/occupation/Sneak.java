@@ -1,7 +1,10 @@
 package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
+import com.herosandwich.models.inventory.Inventory;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
 
 import java.util.List;
@@ -58,18 +61,22 @@ public class Sneak extends Property{
         }
     }
 
-    /* very poor way of doing this. But first attempt!
-     * Clay had a very cool idea that when entity interacts
-     * player can pick the item that they want get from the npc!! :)
+    /*
+     * A successful Pick Pocket will randomly select and remove item from an npc's inventory
+      * and insert it to owner's inventory
      */
-    public void pickPocket(Character npc){
+    public void pickPocket(Npc npc){
         if(successfulAction(this.pickPocketSkill) ){
-            //List<TakeableItem> nPCItems =  npc.getInventory();
-            //TakeableItem item = npc.removeItemFromInventory(nPCItems.get(0));
-            //entity.insertItemToInventory(item);
+            Inventory npcInventory = npc.getInventory();
+            List npcInventoryList = npcInventory.getInventory();
+
+            int randomSlot = (int) Math.ceil(Math.random() * (npcInventoryList.size() - 1));
+            TakeableItem npcItem = npcInventory.removeItem((TakeableItem) npcInventoryList.get(randomSlot));
+            owner.insertItemToInventory(npcItem);
         }
     }
 
+    //this will get fixed with damageCalculator
     public int rangedWeaponAttack(SneakWeapon weapon){
         int damage = 0;
         if(successfulAction(this.rangedWeaponSkill) ){
