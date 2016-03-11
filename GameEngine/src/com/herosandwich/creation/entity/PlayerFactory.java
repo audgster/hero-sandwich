@@ -23,6 +23,9 @@ public class PlayerFactory
             int availablePoints
     )
     {
+        if (availablePoints < 0)
+            throw new IllegalArgumentException("available points cannot be null");
+
         Character character = characterFactory.vendCustomInstance(
                 name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, occupation);
 
