@@ -33,6 +33,18 @@ public class EntityStats
         calculateTotalDerivedStats();
     }
 
+    public EntityStats(PrimaryStats primaryStats, DerivedStats derivedStats)
+    {
+        this.primaryStats = primaryStats;
+        this.derivedStats = derivedStats;
+        flatBonus = new ArrayList<>();
+        totalStats = this.derivedStats;
+
+        updateDerivedStats();
+        calculateTotalDerivedStats();
+    }
+
+
     /*
     * Precondition: occupation stats must be valid (all values positive)
     * */

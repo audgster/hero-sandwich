@@ -29,8 +29,17 @@ public class Entity
         currentLife = getMaxLife();
         currentMana = getMaxMana();
 
-        name = "Merp entity";
+        name = "Entity Dave";
 
+        this.position = new PositionHex(0,0,0);
+        this.direction = DirectionHex.SOUTH;
+    }
+
+    public Entity(String name, EntityStats stats){
+        this.name = name;
+        this.stats = stats;
+        currentLife = getMaxLife();
+        currentMana = getMaxMana();
         this.position = new PositionHex(0,0,0);
         this.direction = DirectionHex.SOUTH;
     }

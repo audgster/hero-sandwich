@@ -39,8 +39,9 @@ public class Character extends Entity {
         occupation = new Smasher();
     }
 
-    public Character(Property occupation)
+    public Character(String name, EntityStats stats, Property occupation)
     {
+        super(name, stats);
         occupation.setOwner(this);
         this.occupation = occupation;
         skillPoints = new HashMap<>();
