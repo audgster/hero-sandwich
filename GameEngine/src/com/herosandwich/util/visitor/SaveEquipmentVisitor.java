@@ -10,7 +10,7 @@ import org.w3c.dom.Node;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SaveEquipmentVisitor extends SaveVisitor implements EquipmentVisitor
+public class SaveEquipmentVisitor implements EquipmentVisitor
 {
     private Document doc;
 
@@ -39,8 +39,7 @@ public class SaveEquipmentVisitor extends SaveVisitor implements EquipmentVisito
         }
     }
 
-    @Override
-    public Node retreiveSavedObject() {
+    public Node retrieveSavedObject() {
         Node node = this.equipmentNode;
 
         this.equipmentNode = null;

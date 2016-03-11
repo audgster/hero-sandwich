@@ -6,7 +6,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-public class SaveInventoryVisitor extends SaveVisitor implements InventoryVisitor
+public class SaveInventoryVisitor implements InventoryVisitor
 {
     private Document doc;
     private Element inventory = null;
@@ -30,8 +30,7 @@ public class SaveInventoryVisitor extends SaveVisitor implements InventoryVisito
         }
     }
 
-    @Override
-    public Node retreiveSavedObject()
+    public Node retrieveSavedObject()
     {
         Node node = this.inventory;
 

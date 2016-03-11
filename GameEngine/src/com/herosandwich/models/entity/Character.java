@@ -125,14 +125,21 @@ public class Character extends Entity {
         if (numberOfPoints < 1)
             return false;
 
-        Integer points = skillPoints.get(skill) + numberOfPoints;
-        skillPoints.replace(skill, points);
-        occupation.updateOccupationSkills();
+        if (skillPoints.containsKey(skill)) {
+            Integer points = skillPoints.get(skill) + numberOfPoints;
+            skillPoints.replace(skill, points);
+        }
+        else
+        {
+            skillPoints.put(skill, numberOfPoints);
+        }
+
+        getOccupation().updateOccupationSkills();
 
         return true;
     }
 
-    private HashMap<Skill, Integer> getSkillPoints()
+    public HashMap<Skill, Integer> getSkillPoints()
     {
         return this.skillPoints;
     }
