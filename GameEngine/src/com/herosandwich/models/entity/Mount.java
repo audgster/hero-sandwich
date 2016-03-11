@@ -17,20 +17,9 @@ public class Mount extends Character
     * Constructors
     * */
 
-    public Mount()
-    {
-        this.rider = null;
-        this.movement = 1;
-    }
-
-    public Mount(Character entity)
-    {
-        this.rider = entity;
-        this.movement = 1;
-    }
-
     public Mount(int movement)
     {
+        super();
         this.rider = null;
         this.movement = movement;
     }
