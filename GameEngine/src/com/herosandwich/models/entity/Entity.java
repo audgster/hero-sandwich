@@ -1,5 +1,7 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.util.DirectionHex;
+import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 public class Entity
@@ -14,6 +16,12 @@ public class Entity
     * */
     private EntityStats stats;
 
+    /*
+    * Position and Direction
+    * */
+    private PositionHex position;
+    private DirectionHex direction;
+
     public Entity()
     {
         stats = new EntityStats();
@@ -22,6 +30,9 @@ public class Entity
         currentMana = getMaxMana();
 
         name = "Merp entity";
+
+        this.position = new PositionHex(0,0,0);
+        this.direction = DirectionHex.SOUTH;
     }
 
     private int currentLife;
@@ -112,6 +123,14 @@ public class Entity
     public int getCurrentMana()
     {
         return this.currentMana;
+    }
+
+    public PositionHex getPosition(){
+        return this.position;
+    }
+
+    public DirectionHex getDirection(){
+        return this.direction;
     }
 
     /*
@@ -238,6 +257,18 @@ public class Entity
     public void accept(EntityVisitor eVisitor)
     {
         eVisitor.visit(this);
+    }
+
+    //movement
+    public boolean move(DirectionHex d){
+        this.direction = d;
+        //MovementVisitor visitor = new MovementVisitor(this.position.getPosInDirection(this.direction));
+        //map.accept(visitor);
+        boolean canMove = false; /* visitor.canMove(); */
+        if(canMove){
+            this.position = this.position.getPosInDirection(this.direction);
+        }
+        return canMove;
     }
 
 }

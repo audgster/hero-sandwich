@@ -3,6 +3,7 @@ package com.herosandwich.models.map;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.items.Item;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.TileVisitor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -66,6 +67,10 @@ public class Tile {
 
     public Terrain getTerrain(){
         return terrain;
+    }
+
+    public void accept(TileVisitor tVisitor){
+        tVisitor.visit(this);
     }
 
 }

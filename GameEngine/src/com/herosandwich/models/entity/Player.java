@@ -51,7 +51,7 @@ public class Player extends Character {
 
         boolean result = super.allocateSkillPoints(skill, numberOfPoints);
         availablePoints -= numberOfPoints;
-        getOccupation().updateOccupationSkills();
+        getOccupation().updateOccupationSkills(this);
 
         return result;
     }
