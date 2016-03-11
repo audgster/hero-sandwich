@@ -5,9 +5,10 @@ import com.herosandwich.models.entity.Character;
 
 public interface EntityVisitor
 {
-    void visit(Entity entity);
-    void visit(Character character);
-    void visit(Pet pet);
-    void visit(Npc npc);
-    void visit(Player player);
+    void visitEntity(Entity entity);
+    void visitCharacter(Character character);
+    void visitPet(Pet pet);
+    void visitNpc(Npc npc);
+    void visitPlayer(Player player);
+    void visitMount(Mount mount);
 }

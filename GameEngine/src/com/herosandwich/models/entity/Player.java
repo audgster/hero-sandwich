@@ -64,6 +64,6 @@ public class Player extends Character {
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitPlayer(this);
     }
 }

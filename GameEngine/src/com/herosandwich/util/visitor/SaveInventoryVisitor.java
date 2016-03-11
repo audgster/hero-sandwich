@@ -17,7 +17,7 @@ public class SaveInventoryVisitor implements InventoryVisitor
     }
 
     @Override
-    public void visit(Inventory inventory)
+    public void visitInventory(Inventory inventory)
     {
         this.inventory = doc.createElement("inventory");
 

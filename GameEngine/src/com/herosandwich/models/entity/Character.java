@@ -147,6 +147,6 @@ public class Character extends Entity {
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitCharacter(this);
     }
 }

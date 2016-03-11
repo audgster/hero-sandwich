@@ -22,13 +22,13 @@ public class SaveEntityVisitor implements EntityVisitor
     }
 
     @Override
-    public void visit(Entity entity)
+    public void visitEntity(Entity entity)
     {
         retrieveStats(entity);
     }
 
     @Override
-    public void visit(Character character)
+    public void visitCharacter(Character character)
     {
         retrieveStats(character);
         retrieveOccupation(character);
@@ -38,13 +38,13 @@ public class SaveEntityVisitor implements EntityVisitor
     }
 
     @Override
-    public void visit(Pet pet)
+    public void visitPet(Pet pet)
     {
         retrieveStats(pet);
     }
 
     @Override
-    public void visit(Npc npc) {
+    public void visitNpc(Npc npc) {
         retrieveStats(npc);
         retrieveOccupation(npc);
         retrieveInventory(npc);
@@ -53,7 +53,7 @@ public class SaveEntityVisitor implements EntityVisitor
     }
 
     @Override
-    public void visit(Player player) {
+    public void visitPlayer(Player player) {
         retrieveStats(player);
         retrieveOccupation(player);
         retrieveInventory(player);
@@ -61,6 +61,11 @@ public class SaveEntityVisitor implements EntityVisitor
         retrieveSkillPoints(player);
     }
 
+    @Override
+    public void visitMount(Mount mount)
+    {
+        retrieveMountStats(mount);
+    }
 
     private void retrieveStats(Entity entity)
     {
@@ -165,6 +170,25 @@ public class SaveEntityVisitor implements EntityVisitor
         }
 
         entityNode.appendChild(skills);
+    }
+
+    private void retrieveMountStats(Mount mount)
+    {
+        int movement = mount.getMovement();
+
+        String name = mount.getName();
+
+        entityNode = doc.createElement("Mount");
+
+        entityNode.setAttribute("name", name);
+        entityNode.setAttribute("mount-movement", Integer.toString(movement));
+
+        if (mount.getRider() != null)
+        {
+            SaveEntityVisitor riderVisitor = new SaveEntityVisitor(doc);
+            mount.getRider().accept(riderVisitor);
+            entityNode.appendChild(riderVisitor.retrieveSavedObject());
+        }
     }
 
     public Node retrieveSavedObject() {

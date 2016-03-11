@@ -256,7 +256,7 @@ public class Entity
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitEntity(this);
     }
 
     //movement

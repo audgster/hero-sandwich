@@ -22,7 +22,7 @@ public class SaveEquipmentVisitor implements EquipmentVisitor
     }
 
     @Override
-    public void visit(Equipment equipment)
+    public void visitEquipment(Equipment equipment)
     {
         equipmentNode = doc.createElement("equipment");
 
