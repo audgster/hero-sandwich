@@ -61,6 +61,6 @@ public class Equipment {
 
     public void accept(EquipmentVisitor visitor)
     {
-        visitor.visit(this);
+        visitor.visitEquipment(this);
     }
 }

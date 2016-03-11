@@ -4,12 +4,13 @@ package com.herosandwich.models.occupation;
 import com.herosandwich.models.entity.Character;
 
 public abstract class Property{
-    protected Character character;
+    protected Character owner;
 
-    public Property(Character c){
-        this.character = c;
+    public Property(){}
+
+    public Property(Character owner){
+        this.owner = owner;
     }
-
 
     public boolean successfulAction(int skillLevel){
         int prob = (int) Math.ceil(Math.random() * 100) + skillLevel;
@@ -20,4 +21,8 @@ public abstract class Property{
     }
 
     public abstract void updateOccupationSkills();
+
+    public void setOwner(Character owner){
+        this.owner = owner;
+    }
 }

@@ -1,12 +1,8 @@
 package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Skill;
-import com.herosandwich.models.equipment.EquipmentSlots;
-import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 
 public class Smasher extends Property{
@@ -15,22 +11,26 @@ public class Smasher extends Property{
     private int oneHandedWeaponSkill;
     private int twoHandedWeaponSkill;
 
-
-    public Smasher(Character c){
-        super(c);
+    public Smasher(){
         this.brawlSkill = 0;
         this.oneHandedWeaponSkill = 0;
-        this.twoHandedWeaponSkill  = 0;
+        this.twoHandedWeaponSkill = 0;
+    }
+
+
+    public Smasher(Character owner){
+        super(owner);
+        updateOccupationSkills();
     }
 
     //maybe state pattern.
     public int attack(){
-        EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
+       // EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
 
         int damage = 0;
         if(successfulAction(oneHandedWeaponSkill) ){
-            damage += character.getOffensiveRating();
-            damage += item.getWeaponsOffensiveRating();
+         //   damage += character.getOffensiveRating();
+           // damage += item.getWeaponsOffensiveRating();
             damage *=1.5;// One handed weapons are stronger than normal
         }
         return damage;
@@ -40,7 +40,7 @@ public class Smasher extends Property{
     public int attack(TwoHandedWeapon weapon){
         int damage = 0;
         if(successfulAction(twoHandedWeaponSkill) ){
-            damage += character.getOffensiveRating();
+         //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
             damage *=2;// Two handed weapons are very powerful than normal
         }
@@ -50,7 +50,7 @@ public class Smasher extends Property{
     public int attack(BrawlWeapon weapon){
         int damage = 0;
         if(successfulAction(brawlSkill) ){
-            damage += character.getOffensiveRating();
+         //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
            // One handed weapons are stronger than normal
         }
@@ -60,9 +60,9 @@ public class Smasher extends Property{
 
     @Override
     public void updateOccupationSkills(){
-        this.brawlSkill = character.getNumberOfSkillPoints(Skill.BRAWL);
-        this.oneHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
-        this.twoHandedWeaponSkill = character.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
+        this.brawlSkill = owner.getNumberOfSkillPoints(Skill.BRAWL);
+        this.oneHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
+        this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
 @Override

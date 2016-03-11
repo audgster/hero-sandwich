@@ -1,9 +1,9 @@
 package com.herosandwich.models.items;
 
-import com.herosandwich.models.entity.Entity;
+import com.herosandwich.util.visitor.ItemVisitor;
 
 public abstract class Item{
-    private String name;
+    protected String name;
     private int itemId;
 
     public Item(String name, int itemId)
@@ -11,6 +11,7 @@ public abstract class Item{
         this.name = name;
         this.itemId = itemId;
     }
+
     public String getName()
     {
         return name;
@@ -21,5 +22,7 @@ public abstract class Item{
         return itemId;
     }
 
-    public void executeInteraction( Entity entity){}
+    public void accept(ItemVisitor visitor){
+        visitor.visitItem(this);
+    }
 }

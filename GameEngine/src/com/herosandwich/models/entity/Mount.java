@@ -6,6 +6,7 @@ import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Property;
+import com.herosandwich.util.visitor.EntityVisitor;
 
 public class Mount extends Character
 {
@@ -106,13 +107,21 @@ public class Mount extends Character
     @Override
     public int getMaxLife()
     {
-        return rider.getMaxLife();
+        if (rider != null) {
+            return rider.getMaxLife();
+        }
+
+        return 0;
     }
 
     @Override
     public int getMaxMana()
     {
-        return rider.getMaxMana();
+        if (rider != null) {
+            return rider.getMaxMana();
+        }
+
+        return 0;
     }
 
     @Override
@@ -183,7 +192,10 @@ public class Mount extends Character
     @Override
     public int getNumberOfSkillPoints(Skill skill)
     {
-        return rider.getNumberOfSkillPoints(skill);
+        if (rider != null) {
+            return rider.getNumberOfSkillPoints(skill);
+        }
+        return 0;
     }
 
     /*
@@ -286,5 +298,11 @@ public class Mount extends Character
         this.rider = newRider;
 
         return this;
+    }
+
+    @Override
+    public void accept(EntityVisitor visitor)
+    {
+        visitor.visitMount(this);
     }
 }

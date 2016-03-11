@@ -56,9 +56,14 @@ public class Player extends Character {
         return result;
     }
 
+    public int getAvailablePoints()
+    {
+        return this.availablePoints;
+    }
+
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitPlayer(this);
     }
 }

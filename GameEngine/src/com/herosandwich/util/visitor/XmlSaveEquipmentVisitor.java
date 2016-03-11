@@ -10,19 +10,19 @@ import org.w3c.dom.Node;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SaveEquipmentVisitor extends SaveVisitor implements EquipmentVisitor
+public class XmlSaveEquipmentVisitor implements EquipmentVisitor
 {
     private Document doc;
 
     private Element equipmentNode = null;
 
-    public SaveEquipmentVisitor(Document doc)
+    public XmlSaveEquipmentVisitor(Document doc)
     {
         this.doc = doc;
     }
 
     @Override
-    public void visit(Equipment equipment)
+    public void visitEquipment(Equipment equipment)
     {
         equipmentNode = doc.createElement("equipment");
 
@@ -39,8 +39,7 @@ public class SaveEquipmentVisitor extends SaveVisitor implements EquipmentVisito
         }
     }
 
-    @Override
-    public Node retreiveSavedObject() {
+    public Node retrieveSavedObject() {
         Node node = this.equipmentNode;
 
         this.equipmentNode = null;

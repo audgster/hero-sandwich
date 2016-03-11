@@ -3,6 +3,9 @@ package com.herosandwich.models.map;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.items.Item;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.EntityVisitor;
+import com.herosandwich.util.visitor.ItemVisitor;
+import com.herosandwich.util.visitor.TileVisitor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -67,5 +70,29 @@ public class Tile {
     public Terrain getTerrain(){
         return terrain;
     }
+
+    public void acceptTileVisitor(TileVisitor tVisitor){
+        tVisitor.visitTile(this);
+    }
+
+    public void acceptItemVisitor(ItemVisitor iVisitor){
+        for(Item item: itemList){
+            item.accept(iVisitor);
+        }
+    }
+
+    public void acceptEntityVisitor(EntityVisitor eVisitor){
+        for(Entity entity: entityList){
+            entity.accept(eVisitor);
+        }
+    }
+
+    /*
+    public void accept(AOEVisitor aoeVisitor){
+        for(AreaOfEffect aoe: aoeList){
+            aoe.accept(aoeVisitor);
+        }
+    }
+     */
 
 }

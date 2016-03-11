@@ -24,14 +24,26 @@ public class EntityStats
 
     public EntityStats()
     {
-        primaryStats = new PrimaryStats();
-        derivedStats = new DerivedStats();
+        primaryStats = new PrimaryStats(5, 10, 10, 10, 10, 1, 1);
+        derivedStats = new DerivedStats( 1, 100, 100, 10, 5, 12);
         flatBonus = new ArrayList<>();
         totalStats = new DerivedStats();
 
         updateDerivedStats();
         calculateTotalDerivedStats();
     }
+
+    public EntityStats(PrimaryStats primaryStats, DerivedStats derivedStats)
+    {
+        this.primaryStats = primaryStats;
+        this.derivedStats = derivedStats;
+        flatBonus = new ArrayList<>();
+        totalStats = this.derivedStats;
+
+        updateDerivedStats();
+        calculateTotalDerivedStats();
+    }
+
 
     /*
     * Precondition: occupation stats must be valid (all values positive)

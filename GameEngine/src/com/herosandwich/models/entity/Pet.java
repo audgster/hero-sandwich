@@ -8,6 +8,6 @@ public class Pet extends Entity
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitPet(this);
     }
 }

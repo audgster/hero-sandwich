@@ -31,6 +31,8 @@ public class Character extends Entity {
 
     public Character()
     {
+        super();
+
         skillPoints = new HashMap<>();
 
         inventory = new Inventory();
@@ -39,13 +41,14 @@ public class Character extends Entity {
         occupation = new Smasher(this);
     }
 
-    public Character(Character character)
+    public Character(String name, EntityStats stats, Property occupation)
     {
-        this.skillPoints = character.getSkillPoints();
-
-        this.inventory = character.getInventory();
-        this.equipment = character.getEquipment();
-        this.occupation = character.getOccupation();
+        super(name, stats);
+        occupation.setOwner(this);
+        this.occupation = occupation;
+        skillPoints = new HashMap<>();
+        inventory = new Inventory();
+        equipment = new Equipment();
     }
 
     /*
@@ -125,14 +128,21 @@ public class Character extends Entity {
         if (numberOfPoints < 1)
             return false;
 
-        Integer points = skillPoints.get(skill) + numberOfPoints;
-        skillPoints.replace(skill, points);
+        if (skillPoints.containsKey(skill)) {
+            Integer points = skillPoints.get(skill) + numberOfPoints;
+            skillPoints.replace(skill, points);
+        }
+        else
+        {
+            skillPoints.put(skill, numberOfPoints);
+        }
+
         getOccupation().updateOccupationSkills();
 
         return true;
     }
 
-    private HashMap<Skill, Integer> getSkillPoints()
+    public HashMap<Skill, Integer> getSkillPoints()
     {
         return this.skillPoints;
     }
@@ -140,6 +150,6 @@ public class Character extends Entity {
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitCharacter(this);
     }
 }

@@ -126,6 +126,6 @@ public class Npc extends Character
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)
     {
-        eVisitor.visit(this);
+        eVisitor.visitNpc(this);
     }
 }
