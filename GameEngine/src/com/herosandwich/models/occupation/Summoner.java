@@ -1,6 +1,8 @@
 package com.herosandwich.models.occupation;
 
+import com.herosandwich.models.entity.Attitude;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
 
 public class Summoner extends Property{
@@ -32,7 +34,7 @@ public class Summoner extends Property{
     public void baneSpell(){
         if(successfulAction(this.baneSkill) ){
             owner.modifyCurrentMana(-5);
-
+            //the damageCalculator will deal with this!
         }
     }
 
@@ -75,13 +77,14 @@ public class Summoner extends Property{
         }
     }
 
-    public void enchantmentSpell(Character npc){
+    public void enchantmentSpell(Npc npc){
         if(successfulAction(this.enchantmentSkill) ){
+            //if successful will make npc more friendly
             owner.modifyCurrentMana(-5);
-
+            npc.changeAttitude(true);
         }else{
-
-            // make the target hostile
+            // if enchantment spell fails, make the target hostile
+            npc.setAttitudeTowardsPlayer(Attitude.HOSTILE);
         }
     }
 
