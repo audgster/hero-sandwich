@@ -8,13 +8,11 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
-import com.herosandwich.util.DirectionHex;
-import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 import java.util.HashMap;
 
-public abstract class Character extends Entity {
+public class Character extends Entity {
 
     /*
     * Occupation

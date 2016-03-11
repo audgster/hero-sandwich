@@ -9,6 +9,11 @@ public class Pet extends Entity
         super();
     }
 
+    public Pet(Entity entity)
+    {
+        super(entity);
+    }
+
     public Pet(Pet pet)
     {
         super(pet);

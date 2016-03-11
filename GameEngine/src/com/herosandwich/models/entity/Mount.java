@@ -17,21 +17,30 @@ public class Mount extends Character
     * Constructors
     * */
 
-    public Mount(int movement)
+    public Mount()
     {
         super();
+        this.rider = null;
+        this.movement = 1;
+    }
+
+    public Mount(String name, int movement)
+    {
+        setName(name);
         this.rider = null;
         this.movement = movement;
     }
 
-    public Mount(Character rider, int movement)
+    public Mount(String name, Character rider, int movement)
     {
+        setName(name);
         this.rider = rider;
         this.movement = movement;
     }
 
     public Mount(Mount mount)
     {
+        setName(mount.getName());
         this.rider = mount.getRider();
         this.movement = mount.getMovement();
     }

@@ -3,9 +3,8 @@ package com.herosandwich.models.entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
-import javafx.geometry.Pos;
 
-public abstract class Entity
+public class Entity
 {
     /*
     * Naming
