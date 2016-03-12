@@ -4,6 +4,7 @@ import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public abstract class EquipableItem extends TakeableItem {
     protected DerivedStats derivedStats;
@@ -56,5 +57,13 @@ public abstract class EquipableItem extends TakeableItem {
 
     public OccupationWeaponRestriction getOccupationWeaponRestriction(){
         return this.oWR;
+    }
+
+    public Iterator getSlotPosition(){
+        return allowableSlots.iterator();
+    }
+
+    public EquipmentType getEquipmentType(){
+        return equipmentType;
     }
 }

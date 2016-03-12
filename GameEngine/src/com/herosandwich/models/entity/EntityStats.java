@@ -24,8 +24,8 @@ public class EntityStats
 
     public EntityStats()
     {
-        primaryStats = new PrimaryStats(5, 10, 10, 10, 10, 1, 1);
-        derivedStats = new DerivedStats( 1, 100, 100, 10, 5, 12);
+        primaryStats = new PrimaryStats(0, 0, 0, 0, 0, 0, 0);
+        derivedStats = new DerivedStats(0, 0, 0, 0, 0, 0);
         flatBonus = new ArrayList<>();
         totalStats = new DerivedStats();
 
@@ -169,12 +169,12 @@ public class EntityStats
     }
 
     /*
-    * Addition of provided DerivedStats
-    *
-    * Returns true if primary stats were valid (all positive after addition)
-    *
-    * Returns false if primary stats were invalid (at least one negative after addition)
-    * */
+ * Addition of provided DerivedStats
+ *
+ * Returns true if primary stats were valid (all positive after addition)
+ *
+ * Returns false if primary stats were invalid (at least one negative after addition)
+ * */
     public boolean addDerivedStat(DerivedStats stat)
     {
         boolean valid = validateDerivedAddition(stat);
@@ -191,6 +191,32 @@ public class EntityStats
 
         return valid;
     }
+
+
+    /*
+* Removal of provided DerivedStats
+*
+* Returns true if primary stats were valid (all positive after removal)
+*
+* Returns false if primary stats were invalid (at least one negative after removal)
+* */
+    public boolean removeDerivedStat(DerivedStats stat)
+    {
+        boolean valid = validateDerivedAddition(stat);
+
+        if (valid)
+        {
+            flatBonus.remove(stat);
+
+            if (flatBonus.size() > 50)
+                compressFlatBonus();
+        }
+
+        calculateTotalDerivedStats();
+
+        return valid;
+    }
+
 
     /*
     * Verifies that a provided DerivedStats object can be applied to entity stats

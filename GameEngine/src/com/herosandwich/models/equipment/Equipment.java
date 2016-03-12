@@ -2,9 +2,11 @@ package com.herosandwich.models.equipment;
 
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Equipment {
     private HashMap<EquipmentSlots, EquipableItem> equipment;
@@ -18,25 +20,38 @@ public class Equipment {
         this.equipment = equipment.getEquipment();
     }
 
-    public TakeableItem insertItem(EquipableItem item)
+    /* NOTE: We decided that insertItem will not automatically remove any Items
+     *
+     */
+    public boolean insertItem(EquipableItem item)
     {
-        //item.getLocation;
-        // TODO logic for checking to see if a weapon can be put in that slot
-        TakeableItem returnItem = null;
+        boolean inserted = false;
+        Iterator itemSlots = item.getSlotPosition();
+        //this first if statement is specifically for Weapon types that will either go
+        //in the left or right hand of a Character
+        if(item.getEquipmentType() == EquipmentType.WEAPON){
+            while (itemSlots.hasNext()){
 
-//        if (equipment.containsKey(location))
-//        {
-//            returnItem = equipment.get(location);
-//            equipment.remove(location);
-//        }
-//        equipment.put(location, item);
-
-        return returnItem;
+                if (!equipment.containsKey(itemSlots.next()))
+                {
+                    equipment.put((EquipmentSlots) itemSlots.next(), item);
+                    inserted = true;
+                    break;
+                }
+            }
+        }else if(!equipment.containsKey(itemSlots.next())) {
+            equipment.put((EquipmentSlots) itemSlots.next(), item);
+            inserted = true;
+        }else {
+            System.out.println("Need to unequip item at given postion first");
+            return false;
+        }
+        return inserted;
     }
 
-    public TakeableItem removeItem(EquipmentSlots location)
+    public EquipableItem removeItem(EquipmentSlots location)
     {
-        TakeableItem returnItem = null;
+        EquipableItem returnItem = null;
 
         if (equipment.containsKey(location)){
             returnItem = equipment.get(location);

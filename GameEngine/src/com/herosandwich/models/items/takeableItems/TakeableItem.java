@@ -7,10 +7,4 @@ public class TakeableItem extends Item {
       super(name, itemId);
   }
 
-  public void getPickedUp(){
-      // Item gets picked and added to inventory
-      // when Entity walks over it
-      //removes item from current tile
-  }
-
 }
