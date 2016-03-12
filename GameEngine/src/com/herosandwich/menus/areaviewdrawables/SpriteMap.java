@@ -17,13 +17,16 @@ public class SpriteMap {
     HashMap<Integer, Image> sprites = new HashMap<Integer, Image>();
 
 
-    static Image groundTile = new Image("res/images/tiles/ground_tile.png");
-    static Image fogTile = new Image("res/images/tiles/fog_tile.png");
+    private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
+    private static Image opaqueTile = new Image("res/images/tiles/ground_tile.png");
+    private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
 
     private static SpriteMap instance;
 
     private SpriteMap() {
-        sprites.put(new Integer(1), groundTile);
+        sprites.put(1, groundTile);
+        sprites.put(2, opaqueTile);
+        sprites.put(3, fogTile);
     }
 
     public static SpriteMap getInstance() {

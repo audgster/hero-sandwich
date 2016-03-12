@@ -10,21 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrawableTile implements Drawable, Listener {
-//    CanvasPoint centerPoint;
-//
-    //Image baseTile = new Image("com/herosandwich/menus/Land6.jpg"); use sprite map for this
-//    Image opaqueLayer = new Image("com/herosandwich/menus/opaque_tile.png"); //see above
-//    Image fogLayer; // see above
 
     Tile modelTile;
-    PositionHex hexCoordinate;
     CanvasPoint centerPoint;
     boolean isVisible = false;
+    boolean discovered = false;
     boolean isInFog = true;
     List<Drawable> drawableList = new ArrayList<Drawable>();
     DrawableVisitor drawableVisitor = new DrawableVisitor();
     SpriteMap spriteMap = SpriteMap.getInstance();
-    Integer landTileImageKey = new Integer(1);
+    Integer landTileImageKey = 1;
+    Integer opaqueTileImageKey = 2;
+    Integer fogTileImageKey = 3;
 
 
 
@@ -37,26 +34,17 @@ public class DrawableTile implements Drawable, Listener {
         }
     }
 
-    public void methodforMakeInvisible() {
-        //MAKE THINGS GRAY
+    public void makeNotVisible() {
         isVisible = false;
     }
 
-    public void methodforMakeVisible() {
-        //MAKE THINGS GRAY
+    public void makeVisible() {
         isVisible = true;
+        discovered = true;
+        isInFog = false;
         update();
     }
 
-    public void setInFog() {
-        isInFog = true;
-        isVisible = false;
-    }
-
-    public void setIsVisible() {
-        isVisible = true;
-        isInFog = false;
-    }
 
     public DrawableTile(Double xCenter, Double yCenter) {
         centerPoint = new CanvasPoint(xCenter, yCenter);
@@ -68,42 +56,30 @@ public class DrawableTile implements Drawable, Listener {
 
     public DrawableTile(Tile modelTile) {
         this.modelTile = modelTile;
-        hexCoordinate = modelTile.getPosition();
-    }
-
-    public void setTerrainAsWater() {
-        //Set image to water
-    }
-
-//    public void setTerrainAsLand() {
-//        baseTile = new Image("com/herosandwich/menus/ground_tile.png");
-//    }
-
-    public void setTerrainAsMountain() {
-        //set image to mountain
-    }
-
-    public PositionHex getHexCoordinate() {
-        return hexCoordinate;
     }
 
     public CanvasPoint getCanvasCoordinate() {
         return centerPoint;
     }
 
-//    public void drawBaseTile(GraphicsContext graphicsContext) {
-//        graphicsContext.drawImage(baseTile, centerPoint.getX(), centerPoint.getY());
-//    }
 
     public void draw(GraphicsContext graphicsContext, CanvasPoint point) {
-        for(Drawable graphic : drawableList) {
+        if(isInFog)
+            graphicsContext.drawImage(spriteMap.getImageForKey(fogTileImageKey), point.getX(), point.getY());
+        else if(isVisible) {
             graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
-            graphic.draw(graphicsContext, centerPoint);
-            if(isInFog)
-                graphicsContext.drawImage(spriteMap.getImageForKey(2), point.getX(), point.getY());
-            else if(!isVisible)
-                graphicsContext.drawImage(spriteMap.getImageForKey(3), point.getX(), point.getY());
+            drawGraphicsInBag(graphicsContext, point);
         }
+        else if(discovered) {
+            graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
+            drawGraphicsInBag(graphicsContext, point);
+            graphicsContext.drawImage(spriteMap.getImageForKey(opaqueTileImageKey), point.getX(), point.getY());
+        }
+    }
+
+    private void drawGraphicsInBag(GraphicsContext graphicsContext, CanvasPoint point) {
+        for(Drawable graphic : drawableList)
+            graphic.draw(graphicsContext, centerPoint);
     }
 
 }
