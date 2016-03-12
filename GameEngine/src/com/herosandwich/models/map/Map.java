@@ -151,8 +151,8 @@ public class Map {
     /***********************************************************************************************************/
     // For testing!!!!
 
-    public void initMyDrawable() {
-        TileGrid drawablegrid = new TileGrid(this);
+    public TileGrid initMyDrawable() {
+        return new TileGrid(this);
     }
 
     /***********************************************************************************************************/
