@@ -3,6 +3,7 @@ package com.herosandwich.menus;
 import com.herosandwich.models.entity.Entity;
 
 import com.herosandwich.models.occupation.Property;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -20,25 +21,28 @@ import java.util.Stack;
  */
 public class AreaMenu{
     private double WIDTH,HEIGHT;
-    private Pane statsView;
     private Pane content;
     private Entity entity;
     private Property occupation;
+    private VBox textOptions;
+    private boolean visible;
     public AreaMenu(double width, double height){
         WIDTH = width;
         HEIGHT = height;
-        statsView = new Pane();
         content = new Pane();
         entity = new Entity();
+        textOptions = new VBox(5);
+            textOptions.setMaxSize(WIDTH,HEIGHT-WIDTH);
     }
     public Pane createMenu(){
         StackPane entityInfo = createEntityInfo();
         HBox characterInfo = new HBox();
             characterInfo.getChildren().addAll(createEntityStats(),createOtherStatsPart());
-        Rectangle blackRec = new Rectangle(WIDTH,HEIGHT-WIDTH, Color.BLACK);
         VBox areaMenu = new VBox();
-        areaMenu.getChildren().addAll(entityInfo, characterInfo, blackRec);
+        areaMenu.getChildren().addAll(entityInfo, characterInfo, createTalkBox());
         content.getChildren().addAll(areaMenu);
+
+        createTesting();
         return content;
     }
 
@@ -112,6 +116,47 @@ public class AreaMenu{
         occupationSkills.setMinHeight(WIDTH/3);
         occupationSkills.setId("stats_menu");
         return occupationSkills;
+    }
+
+    private StackPane createTalkBox(){
+        Rectangle blackRec = new Rectangle(WIDTH,HEIGHT-WIDTH, Color.BLACK);
+        blackRec.setTranslateX(-2);
+
+        StackPane areaMenu = new StackPane();
+            areaMenu.getChildren().addAll(blackRec, textOptions);
+        return areaMenu;
+    }
+
+    private void setText(String text){
+        Label areaText = new Label(text);
+            areaText.setWrapText(true);
+        textOptions.getChildren().addAll(areaText);
+
+    }
+    private StackPane getButton(String option){
+        Label btnText = new Label(option);
+            btnText.setId("button_text");
+        Rectangle bg = new Rectangle(WIDTH, HEIGHT/15);
+            bg.setId("button_rectangle");
+        StackPane btn = new StackPane();
+            btn.setMaxSize(WIDTH, HEIGHT/15);
+            btn.setAlignment(Pos.CENTER);
+            btn.getChildren().addAll(bg, btnText);
+            btn.setVisible(true);
+            btn.setOnMouseEntered(event -> {
+            bg.setId("button_rectangle_hover");
+            btnText.setId("button_text_hover");
+        });
+            btn.setOnMouseExited(event -> {
+                bg.setId("button_rectangle");
+                btnText.setId("button_text");
+            });
+        return btn;
+    }
+
+    private void createTesting(){
+        setText("Hello, and welcome to my Special Sandwich Shop. How can I help you?");
+        textOptions.getChildren().addAll(getButton("Buy"),getButton("Sell"),getButton("Exit"));
     }
 
 }

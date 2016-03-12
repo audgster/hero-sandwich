@@ -5,6 +5,9 @@
 .root{
 	-fx-background-size: cover;
 }
+#black_bg{
+	-fx-background-color: black;
+}
 #button_text{
 	-fx-font-family: 'DK Cool Crayon';
 	-fx-font-size: 30px;
