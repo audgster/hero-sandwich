@@ -16,11 +16,13 @@ public class Map {
     private HashMap<PositionHex, Tile> tileMap;
     private HashSet<Entity> entitySet;
     private PositionHex[][] positionArray;
+    private int size;
 
     public Map(int size){
         if(size < 0){
             throw new IllegalArgumentException("Map size cannot be negative");
         }
+        this.size = size;
         positionArray = new PositionHex[2 * size + 1][2 * size + 1];
         for(int q = -size; q <= size; q++){
             int rStart = -size - Math.min(q, 0);
@@ -31,6 +33,17 @@ public class Map {
         }
         tileMap = new HashMap<PositionHex, Tile>();
         entitySet = new HashSet<Entity>();
+    }
+
+    public void initialize(Collection<Tile> tiles){
+        for(Tile tile: tiles){
+            PositionHex pos = tile.getPosition();
+            if(PositionHex.distanceTo(new PositionHex(0,0,0), pos) > size){
+                throw new IndexOutOfBoundsException("Map size is: " + this.size + "; tried to load Tile at out of " +
+                        "bounds PositionHex: " + pos.getQ() +", " + pos.getR() + ", " + pos.getS());
+            }
+            tileMap.put(pos, tile);
+        }
     }
 
     public Collection<Tile> getTiles(){

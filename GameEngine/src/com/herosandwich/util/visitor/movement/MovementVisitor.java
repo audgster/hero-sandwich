@@ -25,7 +25,7 @@ public class MovementVisitor implements TileVisitor, EntityVisitor, ItemVisitor{
     private boolean canMove;
 
     public MovementVisitor(){
-        this.canMove = false;
+        this.canMove = true;
     }
 
     public final boolean canMove(){
@@ -119,5 +119,7 @@ public class MovementVisitor implements TileVisitor, EntityVisitor, ItemVisitor{
     @Override
     public void visitTile(Tile tile) {
         acceptRule(true);
+        tile.acceptItemVisitor(this);
+        tile.acceptEntityVisitor(this);
     }
 }
