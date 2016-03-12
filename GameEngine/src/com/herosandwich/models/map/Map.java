@@ -110,6 +110,27 @@ public class Map {
         return circle;
     }
 
+    public void addEntity(PositionHex pos, Entity entity){
+        if(!entitySet.contains(entity)){
+            entitySet.add(entity);
+        }
+        tileMap.get(pos).addEntity(entity);
+    }
+
+    public void moveEntity(PositionHex newPos, Entity entity){
+        tileMap.get(entity.getPosition()).removeEntity(entity);
+        addEntity(newPos, entity); //tileMap.get(pos).addEntity(entity);
+        entity.updatePosition(newPos);
+    }
+
+    public void removeEntity(PositionHex pos, Entity entity){
+        if(!entitySet.contains(entity)){
+            throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
+        }
+        tileMap.get(pos).removeEntity(entity);
+        entitySet.remove(entity);
+    }
+
     public void acceptTileVisitor(TileVisitor tileVisitor){
         for(Tile tile: tileMap.values()){
             tile.acceptTileVisitor(tileVisitor);

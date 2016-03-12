@@ -302,6 +302,10 @@ public class Entity
         eVisitor.visitEntity(this);
     }
 
+    public void updatePosition(PositionHex pos){
+        this.position = pos;
+    }
+
     //movement
     public boolean move(DirectionHex d, Map map){
         this.direction = d;
@@ -310,7 +314,8 @@ public class Entity
         t.acceptTileVisitor(visitor);
         boolean canMove = visitor.canMove();
         if(canMove){
-            this.position = this.position.getPosInDirection(this.direction);
+            map.moveEntity(this.position.getPosInDirection(this.direction), this);
+            //updatePosition(this.position.getPosInDirection(this.direction));
         }
         return canMove;
     }
