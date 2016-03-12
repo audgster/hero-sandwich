@@ -21,36 +21,31 @@ public class Tile {
 
     private PositionHex pos;
     private Terrain terrain;
-    private List<Entity> entityList;
+    private Entity entity;
     private List<Item> itemList;
     //private List<AreaOfEffect> aoeList;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
         this.terrain = terrain;
-        this.entityList = new ArrayList<Entity>();
+        this.entity = null;
         this.itemList = new ArrayList<Item>();
         //this.aoeList = new ArrayList<AreaOfEffect>();
     }
 
-    public Tile(PositionHex pos, Terrain terrain, Collection<Entity> entities, Collection<Item> items/*, Collection<AreaOfEffect> aoes*/){
+    public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items/*, Collection<AreaOfEffect> aoes*/){
         this.pos = pos;
         this.terrain = terrain;
-        this.entityList = new ArrayList<Entity>();
+        this.entity = entity;
         this.itemList = new ArrayList<Item>();
         //this.aoeList = new ArrayList<AreaOfEffect>();
-
-        if(entities != null) {
-            for (Entity entity : entities) {
-                entityList.add(entity);
-            }
-        }
 
         if(items != null) {
             for (Item item: items) {
                 itemList.add(item);
             }
         }
+
         /*
         if(aoes != null) {
             for (AreaOfEffect aoe : aoes) {
@@ -68,6 +63,10 @@ public class Tile {
         return terrain;
     }
 
+    public Entity getEntity(){
+        return entity;
+    }
+
     public void acceptTileVisitor(TileVisitor tVisitor){
         tVisitor.visitTile(this);
     }
@@ -79,9 +78,7 @@ public class Tile {
     }
 
     public void acceptEntityVisitor(EntityVisitor eVisitor){
-        for(Entity entity: entityList){
-            entity.accept(eVisitor);
-        }
+        this.entity.accept(eVisitor);
     }
 
     /*
