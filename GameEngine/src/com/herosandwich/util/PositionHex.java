@@ -25,6 +25,14 @@ public class PositionHex{
         return dir.getPosInDirection(this);
     }
 
+    public PositionHex[] getNeighbors(){
+        PositionHex[] neighbors = new PositionHex[6];
+        for(int i = 0; i < DirectionHex.values().length; i++){
+            neighbors[i] = DirectionHex.values()[i].getPosInDirection(this);
+        }
+        return neighbors;
+    }
+
     public int getQ(){
         return q;
     }
