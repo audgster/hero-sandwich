@@ -5,6 +5,7 @@ import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
+import javafx.scene.canvas.GraphicsContext;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -151,8 +152,8 @@ public class Map {
     /***********************************************************************************************************/
     // For testing!!!!
 
-    public TileGrid initMyDrawable() {
-        return new TileGrid(this);
+    public TileGrid initMyDrawable(GraphicsContext graphicsContext) {
+        return new TileGrid(this, graphicsContext);
     }
 
     /***********************************************************************************************************/
