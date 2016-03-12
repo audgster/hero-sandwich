@@ -10,5 +10,5 @@ public interface AoEVisitor
     void visitHealDamageAoE(HealDamageAoE aoE);
     void visitTakeDamageAoE(TakeDamageAoE aoE);
     void visitTeleportAoE(TeleportAoE aoE);
-    void visitTrapAoE(AoE aoe);
+    void visitTrapAoE(InstantDamageAoETrap aoE);
 }
