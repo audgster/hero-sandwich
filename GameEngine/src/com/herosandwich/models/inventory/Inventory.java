@@ -1,7 +1,11 @@
 package com.herosandwich.models.inventory;
 
+import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 import com.herosandwich.util.visitor.InventoryVisitor;
 
 import java.util.ArrayList;
@@ -13,26 +17,27 @@ import java.util.List;
 public class Inventory {
     private ArrayList<TakeableItem> inventory;
     private int capacity;
-    private int size;
 
-    public Inventory()
-    {
+    public Inventory() {
         inventory = new ArrayList<>(12);
         capacity = 12;
         for(int i = 0; i < capacity;i++){
-            inventory.add(i,new ConsumableItem("HealingSuperPotion",1));
+            inventory.add(i,null);
         }
+        inventory.add(0,new ConsumableItem("HealingSuperPotion",1));
+        inventory.add(1,new TakeableItem("MagicAoeWand",1));
+        inventory.add(2,new ConsumableItem("MediocreHealingPotion",1));
+        inventory.add(3, new OneHandedWeapon("SuperSayanSword",new DerivedStats(1,1,1,1,1,1), 1));
+        inventory.add(4,new TwoHandedWeapon("TheBootsOfAwesome",new DerivedStats(1,1,1,1,1,1),1));
     }
 
-    public Inventory(int capacity)
-    {
+    public Inventory(int capacity) {
         inventory = new ArrayList<>(capacity);
         this.capacity = capacity;
     }
 
-    public boolean insertItem(TakeableItem item)
-    {
-        if (inventory.size() == capacity)
+    public boolean insertItem(TakeableItem item) {
+        if (getSize() == capacity)
             return false;
 
         inventory.add(item);
@@ -49,12 +54,12 @@ public class Inventory {
         return size;
     }
 
-    public TakeableItem removeItem(TakeableItem item)
-    {
+    public TakeableItem removeItem(TakeableItem item) {
         TakeableItem removedItem = null;
         if(inventory.remove(item)){
             removedItem = item;
         }
+
         return removedItem;
     }
 

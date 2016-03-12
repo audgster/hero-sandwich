@@ -27,12 +27,13 @@ public class InventoryMenu implements Menu {
     GridPane grid = new GridPane();
     private InventoryItem selectedItem = null;
 
+    private Inventory i;
     private ArrayList<TakeableItem> inventory;
 
     public InventoryMenu(double width, double height){
         WIDTH = width;
         HEIGHT = height;
-        Inventory i = new Inventory();
+        i = new Inventory();
         inventory = i.getInventory();
         capacity = i.getCapacity();
     }
@@ -138,14 +139,11 @@ public class InventoryMenu implements Menu {
                 row++;
                 col = 0;
             }
-
         }
-
         grid.setVgap(5);
         grid.setHgap(5);
 
         content.setCenter(grid);
-
     }
 
     private void setTop(String title) {
@@ -164,6 +162,10 @@ public class InventoryMenu implements Menu {
 
     private void removeInventoryView(){
         inventoryView.getChildren().remove(content);
+    }
+
+    private void removeItem(TakeableItem item){
+        i.removeItem(item);
     }
 
 
@@ -276,9 +278,10 @@ public class InventoryMenu implements Menu {
 
         private void itemUsedOrDroppedSelected() {
             ImageView image = new ImageView(new Image("res/images/items/item_bg.jpg"));
-            image.setFitHeight(HEIGHT/8);
-            image.setFitWidth(HEIGHT/8);
+            image.setFitHeight(HEIGHT / 8);
+            image.setFitWidth(HEIGHT / 8);
             super.setGraphic(image);
+            removeItem(item);
             item = null;
             selectedItem = null;
             toggleButtons(selected);
@@ -303,7 +306,7 @@ public class InventoryMenu implements Menu {
 
         private void initUseButton(HBox horizontalContainer) {
             useButton = new StackPane();
-            Label buttonText = new Label("Use");
+            Label buttonText = new Label(item.getAction());
             buttonText.setId("button_text");
             Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
             backGround.setId("button_rectangle");
@@ -314,6 +317,11 @@ public class InventoryMenu implements Menu {
             horizontalContainer.getChildren().add(useButton);
 
             addHoverEvent(useButton, backGround, buttonText);
+
+            if(item.getAction().equals("")){
+                useButton.setVisible(false);
+            }
+
         }
 
         private void addHoverEvent(StackPane button, Shape backGround, Label buttonText) {

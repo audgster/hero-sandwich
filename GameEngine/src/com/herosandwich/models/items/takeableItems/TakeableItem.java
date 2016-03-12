@@ -12,5 +12,8 @@ public class TakeableItem extends Item {
       // when Entity walks over it
       //removes item from current tile
   }
+    public String getAction(){
+        return "";
+    }
 
 }

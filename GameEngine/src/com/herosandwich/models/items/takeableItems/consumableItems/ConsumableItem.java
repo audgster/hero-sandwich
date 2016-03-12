@@ -10,4 +10,5 @@ public class ConsumableItem extends TakeableItem {
   public void consume(){
     //consume an item when avatar chooses it from inventory
   }
+  public String getAction(){ return "Consume";}
 }

@@ -57,4 +57,6 @@ public abstract class EquipableItem extends TakeableItem {
     public OccupationWeaponRestriction getOccupationWeaponRestriction(){
         return this.oWR;
     }
+
+    public String getAction(){ return "Equip";}
 }
