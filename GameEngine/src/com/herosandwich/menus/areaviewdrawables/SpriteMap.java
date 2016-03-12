@@ -17,7 +17,9 @@ public class SpriteMap {
     HashMap<Integer, Image> sprites = new HashMap<Integer, Image>();
 
 
-    static Image groundTile = new Image("com/herosandwich/menus/ground_tile.png");
+    private static Image groundTile = new Image("com/herosandwich/menus/ground_tile.png");
+
+
 
     private static SpriteMap instance;
 
