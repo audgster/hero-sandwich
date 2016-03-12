@@ -95,21 +95,21 @@ public class Character extends Entity {
        return inventory.insertItem(item);
     }
 
-    public boolean equipItem(EquipableItem item, EquipmentSlots location){
+    public boolean equipItem(EquipableItem item){
         //check for correct occupation
         String itemClass = item.getOccupationWeaponRestriction().toString().toLowerCase();
         if(itemClass.equalsIgnoreCase(OccupationWeaponRestriction.EVERYONE.toString())){
-            return addToEquipment(item,location);
+            return addToEquipment(item);
         }else if(itemClass.equalsIgnoreCase(getOccupation().toString())){
-            return addToEquipment(item,location);
+            return addToEquipment(item);
         }else{
             return false;
         }
     }
 
-    private boolean addToEquipment(EquipableItem item, EquipmentSlots location){
+    private boolean addToEquipment(EquipableItem item){
         if(inventory.removeItem(item) != null) {
-            TakeableItem itemReplaced = equipment.insertItem(item, location);
+            TakeableItem itemReplaced = equipment.insertItem(item);
 
             if (itemReplaced != null)
                 return inventory.insertItem(itemReplaced);

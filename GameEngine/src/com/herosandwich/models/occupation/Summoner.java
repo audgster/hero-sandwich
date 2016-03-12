@@ -45,6 +45,8 @@ public class Summoner extends Property{
             return;
         }
 
+        //do you have mana?
+
         if(successfulAction(this.boonSkill) ){
             //uses mana! Mana reduction depends on Strength of spell
             owner.modifyCurrentMana(-5);

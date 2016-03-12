@@ -171,8 +171,8 @@ public class Mount extends Character
     }
 
     @Override
-    public boolean equipItem(EquipableItem item, EquipmentSlots location){
-        return rider.equipItem(item, location);
+    public boolean equipItem(EquipableItem item){
+        return rider.equipItem(item);
     }
 
     @Override
