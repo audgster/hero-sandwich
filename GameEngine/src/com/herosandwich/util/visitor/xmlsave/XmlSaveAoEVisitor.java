@@ -5,6 +5,7 @@ import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.AoEVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 public class XmlSaveAoEVisitor implements AoEVisitor
 {
@@ -112,5 +113,14 @@ public class XmlSaveAoEVisitor implements AoEVisitor
     private Element retrieveNameElement(AoE aoE)
     {
         return doc.createElement(aoE.toString());
+    }
+
+    public Node retrieveSavedObject()
+    {
+        Node node = this.aoeElement;
+
+        this.aoeElement = null;
+
+        return node;
     }
 }
