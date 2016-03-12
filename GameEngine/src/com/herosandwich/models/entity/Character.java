@@ -110,6 +110,7 @@ public class Character extends Entity {
     private boolean addToEquipment(EquipableItem item){
         if(inventory.removeItem(item) != null) {
             TakeableItem itemReplaced = equipment.insertItem(item);
+            //addDerivedStat()
 
             if (itemReplaced != null)
                 return inventory.insertItem(itemReplaced);

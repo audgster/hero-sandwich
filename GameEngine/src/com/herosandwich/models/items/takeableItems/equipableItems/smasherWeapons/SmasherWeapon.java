@@ -2,6 +2,7 @@ package com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapon
 import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 
 /**
@@ -9,11 +10,16 @@ import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeap
  */
 
 public abstract class SmasherWeapon extends EquipableItem {
-    //protected OcupationWeaponType weaponClass
-    public SmasherWeapon(String name, DerivedStats dervidedStat, int itemId){
-        super(name, dervidedStat, itemId);
+    protected SmasherWeaponType weaponType;
+    public SmasherWeapon(String name, DerivedStats derivedStats, int itemId){
+        super(name, derivedStats, itemId);
         oWR = OccupationWeaponRestriction.SMASHER;
-        slot = EquipmentSlots.RIGHTARM;
-                // || EquipmentSlots.LEFTARM;
+        equipmentType = EquipmentType.WEAPON;
+        allowableSlots.add(EquipmentSlots.LEFTHAND);
+        allowableSlots.add(EquipmentSlots.RIGHTHAND);
+    }
+
+    public SmasherWeaponType getWeaponType(){
+        return weaponType;
     }
 }

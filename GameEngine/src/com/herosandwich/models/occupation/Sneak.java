@@ -81,7 +81,7 @@ public class Sneak extends Property{
         int damage = 0;
         if(successfulAction(this.rangedWeaponSkill) ){
             damage += owner.getOffensiveRating(); //damage from entity
-            damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
+            //damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
         }
         return damage;
     }

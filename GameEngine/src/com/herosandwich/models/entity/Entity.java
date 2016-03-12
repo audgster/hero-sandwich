@@ -225,6 +225,8 @@ public class Entity
         return stats.addDerivedStat(new DerivedStats(0,0,mana,0,0,0));
     }
 
+    public boolean addDerivedStat(DerivedStats derivedStats){ return stats.addDerivedStat(derivedStats); }
+
     public boolean modifyOffensiveRating(int rating)
     {
         return stats.addDerivedStat(new DerivedStats(0,0,0,rating,0,0));
