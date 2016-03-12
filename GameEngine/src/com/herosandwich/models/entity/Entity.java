@@ -1,6 +1,7 @@
 package com.herosandwich.models.entity;
 
 import com.herosandwich.models.map.Map;
+import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
@@ -303,8 +304,8 @@ public class Entity
     public boolean move(DirectionHex d, Map map){
         this.direction = d;
         MovementVisitor visitor = new MovementVisitor();
-        //Tile t = map.getTile(this.position.getPosInDirection(this.direction));
-        //t.accept(visitor);
+        Tile t = map.getTile(this.position.getPosInDirection(this.direction));
+        t.acceptTileVisitor(visitor);
         boolean canMove = visitor.canMove();
         if(canMove){
             this.position = this.position.getPosInDirection(this.direction);
