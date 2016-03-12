@@ -68,6 +68,7 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor{
 
     @Override
     public void visitInteractableItem(InteractableItem ineractableItem) {
+        //drawableList.add(spriteMap.getImageForKey(ineractableItem.getItemId()));
     }
 
     @Override

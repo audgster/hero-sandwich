@@ -48,6 +48,16 @@ public class DrawableTile implements Drawable, Listener {
         update();
     }
 
+    public void setInFog() {
+        isInFog = true;
+        isVisible = false;
+    }
+
+    public void setIsVisible() {
+        isVisible = true;
+        isInFog = false;
+    }
+
     public DrawableTile(Double xCenter, Double yCenter) {
         centerPoint = new CanvasPoint(xCenter, yCenter);
     }
