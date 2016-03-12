@@ -20,7 +20,7 @@ public class XpAoE extends AoE
         this.xpPerTick = copy.getXpPerTick();
     }
 
-    private int getXpPerTick()
+    public int getXpPerTick()
     {
         return xpPerTick;
     }

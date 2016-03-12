@@ -9,6 +9,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,7 +29,6 @@ public class XmlSaver implements Saver
     DocumentBuilderFactory icFactory = DocumentBuilderFactory.newInstance();
     DocumentBuilder icBuilder;
 
-    // Should I do save path?
     public XmlSaver(File saveFile)
     {
         this.file = saveFile;
@@ -74,6 +74,10 @@ public class XmlSaver implements Saver
 
             StreamResult fileWriter = new StreamResult(writer);
             transformer.transform(source, fileWriter);
+
+            writer.close();
+
+            doc = icBuilder.newDocument();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

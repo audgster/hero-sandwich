@@ -13,6 +13,8 @@ import com.herosandwich.models.items.takeableItems.equipableItems.weapons.smashe
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.sneakWeapons.SneakWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.summonerWeapons.SummonerWeapon;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.models.map.aoe.*;
+import com.herosandwich.util.visitor.AoEVisitor;
 import com.herosandwich.util.visitor.EntityVisitor;
 import com.herosandwich.util.visitor.ItemVisitor;
 import com.herosandwich.util.visitor.TileVisitor;
@@ -23,7 +25,7 @@ import java.util.List;
 /**
  * Created by adamfortier on 3/12/16.
  */
-public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor{
+public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor, AoEVisitor{
 
     private List<Drawable> drawableList = new ArrayList<Drawable>();
 
@@ -117,6 +119,40 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor{
     }
 
 
+    @Override
+    public void visitAoE(AoE aoE) {
+
+    }
+
+    @Override
+    public void visitInstaDeathAoE(InstaDeathAoE aoE) {
+
+    }
+
+    @Override
+    public void visitXpAoE(XpAoE aoE) {
+
+    }
+
+    @Override
+    public void visitHealDamageAoE(HealDamageAoE aoE) {
+
+    }
+
+    @Override
+    public void visitTakeDamageAoE(TakeDamageAoE aoE) {
+
+    }
+
+    @Override
+    public void visitTeleportAoE(TeleportAoE aoE) {
+
+    }
+
+    @Override
+    public void visitTrapAoE(AoE aoe) {
+
+    }
 
 
     public void clearDrawableList() {
