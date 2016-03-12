@@ -3,6 +3,7 @@ package com.herosandwich.models.map;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.TileVisitor;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -107,6 +108,22 @@ public class Map {
             current = current.getPosInDirection(DirectionHex.NORTH);
         }
         return circle;
+    }
+
+    public void acceptTileVisitor(TileVisitor tileVisitor){
+        for(Tile tile: tileMap.values()){
+            tile.acceptTileVisitor(tileVisitor);
+        }
+    }
+
+    public void acceptTileVisitor(TileVisitor tileVisitor, HashMap<PositionHex, Tile> selection){
+        for(PositionHex pos: selection.keySet()){
+            Tile tile = tileMap.get(pos);
+            if(tile == null){
+                continue;
+            }
+            tile.acceptTileVisitor(tileVisitor);
+        }
     }
 
 }

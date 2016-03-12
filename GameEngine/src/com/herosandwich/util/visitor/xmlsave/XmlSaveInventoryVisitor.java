@@ -22,13 +22,11 @@ public class XmlSaveInventoryVisitor implements InventoryVisitor
     {
         this.inventory = doc.createElement("inventory");
 
-        for (Item i : inventory.getInventory())
-        {
-            Element item = doc.createElement("item");
-            item.setAttribute("itemId", Integer.toString(i.getItemId()));
+        XmlSaveItemVisitor visitor = new XmlSaveItemVisitor(doc);
 
-            this.inventory.appendChild(item);
-        }
+        inventory.acceptItemVisitor(visitor);
+
+        this.inventory.appendChild(visitor.retreiveSavedObject());
     }
 
     public Node retrieveSavedObject()

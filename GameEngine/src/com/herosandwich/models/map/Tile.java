@@ -67,6 +67,40 @@ public class Tile {
         return entity;
     }
 
+    //get for items and aoes?
+
+    public void addEntity(Entity entity){
+        if(this.entity != null){
+            throw new IllegalStateException("Tile already contains an entity");
+        }
+        this.entity = entity;
+    }
+
+    public void removeEntity(Entity entity){
+        if(!this.entity.equals(entity)){
+            throw new IllegalArgumentException("Given entity does not match previously stored entity");
+        }
+        this.entity = null;
+    }
+
+    public Item addItem(Item item){
+        if(this.itemList.add(item)){
+            return item;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public Item removeItem(Item item){
+        if(this.itemList.remove(item)){
+            return item;
+        }
+        else{
+            return null;
+        }
+    }
+
     public void acceptTileVisitor(TileVisitor tVisitor){
         tVisitor.visitTile(this);
     }

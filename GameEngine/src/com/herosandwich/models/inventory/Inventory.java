@@ -1,6 +1,7 @@
 package com.herosandwich.models.inventory;
 
 import com.herosandwich.models.entity.DerivedStats;
+import com.herosandwich.models.items.Item;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
@@ -8,6 +9,7 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 import com.herosandwich.util.visitor.InventoryVisitor;
+import com.herosandwich.util.visitor.ItemVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,5 +74,11 @@ public class Inventory {
     public void accept(InventoryVisitor visitor)
     {
         visitor.visitInventory(this);
+    }
+
+    public void acceptItemVisitor(ItemVisitor iVisitor){
+        for(Item item: inventory){
+            item.accept(iVisitor);
+        }
     }
 }
