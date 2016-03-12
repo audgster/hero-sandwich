@@ -2,11 +2,9 @@ package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.visitor.EntityVisitor;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.Text;
+import org.w3c.dom.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -237,7 +235,16 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         {
             XmlSaveEntityVisitor riderVisitor = new XmlSaveEntityVisitor(doc);
             mount.getRider().accept(riderVisitor);
-            element.appendChild(riderVisitor.retrieveSavedObject());
+
+            Node rider = riderVisitor.retrieveSavedObject();
+
+            Element riderElement = doc.createElement("rider");
+
+            Node riderNode = rider.getFirstChild();
+
+            riderElement.appendChild(riderNode);
+
+            element.appendChild(riderElement);
         }
 
         return element;
