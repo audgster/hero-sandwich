@@ -2,13 +2,16 @@ package com.herosandwich.models.map;
 
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.items.Item;
+import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.AoEVisitor;
 import com.herosandwich.util.visitor.EntityVisitor;
 import com.herosandwich.util.visitor.ItemVisitor;
 import com.herosandwich.util.visitor.TileVisitor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class Tile {
@@ -22,23 +25,23 @@ public class Tile {
     private PositionHex pos;
     private Terrain terrain;
     private Entity entity;
-    private List<Item> itemList;
-    //private List<AreaOfEffect> aoeList;
+    private LinkedHashSet<Item> itemList;
+    private LinkedHashSet<AoE> aoeList;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = null;
-        this.itemList = new ArrayList<Item>();
-        //this.aoeList = new ArrayList<AreaOfEffect>();
+        this.itemList = new LinkedHashSet<Item>();
+        this.aoeList = new LinkedHashSet<AoE>();
     }
 
-    public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items/*, Collection<AreaOfEffect> aoes*/){
+    public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items, Collection<AoE> aoes){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = entity;
-        this.itemList = new ArrayList<Item>();
-        //this.aoeList = new ArrayList<AreaOfEffect>();
+        this.itemList = new LinkedHashSet<Item>();
+        this.aoeList = new LinkedHashSet<AoE>();
 
         if(items != null) {
             for (Item item: items) {
@@ -46,13 +49,11 @@ public class Tile {
             }
         }
 
-        /*
         if(aoes != null) {
-            for (AreaOfEffect aoe : aoes) {
+            for (AoE aoe : aoes) {
                 aoeList.add(aoe);
             }
         }
-        */
     }
 
     public PositionHex getPosition(){
@@ -84,19 +85,45 @@ public class Tile {
     }
 
     public Item addItem(Item item){
-        if(this.itemList.add(item)){
+        if(this.itemList.contains(item)){
+            //error
             return item;
         }
         else{
-            return null;
+            this.itemList.add(item);
+            return item;
         }
     }
 
     public Item removeItem(Item item){
-        if(this.itemList.remove(item)){
+        if(this.itemList.contains(item)){
+            this.itemList.remove(item);
             return item;
         }
         else{
+            //error
+            return null;
+        }
+    }
+
+    public AoE addAoE(AoE aoe){
+        if(this.aoeList.contains(aoe)){
+            //error
+            return aoe;
+        }
+        else{
+            this.aoeList.add(aoe);
+            return aoe;
+        }
+    }
+
+    public AoE removeAoE(AoE aoe){
+        if(this.aoeList.contains(aoe)){
+            this.aoeList.remove(aoe);
+            return aoe;
+        }
+        else{
+            //error
             return null;
         }
     }
@@ -115,12 +142,10 @@ public class Tile {
         this.entity.accept(eVisitor);
     }
 
-    /*
-    public void accept(AOEVisitor aoeVisitor){
-        for(AreaOfEffect aoe: aoeList){
-            aoe.accept(aoeVisitor);//
+    public void accept(AoEVisitor aoeVisitor){
+        for(AoE aoe: aoeList){
+            aoe.accept(aoeVisitor);
         }
     }
-     */
 
 }
