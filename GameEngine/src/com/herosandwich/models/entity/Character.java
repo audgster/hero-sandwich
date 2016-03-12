@@ -5,6 +5,7 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
@@ -96,7 +97,7 @@ public class Character extends Entity {
     }
 
     public boolean equipItem(EquipableItem item){
-        //check for correct occupation
+        //the following checks for correct occupation requirement
         String itemClass = item.getOccupationWeaponRestriction().toString().toLowerCase();
         if(itemClass.equalsIgnoreCase(OccupationWeaponRestriction.EVERYONE.toString())){
             return addToEquipment(item);
@@ -108,16 +109,12 @@ public class Character extends Entity {
     }
 
     private boolean addToEquipment(EquipableItem item){
+        boolean inserted = false;
         if(inventory.removeItem(item) != null) {
-            TakeableItem itemReplaced = equipment.insertItem(item);
-            //addDerivedStat()
-
-            if (itemReplaced != null)
-                return inventory.insertItem(itemReplaced);
-
-            return true;
+            addDerivedStat(item.getDerivedStats());
+            inserted = getEquipment().insertItem(item);
         }
-        return false;
+        return inserted;
     }
 
     public TakeableItem removeItemFromInventory(TakeableItem item)
@@ -127,8 +124,9 @@ public class Character extends Entity {
 
     public boolean removeItemFromEquipment(EquipmentSlots location)
     {
-        TakeableItem item = equipment.removeItem(location);
+        EquipableItem item = equipment.removeItem(location);
         if(item != null){
+            removeDerivedStat(item.getDerivedStats());
             return inventory.insertItem(item);
         }
 

@@ -11,12 +11,9 @@ import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeap
 
 public abstract class SmasherWeapon extends EquipableItem {
     protected SmasherWeaponType weaponType;
-    public SmasherWeapon(String name, DerivedStats derivedStats, int itemId){
-        super(name, derivedStats, itemId);
+    public SmasherWeapon(String name, int itemId, DerivedStats derivedStats){
+        super(name, itemId, derivedStats, EquipmentType.WEAPON);
         oWR = OccupationWeaponRestriction.SMASHER;
-        equipmentType = EquipmentType.WEAPON;
-        allowableSlots.add(EquipmentSlots.LEFTHAND);
-        allowableSlots.add(EquipmentSlots.RIGHTHAND);
     }
 
     public SmasherWeaponType getWeaponType(){
