@@ -21,113 +21,126 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AreaView implements Menu {
-    static int frame = 0;
-    private ImagePattern land = new ImagePattern(new Image("com/herosandwich/menus/land6.jpg"));
-    private Pane areaView;
-    private Group content;
+
 
     @Override
-    public void createMenu(Pane display){
-        content = new Group();
-            content.setFocusTraversable(true);
+    public void createMenu(Pane root) {
 
-        Rectangle bg = new Rectangle(1200,800, Color.BLACK);
-            content.getChildren().add(bg);
-            new HexagonGrid(300,10,content);
+        //First is setup
 
-        areaView = display;
-        areaView.getChildren().add(content);
-
-        //PauseMenu pm = new PauseMenu();
-          //  pm.createMenu(areaView);
-    }
-
-    private class HexagonGrid {
-        List<Hexagon> grid = new ArrayList<Hexagon>();
-        Double hexHeight = 30*Math.sqrt(3D);
-
-        public HexagonGrid(int height, int width, Group root) {
-            setGrid(height, width, root);
-        }
-
-        private void setGrid(int height, int width, Group root) {
-            for(int row = 0; row < height; row++) {
-                for(int column = 0; column < 600/30; column++){
-                    if(column%2 == 0 && row%2 == 0) {
-                        Hexagon hexagon = new Hexagon(60D + 90D*column, 60D + hexHeight*row, 60D);
-                        hexagon.setFill(land);
-                        hexagon.setStroke(Color.BLACK);
-                        hexagon.setOnMouseEnteredEvent();
-                        hexagon.setOnMouseExitEvent();
-                        root.getChildren().add(hexagon);
-                        grid.add(hexagon);
-                    }
-                    else if (column%2 == 0 && row%2 == 1) {
-                        Hexagon hexagon = new Hexagon(150D + 90D*column, 60D + hexHeight*row, 60D);
-                        hexagon.setFill(land);
-                        hexagon.setStroke(Color.BLACK);
-                        hexagon.setOnMouseEnteredEvent();
-                        hexagon.setOnMouseExitEvent();;
-                        root.getChildren().add(hexagon);
-                        grid.add(hexagon);
-                    }
-                }
-            }
-
-//            for(int i = 0; i < ; i++) {
-//                super.getPoints().addAll(xCenter + sideLength*Math.cos(i*2*Math.PI/6), yCenter + sideLength*Math.sin(i*2*Math.PI/6));
-//
-//            }
-
-        }
+        //then in loop
 
 
-    }
-
-    private class Hexagon extends Polygon {
-        int sides = 6;
-
-        public Hexagon(Double xCenter, Double yCenter, Double sideLength) {
-            setVertices(xCenter, yCenter, sideLength);
-        }
-
-        private void setVertices(Double xCenter, Double yCenter, Double sideLength) {
-            for(int i = 0; i < sides; i++) {
-                super.getPoints().addAll(xCenter + sideLength*Math.cos(i*2*Math.PI/sides), yCenter + sideLength*Math.sin(i*2*Math.PI/sides));
-            }
-
-        }
-
-        private void setOnMouseEnteredEvent() {
-            super.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    temp();
-                }
-            });
-        }
-
-        private void setOnMouseExitEvent() {
-            super.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    temp2();
-                }
-            });
-        }
-
-        private void temp() {
-
-            super.setFill(land);
-//            super.setStroke(Color.RED);
-        }
-
-        private void temp2() {
-            super.setFill(Color.AQUAMARINE);
-            super.setStroke(Color.BLACK);
-        }
     }
 }
+
+//
+//static int frame = 0;
+//private ImagePattern land = new ImagePattern(new Image("com/herosandwich/menus/land6.jpg"));
+//private Pane areaView;
+//private Group content;
+//
+//@Override
+//public void createMenu(Pane display){
+//        content = new Group();
+//        content.setFocusTraversable(true);
+//
+//        Rectangle bg = new Rectangle(1200,800, Color.BLACK);
+//        content.getChildren().add(bg);
+//        new HexagonGrid(300,10,content);
+//
+//        areaView = display;
+//        areaView.getChildren().add(content);
+//
+//        //PauseMenu pm = new PauseMenu();
+//        //  pm.createMenu(areaView);
+//        }
+
+//private class HexagonGrid {
+//    List<Hexagon> grid = new ArrayList<Hexagon>();
+//    Double hexHeight = 30*Math.sqrt(3D);
+//
+//    public HexagonGrid(int height, int width, Group root) {
+//        setGrid(height, width, root);
+//    }
+//
+//    private void setGrid(int height, int width, Group root) {
+//        for(int row = 0; row < height; row++) {
+//            for(int column = 0; column < 600/30; column++){
+//                if(column%2 == 0 && row%2 == 0) {
+//                    Hexagon hexagon = new Hexagon(60D + 90D*column, 60D + hexHeight*row, 60D);
+//                    hexagon.setFill(land);
+//                    hexagon.setStroke(Color.BLACK);
+//                    hexagon.setOnMouseEnteredEvent();
+//                    hexagon.setOnMouseExitEvent();
+//                    root.getChildren().add(hexagon);
+//                    grid.add(hexagon);
+//                }
+//                else if (column%2 == 0 && row%2 == 1) {
+//                    Hexagon hexagon = new Hexagon(150D + 90D*column, 60D + hexHeight*row, 60D);
+//                    hexagon.setFill(land);
+//                    hexagon.setStroke(Color.BLACK);
+//                    hexagon.setOnMouseEnteredEvent();
+//                    hexagon.setOnMouseExitEvent();;
+//                    root.getChildren().add(hexagon);
+//                    grid.add(hexagon);
+//                }
+//            }
+//        }
+//
+////            for(int i = 0; i < ; i++) {
+////                super.getPoints().addAll(xCenter + sideLength*Math.cos(i*2*Math.PI/6), yCenter + sideLength*Math.sin(i*2*Math.PI/6));
+////
+////            }
+//
+//    }
+//
+//
+//}
+//
+//private class Hexagon extends Polygon {
+//    int sides = 6;
+//
+//    public Hexagon(Double xCenter, Double yCenter, Double sideLength) {
+//        setVertices(xCenter, yCenter, sideLength);
+//    }
+//
+//    private void setVertices(Double xCenter, Double yCenter, Double sideLength) {
+//        for(int i = 0; i < sides; i++) {
+//            super.getPoints().addAll(xCenter + sideLength*Math.cos(i*2*Math.PI/sides), yCenter + sideLength*Math.sin(i*2*Math.PI/sides));
+//        }
+//
+//    }
+//
+//    private void setOnMouseEnteredEvent() {
+//        super.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                temp();
+//            }
+//        });
+//    }
+//
+//    private void setOnMouseExitEvent() {
+//        super.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                temp2();
+//            }
+//        });
+//    }
+//
+//    private void temp() {
+//
+//        super.setFill(land);
+////            super.setStroke(Color.RED);
+//    }
+//
+//    private void temp2() {
+//        super.setFill(Color.AQUAMARINE);
+//        super.setStroke(Color.BLACK);
+//    }
+//}
 
 
 
