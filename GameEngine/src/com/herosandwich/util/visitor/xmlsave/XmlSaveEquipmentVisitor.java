@@ -1,8 +1,9 @@
-package com.herosandwich.util.visitor;
+package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.equipment.Equipment;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.util.visitor.EquipmentVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

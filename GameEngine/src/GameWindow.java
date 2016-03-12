@@ -24,9 +24,11 @@ public class GameWindow extends Application{
 
         //MainMenu mm = new MainMenu();
         //AreaView mm = new AreaView();
-        AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH, HEIGHT);
-        //StatsMenu mm = new StatsMenu();
-        mm.createMenu(rootView);
+        //AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH, HEIGHT);
+        AreaMenu am = new AreaMenu(WIDTH/4, HEIGHT);
+        Pane areaMenu = am.createMenu();
+            areaMenu.setTranslateX(WIDTH*3/4);
+        rootView.getChildren().add(areaMenu);
 
         Scene display = new Scene(rootView,WIDTH,HEIGHT);
         primaryStage.setScene(display);

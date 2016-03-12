@@ -6,7 +6,9 @@ package com.herosandwich.models.items.takeableItems.equipableItems;
 
 public enum EquipmentType {
     HELM,
-    ARMOR,
-    BOOTS,
-    WEAPON
+    BODY_ARMOR,
+    WEAPON,
+    SHIELD,
+    BOOTS
+
 }

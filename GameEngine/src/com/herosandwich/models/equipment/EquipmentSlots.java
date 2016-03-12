@@ -7,9 +7,8 @@ public enum EquipmentSlots
 {
     HEAD,
     CHEST,
-    LEGS,
-    LEFTARM,
-    RIGHTARM,
-    LEFTHAND,
-    RIGHTHAND
+    LEFT_HAND,
+    RIGHT_HAND,
+    LEFT_FOOT,
+    RIGHT_FOOT
 }

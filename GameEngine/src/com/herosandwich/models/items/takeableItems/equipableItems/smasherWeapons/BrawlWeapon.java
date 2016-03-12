@@ -6,8 +6,8 @@ package com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapon
 import com.herosandwich.models.entity.DerivedStats;
 
 public class BrawlWeapon extends SmasherWeapon {
-    public BrawlWeapon(String name, DerivedStats dervidedStat, int itemId){
-        super(name, dervidedStat, itemId);
+    public BrawlWeapon(String name, int itemId, DerivedStats dervidedStat){
+        super(name, itemId, dervidedStat);
         weaponType = SmasherWeaponType.BRAWL_WEAPON;
     }
 }

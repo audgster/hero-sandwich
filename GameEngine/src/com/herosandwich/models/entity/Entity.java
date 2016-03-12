@@ -228,8 +228,6 @@ public class Entity
         return stats.addDerivedStat(new DerivedStats(0,0,mana,0,0,0));
     }
 
-    public boolean addDerivedStat(DerivedStats derivedStats){ return stats.addDerivedStat(derivedStats); }
-
     public boolean modifyOffensiveRating(int rating)
     {
         return stats.addDerivedStat(new DerivedStats(0,0,0,rating,0,0));
@@ -289,6 +287,10 @@ public class Entity
 
         this.currentLife = newCurrentMana;
     }
+
+    public boolean addDerivedStat(DerivedStats derivedStats){ return stats.addDerivedStat(derivedStats); }
+
+    public boolean removeDerivedStat(DerivedStats derivedStats){return stats.removeDerivedStat(derivedStats); }
 
     /*
     * Methods

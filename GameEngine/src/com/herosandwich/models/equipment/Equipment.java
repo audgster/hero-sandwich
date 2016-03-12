@@ -2,9 +2,11 @@ package com.herosandwich.models.equipment;
 
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Equipment {
     private HashMap<EquipmentSlots, EquipableItem> equipment;
@@ -18,25 +20,29 @@ public class Equipment {
         this.equipment = equipment.getEquipment();
     }
 
-    public TakeableItem insertItem(EquipableItem item)
+    /* NOTE: We decided that insertItem will not automatically remove any Items
+     * NOTE: If false is returned that means that the slots are full and one
+     * must unequip first!!
+     */
+    public boolean insertItem(EquipableItem item)
     {
-        //item.getLocation;
-        // TODO logic for checking to see if a weapon can be put in that slot
-        TakeableItem returnItem = null;
+        boolean inserted = false;
+        Iterator itemSlots = item.getSlotPosition();
 
-//        if (equipment.containsKey(location))
-//        {
-//            returnItem = equipment.get(location);
-//            equipment.remove(location);
-//        }
-//        equipment.put(location, item);
-
-        return returnItem;
+        while (itemSlots.hasNext()){
+            if (!equipment.containsKey(itemSlots.next()))
+            {
+                equipment.put((EquipmentSlots) itemSlots.next(), item);
+                inserted = true;
+                break;
+            }
+        }
+        return inserted;
     }
 
-    public TakeableItem removeItem(EquipmentSlots location)
+    public EquipableItem removeItem(EquipmentSlots location)
     {
-        TakeableItem returnItem = null;
+        EquipableItem returnItem = null;
 
         if (equipment.containsKey(location)){
             returnItem = equipment.get(location);
