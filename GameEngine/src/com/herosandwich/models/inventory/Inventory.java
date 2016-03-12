@@ -10,13 +10,17 @@ import java.util.List;
  * Created by matthewdiaz on 3/4/16.
  */
 public class Inventory {
-    private List<TakeableItem> inventory;
+    private ArrayList<TakeableItem> inventory;
     private int capacity;
+    private int size;
 
     public Inventory()
     {
-        inventory = new ArrayList<>(10);
-        capacity = 10;
+        inventory = new ArrayList<>(12);
+        capacity = 12;
+        for(int i = 0; i < capacity;i++){
+            inventory.add(i,null);
+        }
     }
 
     public Inventory(int capacity)
@@ -34,6 +38,16 @@ public class Inventory {
         return true;
     }
 
+    public int getSize(){
+        int size = 0;
+        for(int i = 0;i < capacity;i++){
+            if(inventory.get(i)!=null){
+                size++;
+            }
+        }
+        return size;
+    }
+
     public TakeableItem removeItem(TakeableItem item)
     {
         TakeableItem removedItem = null;
@@ -43,9 +57,10 @@ public class Inventory {
         return removedItem;
     }
 
-    public List<TakeableItem> getInventory(){
+    public ArrayList<TakeableItem> getInventory(){
         return inventory;
     }
+    public int getCapacity(){ return capacity; }
 
     public void accept(InventoryVisitor visitor)
     {

@@ -14,11 +14,21 @@ import javafx.scene.control.Label;
 import javafx.scene.Node;
 
 public class PauseMenu implements Menu {
+    private double WIDTH, HEIGHT;
     private Pane content;
     private Pane pauseMenuView;
     private Node bgMenu;
     private InventoryMenu inventoryMenu = null;
     private EquipmentMenu equipmentMenu = null;
+
+    public PauseMenu(double width, double height){
+        WIDTH = width;
+        HEIGHT = height;
+    }
+
+    public boolean getIsPause(){
+        return content.isVisible();
+    }
 
     @Override
     public void createMenu(Pane display){
@@ -58,10 +68,10 @@ public class PauseMenu implements Menu {
 
     private StackPane createBtn(String btnName){
         StackPane btn = new StackPane();
-            btn.setMaxSize(250,30);
+            btn.setMaxSize(WIDTH/6, HEIGHT/15);
         Label btnText = new Label(btnName);
             btnText.setId("button_text");
-        Rectangle bg = new Rectangle(150, 30);
+        Rectangle bg = new Rectangle(WIDTH/6, HEIGHT/15);
             bg.setId("button_rectangle");
         btn.setAlignment(Pos.CENTER);
         btn.getChildren().addAll(bg, btnText);
@@ -77,7 +87,7 @@ public class PauseMenu implements Menu {
     }
 
     public StackPane createPauseMenu(){
-        Rectangle bg = new Rectangle(1200,800);
+        Rectangle bg = new Rectangle(WIDTH,HEIGHT);
             bg.setOpacity(0.75);
             bg.setFill(Color.BLACK);
             bg.setEffect(new GaussianBlur(3.5));
@@ -87,7 +97,7 @@ public class PauseMenu implements Menu {
 
         Label title = new Label("Pause Menu");
             title.setId("menu_title");
-            title.setTranslateY(-250);
+            title.setTranslateY(-HEIGHT/3.2);
 
         VBox pauseOptions = new VBox(2);
             StackPane resume = createBtn("Resume");
@@ -108,7 +118,7 @@ public class PauseMenu implements Menu {
                     System.exit(0);
                 });
         pauseOptions.getChildren().addAll(resume,load,inventory,equipment,quit);
-        pauseOptions.setMaxSize(150,130);
+        pauseOptions.setMaxSize(WIDTH*5/8, HEIGHT/15);
         pauseOptions.setTranslateX(-200);
 
         StackPane pauseMenu = new StackPane();
@@ -120,7 +130,7 @@ public class PauseMenu implements Menu {
 
     private void getInventoryMenu() {
         if(inventoryMenu == null) {
-            inventoryMenu = new InventoryMenu();
+            inventoryMenu = new InventoryMenu(WIDTH,HEIGHT);
             inventoryMenu.createMenu(pauseMenuView);
         }
         else {
@@ -130,7 +140,7 @@ public class PauseMenu implements Menu {
 
     private void getEquipmentMenu() {
         if(equipmentMenu == null) {
-            equipmentMenu = new EquipmentMenu();
+            equipmentMenu = new EquipmentMenu(WIDTH,HEIGHT);
             equipmentMenu.createMenu(pauseMenuView);
         }
         else {

@@ -72,4 +72,6 @@ public class Sneak extends Property{
     public String toString() {
         return "Sneak";
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }

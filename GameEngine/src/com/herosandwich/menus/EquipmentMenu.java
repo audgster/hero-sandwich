@@ -1,6 +1,7 @@
 package  com.herosandwich.menus;
 
 import com.herosandwich.models.equipment.Equipment;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,9 +20,15 @@ import javafx.scene.shape.Shape;
  * Created by adamfortier on 3/4/16.
  */
 public class EquipmentMenu implements Menu {
+    private double WIDTH,HEIGHT;
     private BorderPane content = new BorderPane();
     private Pane equipmentMenu;
     private EquipmentItem selectedItem;
+
+    public EquipmentMenu(double width, double height){
+        WIDTH = width;
+        HEIGHT = height;
+    }
 
     @Override
     public void createMenu(Pane root) {

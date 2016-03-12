@@ -79,4 +79,6 @@ public class Summoner extends Property{
     public String toString() {
         return "Summoner";
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }

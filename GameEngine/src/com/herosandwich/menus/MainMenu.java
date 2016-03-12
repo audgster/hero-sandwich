@@ -43,7 +43,7 @@ public class MainMenu implements Menu{
             title.setPadding(new Insets(25,25,25,25));
         StackPane newGame = createBtn("New Game");
             newGame.setOnMouseClicked(event -> {
-                AvatarCreationMenu acm = new AvatarCreationMenu();
+                AvatarCreationMenu acm = new AvatarCreationMenu(0,0);
                 acm.createMenu(mainMenuView);
             });
         StackPane loadGame = createBtn("Load Game");

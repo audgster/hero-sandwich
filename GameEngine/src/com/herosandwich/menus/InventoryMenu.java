@@ -1,5 +1,8 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.models.inventory.Inventory;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,18 +15,31 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class InventoryMenu implements Menu {
+    private double WIDTH, HEIGHT;
+    private int capacity;
     private BorderPane content = new BorderPane();
     private Pane inventoryView;
     GridPane grid = new GridPane();
     private InventoryItem selectedItem = null;
 
-    @Override
+    private ArrayList<TakeableItem> inventory;
 
+    public InventoryMenu(double width, double height){
+        WIDTH = width;
+        HEIGHT = height;
+        Inventory i = new Inventory();
+        inventory = i.getInventory();
+        capacity = i.getCapacity();
+    }
+    @Override
     public void createMenu(Pane root) {
         content.setId("menu_bg");
-            content.setMinSize(1200,800);
+        content.setMinSize(WIDTH,HEIGHT);
         setTop("Inventory");
         setInventoryGrid();
         setLeft();
@@ -40,7 +56,7 @@ public class InventoryMenu implements Menu {
         Label buttonText = new Label("Back");
         buttonText.setAlignment(Pos.CENTER);
         buttonText.setId("button_text");
-        Rectangle backGround = new Rectangle(150, 30);
+        Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
         backGround.setId("button_rectangle");
         backButton.setAlignment(Pos.CENTER);
         backButton.setPadding(new Insets(5, 5, 5, 45));
@@ -83,13 +99,13 @@ public class InventoryMenu implements Menu {
 
     private void setLeft() {
         VBox filler = new VBox();
-        filler.setMinWidth(100);
+        filler.setMinWidth(HEIGHT/8);
         content.setLeft(filler);
     }
 
     private void setRight() {
         VBox filler = new VBox();
-        filler.setMinWidth(100);
+        filler.setMinWidth(HEIGHT/8);
         content.setRight(filler);
     }
 
@@ -103,16 +119,26 @@ public class InventoryMenu implements Menu {
         grid.setId("grid");
 
         ToggleGroup group = new ToggleGroup();
-        for(int i = 0; i < 12; i++) {
-            InventoryItem inventoryItem = new InventoryItem(content, Integer.toString(i));
-            inventoryItem.setToggleGroup(group);
-            inventoryItem.addMouseClickEvent();
-            if(i < 6) {
-                grid.add(inventoryItem, i, 0, 1, 1);
+        int row = 0;
+        int col = 0;
+        for(int i = 0; i < capacity; i++) {
+            InventoryItem inventoryItem;
+            if(inventory.get(i) != null){
+                inventoryItem = new InventoryItem(content, inventory.get(i));
             }
             else {
-                grid.add(inventoryItem, i-6, 1, 1, 1);
+                inventoryItem = new InventoryItem(content);
             }
+
+            inventoryItem.setToggleGroup(group);
+            inventoryItem.addMouseClickEvent();
+            grid.add(inventoryItem, col, row, 1, 1);
+            col++;
+            if(col == 6) {
+                row++;
+                col = 0;
+            }
+
         }
 
         grid.setVgap(5);
@@ -149,20 +175,33 @@ public class InventoryMenu implements Menu {
         StackPane useButton;
         StackPane dropButton;
         BorderPane content;
-        String item;
+        String itemName;
+        TakeableItem item;
         Boolean selected = false;
 
-        public InventoryItem(BorderPane content, String item2) {
+        public InventoryItem(BorderPane content){
             super("");
-            item = "res/images/" + "smasher" + ".gif";
-            ImageView image = new ImageView(new Image(item));
-                this.setGraphic(image);
-                image.setFitHeight(100);
-                image.setFitWidth(100);
-            this.item = item2;
-            this.content = content;
             super.setId("inventory-items");
-         }
+
+            this.content = content;
+            itemName = "res/images/item_bg.jpg";
+            ImageView itemImg = new ImageView(new Image(itemName));
+            this.setGraphic(itemImg);
+            itemImg.setFitHeight(HEIGHT/8);
+            itemImg.setFitWidth(HEIGHT/8);
+        }
+        public InventoryItem(BorderPane content, TakeableItem item) {
+            super("");
+            super.setId("inventory-items");
+
+            this.content = content;
+            this.item = item;
+            itemName = "res/images/" + item.getName() + ".gif";
+            ImageView itemImg = new ImageView(new Image(itemName));
+            this.setGraphic(itemImg);
+                itemImg.setFitHeight(HEIGHT/8);
+                itemImg.setFitWidth(HEIGHT/8);
+        }
 
         public void addMouseClickEvent() {
             super.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -207,6 +246,7 @@ public class InventoryMenu implements Menu {
             initUseButton(horizontalContainer);
             initDropButton(horizontalContainer);
             horizontalContainer.setAlignment(Pos.CENTER);
+            horizontalContainer.setTranslateY(-HEIGHT/25);
             content.setBottom(horizontalContainer);
 
             setUseButtonClickEvent();
@@ -236,8 +276,8 @@ public class InventoryMenu implements Menu {
 
         private void itemUsedOrDroppedSelected() {
             ImageView image = new ImageView(new Image("res/images/item_bg.jpg"));
-            image.setFitHeight(100);
-            image.setFitWidth(100);
+            image.setFitHeight(HEIGHT/8);
+            image.setFitWidth(HEIGHT/8);
             super.setGraphic(image);
             item = null;
             selectedItem = null;
@@ -248,7 +288,7 @@ public class InventoryMenu implements Menu {
             dropButton = new StackPane();
             Label buttonText = new Label("Drop");
             buttonText.setId("button_text");
-            Rectangle backGround = new Rectangle(150, 30);
+            Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
             backGround.setId("button_rectangle");
             dropButton.setAlignment(Pos.CENTER);
             dropButton.getChildren().addAll(backGround, buttonText);
@@ -265,7 +305,7 @@ public class InventoryMenu implements Menu {
             useButton = new StackPane();
             Label buttonText = new Label("Use");
             buttonText.setId("button_text");
-            Rectangle backGround = new Rectangle(150, 30);
+            Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
             backGround.setId("button_rectangle");
             useButton.setAlignment(Pos.CENTER);
             useButton.setPadding(new Insets(5, 5, 5, 5));

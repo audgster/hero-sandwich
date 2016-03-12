@@ -25,4 +25,7 @@ public abstract class Property{
     public void setOwner(Character owner){
         this.owner = owner;
     }
+
+    public abstract String getDescription();
+
 }

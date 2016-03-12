@@ -5,7 +5,7 @@ import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 
-public class Smasher extends Property{
+public class Smasher extends Property {
     //Skills will range from 0 to 100
     private int brawlSkill;
     private int oneHandedWeaponSkill;
@@ -37,22 +37,22 @@ public class Smasher extends Property{
     }
 
     //still need to delay twohandedWeapon :/
-    public int attack(TwoHandedWeapon weapon){
+    public int attack(TwoHandedWeapon weapon) {
         int damage = 0;
         if(successfulAction(twoHandedWeaponSkill) ){
          //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
-            damage *=2;// Two handed weapons are very powerful than normal
+            damage *= 2;// Two handed weapons are very powerful than normal
         }
         return damage;
     }
 
-    public int attack(BrawlWeapon weapon){
+    public int attack(BrawlWeapon weapon) {
         int damage = 0;
         if(successfulAction(brawlSkill) ){
          //   damage += character.getOffensiveRating();
             damage += weapon.getWeaponsOffensiveRating();
-           // One handed weapons are stronger than normal
+            // One handed weapons are stronger than normal
         }
         return damage;
     }
@@ -65,8 +65,10 @@ public class Smasher extends Property{
         this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
     }
 
-@Override
+    @Override
     public String toString() {
         return "Smasher";
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }
