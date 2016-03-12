@@ -184,7 +184,7 @@ public class InventoryMenu implements Menu {
             super.setId("inventory-items");
 
             this.content = content;
-            itemName = "res/images/item_bg.jpg";
+            itemName = "res/images/items/item_bg.jpg";
             ImageView itemImg = new ImageView(new Image(itemName));
             this.setGraphic(itemImg);
             itemImg.setFitHeight(HEIGHT/8);
@@ -196,7 +196,7 @@ public class InventoryMenu implements Menu {
 
             this.content = content;
             this.item = item;
-            itemName = "res/images/" + item.getName() + ".gif";
+            itemName = "res/images/items/" + item.getName() + ".gif";
             ImageView itemImg = new ImageView(new Image(itemName));
             this.setGraphic(itemImg);
                 itemImg.setFitHeight(HEIGHT/8);
@@ -258,7 +258,7 @@ public class InventoryMenu implements Menu {
                 @Override
                 public void handle(MouseEvent event) {
 
-                    System.out.println("Item:" + item + " used!");
+                    System.out.println("Item: " + item.getName() + " used!");
                     itemUsedOrDroppedSelected();
                 }
             });
@@ -268,14 +268,14 @@ public class InventoryMenu implements Menu {
             dropButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("Item:" + item + " dropped!");
+                    System.out.println("Item: " + item.getName() + " dropped!");
                     itemUsedOrDroppedSelected();
                 }
             });
         }
 
         private void itemUsedOrDroppedSelected() {
-            ImageView image = new ImageView(new Image("res/images/item_bg.jpg"));
+            ImageView image = new ImageView(new Image("res/images/items/item_bg.jpg"));
             image.setFitHeight(HEIGHT/8);
             image.setFitWidth(HEIGHT/8);
             super.setGraphic(image);

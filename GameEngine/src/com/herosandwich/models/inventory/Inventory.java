@@ -1,6 +1,7 @@
 package com.herosandwich.models.inventory;
 
 import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
 import com.herosandwich.util.visitor.InventoryVisitor;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Inventory {
         inventory = new ArrayList<>(12);
         capacity = 12;
         for(int i = 0; i < capacity;i++){
-            inventory.add(i,null);
+            inventory.add(i,new ConsumableItem("HealingSuperPotion",1));
         }
     }
 

@@ -76,7 +76,7 @@
 	-fx-opacity: 0.5;
 }
 #occupation_skill_boxes{
-	-fx-image: url('res/images/item_bg.jpg');
+	-fx-image: url('res/images/items/item_bg.jpg');
 	-fx-opacity: 0.6;
 }
 .label{
