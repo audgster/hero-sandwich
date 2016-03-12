@@ -6,7 +6,7 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public abstract class EquipableItem extends TakeableItem {
+public class EquipableItem extends TakeableItem {
     protected DerivedStats derivedStats;
     protected OccupationWeaponRestriction oWR;
     protected HashSet<EquipmentSlots> allowableSlots;
