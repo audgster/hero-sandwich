@@ -39,6 +39,15 @@ public class TileGrid  implements Listener{
     }
 
 
+    /***********************************************************************************************************/
+    // For testing!!!!
+
+    public void makeAllTileVisible() {
+        for(DrawableTile tile : drawableMap.values()) {
+            tile.makeVisible();
+        }
+    }
+    /***********************************************************************************************************/
     //TODO need avatar position
     public void update() {
 

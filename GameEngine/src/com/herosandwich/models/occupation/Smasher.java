@@ -2,8 +2,6 @@ package com.herosandwich.models.occupation;
 
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Skill;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.BrawlWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
 
 public class Smasher extends Property {
     //Skills will range from 0 to 100
@@ -23,6 +21,11 @@ public class Smasher extends Property {
         updateOccupationSkills();
     }
 
+    public int successfulAttack(){
+        owner.getRightHand();
+        return 0;
+    }
+
     //maybe state pattern.
     public int attack(){
        // EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
@@ -35,28 +38,6 @@ public class Smasher extends Property {
         }
         return damage;
     }
-
-    //still need to delay twohandedWeapon :/
-    public int attack(TwoHandedWeapon weapon) {
-        int damage = 0;
-        if(successfulAction(twoHandedWeaponSkill) ){
-         //   damage += character.getOffensiveRating();
-            //damage += weapon.getWeaponsOffensiveRating();
-            damage *=2;// Two handed weapons are very powerful than normal
-        }
-        return damage;
-    }
-
-    public int attack(BrawlWeapon weapon) {
-        int damage = 0;
-        if(successfulAction(brawlSkill) ){
-         //   damage += character.getOffensiveRating();
-            //damage += weapon.getWeaponsOffensiveRating();
-           // One handed weapons are stronger than normal
-        }
-        return damage;
-    }
-
 
     @Override
     public void updateOccupationSkills(){

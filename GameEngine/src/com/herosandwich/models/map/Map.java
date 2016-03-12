@@ -1,5 +1,6 @@
 package com.herosandwich.models.map;
 
+import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
@@ -146,5 +147,16 @@ public class Map {
             tile.acceptTileVisitor(tileVisitor);
         }
     }
+
+    /***********************************************************************************************************/
+    // For testing!!!!
+
+    public TileGrid initMyDrawable() {
+        return new TileGrid(this);
+    }
+
+    /***********************************************************************************************************/
+
+
 
 }
