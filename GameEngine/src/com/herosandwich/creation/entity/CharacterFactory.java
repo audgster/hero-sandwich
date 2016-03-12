@@ -22,6 +22,9 @@ public class CharacterFactory
             Property occupation
     )
     {
+        if (occupation == null)
+            throw new IllegalArgumentException("Occupation cannot be null");
+
         Entity entity = entityFactory.vendCustomInstance(
                 name,
                 lives,

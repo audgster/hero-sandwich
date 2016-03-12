@@ -31,8 +31,8 @@ public class Entity
 
         name = "Entity Dave";
 
-        this.position = null;
-        this.direction = null;
+        this.position = new PositionHex(0,0,0);
+        this.direction = DirectionHex.SOUTH;
     }
 
     public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy){
@@ -40,8 +40,8 @@ public class Entity
         this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
         currentMana = getMaxMana();
-        this.position = null;
-        this.direction = null;
+        this.position = new PositionHex(0,0,0);
+        this.direction = DirectionHex.SOUTH;
     }
 
     public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, PositionHex pos, DirectionHex dir){

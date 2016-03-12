@@ -24,6 +24,13 @@ public class NpcFactory
             String[] thgs2say
     )
     {
+        if (thgs2say.length < 1)
+            throw new IllegalArgumentException("Npc cannot be speechless");
+        if (attitudeTowardsPlayer == null)
+            throw new IllegalArgumentException("Attitude towards player cannot be null");
+        if (trade == null)
+            throw new IllegalArgumentException("Trade cannot be null");
+
         Character character = characterFactory.vendCustomInstance(
                 name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, occupation);
 
