@@ -9,6 +9,6 @@ public enum EquipmentType {
     BODY_ARMOR,
     WEAPON,
     SHIELD,
+    GREAVES,
     BOOTS
-
 }

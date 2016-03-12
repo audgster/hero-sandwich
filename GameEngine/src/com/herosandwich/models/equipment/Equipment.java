@@ -3,6 +3,8 @@ package com.herosandwich.models.equipment;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.HashMap;
@@ -26,18 +28,26 @@ public class Equipment {
      */
     public boolean insertItem(EquipableItem item)
     {
-        boolean inserted = false;
         Iterator itemSlots = item.getSlotPosition();
 
+        if(item.getEquipmentType() == EquipmentType.WEAPON){
+            if(((Weapon)item).getWeaponType() == WeaponType.TWO_HANDED_WEAPON){
+                if(getEquipableItem(EquipmentSlots.RIGHT_HAND) == null
+                        && getEquipableItem(EquipmentSlots.LEFT_HAND) == null){
+                    equipment.put((EquipmentSlots) itemSlots.next(), item);
+                    return true;
+                }
+                return false;
+            }
+        }
         while (itemSlots.hasNext()){
             if (!equipment.containsKey(itemSlots.next()))
             {
                 equipment.put((EquipmentSlots) itemSlots.next(), item);
-                inserted = true;
-                break;
+                return true;
             }
         }
-        return inserted;
+        return false;
     }
 
     public EquipableItem removeItem(EquipmentSlots location)

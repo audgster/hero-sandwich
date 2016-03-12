@@ -5,7 +5,7 @@ import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
-import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.sneakWeapons.SneakWeapon;
 
 import java.util.List;
 

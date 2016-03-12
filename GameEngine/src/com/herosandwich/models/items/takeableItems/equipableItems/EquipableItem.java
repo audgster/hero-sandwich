@@ -45,9 +45,10 @@ public abstract class EquipableItem extends TakeableItem {
         }else if(equipmentType == EquipmentType.SHIELD){
             allowableSlots.add(EquipmentSlots.LEFT_HAND);
             allowableSlots.add(EquipmentSlots.RIGHT_HAND);
+        }else if(equipmentType == EquipmentType.GREAVES){
+            allowableSlots.add(EquipmentSlots.LEGGINGS);
         }else if(equipmentType == EquipmentType.BOOTS){
-            allowableSlots.add(EquipmentSlots.LEFT_FOOT);
-            allowableSlots.add(EquipmentSlots.RIGHT_FOOT);
+            allowableSlots.add(EquipmentSlots.FEET);
         }
     }
 
