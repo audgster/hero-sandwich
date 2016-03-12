@@ -14,6 +14,11 @@ public class TeleportAoE extends AoE
         this.destination = destination;
     }
 
+    public PositionHex getDestination()
+    {
+        return destination;
+    }
+
     @Override
     public void executeEffect(Entity entity) {
     }

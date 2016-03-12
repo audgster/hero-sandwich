@@ -20,7 +20,7 @@ public class HealDamageAoE extends AoE
         this.healPerTick = copy.getHealPerTick();
     }
 
-    private int getHealPerTick()
+    public int getHealPerTick()
     {
         return healPerTick;
     }
