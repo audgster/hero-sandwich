@@ -94,9 +94,11 @@ public class Sneak extends Property{
         this.rangedWeaponSkill = owner.getNumberOfSkillPoints(Skill.RANGED_WEAPON);
     }
 
+
     @Override
-    public String toString()
-    {
-        return "sneak";
+    public String toString() {
+        return "Sneak";
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }

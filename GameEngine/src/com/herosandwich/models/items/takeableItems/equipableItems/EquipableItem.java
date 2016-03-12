@@ -60,6 +60,7 @@ public abstract class EquipableItem extends TakeableItem {
         return this.oWR;
     }
 
+    public String getAction(){ return "Equip";}
     public Iterator getSlotPosition(){
         return allowableSlots.iterator();
     }
@@ -68,7 +69,4 @@ public abstract class EquipableItem extends TakeableItem {
     public EquipmentType getEquipmentType(){
         return equipmentType;
     }
-
-
-
 }

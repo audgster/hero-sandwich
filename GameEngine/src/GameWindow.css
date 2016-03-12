@@ -1,0 +1,97 @@
+@font-face {
+	font-family: 'DK Cool Crayon';
+	src:url('res/fonts/DK_Cool_Crayon.ttf');
+}
+.root{
+	-fx-background-size: cover;
+}
+#black_bg{
+	-fx-background-color: black;
+}
+#button_text{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 30px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.75;
+}
+#button_text_hover{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 30px;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.75;
+}
+#button_rectangle{
+	-fx-fill: black;
+	-fx-opacity: 0.6;
+}
+#button_rectangle_hover{
+	-fx-fill: white;
+	-fx-opacity: 0.6;
+}
+#text_box{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 20px;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+}
+#Smasher_image{
+	-fx-image: url('res/images/grayscale_smasher.gif');
+	-fx-opacity: 0.75;
+}
+#stats_menu{
+	-fx-background-image: url('res/images/chalkboard_bg.jpg');
+	-fx-background-size: cover;
+	-fx-border-color: black;
+	-fx-border-width: 1;
+}
+#stats_text{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 10px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+#menu_bg{
+	-fx-background-image: url('res/images/chalkboard_bg.jpg');
+	-fx-background-size: cover;
+}
+#Smasher_image2{
+	-fx-image: url('res/images/smasher.gif');
+	-fx-opacity: 0.75;
+}
+#Sneak_image{
+	-fx-image: url('res/images/grayscale_sneak.gif');
+	-fx-opacity: 0.75;
+}
+#Sneak_image2{
+	-fx-image: url('res/images/sneak.gif');
+	-fx-opacity: 0.75;
+}
+#Summoner_image{
+	-fx-image: url('res/images/grayscale_summoner.gif');
+	-fx-opacity: 0.75;
+}
+#Summoner_image2{
+	-fx-image: url('res/images/summoner.gif');
+	-fx-opacity: 0.75;
+}
+#menu_title{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 75px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.5;
+}
+#occupation_skill_boxes{
+	-fx-image: url('res/images/items/item_bg.jpg');
+	-fx-opacity: 0.6;
+}
+.label{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 30px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-opacity: 0.5;
+}
+

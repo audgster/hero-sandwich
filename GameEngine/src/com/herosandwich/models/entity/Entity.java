@@ -181,10 +181,49 @@ public class Entity
         this.name = name;
     }
 
+    private void setCurrentLife(int currentLife)
+    {
+        if (currentLife < 0)
+            this.currentLife = 0;
+        else if (currentLife > getMaxLife())
+            this.currentLife = getMaxLife();
+        else
+            this.currentLife = currentLife;
+    }
+
+    private void setCurrentMana(int currentMana)
+    {
+        if (currentMana < 0)
+            this.currentMana = 0;
+        else if (currentMana > getMaxMana())
+            this.currentMana = getMaxMana();
+        else
+            this.currentMana = currentMana;
+    }
+
     //Primary stat modifiers
     public boolean modifyLives(int delta)
     {
-        return stats.changeLives(delta);
+        int oldLives = getLives();
+        boolean valid = stats.changeLives(delta);
+
+        if (valid)
+        {
+            int newLives = getLives();
+
+            if (newLives == 0)
+            {
+                setCurrentLife(0);
+                setCurrentMana(0);
+            }
+            else if (newLives < oldLives)
+            {
+                setCurrentLife(getMaxLife());
+                setCurrentMana(getMaxMana());
+            }
+        }
+
+        return valid;
     }
 
     public boolean modifyStrength(int delta)
@@ -252,40 +291,23 @@ public class Entity
 
         if (newCurrentLife > maxLife)
         {
-            newCurrentLife = maxLife;
+            setCurrentLife(maxLife);
         }
         else if (newCurrentLife <= 0)
         {
-            if (getLives() == 1)
-            {
-                newCurrentLife = 0;
-                modifyLives(-1);
-            }
-            else
-            {
-                newCurrentLife = maxLife;
-                modifyLives(-1);
-            }
+            modifyLives(-1);
         }
-
-        this.currentLife = newCurrentLife;
+        else
+        {
+            setCurrentLife(newCurrentLife);
+        }
     }
 
     public void modifyCurrentMana(int delta)
     {
         int newCurrentMana = getCurrentMana() + delta;
-        int maxMana = getMaxMana();
 
-        if (newCurrentMana > maxMana)
-        {
-            newCurrentMana = maxMana;
-        }
-        else if (newCurrentMana <= 0)
-        {
-            newCurrentMana = 0;
-        }
-
-        this.currentLife = newCurrentMana;
+        setCurrentMana(newCurrentMana);
     }
 
     public boolean addDerivedStat(DerivedStats derivedStats){ return stats.addDerivedStat(derivedStats); }
@@ -302,6 +324,10 @@ public class Entity
         eVisitor.visitEntity(this);
     }
 
+    public void updatePosition(PositionHex pos){
+        this.position = pos;
+    }
+
     //movement
     public boolean move(DirectionHex d, Map map){
         this.direction = d;
@@ -310,7 +336,8 @@ public class Entity
         t.acceptTileVisitor(visitor);
         boolean canMove = visitor.canMove();
         if(canMove){
-            this.position = this.position.getPosInDirection(this.direction);
+            map.moveEntity(this.position.getPosInDirection(this.direction), this);
+            //updatePosition(this.position.getPosInDirection(this.direction));
         }
         return canMove;
     }

@@ -3,7 +3,7 @@ package com.herosandwich.models.occupation;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Skill;
 
-public class Smasher extends Property{
+public class Smasher extends Property {
     //Skills will range from 0 to 100
     private int brawlSkill;
     private int oneHandedWeaponSkill;
@@ -39,28 +39,6 @@ public class Smasher extends Property{
         return damage;
     }
 
-    //still need to delay twohandedWeapon :/
-//    public int attack(){
-//        int damage = 0;
-//        if(successfulAction(twoHandedWeaponSkill) ){
-//         //   damage += character.getOffensiveRating();
-//            //damage += weapon.getWeaponsOffensiveRating();
-//            damage *=2;// Two handed weapons are very powerful than normal
-//        }
-//        return damage;
-//    }
-
-//    public int attack(BrawlWeapon weapon){
-//        int damage = 0;
-//        if(successfulAction(brawlSkill) ){
-//         //   damage += character.getOffensiveRating();
-//            //damage += weapon.getWeaponsOffensiveRating();
-//           // One handed weapons are stronger than normal
-//        }
-//        return damage;
-//    }
-
-
     @Override
     public void updateOccupationSkills(){
         this.brawlSkill = owner.getNumberOfSkillPoints(Skill.BRAWL);
@@ -69,8 +47,9 @@ public class Smasher extends Property{
     }
 
     @Override
-    public String toString()
-    {
-        return "smasher";
+    public String toString() {
+        return "Smasher";
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }

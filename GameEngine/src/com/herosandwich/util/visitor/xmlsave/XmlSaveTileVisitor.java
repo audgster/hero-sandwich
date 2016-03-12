@@ -1,7 +1,6 @@
 package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.map.Tile;
-import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
 import org.w3c.dom.Document;
@@ -25,8 +24,8 @@ public class XmlSaveTileVisitor implements TileVisitor
     public void visitTile(Tile tile)
     {
         retrievePosition(tile);
-
         retrieveEntities(tile);
+        retrieveItems(tile);
     }
 
     public void retrievePosition(Tile tile)
@@ -44,7 +43,11 @@ public class XmlSaveTileVisitor implements TileVisitor
 
     public void retrieveItems(Tile tile)
     {
-        //tile.acceptItemVisitor();
+        XmlSaveItemVisitor visitor = new XmlSaveItemVisitor(doc);
+
+        tile.acceptItemVisitor(visitor);
+
+        tileNode.appendChild(visitor.retreiveSavedObject());
     }
 
     public void retrieveAoe(Tile tile)

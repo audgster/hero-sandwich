@@ -21,36 +21,31 @@ public class Tile {
 
     private PositionHex pos;
     private Terrain terrain;
-    private List<Entity> entityList;
+    private Entity entity;
     private List<Item> itemList;
     //private List<AreaOfEffect> aoeList;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
         this.terrain = terrain;
-        this.entityList = new ArrayList<Entity>();
+        this.entity = null;
         this.itemList = new ArrayList<Item>();
         //this.aoeList = new ArrayList<AreaOfEffect>();
     }
 
-    public Tile(PositionHex pos, Terrain terrain, Collection<Entity> entities, Collection<Item> items/*, Collection<AreaOfEffect> aoes*/){
+    public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items/*, Collection<AreaOfEffect> aoes*/){
         this.pos = pos;
         this.terrain = terrain;
-        this.entityList = new ArrayList<Entity>();
+        this.entity = entity;
         this.itemList = new ArrayList<Item>();
         //this.aoeList = new ArrayList<AreaOfEffect>();
-
-        if(entities != null) {
-            for (Entity entity : entities) {
-                entityList.add(entity);
-            }
-        }
 
         if(items != null) {
             for (Item item: items) {
                 itemList.add(item);
             }
         }
+
         /*
         if(aoes != null) {
             for (AreaOfEffect aoe : aoes) {
@@ -68,6 +63,44 @@ public class Tile {
         return terrain;
     }
 
+    public Entity getEntity(){
+        return entity;
+    }
+
+    //get for items and aoes?
+
+    public void addEntity(Entity entity){
+        if(this.entity != null){
+            throw new IllegalStateException("Tile already contains an entity");
+        }
+        this.entity = entity;
+    }
+
+    public void removeEntity(Entity entity){
+        if(!this.entity.equals(entity)){
+            throw new IllegalArgumentException("Given entity does not match previously stored entity");
+        }
+        this.entity = null;
+    }
+
+    public Item addItem(Item item){
+        if(this.itemList.add(item)){
+            return item;
+        }
+        else{
+            return null;
+        }
+    }
+
+    public Item removeItem(Item item){
+        if(this.itemList.remove(item)){
+            return item;
+        }
+        else{
+            return null;
+        }
+    }
+
     public void acceptTileVisitor(TileVisitor tVisitor){
         tVisitor.visitTile(this);
     }
@@ -79,9 +112,7 @@ public class Tile {
     }
 
     public void acceptEntityVisitor(EntityVisitor eVisitor){
-        for(Entity entity: entityList){
-            entity.accept(eVisitor);
-        }
+        this.entity.accept(eVisitor);
     }
 
     /*

@@ -100,9 +100,10 @@ public class Summoner extends Property{
 
 
     @Override
-    public String toString()
-    {
-        return "summoner";
+    public String toString() {
+        return "Summoner";
 
     }
+
+    public String getDescription(){ return "A sandwich who loves to smash things";}
 }
