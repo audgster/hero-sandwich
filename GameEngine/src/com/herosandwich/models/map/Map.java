@@ -3,6 +3,7 @@ package com.herosandwich.models.map;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.TileVisitor;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -107,6 +108,43 @@ public class Map {
             current = current.getPosInDirection(DirectionHex.NORTH);
         }
         return circle;
+    }
+
+    public void addEntity(PositionHex pos, Entity entity){
+        if(!entitySet.contains(entity)){
+            entitySet.add(entity);
+        }
+        tileMap.get(pos).addEntity(entity);
+    }
+
+    public void moveEntity(PositionHex newPos, Entity entity){
+        tileMap.get(entity.getPosition()).removeEntity(entity);
+        addEntity(newPos, entity); //tileMap.get(pos).addEntity(entity);
+        entity.updatePosition(newPos);
+    }
+
+    public void removeEntity(PositionHex pos, Entity entity){
+        if(!entitySet.contains(entity)){
+            throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
+        }
+        tileMap.get(pos).removeEntity(entity);
+        entitySet.remove(entity);
+    }
+
+    public void acceptTileVisitor(TileVisitor tileVisitor){
+        for(Tile tile: tileMap.values()){
+            tile.acceptTileVisitor(tileVisitor);
+        }
+    }
+
+    public void acceptTileVisitor(TileVisitor tileVisitor, HashMap<PositionHex, Tile> selection){
+        for(PositionHex pos: selection.keySet()){
+            Tile tile = tileMap.get(pos);
+            if(tile == null){
+                continue;
+            }
+            tile.acceptTileVisitor(tileVisitor);
+        }
     }
 
 }

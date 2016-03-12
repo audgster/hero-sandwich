@@ -33,7 +33,6 @@ public class SpriteMap {
         if(instance == null)
             instance = new SpriteMap();
         return instance;
-
     }
     public Image getImageForKey(Integer key) {
         return sprites.get(key);

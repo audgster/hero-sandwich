@@ -60,4 +60,12 @@ public abstract class EquipableItem extends TakeableItem {
     }
 
     public String getAction(){ return "Equip";}
+    public Iterator getSlotPosition(){
+        return allowableSlots.iterator();
+    }
+
+    //not sure if we need this any more?
+    public EquipmentType getEquipmentType(){
+        return equipmentType;
+    }
 }

@@ -34,7 +34,7 @@ public class XmlSaveEquipmentVisitor implements EquipmentVisitor
             Element equipmentSlot = doc.createElement("equipmentslot");
 
             equipmentSlot.setAttribute("slot", e.getKey().toString().toLowerCase());
-            equipmentSlot.setAttribute("itemId", Integer.toString(e.getValue().getItemId()));
+            equipmentSlot.setAttribute("item-id", Integer.toString(e.getValue().getItemId()));
 
             equipmentNode.appendChild(equipmentSlot);
         }
