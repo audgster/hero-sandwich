@@ -142,7 +142,7 @@ public class Tile {
         this.entity.accept(eVisitor);
     }
 
-    public void accept(AoEVisitor aoeVisitor){
+    public void acceptAoEVisitor(AoEVisitor aoeVisitor){
         for(AoE aoe: aoeList){
             aoe.accept(aoeVisitor);
         }
