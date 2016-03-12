@@ -27,7 +27,7 @@ public class InstantDamageAoETrap extends AoE implements Trap
         this.isDiscovered = copy.isDiscovered();
     }
 
-    private int getInstantDamage()
+    public int getInstantDamage()
     {
         return instantDamage;
     }

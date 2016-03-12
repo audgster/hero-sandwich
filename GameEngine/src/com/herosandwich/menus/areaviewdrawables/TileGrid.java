@@ -20,15 +20,16 @@ public class TileGrid  implements Listener{
     Character avatar;
     Map map;
 
-    public TileGrid(Map map) {
+    public TileGrid(Map map, GraphicsContext graphicsContext) {
         this.map = map;
+        this.graphicsContext = graphicsContext;
         initGridWithMap();
     }
 
-    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
-        this.graphicsContext = graphicsContext;
-        //setGrid(height, width);
-    }
+//    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
+//        this.graphicsContext = graphicsContext;
+//        //setGrid(height, width);
+//    }
 
     private void initGridWithMap() {
         Collection<Tile> mapTiles = map.getTiles();

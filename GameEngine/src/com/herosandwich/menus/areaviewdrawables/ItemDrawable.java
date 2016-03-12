@@ -5,16 +5,10 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * Created by adamfortier on 3/12/16.
  */
-public class NpcDrawable implements Drawable {
-
+public class ItemDrawable implements Drawable {
     SpriteMap spriteMap = SpriteMap.getInstance();
     Integer graphicKey = new Integer(2); //whatever the key in the sprite is
 
-    public void setType(String type) {
-        if(type.equalsIgnoreCase("typename"))
-            return;
-            //set proper key
-    }
 
     public void setGraphicKey(Integer spriteMapImageID) {
         graphicKey = spriteMapImageID;
