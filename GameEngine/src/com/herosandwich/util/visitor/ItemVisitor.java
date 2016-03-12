@@ -11,20 +11,17 @@ import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons
 import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.summonerWeapons.SummonerWeapon;
 
-/**
- * Created by Mitchell on 3/10/2016.
- */
 public interface ItemVisitor {
-    public void visitItem(Item item);
-    public void visitInteractableItem(InteractableItem ineractableItem);
-    public void visitObstacleItem(ObstacleItem obstacleItem);
-    public void visitOneShotItem(OneShotItem oneShotItem);
-    public void visitTakeableItem(TakeableItem takeableItem);
-    public void visitConsumableItem(ConsumableItem consumableItem);
-    public void visitEquipableItem(EquipableItem equipableItem);
+    void visitItem(Item item);
+    void visitInteractableItem(InteractableItem ineractableItem);
+    void visitObstacleItem(ObstacleItem obstacleItem);
+    void visitOneShotItem(OneShotItem oneShotItem);
+    void visitTakeableItem(TakeableItem takeableItem);
+    void visitConsumableItem(ConsumableItem consumableItem);
+    void visitEquipableItem(EquipableItem equipableItem);
     //do I need these subtypes?
-    public void visitSmasherWeapon(SmasherWeapon smasherWeapon);
+    void visitSmasherWeapon(SmasherWeapon smasherWeapon);
     //even more subtypes?
-    public void visitSneakWeapon(SneakWeapon sneakWeapon);
-    public void visitSummonerWeapon(SummonerWeapon summonerWeapon);
+    void visitSneakWeapon(SneakWeapon sneakWeapon);
+    void visitSummonerWeapon(SummonerWeapon summonerWeapon);
 }
