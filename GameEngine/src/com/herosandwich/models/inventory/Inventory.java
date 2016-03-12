@@ -6,8 +6,7 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.OneHandedWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.TwoHandedWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.util.visitor.InventoryVisitor;
 import com.herosandwich.util.visitor.ItemVisitor;
 
@@ -30,8 +29,8 @@ public class Inventory {
         inventory.add(0,new ConsumableItem("HealingSuperPotion",1));
         inventory.add(1,new TakeableItem("MagicAoeWand",1));
         inventory.add(2,new ConsumableItem("MediocreHealingPotion",1));
-        inventory.add(3, new OneHandedWeapon("SuperSayanSword",1,new DerivedStats(1,1,1,1,1,1)));
-        inventory.add(4,new TwoHandedWeapon("TheBootsOfAwesome",1,new DerivedStats(1,1,1,1,1,1)));
+        inventory.add(3, new Weapon("SuperSayanSword",1,new DerivedStats(1,1,1,1,1,1)));
+        inventory.add(4,new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
     }
 
     public Inventory(int capacity) {
