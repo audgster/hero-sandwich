@@ -9,6 +9,6 @@ public enum EquipmentSlots
     CHEST,
     LEFT_HAND,
     RIGHT_HAND,
-    LEFT_FOOT,
-    RIGHT_FOOT
+    LEGGINGS,
+    FEET
 }

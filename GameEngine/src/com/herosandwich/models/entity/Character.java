@@ -6,6 +6,7 @@ import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.visitor.EntityVisitor;
@@ -119,6 +120,22 @@ public class Character extends Entity {
     public TakeableItem removeItemFromInventory(TakeableItem item)
     {
         return inventory.removeItem(item);
+    }
+
+    public Weapon getRightHand(){
+        EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
+        if(item.getEquipmentType() == EquipmentType.WEAPON){
+            return (Weapon)item;
+        }
+        return null;
+    }
+
+    public Weapon getLeftHand(){
+        EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
+        if(item.getEquipmentType() == EquipmentType.WEAPON){
+            return (Weapon)item;
+        }
+        return null;
     }
 
     public boolean removeItemFromEquipment(EquipmentSlots location)

@@ -7,9 +7,9 @@ import com.herosandwich.models.items.oneShotItems.OneShotItem;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
-import com.herosandwich.models.items.takeableItems.equipableItems.smasherWeapons.SmasherWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.sneakWeapons.SneakWeapon;
-import com.herosandwich.models.items.takeableItems.equipableItems.summonerWeapons.SummonerWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.smasherWeapons.SmasherWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.sneakWeapons.SneakWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.summonerWeapons.SummonerWeapon;
 
 public interface ItemVisitor {
     void visitItem(Item item);

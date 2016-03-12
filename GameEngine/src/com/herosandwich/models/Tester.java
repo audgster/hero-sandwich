@@ -1,10 +1,9 @@
 package com.herosandwich.models;
 
-import com.herosandwich.creation.entity.CharacterFactory;
-import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.occupation.Property;
-import com.herosandwich.models.occupation.Smasher;
+import com.herosandwich.models.entity.DerivedStats;
+import com.herosandwich.models.entity.EntityStats;
+import com.herosandwich.models.entity.PrimaryStats;
 import com.herosandwich.models.occupation.Summoner;
 
 
@@ -14,11 +13,15 @@ import com.herosandwich.models.occupation.Summoner;
 public class Tester {
 
     public static void main(String[] args){
-        DeriveStatStrategy statStrategy = new ModiferWithWeightStatStrategy(10);
-        Summoner occupation = new Summoner();
-        CharacterFactory factory = new CharacterFactory();
-        Character dave = factory.vendCustomInstance("DaveTheBoss", 3, 10, 10, 10, 10, 10, 10, statStrategy, occupation);
-        occupation.boonSpell();
+        Summoner summoner = new Summoner();
+        DerivedStats derivedStats = new DerivedStats(1,50,30,2,2,2);
+        PrimaryStats primaryStats = new PrimaryStats(5,30,10,10,2,3,1);
+        EntityStats stats = new EntityStats(primaryStats, derivedStats);
+        //Character matt = new Character("matt",stats, summoner);
+        //System.out.println(matt.getName());
+
+        //System.out.println(matt.getCurrentLife());
+        summoner.boonSpell();
     }
 
 }
