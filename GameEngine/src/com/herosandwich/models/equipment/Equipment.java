@@ -21,30 +21,21 @@ public class Equipment {
     }
 
     /* NOTE: We decided that insertItem will not automatically remove any Items
-     *
+     * NOTE: If false is returned that means that the slots are full and one
+     * must unequip first!!
      */
     public boolean insertItem(EquipableItem item)
     {
         boolean inserted = false;
         Iterator itemSlots = item.getSlotPosition();
-        //this first if statement is specifically for Weapon types that will either go
-        //in the left or right hand of a Character
-        if(item.getEquipmentType() == EquipmentType.WEAPON){
-            while (itemSlots.hasNext()){
 
-                if (!equipment.containsKey(itemSlots.next()))
-                {
-                    equipment.put((EquipmentSlots) itemSlots.next(), item);
-                    inserted = true;
-                    break;
-                }
+        while (itemSlots.hasNext()){
+            if (!equipment.containsKey(itemSlots.next()))
+            {
+                equipment.put((EquipmentSlots) itemSlots.next(), item);
+                inserted = true;
+                break;
             }
-        }else if(!equipment.containsKey(itemSlots.next())) {
-            equipment.put((EquipmentSlots) itemSlots.next(), item);
-            inserted = true;
-        }else {
-            System.out.println("Need to unequip item at given postion first");
-            return false;
         }
         return inserted;
     }

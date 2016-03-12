@@ -12,43 +12,43 @@ public abstract class EquipableItem extends TakeableItem {
     protected HashSet<EquipmentSlots> allowableSlots;
     protected EquipmentType equipmentType;
 
-    public EquipableItem(String name, int itemId){
-        super(name,itemId);
+    //use this one if don't want to insert a new DerivedStat
+    public EquipableItem(String name, int itemId, EquipmentType equipmentType){
+        super(name, itemId);
         allowableSlots = new HashSet<>();
 
         derivedStats = new DerivedStats(1, 10, 10, 10, 10, 10);
         oWR = OccupationWeaponRestriction.EVERYONE;
-        equipmentType = EquipmentType.ARMOR;
-    }
-
-    public EquipableItem(String name, DerivedStats derivedStat, int itemId){
-        super(name, itemId);
-        allowableSlots = new HashSet<>();
-
-        derivedStats = derivedStat;
-        oWR = OccupationWeaponRestriction.EVERYONE;
-        this.equipmentType = EquipmentType.ARMOR;
-    }
-
-    //use this one for all non-weapons!!!
-    public EquipableItem(String name, DerivedStats derivedStat, int itemId, EquipmentType equipmentType){
-        super(name, itemId);
-        allowableSlots = new HashSet<>();
-
-        derivedStats = derivedStat;
-        oWR = OccupationWeaponRestriction.EVERYONE;
-        allowableSlots.add(EquipmentSlots.CHEST);
         this.equipmentType = equipmentType;
+        calculateAllowableSlots();
     }
 
-    public EquipableItem(String name, DerivedStats derivedStat, int itemId, EquipmentSlots slot, EquipmentType equipmentType){
+    //use this one for max customization!!!! Best option!
+    public EquipableItem(String name, int itemId, DerivedStats derivedStat, EquipmentType equipmentType){
         super(name, itemId);
         allowableSlots = new HashSet<>();
 
         derivedStats = derivedStat;
         oWR = OccupationWeaponRestriction.EVERYONE;
-        allowableSlots.add(slot);
         this.equipmentType = equipmentType;
+        calculateAllowableSlots();
+    }
+
+    private void calculateAllowableSlots(){
+        if(equipmentType == EquipmentType.HELM){
+            allowableSlots.add(EquipmentSlots.HEAD);
+        }else if(equipmentType == EquipmentType.BODY_ARMOR){
+            allowableSlots.add(EquipmentSlots.CHEST);
+        }else if(equipmentType == EquipmentType.WEAPON){
+            allowableSlots.add(EquipmentSlots.LEFT_HAND);
+            allowableSlots.add(EquipmentSlots.RIGHT_HAND);
+        }else if(equipmentType == EquipmentType.SHIELD){
+            allowableSlots.add(EquipmentSlots.LEFT_HAND);
+            allowableSlots.add(EquipmentSlots.RIGHT_HAND);
+        }else if(equipmentType == EquipmentType.BOOTS){
+            allowableSlots.add(EquipmentSlots.LEFT_FOOT);
+            allowableSlots.add(EquipmentSlots.RIGHT_FOOT);
+        }
     }
 
     public DerivedStats getDerivedStats(){
@@ -63,7 +63,11 @@ public abstract class EquipableItem extends TakeableItem {
         return allowableSlots.iterator();
     }
 
+    //not sure if we need this any more?
     public EquipmentType getEquipmentType(){
         return equipmentType;
     }
+
+
+
 }

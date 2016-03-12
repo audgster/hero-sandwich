@@ -10,11 +10,8 @@ import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeap
  */
 
 public abstract class SneakWeapon extends EquipableItem {
-    public SneakWeapon(String name, DerivedStats dervidedStat, int itemId){
-        super(name, dervidedStat, itemId);
+    public SneakWeapon(String name, int itemId, DerivedStats derivedStats){
+        super(name, itemId, derivedStats, EquipmentType.WEAPON);
         oWR = OccupationWeaponRestriction.SNEAK;
-        equipmentType = EquipmentType.WEAPON;
-        allowableSlots.add(EquipmentSlots.LEFTHAND);
-        allowableSlots.add(EquipmentSlots.RIGHTHAND);
     }
 }

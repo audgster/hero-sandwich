@@ -12,11 +12,8 @@ import java.util.Collection;
  * Created by matthewdiaz on 3/4/16.
  */
 public abstract class SummonerWeapon extends EquipableItem {
-    public SummonerWeapon(String name, DerivedStats dervidedStat, int itemId){
-        super(name, dervidedStat, itemId);
+    public SummonerWeapon(String name, int itemId, DerivedStats derivedStats){
+        super(name, itemId, derivedStats, EquipmentType.WEAPON);
         oWR = OccupationWeaponRestriction.SUMMONER;
-        equipmentType = EquipmentType.WEAPON;
-        allowableSlots.add(EquipmentSlots.LEFTHAND);
-        allowableSlots.add(EquipmentSlots.RIGHTHAND);
     }
 }
