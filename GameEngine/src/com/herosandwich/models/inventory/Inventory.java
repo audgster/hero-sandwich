@@ -1,7 +1,9 @@
 package com.herosandwich.models.inventory;
 
+import com.herosandwich.models.items.Item;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.util.visitor.InventoryVisitor;
+import com.herosandwich.util.visitor.ItemVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +52,11 @@ public class Inventory {
     public void accept(InventoryVisitor visitor)
     {
         visitor.visitInventory(this);
+    }
+
+    public void acceptItemVisitor(ItemVisitor iVisitor){
+        for(Item item: inventory){
+            item.accept(iVisitor);
+        }
     }
 }
