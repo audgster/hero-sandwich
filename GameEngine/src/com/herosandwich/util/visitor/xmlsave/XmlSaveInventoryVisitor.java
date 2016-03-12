@@ -1,7 +1,8 @@
-package com.herosandwich.util.visitor;
+package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.Item;
+import com.herosandwich.util.visitor.InventoryVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

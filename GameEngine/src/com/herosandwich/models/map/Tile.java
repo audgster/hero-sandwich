@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by Mitchell on 3/7/2016.
- */
 public class Tile {
 
     public enum Terrain{

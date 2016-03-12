@@ -1,7 +1,8 @@
-package com.herosandwich.util.visitor;
+package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.util.visitor.EntityVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -19,61 +20,75 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     public XmlSaveEntityVisitor(Document doc)
     {
         this.doc = doc;
+
+        entityNode = doc.createElement("entities");
     }
 
     @Override
     public void visitEntity(Entity entity)
     {
-        retrieveStats(entity);
-        retrieveLocation(entity);
+        Element entityElement = retrieveStats(entity, doc.createElement("entity"));
+        entityElement = retrieveLocation(entity, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
     @Override
     public void visitCharacter(Character character)
     {
-        retrieveStats(character);
-        retrieveLocation(character);
-        retrieveOccupation(character);
-        retrieveInventory(character);
-        retrieveEquipment(character);
-        retrieveSkillPoints(character);
+        Element entityElement = retrieveStats(character, doc.createElement("character"));
+        entityElement = retrieveLocation(character, entityElement);
+        entityElement = retrieveOccupation(character, entityElement);
+        entityElement = retrieveInventory(character, entityElement);
+        entityElement = retrieveEquipment(character, entityElement);
+        entityElement = retrieveSkillPoints(character, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
     @Override
     public void visitPet(Pet pet)
     {
-        retrieveStats(pet);
-        retrieveLocation(pet);
+        Element entityElement = retrieveStats(pet, doc.createElement("pet"));
+        entityElement = retrieveLocation(pet, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
     @Override
     public void visitNpc(Npc npc) {
-        retrieveStats(npc);
-        retrieveLocation(npc);
-        retrieveOccupation(npc);
-        retrieveInventory(npc);
-        retrieveEquipment(npc);
-        retrieveSkillPoints(npc);
+        Element entityElement = retrieveStats(npc, doc.createElement("npc"));
+        entityElement = retrieveLocation(npc, entityElement);
+        entityElement = retrieveOccupation(npc, entityElement);
+        entityElement = retrieveInventory(npc, entityElement);
+        entityElement = retrieveEquipment(npc, entityElement);
+        entityElement = retrieveSkillPoints(npc, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
     @Override
     public void visitPlayer(Player player) {
-        retrieveStats(player);
-        retrieveLocation(player);
-        retrieveOccupation(player);
-        retrieveInventory(player);
-        retrieveEquipment(player);
-        retrieveSkillPoints(player);
+        Element entityElement = retrieveStats(player, doc.createElement("player"));
+        entityElement = retrieveLocation(player, entityElement);
+        entityElement = retrieveOccupation(player, entityElement);
+        entityElement = retrieveInventory(player, entityElement);
+        entityElement = retrieveEquipment(player, entityElement);
+        entityElement = retrieveSkillPoints(player, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
     @Override
     public void visitMount(Mount mount)
     {
-        retrieveMountStats(mount);
-        retrieveLocation(mount);
+        Element entityElement = retrieveMountStats(mount, doc.createElement("mount"));
+        entityElement = retrieveLocation(mount, entityElement);
+
+        entityNode.appendChild(entityElement);
     }
 
-    private void retrieveStats(Entity entity)
+    private Element retrieveStats(Entity entity, Element entityElement)
     {
         String name = entity.getName();
 
@@ -88,9 +103,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         int currentLife = entity.getCurrentLife();
         int currentMana = entity.getCurrentMana();
 
-        entityNode = doc.createElement("Entity");
-
-        entityNode.setAttribute("name", name);
+        entityElement.setAttribute("name", name);
 
         Element statsElement = doc.createElement("stats");
 
@@ -104,10 +117,12 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         statsElement.setAttribute("currentLife" , Integer.toString(currentLife));
         statsElement.setAttribute("currentMana" , Integer.toString(currentMana));
 
-        entityNode.appendChild(statsElement);
+        entityElement.appendChild(statsElement);
+
+        return entityElement;
     }
 
-    private void retrieveLocation(Entity entity)
+    private Element retrieveLocation(Entity entity, Element entityElement)
     {
         String direction = entity.getDirection().toString().toLowerCase();
 
@@ -123,10 +138,12 @@ public class XmlSaveEntityVisitor implements EntityVisitor
 
         locationElement.setAttribute("direction", direction);
 
-        entityNode.appendChild(locationElement);
+        entityElement.appendChild(locationElement);
+
+        return entityElement;
     }
 
-    private void retrieveOccupation(Character character)
+    private Element retrieveOccupation(Character character, Element entityElement)
     {
         String occupation = character.getOccupation().toString();
 
@@ -136,26 +153,32 @@ public class XmlSaveEntityVisitor implements EntityVisitor
 
         occup.appendChild(occupText);
 
-        entityNode.appendChild(occup);
+        entityElement.appendChild(occup);
+
+        return entityElement;
     }
 
-    private void retrieveInventory(Character character)
+    private Element retrieveInventory(Character character, Element entityElement)
     {
         XmlSaveInventoryVisitor visitor = new XmlSaveInventoryVisitor(doc);
         character.getInventory().accept(visitor);
 
-        entityNode.appendChild(visitor.retrieveSavedObject());
+        entityElement.appendChild(visitor.retrieveSavedObject());
+
+        return entityElement;
     }
 
-    private void retrieveEquipment(Character character)
+    private Element retrieveEquipment(Character character, Element entityElement)
     {
         XmlSaveEquipmentVisitor visitor = new XmlSaveEquipmentVisitor(doc);
         character.getEquipment().accept(visitor);
 
-        entityNode.appendChild(visitor.retrieveSavedObject());
+        entityElement.appendChild(visitor.retrieveSavedObject());
+
+        return entityElement;
     }
 
-    private void retrieveSkillPoints(Character character)
+    private Element retrieveSkillPoints(Character character, Element entityElement)
     {
         Element skills = doc.createElement("skillpoints");
 
@@ -171,10 +194,12 @@ public class XmlSaveEntityVisitor implements EntityVisitor
             skills.appendChild(skill);
         }
 
-        entityNode.appendChild(skills);
+        entityElement.appendChild(skills);
+
+        return entityElement;
     }
 
-    private void retrieveSkillPoints(Player player)
+    private Element retrieveSkillPoints(Player player, Element entityElement)
     {
         Element skills = doc.createElement("skillpoints");
 
@@ -194,26 +219,28 @@ public class XmlSaveEntityVisitor implements EntityVisitor
             skills.appendChild(skill);
         }
 
-        entityNode.appendChild(skills);
+        entityElement.appendChild(skills);
+
+        return entityElement;
     }
 
-    private void retrieveMountStats(Mount mount)
+    private Element retrieveMountStats(Mount mount, Element element)
     {
         int movement = mount.getMovement();
 
         String name = mount.getName();
 
-        entityNode = doc.createElement("Mount");
-
-        entityNode.setAttribute("name", name);
-        entityNode.setAttribute("mount-movement", Integer.toString(movement));
+        element.setAttribute("name", name);
+        element.setAttribute("movement", Integer.toString(movement));
 
         if (mount.getRider() != null)
         {
             XmlSaveEntityVisitor riderVisitor = new XmlSaveEntityVisitor(doc);
             mount.getRider().accept(riderVisitor);
-            entityNode.appendChild(riderVisitor.retrieveSavedObject());
+            element.appendChild(riderVisitor.retrieveSavedObject());
         }
+
+        return element;
     }
 
     public Node retrieveSavedObject() {
