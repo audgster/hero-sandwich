@@ -1,7 +1,11 @@
 package com.herosandwich.menus;
 
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -16,21 +20,36 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AreaView implements Menu {
+    private Timeline gameLoop;
 
+    public AreaView(){
+        gameLoop = new Timeline();
+    }
 
     @Override
     public void createMenu(Pane root) {
 
         //First is setup
-
         //then in loop
+    }
 
+    public void gameLoop(){
+        gameLoop.setCycleCount( Timeline.INDEFINITE );
+        KeyFrame kf = new KeyFrame(
+                Duration.seconds(0.017),
+                ae->{
+                    System.out.println("The Game is Running");
+                }
+        );
 
+        gameLoop.getKeyFrames().add( kf );
+        gameLoop.play();
     }
 }
 

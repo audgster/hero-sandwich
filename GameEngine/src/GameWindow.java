@@ -42,7 +42,8 @@ public class GameWindow extends Application{
         temp.setMaxSize(WIDTH,HEIGHT);
 
         //MainMenu mm = new MainMenu();
-        //AreaView mm = new AreaView();
+        AreaView mm = new AreaView();
+        mm.gameLoop();
         //AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH, HEIGHT);
         AreaMenu am = new AreaMenu(WIDTH/4, HEIGHT);
         Pane areaMenu = am.createMenu();
