@@ -6,6 +6,25 @@ public class Player extends Character {
 
     private int availablePoints;
 
+    public Player()
+    {
+        super();
+        availablePoints = 0;
+    }
+
+    public Player(Character character, int availablePoints)
+    {
+        super(character);
+
+        this.availablePoints = availablePoints;
+    }
+
+    public Player(Player player)
+    {
+        super(player);
+        this.availablePoints = player.getAvailablePoints();
+    }
+
     // Overriding for the freeing of skill points
     public boolean modifyLevel(int level)
     {

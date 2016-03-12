@@ -5,6 +5,7 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.occupation.Property;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.visitor.EntityVisitor;
@@ -41,14 +42,24 @@ public class Character extends Entity {
         occupation = new Smasher(this);
     }
 
-    public Character(String name, EntityStats stats, Property occupation)
+    public Character(Entity entity, Property occupation)
     {
-        super(name, stats);
+        super(entity);
         occupation.setOwner(this);
         this.occupation = occupation;
         skillPoints = new HashMap<>();
         inventory = new Inventory();
         equipment = new Equipment();
+    }
+
+    public Character(Character character)
+    {
+        super(character);
+
+        this.occupation = character.getOccupation();
+        this.skillPoints = character.getSkillPoints();
+        this.inventory = character.getInventory();
+        this.equipment = character.getEquipment();
     }
 
     /*
@@ -84,9 +95,22 @@ public class Character extends Entity {
        return inventory.insertItem(item);
     }
 
-    public boolean equipItem(EquipableItem item, EquipmentSlots location){
+    public boolean equipItem(EquipableItem item){
+        //check for correct occupation
+        String itemClass = item.getOccupationWeaponRestriction().toString().toLowerCase();
+        if(itemClass.equalsIgnoreCase(OccupationWeaponRestriction.EVERYONE.toString())){
+            return addToEquipment(item);
+        }else if(itemClass.equalsIgnoreCase(getOccupation().toString())){
+            return addToEquipment(item);
+        }else{
+            return false;
+        }
+    }
+
+    private boolean addToEquipment(EquipableItem item){
         if(inventory.removeItem(item) != null) {
-            TakeableItem itemReplaced = equipment.insertItem(item, location);
+            TakeableItem itemReplaced = equipment.insertItem(item);
+            //addDerivedStat()
 
             if (itemReplaced != null)
                 return inventory.insertItem(itemReplaced);

@@ -38,8 +38,8 @@ public class AreaView implements Menu {
         areaView = display;
         areaView.getChildren().add(content);
 
-        PauseMenu pm = new PauseMenu();
-            pm.createMenu(areaView);
+        //PauseMenu pm = new PauseMenu();
+          //  pm.createMenu(areaView);
     }
 
     private class HexagonGrid {

@@ -90,7 +90,7 @@ public class Tile {
     /*
     public void accept(AOEVisitor aoeVisitor){
         for(AreaOfEffect aoe: aoeList){
-            aoe.accept(aoeVisitor);
+            aoe.accept(aoeVisitor);//
         }
     }
      */

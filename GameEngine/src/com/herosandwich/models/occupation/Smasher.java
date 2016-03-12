@@ -41,8 +41,8 @@ public class Smasher extends Property {
         int damage = 0;
         if(successfulAction(twoHandedWeaponSkill) ){
          //   damage += character.getOffensiveRating();
-            damage += weapon.getWeaponsOffensiveRating();
-            damage *= 2;// Two handed weapons are very powerful than normal
+            //damage += weapon.getWeaponsOffensiveRating();
+            damage *=2;// Two handed weapons are very powerful than normal
         }
         return damage;
     }
@@ -51,8 +51,8 @@ public class Smasher extends Property {
         int damage = 0;
         if(successfulAction(brawlSkill) ){
          //   damage += character.getOffensiveRating();
-            damage += weapon.getWeaponsOffensiveRating();
-            // One handed weapons are stronger than normal
+            //damage += weapon.getWeaponsOffensiveRating();
+           // One handed weapons are stronger than normal
         }
         return damage;
     }

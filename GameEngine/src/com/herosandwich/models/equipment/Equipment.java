@@ -18,17 +18,18 @@ public class Equipment {
         this.equipment = equipment.getEquipment();
     }
 
-    public TakeableItem insertItem(EquipableItem item, EquipmentSlots location)
+    public TakeableItem insertItem(EquipableItem item)
     {
+        //item.getLocation;
         // TODO logic for checking to see if a weapon can be put in that slot
         TakeableItem returnItem = null;
 
-        if (equipment.containsKey(location))
-        {
-            returnItem = equipment.get(location);
-            equipment.remove(location);
-        }
-        equipment.put(location, item);
+//        if (equipment.containsKey(location))
+//        {
+//            returnItem = equipment.get(location);
+//            equipment.remove(location);
+//        }
+//        equipment.put(location, item);
 
         return returnItem;
     }

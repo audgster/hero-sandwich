@@ -19,30 +19,28 @@ public class Mount extends Character
 
     public Mount()
     {
+        super();
         this.rider = null;
         this.movement = 1;
     }
 
-    public Mount(Character entity)
+    public Mount(String name, int movement)
     {
-        this.rider = entity;
-        this.movement = 1;
-    }
-
-    public Mount(int movement)
-    {
+        setName(name);
         this.rider = null;
         this.movement = movement;
     }
 
-    public Mount(Character rider, int movement)
+    public Mount(String name, Character rider, int movement)
     {
+        setName(name);
         this.rider = rider;
         this.movement = movement;
     }
 
     public Mount(Mount mount)
     {
+        setName(mount.getName());
         this.rider = mount.getRider();
         this.movement = mount.getMovement();
     }
@@ -173,8 +171,8 @@ public class Mount extends Character
     }
 
     @Override
-    public boolean equipItem(EquipableItem item, EquipmentSlots location){
-        return rider.equipItem(item, location);
+    public boolean equipItem(EquipableItem item){
+        return rider.equipItem(item);
     }
 
     @Override

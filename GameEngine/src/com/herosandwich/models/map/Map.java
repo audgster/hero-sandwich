@@ -1,9 +1,12 @@
 package com.herosandwich.models.map;
 
+import com.herosandwich.models.entity.Entity;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Created by Mitchell on 3/7/2016.
@@ -11,6 +14,7 @@ import java.util.HashMap;
 public class Map {
 
     private HashMap<PositionHex, Tile> tileMap;
+    private HashSet<Entity> entitySet;
     private PositionHex[][] positionArray;
 
     public Map(int size){
@@ -26,9 +30,12 @@ public class Map {
             }
         }
         tileMap = new HashMap<PositionHex, Tile>();
+        entitySet = new HashSet<Entity>();
     }
 
-
+    public Collection<Tile> getTiles(){
+        return tileMap.values();
+    }
 
     public Tile getTile(PositionHex pos){
         return tileMap.get(pos);

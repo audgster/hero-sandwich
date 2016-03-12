@@ -1,6 +1,8 @@
 package com.herosandwich.models.occupation;
 
+import com.herosandwich.models.entity.Attitude;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
 
 public class Summoner extends Property{
@@ -27,25 +29,43 @@ public class Summoner extends Property{
         }
     }
 
-
     // bane - magic that does damage or harm.
+    //Summoner's attack
     public void baneSpell(){
         if(successfulAction(this.baneSkill) ){
-            //character.modifyCurrentMana(-10);
-
+            owner.modifyCurrentMana(-5);
+            //the damageCalculator will deal with this!
         }
     }
 
-    //uses mana!
+    // magic that heals Character over 10 seconds!
     public void boonSpell(){
+        //boon spell is disallowed at full health
+        if(owner.getCurrentLife() ==  owner.getMaxLife() ){
+            return;
+        }
+
+        //do you have mana?
+
         if(successfulAction(this.boonSkill) ){
-            // magic that heals, temporarily grants (partial) immunities and defensive bonuses!
-            Thread t1 = new Thread(new Runnable() {
+            //uses mana! Mana reduction depends on Strength of spell
+            owner.modifyCurrentMana(-5);
+
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    int healingAmount = (int)(1 + (boonSkill*.2));
+
                     for(int i = 0; i < 10; i++){
-                        owner.modifyCurrentLife(-2);
+                        owner.modifyCurrentLife(healingAmount);
                         System.out.println(owner.getCurrentLife());
+
+                        //if after healing, current heal is the same as max heal
+                        //end boon healing
+                        if(owner.getCurrentLife() ==  owner.getMaxLife() ){
+                            return;
+                        }
+
                         try{
                             Thread.sleep(1000);
                         }catch (InterruptedException e) {
@@ -55,14 +75,18 @@ public class Summoner extends Property{
 
                 }
             });
-            t1.start();
-            //enchantmentSkill.modifyCurrentLife(2);//increase life by 2 per second
+            thread.start();
         }
     }
 
-    public void enchantmentSpell(){
+    public void enchantmentSpell(Npc npc){
         if(successfulAction(this.enchantmentSkill) ){
-          //  enchantmentSkill.modifyCurrentMana(-10);
+            //if successful will make npc more friendly
+            owner.modifyCurrentMana(-5);
+            npc.changeAttitude(true);
+        }else{
+            // if enchantment spell fails, make the target hostile
+            npc.setAttitudeTowardsPlayer(Attitude.HOSTILE);
         }
     }
 
@@ -78,6 +102,7 @@ public class Summoner extends Property{
     @Override
     public String toString() {
         return "Summoner";
+
     }
 
     public String getDescription(){ return "A sandwich who loves to smash things";}
