@@ -44,6 +44,7 @@ public class AreaView implements Menu {
     private Timeline gameLoop;
     private TileGrid grid;
     Canvas canvas;
+    PauseMenu pm;
 
     public AreaView(double width, double height){
         WIDTH = width;
@@ -51,6 +52,7 @@ public class AreaView implements Menu {
         content = new Pane();
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
+        pm = new PauseMenu(WIDTH,HEIGHT);
     }
 
     @Override
@@ -101,45 +103,42 @@ public class AreaView implements Menu {
         map.initialize(tiles);
         grid =  map.initMyDrawable(canvas);
         grid.makeAllTileVisible();
-        grid.setTileAsDiscovered(new PositionHex(0,0));
-        map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
+        grid.setTileAsDiscovered(new PositionHex(0, 0));
+        map.addItem(new PositionHex(1, 1), new EquipableItem("Boots", 200, EquipmentType.BOOTS));
         //grid.draw();
         root.getChildren().add(canvas);
         createAreaMenu();
+        pm.createMenu(areaView);
         gameLoop();
     }
 
     private void createAreaMenu(){
-        HBox temp = new HBox();
-
         StackPane map = new StackPane();
             map.getChildren().add(canvas);
             map.setAlignment(canvas, Pos.CENTER);
             map.setPrefSize(WIDTH, HEIGHT);
             map.setMinSize(WIDTH*3/4,HEIGHT);
             map.setMaxSize(WIDTH,HEIGHT);
-        map.setId("black_bg");
-        HBox.setHgrow(map, Priority.ALWAYS);
-        temp.setMaxSize(WIDTH,HEIGHT);
-
+            map.setId("black_bg");
         AreaMenu am = new AreaMenu(WIDTH/4, HEIGHT);
-        Pane areaMenu = am.createMenu();
-
-        areaMenu.setMinSize(WIDTH/4,HEIGHT);
-        temp.getChildren().addAll(map,areaMenu);
-        areaView.getChildren().add(temp);
-        temp.setFocusTraversable(true);
-        temp.setOnKeyPressed(event -> {
-            System.out.println("Key Pressed");
-            if (event.getCode() == KeyCode.RIGHT) {
-                temp.getChildren().remove(areaMenu);
-                canvas.setWidth(WIDTH);
-            }
-            else if (event.getCode() == KeyCode.LEFT) {
-                temp.getChildren().add(areaMenu);
-                canvas.setWidth(WIDTH*3/4);
-            }
-        });
+            Pane areaMenu = am.createMenu();
+            areaMenu.setMinSize(WIDTH/4,HEIGHT);
+        HBox areaMenuAndView = new HBox();
+            HBox.setHgrow(map, Priority.ALWAYS);
+            areaMenuAndView.setMaxSize(WIDTH, HEIGHT);
+            areaMenuAndView.getChildren().addAll(map, areaMenu);
+            areaMenuAndView.setFocusTraversable(true);
+            areaView.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.RIGHT) {
+                    areaMenuAndView.getChildren().remove(areaMenu);
+                    canvas.setWidth(WIDTH);
+                }
+                else if (event.getCode() == KeyCode.LEFT) {
+                    areaMenuAndView.getChildren().add(areaMenu);
+                    canvas.setWidth(WIDTH*3/4);
+                }
+            });
+        areaView.getChildren().add(areaMenuAndView);
     }
 
     public void gameLoop(){
@@ -147,7 +146,7 @@ public class AreaView implements Menu {
         KeyFrame kf = new KeyFrame(
                 Duration.seconds(0.017),
                 ae->{
-                    System.out.println(canvas.getWidth());
+                    System.out.println("The Game is running!");
                    render();
                 }
         );
