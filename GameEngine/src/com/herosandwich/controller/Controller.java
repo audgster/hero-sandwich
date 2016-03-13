@@ -7,8 +7,8 @@ import com.herosandwich.controller.KeyBindings;
 import javafx.scene.input.KeyCode;
 
 public class Controller {
-    private Character player;
-    private Map map;
+    private  Character player;
+    private  Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
 
