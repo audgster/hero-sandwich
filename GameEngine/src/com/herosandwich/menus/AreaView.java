@@ -52,13 +52,13 @@ public class AreaView implements Menu {
         PositionHex positionHex = new PositionHex(0,0);
             tiles.add(new Tile(positionHex, Tile.Terrain.GRASS));
 
-        PositionHex[] neighbors = positionHex.getNeighbors();
+        Collection<PositionHex> neighbors = positionHex.getNeighbors();
 
         for(PositionHex position : neighbors) {
             tiles.add(new Tile(position, Tile.Terrain.GRASS));
-            PositionHex[] others = position.getNeighbors();
-            for(int i = 0; i < 6; i++) {
-                tiles.add(new Tile(others[i], Tile.Terrain.GRASS));
+            Collection<PositionHex> others = position.getNeighbors();
+            for(PositionHex nextPosition : others) {
+                tiles.add(new Tile(nextPosition, Tile.Terrain.GRASS));
             }
         }
         tiles.add(new Tile(new PositionHex(2,-2), Tile.Terrain.GRASS));
