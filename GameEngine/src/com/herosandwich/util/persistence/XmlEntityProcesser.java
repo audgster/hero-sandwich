@@ -1,8 +1,11 @@
 package com.herosandwich.util.persistence;
 
 import com.herosandwich.creation.entity.*;
+import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
@@ -13,7 +16,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class XmlEntityProcesser
@@ -38,13 +41,11 @@ public class XmlEntityProcesser
         int currentMana = Integer.parseInt(statNode.getAttribute("currentMana"));
 
         // Process location node
-        Element locationNode = (Element)entity.getElementsByTagName("location");
+        Element locationNode = (Element)entity.getElementsByTagName("location").item(0);
 
         DirectionHex direction = DirectionHex.convertFromString(locationNode.getAttribute("direction"));
 
-        int q = Integer.parseInt(locationNode.getAttribute("q"));
-        int r = Integer.parseInt(locationNode.getAttribute("r"));
-        int s = Integer.parseInt(locationNode.getAttribute("s"));
+        PositionHex pos = XmlUtil.extractPosition(locationNode);
 
         EntityFactory factory = new EntityFactory();
 
@@ -63,7 +64,7 @@ public class XmlEntityProcesser
         entityObj.setCurrentMana(currentMana);
         entityObj.setCurrentLife(currentLife);
 
-        entityObj.updatePosition(new PositionHex(q,r,s));
+        entityObj.updatePosition(pos);
         entityObj.updateDirection(direction);
 
         return entityObj;
@@ -85,7 +86,7 @@ public class XmlEntityProcesser
         Entity entity = processEntityNode(character);
 
         // occupation
-        Element occupation = (Element)character.getElementsByTagName("occupation");
+        Element occupation = (Element)character.getElementsByTagName("occupation").item(0);
         String occupString = occupation.getTextContent().toLowerCase();
 
         Occupation occup;
@@ -94,24 +95,51 @@ public class XmlEntityProcesser
         {
             case "summoner":
                 occup = new Summoner();
+                break;
             case "smasher":
                 occup = new Smasher();
+                break;
             case "sneak":
                 occup = new Sneak();
+                break;
             default:
-                occup = new Smasher();
+                throw new IllegalArgumentException("Cannot convert type " + occupString + " to an occupation");
         }
 
         Character characterObj = factory.transfromEntity(entity, occup);
 
-        // inventory
-        // TODO: implement when mitch finishes the look up table
+        ItemInit init = ItemInit.getInstance();
 
         // equipment
-        // TODO: implement when mitch finishes the look up table
+        Element equipmentElement = (Element)character.getElementsByTagName("equipment").item(0);
+
+        List<Node> equipmentList = XmlUtil.getElementNodesAsList(equipmentElement.getChildNodes());
+
+        for (Node n : equipmentList)
+        {
+            int id = Integer.parseInt(((Element)n).getAttribute("item-id"));
+
+            EquipableItem item = init.getEquipableItem(id);
+
+            characterObj.equipItem(item);
+        }
+
+        // inventory
+        Element inventoryElement = (Element)character.getElementsByTagName("items").item(0);
+
+        List<Node> inventoryList = XmlUtil.getElementNodesAsList(inventoryElement.getChildNodes());
+
+        for (Node n : inventoryList)
+        {
+            int id = Integer.parseInt(((Element)n).getAttribute("item-id"));
+
+            TakeableItem item = init.getTakeableItem(id);
+
+            characterObj.insertItemToInventory(item);
+        }
 
         // skill points
-        Element skillPoints = (Element)character.getElementsByTagName("skillpoints");
+        Element skillPoints = (Element)character.getElementsByTagName("skillpoints").item(0);
         NodeList skillpointlist = skillPoints.getChildNodes();
 
         for (int i = 0; i < skillpointlist.getLength(); i++)
@@ -125,6 +153,10 @@ public class XmlEntityProcesser
             characterObj.allocateSkillPoints(skillObj, skillPointAmount);
         }
 
+        Element currency = (Element) character.getElementsByTagName("cash").item(0);
+
+        int currencyAmt = Integer.parseInt(currency.getAttribute("amount"));
+
         return characterObj;
     }
 
@@ -134,11 +166,53 @@ public class XmlEntityProcesser
 
         Character character = processCharacterNode(npc);
 
-        // TODO Parse out trade
-        // TODO Parse out attitude
-        // TODO Parse out things to say
+        // Parse out sell
+        HashMap<Integer, Integer> sales = new HashMap<>();
+        Element salesElement = (Element) npc.getElementsByTagName("sales").item(0);
+        List<Node> salesList = XmlUtil.getElementNodesAsList(salesElement.getChildNodes());
 
-        return factory.vendDefaultInstance();
+        for (Node n : salesList)
+        {
+            Element sale = (Element)n;
+
+            int itemId = Integer.parseInt(sale.getAttribute("item-id"));
+            int price = Integer.parseInt(sale.getAttribute("price"));
+
+            sales.put(itemId, price);
+        }
+
+        // Parse out buy
+        HashMap<Integer, Integer> buys = new HashMap<>();
+        Element buysElement = (Element) npc.getElementsByTagName("buys").item(0);
+        List<Node> buysList = XmlUtil.getElementNodesAsList(buysElement.getChildNodes());
+
+        for (Node n : buysList)
+        {
+            Element buy = (Element)n;
+
+            int itemId = Integer.parseInt(buy.getAttribute("item-id"));
+            int price = Integer.parseInt(buy.getAttribute("price"));
+
+            buys.put(itemId, price);
+        }
+
+        // Parse out attitude
+        Element attitude = (Element) npc.getElementsByTagName("towards-player").item(0);
+        Attitude attitudeToPlayer = Attitude.convertFromString(attitude.getAttribute("attitude"));
+
+        // Parse out things to say
+        Element thingsToSay = (Element)npc.getElementsByTagName("things-to-say").item(0);
+        List<Node> thingsToSayList = XmlUtil.getElementNodesAsList(thingsToSay.getChildNodes());
+
+        String[] things2say = new String[thingsToSayList.size()];
+        for (int i = 0; i < thingsToSayList.size(); i++)
+        {
+            String thingToSay = ((Element)thingsToSayList.get(i)).getAttribute("text");
+
+            things2say[i] = thingToSay;
+        }
+
+        return factory.transformFromCharacter(character, attitudeToPlayer, sales, buys, things2say);
     }
 
     public Mount processMountNode(Element mount)
@@ -149,9 +223,7 @@ public class XmlEntityProcesser
 
         Element location = (Element)mount.getElementsByTagName("location").item(0);
 
-        int q = Integer.parseInt(location.getAttribute("q"));
-        int r = Integer.parseInt(location.getAttribute("r"));
-        int s = Integer.parseInt(location.getAttribute("s"));
+        PositionHex pos = XmlUtil.extractPosition(location);
 
         MountFactory factory = new MountFactory();
 
@@ -161,7 +233,7 @@ public class XmlEntityProcesser
         {
             Element rider = (Element) mount.getElementsByTagName("rider").item(0);
 
-            List<Node> riderObjlist= makeFilteredList(rider.getChildNodes());
+            List<Node> riderObjlist= XmlUtil.getElementNodesAsList(rider.getChildNodes());
 
             Element riderObj = (Element) riderObjlist.get(0);
 
@@ -175,7 +247,7 @@ public class XmlEntityProcesser
             mountObj.mount(character);
         }
 
-        mountObj.updatePosition(new PositionHex(q,r,s));
+        mountObj.updatePosition(pos);
 
         return mountObj;
     }
@@ -186,19 +258,10 @@ public class XmlEntityProcesser
 
         Character character = processCharacterNode(player);
 
-        Element skillPointsAvail = (Element)player.getElementsByTagName("skillpoints");
+        Element skillPointsAvail = (Element)player.getElementsByTagName("skillpoints").item(0);
 
         int availablepoints = Integer.parseInt(skillPointsAvail.getAttribute("available"));
 
         return factory.transformFromCharacter(character, availablepoints);
-    }
-
-    private List<Node> makeFilteredList(NodeList list) {
-        List<Node> nodeArray = new ArrayList<>();
-        for(int i = 0; i < list.getLength(); i++)
-            if(list.item(i).getNodeType() == Node.ELEMENT_NODE)
-                nodeArray.add(list.item(i));
-
-        return nodeArray;
     }
 }

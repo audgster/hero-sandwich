@@ -26,11 +26,6 @@ public class Inventory {
         for(int i = 0; i < capacity;i++){
             inventory.add(i,null);
         }
-        inventory.add(0,new ConsumableItem("HealingSuperPotion",1));
-        inventory.add(1,new TakeableItem("MagicAoeWand",2));
-        inventory.add(2,new ConsumableItem("MediocreHealingPotion",3));
-        inventory.add(3, new Weapon("SuperSayanSword",4,new DerivedStats(1,1,1,1,1,1)));
-        inventory.add(4,new EquipableItem("TheBootsOfAwesome",5, EquipmentType.BOOTS));
     }
 
     public Inventory(int capacity) {

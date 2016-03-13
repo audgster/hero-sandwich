@@ -119,11 +119,14 @@ public class Map {
     }
 
     public void addEntity(PositionHex pos, Entity entity){
-        if(!entitySet.contains(entity)){
-            entitySet.add(entity);
+        if (tileMap.containsKey(pos)) {
+            if(!entitySet.contains(entity)){
+                entitySet.add(entity);
+            }
+
+            entity.updatePosition(pos);
+            tileMap.get(pos).addEntity(entity);
         }
-        entity.updatePosition(pos);
-        tileMap.get(pos).addEntity(entity);
     }
 
     /********************************************************************/
@@ -144,29 +147,39 @@ public class Map {
     }
 
     public void removeEntity(PositionHex pos, Entity entity){
-        if(!entitySet.contains(entity)){
-            throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
-        }
-        tileMap.get(pos).removeEntity(entity);
+        if (tileMap.containsKey(pos)) {
+            if (!entitySet.contains(entity)) {
+                throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
+            }
+            tileMap.get(pos).removeEntity(entity);
 
-        entity.updatePosition(null);
-        entitySet.remove(entity);
+            entity.updatePosition(null);
+            entitySet.remove(entity);
+        }
     }
 
     public void addItem(PositionHex pos, Item item){
-        tileMap.get(pos).addItem(item);
+        if (tileMap.containsKey(pos)) {
+            tileMap.get(pos).addItem(item);
+        }
     }
 
     public void removeItem(PositionHex pos, Item item){
-        tileMap.get(pos).removeItem(item);
+        if (tileMap.containsKey(pos)) {
+            tileMap.get(pos).removeItem(item);
+        }
     }
 
     public void addAoE(PositionHex pos, AoE aoe){
-        tileMap.get(pos).addAoE(aoe);
+        if (tileMap.containsKey(pos)) {
+            tileMap.get(pos).addAoE(aoe);
+        }
     }
 
     public void removeAoE(PositionHex pos, AoE aoe){
-        tileMap.get(pos).removeAoE(aoe);
+        if (tileMap.containsKey(pos)) {
+            tileMap.get(pos).removeAoE(aoe);
+        }
     }
 
     public void acceptTileVisitor(TileVisitor tileVisitor){

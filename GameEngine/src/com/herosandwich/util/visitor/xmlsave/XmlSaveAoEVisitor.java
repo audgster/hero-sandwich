@@ -26,7 +26,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
         Element element = retrieveNameElement(aoE);
         element = retrievePosition(element, aoE);
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
         Element element = retrieveNameElement(aoE);
         element = retrievePosition(element, aoE);
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
 
         element.setAttribute("xp-per-tick", Integer.toString(xp));
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
 
         element.setAttribute("heal-per-tick", Integer.toString(heal));
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
 
         element.setAttribute("dmg-per-tick", Integer.toString(dmg));
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
 
         element.appendChild(destPos);
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     @Override
@@ -96,7 +96,7 @@ public class XmlSaveAoEVisitor implements AoEVisitor
 
         element.setAttribute("dmg-amt", Integer.toString(aoE.getInstantDamage()));
 
-        doc.appendChild(element);
+        aoeElement.appendChild(element);
     }
 
     private Element retrievePosition(Element element, AoE aoE)

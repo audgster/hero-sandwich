@@ -64,6 +64,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         entityElement = retrieveInventory(npc, entityElement);
         entityElement = retrieveEquipment(npc, entityElement);
         entityElement = retrieveSkillPoints(npc, entityElement);
+        entityElement = retrieveCurrency(npc, entityElement);
         entityElement = retrieveSales(npc.getSell(), entityElement);
         entityElement = retrieveBuys(npc.getBuy(), entityElement);
         entityElement = retrieveAttitude(npc, entityElement);
@@ -80,6 +81,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         entityElement = retrieveInventory(player, entityElement);
         entityElement = retrieveEquipment(player, entityElement);
         entityElement = retrieveSkillPoints(player, entityElement);
+        entityElement = retrieveCurrency(player, entityElement);
 
         entityNode.appendChild(entityElement);
     }

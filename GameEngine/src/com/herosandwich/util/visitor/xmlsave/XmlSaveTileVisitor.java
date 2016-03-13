@@ -2,10 +2,13 @@ package com.herosandwich.util.visitor.xmlsave;
 
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.persistence.XmlUtil;
 import com.herosandwich.util.visitor.TileVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import java.util.List;
 
 public class XmlSaveTileVisitor implements TileVisitor
 {
@@ -62,7 +65,16 @@ public class XmlSaveTileVisitor implements TileVisitor
 
         tile.acceptItemVisitor(visitor);
 
-        e.appendChild(visitor.retrieveSavedObject());
+        Element itemElement = (Element)visitor.retrieveSavedObject();
+
+        Element tileItems = doc.createElement("tile-items");
+
+        List<Node> itemNodes = XmlUtil.getElementNodesAsList(itemElement.getChildNodes());
+
+        for (Node n : itemNodes)
+            tileItems.appendChild(n);
+
+        e.appendChild(tileItems);
 
         return e;
     }
