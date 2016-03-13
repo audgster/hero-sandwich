@@ -11,6 +11,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.*;
@@ -35,6 +36,7 @@ public class AreaView implements Menu {
     private Pane areaView;
     private Pane content;
     private Timeline gameLoop;
+    private TileGrid grid;
 
     public AreaView(double width, double height){
         WIDTH = width;
@@ -45,16 +47,33 @@ public class AreaView implements Menu {
 
     @Override
     public void createMenu(Pane root) {
-//        Collection<Tile> tiles = new ArrayList<Tile>();
-//            tiles.add(new Tile(new PositionHex(0,0), Tile.Terrain.GRASS));
-//
-//        Map map = new Map(1);
-//           TileGrid grid =  map.initMyDrawable();
-        Canvas canvas = new Canvas(WIDTH,HEIGHT);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.fillRect(WIDTH/2-50,HEIGHT/2-50, 100, 100);
-        root.getChildren().add(canvas);
 
+        Collection<Tile> tiles = new ArrayList<Tile>();
+        PositionHex positionHex = new PositionHex(0,0);
+            tiles.add(new Tile(positionHex, Tile.Terrain.GRASS));
+
+        PositionHex[] neighbors = positionHex.getNeighbors();
+
+        for(PositionHex position : neighbors) {
+            tiles.add(new Tile(position, Tile.Terrain.GRASS));
+            PositionHex[] others = position.getNeighbors();
+            for(int i = 0; i < 6; i++) {
+                tiles.add(new Tile(others[i], Tile.Terrain.GRASS));
+            }
+        }
+        tiles.add(new Tile(new PositionHex(2,-2), Tile.Terrain.GRASS));
+
+        Map map = new Map(20);
+        map.initialize(tiles);
+        Canvas canvas = new Canvas(WIDTH,HEIGHT);
+        canvas.getGraphicsContext2D().setFill(Color.BLACK);
+        canvas.getGraphicsContext2D().fillRect(0,0,WIDTH,HEIGHT);
+        grid =  map.initMyDrawable(canvas);
+        grid.makeAllTileVisible();
+        grid.setTileAsDiscovered(new PositionHex(0,0));
+        //grid.draw();
+        root.getChildren().add(canvas);
+        gameLoop();
     }
 
     public void gameLoop(){
@@ -63,11 +82,16 @@ public class AreaView implements Menu {
                 Duration.seconds(0.017),
                 ae->{
                     System.out.println("The Game is Running");
+                   render();
                 }
         );
 
         gameLoop.getKeyFrames().add( kf );
         gameLoop.play();
+    }
+
+    private void render() {
+        grid.draw();
     }
 }
 

@@ -18,7 +18,7 @@ public class SpriteMap {
 
 
     private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
-    private static Image opaqueTile = new Image("res/images/tiles/ground_tile.png");
+    private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
 
     private static SpriteMap instance;

@@ -29,7 +29,9 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     private List<Drawable> drawableList = new ArrayList<Drawable>();
 
+    private AoeDrawable drawableAoe = new AoeDrawable();
     private NpcDrawable npcDrawable = new NpcDrawable();
+    private ItemDrawable itemDrawable = new ItemDrawable();
 
     SpriteMap spriteMap = SpriteMap.getInstance();
 
@@ -69,23 +71,27 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
     }
 
     @Override
-    public void visitInteractableItem(InteractableItem ineractableItem) {
-        //drawableList.add(spriteMap.getImageForKey(ineractableItem.getItemId()));
+    public void visitInteractableItem(InteractableItem interactableItem) {
+        itemDrawable.setGraphicKey(interactableItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitObstacleItem(ObstacleItem obstacleItem) {
-
+        itemDrawable.setGraphicKey(obstacleItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitOneShotItem(OneShotItem oneShotItem) {
-
+        itemDrawable.setGraphicKey(oneShotItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitTakeableItem(TakeableItem takeableItem) {
-
+        itemDrawable.setGraphicKey(takeableItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
@@ -121,37 +127,44 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitAoE(AoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitInstaDeathAoE(InstaDeathAoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitXpAoE(XpAoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitHealDamageAoE(HealDamageAoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitTakeDamageAoE(TakeDamageAoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitTeleportAoE(TeleportAoE aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
     @Override
     public void visitTrapAoE(InstantDamageAoETrap aoE) {
-
+        drawableAoe.setAoeType(aoE.toString());
+        drawableList.add(drawableAoe);
     }
 
 
