@@ -86,8 +86,6 @@ public class XmlSaveItemVisitor implements ItemVisitor
 
         itemnode.setAttribute("item-id", Integer.toString(itemId));
 
-        itemnode.setAttribute("item-type", item.getClass().getSimpleName().toLowerCase());
-
         itemElement.appendChild(itemnode);
     }
 
