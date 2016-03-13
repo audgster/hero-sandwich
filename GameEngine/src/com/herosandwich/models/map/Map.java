@@ -123,6 +123,17 @@ public class Map {
         tileMap.get(pos).addEntity(entity);
     }
 
+    /********************************************************************/
+    /* TODO
+
+        ADD THE PickUpItemEvent to moveEntity...
+
+        fires visitor?? or maybe just a notification to connect the entity the the itemList on the tile
+
+     */
+    /********************************************************************/
+
+
     public void moveEntity(PositionHex newPos, Entity entity){
         tileMap.get(entity.getPosition()).removeEntity(entity);
         addEntity(newPos, entity); //tileMap.get(pos).addEntity(entity);
