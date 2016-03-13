@@ -32,17 +32,19 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
     private AoeDrawable drawableAoe = new AoeDrawable();
     private NpcDrawable npcDrawable = new NpcDrawable();
     private ItemDrawable itemDrawable = new ItemDrawable();
+    private EntityDrawable entityDrawable = new EntityDrawable();
 
     SpriteMap spriteMap = SpriteMap.getInstance();
 
     @Override
     public void visitEntity(Entity entity) {
-
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        drawableList.add(entityDrawable);
     }
 
     @Override
     public void visitCharacter(Character character) {
-        character.getOccupation();
+
     }
 
     @Override
@@ -57,7 +59,8 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitPlayer(Player player) {
-
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        drawableList.add(entityDrawable);
     }
 
     @Override
@@ -67,7 +70,8 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitItem(Item item) {
-
+        itemDrawable.setGraphicKey(item.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
@@ -96,27 +100,32 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitConsumableItem(ConsumableItem consumableItem) {
-
+        itemDrawable.setGraphicKey(consumableItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitEquipableItem(EquipableItem equipableItem) {
-
+        itemDrawable.setGraphicKey(equipableItem.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitSmasherWeapon(SmasherWeapon smasherWeapon) {
-
+        itemDrawable.setGraphicKey(smasherWeapon.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitSneakWeapon(SneakWeapon sneakWeapon) {
-
+        itemDrawable.setGraphicKey(sneakWeapon.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override
     public void visitSummonerWeapon(SummonerWeapon summonerWeapon) {
-
+        itemDrawable.setGraphicKey(summonerWeapon.getItemId());
+        drawableList.add(itemDrawable);
     }
 
     @Override

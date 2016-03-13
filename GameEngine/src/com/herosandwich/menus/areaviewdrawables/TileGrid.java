@@ -31,10 +31,6 @@ public class TileGrid  implements Listener{
         this.graphicsContext = graphicsContext;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-        PlayerFactory factory = new PlayerFactory();
-        avatar = factory.vendDefaultInstance();
-        map.addEntity(new PositionHex(0,0), avatar);
-
         initGridWithMap();
     }
 
@@ -51,6 +47,10 @@ public class TileGrid  implements Listener{
             DrawableTile drawableTile = new DrawableTile(tile);
             drawableMap.put(tile.getPosition(), drawableTile);
         }
+
+        PlayerFactory factory = new PlayerFactory();
+        avatar = factory.vendDefaultInstance();
+        map.addEntity(new PositionHex(0,0), avatar);
     }
 
 

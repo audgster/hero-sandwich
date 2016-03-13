@@ -2,6 +2,8 @@ package com.herosandwich.menus;
 
 
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.PositionHex;
@@ -71,6 +73,7 @@ public class AreaView implements Menu {
         grid =  map.initMyDrawable(canvas);
         grid.makeAllTileVisible();
         grid.setTileAsDiscovered(new PositionHex(0,0));
+        map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
         //grid.draw();
         root.getChildren().add(canvas);
         gameLoop();
