@@ -41,7 +41,7 @@ public class DrawableTile implements Drawable, Listener {
     }
 
     public void makeVisible() {
-        System.out.println("makeVisible");
+       // System.out.println("makeVisible");
         isVisible = true;
         discovered = true;
         isInFog = false;
@@ -76,7 +76,7 @@ public class DrawableTile implements Drawable, Listener {
             drawGraphicsInBag(graphicsContext, point);
         }
         else if(discovered) {
-           System.out.println("discoveredTile");
+           //System.out.println("discoveredTile");
             graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
             drawGraphicsInBag(graphicsContext, point);
             graphicsContext.drawImage(spriteMap.getImageForKey(opaqueTileImageKey), point.getX(), point.getY());

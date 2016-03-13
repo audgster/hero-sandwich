@@ -1,8 +1,6 @@
 package com.herosandwich.util.persistence;
 
-import com.herosandwich.creation.entity.CharacterFactory;
-import com.herosandwich.creation.entity.EntityFactory;
-import com.herosandwich.creation.entity.PetFactory;
+import com.herosandwich.creation.entity.*;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.Property;
@@ -12,7 +10,11 @@ import com.herosandwich.models.occupation.Summoner;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class XmlEntityProcesser
 {
@@ -128,16 +130,75 @@ public class XmlEntityProcesser
 
     public Npc processNpcNode(Element npc)
     {
-        return new Npc();
+        NpcFactory factory = new NpcFactory();
+
+        Character character = processCharacterNode(npc);
+
+        // TODO Parse out trade
+        // TODO Parse out attitude
+        // TODO Parse out things to say
+
+        return factory.vendDefaultInstance();
     }
 
     public Mount processMountNode(Element mount)
     {
-        return new Mount();
+        String name = mount.getAttribute("name");
+
+        int movement = Integer.parseInt(mount.getAttribute("movement"));
+
+        Element location = (Element)mount.getElementsByTagName("location").item(0);
+
+        int q = Integer.parseInt(location.getAttribute("q"));
+        int r = Integer.parseInt(location.getAttribute("r"));
+        int s = Integer.parseInt(location.getAttribute("s"));
+
+        MountFactory factory = new MountFactory();
+
+        Mount mountObj = factory.vendCustomMount(name, movement, null);
+
+        if (mount.hasChildNodes())
+        {
+            Element rider = (Element) mount.getElementsByTagName("rider").item(0);
+
+            List<Node> riderObjlist= makeFilteredList(rider.getChildNodes());
+
+            Element riderObj = (Element) riderObjlist.get(0);
+
+            Character character;
+
+            if (riderObj.getNodeName() == "character")
+                character  = processCharacterNode(riderObj);
+            else
+                character = processPlayerNode(riderObj);
+
+            mountObj.mount(character);
+        }
+
+        mountObj.updatePosition(new PositionHex(q,r,s));
+
+        return mountObj;
     }
 
     public Player processPlayerNode(Element player)
     {
-        return new Player();
+        PlayerFactory factory = new PlayerFactory();
+
+        Character character = processCharacterNode(player);
+
+        Element skillPointsAvail = (Element)player.getElementsByTagName("skillpoints");
+
+        int availablepoints = Integer.parseInt(skillPointsAvail.getAttribute("available"));
+
+        return factory.transformFromCharacter(character, availablepoints);
+    }
+
+    private List<Node> makeFilteredList(NodeList list) {
+        List<Node> nodeArray = new ArrayList<>();
+        for(int i = 0; i < list.getLength(); i++)
+            if(list.item(i).getNodeType() == Node.ELEMENT_NODE)
+                nodeArray.add(list.item(i));
+
+        return nodeArray;
     }
 }

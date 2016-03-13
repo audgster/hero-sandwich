@@ -1,5 +1,8 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
+import com.herosandwich.models.map.Map;
+import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 public class Player extends Character {
@@ -84,5 +87,24 @@ public class Player extends Character {
     public void accept(EntityVisitor eVisitor)
     {
         eVisitor.visitPlayer(this);
+    }
+
+
+    @Override
+    public boolean move(DirectionHex d, Map map) {
+        boolean canMove = super.move(d, map);
+        if (canMove){
+            notifyListener();
+            return canMove;
+        }
+        return canMove;
+    }
+
+    public void addListener(Listener listener) {
+        myRender = listener;
+    }
+
+    private void notifyListener() {
+        myRender.update();
     }
 }

@@ -41,8 +41,9 @@ public class Inventory {
     public boolean insertItem(TakeableItem item) {
         if (getSize() == capacity)
             return false;
-
-        inventory.add(item);
+        if(item != null){
+            inventory.add(item);
+        }
         return true;
     }
 

@@ -1,5 +1,6 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.equipment.Equipment;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
@@ -31,6 +32,9 @@ public class Character extends Entity {
     * Skill points
     * */
     private HashMap<Skill, Integer> skillPoints;
+
+
+    protected Listener myRender;
 
     public Character()
     {
@@ -190,5 +194,13 @@ public class Character extends Entity {
     public void accept(EntityVisitor eVisitor)
     {
         eVisitor.visitCharacter(this);
+    }
+
+    public void addListener(Listener listener) {
+        myRender = listener;
+    }
+
+    private void notifyListener() {
+        myRender.update();
     }
 }

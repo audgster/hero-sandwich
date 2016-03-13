@@ -8,6 +8,8 @@ import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.smasherWeapons.SmasherWeapon;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -40,10 +42,20 @@ public class Equipment {
     {
         Iterator itemSlots = item.getSlotPosition();
 
-        if(item.getEquipmentType() == EquipmentType.WEAPON){
+        if((item.getEquipmentType() == EquipmentType.WEAPON) || (item.getEquipmentType() == EquipmentType.SHIELD)){
+            Weapon weaponOnRightHand = (Weapon) getEquipableItem(EquipmentSlots.RIGHT_HAND);
+            Weapon weaponOnLeftHand = (Weapon) getEquipableItem(EquipmentSlots.LEFT_HAND);
+            //if character has a Two_handed_weapon equipped then you can't add another weapon type
+            //character must first remove weapon from equipment
+            if(weaponOnRightHand != null && weaponOnRightHand.getWeaponType() == WeaponType.TWO_HANDED_WEAPON){
+                 return false;
+            }
+            if(weaponOnLeftHand != null && weaponOnLeftHand.getWeaponType() == WeaponType.TWO_HANDED_WEAPON){
+                return false;
+            }
+
             if(((Weapon)item).getWeaponType() == WeaponType.TWO_HANDED_WEAPON){
-                if(getEquipableItem(EquipmentSlots.RIGHT_HAND) == null
-                        && getEquipableItem(EquipmentSlots.LEFT_HAND) == null){
+                if(weaponOnRightHand == null && weaponOnLeftHand == null){
                     EquipmentSlots slot = (EquipmentSlots) itemSlots.next();
                     equipment.put(slot, item);
                     System.out.println("true");
@@ -74,6 +86,21 @@ public class Equipment {
         }
 
         return returnItem;
+    }
+
+    public EquipableItem removeItem(EquipableItem item)
+    {
+        if (equipment.containsValue(item)){
+            equipment.values().removeAll(Collections.singleton(item));
+            System.out.println(equipment.size());
+            return item;
+        }
+
+        return null;
+    }
+
+    public int getEquipmentSize(){
+        return equipment.size();
     }
 
     public EquipableItem getEquipableItem(EquipmentSlots location){

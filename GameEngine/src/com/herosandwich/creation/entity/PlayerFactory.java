@@ -32,6 +32,11 @@ public class PlayerFactory
         return new Player(character, availablePoints);
     }
 
+    public Player transformFromCharacter(Character character, int availablePoints)
+    {
+        return new Player(character, availablePoints);
+    }
+
     public Player vendDefaultInstance()
     {
         return new Player();
