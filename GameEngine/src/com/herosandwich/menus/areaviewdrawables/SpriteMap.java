@@ -20,7 +20,8 @@ public class SpriteMap {
     private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
     private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
-    private static Image avatarImage = new Image("res/images/Avatar.png");
+    private static Image avatarImage = new Image("res/images/Avatar2.png");
+    private static Image smasherImage = new Image("res/images/Smasher.png");
     private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
 
     private static SpriteMap instance;
@@ -30,6 +31,7 @@ public class SpriteMap {
         sprites.put(2, opaqueTile);
         sprites.put(3, fogTile);
         sprites.put(100, avatarImage);
+        sprites.put(101, smasherImage);
         sprites.put(200, bootsOfAwesome);
     }
 

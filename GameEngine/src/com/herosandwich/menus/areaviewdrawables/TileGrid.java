@@ -43,18 +43,19 @@ public class TileGrid  implements Listener{
 //        //setGrid(height, width);
 //    }
 
+    public void addAvatar(Character avatar) {
+        this.avatar = avatar;
+        this.avatar.addListener(this);
+    }
+
     private void initGridWithMap() {
-        System.out.println("initGridWithMap");
+        //System.out.println("initGridWithMap");
         Collection<Tile> mapTiles = map.getTiles();
         for(Tile tile : mapTiles) {
-            System.out.println("adding drawableTiles");
+           // System.out.println("adding drawableTiles");
             DrawableTile drawableTile = new DrawableTile(tile);
             drawableMap.put(tile.getPosition(), drawableTile);
         }
-
-        PlayerFactory factory = new PlayerFactory();
-        avatar = factory.vendDefaultInstance();
-        map.addEntity(new PositionHex(0,0), avatar);
     }
 
 
@@ -62,7 +63,7 @@ public class TileGrid  implements Listener{
     // For testing!!!!
 
     public void makeAllTileVisible() {
-        System.out.println("makeAllTileVisible");
+       // System.out.println("makeAllTileVisible");
         for(DrawableTile tile : drawableMap.values()) {
             tile.makeVisible();
         }
@@ -72,6 +73,9 @@ public class TileGrid  implements Listener{
     public void update() {
 
         makePreviousInViewTilesNotVisible();
+
+        if(inViewTilePositions != null)
+            System.out.println("InViewTiles not NULL");
 
         inViewTilePositions = map.drawCircle(avatar.getPosition(), 3, true).keySet();
         for(PositionHex position : inViewTilePositions) {

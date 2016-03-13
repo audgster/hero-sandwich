@@ -1,11 +1,11 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.equipment.Equipment;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
-import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.occupation.Occupation;
@@ -31,6 +31,14 @@ public class Character extends Entity {
     * Skill points
     * */
     private HashMap<Skill, Integer> skillPoints;
+
+    /*
+    * Currency
+    * */
+    private int currency;
+
+
+    protected Listener myRender;
 
     public Character()
     {
@@ -62,6 +70,31 @@ public class Character extends Entity {
         this.skillPoints = character.getSkillPoints();
         this.inventory = character.getInventory();
         this.equipment = character.getEquipment();
+        this.currency = character.getCurrency();
+    }
+
+    /*
+    * Currency
+    * */
+    public boolean setCurrency(int currency)
+    {
+        if (currency >= 0) {
+            this.currency = currency;
+            return true;
+        }
+        return false;
+    }
+
+    public int getCurrency()
+    {
+        return this.currency;
+    }
+
+    public boolean modifyCurrency(int delta)
+    {
+        int newCurrency = getCurrency() + delta;
+
+        return setCurrency(newCurrency);
     }
 
     /*
@@ -191,5 +224,13 @@ public class Character extends Entity {
     public void accept(EntityVisitor eVisitor)
     {
         eVisitor.visitCharacter(this);
+    }
+
+    public void addListener(Listener listener) {
+        myRender = listener;
+    }
+
+    private void notifyListener() {
+        myRender.update();
     }
 }

@@ -130,6 +130,7 @@ public class AreaMenu{
     private void setText(String text){
         Label areaText = new Label(text);
             areaText.setWrapText(true);
+            areaText.setId("stats_text");
         textOptions.getChildren().addAll(areaText);
 
     }

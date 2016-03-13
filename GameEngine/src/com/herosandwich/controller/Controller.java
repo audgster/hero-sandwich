@@ -7,8 +7,8 @@ import com.herosandwich.controller.KeyBindings;
 import javafx.scene.input.KeyCode;
 
 public class Controller {
-    private Character player;
-    private Map map;
+    private  Character player;
+    private  Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
 
@@ -27,21 +27,22 @@ public class Controller {
 	public void executeUserInput(KeyCode input){
 		// get correct enum from HashMap<KeyCode, Action>
 		Action inputAction = keyBindings.getAction(input);
-
-		switch (inputAction) {
-            case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
-                                    break;
-            case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
-                                    break;
-            case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
-                                    break;
-            case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
-                                    break;
-            case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
-                                    break;
-            case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
-                                    break;
-            default:                // key not assigned; do nothing
+        if(inputAction != null){
+            switch (inputAction) {
+                case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
+                                        break;
+                case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
+                                        break;
+                case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
+                                        break;
+                case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
+                                        break;
+                case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
+                                        break;
+                case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
+                                        break;
+                default:                // key not assigned; do nothing
+            }
         }
 	}
 

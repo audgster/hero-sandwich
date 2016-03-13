@@ -3,6 +3,7 @@ package com.herosandwich.util.visitor.xmlsave;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.util.visitor.EntityVisitor;
 import org.w3c.dom.*;
 
@@ -41,6 +42,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         entityElement = retrieveInventory(character, entityElement);
         entityElement = retrieveEquipment(character, entityElement);
         entityElement = retrieveSkillPoints(character, entityElement);
+        entityElement = retrieveCurrency(character, entityElement);
 
         entityNode.appendChild(entityElement);
     }
@@ -62,10 +64,10 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         entityElement = retrieveInventory(npc, entityElement);
         entityElement = retrieveEquipment(npc, entityElement);
         entityElement = retrieveSkillPoints(npc, entityElement);
-
-        // TODO save trade
-        // TODO save attitude
-        // TODO save things to say
+        entityElement = retrieveSales(npc.getSell(), entityElement);
+        entityElement = retrieveBuys(npc.getBuy(), entityElement);
+        entityElement = retrieveAttitude(npc, entityElement);
+        entityElement = retrieveThingsToSay(npc, entityElement);
 
         entityNode.appendChild(entityElement);
     }
@@ -251,6 +253,79 @@ public class XmlSaveEntityVisitor implements EntityVisitor
 
             element.appendChild(riderElement);
         }
+
+        return element;
+    }
+
+    private Element retrieveCurrency(Character character, Element element)
+    {
+        Element curr = doc.createElement("cash");
+        curr.setAttribute("amount", Integer.toString(character.getCurrency()));
+
+        element.appendChild(curr);
+
+        return element;
+    }
+
+    private Element retrieveSales(HashMap<Integer, Integer> sales, Element element)
+    {
+        Element salesElement = doc.createElement("sales");
+        for (Map.Entry<Integer, Integer> e : sales.entrySet())
+        {
+            Element saleElement = doc.createElement("sale");
+
+            saleElement.setAttribute("item-id", Integer.toString(e.getKey()));
+            saleElement.setAttribute("price", Integer.toString(e.getValue()));
+
+            salesElement.appendChild(saleElement);
+        }
+
+        element.appendChild(salesElement);
+        return element;
+    }
+
+    private Element retrieveBuys(HashMap<Integer, Integer> buys, Element element)
+    {
+        Element buysElement = doc.createElement("buys");
+        for (Map.Entry<Integer, Integer> e : buys.entrySet())
+        {
+            Element buyElement = doc.createElement("buy");
+
+            buyElement.setAttribute("item-id", Integer.toString(e.getKey()));
+            buyElement.setAttribute("price", Integer.toString(e.getValue()));
+
+            buysElement.appendChild(buyElement);
+        }
+
+        element.appendChild(buysElement);
+        return element;
+    }
+
+    private Element retrieveAttitude(Npc npc, Element element)
+    {
+        Element attitudeElement = doc.createElement("towards-player");
+
+        attitudeElement.setAttribute("attitude", npc.getAttitudeTowardsPlayer().toString().toLowerCase());
+
+        element.appendChild(attitudeElement);
+        return element;
+    }
+
+    private Element retrieveThingsToSay(Npc npc, Element element)
+    {
+        Element talky = doc.createElement("things-to-say");
+
+        String[] things2say = npc.getThingsToSay();
+
+        for (int i = 0; i < things2say.length; i++)
+        {
+            Element text = doc.createElement("npc-says");
+            text.setAttribute("text", things2say[i]);
+
+            talky.appendChild(text);
+        }
+
+        element.appendChild(talky);
 
         return element;
     }
