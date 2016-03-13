@@ -1,10 +1,11 @@
 package com.herosandwich.menus.areaviewdrawables;
 
+import com.herosandwich.creation.entity.PlayerFactory;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.PositionHex;
-import javafx.geometry.Pos;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.*;
@@ -12,17 +13,28 @@ import java.util.*;
 public class TileGrid  implements Listener{
 
     HashMap<PositionHex, DrawableTile> drawableMap = new HashMap<PositionHex, DrawableTile>();
-    Double tileHeight = 30 * Math.sqrt(3D);
+    Double tileScale = 31D;
+    Double tileWidth = tileScale*2;
+    Double tileHeight = tileScale * Math.sqrt(3D);
     GraphicsContext graphicsContext;
     Set<PositionHex> inViewTilePositions;
+
+    Double screenWidth;
+    Double screenHeight;
 
     //Need Avatar's position
     Character avatar;
     Map map;
 
-    public TileGrid(Map map, GraphicsContext graphicsContext) {
+    public TileGrid(Map map, GraphicsContext graphicsContext, Double screenWidth, Double screenHeight) {
         this.map = map;
         this.graphicsContext = graphicsContext;
+        this.screenWidth = screenWidth;
+        this.screenHeight = screenHeight;
+        PlayerFactory factory = new PlayerFactory();
+        avatar = factory.vendDefaultInstance();
+        map.addEntity(new PositionHex(0,0), avatar);
+
         initGridWithMap();
     }
 
@@ -32,8 +44,10 @@ public class TileGrid  implements Listener{
 //    }
 
     private void initGridWithMap() {
+        System.out.println("initGridWithMap");
         Collection<Tile> mapTiles = map.getTiles();
         for(Tile tile : mapTiles) {
+            System.out.println("adding drawableTiles");
             DrawableTile drawableTile = new DrawableTile(tile);
             drawableMap.put(tile.getPosition(), drawableTile);
         }
@@ -44,6 +58,7 @@ public class TileGrid  implements Listener{
     // For testing!!!!
 
     public void makeAllTileVisible() {
+        System.out.println("makeAllTileVisible");
         for(DrawableTile tile : drawableMap.values()) {
             tile.makeVisible();
         }
@@ -62,6 +77,11 @@ public class TileGrid  implements Listener{
         }
     }
 
+    public void setTileAsDiscovered(PositionHex positionHex) {
+        DrawableTile tile = drawableMap.get(positionHex);
+        tile.makeNotVisible();
+    }
+
     private void makePreviousInViewTilesNotVisible() {
 
         if(inViewTilePositions == null)
@@ -74,9 +94,19 @@ public class TileGrid  implements Listener{
     }
 
     public void draw() {
-        CanvasPoint blankPoint = new CanvasPoint(0D,0D);
-        for(DrawableTile tile : drawableMap.values()) {
-            tile.draw(graphicsContext, blankPoint);
+        //System.out.println("draw");
+        for(PositionHex position : drawableMap.keySet()) {
+            //System.out.println("draw0.2");
+            drawableMap.get(position).draw(graphicsContext, hexToCanvasPoint(position));
         }
+    }
+
+
+
+    public CanvasPoint hexToCanvasPoint(PositionHex point) {
+        Double x = ( (3/2) * 2.92*(point.getQ() - avatar.getPosition().getQ()) + 0*point.getR())*tileScale;
+        Double y = ( (Math.sqrt(3)/2) * 1.92 *(point.getQ() - avatar.getPosition().getQ()) + Math.sqrt(3)*(1.92 * point.getR() - avatar.getPosition().getR()))*tileScale;
+
+        return new CanvasPoint(x + screenWidth/2 - tileWidth, y + screenHeight/2 - tileHeight);
     }
 }

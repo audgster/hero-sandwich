@@ -7,6 +7,7 @@ import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.Collection;
@@ -170,8 +171,8 @@ public class Map {
     /***********************************************************************************************************/
     // For testing!!!!
 
-    public TileGrid initMyDrawable(GraphicsContext graphicsContext) {
-        return new TileGrid(this, graphicsContext);
+    public TileGrid initMyDrawable(Canvas canvas) {
+        return new TileGrid(this, canvas.getGraphicsContext2D(), canvas.getWidth(), canvas.getHeight());
     }
 
     /***********************************************************************************************************/
