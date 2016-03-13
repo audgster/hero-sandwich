@@ -27,10 +27,10 @@ public class Inventory {
             inventory.add(i,null);
         }
         inventory.add(0,new ConsumableItem("HealingSuperPotion",1));
-        inventory.add(1,new TakeableItem("MagicAoeWand",1));
-        inventory.add(2,new ConsumableItem("MediocreHealingPotion",1));
-        inventory.add(3, new Weapon("SuperSayanSword",1,new DerivedStats(1,1,1,1,1,1)));
-        inventory.add(4,new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
+        inventory.add(1,new TakeableItem("MagicAoeWand",2));
+        inventory.add(2,new ConsumableItem("MediocreHealingPotion",3));
+        inventory.add(3, new Weapon("SuperSayanSword",4,new DerivedStats(1,1,1,1,1,1)));
+        inventory.add(4,new EquipableItem("TheBootsOfAwesome",5, EquipmentType.BOOTS));
     }
 
     public Inventory(int capacity) {
@@ -62,6 +62,7 @@ public class Inventory {
         if(inventory.remove(item)){
             removedItem = item;
         }
+        System.out.println(getSize());
 
         return removedItem;
     }
@@ -78,7 +79,8 @@ public class Inventory {
 
     public void acceptItemVisitor(ItemVisitor iVisitor){
         for(Item item: inventory){
-            item.accept(iVisitor);
+            if (item != null)
+                item.accept(iVisitor);
         }
     }
 }

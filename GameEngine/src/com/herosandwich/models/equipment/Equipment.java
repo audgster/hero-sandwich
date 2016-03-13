@@ -1,21 +1,32 @@
 package com.herosandwich.models.equipment;
 
+import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.smasherWeapons.SmasherWeapon;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class Equipment {
     private HashMap<EquipmentSlots, EquipableItem> equipment;
 
     public Equipment(){
         equipment = new HashMap<>();
+        test();
+    }
+
+    private void test(){
+        insertItem(new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
+        insertItem(new Weapon("MagicAoeWand",3,new DerivedStats(1,1,1,1,1,1)));
+        insertItem(new SmasherWeapon("SuperSayanSword",2, new DerivedStats(3,3,3,40,4,4),WeaponType.TWO_HANDED_WEAPON));
+
     }
 
     public Equipment(Equipment equipment)
@@ -47,8 +58,10 @@ public class Equipment {
                 if(weaponOnRightHand == null && weaponOnLeftHand == null){
                     EquipmentSlots slot = (EquipmentSlots) itemSlots.next();
                     equipment.put(slot, item);
+                    System.out.println("true");
                     return true;
                 }
+                System.out.println("false");
                 return false;
             }
         }
@@ -105,7 +118,32 @@ public class Equipment {
     }
 
     public EquipableItem[] getEquipmentArray(){
-        return (EquipableItem[]) equipment.values().toArray(); // returns an array of all the EquipableItems in Equipment
+        Map<EquipmentSlots,EquipableItem> map = (Map) equipment;
+        EquipableItem[] values = new EquipableItem[6];
+            for(int i = 0; i < 6; i++){
+                values[i] = null;
+            }
+        for (Map.Entry<EquipmentSlots, EquipableItem> mapEntry : map.entrySet()) {
+            if(mapEntry.getKey() == EquipmentSlots.LEFT_HAND){
+                values[0] = mapEntry.getValue();
+            }
+            else if(mapEntry.getKey() == EquipmentSlots.HEAD){
+                values[1] = mapEntry.getValue();
+            }
+            else if(mapEntry.getKey() == EquipmentSlots.CHEST){
+                values[2] = mapEntry.getValue();
+            }
+            else if(mapEntry.getKey() == EquipmentSlots.LEGGINGS){
+                values[3] = mapEntry.getValue();
+            }
+            else if(mapEntry.getKey() == EquipmentSlots.FEET){
+                values[4] = mapEntry.getValue();
+            }
+            else if(mapEntry.getKey() == EquipmentSlots.RIGHT_HAND){
+                values[5] = mapEntry.getValue();
+            }
+        }
+        return values;
     }
 
     public void accept(EquipmentVisitor visitor)

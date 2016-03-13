@@ -1,5 +1,6 @@
 package com.herosandwich.models.map;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.items.Item;
 import com.herosandwich.models.map.aoe.AoE;
@@ -27,6 +28,7 @@ public class Tile {
     private Entity entity;
     private LinkedHashSet<Item> itemList;
     private LinkedHashSet<AoE> aoeList;
+    private Listener myRender;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
@@ -75,6 +77,7 @@ public class Tile {
             throw new IllegalStateException("Tile already contains an entity");
         }
         this.entity = entity;
+        notifyListener();
     }
 
     public void removeEntity(Entity entity){
@@ -82,6 +85,7 @@ public class Tile {
             throw new IllegalArgumentException("Given entity does not match previously stored entity");
         }
         this.entity = null;
+        notifyListener();
     }
 
     public Item addItem(Item item){
@@ -91,6 +95,7 @@ public class Tile {
         }
         else{
             this.itemList.add(item);
+            notifyListener();
             return item;
         }
     }
@@ -98,6 +103,7 @@ public class Tile {
     public Item removeItem(Item item){
         if(this.itemList.contains(item)){
             this.itemList.remove(item);
+            notifyListener();
             return item;
         }
         else{
@@ -113,6 +119,7 @@ public class Tile {
         }
         else{
             this.aoeList.add(aoe);
+            notifyListener();
             return aoe;
         }
     }
@@ -120,6 +127,7 @@ public class Tile {
     public AoE removeAoE(AoE aoe){
         if(this.aoeList.contains(aoe)){
             this.aoeList.remove(aoe);
+            notifyListener();
             return aoe;
         }
         else{
@@ -148,6 +156,15 @@ public class Tile {
         for(AoE aoe: aoeList){
             aoe.accept(aoeVisitor);
         }
+    }
+
+    private void notifyListener() {
+        if(myRender != null)
+            myRender.update();
+    }
+
+    public void addListener(Listener listener) {
+        myRender = listener;
     }
 
 }

@@ -43,8 +43,6 @@ public class ItemInit {
     private ItemInit(){
         itemMap = new HashMap<Integer, Item>();
 
-
-
     }
 
     private static ItemInit getInstance(){

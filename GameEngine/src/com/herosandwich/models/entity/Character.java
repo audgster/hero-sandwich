@@ -125,17 +125,17 @@ public class Character extends Entity {
 
     public Weapon getRightHand(){
         EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
-        if(item.getEquipmentType() == EquipmentType.WEAPON){
-            return (Weapon)item;
-        }
+        //if(item.getEquipmentType() == EquipmentType.WEAPON){
+        //    return (Weapon)item;
+        //}
         return null;
     }
 
     public Weapon getLeftHand(){
         EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
-        if(item.getEquipmentType() == EquipmentType.WEAPON){
-            return (Weapon)item;
-        }
+        //if(item.getEquipmentType() == EquipmentType.WEAPON){
+        //    return (Weapon)item;
+        //}
         return null;
     }
 
