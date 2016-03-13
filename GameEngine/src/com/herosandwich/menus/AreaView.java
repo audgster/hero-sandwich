@@ -179,6 +179,7 @@ public class AreaView implements Menu {
     }
 
     private void render() {
+        canvas.getGraphicsContext2D().clearRect(0,0,canvas.getWidth(),canvas.getHeight());
         grid.draw();
     }
 }
