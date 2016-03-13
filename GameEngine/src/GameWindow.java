@@ -13,10 +13,14 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import com.herosandwich.controller.Controller;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
-public class GameWindow extends Application{
+public class GameWindow extends Application implements KeyListener{
     double WIDTH,HEIGHT;
+    Controller controller = Controller.getController();
 
     public static void main(String[] args) {
         launch(args);
@@ -68,5 +72,20 @@ public class GameWindow extends Application{
         display.getStylesheets().add
                 (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        controller.executeUserInput( e.getKeyChar() );
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
