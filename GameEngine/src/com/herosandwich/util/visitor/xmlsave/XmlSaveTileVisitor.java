@@ -17,18 +17,24 @@ public class XmlSaveTileVisitor implements TileVisitor
     {
         this.doc = doc;
 
-        tileNode = doc.createElement("tile");
+        tileNode = doc.createElement("tiles");
     }
 
     @Override
     public void visitTile(Tile tile)
     {
-        retrievePosition(tile);
-        retrieveEntities(tile);
-        retrieveItems(tile);
+        Element element = doc.createElement("tile");
+
+        element = retrievePosition(tile, element);
+        element = retrieveTerrainType(tile, element);
+        element = retrieveEntities(tile, element);
+        element = retrieveItems(tile, element);
+        element = retrieveAoe(tile, element);
+
+        tileNode.appendChild(element);
     }
 
-    public void retrievePosition(Tile tile)
+    public Element retrievePosition(Tile tile, Element e)
     {
         PositionHex position = tile.getPosition();
 
@@ -36,36 +42,51 @@ public class XmlSaveTileVisitor implements TileVisitor
         int r = position.getR();
         int s = position.getS();
 
-        tileNode.setAttribute("q", Integer.toString(q));
-        tileNode.setAttribute("r", Integer.toString(r));
-        tileNode.setAttribute("s", Integer.toString(s));
+        e.setAttribute("q", Integer.toString(q));
+        e.setAttribute("r", Integer.toString(r));
+        e.setAttribute("s", Integer.toString(s));
+
+        return e;
     }
 
-    public void retrieveItems(Tile tile)
+    public Element retrieveTerrainType(Tile tile, Element e)
+    {
+        e.setAttribute("terrain-type", tile.getTerrain().toString().toLowerCase());
+
+        return e;
+    }
+
+    public Element retrieveItems(Tile tile, Element e)
     {
         XmlSaveItemVisitor visitor = new XmlSaveItemVisitor(doc);
 
         tile.acceptItemVisitor(visitor);
 
-        tileNode.appendChild(visitor.retreiveSavedObject());
+        e.appendChild(visitor.retrieveSavedObject());
+
+        return e;
     }
 
-    public void retrieveAoe(Tile tile)
+    public Element retrieveAoe(Tile tile, Element e)
     {
         XmlSaveAoEVisitor visitor = new XmlSaveAoEVisitor(doc);
 
         tile.acceptAoEVisitor(visitor);
 
-        tileNode.appendChild(visitor.retrieveSavedObject());
+        e.appendChild(visitor.retrieveSavedObject());
+
+        return e;
     }
 
-    public void retrieveEntities(Tile tile)
+    public Element retrieveEntities(Tile tile, Element e)
     {
         XmlSaveEntityVisitor visitor = new XmlSaveEntityVisitor(doc);
 
         tile.acceptEntityVisitor(visitor);
 
-        tileNode.appendChild(visitor.retrieveSavedObject());
+        e.appendChild(visitor.retrieveSavedObject());
+
+        return e;
     }
 
     public Node retrieveSavedItem()
