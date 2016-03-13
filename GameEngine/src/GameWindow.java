@@ -1,5 +1,7 @@
 import  com.herosandwich.menus.*;
 
+import com.herosandwich.models.entity.*;
+import com.herosandwich.models.entity.Character;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -31,8 +33,9 @@ public class GameWindow extends Application {
 
         Pane rootView = new Pane();
 
-        AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH,HEIGHT);
+        //AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH,HEIGHT);
         //AreaView mm = new AreaView(WIDTH,HEIGHT);
+        ShopMenu mm = new ShopMenu(WIDTH,HEIGHT, new Npc(), new Character());
             mm.createMenu(rootView);
 
         Scene display = new Scene(rootView,WIDTH,HEIGHT);

@@ -22,7 +22,12 @@ public class SpriteMap {
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
     private static Image avatarImage = new Image("res/images/Avatar2.png");
     private static Image smasherImage = new Image("res/images/Smasher.png");
+    private static Image smasherImage2 = new Image("res/images/Smasher_greyscale.png");
     private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
+
+    private static Image testing = new Image("com/herosandwich/menus/sprite_avatar1.png");
+    private static Image testing2 = new Image("com/herosandwich/menus/sprite_avatar2.png");
+
 
     private static SpriteMap instance;
 
@@ -33,6 +38,10 @@ public class SpriteMap {
         sprites.put(100, avatarImage);
         sprites.put(101, smasherImage);
         sprites.put(200, bootsOfAwesome);
+
+        //animation testing
+        sprites.put(400,testing);
+        sprites.put(401,testing2);
     }
 
     public static SpriteMap getInstance() {
