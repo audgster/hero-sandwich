@@ -6,18 +6,21 @@ import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.sneakWeapons.SneakWeapon;
+import com.herosandwich.models.map.aoe.Trap;
 
 import java.util.List;
 
 public class Sneak extends Property{
     private int creepSkill;
     private int detectionSkill;
+    private int removeTrapSkill;
     private int pickPocketSkill;
     private int rangedWeaponSkill;
 
     public Sneak(){
         this.creepSkill = 0;
         this.detectionSkill = 0;
+        this.removeTrapSkill = 0;
         this.pickPocketSkill = 0;
         this.rangedWeaponSkill = 0;
     }
@@ -54,10 +57,13 @@ public class Sneak extends Property{
 
     }
 
-    //will complete when Tile exists!!
-    public void detectAndRemoveTrap(){
+    //If successful deactivates a trap!
+    public void detectAndRemoveTrap(Trap trap){
         if(successfulAction(this.detectionSkill) ){
+            if(trap.isDiscovered()){
 
+            }
+            trap.deactivate();
         }
     }
 
@@ -92,6 +98,7 @@ public class Sneak extends Property{
         this.detectionSkill = owner.getNumberOfSkillPoints(Skill.DETECTION);
         this.pickPocketSkill = owner.getNumberOfSkillPoints(Skill.PICK_POCKET);
         this.rangedWeaponSkill = owner.getNumberOfSkillPoints(Skill.RANGED_WEAPON);
+        this.removeTrapSkill = owner.getNumberOfSkillPoints(Skill.REMOVE_TRAP);
     }
 
 

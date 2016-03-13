@@ -40,16 +40,18 @@ public class Equipment {
             if(((Weapon)item).getWeaponType() == WeaponType.TWO_HANDED_WEAPON){
                 if(getEquipableItem(EquipmentSlots.RIGHT_HAND) == null
                         && getEquipableItem(EquipmentSlots.LEFT_HAND) == null){
-                    equipment.put((EquipmentSlots) itemSlots.next(), item);
+                    EquipmentSlots slot = (EquipmentSlots) itemSlots.next();
+                    equipment.put(slot, item);
                     return true;
                 }
                 return false;
             }
         }
         while (itemSlots.hasNext()){
-            if (!equipment.containsKey(itemSlots.next()))
+            EquipmentSlots slot = (EquipmentSlots) itemSlots.next();
+            if (!equipment.containsKey(slot))
             {
-                equipment.put((EquipmentSlots) itemSlots.next(), item);
+                equipment.put(slot, item);
                 return true;
             }
         }
@@ -62,7 +64,7 @@ public class Equipment {
 
         if (equipment.containsKey(location)){
             returnItem = equipment.get(location);
-            equipment.remove(returnItem);
+            equipment.remove(location);
         }
 
         return returnItem;
