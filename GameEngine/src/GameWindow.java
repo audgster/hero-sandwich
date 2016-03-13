@@ -32,6 +32,7 @@ public class GameWindow extends Application {
         Pane rootView = new Pane();
 
         AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH,HEIGHT);
+        //AreaView mm = new AreaView(WIDTH,HEIGHT);
             mm.createMenu(rootView);
 
         Scene display = new Scene(rootView,WIDTH,HEIGHT);

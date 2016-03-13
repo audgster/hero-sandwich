@@ -20,7 +20,7 @@ public class SpriteMap {
     private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
     private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
-    private static Image avatarImage = new Image("res/images/Avatar.png");
+    private static Image avatarImage = new Image("res/images/Avatar2.png");
     private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
 
     private static SpriteMap instance;
