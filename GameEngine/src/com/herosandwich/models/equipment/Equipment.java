@@ -75,6 +75,10 @@ public class Equipment {
         return equipment;
     }
 
+    public EquipableItem[] getEquipmentArray(){
+        return (EquipableItem[]) equipment.values().toArray(); // returns an array of all the EquipableItems in Equipment
+    }
+
     public void accept(EquipmentVisitor visitor)
     {
         visitor.visitEquipment(this);

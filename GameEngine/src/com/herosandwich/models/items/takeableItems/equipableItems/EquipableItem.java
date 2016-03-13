@@ -3,6 +3,8 @@ package com.herosandwich.models.items.takeableItems.equipableItems;
 import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.util.visitor.ItemVisitor;
+
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -68,5 +70,9 @@ public class EquipableItem extends TakeableItem {
     //not sure if we need this any more?
     public EquipmentType getEquipmentType(){
         return equipmentType;
+    }
+
+    public void accept(ItemVisitor visitor){
+        visitor.visitEquipableItem(this);
     }
 }
