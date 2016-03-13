@@ -53,7 +53,7 @@ public enum Skill
                 return Skill.STAFF;
             case "ranged_weapon":
                 return Skill.RANGED_WEAPON;
-            case "remove_trap"
+            case "remove_trap":
                 return Skill.REMOVE_TRAP;
             case "two_handed_weapon":
                 return Skill.TWO_HANDED_WEAPON;
