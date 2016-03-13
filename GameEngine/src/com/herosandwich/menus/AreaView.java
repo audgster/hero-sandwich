@@ -1,6 +1,7 @@
 package com.herosandwich.menus;
 
 
+import com.herosandwich.controller.Controller;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
@@ -18,6 +19,7 @@ import javafx.scene.canvas.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -74,6 +76,15 @@ public class AreaView implements Menu {
         //grid.draw();
         root.getChildren().add(canvas);
         gameLoop();
+
+        // Set key press event listener for Controller
+        Controller controller = Controller.getController();
+        content.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controller.executeUserInput( event.getCode() );
+            }
+        });
     }
 
     public void gameLoop(){
