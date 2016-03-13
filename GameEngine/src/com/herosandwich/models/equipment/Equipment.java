@@ -8,12 +8,19 @@ import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class Equipment {
     private HashMap<EquipmentSlots, EquipableItem> equipment;
 
     public Equipment(){
         equipment = new HashMap<>();
+        test();
+    }
+
+    private void test(){
+
+        //insertItem(new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
     }
 
     public Equipment(Equipment equipment)
@@ -76,7 +83,18 @@ public class Equipment {
     }
 
     public EquipableItem[] getEquipmentArray(){
-        return (EquipableItem[]) equipment.values().toArray(); // returns an array of all the EquipableItems in Equipment
+        Map<EquipmentType,EquipableItem> map = (Map) equipment;
+        EquipableItem[] values = new EquipableItem[6];
+            for(int i = 0; i < 6; i++){
+                values[i] = null;
+            }
+        int index = 0;
+        for (Map.Entry<EquipmentType, EquipableItem> mapEntry : map.entrySet()) {
+            values[index] = mapEntry.getValue();
+            index++;
+        }
+        System.out.println(index);
+        return values;
     }
 
     public void accept(EquipmentVisitor visitor)

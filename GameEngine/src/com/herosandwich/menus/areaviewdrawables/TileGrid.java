@@ -37,6 +37,10 @@ public class TileGrid  implements Listener{
 
         initGridWithMap();
     }
+    public void updateDimensions(){
+        screenHeight = graphicsContext.getCanvas().getHeight();
+        screenWidth = graphicsContext.getCanvas().getWidth();
+    }
 
 //    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
 //        this.graphicsContext = graphicsContext;
@@ -95,6 +99,7 @@ public class TileGrid  implements Listener{
 
     public void draw() {
         //System.out.println("draw");
+        updateDimensions();
         for(PositionHex position : drawableMap.keySet()) {
             //System.out.println("draw0.2");
             drawableMap.get(position).draw(graphicsContext, hexToCanvasPoint(position));
