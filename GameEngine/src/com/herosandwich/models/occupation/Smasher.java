@@ -3,7 +3,7 @@ package com.herosandwich.models.occupation;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Skill;
 
-public class Smasher extends Property {
+public class Smasher extends Occupation {
     //Skills will range from 0 to 100
     private int brawlSkill;
     private int oneHandedWeaponSkill;

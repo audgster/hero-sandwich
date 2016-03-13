@@ -5,7 +5,7 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
 
-public class Summoner extends Property{
+public class Summoner extends Occupation{
     private int baneSkill;
     private int boonSkill;
     private int enchantmentSkill;

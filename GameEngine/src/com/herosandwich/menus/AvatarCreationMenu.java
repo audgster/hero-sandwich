@@ -144,7 +144,7 @@ public class AvatarCreationMenu implements Menu{
 
 class OccupationMenu extends Parent{
     private double WIDTH,HEIGHT;
-    private Property occupation;
+    private Occupation occupation;
     private boolean selected;
 	private StackPane btnStart;
     private ImageView grayscaleImg, coloredImg;
@@ -152,7 +152,7 @@ class OccupationMenu extends Parent{
     private TextField avatarName;
     private Pane avatarCreationView;
 
-	public OccupationMenu(Property occupation,Pane avatarCreationView,double width, double height){
+	public OccupationMenu(Occupation occupation,Pane avatarCreationView,double width, double height){
         WIDTH = width;
         HEIGHT = height;
         this.occupation = occupation;
@@ -204,7 +204,7 @@ class OccupationMenu extends Parent{
             avatarName.setAlignment(Pos.CENTER);
     }
 
-	private StackPane createStartButton(Property occupation){
+	private StackPane createStartButton(Occupation occupation){
         //creates the Start button
         StackPane btnStart;
         Label text = new Label("Start Game");
@@ -235,7 +235,7 @@ class OccupationMenu extends Parent{
         });
         return btnStart;
 	}
-	private VBox createOccupationInfo(Property occupation){
+	private VBox createOccupationInfo(Occupation occupation){
         //create the occupation info, ie. the occupation name, image, and description
 	    Label occupationName = new Label(occupation.toString());
 		ToggleGroup group = new ToggleGroup();
@@ -266,7 +266,7 @@ class OccupationMenu extends Parent{
  			selected = false;
 		}
 	}
-    private void createGame(Property occupation){
+    private void createGame(Occupation occupation){
         //AreaView av = new AreaView();
         //av.createMenu(avatarCreationView);
     }

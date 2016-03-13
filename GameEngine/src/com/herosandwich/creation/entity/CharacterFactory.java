@@ -3,7 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Entity;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 
 public class CharacterFactory
 {
@@ -19,7 +19,7 @@ public class CharacterFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            Property occupation
+            Occupation occupation
     )
     {
         if (occupation == null)
@@ -40,7 +40,7 @@ public class CharacterFactory
         return new Character(entity, occupation);
     }
 
-    public Character transfromEntity(Entity entity, Property occupation)
+    public Character transfromEntity(Entity entity, Occupation occupation)
     {
         return new Character(entity, occupation);
     }

@@ -5,7 +5,7 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 public class Mount extends Character
@@ -141,7 +141,7 @@ public class Mount extends Character
     }
 
     @Override
-    public Property getOccupation()
+    public Occupation getOccupation()
     {
         return rider.getOccupation();
     }

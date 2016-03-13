@@ -2,7 +2,7 @@ package com.herosandwich.events;
 
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 
 /**
  * Created by clayhausen on 3/11/16.
