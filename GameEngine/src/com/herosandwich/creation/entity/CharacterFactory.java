@@ -40,6 +40,11 @@ public class CharacterFactory
         return new Character(entity, occupation);
     }
 
+    public Character transfromEntity(Entity entity, Property occupation)
+    {
+        return new Character(entity, occupation);
+    }
+
     public Character vendCustomInstance()
     {
         return new Character();

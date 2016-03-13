@@ -49,7 +49,8 @@ public class Map {
                         "bounds PositionHex: " + pos.getQ() +", " + pos.getR() + ", " + pos.getS());
             }
             tileMap.put(pos, tile);
-            entitySet.add(tile.getEntity());
+            if (tile.getEntity() != null)
+                entitySet.add(tile.getEntity());
         }
     }
 
