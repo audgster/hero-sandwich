@@ -181,7 +181,7 @@ public class Entity
         this.name = name;
     }
 
-    private void setCurrentLife(int currentLife)
+    public void setCurrentLife(int currentLife)
     {
         if (currentLife < 0)
             this.currentLife = 0;
@@ -191,7 +191,7 @@ public class Entity
             this.currentLife = currentLife;
     }
 
-    private void setCurrentMana(int currentMana)
+    public void setCurrentMana(int currentMana)
     {
         if (currentMana < 0)
             this.currentMana = 0;
@@ -326,6 +326,11 @@ public class Entity
 
     public void updatePosition(PositionHex pos){
         this.position = pos;
+    }
+
+    public void updateDirection(DirectionHex dir)
+    {
+        this.direction = dir;
     }
 
     //movement
