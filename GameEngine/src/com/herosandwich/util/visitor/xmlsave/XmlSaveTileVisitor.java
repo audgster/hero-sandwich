@@ -54,7 +54,7 @@ public class XmlSaveTileVisitor implements TileVisitor
     {
         XmlSaveAoEVisitor visitor = new XmlSaveAoEVisitor(doc);
 
-        tile.accept(visitor);
+        tile.acceptAoEVisitor(visitor);
 
         tileNode.appendChild(visitor.retrieveSavedObject());
     }
