@@ -2,7 +2,7 @@ package com.herosandwich.creation.entity;
 
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 
 import java.util.HashMap;
 
@@ -20,7 +20,7 @@ public class NpcFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            Property occupation,
+            Occupation occupation,
             Attitude attitudeTowardsPlayer,
             HashMap<Integer, Integer> sell,
             HashMap<Integer, Integer> buy,

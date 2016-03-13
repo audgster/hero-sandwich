@@ -3,7 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Player;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 
 public class PlayerFactory
 {
@@ -19,7 +19,7 @@ public class PlayerFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            Property occupation,
+            Occupation occupation,
             int availablePoints
     )
     {

@@ -122,6 +122,7 @@ public class Map {
         if(!entitySet.contains(entity)){
             entitySet.add(entity);
         }
+        entity.updatePosition(pos);
         tileMap.get(pos).addEntity(entity);
     }
 
@@ -147,6 +148,8 @@ public class Map {
             throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
         }
         tileMap.get(pos).removeEntity(entity);
+
+        entity.updatePosition(null);
         entitySet.remove(entity);
     }
 
