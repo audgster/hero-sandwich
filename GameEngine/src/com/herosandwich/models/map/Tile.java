@@ -26,24 +26,24 @@ public class Tile {
     private PositionHex pos;
     private Terrain terrain;
     private Entity entity;
-    private LinkedHashSet<Item> itemList;
-    private LinkedHashSet<AoE> aoeList;
+    private List<Item> itemList;
+    private List<AoE> aoeList;
     private Listener myRender;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = null;
-        this.itemList = new LinkedHashSet<Item>();
-        this.aoeList = new LinkedHashSet<AoE>();
+        this.itemList = new ArrayList<Item>();
+        this.aoeList = new ArrayList<AoE>();
     }
 
     public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items, Collection<AoE> aoes){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = entity;
-        this.itemList = new LinkedHashSet<Item>();
-        this.aoeList = new LinkedHashSet<AoE>();
+        this.itemList = new ArrayList<Item>();
+        this.aoeList = new ArrayList<AoE>();
 
         if(items != null) {
             for (Item item: items) {
@@ -89,15 +89,9 @@ public class Tile {
     }
 
     public Item addItem(Item item){
-        if(this.itemList.contains(item)){
-            //error
-            return item;
-        }
-        else{
-            this.itemList.add(item);
-            notifyListener();
-            return item;
-        }
+        this.itemList.add(item);
+        notifyListener();
+        return item;
     }
 
     public Item removeItem(Item item){
@@ -107,21 +101,14 @@ public class Tile {
             return item;
         }
         else{
-            //error
-            return null;
+            throw new IllegalArgumentException("Tile does not contain the Item");
         }
     }
 
     public AoE addAoE(AoE aoe){
-        if(this.aoeList.contains(aoe)){
-            //error
-            return aoe;
-        }
-        else{
-            this.aoeList.add(aoe);
-            notifyListener();
-            return aoe;
-        }
+        this.aoeList.add(aoe);
+        notifyListener();
+        return aoe;
     }
 
     public AoE removeAoE(AoE aoe){
@@ -131,8 +118,7 @@ public class Tile {
             return aoe;
         }
         else{
-            //error
-            return null;
+            throw new IllegalArgumentException("Tile does not contain the AoE");
         }
     }
 
