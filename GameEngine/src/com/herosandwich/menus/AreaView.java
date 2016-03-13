@@ -50,9 +50,9 @@ public class AreaView implements Menu {
 //
 //        Map map = new Map(1);
 //           TileGrid grid =  map.initMyDrawable();
-        Canvas canvas = new Canvas(1000,1000);
+        Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.fillRect(450, 450, 50, 50);
+        gc.fillRect(WIDTH/2-50,HEIGHT/2-50, 100, 100);
         root.getChildren().add(canvas);
 
     }

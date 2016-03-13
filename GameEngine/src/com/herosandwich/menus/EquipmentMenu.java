@@ -21,19 +21,21 @@ import javafx.scene.shape.Shape;
  */
 public class EquipmentMenu implements Menu {
     private double WIDTH,HEIGHT;
-    private BorderPane content = new BorderPane();
+    private BorderPane content;
     private Pane equipmentMenu;
     private EquipmentItem selectedItem;
 
     public EquipmentMenu(double width, double height){
         WIDTH = width;
         HEIGHT = height;
+        content = new BorderPane();
+        equipmentMenu = new Pane();
     }
 
     @Override
     public void createMenu(Pane root) {
         content.setId("menu_bg");
-            content.setMinSize(1200,800);
+            content.setMinSize(WIDTH,HEIGHT);
         setTop("Equipment");
         setEquipmentGrid();
         //setLeft();
@@ -50,7 +52,7 @@ public class EquipmentMenu implements Menu {
         Label buttonText = new Label("Back");
         buttonText.setAlignment(Pos.CENTER);
         buttonText.setId("button_text");
-        Rectangle backGround = new Rectangle(150, 30);
+        Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
         backGround.setId("button_rectangle");
         backButton.setAlignment(Pos.CENTER);
         backButton.setPadding(new Insets(5, 5, 5, 45));
@@ -93,13 +95,13 @@ public class EquipmentMenu implements Menu {
 
     private void setLeft() {
         VBox filler = new VBox();
-        filler.setMinWidth(100);
+        filler.setMinWidth(HEIGHT/8);
         content.setLeft(filler);
     }
 
     private void setRight() {
         VBox filler = new VBox();
-        filler.setMinWidth(100);
+        filler.setMinWidth(HEIGHT/8);
         content.setRight(filler);
     }
 
@@ -124,14 +126,6 @@ public class EquipmentMenu implements Menu {
                 grid.add(equipmentItem, 2, i-8, 1, 1);
             }
         }
-
-//        grid.getChildren().get(0).setOpacity(0);
-//        grid.getChildren().get(2).setOpacity(0);
-//        grid.getChildren().get(3).setOpacity(0);
-//        grid.getChildren().get(8).setOpacity(0);
-//        grid.getChildren().get(10).setOpacity(0);
-//        grid.getChildren().get(11).setOpacity(0);
-
         grid.setVgap(5);
         grid.setHgap(5);
 
@@ -172,17 +166,19 @@ public class EquipmentMenu implements Menu {
         BorderPane content;
         String item;
         Boolean selected = false;
+        StackPane filler;
 
         public EquipmentItem(BorderPane content, String item2) {
             super("");
             item = "res/images/" + "smasher" + ".gif";
             ImageView image = new ImageView(new Image(item));
             this.setGraphic(image);
-            image.setFitHeight(100);
-            image.setFitWidth(100);
+            image.setFitHeight(HEIGHT/8);
+            image.setFitWidth(HEIGHT/8);
             this.item = item2;
             this.content = content;
             super.setId("inventory-items");
+            filler = new StackPane();
         }
 
         public void addMouseClickEvent() {
@@ -216,40 +212,42 @@ public class EquipmentMenu implements Menu {
             selected = !select;
             if (selected) {
                 if(!horizontalContainer.getChildren().contains(useButton)){
+                    horizontalContainer.getChildren().remove(filler);
                     initButtons();
                 }
             } else {
                 horizontalContainer.getChildren().remove(useButton);
+                horizontalContainer.getChildren().add(filler);
             }
         }
 
         private void initButtons() {
             horizontalContainer = new VBox(60);
+            horizontalContainer.setMinHeight(HEIGHT / 3);
             horizontalContainer.getChildren().add(new ImageView(new Image("res/images/smasher.gif")));
             initUseButton(horizontalContainer);
-            //initDropButton(horizontalContainer);
             horizontalContainer.setAlignment(Pos.CENTER);
             horizontalContainer.setPadding(new Insets(0, 100, 0, 0));
             content.setRight(horizontalContainer);
 
-            setUseButtonClickEvent();
+            setUnequipButtonClickEvent();
         }
 
-        private void setUseButtonClickEvent() {
+        private void setUnequipButtonClickEvent() {
             useButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
 
-                    System.out.println("Item:" + item + " used!");
-                    itemUsedOrDroppedSelected();
+                    System.out.println("Item:" + item + " unequipped!");
+                    itemUnequippedSelected();
                 }
             });
         }
 
-        private void itemUsedOrDroppedSelected() {
-            ImageView image = new ImageView(new Image("res/images/item_bg.jpg"));
-            image.setFitHeight(100);
-            image.setFitWidth(100);
+        private void itemUnequippedSelected() {
+            ImageView image = new ImageView(new Image("res/images/items/item_bg.jpg"));
+            image.setFitHeight(HEIGHT/8);
+            image.setFitWidth(HEIGHT/8);
             super.setGraphic(image);
             item = null;
             selectedItem = null;
@@ -280,7 +278,7 @@ public class EquipmentMenu implements Menu {
             useButton = new StackPane();
             Label buttonText = new Label("Unequip");
             buttonText.setId("button_text");
-            Rectangle backGround = new Rectangle(150, 30);
+            Rectangle backGround = new Rectangle(WIDTH/6,HEIGHT/15);
             backGround.setId("button_rectangle");
             useButton.setAlignment(Pos.CENTER);
             useButton.setPadding(new Insets(5, 5, 45, 5));

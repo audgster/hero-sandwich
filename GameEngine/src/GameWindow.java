@@ -57,7 +57,7 @@ public class GameWindow extends Application{
 //                temp.getChildren().add(areaMenu);
 //            }
 //        });
-        AreaView mm = new AreaView(WIDTH,HEIGHT);
+        AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH,HEIGHT);
             mm.createMenu(rootView);
 
         Scene display = new Scene(rootView,WIDTH,HEIGHT);

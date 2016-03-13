@@ -22,10 +22,9 @@ import java.util.List;
 public class InventoryMenu implements Menu {
     private double WIDTH, HEIGHT;
     private int capacity;
-    private BorderPane content = new BorderPane();
+    private BorderPane content;
     private Pane inventoryView;
-    GridPane grid = new GridPane();
-    private InventoryItem selectedItem = null;
+    private InventoryItem selectedItem;
 
     private Inventory i;
     private ArrayList<TakeableItem> inventory;
@@ -115,6 +114,7 @@ public class InventoryMenu implements Menu {
     }
 
     private void setInventoryGrid() {
+        GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
         grid.setPadding(new Insets(25,25,25,25));
         grid.setId("grid");
