@@ -1,10 +1,15 @@
 package com.herosandwich.util.persistence;
 
+import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.Game;
+import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Player;
+import com.herosandwich.models.items.Item;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.models.map.aoe.AoE;
+import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -51,9 +56,9 @@ public class XmlLoader implements Loader
         Game game = new Game();
 
         Map map = loadMap();
-        Player avater = loadAvatar(map);
+        Character avatar = loadAvatar(map);
 
-        game.setAvatar(avater);
+        game.setAvatar(avatar);
         game.setMap(map);
 
         return game;
@@ -65,7 +70,7 @@ public class XmlLoader implements Loader
 
         Node tilesNode = mapElement.getElementsByTagName("tiles").item(0);
 
-        List<Node> tileList = makeFilteredList(tilesNode.getChildNodes());
+        List<Node> tileList = XmlUtil.getElementNodesAsList(tilesNode.getChildNodes());
         List<Tile> tiles = processTileNodes(tileList);
 
         Map map =  new Map(25);
@@ -75,18 +80,20 @@ public class XmlLoader implements Loader
         return map;
     }
 
-    public Player loadAvatar(Map map)
+    public Character loadAvatar(Map map)
     {
-        return new Player();
-    }
+        Element avatarPosition = (Element)saveDocument.getElementsByTagName("avatar-position").item(0);
 
-    private List<Node> makeFilteredList(NodeList list) {
-        List<Node> nodeArray = new ArrayList<>();
-        for(int i = 0; i < list.getLength(); i++)
-            if(list.item(i).getNodeType() == Node.ELEMENT_NODE)
-                nodeArray.add(list.item(i));
+        PositionHex pos = XmlUtil.extractPosition(avatarPosition);
+        DirectionHex dir = DirectionHex.convertFromString(avatarPosition.getAttribute("direction"));
 
-        return nodeArray;
+        Tile tile = map.getTile(pos);
+
+        Character character = (Character) tile.getEntity();
+
+        character.updateDirection(dir);
+
+        return character;
     }
 
     private List<Tile> processTileNodes(List<Node> tileNodeList)
@@ -97,22 +104,46 @@ public class XmlLoader implements Loader
         {
             Element tileElement = (Element)n;
 
-            int q = Integer.parseInt(tileElement.getAttribute("q"));
-            int r = Integer.parseInt(tileElement.getAttribute("r"));
-            int s = Integer.parseInt(tileElement.getAttribute("s"));
-
+            PositionHex pos = XmlUtil.extractPosition(tileElement);
             String terrainType = tileElement.getAttribute("terrain-type");
 
-            Tile t = new Tile(new PositionHex(q, r, s), convertToEnum(terrainType));
+            Tile t = new Tile(pos, Tile.Terrain.convertFromString(terrainType));
 
             //Process AoEs
+            Element aoeElements = (Element)tileElement.getElementsByTagName("aoes").item(0);
+            List<Node> aoes = XmlUtil.getElementNodesAsList(aoeElements.getChildNodes());
+
+            for (Node m : aoes)
+            {
+                AoE currentAoE = processAoE((Element)m);
+
+                t.addAoE(currentAoE);
+            }
 
             //Process Items
+            Element itemElements = (Element)tileElement.getElementsByTagName("tile-items").item(0);
+            List<Node> items = XmlUtil.getElementNodesAsList(itemElements.getChildNodes());
+
+            ItemInit init = ItemInit.getInstance();
+
+            for (Node m : items)
+            {
+                int itemId = XmlUtil.extractAttributeAsInt((Element)m, "item-id");
+
+                Item itemObj = init.getItem(itemId);
+
+                t.addItem(itemObj);
+            }
 
             //Process Entities
             Node entityNode = tileElement.getElementsByTagName("entities").item(0);
 
             Entity entity = processEntity((Element)entityNode);
+
+            if (entity != null)
+            {
+                t.addEntity(entity);
+            }
 
             tileList.add(t);
         }
@@ -120,27 +151,14 @@ public class XmlLoader implements Loader
         return tileList;
     }
 
-    private Tile.Terrain convertToEnum(String s)
-    {
-        switch (s)
-        {
-            case "grass":
-                return Tile.Terrain.GRASS;
-            case "mountain":
-                return Tile.Terrain.MOUNTAIN;
-            case "water":
-                return Tile.Terrain.WATER;
-            default:
-                return Tile.Terrain.GRASS;
-        }
-    }
-
     private Entity processEntity(Element entity)
     {
-        List<Node> filteredNodeList = makeFilteredList(entity.getChildNodes());
+        List<Node> filteredNodeList = XmlUtil.getElementNodesAsList(entity.getChildNodes());
 
         if (filteredNodeList.size() == 1)
         {
+            XmlEntityProcesser processer = new XmlEntityProcesser();
+
             Element entityElement = (Element)filteredNodeList.get(0);
 
             String entityTag = entityElement.getTagName();
@@ -148,16 +166,47 @@ public class XmlLoader implements Loader
             switch (entityTag)
             {
                 case "entity":
+                    return processer.processEntityNode(entityElement);
                 case "pet":
+                    return processer.processPetNode(entityElement);
                 case "character":
+                    return processer.processCharacterNode(entityElement);
                 case "npc":
+                    return processer.processNpcNode(entityElement);
                 case "mount":
+                    return processer.processMountNode(entityElement);
                 case "player":
+                    return processer.processPlayerNode(entityElement);
                 default:
                     return null;
             }
         }
 
         return null;
+    }
+
+    private AoE processAoE(Element aoe)
+    {
+        String tagName = aoe.getTagName().toLowerCase();
+
+        XmlAoeProcesser processer = new XmlAoeProcesser();
+
+        switch (tagName)
+        {
+            case "healdamageaoe":
+                return processer.processHealDamageElement(aoe);
+            case "instadeathaoe":
+                return processer.processInstaDeathElement(aoe);
+            case "instantdamageaoetrap":
+                return processer.processInstantDamageTrapElement(aoe);
+            case "takedamageaoe":
+                return processer.processTakeDamageElement(aoe);
+            case "teleportaoe":
+                return processer.processTeleporElement(aoe);
+            case "xpaoe":
+                return processer.processXpElement(aoe);
+            default:
+                return null;
+        }
     }
 }

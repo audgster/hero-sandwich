@@ -20,7 +20,24 @@ public class Tile {
     public enum Terrain{
         GRASS,
         WATER,
-        MOUNTAIN
+        MOUNTAIN;
+
+        public static Terrain convertFromString(String s)
+        {
+            s = s.toLowerCase();
+
+            switch (s)
+            {
+                case "grass":
+                    return Tile.Terrain.GRASS;
+                case "mountain":
+                    return Tile.Terrain.MOUNTAIN;
+                case "water":
+                    return Tile.Terrain.WATER;
+                default:
+                    throw new IllegalArgumentException("Cannot convert string " + s + " to enum of type Terrain");
+            }
+        }
     }
 
     private PositionHex pos;
@@ -77,6 +94,7 @@ public class Tile {
             throw new IllegalStateException("Tile already contains an entity");
         }
         this.entity = entity;
+        this.entity.updatePosition(this.getPosition());
         notifyListener();
     }
 
@@ -84,6 +102,7 @@ public class Tile {
         if(!this.entity.equals(entity)){
             throw new IllegalArgumentException("Given entity does not match previously stored entity");
         }
+        this.entity.updatePosition(null);
         this.entity = null;
         notifyListener();
     }
@@ -128,7 +147,8 @@ public class Tile {
 
     public void acceptItemVisitor(ItemVisitor iVisitor){
         for(Item item: itemList){
-            item.accept(iVisitor);
+            if (item != null)
+                item.accept(iVisitor);
         }
     }
 
@@ -140,7 +160,8 @@ public class Tile {
 
     public void acceptAoEVisitor(AoEVisitor aoeVisitor){
         for(AoE aoe: aoeList){
-            aoe.accept(aoeVisitor);
+            if (aoe != null)
+                aoe.accept(aoeVisitor);
         }
     }
 

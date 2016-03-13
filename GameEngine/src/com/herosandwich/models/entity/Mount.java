@@ -295,6 +295,8 @@ public class Mount extends Character
     {
         this.rider = newRider;
 
+        rider.updatePosition(this.getPosition());
+
         return this;
     }
 
