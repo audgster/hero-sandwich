@@ -25,6 +25,11 @@ public class PetFactory
         return new Pet(entity);
     }
 
+    public Pet transformFromEntity(Entity entity)
+    {
+        return new Pet(entity);
+    }
+
     public Pet vendDefaultInstance()
     {
         return new Pet();

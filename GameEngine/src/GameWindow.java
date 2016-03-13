@@ -14,11 +14,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import com.herosandwich.controller.Controller;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 
-public class GameWindow extends Application implements KeyListener{
+public class GameWindow extends Application {
     double WIDTH,HEIGHT;
     Controller controller = Controller.getController();
 
@@ -46,19 +44,5 @@ public class GameWindow extends Application implements KeyListener{
                 (GameWindow.class.getResource("GameWindow.css").toExternalForm());
         primaryStage.show();
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        controller.executeUserInput( e.getKeyChar() );
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
+    
 }

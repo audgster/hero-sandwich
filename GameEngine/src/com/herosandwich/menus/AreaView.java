@@ -1,6 +1,7 @@
 package com.herosandwich.menus;
 
 
+import com.herosandwich.controller.Controller;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
@@ -23,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
@@ -110,6 +112,15 @@ public class AreaView implements Menu {
         createAreaMenu();
         pm.createMenu(areaView);
         gameLoop();
+
+        // Set key press event listener for Controller
+        Controller controller = Controller.getController();
+        content.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controller.executeUserInput( event.getCode() );
+            }
+        });
     }
 
     private void createAreaMenu(){

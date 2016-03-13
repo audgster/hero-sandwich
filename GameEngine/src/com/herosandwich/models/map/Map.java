@@ -49,7 +49,8 @@ public class Map {
                         "bounds PositionHex: " + pos.getQ() +", " + pos.getR() + ", " + pos.getS());
             }
             tileMap.put(pos, tile);
-            entitySet.add(tile.getEntity());
+            if (tile.getEntity() != null)
+                entitySet.add(tile.getEntity());
         }
     }
 
@@ -121,6 +122,17 @@ public class Map {
         }
         tileMap.get(pos).addEntity(entity);
     }
+
+    /********************************************************************/
+    /* TODO
+
+        ADD THE PickUpItemEvent to moveEntity...
+
+        fires visitor?? or maybe just a notification to connect the entity the the itemList on the tile
+
+     */
+    /********************************************************************/
+
 
     public void moveEntity(PositionHex newPos, Entity entity){
         tileMap.get(entity.getPosition()).removeEntity(entity);

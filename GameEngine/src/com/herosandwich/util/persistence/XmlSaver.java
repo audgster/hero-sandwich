@@ -33,8 +33,6 @@ public class XmlSaver implements Saver
     {
         this.file = saveFile;
 
-        icFactory = DocumentBuilderFactory.newInstance();
-
         try {
             icBuilder = icFactory.newDocumentBuilder();
             this.doc = icBuilder.newDocument();
@@ -96,7 +94,9 @@ public class XmlSaver implements Saver
 
         for( Tile t : map.getTiles())
         {
-            t.acceptTileVisitor(visitor);
+            if (t != null) {
+                t.acceptTileVisitor(visitor);
+            }
         }
 
         mapRoot.appendChild(visitor.retrieveSavedItem());
