@@ -37,7 +37,7 @@
 	-fx-font-weight: bold;
 }
 #Smasher_image{
-	-fx-image: url('res/images/grayscale_smasher.gif');
+	-fx-image: url('res/images/Smasher_greyscale.png');
 	-fx-opacity: 0.75;
 }
 #stats_menu{
@@ -57,7 +57,7 @@
 	-fx-background-size: cover;
 }
 #Smasher_image2{
-	-fx-image: url('res/images/smasher.gif');
+	-fx-image: url('res/images/Smasher.png');
 	-fx-opacity: 0.75;
 }
 #Sneak_image{
