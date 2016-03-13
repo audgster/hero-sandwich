@@ -3,6 +3,7 @@ package com.herosandwich.menus;
 
 import com.herosandwich.controller.Controller;
 import com.herosandwich.creation.entity.PlayerFactory;
+import com.herosandwich.events.*;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
@@ -19,6 +20,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Orientation;
@@ -160,7 +162,7 @@ public class AreaView implements Menu {
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
 
-        // Set key press event listener for Controller
+        /** Set key press event listener for Controller **/
         Controller controller = Controller.getController();
         controller.setCharacter(avatar);
         controller.setMap(map);
@@ -171,6 +173,13 @@ public class AreaView implements Menu {
                 controller.executeUserInput( event.getCode() );
             }
         });
+
+        /** Register melee attack events **/
+        EventDispatcher dispatcher = EventDispatcher.getInstance();
+        CharacterMeleeAttacksEntityListener damageCalculator = new CombatDamageCalculator();
+        dispatcher.subscribe( CharacterMeleeAttacksEntityEvent.class, damageCalculator );
+        EntityDeathHandler deathHandler = new EntityDeathHandler(map);
+        dispatcher.subscribe(EntityDeathEvent.class, deathHandler);
 
 
 
