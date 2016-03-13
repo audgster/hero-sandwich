@@ -2,12 +2,14 @@ package com.herosandwich.util.persistence;
 
 import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.Game;
+import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.items.Item;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.map.aoe.AoE;
+import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -54,9 +56,9 @@ public class XmlLoader implements Loader
         Game game = new Game();
 
         Map map = loadMap();
-        Player avater = loadAvatar(map);
+        Character avatar = loadAvatar(map);
 
-        game.setAvatar(avater);
+        game.setAvatar(avatar);
         game.setMap(map);
 
         return game;
@@ -78,9 +80,20 @@ public class XmlLoader implements Loader
         return map;
     }
 
-    public Player loadAvatar(Map map)
+    public Character loadAvatar(Map map)
     {
-        return new Player();
+        Element avatarPosition = (Element)saveDocument.getElementsByTagName("avatar-position").item(0);
+
+        PositionHex pos = XmlUtil.extractPosition(avatarPosition);
+        DirectionHex dir = DirectionHex.convertFromString(avatarPosition.getAttribute("direction"));
+
+        Tile tile = map.getTile(pos);
+
+        Character character = (Character) tile.getEntity();
+
+        character.updateDirection(dir);
+
+        return character;
     }
 
     private List<Tile> processTileNodes(List<Node> tileNodeList)
@@ -99,8 +112,6 @@ public class XmlLoader implements Loader
             //Process AoEs
             Element aoeElements = (Element)tileElement.getElementsByTagName("aoes").item(0);
             List<Node> aoes = XmlUtil.getElementNodesAsList(aoeElements.getChildNodes());
-
-            System.out.println("The number of aoe's are: " + aoes.size());
 
             for (Node m : aoes)
             {
