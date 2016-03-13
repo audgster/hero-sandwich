@@ -1,7 +1,11 @@
 package com.herosandwich.controller;
 
+import com.herosandwich.events.CharacterMeleeAttacksEntityEvent;
+import com.herosandwich.events.EventDispatcher;
+import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
 import com.herosandwich.controller.KeyBindings;
 import javafx.scene.input.KeyCode;
@@ -41,6 +45,8 @@ public class Controller {
                                         break;
                 case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
                                         break;
+                case SKILL1:            basic_attack();
+                                        break;
                 default:                // key not assigned; do nothing
             }
         }
@@ -52,6 +58,26 @@ public class Controller {
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    /** Checks whether there is an Entity adjacent to the player that can be attacked **/
+    /** If there is, calls players attack method and fires the CharacterMeleeAttacksEntity event **/
+    /** If not, returns false **/
+    /* TODO
+    * Need to add cooldowns
+    * Need to add Attitude mutating (attack and friendly Entity and it turns hostile)
+    */
+    public boolean basic_attack() {
+        boolean success = false;
+        Tile tile = map.getTile( player.getPosition().getPosInDirection( player.getDirection() ) );
+        Entity target = tile.getEntity();
+        if ( !(target == null) ) {
+            success = true;
+            CharacterMeleeAttacksEntityEvent attackEvent = new CharacterMeleeAttacksEntityEvent(player, target);
+            final EventDispatcher eventDispatcher = EventDispatcher.getInstance();
+            eventDispatcher.notify(attackEvent);
+        }
+        return success;
     }
 
 

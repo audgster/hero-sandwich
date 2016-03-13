@@ -54,7 +54,8 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitNpc(Npc npc) {
-//        drawableList.add(npcDrawable.setGraphicKey(npc.getName());)
+        entityDrawable.setType(npc.getName());
+        drawableList.add(entityDrawable);
    }
 
     @Override
