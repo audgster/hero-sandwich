@@ -36,6 +36,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     {
         Element entityElement = retrieveStats(character, doc.createElement("character"));
         entityElement = retrieveLocation(character, entityElement);
+
         entityElement = retrieveOccupation(character, entityElement);
         entityElement = retrieveInventory(character, entityElement);
         entityElement = retrieveEquipment(character, entityElement);
@@ -61,6 +62,10 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         entityElement = retrieveInventory(npc, entityElement);
         entityElement = retrieveEquipment(npc, entityElement);
         entityElement = retrieveSkillPoints(npc, entityElement);
+
+        // TODO save trade
+        // TODO save attitude
+        // TODO save things to say
 
         entityNode.appendChild(entityElement);
     }

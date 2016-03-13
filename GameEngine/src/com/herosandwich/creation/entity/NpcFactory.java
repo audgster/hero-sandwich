@@ -37,6 +37,11 @@ public class NpcFactory
         return new Npc(character, attitudeTowardsPlayer, trade, thgs2say);
     }
 
+    public Npc transformFromCharacter(Character character, Attitude attitude, Trade trade, String[] thgs2say)
+    {
+        return new Npc(character, attitude, trade, thgs2say);
+    }
+
     public Npc vendDefaultInstance()
     {
         return new Npc();

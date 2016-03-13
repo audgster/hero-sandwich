@@ -28,6 +28,7 @@ public class DrawableTile implements Drawable, Listener {
     public void update() {
         if(isVisible) {
             drawableVisitor.clearDrawableList();
+            modelTile.acceptAoEVisitor(drawableVisitor);
             modelTile.acceptItemVisitor(drawableVisitor);
             modelTile.acceptEntityVisitor(drawableVisitor);
             drawableList = drawableVisitor.getDrawableList();
@@ -44,7 +45,7 @@ public class DrawableTile implements Drawable, Listener {
         isVisible = true;
         discovered = true;
         isInFog = false;
-        //update();
+        update();
     }
 
 
@@ -58,6 +59,7 @@ public class DrawableTile implements Drawable, Listener {
 
     public DrawableTile(Tile modelTile) {
         this.modelTile = modelTile;
+        this.modelTile.addListener(this);
     }
 
     public CanvasPoint getCanvasCoordinate() {

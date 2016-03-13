@@ -35,6 +35,7 @@ public class InventoryMenu implements Menu {
         i = new Inventory();
         inventory = i.getInventory();
         capacity = i.getCapacity();
+        content = new BorderPane();
     }
     @Override
     public void createMenu(Pane root) {

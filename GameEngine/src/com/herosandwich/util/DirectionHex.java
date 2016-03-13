@@ -43,4 +43,27 @@ public enum DirectionHex{
         return DirectionHex.values()[(dir.ordinal() - 1) % 6];
     }
 
+    public static DirectionHex convertFromString(String s)
+    {
+        s = s.toLowerCase();
+
+        switch (s)
+        {
+            case "north":
+                return DirectionHex.NORTH;
+            case "north_east":
+                return DirectionHex.NORTH_EAST;
+            case "south_east":
+                return DirectionHex.SOUTH_EAST;
+            case "south":
+                return DirectionHex.SOUTH;
+            case "south_west":
+                return DirectionHex.SOUTH_WEST;
+            case "north_west":
+                return DirectionHex.NORTH_WEST;
+            default:
+                return DirectionHex.SOUTH;
+        }
+    }
+
 }

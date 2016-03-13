@@ -2,6 +2,9 @@ package  com.herosandwich.menus;
 
 import com.herosandwich.models.equipment.Equipment;
 
+import com.herosandwich.models.equipment.EquipmentSlots;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +19,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+import java.util.HashMap;
+
 /**
  * Created by adamfortier on 3/4/16.
  */
@@ -25,11 +30,16 @@ public class EquipmentMenu implements Menu {
     private Pane equipmentMenu;
     private EquipmentItem selectedItem;
 
+    private EquipableItem[] equipment;
+    private Equipment e;
+
     public EquipmentMenu(double width, double height){
         WIDTH = width;
         HEIGHT = height;
         content = new BorderPane();
         equipmentMenu = new Pane();
+        e = new Equipment();
+        equipment = e.getEquipmentArray();
     }
 
     @Override
@@ -112,19 +122,24 @@ public class EquipmentMenu implements Menu {
         grid.setId("grid");
 
         ToggleGroup group = new ToggleGroup();
+        int index = 0;
         for(int i = 0; i < 12; i++) {
-            EquipmentItem equipmentItem = new EquipmentItem(content, Integer.toString(i));
-            equipmentItem.setToggleGroup(group);
-            equipmentItem.addMouseClickEvent();
-            if(i < 8 && i > 3) {
-                grid.add(equipmentItem, 1, i-4, 1, 1);
-            }
-            else if(i == 1) {
-                grid.add(equipmentItem, 0, i, 1, 1);
-            }
-            else if(i == 9) {
-                grid.add(equipmentItem, 2, i-8, 1, 1);
-            }
+                EquipmentItem equipmentItem = new EquipmentItem(content, equipment[index]);
+                equipmentItem.setToggleGroup(group);
+                equipmentItem.addMouseClickEvent();
+                if(i < 8 && i > 3) {
+                    grid.add(equipmentItem, 1, i-4, 1, 1);
+                    index++;
+                }
+                else if(i == 1) {
+                    grid.add(equipmentItem, 0, i, 1, 1);
+                    index++;
+                }
+                else if(i == 9) {
+                    grid.add(equipmentItem, 2, i-8, 1, 1);
+                    index++;
+                    break;
+                }
         }
         grid.setVgap(5);
         grid.setHgap(5);
@@ -155,6 +170,10 @@ public class EquipmentMenu implements Menu {
         display.getChildren().add(content);
     }
 
+    private void removeItem(TakeableItem item){
+       // e.removeItem(item);
+    }
+
 
     /*
         Used to display inventory items and make them clickable
@@ -164,21 +183,26 @@ public class EquipmentMenu implements Menu {
         StackPane useButton;
         StackPane dropButton;
         BorderPane content;
-        String item;
+        String itemName;
+        EquipableItem item;
         Boolean selected = false;
-        StackPane filler;
 
-        public EquipmentItem(BorderPane content, String item2) {
+        public EquipmentItem(BorderPane content, EquipableItem item) {
             super("");
-            item = "res/images/" + "smasher" + ".gif";
-            ImageView image = new ImageView(new Image(item));
+            this.item = item;
+            if(item == null){
+                itemName = "res/images/items/item_bg.jpg";
+            }
+            else{
+                itemName = "res/images/items/" + item.getName() + ".gif";
+            }
+            this.item = item;
+            ImageView image = new ImageView(new Image(itemName));
             this.setGraphic(image);
-            image.setFitHeight(HEIGHT/8);
+            image.setFitHeight(HEIGHT / 8);
             image.setFitWidth(HEIGHT/8);
-            this.item = item2;
             this.content = content;
             super.setId("inventory-items");
-            filler = new StackPane();
         }
 
         public void addMouseClickEvent() {
@@ -212,12 +236,11 @@ public class EquipmentMenu implements Menu {
             selected = !select;
             if (selected) {
                 if(!horizontalContainer.getChildren().contains(useButton)){
-                    horizontalContainer.getChildren().remove(filler);
                     initButtons();
                 }
             } else {
+                if(useButton!=null)
                 horizontalContainer.getChildren().remove(useButton);
-                horizontalContainer.getChildren().add(filler);
             }
         }
 
@@ -246,9 +269,10 @@ public class EquipmentMenu implements Menu {
 
         private void itemUnequippedSelected() {
             ImageView image = new ImageView(new Image("res/images/items/item_bg.jpg"));
-            image.setFitHeight(HEIGHT/8);
-            image.setFitWidth(HEIGHT/8);
+            image.setFitHeight(HEIGHT / 8);
+            image.setFitWidth(HEIGHT / 8);
             super.setGraphic(image);
+            removeItem(item);
             item = null;
             selectedItem = null;
             toggleButtons(selected);

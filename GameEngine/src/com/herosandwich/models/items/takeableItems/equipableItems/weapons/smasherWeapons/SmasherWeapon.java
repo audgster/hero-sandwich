@@ -10,17 +10,15 @@ import com.herosandwich.util.visitor.ItemVisitor;
  * Created by matthewdiaz on 3/4/16.
  */
 
-public abstract class SmasherWeapon extends Weapon {
+public class SmasherWeapon extends Weapon {
     public SmasherWeapon(String name, int itemId, DerivedStats derivedStats){
-        super(name, itemId, derivedStats);
+        super(name, itemId, derivedStats, WeaponType.BRAWL_WEAPON);
         oWR = OccupationWeaponRestriction.SMASHER;
-        weaponType = WeaponType.BRAWL_WEAPON;
     }
 
-    public SmasherWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType wType){
-        super(name, itemId, derivedStats);
+    public SmasherWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType weaponType){
+        super(name, itemId, derivedStats, weaponType);
         oWR = OccupationWeaponRestriction.SMASHER;
-        weaponType = wType;
     }
 
     public void accept(ItemVisitor visitor){

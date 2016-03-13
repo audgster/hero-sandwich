@@ -31,11 +31,11 @@ public class TileGrid  implements Listener{
         this.graphicsContext = graphicsContext;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-        PlayerFactory factory = new PlayerFactory();
-        avatar = factory.vendDefaultInstance();
-        map.addEntity(new PositionHex(0,0), avatar);
-
         initGridWithMap();
+    }
+    public void updateDimensions(){
+        screenHeight = graphicsContext.getCanvas().getHeight();
+        screenWidth = graphicsContext.getCanvas().getWidth();
     }
 
 //    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
@@ -51,6 +51,10 @@ public class TileGrid  implements Listener{
             DrawableTile drawableTile = new DrawableTile(tile);
             drawableMap.put(tile.getPosition(), drawableTile);
         }
+
+        PlayerFactory factory = new PlayerFactory();
+        avatar = factory.vendDefaultInstance();
+        map.addEntity(new PositionHex(0,0), avatar);
     }
 
 
@@ -95,6 +99,7 @@ public class TileGrid  implements Listener{
 
     public void draw() {
         //System.out.println("draw");
+        updateDimensions();
         for(PositionHex position : drawableMap.keySet()) {
             //System.out.println("draw0.2");
             drawableMap.get(position).draw(graphicsContext, hexToCanvasPoint(position));
