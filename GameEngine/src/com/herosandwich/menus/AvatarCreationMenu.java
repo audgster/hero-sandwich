@@ -267,7 +267,7 @@ class OccupationMenu extends Parent{
 		}
 	}
     private void createGame(Property occupation){
-        AreaView av = new AreaView();
-        av.createMenu(avatarCreationView);
+        //AreaView av = new AreaView();
+        //av.createMenu(avatarCreationView);
     }
 }

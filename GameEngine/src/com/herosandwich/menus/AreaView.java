@@ -1,6 +1,10 @@
 package com.herosandwich.menus;
 
 
+import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.map.Map;
+import com.herosandwich.models.map.Tile;
+import com.herosandwich.util.PositionHex;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -23,20 +27,34 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class AreaView implements Menu {
+    private double WIDTH,HEIGHT;
+    private Pane areaView;
+    private Pane content;
     private Timeline gameLoop;
 
-    public AreaView(){
+    public AreaView(double width, double height){
+        WIDTH = width;
+        HEIGHT = height;
+        content = new Pane();
         gameLoop = new Timeline();
     }
 
     @Override
     public void createMenu(Pane root) {
+//        Collection<Tile> tiles = new ArrayList<Tile>();
+//            tiles.add(new Tile(new PositionHex(0,0), Tile.Terrain.GRASS));
+//
+//        Map map = new Map(1);
+//           TileGrid grid =  map.initMyDrawable();
+        Canvas canvas = new Canvas(1000,1000);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.fillRect(450, 450, 50, 50);
+        root.getChildren().add(canvas);
 
-        //First is setup
-        //then in loop
     }
 
     public void gameLoop(){
