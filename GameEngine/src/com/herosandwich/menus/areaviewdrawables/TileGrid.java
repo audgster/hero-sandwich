@@ -22,7 +22,6 @@ public class TileGrid  implements Listener{
     Double screenWidth;
     Double screenHeight;
 
-    //Need Avatar's position
     Character avatar;
     Map map;
 
@@ -37,11 +36,6 @@ public class TileGrid  implements Listener{
         screenHeight = graphicsContext.getCanvas().getHeight();
         screenWidth = graphicsContext.getCanvas().getWidth();
     }
-
-//    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
-//        this.graphicsContext = graphicsContext;
-//        //setGrid(height, width);
-//    }
 
     public void addAvatar(Character avatar) {
         this.avatar = avatar;
@@ -79,6 +73,7 @@ public class TileGrid  implements Listener{
 
         inViewTilePositions = map.drawCircle(avatar.getPosition(), 3, true).keySet();
         for(PositionHex position : inViewTilePositions) {
+            System.out.println("Q: " + position.getQ() + " R: " + position.getR()+  " S: " + position.getS());
             DrawableTile drawableTile = drawableMap.get(position);
             drawableTile.makeVisible();
             drawableTile.update();

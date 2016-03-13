@@ -4,25 +4,31 @@ package com.herosandwich.menus;
 import com.herosandwich.controller.Controller;
 import com.herosandwich.creation.entity.PlayerFactory;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -49,6 +55,10 @@ public class AreaView implements Menu {
     private Timeline gameLoop;
     private TileGrid grid;
     Canvas canvas;
+
+
+
+    private ScrollPane scrollBar = new ScrollPane();
 
     public AreaView(double width, double height){
         WIDTH = width;
@@ -93,6 +103,11 @@ public class AreaView implements Menu {
                                 for(PositionHex nextNextPosition5 : othersNeighbors5) {
                                     tiles.add(new Tile(nextNextPosition5, Tile.Terrain.GRASS));
 
+                                    Collection<PositionHex> othersNeighbors6 = nextNextPosition5.getNeighbors();
+                                    for(PositionHex nextNextPosition6 : othersNeighbors6) {
+                                        tiles.add(new Tile(nextNextPosition6, Tile.Terrain.GRASS));
+
+                                    }
                                 }
                             }
                         }
@@ -109,14 +124,16 @@ public class AreaView implements Menu {
         //grid.setTileAsDiscovered(new PositionHex(0,0));
         map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
         //grid.draw();
-        root.getChildren().add(canvas);
+        root.getChildren().add(canvas); //scrollpane???
         createAreaMenu();
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
         Character avatar = factory.vendDefaultInstance();
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
+        map.addEntity(new PositionHex(1,-1), npc);
 
         // Set key press event listener for Controller
         Controller controller = Controller.getController();
@@ -128,6 +145,24 @@ public class AreaView implements Menu {
                 controller.executeUserInput( event.getCode() );
             }
         });
+
+
+
+//        scrollBar.setPrefSize(canvas.getWidth(), 120);
+//        scrollBar.setContent(canvas);
+//        scrollBar.setLayoutY(root.getWidth() - scrollBar.getWidth());
+//        scrollBar.setMin(0D);
+//        scrollBar.setOrientation(Orientation.HORIZONTAL);
+//        scrollBar.setPrefHeight(180D);
+//        scrollBar.setMaxHeight(360D);
+
+//        scrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+//            public void changed(ObservableValue<? extends Number> ov,
+//                                Number old_val, Number new_val) {
+//                canvas.setLayoutY(-new_val.doubleValue());
+//            }
+//        });
+
     }
 
     private void createAreaMenu(){
