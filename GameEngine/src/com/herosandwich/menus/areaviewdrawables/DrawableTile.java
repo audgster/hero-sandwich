@@ -17,7 +17,7 @@ public class DrawableTile implements Drawable, Listener {
     boolean discovered = false;
     boolean isInFog = true;
     List<Drawable> drawableList = new ArrayList<Drawable>();
-    DrawableVisitor drawableVisitor = new DrawableVisitor();
+    DrawableVisitor drawableVisitor;// = new DrawableVisitor();
     SpriteMap spriteMap = SpriteMap.getInstance();
     Integer landTileImageKey = 1;
     Integer opaqueTileImageKey = 2;

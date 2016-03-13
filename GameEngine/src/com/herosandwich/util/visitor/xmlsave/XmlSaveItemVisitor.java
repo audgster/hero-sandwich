@@ -30,55 +30,55 @@ public class XmlSaveItemVisitor implements ItemVisitor
 
     @Override
     public void visitItem(Item item) {
-        retreiveItemId(item);
+        retrieveItemId(item);
     }
 
     @Override
     public void visitInteractableItem(InteractableItem ineractableItem) {
-        retreiveItemId(ineractableItem);
+        retrieveItemId(ineractableItem);
     }
 
     @Override
     public void visitObstacleItem(ObstacleItem obstacleItem) {
-        retreiveItemId(obstacleItem);
+        retrieveItemId(obstacleItem);
     }
 
     @Override
     public void visitOneShotItem(OneShotItem oneShotItem) {
-        retreiveItemId(oneShotItem);
+        retrieveItemId(oneShotItem);
     }
 
     @Override
     public void visitTakeableItem(TakeableItem takeableItem) {
-        retreiveItemId(takeableItem);
+        retrieveItemId(takeableItem);
     }
 
     @Override
     public void visitConsumableItem(ConsumableItem consumableItem) {
-        retreiveItemId(consumableItem);
+        retrieveItemId(consumableItem);
     }
 
     @Override
     public void visitEquipableItem(EquipableItem equipableItem) {
-        retreiveItemId(equipableItem);
+        retrieveItemId(equipableItem);
     }
 
     @Override
     public void visitSmasherWeapon(SmasherWeapon smasherWeapon) {
-        retreiveItemId(smasherWeapon);
+        retrieveItemId(smasherWeapon);
     }
 
     @Override
     public void visitSneakWeapon(SneakWeapon sneakWeapon) {
-        retreiveItemId(sneakWeapon);
+        retrieveItemId(sneakWeapon);
     }
 
     @Override
     public void visitSummonerWeapon(SummonerWeapon summonerWeapon) {
-        retreiveItemId(summonerWeapon);
+        retrieveItemId(summonerWeapon);
     }
 
-    private void retreiveItemId(Item item)
+    private void retrieveItemId(Item item)
     {
         int itemId = item.getItemId();
 
@@ -89,7 +89,7 @@ public class XmlSaveItemVisitor implements ItemVisitor
         itemElement.appendChild(itemnode);
     }
 
-    public Node retreiveSavedObject()
+    public Node retrieveSavedObject()
     {
         Node node = this.itemElement;
 

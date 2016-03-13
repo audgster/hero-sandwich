@@ -139,7 +139,9 @@ public class Tile {
     }
 
     public void acceptEntityVisitor(EntityVisitor eVisitor){
-        this.entity.accept(eVisitor);
+        if (entity != null) {
+            this.entity.accept(eVisitor);
+        }
     }
 
     public void acceptAoEVisitor(AoEVisitor aoeVisitor){

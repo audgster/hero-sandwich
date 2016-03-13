@@ -26,7 +26,7 @@ public class XmlSaveInventoryVisitor implements InventoryVisitor
 
         inventory.acceptItemVisitor(visitor);
 
-        this.inventory.appendChild(visitor.retreiveSavedObject());
+        this.inventory.appendChild(visitor.retrieveSavedObject());
     }
 
     public Node retrieveSavedObject()
