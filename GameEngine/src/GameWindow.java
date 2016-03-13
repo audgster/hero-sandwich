@@ -33,7 +33,7 @@ public class GameWindow extends Application implements KeyListener{
 
         Pane rootView = new Pane();
 
-        AreaView mm = new AreaView(WIDTH,HEIGHT);
+        AvatarCreationMenu mm = new AvatarCreationMenu(WIDTH,HEIGHT);
             mm.createMenu(rootView);
 
         Scene display = new Scene(rootView,WIDTH,HEIGHT);

@@ -3,6 +3,7 @@ package  com.herosandwich.menus;
 import com.herosandwich.models.equipment.Equipment;
 
 import com.herosandwich.models.equipment.EquipmentSlots;
+import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -30,13 +31,14 @@ public class EquipmentMenu implements Menu {
     private EquipmentItem selectedItem;
 
     private EquipableItem[] equipment;
+    private Equipment e;
 
     public EquipmentMenu(double width, double height){
         WIDTH = width;
         HEIGHT = height;
         content = new BorderPane();
         equipmentMenu = new Pane();
-        Equipment e = new Equipment();
+        e = new Equipment();
         equipment = e.getEquipmentArray();
     }
 
@@ -168,6 +170,10 @@ public class EquipmentMenu implements Menu {
         display.getChildren().add(content);
     }
 
+    private void removeItem(TakeableItem item){
+       // e.removeItem(item);
+    }
+
 
     /*
         Used to display inventory items and make them clickable
@@ -263,9 +269,10 @@ public class EquipmentMenu implements Menu {
 
         private void itemUnequippedSelected() {
             ImageView image = new ImageView(new Image("res/images/items/item_bg.jpg"));
-            image.setFitHeight(HEIGHT/8);
-            image.setFitWidth(HEIGHT/8);
+            image.setFitHeight(HEIGHT / 8);
+            image.setFitWidth(HEIGHT / 8);
             super.setGraphic(image);
+            removeItem(item);
             item = null;
             selectedItem = null;
             toggleButtons(selected);
