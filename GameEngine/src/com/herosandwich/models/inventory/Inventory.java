@@ -61,6 +61,7 @@ public class Inventory {
         if(inventory.remove(item)){
             removedItem = item;
         }
+        System.out.println(getSize());
 
         return removedItem;
     }

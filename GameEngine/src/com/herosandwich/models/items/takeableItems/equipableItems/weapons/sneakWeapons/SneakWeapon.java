@@ -11,17 +11,15 @@ import com.herosandwich.util.visitor.ItemVisitor;
  * Created by matthewdiaz on 3/4/16.
  */
 
-public abstract class SneakWeapon extends Weapon {
+public class SneakWeapon extends Weapon {
     public SneakWeapon(String name, int itemId, DerivedStats derivedStats){
-        super(name, itemId, derivedStats);
+        super(name, itemId, derivedStats, WeaponType.RANGED_WEAPON);
         oWR = OccupationWeaponRestriction.SNEAK;
-        weaponType = WeaponType.RANGED_WEAPON;
     }
 
-    public SneakWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType wType){
-        super(name, itemId, derivedStats);
+    public SneakWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType weaponType){
+        super(name, itemId, derivedStats, weaponType);
         oWR = OccupationWeaponRestriction.SNEAK;
-        weaponType = wType;
     }
 
     public void accept(ItemVisitor visitor){

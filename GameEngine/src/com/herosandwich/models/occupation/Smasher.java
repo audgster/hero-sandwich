@@ -43,7 +43,7 @@ public class Smasher extends Property {
     public void updateOccupationSkills(){
         this.brawlSkill = owner.getNumberOfSkillPoints(Skill.BRAWL);
         this.oneHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
-        this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEPON);
+        this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEAPON);
     }
 
     @Override
