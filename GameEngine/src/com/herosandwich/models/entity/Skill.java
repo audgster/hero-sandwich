@@ -18,5 +18,6 @@ public enum Skill
     PICK_POCKET,
     STAFF,
     RANGED_WEAPON,
-    TWO_HANDED_WEPON
+    REMOVE_TRAP,
+    TWO_HANDED_WEAPON
 }

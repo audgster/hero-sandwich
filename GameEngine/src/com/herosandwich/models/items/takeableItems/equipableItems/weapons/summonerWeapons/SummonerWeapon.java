@@ -8,16 +8,14 @@ import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon
 /**
  * Created by matthewdiaz on 3/4/16.
  */
-public abstract class SummonerWeapon extends Weapon {
+public class SummonerWeapon extends Weapon {
     public SummonerWeapon(String name, int itemId, DerivedStats derivedStats){
-        super(name, itemId, derivedStats);
+        super(name, itemId, derivedStats, WeaponType.ONE_HANDED_WEAPON);
         oWR = OccupationWeaponRestriction.SUMMONER;
-        weaponType = WeaponType.ONE_HANDED_WEAPON;
     }
 
-    public SummonerWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType wType){
-        super(name, itemId, derivedStats);
+    public SummonerWeapon(String name, int itemId, DerivedStats derivedStats, WeaponType weaponType){
+        super(name, itemId, derivedStats, weaponType);
         oWR = OccupationWeaponRestriction.SUMMONER;
-        weaponType = wType;
     }
 }
