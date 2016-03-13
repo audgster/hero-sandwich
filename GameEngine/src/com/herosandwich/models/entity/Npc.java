@@ -19,7 +19,7 @@ public class Npc extends Character
     {
         super();
         attitudeTowardsPlayer = Attitude.NEUTRAL;
-        trade = new Trade();
+        trade = null;
 
         thingsToSay = new String[5];
         conversations = new HashMap<>();
@@ -107,14 +107,9 @@ public class Npc extends Character
     /*
     * Trading
     * */
-    public List<TakeableItem> trade(HashMap<TakeableItem, Integer> itemsFromBuyer)
+    public TakeableItem trade(int currency)
     {
-        if (trade.validateTrade(itemsFromBuyer))
-        {
-            return Trade.convertFromMap(trade.getItemsFromVendor());
-        }
-
-        return Trade.convertFromMap(itemsFromBuyer);
+        return trade.executeTrade(currency);
     }
 
     private Trade getTrade()
