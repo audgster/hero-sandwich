@@ -7,7 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public class EntityDrawable implements Drawable {
     SpriteMap spriteMap = SpriteMap.getInstance();
-    Integer graphicKey = 100; //whatever the key in the sprite is
+    Integer graphicKey = 101; //whatever the key in the sprite is
 
 
     public void setGraphicKey(Integer spriteMapImageID) {

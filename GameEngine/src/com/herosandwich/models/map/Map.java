@@ -106,10 +106,7 @@ public class Map {
         for(int i = 0; i < range; i++){
             for(int j = 0; j < 6; j++){
                 for(int k = 0; k <= i; k++){
-                    if(getTile(current) == null) {
-                        continue;
-                    }
-                    else {
+                    if(getTile(current) != null) {
                         circle.put(current, getTile(current));
                         current = current.getPosInDirection(currentDir);
                     }
