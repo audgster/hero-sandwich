@@ -3,19 +3,24 @@ package com.herosandwich.menus;
 
 import com.herosandwich.controller.Controller;
 import com.herosandwich.creation.entity.PlayerFactory;
+import com.herosandwich.events.*;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -36,6 +41,10 @@ public class AreaView implements Menu {
     Canvas canvas;
     Pane areaMenu;
     PauseMenu pm;
+
+
+
+    private ScrollPane scrollBar;
 
     public AreaView(double width, double height){
         WIDTH = width;
@@ -82,6 +91,11 @@ public class AreaView implements Menu {
                                 for(PositionHex nextNextPosition5 : othersNeighbors5) {
                                     tiles.add(new Tile(nextNextPosition5, Tile.Terrain.GRASS));
 
+                                    Collection<PositionHex> othersNeighbors6 = nextNextPosition5.getNeighbors();
+                                    for(PositionHex nextNextPosition6 : othersNeighbors6) {
+                                        tiles.add(new Tile(nextNextPosition6, Tile.Terrain.GRASS));
+
+                                    }
                                 }
                             }
                         }
@@ -98,31 +112,77 @@ public class AreaView implements Menu {
         //grid.setTileAsDiscovered(new PositionHex(0,0));
         map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
         //grid.draw();
-        root.getChildren().add(canvas);
+//        scrollBar = new ScrollPane(canvas);
+//        scrollBar.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+//        scrollBar.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+//        scrollBar.setPrefSize(canvas.getWidth(), canvas.getHeight());
+//        scrollBar.setMaxSize(canvas.getWidth(), canvas.getHeight());
+//        scrollBar.setFitToWidth(true);
+//        scrollBar.setFitToHeight(true);
+//        scrollBar.setHmax(1200);
+//        scrollBar.setStyle("-fx-focus-color: transparent;");
+//
+//        scrollBar.setFitToHeight(true);
+//        scrollBar.setFitToWidth(true);
+//
+//        Pane canvasWrapper = new Pane(canvas);
+//
+//        canvasWrapper.setPrefSize(canvas.getWidth(), canvas.getHeight());
+//        canvasWrapper.setMaxSize(canvas.getWidth(), canvas.getHeight());
+//        //to resize the Pane as the view port changes.Save the canvas' size as the Pane's size.
+//        canvas.layoutBoundsProperty().addListener(new ChangeListener<Bounds>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds newValue) {
+//                canvasWrapper.setMinSize(newValue.getMaxX(), newValue.getMaxY());
+//            }
+//        });
+
         createAreaMenu();
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
         Character avatar = factory.vendDefaultInstance();
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
+        map.addEntity(new PositionHex(1,-1), npc);
 
-        pm.createMenu(areaView);
-        createController(avatar,map);
-    }
-
-    private void createController(Character avatar, Map map){
-        // Set key press event listener for Controller
+        /** Set key press event listener for Controller **/
         Controller controller = Controller.getController();
         controller.setCharacter(avatar);
         controller.setMap(map);
-        controller.setAreaView(this);
+        controller.setGridView(grid);
         areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 controller.executeUserInput( event.getCode() );
             }
         });
+
+        /** Register melee attack events **/
+        EventDispatcher dispatcher = EventDispatcher.getInstance();
+        CharacterMeleeAttacksEntityListener damageCalculator = new CombatDamageCalculator();
+        dispatcher.subscribe( CharacterMeleeAttacksEntityEvent.class, damageCalculator );
+        EntityDeathHandler deathHandler = new EntityDeathHandler(map);
+        dispatcher.subscribe(EntityDeathEvent.class, deathHandler);
+
+
+
+//        scrollBar.setPrefSize(canvas.getWidth(), 120);
+//        scrollBar.setContent(canvas);
+//        scrollBar.setLayoutY(root.getWidth() - scrollBar.getWidth());
+//        scrollBar.setMin(0D);
+//        scrollBar.setOrientation(Orientation.HORIZONTAL);
+//        scrollBar.setPrefHeight(180D);
+//        scrollBar.setMaxHeight(360D);
+
+//        scrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+//            public void changed(ObservableValue<? extends Number> ov,
+//                                Number old_val, Number new_val) {
+//                canvas.setLayoutY(-new_val.doubleValue());
+//            }
+//        });
+
     }
 
     private void createAreaMenu(){

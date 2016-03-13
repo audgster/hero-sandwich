@@ -1,9 +1,12 @@
 package com.herosandwich.controller;
 
-import com.herosandwich.menus.AreaView;
-import com.herosandwich.menus.PauseMenu;
+import com.herosandwich.events.CharacterMeleeAttacksEntityEvent;
+import com.herosandwich.events.EventDispatcher;
+import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
 import com.herosandwich.controller.KeyBindings;
 import javafx.scene.input.KeyCode;
@@ -13,7 +16,7 @@ public class Controller {
     private  Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
-    private AreaView areaView;
+    private boolean searchMode = false;
 
 	public static Controller getController() {
     	if(controller == null){
@@ -28,33 +31,59 @@ public class Controller {
 
 
 	public void executeUserInput(KeyCode input){
-        if (input == KeyCode.RIGHT || input == KeyCode.LEFT){
-            System.out.println("left and right");
-            areaView.toggleStatsMenu();
-        }
-        else if (input == KeyCode.ESCAPE){
-            System.out.println("Paused");
-            areaView.doPauseTransition();
-        }
-        else{
-            // get correct enum from HashMap<KeyCode, Action>
-            Action inputAction = keyBindings.getAction(input);
-            if(inputAction != null){
-                switch (inputAction) {
-                    case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
-                        break;
-                    case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
-                        break;
-                    case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
-                        break;
-                    case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
-                        break;
-                    case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
-                        break;
-                    case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
-                        break;
-                    default:                // key not assigned; do nothing
-                }
+		// get correct enum from HashMap<KeyCode, Action>
+		Action inputAction = keyBindings.getAction(input);
+        if(inputAction != null){
+            switch (inputAction) {
+                case MOVE_NORTH:        gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH, map);
+                                        break;
+                case MOVE_NORTH_EAST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH_EAST, map);
+                                        break;
+                case MOVE_SOUTH_EAST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH_EAST, map);
+                                        break;
+                case MOVE_SOUTH:        gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH, map);
+                                        break;
+                case MOVE_SOUTH_WEST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH_WEST, map);
+                                        break;
+                case MOVE_NORTH_WEST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH_WEST, map);
+                                        break;
+                case SKILL1:            basic_attack();
+                                        break;
+                case SEARCH_MOVE_NORTH:
+                                        gridView.activateSearchMode();
+                                        gridView.scroll(DirectionHex.NORTH);
+                                        break;
+
+                case SEARCH_MOVE_NORTH_EAST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.NORTH_EAST);
+                                            break;
+
+                case SEARCH_MOVE_SOUTH_EAST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH_EAST);
+                                            break;
+                case SEARCH_MOVE_SOUTH:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH);
+                                            break;
+                case SEARCH_MOVE_SOUTH_WEST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH_WEST);
+                                            break;
+
+                case SEARCH_MOVE_NORTH_WEST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.NORTH_WEST);
+                                            break;
+
+                default:                // key not assigned; do nothing
             }
         }
 	}
@@ -67,8 +96,44 @@ public class Controller {
         this.map = map;
     }
 
-    public void setAreaView(AreaView av) { areaView = av;}
 
+    /** Checks whether there is an Entity adjacent to the player that can be attacked **/
+    /** If there is, calls players attack method and fires the CharacterMeleeAttacksEntity event **/
+    /** If not, returns false **/
+    /* TODO
+    * Need to add cooldowns
+    * Need to add Attitude mutating (attack and friendly Entity and it turns hostile)
+    */
+    public boolean basic_attack() {
+        boolean success = false;
+        /** Test print **/
+        System.out.println(player.getName() + " is trying to attack!");
+        Tile tile = map.getTile( player.getPosition().getPosInDirection( player.getDirection() ) );
+        Entity target = tile.getEntity();
+        if ( !(target == null) ) {
+            success = true;
+            /** Test print **/
+            System.out.println(player.getName() + " is facing and adjacent to " + target.getName() + "! Damage attempting to be calculated...");
+            CharacterMeleeAttacksEntityEvent attackEvent = new CharacterMeleeAttacksEntityEvent(player, target);
+            final EventDispatcher eventDispatcher = EventDispatcher.getInstance();
+            eventDispatcher.notify(attackEvent);
+        }
+        /** Test print **/
+        if (!success) { System.out.println("No adjacent enemy! Attack failed."); }
+        return success;
+    }
+
+    /****************************************************************/
+    //only for testing!!!
+
+    private TileGrid gridView;
+
+    public void setGridView(TileGrid gridView) {
+        this.gridView = gridView;
+    }
+
+
+    /****************************************************************/
 
 //	public void triggerMotion(Direction direction)
 //    {

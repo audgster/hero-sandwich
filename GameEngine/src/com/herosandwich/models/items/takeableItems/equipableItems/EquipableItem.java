@@ -5,19 +5,20 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.util.visitor.ItemVisitor;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class EquipableItem extends TakeableItem {
     protected DerivedStats derivedStats;
     protected OccupationWeaponRestriction oWR;
-    protected HashSet<EquipmentSlots> allowableSlots;
+    protected List<EquipmentSlots> allowableSlots;
     protected EquipmentType equipmentType;
 
     //use this one if don't want to insert a new DerivedStat
     public EquipableItem(String name, int itemId, EquipmentType equipmentType){
         super(name, itemId);
-        allowableSlots = new HashSet<>();
+        allowableSlots = new ArrayList<>(2);
 
         derivedStats = new DerivedStats(1, 10, 10, 10, 10, 10);
         oWR = OccupationWeaponRestriction.EVERYONE;
@@ -28,7 +29,7 @@ public class EquipableItem extends TakeableItem {
     //use this one for max customization!!!! Best option!
     public EquipableItem(String name, int itemId, DerivedStats derivedStat, EquipmentType equipmentType){
         super(name, itemId);
-        allowableSlots = new HashSet<>();
+        allowableSlots = new ArrayList<>(2);
 
         derivedStats = derivedStat;
         oWR = OccupationWeaponRestriction.EVERYONE;
@@ -63,8 +64,8 @@ public class EquipableItem extends TakeableItem {
     }
 
     public String getAction(){ return "Equip";}
-    public Iterator getSlotPosition(){
-        return allowableSlots.iterator();
+    public List<EquipmentSlots> getAllowableSlotPositions(){
+        return allowableSlots;
     }
 
     //not sure if we need this any more?

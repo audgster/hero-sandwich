@@ -28,6 +28,12 @@ public class EntityDrawable implements Drawable {
         graphicKey = spriteMapImageID;
     }
 
+    public void setType(String entityType) {
+        if(entityType.equalsIgnoreCase("moldySandwich")) {
+            graphicKey = 102;
+        }
+    }
+
     @Override
     public void draw(GraphicsContext graphicsContext, CanvasPoint point) {
         graphicsContext.drawImage(avatar, point.getX(), point.getY());

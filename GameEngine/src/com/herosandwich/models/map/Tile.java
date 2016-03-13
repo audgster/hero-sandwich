@@ -20,30 +20,47 @@ public class Tile {
     public enum Terrain{
         GRASS,
         WATER,
-        MOUNTAIN
+        MOUNTAIN;
+
+        public static Terrain convertFromString(String s)
+        {
+            s = s.toLowerCase();
+
+            switch (s)
+            {
+                case "grass":
+                    return Tile.Terrain.GRASS;
+                case "mountain":
+                    return Tile.Terrain.MOUNTAIN;
+                case "water":
+                    return Tile.Terrain.WATER;
+                default:
+                    throw new IllegalArgumentException("Cannot convert string " + s + " to enum of type Terrain");
+            }
+        }
     }
 
     private PositionHex pos;
     private Terrain terrain;
     private Entity entity;
-    private LinkedHashSet<Item> itemList;
-    private LinkedHashSet<AoE> aoeList;
+    private List<Item> itemList;
+    private List<AoE> aoeList;
     private Listener myRender;
 
     public Tile(PositionHex pos, Terrain terrain){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = null;
-        this.itemList = new LinkedHashSet<Item>();
-        this.aoeList = new LinkedHashSet<AoE>();
+        this.itemList = new ArrayList<Item>();
+        this.aoeList = new ArrayList<AoE>();
     }
 
     public Tile(PositionHex pos, Terrain terrain, Entity entity, Collection<Item> items, Collection<AoE> aoes){
         this.pos = pos;
         this.terrain = terrain;
         this.entity = entity;
-        this.itemList = new LinkedHashSet<Item>();
-        this.aoeList = new LinkedHashSet<AoE>();
+        this.itemList = new ArrayList<Item>();
+        this.aoeList = new ArrayList<AoE>();
 
         if(items != null) {
             for (Item item: items) {
@@ -77,6 +94,7 @@ public class Tile {
             throw new IllegalStateException("Tile already contains an entity");
         }
         this.entity = entity;
+        this.entity.updatePosition(this.getPosition());
         notifyListener();
     }
 
@@ -84,20 +102,15 @@ public class Tile {
         if(!this.entity.equals(entity)){
             throw new IllegalArgumentException("Given entity does not match previously stored entity");
         }
+        this.entity.updatePosition(null);
         this.entity = null;
         notifyListener();
     }
 
     public Item addItem(Item item){
-        if(this.itemList.contains(item)){
-            //error
-            return item;
-        }
-        else{
-            this.itemList.add(item);
-            notifyListener();
-            return item;
-        }
+        this.itemList.add(item);
+        notifyListener();
+        return item;
     }
 
     public Item removeItem(Item item){
@@ -107,21 +120,14 @@ public class Tile {
             return item;
         }
         else{
-            //error
-            return null;
+            throw new IllegalArgumentException("Tile does not contain the Item");
         }
     }
 
     public AoE addAoE(AoE aoe){
-        if(this.aoeList.contains(aoe)){
-            //error
-            return aoe;
-        }
-        else{
-            this.aoeList.add(aoe);
-            notifyListener();
-            return aoe;
-        }
+        this.aoeList.add(aoe);
+        notifyListener();
+        return aoe;
     }
 
     public AoE removeAoE(AoE aoe){
@@ -131,8 +137,7 @@ public class Tile {
             return aoe;
         }
         else{
-            //error
-            return null;
+            throw new IllegalArgumentException("Tile does not contain the AoE");
         }
     }
 
@@ -142,7 +147,8 @@ public class Tile {
 
     public void acceptItemVisitor(ItemVisitor iVisitor){
         for(Item item: itemList){
-            item.accept(iVisitor);
+            if (item != null)
+                item.accept(iVisitor);
         }
     }
 
@@ -154,7 +160,8 @@ public class Tile {
 
     public void acceptAoEVisitor(AoEVisitor aoeVisitor){
         for(AoE aoe: aoeList){
-            aoe.accept(aoeVisitor);
+            if (aoe != null)
+                aoe.accept(aoeVisitor);
         }
     }
 

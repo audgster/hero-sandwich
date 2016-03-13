@@ -5,6 +5,7 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -22,8 +23,10 @@ public class TileGrid  implements Listener{
     Double screenWidth;
     Double screenHeight;
 
-    //Need Avatar's position
-    Character avatar;
+    boolean searchMode = false;
+    Character viewState = null;
+    Character lookModeAvatar = new Player();
+    Character gamePlayAvatar;
     Map map;
 
     public TileGrid(Map map, GraphicsContext graphicsContext, Double screenWidth, Double screenHeight) {
@@ -38,14 +41,34 @@ public class TileGrid  implements Listener{
         screenWidth = graphicsContext.getCanvas().getWidth();
     }
 
-//    public TileGrid(int height, int width, GraphicsContext graphicsContext) {
-//        this.graphicsContext = graphicsContext;
-//        //setGrid(height, width);
-//    }
-
     public void addAvatar(Character avatar) {
-        this.avatar = avatar;
-        this.avatar.addListener(this);
+        gamePlayAvatar = avatar;
+        gamePlayAvatar.addListener(this);
+        viewState = gamePlayAvatar;
+    }
+
+    public void activateSearchMode() {
+        System.out.println("Search Mode Activated!");
+        if(searchMode)
+            return;
+        lookModeAvatar.updatePosition(gamePlayAvatar.getPosition());
+        viewState = lookModeAvatar;
+        searchMode = true;
+    }
+
+
+    public void scroll(DirectionHex scrollDirection) {
+        System.out.println("I am trying to scroll!!!!");
+        PositionHex positionHex = new PositionHex(viewState.getPosition().getQ(), viewState.getPosition().getR(), viewState.getPosition().getS());
+        viewState.updatePosition(positionHex.getPosInDirection(scrollDirection));
+    }
+    public void activateGamePlayMode() {
+        viewState = gamePlayAvatar;
+        searchMode = false;
+    }
+
+    public Character getAvatarViewMode() {
+        return viewState;
     }
 
     private void initGridWithMap() {
@@ -64,21 +87,23 @@ public class TileGrid  implements Listener{
 
     public void makeAllTileVisible() {
        // System.out.println("makeAllTileVisible");
-        for(DrawableTile tile : drawableMap.values()) {
+        for(DrawableTile tile : drawableMap.values())
             tile.makeVisible();
-        }
     }
     /***********************************************************************************************************/
     //TODO need avatar position
     public void update() {
 
+        if(searchMode) {
+               System.out.println("Search Mode!!!!!!");
+            return;
+        }
+
         makePreviousInViewTilesNotVisible();
 
-        if(inViewTilePositions != null)
-            System.out.println("InViewTiles not NULL");
-
-        inViewTilePositions = map.drawCircle(avatar.getPosition(), 3, true).keySet();
+        inViewTilePositions = map.drawCircle(gamePlayAvatar.getPosition(), 3, true).keySet();
         for(PositionHex position : inViewTilePositions) {
+            //System.out.println("Q: " + position.getQ() + " R: " + position.getR()+  " S: " + position.getS());
             DrawableTile drawableTile = drawableMap.get(position);
             drawableTile.makeVisible();
             drawableTile.update();
@@ -113,8 +138,8 @@ public class TileGrid  implements Listener{
 
 
     public CanvasPoint hexToCanvasPoint(PositionHex point) {
-        Double x = ( (3/2) * 2.92*(point.getQ() - avatar.getPosition().getQ()) + 0*point.getR())*tileScale;
-        Double y = ( (Math.sqrt(3)/2) * 1.92 *(point.getQ() - avatar.getPosition().getQ()) + Math.sqrt(3)*(1.92 * point.getR() - avatar.getPosition().getR()))*tileScale;
+        Double x = ( (3/2) * 2.92*(point.getQ() - viewState.getPosition().getQ()) + 0*point.getR())*tileScale;
+        Double y = ( (Math.sqrt(3)/2) * 1.92 *(point.getQ() - viewState.getPosition().getQ()) + Math.sqrt(3)*(1.92 * point.getR() - viewState.getPosition().getR()))*tileScale;
 
         return new CanvasPoint(x + screenWidth/2 - tileWidth, y + screenHeight/2 - tileHeight);
     }
