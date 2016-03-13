@@ -122,8 +122,8 @@ public class Map {
         if(!entitySet.contains(entity)){
             entitySet.add(entity);
         }
-        tileMap.get(pos).addEntity(entity);
         entity.updatePosition(pos);
+        tileMap.get(pos).addEntity(entity);
     }
 
     /********************************************************************/
