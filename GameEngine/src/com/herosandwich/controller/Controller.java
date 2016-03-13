@@ -1,5 +1,7 @@
 package com.herosandwich.controller;
 
+import com.herosandwich.menus.AreaView;
+import com.herosandwich.menus.PauseMenu;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.util.*;
@@ -11,6 +13,7 @@ public class Controller {
     private  Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
+    private AreaView areaView;
 
 	public static Controller getController() {
     	if(controller == null){
@@ -25,23 +28,33 @@ public class Controller {
 
 
 	public void executeUserInput(KeyCode input){
-		// get correct enum from HashMap<KeyCode, Action>
-		Action inputAction = keyBindings.getAction(input);
-        if(inputAction != null){
-            switch (inputAction) {
-                case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
-                                        break;
-                case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
-                                        break;
-                case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
-                                        break;
-                case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
-                                        break;
-                case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
-                                        break;
-                case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
-                                        break;
-                default:                // key not assigned; do nothing
+        if (input == KeyCode.RIGHT || input == KeyCode.LEFT){
+            System.out.println("left and right");
+            areaView.toggleStatsMenu();
+        }
+        else if (input == KeyCode.ESCAPE){
+            System.out.println("Paused");
+            areaView.doPauseTransition();
+        }
+        else{
+            // get correct enum from HashMap<KeyCode, Action>
+            Action inputAction = keyBindings.getAction(input);
+            if(inputAction != null){
+                switch (inputAction) {
+                    case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
+                        break;
+                    case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
+                        break;
+                    case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
+                        break;
+                    case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
+                        break;
+                    case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
+                        break;
+                    case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
+                        break;
+                    default:                // key not assigned; do nothing
+                }
             }
         }
 	}
@@ -53,6 +66,8 @@ public class Controller {
     public void setMap(Map map) {
         this.map = map;
     }
+
+    public void setAreaView(AreaView av) { areaView = av;}
 
 
 //	public void triggerMotion(Direction direction)
