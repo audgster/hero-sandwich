@@ -2,7 +2,7 @@ package com.herosandwich.menus;
 
 import com.herosandwich.models.entity.Entity;
 
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -23,7 +23,7 @@ public class AreaMenu{
     private double WIDTH,HEIGHT;
     private Pane content;
     private Entity entity;
-    private Property occupation;
+    private Occupation occupation;
     private VBox textOptions;
     private boolean visible;
     public AreaMenu(double width, double height){

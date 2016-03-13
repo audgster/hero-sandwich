@@ -16,9 +16,6 @@ import com.herosandwich.models.items.takeableItems.equipableItems.weapons.summon
 
 import java.util.HashMap;
 
-/**
- * Created by Mitchell on 3/12/2016.
- */
 public class ItemInit {
 
     public enum ItemNames{

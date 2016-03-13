@@ -41,7 +41,7 @@ public class DrawableTile implements Drawable, Listener {
     }
 
     public void makeVisible() {
-       // System.out.println("makeVisible");
+       System.out.println("makeVisible");
         isVisible = true;
         discovered = true;
         isInFog = false;

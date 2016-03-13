@@ -3,7 +3,7 @@ package com.herosandwich.util.persistence;
 import com.herosandwich.creation.entity.*;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
@@ -88,7 +88,7 @@ public class XmlEntityProcesser
         Element occupation = (Element)character.getElementsByTagName("occupation");
         String occupString = occupation.getTextContent().toLowerCase();
 
-        Property occup;
+        Occupation occup;
 
         switch (occupString)
         {

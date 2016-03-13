@@ -6,10 +6,9 @@ import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
-import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
-import com.herosandwich.models.occupation.Property;
+import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.visitor.EntityVisitor;
 
@@ -20,7 +19,7 @@ public class Character extends Entity {
     /*
     * Occupation
     * */
-    private Property occupation;
+    private Occupation occupation;
 
     /*
     * Equipment and Inventory
@@ -32,6 +31,11 @@ public class Character extends Entity {
     * Skill points
     * */
     private HashMap<Skill, Integer> skillPoints;
+
+    /*
+    * Currency
+    * */
+    private int currency;
 
 
     protected Listener myRender;
@@ -48,7 +52,7 @@ public class Character extends Entity {
         occupation = new Smasher(this);
     }
 
-    public Character(Entity entity, Property occupation)
+    public Character(Entity entity, Occupation occupation)
     {
         super(entity);
         occupation.setOwner(this);
@@ -66,13 +70,38 @@ public class Character extends Entity {
         this.skillPoints = character.getSkillPoints();
         this.inventory = character.getInventory();
         this.equipment = character.getEquipment();
+        this.currency = character.getCurrency();
+    }
+
+    /*
+    * Currency
+    * */
+    public boolean setCurrency(int currency)
+    {
+        if (currency >= 0) {
+            this.currency = currency;
+            return true;
+        }
+        return false;
+    }
+
+    public int getCurrency()
+    {
+        return this.currency;
+    }
+
+    public boolean modifyCurrency(int delta)
+    {
+        int newCurrency = getCurrency() + delta;
+
+        return setCurrency(newCurrency);
     }
 
     /*
     * Occupation
     * */
 
-    public Property getOccupation()
+    public Occupation getOccupation()
     {
         return occupation;
     }
@@ -129,17 +158,17 @@ public class Character extends Entity {
 
     public Weapon getRightHand(){
         EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
-        //if(item.getEquipmentType() == EquipmentType.WEAPON){
-        //    return (Weapon)item;
-        //}
+        if((item != null) && (item.getEquipmentType() == EquipmentType.WEAPON)){
+            return (Weapon)item;
+        }
         return null;
     }
 
     public Weapon getLeftHand(){
         EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
-        //if(item.getEquipmentType() == EquipmentType.WEAPON){
-        //    return (Weapon)item;
-        //}
+        if((item != null) && (item.getEquipmentType() == EquipmentType.WEAPON)){
+            return (Weapon)item;
+        }
         return null;
     }
 
@@ -189,6 +218,7 @@ public class Character extends Entity {
     {
         return this.skillPoints;
     }
+
 
     // Hook for visitor
     public void accept(EntityVisitor eVisitor)

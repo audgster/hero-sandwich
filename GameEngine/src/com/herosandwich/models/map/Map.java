@@ -106,8 +106,10 @@ public class Map {
         for(int i = 0; i < range; i++){
             for(int j = 0; j < 6; j++){
                 for(int k = 0; k <= i; k++){
-                    circle.put(current, getTile(current));
-                    current = current.getPosInDirection(currentDir);
+                    if(getTile(current) != null) {
+                        circle.put(current, getTile(current));
+                        current = current.getPosInDirection(currentDir);
+                    }
                 }
                 currentDir = DirectionHex.clockwise(currentDir);
             }
@@ -120,6 +122,7 @@ public class Map {
         if(!entitySet.contains(entity)){
             entitySet.add(entity);
         }
+        entity.updatePosition(pos);
         tileMap.get(pos).addEntity(entity);
     }
 
@@ -145,6 +148,8 @@ public class Map {
             throw new IllegalArgumentException("This entity is not in the map, and therefore cannot be removed");
         }
         tileMap.get(pos).removeEntity(entity);
+
+        entity.updatePosition(null);
         entitySet.remove(entity);
     }
 

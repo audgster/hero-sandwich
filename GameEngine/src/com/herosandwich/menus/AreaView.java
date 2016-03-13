@@ -105,7 +105,7 @@ public class AreaView implements Menu {
         Map map = new Map(20);
         map.initialize(tiles);
         grid =  map.initMyDrawable(canvas);
-        grid.makeAllTileVisible();
+        //grid.makeAllTileVisible();
         //grid.setTileAsDiscovered(new PositionHex(0,0));
         map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
         //grid.draw();
@@ -125,7 +125,6 @@ public class AreaView implements Menu {
         areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                System.out.println("CONTOLLER");
                 controller.executeUserInput( event.getCode() );
             }
         });
