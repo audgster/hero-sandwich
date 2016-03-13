@@ -8,12 +8,16 @@ import com.herosandwich.models.occupation.Occupation;
  * Created by clayhausen on 3/11/16.
  */
 public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListener {
-    boolean mutex = false;
 
     @Override
     public boolean characterMeleeAttacksEntity(Character attackingCharacter, Entity targetEntity) {
 
         boolean success = false;
+
+        // Determine whether or not the attack was successful
+        Occupation occupation = attackingCharacter.getOccupation();
+        attackingCharacter.getRightHand();
+        occupation.successfulAction(5);
 
         // Determine the amount of damage dealt
         int grossDamageDealt = attackingCharacter.getOffensiveRating() /*+ attackCharacter.getWeaponSkill()*/;
