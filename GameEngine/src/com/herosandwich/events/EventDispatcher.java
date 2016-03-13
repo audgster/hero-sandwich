@@ -33,7 +33,7 @@ public final class EventDispatcher {
     }
 
     /** Unsubscribe a listener from an event class **/
-    public <T> void mute( Class<? extends GameEvent<T>> eventClass, T listener) {
+    public <T> void unsubscribe( Class<? extends GameEvent<T>> eventClass, T listener) {
         final ArrayList<T> listeners = getListeners( eventClass );
         synchronized( listeners ) {
             listeners.remove( listener );

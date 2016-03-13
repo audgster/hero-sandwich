@@ -69,14 +69,20 @@ public class Controller {
     */
     public boolean basic_attack() {
         boolean success = false;
+        /** Test print **/
+        System.out.println(player.getName() + " is trying to attack!");
         Tile tile = map.getTile( player.getPosition().getPosInDirection( player.getDirection() ) );
         Entity target = tile.getEntity();
         if ( !(target == null) ) {
             success = true;
+            /** Test print **/
+            System.out.println(player.getName() + " is facing and adjacent to " + target.getName() + "! Damage attempting to be calculated...");
             CharacterMeleeAttacksEntityEvent attackEvent = new CharacterMeleeAttacksEntityEvent(player, target);
             final EventDispatcher eventDispatcher = EventDispatcher.getInstance();
             eventDispatcher.notify(attackEvent);
         }
+        /** Test print **/
+        if (!success) { System.out.println("No adjacent enemy! Attack failed."); }
         return success;
     }
 
