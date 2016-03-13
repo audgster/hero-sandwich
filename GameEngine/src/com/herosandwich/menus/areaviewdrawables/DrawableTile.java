@@ -35,14 +35,16 @@ public class DrawableTile implements Drawable, Listener {
     }
 
     public void makeNotVisible() {
+        System.out.println("makeNotVisible");
         isVisible = false;
     }
 
     public void makeVisible() {
+        System.out.println("makeVisible");
         isVisible = true;
         discovered = true;
         isInFog = false;
-        update();
+        //update();
     }
 
 
@@ -64,6 +66,7 @@ public class DrawableTile implements Drawable, Listener {
 
 
     public void draw(GraphicsContext graphicsContext, CanvasPoint point) {
+        //System.out.println("tileDraw");
         if(isInFog)
             graphicsContext.drawImage(spriteMap.getImageForKey(fogTileImageKey), point.getX(), point.getY());
         else if(isVisible) {
@@ -71,6 +74,7 @@ public class DrawableTile implements Drawable, Listener {
             drawGraphicsInBag(graphicsContext, point);
         }
         else if(discovered) {
+           System.out.println("discoveredTile");
             graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
             drawGraphicsInBag(graphicsContext, point);
             graphicsContext.drawImage(spriteMap.getImageForKey(opaqueTileImageKey), point.getX(), point.getY());
@@ -78,8 +82,9 @@ public class DrawableTile implements Drawable, Listener {
     }
 
     private void drawGraphicsInBag(GraphicsContext graphicsContext, CanvasPoint point) {
+        //System.out.println("drawGraphicsInBag");
         for(Drawable graphic : drawableList)
-            graphic.draw(graphicsContext, centerPoint);
+            graphic.draw(graphicsContext, point);
     }
 
 }

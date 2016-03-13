@@ -3,6 +3,7 @@ import com.herosandwich.models.entity.DerivedStats;
 import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeaponRestriction;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
+import com.herosandwich.util.visitor.ItemVisitor;
 
 
 /**
@@ -20,5 +21,9 @@ public abstract class SmasherWeapon extends Weapon {
         super(name, itemId, derivedStats);
         oWR = OccupationWeaponRestriction.SMASHER;
         weaponType = wType;
+    }
+
+    public void accept(ItemVisitor visitor){
+        visitor.visitSmasherWeapon(this);
     }
 }

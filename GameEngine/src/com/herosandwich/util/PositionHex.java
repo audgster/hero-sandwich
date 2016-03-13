@@ -1,5 +1,8 @@
 package com.herosandwich.util;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class PositionHex{
 
     private int q;
@@ -25,10 +28,10 @@ public class PositionHex{
         return dir.getPosInDirection(this);
     }
 
-    public PositionHex[] getNeighbors(){
-        PositionHex[] neighbors = new PositionHex[6];
+    public Collection<PositionHex> getNeighbors(){
+        ArrayList<PositionHex> neighbors = new ArrayList<PositionHex>();
         for(int i = 0; i < DirectionHex.values().length; i++){
-            neighbors[i] = DirectionHex.values()[i].getPosInDirection(this);
+            neighbors.add(DirectionHex.values()[i].getPosInDirection(this));
         }
         return neighbors;
     }

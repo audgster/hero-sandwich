@@ -2,9 +2,12 @@ package com.herosandwich.models.map;
 
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.items.Item;
+import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.Collection;
@@ -133,6 +136,22 @@ public class Map {
         entitySet.remove(entity);
     }
 
+    public void addItem(PositionHex pos, Item item){
+        tileMap.get(pos).addItem(item);
+    }
+
+    public void removeItem(PositionHex pos, Item item){
+        tileMap.get(pos).removeItem(item);
+    }
+
+    public void addAoE(PositionHex pos, AoE aoe){
+        tileMap.get(pos).addAoE(aoe);
+    }
+
+    public void removeAoE(PositionHex pos, AoE aoe){
+        tileMap.get(pos).removeAoE(aoe);
+    }
+
     public void acceptTileVisitor(TileVisitor tileVisitor){
         for(Tile tile: tileMap.values()){
             tile.acceptTileVisitor(tileVisitor);
@@ -152,8 +171,8 @@ public class Map {
     /***********************************************************************************************************/
     // For testing!!!!
 
-    public TileGrid initMyDrawable(GraphicsContext graphicsContext) {
-        return new TileGrid(this, graphicsContext);
+    public TileGrid initMyDrawable(Canvas canvas) {
+        return new TileGrid(this, canvas.getGraphicsContext2D(), canvas.getWidth(), canvas.getHeight());
     }
 
     /***********************************************************************************************************/
