@@ -38,7 +38,7 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitEntity(Entity entity) {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        //1111111System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
         drawableList.add(entityDrawable);
     }
 
@@ -60,7 +60,7 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitPlayer(Player player) {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        //System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
         drawableList.add(entityDrawable);
     }
 

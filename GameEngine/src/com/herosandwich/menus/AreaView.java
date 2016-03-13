@@ -20,6 +20,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -58,7 +59,7 @@ public class AreaView implements Menu {
 
 
 
-    private ScrollPane scrollBar = new ScrollPane();
+    private ScrollPane scrollBar;
 
     public AreaView(double width, double height){
         WIDTH = width;
@@ -124,7 +125,31 @@ public class AreaView implements Menu {
         //grid.setTileAsDiscovered(new PositionHex(0,0));
         map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
         //grid.draw();
-        root.getChildren().add(canvas); //scrollpane???
+//        scrollBar = new ScrollPane(canvas);
+//        scrollBar.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+//        scrollBar.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+//        scrollBar.setPrefSize(canvas.getWidth(), canvas.getHeight());
+//        scrollBar.setMaxSize(canvas.getWidth(), canvas.getHeight());
+//        scrollBar.setFitToWidth(true);
+//        scrollBar.setFitToHeight(true);
+//        scrollBar.setHmax(1200);
+//        scrollBar.setStyle("-fx-focus-color: transparent;");
+//
+//        scrollBar.setFitToHeight(true);
+//        scrollBar.setFitToWidth(true);
+//
+//        Pane canvasWrapper = new Pane(canvas);
+//
+//        canvasWrapper.setPrefSize(canvas.getWidth(), canvas.getHeight());
+//        canvasWrapper.setMaxSize(canvas.getWidth(), canvas.getHeight());
+//        //to resize the Pane as the view port changes.Save the canvas' size as the Pane's size.
+//        canvas.layoutBoundsProperty().addListener(new ChangeListener<Bounds>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds newValue) {
+//                canvasWrapper.setMinSize(newValue.getMaxX(), newValue.getMaxY());
+//            }
+//        });
+
         createAreaMenu();
         gameLoop();
 
@@ -139,6 +164,7 @@ public class AreaView implements Menu {
         Controller controller = Controller.getController();
         controller.setCharacter(avatar);
         controller.setMap(map);
+        controller.setGridView(grid);
         areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
