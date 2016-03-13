@@ -74,6 +74,9 @@ public class TileGrid  implements Listener{
 
         makePreviousInViewTilesNotVisible();
 
+        if(inViewTilePositions != null)
+            System.out.println("InViewTiles not NULL");
+
         inViewTilePositions = map.drawCircle(avatar.getPosition(), 3, true).keySet();
         for(PositionHex position : inViewTilePositions) {
             DrawableTile drawableTile = drawableMap.get(position);

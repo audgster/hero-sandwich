@@ -4,6 +4,8 @@ import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.Property;
 
+import java.util.HashMap;
+
 public class NpcFactory
 {
     private CharacterFactory characterFactory = new CharacterFactory();
@@ -20,7 +22,8 @@ public class NpcFactory
             DeriveStatStrategy statStrategy,
             Property occupation,
             Attitude attitudeTowardsPlayer,
-            Trade trade,
+            HashMap<Integer, Integer> sell,
+            HashMap<Integer, Integer> buy,
             String[] thgs2say
     )
     {
@@ -28,18 +31,20 @@ public class NpcFactory
             throw new IllegalArgumentException("Npc cannot be speechless");
         if (attitudeTowardsPlayer == null)
             throw new IllegalArgumentException("Attitude towards player cannot be null");
-        if (trade == null)
-            throw new IllegalArgumentException("Trade cannot be null");
+        if (sell == null)
+            throw new IllegalArgumentException("Npc Sales cannot be null");
+        if (buy == null)
+            throw new IllegalArgumentException("Npc Buys cannot be null");
 
         Character character = characterFactory.vendCustomInstance(
                 name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, occupation);
 
-        return new Npc(character, attitudeTowardsPlayer, trade, thgs2say);
+        return new Npc(character, attitudeTowardsPlayer, sell, buy, thgs2say);
     }
 
-    public Npc transformFromCharacter(Character character, Attitude attitude, Trade trade, String[] thgs2say)
+    public Npc transformFromCharacter(Character character, Attitude attitude, HashMap<Integer, Integer> sell, HashMap<Integer, Integer> buy, String[] thgs2say)
     {
-        return new Npc(character, attitude, trade, thgs2say);
+        return new Npc(character, attitude, sell, buy, thgs2say);
     }
 
     public Npc vendDefaultInstance()

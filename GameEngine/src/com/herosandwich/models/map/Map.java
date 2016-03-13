@@ -106,8 +106,10 @@ public class Map {
         for(int i = 0; i < range; i++){
             for(int j = 0; j < 6; j++){
                 for(int k = 0; k <= i; k++){
-                    circle.put(current, getTile(current));
-                    current = current.getPosInDirection(currentDir);
+                    if(getTile(current) != null) {
+                        circle.put(current, getTile(current));
+                        current = current.getPosInDirection(currentDir);
+                    }
                 }
                 currentDir = DirectionHex.clockwise(currentDir);
             }

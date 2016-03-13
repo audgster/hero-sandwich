@@ -1,5 +1,6 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.util.visitor.EntityVisitor;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -10,7 +11,8 @@ import java.util.List;
 public class Npc extends Character
 {
     private Attitude attitudeTowardsPlayer;
-    private Trade trade;
+    private HashMap<Integer, Integer> sell;
+    private HashMap<Integer, Integer> buy;
 
     private String[] thingsToSay;
     private HashMap<Character, Integer> conversations;
@@ -19,18 +21,20 @@ public class Npc extends Character
     {
         super();
         attitudeTowardsPlayer = Attitude.NEUTRAL;
-        trade = null;
+        sell = new HashMap<>();
+        buy = new HashMap<>();
 
         thingsToSay = new String[5];
         conversations = new HashMap<>();
     }
 
-    public Npc(Character character, Attitude attitude, Trade trade, String[] thgs2say)
+    public Npc(Character character, Attitude attitude, HashMap<Integer, Integer> sell, HashMap<Integer, Integer> buy, String[] thgs2say)
     {
         super(character);
 
         this.attitudeTowardsPlayer = attitude;
-        this.trade = trade;
+        this.sell = sell;
+        this.buy = buy;
         this.thingsToSay = thgs2say;
 
         conversations = new HashMap<>();
@@ -42,7 +46,8 @@ public class Npc extends Character
         this.attitudeTowardsPlayer = npc.getAttitudeTowardsPlayer();
         this.conversations = npc.getConversations();
         this.thingsToSay = npc.getThingsToSay();
-        this.trade = npc.getTrade();
+        this.sell = npc.getSell();
+        this.buy = npc.getBuy();
     }
 
     /*
@@ -107,14 +112,89 @@ public class Npc extends Character
     /*
     * Trading
     * */
-    public TakeableItem trade(int currency)
+    public TakeableItem sell(int itemId, int currency)
     {
-        return trade.executeTrade(currency);
+        if (!sell.containsKey(itemId))
+            return null;
+
+        int price =  sell.get(itemId);
+
+        if (currency == price)
+        {
+            ItemInit init = ItemInit.getInstance();
+
+            modifyCurrency(currency);
+
+            return init.getTakeableItem(itemId);
+        }
+
+        return null;
     }
 
-    private Trade getTrade()
+    public int buy(int itemId)
     {
-        return this.trade;
+        if (!buy.containsKey(itemId))
+            return -1;
+
+        int price = buy.get(itemId);
+
+        if (getCurrency() >= price)
+        {
+            modifyCurrency(-(price));
+            return price;
+        }
+
+        return -1;
+    }
+
+    public HashMap<Integer, Integer> getSell()
+    {
+        return this.sell;
+    }
+
+    public HashMap<Integer, Integer> getBuy()
+    {
+        return this.buy;
+    }
+
+    public void addOrReplaceSale(int itemId, int price)
+    {
+        if (price < 1)
+            throw new IllegalArgumentException("Price of a trade can't be negative");
+
+        if (sell.containsKey(itemId))
+        {
+            sell.replace(itemId, price);
+        }
+        else
+        {
+            sell.put(itemId, price);
+        }
+    }
+
+    public void removeSale(int itemId)
+    {
+        sell.remove(itemId);
+    }
+
+    public void addOrReplaceBuy(int itemId, int price)
+    {
+        if (price < 1)
+            throw new IllegalArgumentException("Price of a trade can't be negative");
+
+        if (buy.containsKey(itemId))
+        {
+            buy.replace(itemId, price);
+        }
+        else
+        {
+            buy.put(itemId, price);
+        }
+    }
+
+    public void removeBuy(int itemId)
+    {
+        buy.remove(itemId);
     }
 
     /*
@@ -144,7 +224,7 @@ public class Npc extends Character
         return this.conversations;
     }
 
-    private String[] getThingsToSay()
+    public String[] getThingsToSay()
     {
         return this.thingsToSay;
     }

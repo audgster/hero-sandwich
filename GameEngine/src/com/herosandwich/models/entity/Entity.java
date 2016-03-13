@@ -338,6 +338,9 @@ public class Entity
         this.direction = d;
         MovementVisitor visitor = new MovementVisitor();
         Tile t = map.getTile(this.position.getPosInDirection(this.direction));
+        if(t == null) {
+            return false;
+        }
         t.acceptTileVisitor(visitor);
         boolean canMove = visitor.canMove();
         if(canMove){
