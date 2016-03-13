@@ -2,6 +2,8 @@ package com.herosandwich.models.map;
 
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.items.Item;
+import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
@@ -131,6 +133,22 @@ public class Map {
         }
         tileMap.get(pos).removeEntity(entity);
         entitySet.remove(entity);
+    }
+
+    public void addItem(PositionHex pos, Item item){
+        tileMap.get(pos).addItem(item);
+    }
+
+    public void removeItem(PositionHex pos, Item item){
+        tileMap.get(pos).removeItem(item);
+    }
+
+    public void addAoE(PositionHex pos, AoE aoe){
+        tileMap.get(pos).addAoE(aoe);
+    }
+
+    public void removeAoE(PositionHex pos, AoE aoe){
+        tileMap.get(pos).removeAoE(aoe);
     }
 
     public void acceptTileVisitor(TileVisitor tileVisitor){
