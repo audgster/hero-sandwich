@@ -33,6 +33,7 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
     private NpcDrawable npcDrawable = new NpcDrawable();
     private ItemDrawable itemDrawable = new ItemDrawable();
     private EntityDrawable entityDrawable = new EntityDrawable();
+    private PlayerDrawable playerDrawable = new PlayerDrawable();
 
     SpriteMap spriteMap = SpriteMap.getInstance();
 
@@ -61,8 +62,9 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitPlayer(Player player) {
-        entityDrawable.setGraphicKey(101);
-        drawableList.add(entityDrawable);
+        System.out.println("I am trying to render the Player!");
+        playerDrawable.setType(player);
+        drawableList.add(playerDrawable);
     }
 
     @Override

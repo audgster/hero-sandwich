@@ -86,7 +86,7 @@ public class GameFactory
             modifier *= 5;
 
         Npc moldySandwich = npcFactory.vendCustomInstance(
-                "Moldy Sandwich",
+                "moldySandwich",
                 NpcStats.lives,
                 NpcStats.strength,
                 NpcStats.agility,

@@ -28,9 +28,9 @@ public class PetAIController implements Listener{
         owner.addListener(this);
     }
 
-    public void initPetForOwner() {
+    private void initPetForOwner() {
         pet = new Pet(new Entity("olive", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementCheckVisitor()));
-        pet.updatePosition(new PositionHex(1,1));
+        pet.updatePosition(owner.getPosition().getPosInDirection(DirectionHex.SOUTH));
         map.addEntity(pet.getPosition(), pet);
     }
 
