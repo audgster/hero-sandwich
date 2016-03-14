@@ -34,6 +34,19 @@ public class PlayerDrawable implements Drawable {
                 int keyOffSet = DirectionHex.getIntRepresentation(player.getDirection());
                 avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
             }
+        else if(player.getOccupation().toString().equalsIgnoreCase("Sneak")) {
+                graphicKey = 112;
+                int keyOffSet = DirectionHex.getIntRepresentation(player.getDirection());
+                avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
+            }
+
+        else if(player.getOccupation().toString().equalsIgnoreCase("Summoner")) {
+                graphicKey = 119;
+                int keyOffSet = DirectionHex.getIntRepresentation(player.getDirection());
+                avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
+            }
+
+
     }
 
     @Override
