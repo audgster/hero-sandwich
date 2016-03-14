@@ -34,7 +34,7 @@ import java.util.Collection;
 
 public class AreaView implements Menu {
     private double WIDTH,HEIGHT;
-    private Character avatar;
+    private Player avatar;
     private Pane areaView;
     private HBox content;
     private Timeline gameLoop;
@@ -43,6 +43,7 @@ public class AreaView implements Menu {
     Canvas canvas;
     Pane areaMenu;
     PauseMenu pm;
+    AreaMenu am;
 
 
 
@@ -57,6 +58,7 @@ public class AreaView implements Menu {
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
         pm = new PauseMenu(WIDTH,HEIGHT,avatar);
+        am = new AreaMenu(WIDTH/4,HEIGHT,avatar);
     }
 
     @Override
@@ -145,7 +147,7 @@ public class AreaView implements Menu {
 
         PlayerFactory factory = new PlayerFactory();
       //Character avatar = factory.vendDefaultInstance();
-        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9),new GroundMovementVisitor(), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
@@ -194,7 +196,6 @@ public class AreaView implements Menu {
         map.setId("black_bg");
         HBox.setHgrow(map, Priority.ALWAYS);
         content.setMaxSize(WIDTH,HEIGHT);
-        AreaMenu am = new AreaMenu(WIDTH/4, HEIGHT);
         areaMenu = am.createMenu();
 
         areaMenu.setMinSize(WIDTH/4,HEIGHT);
@@ -225,6 +226,7 @@ public class AreaView implements Menu {
                 ae->{
                     if(!paused){
                         //System.out.println(canvas.getWidth());
+                        am.update();
                         render();
                     }
                 }

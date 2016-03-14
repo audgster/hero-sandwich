@@ -2,18 +2,20 @@ package com.herosandwich.menus;
 
 import com.herosandwich.models.entity.Entity;
 
+import com.herosandwich.models.entity.EntityStats;
+import com.herosandwich.models.entity.Player;
+import com.herosandwich.models.entity.Skill;
 import com.herosandwich.models.occupation.Occupation;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 
-import java.util.Stack;
+import java.util.*;
 
 
 /**
@@ -22,15 +24,17 @@ import java.util.Stack;
 public class AreaMenu{
     private double WIDTH,HEIGHT;
     private Pane content;
-    private Entity entity;
+    private Player entity;
     private Occupation occupation;
     private VBox textOptions;
     private boolean visible;
-    public AreaMenu(double width, double height){
+    private String testing = "";
+    public AreaMenu(double width, double height, Player entity){
         WIDTH = width;
         HEIGHT = height;
         content = new Pane();
-        entity = new Entity();
+        this.entity = entity;
+        occupation = entity.getOccupation();
         textOptions = new VBox(5);
             textOptions.setMaxSize(WIDTH,HEIGHT-WIDTH);
     }
@@ -41,9 +45,20 @@ public class AreaMenu{
         VBox areaMenu = new VBox();
         areaMenu.getChildren().addAll(entityInfo, characterInfo, createTalkBox());
         content.getChildren().addAll(areaMenu);
-
         createTesting();
         return content;
+    }
+    public void update(){
+        testing+=".";
+        content.getChildren().clear();
+        textOptions.getChildren().clear();
+        StackPane entityInfo = createEntityInfo();
+        HBox characterInfo = new HBox();
+        characterInfo.getChildren().addAll(createEntityStats(),createOtherStatsPart());
+        VBox areaMenu = new VBox();
+        areaMenu.getChildren().addAll(entityInfo, characterInfo, createTalkBox());
+        content.getChildren().addAll(areaMenu);
+        createTesting();
     }
 
     private StackPane createEntityInfo(){
@@ -52,13 +67,13 @@ public class AreaMenu{
             avatarImg.setFitWidth(WIDTH/3);
             avatarImg.setFitHeight(WIDTH/3);
 
-        Label avatarName = new Label("Smasher");
+        Label avatarName = new Label(entity.getName());
             avatarName.setId("stats_text");
-        Label avatarLvl = new Label("Lvl");
+        Label avatarLvl = new Label("Lvl       "+entity.getLevel());
             avatarLvl.setId("stats_text");
-        Label avatarHp = new Label("Hp");
+        Label avatarHp = new Label("Hp        "+entity.getCurrentLife()+"/"+entity.getMaxLife());
             avatarHp.setId("stats_text");
-        Label avatarMp = new Label("Mp");
+        Label avatarMp = new Label("Mp        "+entity.getCurrentMana()+"/"+entity.getMaxMana());
             avatarMp.setId("stats_text");
 
         VBox basicInfo = new VBox();
@@ -75,17 +90,37 @@ public class AreaMenu{
     }
 
     private StackPane createEntityStats(){
-        Label str = new Label("Str: ");
+        Label str = new Label("Str:");
             str.setId("stats_text");
-        Label spd = new Label("Spd: ");
-            spd.setId("stats_text");
-        Label atk = new Label("Atk: ");
-            atk.setId("stats_text");
-        Label def = new Label("Def: ");
-            def.setId("stats_text");
+        Label entityStr = new Label(""+entity.getStrength());
+            entityStr.setId("stats_text");
+        Label agl = new Label("Agl:");
+            agl.setId("stats_text");
+        Label entityAgl = new Label(""+entity.getAgility());
+            entityAgl.setId("stats_text");
+        Label inte = new Label("Int:");
+            inte.setId("stats_text");
+        Label entityInte = new Label(""+entity.getIntellect());
+            entityInte.setId("stats_text");
+        Label hard = new Label("Hard:");
+            hard.setId("stats_text");
+        Label entityHard = new Label(""+entity.getHardiness());
+            entityHard.setId("stats_text");
+        Label entityXp = new Label("Xp: "+entity.getExperience()+"/100");
+            entityXp.setId("stats_text");
+        Label filler = new Label(" ");
 
-        VBox statsList = new VBox(5);
-            statsList.getChildren().addAll(str,spd,atk,def);
+        GridPane statsList = new GridPane();
+            statsList.add(filler,1,0);
+            statsList.add(entityXp,0,0);
+            statsList.add(str,0,1);
+            statsList.add(agl,0,2);
+            statsList.add(inte,0,3);
+            statsList.add(hard,0,4);
+            statsList.add(entityStr,2,1);
+            statsList.add(entityAgl,2,2);
+            statsList.add(entityInte,2,3);
+            statsList.add(entityHard,2,4);
 
         StackPane avatarStats = new StackPane();
             avatarStats.getChildren().add(statsList);
@@ -111,9 +146,22 @@ public class AreaMenu{
     }
 
     private StackPane createOccupationSkills(){
+        List<Skill> skillList = occupation.getLearnedSkills();
+        List<Integer> skillLevels = new ArrayList<>(skillList.size());
+        for(Skill skill: skillList){
+            skillLevels.add(entity.getNumberOfSkillPoints(skill));
+        }
+        VBox skillHBox = new VBox();
+        for(int i = 0; i < skillList.size();i++){
+            Label skill = new Label(skillList.get(i)+"  lvl "+skillLevels.get(i));
+                skill.setId("stats_text2");
+                skill.autosize();
+            skillHBox.getChildren().add(skill);
+        }
         StackPane occupationSkills = new StackPane();
         occupationSkills.setMinWidth(WIDTH*2/3);
-        occupationSkills.setMinHeight(WIDTH/3);
+        occupationSkills.setMinHeight(WIDTH / 3);
+        occupationSkills.getChildren().add(skillHBox);
         occupationSkills.setId("stats_menu");
         return occupationSkills;
     }
@@ -156,8 +204,13 @@ public class AreaMenu{
     }
 
     private void createTesting(){
-        setText("Hello, and welcome to my Special Sandwich Shop. How can I help you?");
-        textOptions.getChildren().addAll(getButton("Buy"),getButton("Sell"),getButton("Exit"));
+        //setText("Hello, and welcome to my Special Sandwich Shop. How can I help you?");
+        setText(testing);
+        StackPane btn = getButton("Buy");
+        btn.setOnMouseClicked(event->{
+            update();
+        });
+        textOptions.getChildren().addAll(btn,getButton("Sell"),getButton("Exit"));
     }
 
 }

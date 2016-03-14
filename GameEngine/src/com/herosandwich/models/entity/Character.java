@@ -17,6 +17,7 @@ import com.herosandwich.util.visitor.EntityVisitor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class Character extends Entity {
 
