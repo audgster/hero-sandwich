@@ -57,11 +57,11 @@ public class Character extends Entity {
     public Character(Entity entity, Occupation occupation)
     {
         super(entity);
-        occupation.setOwner(this);
         this.occupation = occupation;
         skillPoints = new HashMap<>();
         inventory = new Inventory();
         equipment = new Equipment();
+        occupation.setOwner(this);
     }
 
     public Character(Character character)
@@ -73,6 +73,7 @@ public class Character extends Entity {
         this.inventory = character.getInventory();
         this.equipment = character.getEquipment();
         this.currency = character.getCurrency();
+        this.occupation.setOwner(this);
     }
 
     /*

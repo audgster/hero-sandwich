@@ -14,6 +14,7 @@ import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
+import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -144,7 +145,7 @@ public class AreaView implements Menu {
 
         PlayerFactory factory = new PlayerFactory();
 //        Character avatar = factory.vendDefaultInstance();
-        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new GroundMovementVisitor(), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);

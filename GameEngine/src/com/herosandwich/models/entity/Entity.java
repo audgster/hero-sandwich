@@ -5,6 +5,7 @@ import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
 import com.herosandwich.util.visitor.movement.MovementVisitor;
 
 public class Entity
@@ -25,6 +26,8 @@ public class Entity
     private PositionHex position;
     private DirectionHex direction;
 
+    private MovementVisitor moveVisitor;
+
     public Entity()
     {
         stats = new EntityStats();
@@ -36,22 +39,27 @@ public class Entity
 
         this.position = new PositionHex(0,0,0);
         this.direction = DirectionHex.SOUTH;
+
+        moveVisitor = new GroundMovementVisitor();
     }
 
-    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy){
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementVisitor visitor){
         this.name = name;
         this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
         currentMana = getMaxMana();
         this.position = new PositionHex(0,0,0);
         this.direction = DirectionHex.SOUTH;
+        this.moveVisitor = visitor;
     }
 
-    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, PositionHex pos, DirectionHex dir){
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementVisitor visitor, PositionHex pos, DirectionHex dir){
         this.name = name;
         this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
         currentMana = getMaxMana();
+        this.moveVisitor = visitor;
+
         this.position = pos;
         this.direction = dir;
     }
@@ -65,6 +73,8 @@ public class Entity
         currentLife = entity.getCurrentLife();
         currentMana = entity.getCurrentMana();
 
+        moveVisitor = entity.getMovementVisitor();
+
         position = entity.getPosition();
         direction = entity.getDirection();
     }
@@ -75,6 +85,11 @@ public class Entity
     /*
     * Accessors
     * */
+
+    public MovementVisitor getMovementVisitor()
+    {
+        return this.moveVisitor;
+    }
 
     private EntityStats getStats()
     {
@@ -336,13 +351,12 @@ public class Entity
     //movement
     public boolean move(DirectionHex d, Map map){
         this.direction = d;
-        MovementVisitor visitor = new MovementVisitor();
         Tile t = map.getTile(this.position.getPosInDirection(this.direction));
         if(t == null) {
             return false;
         }
-        t.acceptTileVisitor(visitor);
-        boolean canMove = visitor.canMove();
+        t.acceptTileVisitor(moveVisitor);
+        boolean canMove = moveVisitor.canMove();
         if(canMove){
             map.moveEntity(this.position.getPosInDirection(this.direction), this);
             //updatePosition(this.position.getPosInDirection(this.direction));

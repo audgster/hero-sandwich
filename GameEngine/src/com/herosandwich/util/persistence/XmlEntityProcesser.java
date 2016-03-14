@@ -12,6 +12,8 @@ import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
+import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementVisitor;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -58,7 +60,8 @@ public class XmlEntityProcesser
                 hardiness,
                 experience,
                 movement,
-                new ModiferWithWeightStatStrategy(10)
+                new ModiferWithWeightStatStrategy(10),
+                new GroundMovementVisitor()
         );
 
         entityObj.setCurrentMana(currentMana);

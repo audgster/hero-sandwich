@@ -78,6 +78,7 @@ public abstract class Occupation{
 
     public void setOwner(Character owner){
         this.owner = owner;
+        updateOccupationSkills();
     }
 
     public abstract String getDescription();
