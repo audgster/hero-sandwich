@@ -21,7 +21,7 @@ public class AoeDrawable implements Drawable {
             //graphickey = someID in sprite
         }
         else if(aoeType.equalsIgnoreCase("TeleportAoE")) {
-            //graphickey = someID in sprite
+            graphicKey = 205;
         }
         else if(aoeType.equalsIgnoreCase("XpAoE")){
             //graphickey = someID in sprite

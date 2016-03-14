@@ -52,9 +52,9 @@ public class PetAIController implements Listener{
 
     @Override
     public void update() {
-        DirectionHex ownerMovement = owner.getDirection();
-        boolean moved = pet.move(ownerMovement, map);
-        if(!moved) {
+//        DirectionHex ownerMovement = owner.getDirection();
+//        boolean moved = pet.move(ownerMovement, map);
+//        if(!moved) {
             PositionHex ownerPosition = owner.getPosition();
             Set<PositionHex> avatarInViewTilePositions = map.drawCircle(ownerPosition, 3, true).keySet();
             Set<PositionHex> petInViewTilePositions = map.drawCircle(pet.getPosition(), 1, true).keySet();
@@ -87,6 +87,6 @@ public class PetAIController implements Listener{
 //
 //                }
             //}
-        }
+        //}
     }
 }
