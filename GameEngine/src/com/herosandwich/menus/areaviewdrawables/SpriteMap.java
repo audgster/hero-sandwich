@@ -22,12 +22,12 @@ public class SpriteMap {
     private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
     private static Image smasher = new Image("res/images/entities/smasher/smasher.png");
-    private static Image smasherNorth = new Image("res/images/entities/smasher/smasher1.png");
-    private static Image smasherNorthEast = new Image("res/images/entities/smasher/smasher5.png");
-    private static Image smasherSouthEast = new Image("res/images/entities/smasher/smasher3.png");
-    private static Image smasherSouth     = new Image("res/images/entities/smasher/smasher0.png");
-    private static Image smasherSouthWest = new Image("res/images/entities/smasher/smasher3.png");
-    private static Image smasherNorthWest = new Image("res/images/entities/smasher/smasher4.png");
+    private static Image smasherNorth = new Image("res/images/entities/smasher/smasher_north.png");
+    private static Image smasherNorthEast = new Image("res/images/entities/smasher/smasher_northeast.png");
+    private static Image smasherSouthEast = new Image("res/images/entities/smasher/smasher_southeast.png");
+    private static Image smasherSouth     = new Image("res/images/entities/smasher/smasher_south.png");
+    private static Image smasherSouthWest = new Image("res/images/entities/smasher/smasher_southeast.png");
+    private static Image smasherNorthWest = new Image("res/images/entities/smasher/smasher_northwest.png");
 
     private static Image moldySandwichImage = new Image("res/images/entities/moldySandwich/MoldySandwich.png");
     private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
