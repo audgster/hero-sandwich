@@ -33,6 +33,7 @@ import java.util.Collection;
 
 public class AreaView implements Menu {
     private double WIDTH,HEIGHT;
+    private Character avatar;
     private Pane areaView;
     private HBox content;
     private Timeline gameLoop;
@@ -46,9 +47,10 @@ public class AreaView implements Menu {
 
     private ScrollPane scrollBar;
 
-    public AreaView(double width, double height){
+    public AreaView(double width, double height, Character avatar){
         WIDTH = width;
         HEIGHT = height;
+        this.avatar = avatar;
         content = new HBox();
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
@@ -141,7 +143,7 @@ public class AreaView implements Menu {
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
-        Character avatar = factory.vendDefaultInstance();
+//        Character avatar = factory.vendDefaultInstance();
         Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
