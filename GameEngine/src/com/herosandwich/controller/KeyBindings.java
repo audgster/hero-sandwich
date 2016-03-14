@@ -27,6 +27,7 @@ public class KeyBindings {
         keyBindings.put(KeyCode.Z,      Action.SEARCH_MOVE_SOUTH_WEST);
         keyBindings.put(KeyCode.X,      Action.SEARCH_MOVE_SOUTH);
         keyBindings.put(KeyCode.C,      Action.SEARCH_MOVE_SOUTH_EAST);
+        keyBindings.put(KeyCode.L,      Action.RANGED_ATTACK);
     }
 
     /** Return the action bound to the input key **/

@@ -93,12 +93,12 @@ public class AreaView implements Menu {
 
     public void updateTileGrid()
     {
-        grid =  game.getMap().initMyDrawable(canvas);
+        grid =  game.getMap().initMyDrawable(canvas, game.getAvatar());
 
         createAreaMenu();
         gameLoop();
 
-        grid.addAvatar(game.getAvatar());
+        //grid.addAvatar(game.getAvatar());
 
         createController(game.getMap());
     }
