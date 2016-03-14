@@ -8,6 +8,7 @@ import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
 import com.herosandwich.util.visitor.movement.AmphibiousMovementVisitor;
+import com.herosandwich.util.visitor.movement.AquaticMovementVisitor;
 import com.herosandwich.util.visitor.movement.FlyingMovementVisitor;
 import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
 
@@ -346,7 +347,8 @@ public class GameFactory
         return mountFactory.vendCustomMount(
                 "Plate",
                 45,
-                null
+                null,
+                new GroundMovementVisitor()
         );
     }
 
@@ -355,7 +357,8 @@ public class GameFactory
         return mountFactory.vendCustomMount(
                 "Deli Basket",
                 45,
-                null
+                null,
+                new AquaticMovementVisitor()
         );
     }
 }

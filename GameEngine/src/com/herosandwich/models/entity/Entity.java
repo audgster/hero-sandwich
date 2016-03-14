@@ -91,6 +91,11 @@ public class Entity
         return this.moveVisitor;
     }
 
+    public void setMoveVisitor(MovementVisitor visitor)
+    {
+        moveVisitor = visitor;
+    }
+
     private EntityStats getStats()
     {
         return this.stats;
