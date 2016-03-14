@@ -1,5 +1,6 @@
 package com.herosandwich.models.occupation;
 
+import com.herosandwich.models.entity.Attitude;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
@@ -35,10 +36,15 @@ public class Summoner extends Occupation{
     // bane - magic that does damage or harm.
     //Summoner's attack
     public void baneSpell(){
-        //if(successfulAction(this.baneSkill) ){
+        //no mana? no spell :/
+        if(owner.getCurrentMana() == 0){
+            return;
+        }
+
+        if(successfulAction(Skill.BANE) ){
             owner.modifyCurrentMana(-5);
             //the damageCalculator will deal with this!
-        //}
+        }
     }
 
     // magic that heals Character over 10 seconds!
@@ -48,26 +54,27 @@ public class Summoner extends Occupation{
             return;
         }
 
-        //do you have mana?
+        //no mana? no spell :/
+        if(owner.getCurrentMana() == 0){
+            return;
+        }
 
-        //if(successfulAction(this.boonSkill) ){
+        if(successfulAction(Skill.BOON) ){
             //uses mana! Mana reduction depends on Strength of spell
             owner.modifyCurrentMana(-5);
 
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-          //          int healingAmount = (int)(1 + (boonSkill*.2));
+                    int boonSkill = getLevelOfSkill(Skill.BOON);
+                    int healingAmount = (int)(1 + (boonSkill*.3));
 
                     for(int i = 0; i < 10; i++){
-                //        owner.modifyCurrentLife(healingAmount);
-                        System.out.println(owner.getCurrentLife());
+                        owner.modifyCurrentLife(healingAmount);
 
                         //if after healing, current heal is the same as max heal
                         //end boon healing
-                        if(owner.getCurrentLife() ==  owner.getMaxLife() ){
-                            return;
-                        }
+                        if(owner.getCurrentLife() ==  owner.getMaxLife() ){ return; }
 
                         try{
                             Thread.sleep(1000);
@@ -75,22 +82,26 @@ public class Summoner extends Occupation{
                             e.printStackTrace();
                         }
                     }
-
                 }
             });
             thread.start();
-       // }
+        }
     }
 
     public void enchantmentSpell(Npc npc){
-        //if(successfulAction(this.enchantmentSkill) ){
+        //no mana? no spell :/
+        if(owner.getCurrentMana() == 0){
+            return;
+        }
+
+        if(successfulAction(Skill.ENCHANTMENT) ){
             //if successful will make npc more friendly
             owner.modifyCurrentMana(-5);
             npc.changeAttitude(true);
-        //}else{
+        }else{
             // if enchantment spell fails, make the target hostile
-          //  npc.setAttitudeTowardsPlayer(Attitude.HOSTILE);
-        //}
+            npc.setAttitudeTowardsPlayer(Attitude.HOSTILE);
+        }
     }
 
     @Override

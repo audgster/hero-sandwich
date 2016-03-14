@@ -59,7 +59,6 @@ public class Sneak extends Occupation{
        }
     }
 
-
     //If successful deactivates a trap!
     public void removeTrap(Trap trap){
         if(successfulAction(Skill.REMOVE_TRAP) ){
@@ -75,14 +74,14 @@ public class Sneak extends Occupation{
       * and insert it to owner's inventory
      */
     public void pickPocket(Npc npc){
-       // if(successfulAction(this.pickPocketSkill) ){
+        if(successfulAction(Skill.PICK_POCKET) ){
             Inventory npcInventory = npc.getInventory();
             List npcInventoryList = npcInventory.getInventory();
 
             int randomSlot = (int) Math.ceil(Math.random() * (npcInventoryList.size() - 1));
             TakeableItem npcItem = npcInventory.removeItem((TakeableItem) npcInventoryList.get(randomSlot));
             owner.insertItemToInventory(npcItem);
-        //}
+        }
     }
 
     //this will get fixed with damageCalculator
