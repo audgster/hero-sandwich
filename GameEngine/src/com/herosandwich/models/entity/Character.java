@@ -11,6 +11,7 @@ import com.herosandwich.models.items.takeableItems.equipableItems.OccupationWeap
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.models.occupation.Smasher;
+import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.util.visitor.EntityVisitor;
 
 import java.util.HashMap;
@@ -209,8 +210,18 @@ public class Character extends Entity {
         {
             skillPoints.put(skill, numberOfPoints);
         }
+        Occupation occupation = getOccupation();
 
-        getOccupation().updateOccupationSkills();
+        if(occupation.toString().equals("Sneak")){
+            Sneak sneak = (Sneak)occupation;
+            if(sneak.getCreepMode()){
+                sneak.creep();
+                occupation.updateOccupationSkills();
+                sneak.creep();
+            }
+        }else{
+            occupation.updateOccupationSkills();
+        }
 
         return true;
     }

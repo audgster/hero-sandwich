@@ -10,6 +10,7 @@ import com.herosandwich.models.map.aoe.Trap;
 import java.util.List;
 
 public class Sneak extends Occupation{
+    private boolean creep_mode;
 
     public Sneak(){
         super();
@@ -17,6 +18,7 @@ public class Sneak extends Occupation{
         learned_skills.add(Skill.DETECTION);
         learned_skills.add(Skill.REMOVE_TRAP);
         learned_skills.add(Skill.RANGED_WEAPON);
+        creep_mode = false;
         //when a character is created all skill levels are zero
         updateOccupationSkills();
     }
@@ -27,52 +29,45 @@ public class Sneak extends Occupation{
         learned_skills.add(Skill.DETECTION);
         learned_skills.add(Skill.REMOVE_TRAP);
         learned_skills.add(Skill.RANGED_WEAPON);
+        creep_mode = false;
         //when a character is created all skill levels are zero
         updateOccupationSkills();
     }
 
-
     //increase Character's Creep Skill. Character movement is also slowed.
-    //For now creep mode will last for 5 seconds after being activated. After
-    //those 5 seconds are complete the stats go back to normal
+    //This will be used on a toggle mechanism, it will stay active
+    //when creep_mode is true!
     public void creep(){
-        //if(successfulAction(this.creepSkill) ){
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-             //       int creepIncrease = 10 + creepSkill;
-                  //  owner.allocateSkillPoints(Skill.CREEP, creepIncrease);
-                    owner.modifyMovement(-5);
-                    try{
-                        Thread.sleep(5000);
-                    }catch(InterruptedException e){
-                        e.printStackTrace();
-                    }
-                    //reset value of creep skill and movement speed back to normal
-                  //  owner.allocateSkillPoints(Skill.CREEP, -creepIncrease);
-                    owner.modifyMovement(5);
-                }
-            });
-            thread.start();
-       // }
+        int base = 10;
+        int creepIncrease = base + occupationSkills.get(Skill.CREEP);
+        if(creep_mode = true ){
+            owner.allocateSkillPoints(Skill.CREEP, creepIncrease);
+            owner.modifyMovement(-5);
+            creep_mode = !creep_mode;
+        }else{
+            //reset value of creep skill and movement speed back to normal
+            owner.allocateSkillPoints(Skill.CREEP, -creepIncrease);
+            owner.modifyMovement(5);
+            creep_mode = !creep_mode;
+        }
     }
 
     //If successful discoveries a trap!
     public void detectTrap(){
-        //if(successfulAction(this.detectionSkill) ){
+        if(successfulAction(Skill.DETECTION) ){
 
-    //    }
+       }
     }
 
 
     //If successful deactivates a trap!
     public void removeTrap(Trap trap){
-        //if(successfulAction(this.removeTrapSkill) ){
+        if(successfulAction(Skill.REMOVE_TRAP) ){
             if(trap.isDiscovered()){
 
             }
             trap.deactivate();
-        //}
+        }
     }
 
     /*
@@ -98,6 +93,10 @@ public class Sneak extends Occupation{
             //damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
        // }
         return damage;
+    }
+
+    public boolean getCreepMode(){
+        return creep_mode;
     }
 
     @Override

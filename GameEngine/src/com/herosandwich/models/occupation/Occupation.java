@@ -30,34 +30,36 @@ public abstract class Occupation{
         learned_skills.add(Skill.OBSERVATION);
     }
 
-
-    public boolean successfulAction(int skillLevel){
-        int prob = (int) Math.ceil(Math.random() * 100) + skillLevel;
-        if(prob > 50){
-            return true;
-        }
-        return false;
-    }
-
     /*
-     * General Skills
-     */
+    * General Skills
+    */
     public final void bindWounds(){
-        if(successfulAction(owner.getNumberOfSkillPoints(Skill.BIND_WOUNDS))){
+        if(successfulAction(Skill.BIND_WOUNDS) ){
 
         }
     }
 
     public final void bargain(){
-        if(successfulAction(owner.getNumberOfSkillPoints(Skill.BARGAIN))){
+        if(successfulAction(Skill.BARGAIN)){
 
         }
     }
 
     public final void observation(){
-        if(successfulAction(owner.getNumberOfSkillPoints(Skill.OBSERVATION))){
+        if(successfulAction(Skill.OBSERVATION)){
 
         }
+    }
+
+    //probability of action success. More likely to be successful if occupation has
+    //a high level for that skill!!
+    public boolean successfulAction(Skill skill){
+        int skillLevel = getLevelOfSkill(skill);
+        int prob = (int) Math.ceil(Math.random() * 100) + skillLevel;
+        if(prob > 50){
+            return true;
+        }
+        return false;
     }
 
     public final void updateOccupationSkills(){

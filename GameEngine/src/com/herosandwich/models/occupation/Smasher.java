@@ -24,10 +24,10 @@ public class Smasher extends Occupation {
         updateOccupationSkills();
     }
 
-    public int successfulAttack(){
-        owner.getRightHand();
-        return 0;
-    }
+//    public int successfulAttack(){
+//        owner.getRightHand();
+//        return 0;
+//    }
 
     //maybe state pattern.
     public int attack(){
