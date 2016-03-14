@@ -176,7 +176,9 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitTrap(Trap aoE) {
-
+        if(aoE.isDiscovered()){
+            aoE.acceptForEffect(this);
+        }
     }
 
     public void clearDrawableList() {
