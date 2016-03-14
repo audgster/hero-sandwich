@@ -99,12 +99,4 @@ public class Player extends Character {
         }
         return canMove;
     }
-
-    public void addListener(Listener listener) {
-        myRender = listener;
-    }
-
-    private void notifyListener() {
-        myRender.update();
-    }
 }

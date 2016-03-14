@@ -1,11 +1,15 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 import com.herosandwich.util.visitor.movement.MovementVisitor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entity
 {
@@ -24,6 +28,9 @@ public class Entity
     * */
     private PositionHex position;
     private DirectionHex direction;
+
+
+    protected List<Listener> listeners = new ArrayList<Listener>();
 
     public Entity()
     {
@@ -348,6 +355,16 @@ public class Entity
             //updatePosition(this.position.getPosInDirection(this.direction));
         }
         return canMove;
+    }
+
+
+    public void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    protected void notifyListener() {
+        for(Listener listener : listeners)
+            listener.update();
     }
 
 }
