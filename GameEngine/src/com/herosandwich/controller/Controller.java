@@ -2,6 +2,7 @@ package com.herosandwich.controller;
 
 import com.herosandwich.events.CharacterMeleeAttacksEntityEvent;
 import com.herosandwich.events.EventDispatcher;
+import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
@@ -15,6 +16,7 @@ public class Controller {
     private  Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
+    private boolean searchMode = false;
 
 	public static Controller getController() {
     	if(controller == null){
@@ -33,20 +35,54 @@ public class Controller {
 		Action inputAction = keyBindings.getAction(input);
         if(inputAction != null){
             switch (inputAction) {
-                case MOVE_NORTH:        player.move(DirectionHex.NORTH, map);
+                case MOVE_NORTH:        gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH, map);
                                         break;
-                case MOVE_NORTH_EAST:   player.move(DirectionHex.NORTH_EAST, map);
+                case MOVE_NORTH_EAST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH_EAST, map);
                                         break;
-                case MOVE_SOUTH_EAST:   player.move(DirectionHex.SOUTH_EAST, map);
+                case MOVE_SOUTH_EAST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH_EAST, map);
                                         break;
-                case MOVE_SOUTH:        player.move(DirectionHex.SOUTH, map);
+                case MOVE_SOUTH:        gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH, map);
                                         break;
-                case MOVE_SOUTH_WEST:   player.move(DirectionHex.SOUTH_WEST, map);
+                case MOVE_SOUTH_WEST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.SOUTH_WEST, map);
                                         break;
-                case MOVE_NORTH_WEST:   player.move(DirectionHex.NORTH_WEST, map);
+                case MOVE_NORTH_WEST:   gridView.activateGamePlayMode();
+                                        player.move(DirectionHex.NORTH_WEST, map);
                                         break;
                 case SKILL1:            basic_attack();
                                         break;
+                case SEARCH_MOVE_NORTH:
+                                        gridView.activateSearchMode();
+                                        gridView.scroll(DirectionHex.NORTH);
+                                        break;
+
+                case SEARCH_MOVE_NORTH_EAST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.NORTH_EAST);
+                                            break;
+
+                case SEARCH_MOVE_SOUTH_EAST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH_EAST);
+                                            break;
+                case SEARCH_MOVE_SOUTH:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH);
+                                            break;
+                case SEARCH_MOVE_SOUTH_WEST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.SOUTH_WEST);
+                                            break;
+
+                case SEARCH_MOVE_NORTH_WEST:
+                                            gridView.activateSearchMode();
+                                            gridView.scroll(DirectionHex.NORTH_WEST);
+                                            break;
+
                 default:                // key not assigned; do nothing
             }
         }
@@ -59,6 +95,7 @@ public class Controller {
     public void setMap(Map map) {
         this.map = map;
     }
+
 
     /** Checks whether there is an Entity adjacent to the player that can be attacked **/
     /** If there is, calls players attack method and fires the CharacterMeleeAttacksEntity event **/
@@ -86,6 +123,17 @@ public class Controller {
         return success;
     }
 
+    /****************************************************************/
+    //only for testing!!!
+
+    private TileGrid gridView;
+
+    public void setGridView(TileGrid gridView) {
+        this.gridView = gridView;
+    }
+
+
+    /****************************************************************/
 
 //	public void triggerMotion(Direction direction)
 //    {

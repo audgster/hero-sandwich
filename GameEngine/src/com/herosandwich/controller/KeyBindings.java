@@ -2,6 +2,7 @@ package com.herosandwich.controller;
 
 import javafx.scene.input.KeyCode;
 
+import java.security.Key;
 import java.util.HashMap;
 
 public class KeyBindings {
@@ -20,6 +21,12 @@ public class KeyBindings {
         keyBindings.put(KeyCode.E,      Action.SKILL3);
         keyBindings.put(KeyCode.R,      Action.SKILL4);
         keyBindings.put(KeyCode.F,      Action.USE);
+        keyBindings.put(KeyCode.A,      Action.SEARCH_MOVE_NORTH_WEST);
+        keyBindings.put(KeyCode.S,      Action.SEARCH_MOVE_NORTH);
+        keyBindings.put(KeyCode.D,      Action.SEARCH_MOVE_NORTH_EAST);
+        keyBindings.put(KeyCode.Z,      Action.SEARCH_MOVE_SOUTH_WEST);
+        keyBindings.put(KeyCode.X,      Action.SEARCH_MOVE_SOUTH);
+        keyBindings.put(KeyCode.C,      Action.SEARCH_MOVE_SOUTH_EAST);
     }
 
     /** Return the action bound to the input key **/

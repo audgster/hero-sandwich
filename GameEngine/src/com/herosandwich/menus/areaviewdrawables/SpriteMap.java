@@ -25,6 +25,10 @@ public class SpriteMap {
     private static Image moldySandwichImage = new Image("res/images/MoldySandwich.png");
     private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
 
+    private static Image testing = new Image("com/herosandwich/menus/sprite_avatar1.png");
+    private static Image testing2 = new Image("com/herosandwich/menus/sprite_avatar2.png");
+
+
     private static SpriteMap instance;
 
     private SpriteMap() {
@@ -35,6 +39,10 @@ public class SpriteMap {
         sprites.put(101, smasherImage);
         sprites.put(102, moldySandwichImage);
         sprites.put(200, bootsOfAwesome);
+
+        //animation testing
+        sprites.put(400,testing);
+        sprites.put(401,testing2);
     }
 
     public static SpriteMap getInstance() {

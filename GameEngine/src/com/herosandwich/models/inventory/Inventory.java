@@ -21,8 +21,8 @@ public class Inventory {
     private int capacity;
 
     public Inventory() {
-        inventory = new ArrayList<>(12);
         capacity = 12;
+        inventory = new ArrayList<>(capacity);
         for(int i = 0; i < capacity;i++){
             inventory.add(i,null);
         }
