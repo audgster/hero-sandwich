@@ -116,7 +116,7 @@ public class AreaView implements Menu {
         grid =  map.initMyDrawable(canvas);
         //grid.makeAllTileVisible();
         //grid.setTileAsDiscovered(new PositionHex(0,0));
-        map.addItem(new PositionHex(1,1), new EquipableItem("Boots", 200 ,EquipmentType.BOOTS));
+        map.addItem(new PositionHex(1,1), new EquipableItem("TheBootsOfAwesome", 200 ,EquipmentType.BOOTS));
         //grid.draw();
 //        scrollBar = new ScrollPane(canvas);
 //        scrollBar.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
