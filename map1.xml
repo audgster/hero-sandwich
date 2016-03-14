@@ -2850,7 +2850,11 @@
 <tile q="2" r="-2" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
-<aoes/>
+<aoes>
+<TeleportAoE q="2" r="-2" s="0">
+<destination q="4" r="-4" s="0"/>
+</TeleportAoE>
+</aoes>
 </tile>
 <tile q="3" r="-20" s="17" terrain-type="grass">
 <entities/>
