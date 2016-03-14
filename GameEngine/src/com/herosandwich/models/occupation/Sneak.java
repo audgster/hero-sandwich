@@ -53,9 +53,9 @@ public class Sneak extends Occupation{
     }
 
     //If successful discoveries a trap!
-    public void detectTrap(){
+    public void detectTrap(Trap trap){
         if(successfulAction(Skill.DETECTION) ){
-
+            trap.discover();
        }
     }
 
@@ -63,9 +63,8 @@ public class Sneak extends Occupation{
     public void removeTrap(Trap trap){
         if(successfulAction(Skill.REMOVE_TRAP) ){
             if(trap.isDiscovered()){
-
+                trap.deactivate();
             }
-            trap.deactivate();
         }
     }
 
