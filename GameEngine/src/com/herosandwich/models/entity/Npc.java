@@ -3,10 +3,8 @@ package com.herosandwich.models.entity;
 import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.util.visitor.EntityVisitor;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Npc extends Character
 {

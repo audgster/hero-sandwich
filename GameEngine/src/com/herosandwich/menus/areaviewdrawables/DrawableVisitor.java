@@ -1,6 +1,5 @@
 package com.herosandwich.menus.areaviewdrawables;
 
-import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.items.Item;
@@ -19,7 +18,6 @@ import com.herosandwich.util.visitor.AoEVisitor;
 import com.herosandwich.util.visitor.EntityVisitor;
 import com.herosandwich.util.visitor.ItemVisitor;
 import com.herosandwich.util.visitor.TileVisitor;
-import com.sun.org.apache.xml.internal.security.Init;
 
 import java.util.ArrayList;
 import java.util.List;

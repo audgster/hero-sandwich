@@ -17,129 +17,129 @@ public class SpriteMap {
 
     HashMap<Integer, Image> sprites = new HashMap<Integer, Image>();
 
-    private static Image waterTile = new Image("res/images/tiles/water_tile.png");
-    private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
-    private static Image mountainTile = new Image("res/images/tiles/mountain_tile.png");
-    private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
-    private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
+    private static Image waterTile = new Image("/res/images/tiles/water_tile.png");
+    private static Image groundTile = new Image("/res/images/tiles/ground_tile.png");
+    private static Image mountainTile = new Image("/res/images/tiles/mountain_tile.png");
+    private static Image opaqueTile = new Image("/res/images/tiles/opaque_tile.png");
+    private static Image fogTile = new Image("/res/images/tiles/fog_tile.png");
 
-    private static Image smasher = new Image("res/images/entities/smasher/smasher.png");
-    private static Image smasherNorth = new Image("res/images/entities/smasher/smasher_north.png");
-    private static Image smasherNorthEast = new Image("res/images/entities/smasher/smasher_northeast.png");
-    private static Image smasherSouthEast = new Image("res/images/entities/smasher/smasher_southeast.png");
-    private static Image smasherSouth     = new Image("res/images/entities/smasher/smasher_south.png");
-    private static Image smasherSouthWest = new Image("res/images/entities/smasher/smasher_southeast.png");
-    private static Image smasherNorthWest = new Image("res/images/entities/smasher/smasher_northwest.png");
+    private static Image smasher = new Image("/res/images/entities/smasher/smasher.png");
+    private static Image smasherNorth = new Image("/res/images/entities/smasher/smasher_north.png");
+    private static Image smasherNorthEast = new Image("/res/images/entities/smasher/smasher_northeast.png");
+    private static Image smasherSouthEast = new Image("/res/images/entities/smasher/smasher_southeast.png");
+    private static Image smasherSouth     = new Image("/res/images/entities/smasher/smasher_south.png");
+    private static Image smasherSouthWest = new Image("/res/images/entities/smasher/smasher_southeast.png");
+    private static Image smasherNorthWest = new Image("/res/images/entities/smasher/smasher_northwest.png");
 
-    private static Image sneak = new Image("res/images/entities/sneak/sneak.png");
-    private static Image sneakNorth = new Image("res/images/entities/sneak/sneak_north.png");
-    private static Image sneakNorthEast = new Image("res/images/entities/sneak/sneak_northeast.png");
-    private static Image sneakSouthEast = new Image("res/images/entities/sneak/sneak_southeast.png");
-    private static Image sneakSouth = new Image("res/images/entities/sneak/sneak_south.png");
-    private static Image sneakSouthWest = new Image("res/images/entities/sneak/sneak_southwest.png");
-    private static Image sneakNorthWest = new Image("res/images/entities/sneak/sneak_northwest.png");
+    private static Image sneak = new Image("/res/images/entities/sneak/sneak.png");
+    private static Image sneakNorth = new Image("/res/images/entities/sneak/sneak_north.png");
+    private static Image sneakNorthEast = new Image("/res/images/entities/sneak/sneak_northeast.png");
+    private static Image sneakSouthEast = new Image("/res/images/entities/sneak/sneak_southeast.png");
+    private static Image sneakSouth = new Image("/res/images/entities/sneak/sneak_south.png");
+    private static Image sneakSouthWest = new Image("/res/images/entities/sneak/sneak_southwest.png");
+    private static Image sneakNorthWest = new Image("/res/images/entities/sneak/sneak_northwest.png");
 
 
-    private static Image summoner = new Image("res/images/entities/summoner/summoner.png");
-    private static Image summonerNorth = new Image("res/images/entities/summoner/summoner_north.png");
-    private static Image summonerNorthEast = new Image("res/images/entities/summoner/summoner_northeast.png");
-    private static Image summonerSouthEast = new Image("res/images/entities/summoner/summoner_southeast.png");
-    private static Image summonerSouth = new Image("res/images/entities/summoner/summoner_south.png");
-    private static Image summonerSouthWest = new Image("res/images/entities/summoner/summoner_southwest.png");
-    private static Image summonerNorthWest = new Image("res/images/entities/summoner/summoner_northwest.png");
+    private static Image summoner = new Image("/res/images/entities/summoner/summoner.png");
+    private static Image summonerNorth = new Image("/res/images/entities/summoner/summoner_north.png");
+    private static Image summonerNorthEast = new Image("/res/images/entities/summoner/summoner_northeast.png");
+    private static Image summonerSouthEast = new Image("/res/images/entities/summoner/summoner_southeast.png");
+    private static Image summonerSouth = new Image("/res/images/entities/summoner/summoner_south.png");
+    private static Image summonerSouthWest = new Image("/res/images/entities/summoner/summoner_southwest.png");
+    private static Image summonerNorthWest = new Image("/res/images/entities/summoner/summoner_northwest.png");
 
-    private static Image moldySandwichImage = new Image("res/images/entities/moldySandwich/MoldySandwich.png");
-    private static Image bootsOfAwesome = new Image("res/images/items/TheBootsOfAwesome.gif");
-    private static Image olivePetNorth     = new Image("res/images/entities/olivepet/olivepet_north.png");
-    private static Image olivePetNorthEast = new Image("res/images/entities/olivepet/olivepet_northeast.png");
-    private static Image olivePetSouthEast = new Image("res/images/entities/olivepet/olivepet_southeast.png");
-    private static Image olivePetSouth     = new Image("res/images/entities/olivepet/olivepet_south.png");
-    private static Image olivePetSouthWest = new Image("res/images/entities/olivepet/olivepet_southwest.png");
-    private static Image olivePetNorthWest = new Image("res/images/entities/olivepet/olivepet_northwest.png");
+    private static Image moldySandwichImage = new Image("/res/images/entities/moldySandwich/MoldySandwich.png");
+    private static Image bootsOfAwesome = new Image("/res/images/items/TheBootsOfAwesome.gif");
+    private static Image olivePetNorth     = new Image("/res/images/entities/olivepet/olivepet_north.png");
+    private static Image olivePetNorthEast = new Image("/res/images/entities/olivepet/olivepet_northeast.png");
+    private static Image olivePetSouthEast = new Image("/res/images/entities/olivepet/olivepet_southeast.png");
+    private static Image olivePetSouth     = new Image("/res/images/entities/olivepet/olivepet_south.png");
+    private static Image olivePetSouthWest = new Image("/res/images/entities/olivepet/olivepet_southwest.png");
+    private static Image olivePetNorthWest = new Image("/res/images/entities/olivepet/olivepet_northwest.png");
 
     // Obstacle
-    private static Image wall = new Image("res/images/items/wall.png");
+    private static Image wall = new Image("/res/images/items/wall.png");
 
     // interactable
-    private static Image enemybutton = new Image("res/images/items/enemybutton.png");
-    private static Image lockeddoor = new Image("res/images/items/lockeddoor.png");
-    private static Image lockeddooroop = new Image("res/images/items/lockeddooroop.png");
+    private static Image enemybutton = new Image("/res/images/items/enemybutton.png");
+    private static Image lockeddoor = new Image("/res/images/items/lockeddoor.png");
+    private static Image lockeddooroop = new Image("/res/images/items/lockeddooroop.png");
 
     // oneshot
-    private static Image extraloaf = new Image("res/images/items/extraloaf.png");
-    private static Image coppercoin = new Image("res/images/items/coppercoin.png");
-    private static Image silvercoin = new Image("res/images/items/silvercoin.png");
-    private static Image goldcoin = new Image("res/images/items/goldcoin.png");
+    private static Image extraloaf = new Image("/res/images/items/extraloaf.png");
+    private static Image coppercoin = new Image("/res/images/items/coppercoin.png");
+    private static Image silvercoin = new Image("/res/images/items/silvercoin.png");
+    private static Image goldcoin = new Image("/res/images/items/goldcoin.png");
 
     // takeable
-    private static Image key = new Image("res/images/items/key.png");
-    private static Image checkplusplus = new Image("res/images/items/checkplusplus.png");
+    private static Image key = new Image("/res/images/items/key.png");
+    private static Image checkplusplus = new Image("/res/images/items/checkplusplus.png");
 
     // consumeable
-    private static Image hpminor = new Image("res/images/items/minorhealth.png");
-    private static Image hpmoderate = new Image("res/images/items/moderatehealth.png");
-    private static Image hpmajor = new Image("res/images/items/majorhealth.png");
-    private static Image manaminor = new Image("res/images/items/manaminor.png");
-    private static Image manamoderate = new Image("res/images/items/manamoderate.png");
-    private static Image manamajor = new Image("res/images/items/manamajor.png");
+    private static Image hpminor = new Image("/res/images/items/minorhealth.png");
+    private static Image hpmoderate = new Image("/res/images/items/moderatehealth.png");
+    private static Image hpmajor = new Image("/res/images/items/majorhealth.png");
+    private static Image manaminor = new Image("/res/images/items/manaminor.png");
+    private static Image manamoderate = new Image("/res/images/items/manamoderate.png");
+    private static Image manamajor = new Image("/res/images/items/manamajor.png");
 
     // equipable bread
-    private static Image wonderbread = new Image("res/images/items/wonderbread.png");
-    private static Image marblerye = new Image("res/images/items/marblerye.png");
-    private static Image ciabatta = new Image("res/images/items/ciabatta.png");
-    private static Image hoagie = new Image("res/images/items/hoagie.png");
+    private static Image wonderbread = new Image("/res/images/items/wonderbread.png");
+    private static Image marblerye = new Image("/res/images/items/marblerye.png");
+    private static Image ciabatta = new Image("/res/images/items/ciabatta.png");
+    private static Image hoagie = new Image("/res/images/items/hoagie.png");
 
     // equipable meat
-    private static Image rbeef = new Image("res/images/items/roastbeef.png");
-    private static Image rrbeef = new Image("res/images/items/rareroastbeef.png");
-    private static Image ham = new Image("res/images/items/ham.png");
-    private static Image turkey = new Image("res/images/items/turkey.png");
-    private static Image veggie = new Image("res/images/items/veggieburger.png");
+    private static Image rbeef = new Image("/res/images/items/roastbeef.png");
+    private static Image rrbeef = new Image("/res/images/items/rareroastbeef.png");
+    private static Image ham = new Image("/res/images/items/ham.png");
+    private static Image turkey = new Image("/res/images/items/turkey.png");
+    private static Image veggie = new Image("/res/images/items/veggieburger.png");
 
     // equipable veggie
-    private static Image lettuce = new Image("res/images/items/lettuce.png");
-    private static Image tomato = new Image("res/images/items/tomato.png");
-    private static Image onion = new Image("res/images/items/onion.png");
-    private static Image pickles = new Image("res/images/items/pickels.png");
-    private static Image bananapep = new Image("res/images/items/bananapepper.png");
+    private static Image lettuce = new Image("/res/images/items/lettuce.png");
+    private static Image tomato = new Image("/res/images/items/tomato.png");
+    private static Image onion = new Image("/res/images/items/onion.png");
+    private static Image pickles = new Image("/res/images/items/pickels.png");
+    private static Image bananapep = new Image("/res/images/items/bananapepper.png");
 
     // equipable cheese
-    private static Image cheddar = new Image("res/images/items/cheddar.png");
-    private static Image american = new Image("res/images/items/american.png");
-    private static Image provolone = new Image("res/images/items/provolone.png");
-    private static Image swiss = new Image("res/images/items/cheese.png");
-    private static Image pepperjack = new Image("res/images/items/pepperjack.png");
+    private static Image cheddar = new Image("/res/images/items/cheddar.png");
+    private static Image american = new Image("/res/images/items/american.png");
+    private static Image provolone = new Image("/res/images/items/provolone.png");
+    private static Image swiss = new Image("/res/images/items/cheese.png");
+    private static Image pepperjack = new Image("/res/images/items/pepperjack.png");
 
     // equipable shield
-    private static Image cellophane = new Image("res/images/items/celophane.png");
-    private static Image aluminum = new Image("res/images/items/aluminumfoil.png");
+    private static Image cellophane = new Image("/res/images/items/celophane.png");
+    private static Image aluminum = new Image("/res/images/items/aluminumfoil.png");
 
     // smasher weapon brawler
-    private static Image fistwrap = new Image("res/images/items/handwraps.png");
-    private static Image jalapenopooper = new Image("res/images/items/jalapenopoppers.png");
-    private static Image knucklesand = new Image("res/images/items/knucklesandwich.png");
+    private static Image fistwrap = new Image("/res/images/items/handwraps.png");
+    private static Image jalapenopooper = new Image("/res/images/items/jalapenopoppers.png");
+    private static Image knucklesand = new Image("/res/images/items/knucklesandwich.png");
 
     // smasher weapon 1 hand
-    private static Image frenchfry = new Image("res/images/items/limpfrenchfry.png");
-    private static Image toothpick = new Image("res/images/items/toothpick.png");
-    private static Image plasticsword = new Image("res/images/items/plasticsword.png");
+    private static Image frenchfry = new Image("/res/images/items/limpfrenchfry.png");
+    private static Image toothpick = new Image("/res/images/items/toothpick.png");
+    private static Image plasticsword = new Image("/res/images/items/plasticsword.png");
 
     // smasher weapon 2 hand
-    private static Image butterknife = new Image("res/images/items/butterknife.png");
-    private static Image picklespear = new Image("res/images/items/PickleSpear.png");
-    private static Image serratedknife = new Image("res/images/items/serratedknife.png");
+    private static Image butterknife = new Image("/res/images/items/butterknife.png");
+    private static Image picklespear = new Image("/res/images/items/PickleSpear.png");
+    private static Image serratedknife = new Image("/res/images/items/serratedknife.png");
 
     // sneak 1 handed
-    private static Image pcshiv = new Image("res/images/items/potatoshiv.png");
+    private static Image pcshiv = new Image("/res/images/items/potatoshiv.png");
 
     // sneak ranged
-    private static Image peashooter = new Image("res/images/items/peashooter.png");
-    private static Image orchakram = new Image("res/images/items/chakram.png");
-    private static Image ketchupBlaster = new Image("res/images/items/ketchupblaster.png");
+    private static Image peashooter = new Image("/res/images/items/peashooter.png");
+    private static Image orchakram = new Image("/res/images/items/chakram.png");
+    private static Image ketchupBlaster = new Image("/res/images/items/ketchupblaster.png");
 
     // summoner
-    private static Image celerystaff = new Image("res/images/items/celerystaff.png");
-    private static Image kitchenstaff = new Image("res/images/items/kitchenstaff.png");
+    private static Image celerystaff = new Image("/res/images/items/celerystaff.png");
+    private static Image kitchenstaff = new Image("/res/images/items/kitchenstaff.png");
 
 
     private static SpriteMap instance;

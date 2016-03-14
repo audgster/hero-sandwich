@@ -10,7 +10,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sun.applet.Main;
 
 import java.io.File;
 
