@@ -5,9 +5,9 @@ import com.herosandwich.models.map.Tile;
 /**
  * Created by Mitchell on 3/11/2016.
  */
-public class AmphibiousMovementVisitor extends MovementVisitor{
+public class AmphibiousMovementCheckVisitor extends MovementCheckVisitor {
 
-    public AmphibiousMovementVisitor(){
+    AmphibiousMovementCheckVisitor(){
         super();
     }
 
@@ -35,7 +35,7 @@ public class AmphibiousMovementVisitor extends MovementVisitor{
 
     public String toString()
     {
-        return "amphibious";
+        return "alpine";
     }
 
 }

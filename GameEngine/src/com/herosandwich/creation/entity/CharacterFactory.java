@@ -4,7 +4,7 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.occupation.Occupation;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 public class CharacterFactory
 {
@@ -20,7 +20,7 @@ public class CharacterFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            MovementVisitor visitor,
+            MovementCheckVisitor visitor,
             Occupation occupation
     )
     {

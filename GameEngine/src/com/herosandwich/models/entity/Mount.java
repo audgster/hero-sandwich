@@ -7,6 +7,7 @@ import com.herosandwich.models.items.takeableItems.TakeableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Occupation;
 import com.herosandwich.util.visitor.EntityVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 public class Mount extends Character
 {
@@ -24,18 +25,21 @@ public class Mount extends Character
         this.movement = 1;
     }
 
-    public Mount(String name, int movement)
+    public Mount(String name, int movement, MovementCheckVisitor visitor)
     {
         setName(name);
         this.rider = null;
         this.movement = movement;
+
+        setMoveVisitor(visitor);
     }
 
-    public Mount(String name, Character rider, int movement)
+    public Mount(String name, Character rider, int movement, MovementCheckVisitor visitor)
     {
         setName(name);
         this.rider = rider;
         this.movement = movement;
+        setMoveVisitor(visitor);
     }
 
     public Mount(Mount mount)
@@ -43,6 +47,7 @@ public class Mount extends Character
         setName(mount.getName());
         this.rider = mount.getRider();
         this.movement = mount.getMovement();
+        setMoveVisitor(mount.getMovementCheckVisitor());
     }
 
     /*

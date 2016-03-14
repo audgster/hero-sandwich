@@ -2022,9 +2022,9 @@
 </tile>
 <tile q="10" r="5" s="-15" terrain-type="grass">
 <entities>
-<mount move-visitor="ground" movement="1" name="Entity Dave">
+<mount move-visitor="amphibious" movement="1" name="Entity Dave">
 <rider>
-<player move-visitor="ground" name="Mitch the Snitch">
+<player move-visitor="alpine" name="Mitch the Snitch">
 <stats agility="6" currentLife="136" currentMana="35" experience="17" hardiness="22" intellect="6" lives="3" movement="45" strength="15"/>
 <location direction="south" q="0" r="0" s="0"/>
 <occupation>summoner</occupation>

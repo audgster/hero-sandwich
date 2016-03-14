@@ -1,12 +1,16 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
-import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entity
 {
@@ -26,7 +30,10 @@ public class Entity
     private PositionHex position;
     private DirectionHex direction;
 
-    private MovementVisitor moveVisitor;
+
+    protected List<Listener> listeners = new ArrayList<Listener>();
+
+    private MovementCheckVisitor moveVisitor;
 
     public Entity()
     {
@@ -40,10 +47,10 @@ public class Entity
         this.position = new PositionHex(0,0,0);
         this.direction = DirectionHex.SOUTH;
 
-        moveVisitor = new GroundMovementVisitor();
+        moveVisitor = new GroundMovementCheckVisitor();
     }
 
-    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementVisitor visitor){
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementCheckVisitor visitor){
         this.name = name;
         this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
@@ -53,7 +60,7 @@ public class Entity
         this.moveVisitor = visitor;
     }
 
-    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementVisitor visitor, PositionHex pos, DirectionHex dir){
+    public Entity(String name, PrimaryStats stats, DeriveStatStrategy strategy, MovementCheckVisitor visitor, PositionHex pos, DirectionHex dir){
         this.name = name;
         this.stats = new EntityStats(strategy, stats);
         currentLife = getMaxLife();
@@ -73,7 +80,7 @@ public class Entity
         currentLife = entity.getCurrentLife();
         currentMana = entity.getCurrentMana();
 
-        moveVisitor = entity.getMovementVisitor();
+        moveVisitor = entity.getMovementCheckVisitor();
 
         position = entity.getPosition();
         direction = entity.getDirection();
@@ -86,9 +93,14 @@ public class Entity
     * Accessors
     * */
 
-    public MovementVisitor getMovementVisitor()
+    public MovementCheckVisitor getMovementCheckVisitor()
     {
         return this.moveVisitor;
+    }
+
+    public void setMoveVisitor(MovementCheckVisitor visitor)
+    {
+        moveVisitor = visitor;
     }
 
     private EntityStats getStats()
@@ -362,6 +374,16 @@ public class Entity
             //updatePosition(this.position.getPosInDirection(this.direction));
         }
         return canMove;
+    }
+
+
+    public void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    protected void notifyListener() {
+        for(Listener listener : listeners)
+            listener.update();
     }
 
 }

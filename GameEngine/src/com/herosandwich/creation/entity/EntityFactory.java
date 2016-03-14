@@ -3,7 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.PrimaryStats;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 public class EntityFactory
 {
@@ -17,7 +17,7 @@ public class EntityFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            MovementVisitor visitor
+            MovementCheckVisitor visitor
     )
     {
         if (name == null || name.equals(""))

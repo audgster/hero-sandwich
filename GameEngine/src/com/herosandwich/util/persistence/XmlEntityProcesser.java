@@ -12,8 +12,7 @@ import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
-import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -26,6 +25,32 @@ public class XmlEntityProcesser
     public Entity processEntityNode(Element entity)
     {
         String name = entity.getAttribute("name");
+
+        MovementVisitor visitor;
+
+        String visitorString = entity.getAttribute("move-visitor").toLowerCase();
+
+        switch (visitorString)
+        {
+            case "alpine":
+                visitor = new AlpineMovementVisitor();
+                break;
+            case "amphibious":
+                visitor = new AmphibiousMovementVisitor();
+                break;
+            case "aquatic":
+                visitor = new AquaticMovementVisitor();
+                break;
+            case "flying":
+                visitor = new FlyingMovementVisitor();
+                break;
+            case "ground":
+                visitor = new GroundMovementVisitor();
+                break;
+            default:
+                throw new IllegalArgumentException("String " + " could not be converted to a Movement Visitor");
+        }
+
 
         // Process stat node
         Element statNode = (Element)entity.getElementsByTagName("stats").item(0);
@@ -61,7 +86,7 @@ public class XmlEntityProcesser
                 experience,
                 movement,
                 new ModiferWithWeightStatStrategy(10),
-                new GroundMovementVisitor()
+                visitor
         );
 
         entityObj.setCurrentMana(currentMana);
@@ -224,13 +249,37 @@ public class XmlEntityProcesser
 
         int movement = Integer.parseInt(mount.getAttribute("movement"));
 
+        MovementVisitor visitor;
+        String visitorString = mount.getAttribute("move-visitor").toLowerCase();
+
+        switch (visitorString)
+        {
+            case "alpine":
+                visitor = new AlpineMovementVisitor();
+                break;
+            case "amphibious":
+                visitor = new AmphibiousMovementVisitor();
+                break;
+            case "aquatic":
+                visitor = new AquaticMovementVisitor();
+                break;
+            case "flying":
+                visitor = new FlyingMovementVisitor();
+                break;
+            case "ground":
+                visitor = new GroundMovementVisitor();
+                break;
+            default:
+                throw new IllegalArgumentException("String " + " could not be converted to a Movement Visitor");
+        }
+
         Element location = (Element)mount.getElementsByTagName("location").item(0);
 
         PositionHex pos = XmlUtil.extractPosition(location);
 
         MountFactory factory = new MountFactory();
 
-        Mount mountObj = factory.vendCustomMount(name, movement, null);
+        Mount mountObj = factory.vendCustomMount(name, movement, null, visitor);
 
         if (mount.hasChildNodes())
         {
