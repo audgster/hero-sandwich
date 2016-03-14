@@ -21,20 +21,28 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
         Weapon rightWeapon = attackingCharacter.getRightHand();
         Weapon leftWeapon = attackingCharacter.getLeftHand();
         Occupation occupation = attackingCharacter.getOccupation();
-        String occupationName = occupation.toString();
 
         if (rightWeapon != null && leftWeapon != null) { // two weapons equipped
 
-            Skill weaponSkill = Skill.convertFromString( rightWeapon.convertToString() );
-            if ( !occupation.successfulAction( weaponSkill ) ) {
-                return !successful;
+            Skill rightWeaponSkill = Skill.convertFromString( WeaponType.convertToString( rightWeapon.getWeaponType() ) );
+            if ( !occupation.successfulAction( rightWeaponSkill ) ) {
+                successful = false;
             } else {
-                bonusDamage = occupation.getLevelOfSkill( weaponSkill );
+                bonusDamage += occupation.getLevelOfSkill( rightWeaponSkill );
             }
+
+            Skill leftWeaponSkill = Skill.convertFromString( WeaponType.convertToString( leftWeapon.getWeaponType() ) );
+            if ( !occupation.successfulAction( leftWeaponSkill ) ) {
+                successful = false;
+            } else {
+                bonusDamage += occupation.getLevelOfSkill( leftWeaponSkill );
+            }
+
+            if ( successful == false ) { return successful; }
 
         } else if (rightWeapon != null) {
 
-            Skill weaponSkill = Skill.convertFromString( rightWeapon.convertToString() );
+            Skill weaponSkill = Skill.convertFromString( WeaponType.convertToString( rightWeapon.getWeaponType() ) );
             if ( !occupation.successfulAction( weaponSkill ) ) {
                 return !successful;
             } else {
@@ -43,7 +51,7 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
 
         } else if (leftWeapon != null) {
 
-            Skill weaponSkill = Skill.convertFromString( leftWeapon.convertToString() );
+            Skill weaponSkill = Skill.convertFromString( WeaponType.convertToString( leftWeapon.getWeaponType() ) );
             if ( !occupation.successfulAction( weaponSkill ) ) {
                 return !successful;
             } else {
@@ -58,7 +66,7 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
 
 
         // Determine the amount of damage dealt
-        int grossDamageDealt = attackingCharacter.getOffensiveRating() + rightWeapon.;
+        int grossDamageDealt = attackingCharacter.getOffensiveRating() + bonusDamage;
         int damageAbsorbed = targetEntity.getArmorRating();
         int netDamageDealt = -(grossDamageDealt - damageAbsorbed);
         // Make sure attacks deal at least 1 damage
@@ -82,6 +90,6 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
             dispatcher.notify(new EntityDeathEvent(targetEntity));
         }
 
-        return success;
+        return successful;
     }
 }

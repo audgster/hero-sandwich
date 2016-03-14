@@ -9,7 +9,7 @@ public enum WeaponType {
     BRAWL,
     RANGED_WEAPON;
 
-    public String convertToString(WeaponType weaponType){
+    public static String convertToString(WeaponType weaponType){
         switch (weaponType){
             case ONE_HANDED_WEAPON:
                 return "one_handed_weapon";
