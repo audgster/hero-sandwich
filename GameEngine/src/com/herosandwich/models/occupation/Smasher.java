@@ -4,20 +4,23 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Skill;
 
 public class Smasher extends Occupation {
-    //Skills will range from 0 to 100
-    private int brawlSkill;
-    private int oneHandedWeaponSkill;
-    private int twoHandedWeaponSkill;
 
     public Smasher(){
-        this.brawlSkill = 0;
-        this.oneHandedWeaponSkill = 0;
-        this.twoHandedWeaponSkill = 0;
+        super();
+        learned_skills.add(Skill.ONE_HANDED_WEAPON);
+        learned_skills.add(Skill.TWO_HANDED_WEAPON);
+        learned_skills.add(Skill.BRAWL);
+        //when a character is created all skill levels are zero
+        updateOccupationSkills();
     }
 
 
     public Smasher(Character owner){
         super(owner);
+        learned_skills.add(Skill.ONE_HANDED_WEAPON);
+        learned_skills.add(Skill.TWO_HANDED_WEAPON);
+        learned_skills.add(Skill.BRAWL);
+        //when a character is created all skill levels are zero
         updateOccupationSkills();
     }
 
@@ -31,19 +34,12 @@ public class Smasher extends Occupation {
        // EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
 
         int damage = 0;
-        if(successfulAction(oneHandedWeaponSkill) ){
+        //if(successfulAction(oneHandedWeaponSkill) ){
          //   damage += character.getOffensiveRating();
            // damage += item.getWeaponsOffensiveRating();
             damage *=1.5;// One handed weapons are stronger than normal
-        }
+        //}
         return damage;
-    }
-
-    @Override
-    public void updateOccupationSkills(){
-        this.brawlSkill = owner.getNumberOfSkillPoints(Skill.BRAWL);
-        this.oneHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.ONE_HANDED_WEAPON);
-        this.twoHandedWeaponSkill = owner.getNumberOfSkillPoints(Skill.TWO_HANDED_WEAPON);
     }
 
     @Override
