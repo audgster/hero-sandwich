@@ -66,8 +66,11 @@ public class Controller {
                 case MOVE_NORTH_WEST:   gridView.activateGamePlayMode();
                                         player.move(DirectionHex.NORTH_WEST, map);
                                         break;
-                case SKILL1:            basic_attack();
+                case ATTACK:            basic_attack();
                                         break;
+                case BIND_WONDS:        bind_wounds();
+                                        break;
+
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
                                         gridView.scroll(DirectionHex.NORTH);
@@ -160,6 +163,11 @@ public class Controller {
         /** Test print **/
         if (!success) { System.out.println("No adjacent enemy! Attack failed."); }
         return success;
+    }
+
+    //will heal an occupation on press!!
+    public boolean bind_wounds(){
+        return player.getOccupation().bindWounds();
     }
 
     /****************************************************************/
