@@ -37,9 +37,14 @@ public class Inventory {
         if (getSize() == capacity)
             return false;
         if(item != null){
-            inventory.add(item);
+            for(int i = 0; i < capacity; i++){
+                if(inventory.get(i) == null){
+                    inventory.add(i, item);
+                    return true;
+                }
+            }
         }
-        return true;
+        return false;
     }
 
     public int getSize(){
