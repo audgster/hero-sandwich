@@ -160,13 +160,8 @@ public class PauseMenu implements Menu {
     }
 
     private void getInventoryMenu() {
-        if(inventoryMenu == null) {
             inventoryMenu = new InventoryMenu(WIDTH,HEIGHT,avatar);
             inventoryMenu.createMenu(pauseMenuView);
-        }
-        else {
-            inventoryMenu.setInventoryView(pauseMenuView);
-        }
     }
 
     private void getEquipmentMenu() {

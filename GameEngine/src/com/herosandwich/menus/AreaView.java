@@ -154,7 +154,7 @@ public class AreaView implements Menu {
         areaMenu.setMinSize(WIDTH/4,HEIGHT);
         content.getChildren().addAll(map,areaMenu);
         areaView.getChildren().add(content);
-            //pm.createMenu(areaView);
+            pm.createMenu(areaView);
         content.setFocusTraversable(true);
     }
 
