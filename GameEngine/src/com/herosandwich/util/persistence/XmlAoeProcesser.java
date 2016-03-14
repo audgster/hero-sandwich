@@ -35,7 +35,7 @@ public class XmlAoeProcesser
         PositionHex destination = XmlUtil.extractPosition(destinationElement);
         PositionHex pos = XmlUtil.extractPosition(teleport);
 
-        return new TeleportAoE(destination, pos);
+        return new TeleportAoE(pos, destination);
     }
 
     public XpAoE processXpElement(Element xp)

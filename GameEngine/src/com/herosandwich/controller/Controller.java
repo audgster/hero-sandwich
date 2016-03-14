@@ -10,6 +10,7 @@ import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
+import com.herosandwich.util.visitor.EntityVisitor;
 import javafx.scene.input.KeyCode;
 
 import java.util.HashMap;
@@ -42,8 +43,6 @@ public class Controller {
             areaView.doPauseTransition();
         }
 
-
-
 		// get correct enum from HashMap<KeyCode, Action>
 		Action inputAction = keyBindings.getAction(input);
         if(inputAction != null){
@@ -70,7 +69,10 @@ public class Controller {
                                         break;
                 case BIND_WONDS:        bind_wounds();
                                         break;
-
+                case BARGAIN:           bargain();
+                                        break;
+                case OBSERVATION:       observation();
+                                        break;
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
                                         gridView.scroll(DirectionHex.NORTH);
@@ -98,6 +100,9 @@ public class Controller {
                                             gridView.activateSearchMode();
                                             gridView.scroll(DirectionHex.NORTH_WEST);
                                             break;
+                case RANGED_ATTACK:
+                                            System.out.println("TRYING TO RANGE ATTACK!!");
+                                            gridView.doRangedAttack();
 
                 default:                // key not assigned; do nothing
             }
@@ -167,7 +172,38 @@ public class Controller {
 
     //will heal an occupation on press!!
     public boolean bind_wounds(){
+        System.out.println("System.out.println " + player.getCurrentLife());
         return player.getOccupation().bindWounds();
+    }
+
+
+    public boolean bargain(){
+        //return player.getOccupation().bargain(target);
+        return false;
+    }
+
+    public boolean observation(){
+        if(!player.getOccupation().observation()){
+            return false;
+        }
+        List<Tile> tiles = getTilesAroundPlayer();
+        for(Tile tile: tiles){
+            System.out.println(tile.toString());
+        }
+        return true;
+    }
+
+
+    public List getTilesAroundPlayer(){
+        HashMap tilesMaping = map.drawCircle(player.getPosition(),3, false);
+        Set<PositionHex> hexs = tilesMaping.keySet();
+        List<Tile> tiles = new ArrayList<>();
+        Tile currentTile;
+        for(PositionHex hex: hexs){
+            currentTile = (Tile)tilesMaping.get(hex);
+            tiles.add(currentTile);
+        }
+        return tiles;
     }
 
     /****************************************************************/

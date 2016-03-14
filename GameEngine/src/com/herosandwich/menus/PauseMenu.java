@@ -165,12 +165,7 @@ public class PauseMenu implements Menu {
     }
 
     private void getEquipmentMenu() {
-        if(equipmentMenu == null) {
-            equipmentMenu = new EquipmentMenu(WIDTH,HEIGHT);
-            equipmentMenu.createMenu(pauseMenuView);
-        }
-        else {
-            equipmentMenu.setEquipmentView(pauseMenuView);
-        }
+        equipmentMenu = new EquipmentMenu(WIDTH,HEIGHT,avatar);
+        equipmentMenu.createMenu(pauseMenuView);
     }
 }

@@ -39,13 +39,14 @@ public abstract class Occupation{
     // heals some damage
     public final boolean bindWounds(){
         boolean isSuccessful = false;
-        if(owner.getCurrentMana() == owner.getMaxMana()){
+        //if full health. Character can't heal
+        if(owner.getCurrentLife() == owner.getMaxLife()){
             return isSuccessful;
         }
 
         if(successfulAction(Skill.BIND_WOUNDS) ){
-            int healingAmount = (int)(1 + (getLevelOfSkill(Skill.BIND_WOUNDS)*.3));
-            owner.modifyCurrentMana(healingAmount);
+            int healingAmount = (int)(2 + (getLevelOfSkill(Skill.BIND_WOUNDS)*.3));
+            owner.modifyCurrentLife(healingAmount);
             isSuccessful = !isSuccessful;
         }
         return isSuccessful;
@@ -54,7 +55,7 @@ public abstract class Occupation{
     //if successful the following two conditions will occur
     //1) an npc that is selling will lower her prices for each item it sells!
     //2) an npc that is buying it will offer the character more money for each of her items!
-    public final void bargain(Npc npc){
+    public boolean bargain(Npc npc){
         if(successfulAction(Skill.BARGAIN)) {
             int bargain_skill_level = getLevelOfSkill(Skill.BARGAIN);
 
@@ -75,13 +76,13 @@ public abstract class Occupation{
                 int newCostOfItem = (int)(costOfItem * (1 + bargain_skill_level*(.01)));
                 npc_buying_list.replace(item_id, newCostOfItem);
             }
+            return true;
         }
+        return false;
     }
 
-    public final void observation(){
-        if(successfulAction(Skill.OBSERVATION)){
-
-        }
+    public boolean observation(){
+        return successfulAction(Skill.OBSERVATION);
     }
 
     //probability of action success. More likely to be successful if occupation has

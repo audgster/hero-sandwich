@@ -188,6 +188,17 @@ public class Character extends Entity {
         return true;
     }
 
+    public boolean removeItemFromEquipment(EquipableItem location)
+    {
+        EquipableItem item = equipment.removeItem(location);
+        if(item != null){
+            removeDerivedStat(item.getDerivedStats());
+            return inventory.insertItem(item);
+        }
+
+        return true;
+    }
+
     /*
     * Skill Methods
     * */
