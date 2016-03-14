@@ -66,4 +66,25 @@ public enum DirectionHex{
         }
     }
 
+    /** Returns an int that represents the DirectionHex, starting from North = 0, and moving clockwise **/
+    /** Returns -1 if the input is not a valid direction **/
+    public static int getIntRepresentation( DirectionHex direction ) {
+        switch (direction) {
+            case NORTH:
+                return 0;
+            case NORTH_EAST:
+                return 1;
+            case SOUTH_EAST:
+                return 2;
+            case SOUTH:
+                return 3;
+            case SOUTH_WEST:
+                return 4;
+            case NORTH_WEST:
+                return 5;
+            default:
+                return -1;
+        }
+    }
+
 }
