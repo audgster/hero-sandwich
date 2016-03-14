@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class EntityDrawable implements Drawable {
     SpriteMap spriteMap = SpriteMap.getInstance();
-    Integer graphicKey = 101; //whatever the key in the sprite is
+    Integer graphicKey; //whatever the key in the sprite is
     Image avatar = spriteMap.getImageForKey(graphicKey);
     boolean isAnimating;
 
