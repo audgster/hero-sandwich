@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.TextField;
 
@@ -32,7 +33,10 @@ public class AvatarCreationMenu implements Menu{
     private Player p;
     private Pane avatarCreationView;
 
-	public AvatarCreationMenu(double w, double h){
+    private Stage stage;
+
+	public AvatarCreationMenu(Stage stage, double w, double h){
+        this.stage = stage;
         WIDTH = w;
         HEIGHT = h;
         currentMenu=1;
@@ -47,9 +51,9 @@ public class AvatarCreationMenu implements Menu{
         createTitle();
 
         //creates the 3 different occupations
-        OccupationMenu smasherMenu = new OccupationMenu(new Smasher(p),avatarCreationView,WIDTH,HEIGHT);
-        OccupationMenu sneakMenu = new OccupationMenu(new Sneak(p),avatarCreationView,WIDTH,HEIGHT);
-        OccupationMenu summonerMenu = new OccupationMenu(new Summoner(p),avatarCreationView,WIDTH,HEIGHT);
+        OccupationMenu smasherMenu = new OccupationMenu(stage, new Smasher(p),avatarCreationView,WIDTH,HEIGHT);
+        OccupationMenu sneakMenu = new OccupationMenu(stage, new Sneak(p),avatarCreationView,WIDTH,HEIGHT);
+        OccupationMenu summonerMenu = new OccupationMenu(stage, new Summoner(p),avatarCreationView,WIDTH,HEIGHT);
             //sets the first view with the smasher occupation
             content.setCenter(smasherMenu);
             //creates the next and previous buttons
@@ -156,7 +160,9 @@ class OccupationMenu extends Parent{
     private TextField avatarName;
     private Pane avatarCreationView;
 
-	public OccupationMenu(Occupation occupation,Pane avatarCreationView,double width, double height){
+    private Stage stage;
+
+	public OccupationMenu(Stage stage, Occupation occupation,Pane avatarCreationView,double width, double height){
         WIDTH = width;
         HEIGHT = height;
         this.occupation = occupation;
@@ -286,8 +292,7 @@ class OccupationMenu extends Parent{
         else{
             avatar = factory.vendSmasherAvatar(name);
         }
-        AreaView av = new AreaView(WIDTH, HEIGHT, avatar);
+        AreaView av = new AreaView(stage, WIDTH, HEIGHT, avatar);
         av.createMenu(avatarCreationView);
-
     }
 }

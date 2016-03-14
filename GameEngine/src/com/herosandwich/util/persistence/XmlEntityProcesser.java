@@ -168,11 +168,11 @@ public class XmlEntityProcesser
 
         // skill points
         Element skillPoints = (Element)character.getElementsByTagName("skillpoints").item(0);
-        NodeList skillpointlist = skillPoints.getChildNodes();
+        List<Node> skillpointlist = XmlUtil.getElementNodesAsList(skillPoints.getChildNodes());
 
-        for (int i = 0; i < skillpointlist.getLength(); i++)
+        for (Node n : skillpointlist)
         {
-            Element skill = (Element)skillpointlist.item(i);
+            Element skill = (Element)n;
 
             Skill skillObj = Skill.convertFromString(skill.getAttribute("skillName"));
 
