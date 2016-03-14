@@ -8,7 +8,7 @@ public class TeleportAoE extends AoE
 {
     PositionHex destination;
 
-    public TeleportAoE(PositionHex destination, PositionHex position)
+    public TeleportAoE(PositionHex position, PositionHex destination)
     {
         super(position);
         this.destination = destination;

@@ -132,6 +132,7 @@ public class AreaView implements Menu {
         MapEventHandler mapEventHandler = new MapEventHandler(game.getMap());
         dispatcher.subscribe(CharacterPickUpItemEvent.class, (CharacterPickUpItemListener) mapEventHandler);
         dispatcher.subscribe(PetPickUpItemEvent.class, (PetPickUpItemListener) mapEventHandler);
+        dispatcher.subscribe(EntityActivatesAoEEvent.class, (EntityActivatesAoEListener) mapEventHandler);
 
         /** End of register events **/
         shop.createMenu(areaView);

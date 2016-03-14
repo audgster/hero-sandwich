@@ -174,6 +174,11 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
         drawableList.add(drawableAoe);
     }
 
+    @Override
+    public void visitTrap(Trap aoE) {
+
+    }
+
     public void clearDrawableList() {
         drawableList.clear();
     }
