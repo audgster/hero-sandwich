@@ -172,29 +172,38 @@ public class Controller {
 
     //will heal an occupation on press!!
     public boolean bind_wounds(){
+        System.out.println("System.out.println " + player.getCurrentLife());
         return player.getOccupation().bindWounds();
     }
 
 
-    public void bargain(){
+    public boolean bargain(){
         //return player.getOccupation().bargain(target);
+        return false;
     }
 
-    public void observation(){
+    public boolean observation(){
+        if(!player.getOccupation().observation()){
+            return false;
+        }
+        List<Tile> tiles = getTilesAroundPlayer();
+        for(Tile tile: tiles){
+            System.out.println(tile.toString());
+        }
+        return true;
+    }
+
+
+    public List getTilesAroundPlayer(){
         HashMap tilesMaping = map.drawCircle(player.getPosition(),3, false);
-        //EntityVisitor = new EntityVisitor();
         Set<PositionHex> hexs = tilesMaping.keySet();
-        List<Tile> tiles = new ArrayList<Tile>();
+        List<Tile> tiles = new ArrayList<>();
         Tile currentTile;
         for(PositionHex hex: hexs){
             currentTile = (Tile)tilesMaping.get(hex);
-            System.out.println("The tile is " + currentTile.toString());
-            if(currentTile.getEntity() != null){
-                System.out.println("The entity is" + currentTile.getEntity().toString());
-            }
-            System.out.println(currentTile.getEntity());
             tiles.add(currentTile);
         }
+        return tiles;
     }
 
     /****************************************************************/
