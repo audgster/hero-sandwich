@@ -70,7 +70,10 @@ public class Controller {
                                         break;
                 case BIND_WONDS:        bind_wounds();
                                         break;
-
+                case BARGAIN:           bargain();
+                                        break;
+                case OBSERVATION:       observation();
+                                        break;
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
                                         gridView.scroll(DirectionHex.NORTH);
@@ -168,6 +171,15 @@ public class Controller {
     //will heal an occupation on press!!
     public boolean bind_wounds(){
         return player.getOccupation().bindWounds();
+    }
+
+
+    public void bargain(){
+        //return player.getOccupation().bargain(target);
+    }
+
+    public void observation(){
+
     }
 
     /****************************************************************/

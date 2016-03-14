@@ -19,7 +19,7 @@ public class KeyBindings {
         keyBindings.put(KeyCode.Q,      Action.ATTACK);
         keyBindings.put(KeyCode.W,      Action.BIND_WONDS);
         keyBindings.put(KeyCode.E,      Action.BARGAIN);
-        keyBindings.put(KeyCode.R,      Action.SKILL4);
+        keyBindings.put(KeyCode.R,      Action.OBSERVATION);
         keyBindings.put(KeyCode.F,      Action.USE);
         keyBindings.put(KeyCode.A,      Action.SEARCH_MOVE_NORTH_WEST);
         keyBindings.put(KeyCode.S,      Action.SEARCH_MOVE_NORTH);
