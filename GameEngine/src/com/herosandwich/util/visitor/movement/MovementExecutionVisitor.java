@@ -100,7 +100,7 @@ public class MovementExecutionVisitor implements EntityVisitor, ItemVisitor, AoE
 
     @Override
     public void visitTeleportAoE(TeleportAoE aoE) {
-
+        aoE.setMap(map);
         this.visitAoE(aoE);
     }
 
