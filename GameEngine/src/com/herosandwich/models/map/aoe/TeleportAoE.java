@@ -28,7 +28,7 @@ public class TeleportAoE extends AoE
     @Override
     public void executeEffect(Entity entity) {
         MovementCheckVisitor visitor = new MovementCheckVisitor();
-        map.getTile(entity.getPosition()).acceptTileVisitor(visitor);
+        map.getTile(destination).acceptTileVisitor(visitor);
         if(visitor.canMove()) {
             entity.updatePosition(destination);
         }
