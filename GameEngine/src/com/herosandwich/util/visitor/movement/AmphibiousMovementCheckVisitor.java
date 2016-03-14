@@ -7,7 +7,7 @@ import com.herosandwich.models.map.Tile;
  */
 public class AmphibiousMovementCheckVisitor extends MovementCheckVisitor {
 
-    AmphibiousMovementCheckVisitor(){
+    public AmphibiousMovementCheckVisitor(){
         super();
     }
 

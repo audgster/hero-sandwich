@@ -4,7 +4,7 @@ import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 /**
  * Created by adamfortier on 3/14/16.
@@ -26,7 +26,7 @@ public class PetAIController implements Listener{
     }
 
     public void initPetForOwner() {
-        pet = new Pet(new Entity("pet", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementVisitor()));
+        pet = new Pet(new Entity("pet", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementCheckVisitor()));
         pet.updatePosition(new PositionHex(1,1));
         map.addEntity(pet.getPosition(), pet);
     }

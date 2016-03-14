@@ -47,6 +47,7 @@ public class Map {
     public void initialize(Collection<Tile> tiles){
         for(Tile tile: tiles){
             PositionHex pos = tile.getPosition();
+
             if(PositionHex.distanceTo(new PositionHex(0,0,0), pos) > size){
                 throw new IndexOutOfBoundsException("Map size is: " + this.size + "; tried to load Tile at out of " +
                         "bounds PositionHex: " + pos.getQ() +", " + pos.getR() + ", " + pos.getS());

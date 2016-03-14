@@ -73,6 +73,8 @@ public class XmlLoader implements Loader
         Map map = loadMap();
         PositionHex pos = getAvatarPostition();
 
+        //System.out.println(map.getTile(pos).getTerrain());
+
         map.addEntity(pos, newPlayer);
 
         game.setAvatar(newPlayer);
