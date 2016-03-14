@@ -89,16 +89,6 @@ public class XmlSaveAoEVisitor implements AoEVisitor
         aoeElement.appendChild(element);
     }
 
-    @Override
-    public void visitTrapAoE(InstantDamageAoETrap aoE) {
-        Element element = retrieveNameElement(aoE);
-        element = retrievePosition(element, aoE);
-
-        element.setAttribute("dmg-amt", Integer.toString(aoE.getInstantDamage()));
-
-        aoeElement.appendChild(element);
-    }
-
     private Element retrievePosition(Element element, AoE aoE)
     {
         PositionHex pos = aoE.getPosition();

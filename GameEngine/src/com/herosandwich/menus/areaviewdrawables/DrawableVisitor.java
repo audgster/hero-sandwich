@@ -172,13 +172,6 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
         drawableList.add(drawableAoe);
     }
 
-    @Override
-    public void visitTrapAoE(InstantDamageAoETrap aoE) {
-        drawableAoe.setAoeType(aoE.toString());
-        drawableList.add(drawableAoe);
-    }
-
-
     public void clearDrawableList() {
         drawableList.clear();
     }

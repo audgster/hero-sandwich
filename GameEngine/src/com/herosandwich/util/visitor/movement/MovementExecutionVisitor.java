@@ -1,6 +1,7 @@
 package com.herosandwich.util.visitor.movement;
 
 import com.herosandwich.events.CharacterPickUpItemEvent;
+import com.herosandwich.events.EventDispatcher;
 import com.herosandwich.events.PetPickUpItemEvent;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
@@ -105,11 +106,6 @@ public class MovementExecutionVisitor implements EntityVisitor, ItemVisitor, AoE
     }
 
     @Override
-    public void visitTrapAoE(InstantDamageAoETrap aoE) {
-
-    }
-
-    @Override
     public void visitItem(Item item) {
         //Uh-Oh
     }
@@ -136,10 +132,14 @@ public class MovementExecutionVisitor implements EntityVisitor, ItemVisitor, AoE
         if(entityIsCharacter){
             //eventHandler.characterPickUpItem((Character)this.entity, takeableItem);
             CharacterPickUpItemEvent event = new CharacterPickUpItemEvent((Character) this.entity, takeableItem);
+            EventDispatcher dispatcher = EventDispatcher.getInstance();
+            dispatcher.notify(event);
         }
         else if(entityIsPet){
             //eventHandler.petPickUpItem((Pet)this.entity, takeableItem);
             PetPickUpItemEvent event = new PetPickUpItemEvent((Pet)this.entity, takeableItem);
+            EventDispatcher dispatcher = EventDispatcher.getInstance();
+            dispatcher.notify(event);
         }
     }
 
