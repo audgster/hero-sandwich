@@ -147,7 +147,7 @@ public class Character extends Entity {
         }
     }
 
-    private boolean addToEquipment(EquipableItem item){
+    public boolean addToEquipment(EquipableItem item){
         boolean inserted = false;
         if(inventory.removeItem(item) != null) {
             addDerivedStat(item.getDerivedStats());
