@@ -30,7 +30,7 @@ public class TeleportAoE extends AoE
         MovementCheckVisitor visitor = new MovementCheckVisitor();
         map.getTile(destination).acceptTileVisitor(visitor);
         if(visitor.canMove()) {
-            entity.updatePosition(destination);
+            map.moveEntity(destination, entity);
         }
     }
 
