@@ -24,7 +24,6 @@ public class Controller {
     		controller = new Controller();
     	}
     	return controller;
-
 	}
 
 	// Private constructor for Singleton pattern
@@ -32,6 +31,7 @@ public class Controller {
 
 
 	public void executeUserInput(KeyCode input){
+        areaView.updateStatsMenu();
         if(input == KeyCode.ESCAPE){
             areaView.doPauseTransition();
         }

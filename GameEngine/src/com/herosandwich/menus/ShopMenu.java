@@ -2,22 +2,16 @@ package  com.herosandwich.menus;
 
 import com.herosandwich.creation.init.ItemInit;
 import com.herosandwich.models.entity.*;
-import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 
-import com.herosandwich.models.items.takeableItems.consumableItems.ConsumableItem;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 import java.util.*;
 
@@ -25,7 +19,7 @@ import java.util.*;
 public class ShopMenu implements Menu {
     private double WIDTH, HEIGHT;
     private Npc shopKeeper;
-    private Character avatar;
+    private Player avatar;
     private VBox content;
     private StackPane itemList;
     private ArrayList<ShopItem> npcInventory, playerInventory, selectedInventory;
@@ -39,7 +33,7 @@ public class ShopMenu implements Menu {
     private Label btnText;
     private StackPane btnArea;
 
-    public ShopMenu(double width, double height,Npc shopKeeper, Character avatar){
+    public ShopMenu(double width, double height,Npc shopKeeper, Player avatar){
         WIDTH = width;
         HEIGHT = height;
         this.shopKeeper = shopKeeper;
@@ -82,6 +76,7 @@ public class ShopMenu implements Menu {
 
         content.getChildren().addAll(shopDescription,itemInfo,inventory);
         root.getChildren().add(content);
+        content.setVisible(true);
     }
 
     private void updateBtn(){
@@ -109,10 +104,17 @@ public class ShopMenu implements Menu {
                     updateList();
                 });
             StackPane exitBtn = createBtn("Exit");
+                exitBtn.setOnMouseClicked(event -> {
+                    content.setVisible(false);
+                });
             VBox btnOptions = new VBox();
             btnOptions.getChildren().addAll(buyBtn,sellBtn,exitBtn);
             shopOptions.getChildren().add(btnOptions);
         return shopOptions;
+    }
+
+    public void setVisible(){
+        content.setVisible(true);
     }
 
     private StackPane createItemInfo(){
@@ -216,7 +218,7 @@ public class ShopMenu implements Menu {
 
     private void updateList(){
         createList(selectedInventory);
-        if(selectedInventory.size()==0){
+        if(selectedInventory.isEmpty()){
              btnArea.setVisible(false);
         }
         else{
