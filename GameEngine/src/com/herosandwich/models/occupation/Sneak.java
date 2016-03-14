@@ -86,10 +86,10 @@ public class Sneak extends Occupation{
     //this will get fixed with damageCalculator
     public int rangedWeaponAttack(SneakWeapon weapon){
         int damage = 0;
-        //if(successfulAction(this.rangedWeaponSkill) ){
+        if(successfulAction(Skill.RANGED_WEAPON) ){
             damage += owner.getOffensiveRating(); //damage from entity
             //damage += weapon.getWeaponsOffensiveRating(); // additional damage from weapon
-       // }
+        }
         return damage;
     }
 

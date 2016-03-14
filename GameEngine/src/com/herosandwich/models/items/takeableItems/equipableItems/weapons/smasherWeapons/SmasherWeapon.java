@@ -12,7 +12,7 @@ import com.herosandwich.util.visitor.ItemVisitor;
 
 public class SmasherWeapon extends Weapon {
     public SmasherWeapon(String name, int itemId, DerivedStats derivedStats){
-        super(name, itemId, derivedStats, WeaponType.BRAWL_WEAPON);
+        super(name, itemId, derivedStats, WeaponType.BRAWL);
         oWR = OccupationWeaponRestriction.SMASHER;
     }
 

@@ -29,17 +29,12 @@ public class Smasher extends Occupation {
 //    }
 
     //maybe state pattern.
-    public int attack(){
-       // EquipableItem item = character.getEquipedItem(EquipmentSlots.LEFTARM);
-
-        int damage = 0;
-        //if(successfulAction(oneHandedWeaponSkill) ){
-         //   damage += character.getOffensiveRating();
-           // damage += item.getWeaponsOffensiveRating();
-            damage *=1.5;// One handed weapons are stronger than normal
-        //}
-        return damage;
-    }
+//    public boolean attack(){
+//        if(successfulAction(oneHandedWeaponSkill) ){
+//
+//        }
+//        return true;
+//    }
 
     @Override
     public String toString() {

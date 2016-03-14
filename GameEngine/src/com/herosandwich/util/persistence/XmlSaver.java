@@ -4,6 +4,7 @@ import com.herosandwich.models.Game;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
+import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.xmlsave.XmlSaveTileVisitor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -95,6 +96,11 @@ public class XmlSaver implements Saver
         for( Tile t : map.getTiles())
         {
             if (t != null) {
+                PositionHex pos = t.getPosition();
+
+                if (pos.getQ() < 0)
+                    System.out.println("Boom");
+
                 t.acceptTileVisitor(visitor);
             }
         }

@@ -1,9 +1,10 @@
 package com.herosandwich.models.entity;
 
+import com.herosandwich.menus.areaviewdrawables.Listener;
+import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.visitor.EntityVisitor;
 
-public class Pet extends Entity
-{
+public class Pet extends Entity {
     private int mischief;
 
     public Pet()
@@ -51,4 +52,5 @@ public class Pet extends Entity
     {
         eVisitor.visitPet(this);
     }
+
 }

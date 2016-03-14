@@ -135,12 +135,49 @@ public class TileGrid  implements Listener{
         }
     }
 
+    private Double getImageCornerX(Double x)
+    {
+        return x - tileScale;
+    }
 
+    private Double getImageCornerY(Double y)
+    {
+        return y - (Math.sqrt(3)/2) * tileScale;
+    }
 
-    public CanvasPoint hexToCanvasPoint(PositionHex point) {
-        Double x = ( (3/2) * 2.92*(point.getQ() - viewState.getPosition().getQ()) + 0*point.getR())*tileScale;
-        Double y = ( (Math.sqrt(3)/2) * 1.92 *(point.getQ() - viewState.getPosition().getQ()) + Math.sqrt(3)*(1.92 * point.getR() - viewState.getPosition().getR()))*tileScale;
+    public CanvasPoint hexToCanvasPoint(PositionHex point)
+    {
+        /*
+        * Calculations are based in difference between Q, R of
+        * new point (point) and current center point (viewState.getPosition())
+        * */
+        int qDiff = point.getQ() - viewState.getPosition().getQ();
+        int rDiff = point.getR() - viewState.getPosition().getR();
 
-        return new CanvasPoint(x + screenWidth/2 - tileWidth, y + screenHeight/2 - tileHeight);
+        Double dx = ((3/2) * qDiff * tileScale) + (0 * rDiff * tileScale);
+        Double dy = ((Math.sqrt(3)/2) * qDiff * tileScale) + (Math.sqrt(3) * rDiff * tileScale);
+
+        /*
+        * Center of the center tile is located at (screenWidth/2, screenHeight/2)
+        * This calculates center of destination hex
+        *
+        * Also here be dragons in the form of 3 *  and 2 *
+        * */
+        Double x_center = (screenWidth/2) + (3 * dx);
+        Double y_center = (screenHeight/2) + (2 * dy);
+
+        /*
+        * Top corner calculated by:
+        * 1. subtracting tileScale from x where tile scale is the distance from the center
+        * to the left or right
+        *
+        * 2. subtracting sqrt(3)/2 * tilescale from y where sqrt(3)/2 * tilescale is the distance
+        * from the center to the top or bottom
+        *
+        * */
+        Double x_corner = getImageCornerX(x_center);
+        Double y_corner = getImageCornerY(y_center);
+
+        return new CanvasPoint(x_corner, y_corner);
     }
 }
