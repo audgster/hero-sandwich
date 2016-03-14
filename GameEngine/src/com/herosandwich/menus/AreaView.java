@@ -40,7 +40,6 @@ public class AreaView implements Menu {
     private HBox content;
     private Timeline gameLoop;
     private TileGrid grid;
-    private boolean paused;
     Canvas canvas;
     Pane areaMenu;
     PauseMenu pm;
@@ -58,7 +57,7 @@ public class AreaView implements Menu {
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
-        pm = new PauseMenu(WIDTH,HEIGHT,avatar);
+        pm = new PauseMenu(WIDTH,HEIGHT,avatar,this);
         am = new AreaMenu(WIDTH/4,HEIGHT,avatar);
     }
 
@@ -233,11 +232,9 @@ public class AreaView implements Menu {
         KeyFrame kf = new KeyFrame(
                 Duration.seconds(0.017),
                 ae->{
-                    if(!paused){
-                        //System.out.println(canvas.getWidth());
-                        am.update();
-                        render();
-                    }
+                    //System.out.println(canvas.getWidth());
+                    am.update();
+                    render();
                 }
         );
 
@@ -262,6 +259,11 @@ public class AreaView implements Menu {
     }
     public void doPauseTransition(){
         pm.doTransition();
-        paused = !paused;
+    }
+    public void play(){
+        gameLoop.play();
+    }
+    public void stop(){
+        gameLoop.stop();
     }
 }
