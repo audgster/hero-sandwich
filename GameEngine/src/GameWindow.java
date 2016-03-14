@@ -41,7 +41,7 @@ public class GameWindow extends Application {
         Scene display = new Scene(rootView,WIDTH,HEIGHT);
         primaryStage.setScene(display);
         primaryStage.setTitle("Hero Sandwich");
-        primaryStage.getIcons().add(new Image("res/images/smasher.gif"));
+        primaryStage.getIcons().add(new Image("res/images/old/smasher.gif"));
 
         display.getStylesheets().add
                 (GameWindow.class.getResource("GameWindow.css").toExternalForm());

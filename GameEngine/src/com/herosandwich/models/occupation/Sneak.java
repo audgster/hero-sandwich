@@ -104,5 +104,5 @@ public class Sneak extends Occupation{
         return "Sneak";
     }
 
-    public String getDescription(){ return "A sandwich who loves to smash things";}
+    public String getDescription(){ return "This sandwich is low fat and keeps a low profile.";}
 }

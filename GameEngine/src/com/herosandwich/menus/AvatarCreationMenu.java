@@ -1,6 +1,9 @@
 package  com.herosandwich.menus;
 
-import com.herosandwich.models.entity.Player;
+import com.herosandwich.creation.entity.CharacterFactory;
+import com.herosandwich.creation.entity.PlayerFactory;
+import com.herosandwich.models.entity.*;
+import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.*;
 
 import javafx.animation.TranslateTransition;
@@ -246,6 +249,7 @@ class OccupationMenu extends Parent{
 	    		toggleButton(false);
 			});
 	    Label occupationDescription = new Label(occupation.getDescription());
+            occupationDescription.setWrapText(true);
 	    VBox vbox = new VBox(10);
     	    vbox.getChildren().addAll(occupationName,occupationImage,occupationDescription);
     	    vbox.setAlignment(Pos.CENTER);
@@ -268,7 +272,14 @@ class OccupationMenu extends Parent{
 	}
 
     private void createGame(Occupation occupation){
-        AreaView av = new AreaView(WIDTH, HEIGHT);
+//        CharacterFactory cf = new CharacterFactory();
+//        String name = avatarName.getCharacters().toString();
+//        Character avatar = cf.vendCustomInstance(name, 3, 5, 5, 5, 5, 0, 30, new ModiferWithWeightStatStrategy(9),occupation);
+
+        PlayerFactory factory = new PlayerFactory();
+        Character avatar = factory.vendDefaultInstance();
+
+        AreaView av = new AreaView(WIDTH, HEIGHT, avatar);
         av.createMenu(avatarCreationView);
 
     }
