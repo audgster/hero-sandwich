@@ -7,6 +7,7 @@ import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
+import com.sun.tools.classfile.TypeAnnotation;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -23,6 +24,9 @@ public class Map {
     private HashSet<Entity> entitySet;
     private PositionHex[][] positionArray;
     private int size;
+
+    // The position the entity spawns at when it dies
+    private PositionHex checkPoint;
 
     public Map(int size){
         if(size < 0){
@@ -127,6 +131,14 @@ public class Map {
             entity.updatePosition(pos);
             tileMap.get(pos).addEntity(entity);
         }
+    }
+
+    public PositionHex getCheckPoint() {
+        return checkPoint;
+    }
+
+    public void setCheckPoint(PositionHex position) {
+        this.checkPoint = position;
     }
 
     /********************************************************************/

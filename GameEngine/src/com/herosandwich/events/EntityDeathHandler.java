@@ -18,8 +18,8 @@ public class EntityDeathHandler implements EntityDeathListener {
     /** Remove the dead entity from the map **/
     @Override
     public void entityDies(Entity deadEntity) {
-            PositionHex pos = deadEntity.getPosition();
-            Tile tile = map.getTile(pos);
-            tile.removeEntity(deadEntity);
+
+        map.removeEntity( deadEntity.getPosition(), deadEntity );
+
     }
 }
