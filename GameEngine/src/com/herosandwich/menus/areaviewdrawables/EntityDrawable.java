@@ -18,19 +18,22 @@ public class EntityDrawable implements Drawable {
     ArrayList<Image> smasherAnimation = new ArrayList(2);
 
     public EntityDrawable(){
-        smasherAnimation.add(spriteMap.getImageForKey(400));
-        smasherAnimation.add(spriteMap.getImageForKey(401));
-        animateFrame();
+//        smasherAnimation.add(spriteMap.getImageForKey(400));
+//        smasherAnimation.add(spriteMap.getImageForKey(401));
+//        animateFrame();
 
     }
 
     public void setGraphicKey(Integer spriteMapImageID) {
+
         graphicKey = spriteMapImageID;
+        avatar = spriteMap.getImageForKey(graphicKey);
     }
 
     public void setType(String entityType) {
         if(entityType.equalsIgnoreCase("moldySandwich")) {
             graphicKey = 102;
+            avatar = spriteMap.getImageForKey(graphicKey);
         }
     }
 
