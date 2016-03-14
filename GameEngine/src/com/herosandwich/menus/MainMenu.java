@@ -8,11 +8,30 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import sun.applet.Main;
+
+import java.io.File;
 
 public class MainMenu implements Menu{
     private ImageView mainMenuImg;
     private StackPane content;
     private Pane mainMenuView;
+
+    private Double WIDTH;
+    private Double HEIGHT;
+
+    private Stage stage;
+
+    public MainMenu(Stage stage, Double width, Double height)
+    {
+        super();
+
+        WIDTH = width;
+        HEIGHT = height;
+        this.stage = stage;
+    }
 
     @Override
     public void createMenu(Pane root){
@@ -43,10 +62,19 @@ public class MainMenu implements Menu{
             title.setPadding(new Insets(25,25,25,25));
         StackPane newGame = createBtn("New Game");
             newGame.setOnMouseClicked(event -> {
-                AvatarCreationMenu acm = new AvatarCreationMenu(0,0);
+                AvatarCreationMenu acm = new AvatarCreationMenu(stage, WIDTH, HEIGHT);
                 acm.createMenu(mainMenuView);
             });
         StackPane loadGame = createBtn("Load Game");
+            loadGame.setOnMouseClicked(event -> {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Choose save file");
+                File file = fileChooser.showOpenDialog(stage);
+
+                AreaView areaView = new AreaView(stage, WIDTH, HEIGHT, file);
+                areaView.createMenu(mainMenuView);
+            });
+
         StackPane exit = createBtn("Exit");
             exit.setOnMouseClicked(event -> {
                 System.exit(0);

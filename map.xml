@@ -17,17 +17,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-2" r="-10" s="12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="11" r="12" s="-23" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="13" r="-24" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -37,7 +27,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="5" s="12" terrain-type="grass">
+<tile q="13" r="-24" s="11" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-2" r="-10" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -67,17 +62,22 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-17" r="5" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="13" r="-23" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="24" s="-6" terrain-type="grass">
+<tile q="-17" r="6" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="6" s="11" terrain-type="grass">
+<tile q="-18" r="24" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -107,12 +107,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="7" s="10" terrain-type="grass">
+<tile q="-18" r="25" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="25" s="-7" terrain-type="grass">
+<tile q="-17" r="7" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -167,17 +167,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="9" s="8" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-16" r="-9" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-17" r="9" s="8" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-3" r="13" s="-10" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="12" r="-1" s="-11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -188,11 +193,6 @@
 <aoes/>
 </tile>
 <tile q="-1" r="-23" s="24" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="12" r="-1" s="-11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -342,12 +342,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="-4" s="20" terrain-type="grass">
+<tile q="-17" r="14" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="14" s="3" terrain-type="grass">
+<tile q="-16" r="-4" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -447,12 +447,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="-1" s="17" terrain-type="grass">
+<tile q="-17" r="17" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="17" s="0" terrain-type="grass">
+<tile q="-16" r="-1" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -467,12 +467,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="12" r="7" s="-19" terrain-type="grass">
+<tile q="-1" r="-15" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="-15" s="16" terrain-type="grass">
+<tile q="12" r="7" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -517,22 +517,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="1" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-17" r="19" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="23" s="-20" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="12" r="9" s="-21" terrain-type="grass">
+<tile q="-16" r="1" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -542,7 +532,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-3" r="23" s="-20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-2" r="5" s="-3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="12" r="9" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -562,12 +562,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="24" s="-21" terrain-type="grass">
+<tile q="-1" r="-12" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-2" r="6" s="-4" terrain-type="grass">
+<tile q="-3" r="24" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -577,7 +577,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="-12" s="13" terrain-type="grass">
+<tile q="-2" r="6" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -587,17 +587,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="21" s="-4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-16" r="3" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-17" r="21" s="-4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-3" r="25" s="-22" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-2" r="7" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -612,11 +617,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-2" r="7" s="-5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="13" r="-7" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -627,12 +627,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="4" s="12" terrain-type="grass">
+<tile q="-17" r="22" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="22" s="-5" terrain-type="grass">
+<tile q="-16" r="4" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -677,12 +677,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="12" r="13" s="-25" terrain-type="grass">
+<tile q="-1" r="-9" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="-9" s="10" terrain-type="grass">
+<tile q="12" r="13" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -697,12 +697,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="24" s="-7" terrain-type="grass">
+<tile q="-16" r="6" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="6" s="10" terrain-type="grass">
+<tile q="-17" r="24" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -762,12 +762,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-10" s="25" terrain-type="grass">
+<tile q="-16" r="8" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="8" s="8" terrain-type="grass">
+<tile q="-15" r="-10" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -797,12 +797,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="9" s="7" terrain-type="grass">
+<tile q="-15" r="-9" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-9" s="24" terrain-type="grass">
+<tile q="-16" r="9" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -867,12 +867,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-7" s="22" terrain-type="grass">
+<tile q="-16" r="11" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="11" s="5" terrain-type="grass">
+<tile q="-15" r="-7" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -902,12 +902,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-6" s="21" terrain-type="grass">
+<tile q="-16" r="12" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="12" s="4" terrain-type="grass">
+<tile q="-15" r="-6" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -937,12 +937,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-5" s="20" terrain-type="grass">
+<tile q="-16" r="13" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="13" s="3" terrain-type="grass">
+<tile q="-15" r="-5" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1007,12 +1007,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="15" s="1" terrain-type="grass">
+<tile q="-15" r="-3" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-3" s="18" terrain-type="grass">
+<tile q="-16" r="15" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1042,12 +1042,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="16" s="0" terrain-type="grass">
+<tile q="-15" r="-2" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-2" s="17" terrain-type="grass">
+<tile q="-16" r="16" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1077,12 +1077,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="17" s="-1" terrain-type="grass">
+<tile q="-15" r="-1" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="-1" s="16" terrain-type="grass">
+<tile q="-16" r="17" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1147,22 +1147,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="1" s="14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-16" r="19" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="-13" s="13" terrain-type="grass">
+<tile q="-15" r="1" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-2" r="23" s="-21" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="0" r="-13" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1182,12 +1182,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-15" r="2" s="13" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-16" r="20" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="2" s="13" terrain-type="grass">
+<tile q="0" r="-12" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1202,11 +1207,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="-12" s="12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="13" r="10" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -1217,12 +1217,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="3" s="12" terrain-type="grass">
+<tile q="-16" r="21" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="21" s="-5" terrain-type="grass">
+<tile q="-15" r="3" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1232,12 +1232,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="7" s="-6" terrain-type="grass">
+<tile q="0" r="-11" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="-11" s="11" terrain-type="grass">
+<tile q="-1" r="7" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1292,12 +1292,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-16" r="23" s="-7" terrain-type="grass">
+<tile q="-15" r="5" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="5" s="10" terrain-type="grass">
+<tile q="-16" r="23" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1352,6 +1352,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-15" r="7" s="8" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-16" r="25" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -1373,11 +1378,6 @@
 <aoes/>
 </tile>
 <tile q="0" r="-7" s="7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-15" r="7" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1427,12 +1427,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="9" s="6" terrain-type="grass">
+<tile q="-14" r="-9" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="-9" s="23" terrain-type="grass">
+<tile q="-15" r="9" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1462,12 +1462,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="-8" s="22" terrain-type="grass">
+<tile q="-15" r="10" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="10" s="5" terrain-type="grass">
+<tile q="-14" r="-8" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1618,7 +1618,19 @@
 <aoes/>
 </tile>
 <tile q="0" r="0" s="0" terrain-type="grass">
-<entities/>
+<entities>
+<player move-visitor="ground" name="Dave the Avatar">
+<stats agility="3" currentLife="17" currentMana="9" experience="0" hardiness="5" intellect="3" lives="3" movement="20" strength="5"/>
+<location direction="south" q="0" r="0" s="0"/>
+<occupation>smasher</occupation>
+<inventory>
+<items/>
+</inventory>
+<equipment/>
+<skillpoints available="3"/>
+<cash amount="0"/>
+</player>
+</entities>
 <tile-items/>
 <aoes/>
 </tile>
@@ -1672,17 +1684,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="-2" s="16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-15" r="16" s="-1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="1" r="-16" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1697,6 +1699,16 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="1" r="-16" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-14" r="-2" s="16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="14" r="6" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -1707,7 +1719,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-14" r="-1" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-15" r="17" s="-2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="1" r="-15" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1718,16 +1740,6 @@
 <aoes/>
 </tile>
 <tile q="0" r="3" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="1" r="-15" s="14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-14" r="-1" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1757,12 +1769,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="-14" s="13" terrain-type="grass">
+<tile q="0" r="4" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="4" s="-4" terrain-type="grass">
+<tile q="1" r="-14" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1792,12 +1804,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="5" s="-5" terrain-type="grass">
+<tile q="1" r="-13" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="-13" s="12" terrain-type="grass">
+<tile q="0" r="5" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1817,12 +1829,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="24" s="-23" terrain-type="grass">
+<tile q="-14" r="2" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="-12" s="11" terrain-type="grass">
+<tile q="-1" r="24" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1832,7 +1844,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="2" s="12" terrain-type="grass">
+<tile q="1" r="-12" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1847,12 +1859,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-15" r="21" s="-6" terrain-type="grass">
+<tile q="-14" r="3" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-1" r="25" s="-24" terrain-type="grass">
+<tile q="-15" r="21" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1862,12 +1874,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="7" s="-7" terrain-type="grass">
+<tile q="-1" r="25" s="-24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="3" s="11" terrain-type="grass">
+<tile q="0" r="7" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1887,11 +1899,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="4" s="10" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-15" r="22" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -1907,17 +1914,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-14" r="4" s="10" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="15" r="-6" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="16" r="-24" s="8" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-14" r="5" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1933,6 +1940,11 @@
 <aoes/>
 </tile>
 <tile q="1" r="-9" s="8" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-14" r="5" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1957,17 +1969,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-13" r="-12" s="25" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="0" r="10" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="1" r="-8" s="7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-13" r="-12" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -1982,11 +1994,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="7" s="7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-15" r="25" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -1997,12 +2004,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="1" r="-7" s="6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="2" r="-25" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="-7" s="6" terrain-type="grass">
+<tile q="-14" r="7" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2022,12 +2034,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="8" s="6" terrain-type="grass">
+<tile q="-13" r="-10" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="-10" s="23" terrain-type="grass">
+<tile q="-14" r="8" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2277,39 +2289,50 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="2" r="-17" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="1" r="1" s="-2" terrain-type="grass">
 <entities>
-<npc move-visitor="ground" name="MerpDerp">
-<stats agility="10" currentLife="6" currentMana="5" experience="10" hardiness="10" intellect="10" lives="3" movement="10" strength="10"/>
+<npc move-visitor="ground" name="Dagwood, the king of all sandwiches">
+<stats agility="3" currentLife="6" currentMana="5" experience="0" hardiness="3" intellect="3" lives="1" movement="15" strength="3"/>
 <location direction="south" q="1" r="1" s="-2"/>
 <occupation>summoner</occupation>
 <inventory>
 <items/>
 </inventory>
-<equipment/>
-<skillpoints/>
+<equipment>
+<equipmentslot item-id="50" slot="left_hand"/>
+</equipment>
+<skillpoints>
+<skill pointAmount="1" skillName="bane"/>
+<skill pointAmount="1" skillName="boon"/>
+<skill pointAmount="1" skillName="enchantment"/>
+</skillpoints>
 <cash amount="0"/>
 <sales>
-<sale item-id="18" price="2"/>
-<sale item-id="4" price="3"/>
+<sale item-id="25" price="1"/>
+<sale item-id="26" price="5"/>
+<sale item-id="27" price="10"/>
+<sale item-id="28" price="15"/>
+<sale item-id="29" price="20"/>
 </sales>
 <buys>
-<buy item-id="29" price="5"/>
-<buy item-id="31" price="6"/>
+<buy item-id="25" price="1"/>
+<buy item-id="26" price="2"/>
+<buy item-id="27" price="6"/>
+<buy item-id="28" price="11"/>
+<buy item-id="29" price="16"/>
 </buys>
 <towards-player attitude="neutral"/>
 <things-to-say>
-<npc-says text="Merp"/>
-<npc-says text="Derp"/>
-<npc-says text="Herp"/>
+<npc-says text="I'm much too beautiful to be eaten!"/>
+<npc-says text="Beauty is in the stomach of the beholder"/>
 </things-to-say>
 </npc>
 </entities>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="2" r="-17" s="15" terrain-type="grass">
-<entities/>
 <tile-items/>
 <aoes/>
 </tile>
@@ -2338,12 +2361,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="0" r="20" s="-20" terrain-type="grass">
+<tile q="2" r="-16" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="-16" s="14" terrain-type="grass">
+<tile q="0" r="20" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2378,12 +2401,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="-15" s="13" terrain-type="grass">
+<tile q="1" r="3" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="3" s="-4" terrain-type="grass">
+<tile q="2" r="-15" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2398,12 +2421,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="18" s="-4" terrain-type="grass">
+<tile q="-13" r="0" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="0" s="13" terrain-type="grass">
+<tile q="-14" r="18" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2433,17 +2456,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="1" s="12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-14" r="19" s="-5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="2" r="-13" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2453,7 +2466,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="2" r="-13" s="11" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="1" r="5" s="-6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-13" r="1" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2483,12 +2506,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="-12" s="10" terrain-type="grass">
+<tile q="1" r="6" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="6" s="-7" terrain-type="grass">
+<tile q="2" r="-12" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2503,12 +2526,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="3" s="10" terrain-type="grass">
+<tile q="-14" r="21" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="21" s="-7" terrain-type="grass">
+<tile q="-13" r="3" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2538,12 +2561,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="22" s="-8" terrain-type="grass">
+<tile q="-13" r="4" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="4" s="9" terrain-type="grass">
+<tile q="-14" r="22" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2568,12 +2591,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-14" r="23" s="-9" terrain-type="grass">
+<tile q="-13" r="5" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="5" s="8" terrain-type="grass">
+<tile q="-14" r="23" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2603,7 +2626,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="6" s="7" terrain-type="grass">
+<tile q="-12" r="-12" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2613,7 +2636,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="-12" s="24" terrain-type="grass">
+<tile q="-13" r="6" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2638,7 +2661,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="7" s="6" terrain-type="grass">
+<tile q="-12" r="-11" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2648,7 +2671,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="-11" s="23" terrain-type="grass">
+<tile q="-13" r="7" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2658,12 +2681,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="-7" s="5" terrain-type="grass">
+<tile q="3" r="-25" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-25" s="22" terrain-type="grass">
+<tile q="2" r="-7" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2678,12 +2701,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="-10" s="22" terrain-type="grass">
+<tile q="-13" r="8" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="8" s="5" terrain-type="grass">
+<tile q="-12" r="-10" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2938,12 +2961,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-17" s="14" terrain-type="grass">
+<tile q="2" r="1" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="1" s="-3" terrain-type="grass">
+<tile q="3" r="-17" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2968,17 +2991,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-16" s="13" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="1" r="20" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="2" r="2" s="-4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="3" r="-16" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -2993,12 +3016,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="-1" s="13" terrain-type="grass">
+<tile q="-13" r="17" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="17" s="-4" terrain-type="grass">
+<tile q="-12" r="-1" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3008,12 +3031,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="3" s="-5" terrain-type="grass">
+<tile q="3" r="-15" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-15" s="12" terrain-type="grass">
+<tile q="2" r="3" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3028,17 +3051,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="18" s="-5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-12" r="0" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-14" s="11" terrain-type="grass">
+<tile q="-13" r="18" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3049,6 +3067,11 @@
 <aoes/>
 </tile>
 <tile q="2" r="4" s="-6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="3" r="-14" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3078,12 +3101,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="-13" s="10" terrain-type="grass">
+<tile q="2" r="5" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="5" s="-7" terrain-type="grass">
+<tile q="3" r="-13" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3098,22 +3121,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="2" s="10" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-13" r="20" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="1" r="24" s="-25" terrain-type="grass">
+<tile q="-12" r="2" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="3" r="-12" s="9" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="1" r="24" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3193,12 +3216,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="5" s="7" terrain-type="grass">
+<tile q="-13" r="23" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="23" s="-10" terrain-type="grass">
+<tile q="-12" r="5" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3263,12 +3286,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="7" s="5" terrain-type="grass">
+<tile q="-13" r="25" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-13" r="25" s="-12" terrain-type="grass">
+<tile q="-12" r="7" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3278,12 +3301,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-25" s="21" terrain-type="grass">
+<tile q="2" r="11" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="11" s="-13" terrain-type="grass">
+<tile q="4" r="-25" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3338,12 +3361,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="-9" s="20" terrain-type="grass">
+<tile q="-12" r="9" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="9" s="3" terrain-type="grass">
+<tile q="-11" r="-9" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3513,22 +3536,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="14" s="-2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-11" r="-4" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-18" s="14" terrain-type="grass">
+<tile q="-12" r="14" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="2" r="18" s="-20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="4" r="-18" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3548,12 +3571,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="15" s="-3" terrain-type="grass">
+<tile q="-11" r="-3" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="-3" s="14" terrain-type="grass">
+<tile q="-12" r="15" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3583,12 +3606,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="-2" s="13" terrain-type="grass">
+<tile q="-12" r="16" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="16" s="-4" terrain-type="grass">
+<tile q="-11" r="-2" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3628,12 +3651,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-15" s="11" terrain-type="grass">
+<tile q="2" r="21" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="2" r="21" s="-23" terrain-type="grass">
+<tile q="4" r="-15" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3698,6 +3721,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="4" r="-13" s="9" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="2" r="23" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -3708,22 +3736,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-13" s="9" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="18" r="-9" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="20" s="-8" terrain-type="grass">
+<tile q="-11" r="2" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="2" s="9" terrain-type="grass">
+<tile q="-12" r="20" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3743,12 +3766,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="21" s="-9" terrain-type="grass">
+<tile q="-11" r="3" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="3" s="8" terrain-type="grass">
+<tile q="-12" r="21" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3778,12 +3801,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-12" r="22" s="-10" terrain-type="grass">
+<tile q="-11" r="4" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-25" r="0" s="25" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-12" r="22" s="-10" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-10" r="-14" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3794,16 +3827,6 @@
 <aoes/>
 </tile>
 <tile q="4" r="-10" s="6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-11" r="4" s="7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-10" r="-14" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3828,22 +3851,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="5" s="6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-10" r="-13" s="23" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="3" r="9" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="4" r="-9" s="5" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-11" r="5" s="6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-10" r="-13" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3898,7 +3921,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-11" s="21" terrain-type="grass">
+<tile q="-11" r="7" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3913,22 +3936,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="7" s="4" terrain-type="grass">
+<tile q="-10" r="-11" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="3" r="11" s="-14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="4" r="-7" s="3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="5" r="-25" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3939,6 +3952,16 @@
 <aoes/>
 </tile>
 <tile q="19" r="-21" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="4" r="-7" s="3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="5" r="-25" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3958,12 +3981,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="3" r="12" s="-15" terrain-type="grass">
+<tile q="5" r="-24" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-24" s="19" terrain-type="grass">
+<tile q="3" r="12" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3983,7 +4006,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="9" s="2" terrain-type="grass">
+<tile q="-10" r="-9" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -3993,7 +4016,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-9" s="19" terrain-type="grass">
+<tile q="-11" r="9" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="5" r="-23" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4008,11 +4036,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-23" s="18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="18" r="-1" s="-17" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4023,7 +4046,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="10" s="1" terrain-type="grass">
+<tile q="-10" r="-8" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4033,7 +4056,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-8" s="18" terrain-type="grass">
+<tile q="-11" r="10" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4063,7 +4086,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-7" s="17" terrain-type="grass">
+<tile q="-11" r="11" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4073,7 +4096,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="11" s="0" terrain-type="grass">
+<tile q="-10" r="-7" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4103,7 +4126,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="12" s="-1" terrain-type="grass">
+<tile q="-10" r="-6" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4113,7 +4136,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-6" s="16" terrain-type="grass">
+<tile q="-11" r="12" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4123,12 +4146,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-2" s="-2" terrain-type="grass">
+<tile q="5" r="-20" s="15" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-20" s="15" terrain-type="water">
+<tile q="4" r="-2" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4143,7 +4166,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-5" s="15" terrain-type="grass">
+<tile q="-11" r="13" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4153,7 +4176,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="13" s="-2" terrain-type="grass">
+<tile q="-10" r="-5" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4163,12 +4186,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-19" s="14" terrain-type="grass">
+<tile q="4" r="-1" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="-1" s="-3" terrain-type="grass">
+<tile q="5" r="-19" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4183,7 +4206,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-4" s="14" terrain-type="grass">
+<tile q="-11" r="14" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4193,17 +4216,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="14" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="5" r="-18" s="13" terrain-type="grass">
+<tile q="-10" r="-4" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="3" r="18" s="-21" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="5" r="-18" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4263,7 +4286,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-2" s="12" terrain-type="grass">
+<tile q="-11" r="16" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4273,7 +4296,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="16" s="-5" terrain-type="grass">
+<tile q="-10" r="-2" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4283,12 +4306,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-16" s="11" terrain-type="grass">
+<tile q="4" r="2" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="2" s="-6" terrain-type="grass">
+<tile q="5" r="-16" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4303,7 +4326,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="17" s="-6" terrain-type="grass">
+<tile q="-10" r="-1" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4313,7 +4336,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="-1" s="11" terrain-type="grass">
+<tile q="-11" r="17" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4363,12 +4386,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="4" s="-8" terrain-type="grass">
+<tile q="5" r="-14" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-14" s="9" terrain-type="grass">
+<tile q="4" r="4" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4408,7 +4431,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="2" s="8" terrain-type="grass">
+<tile q="-11" r="20" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4418,7 +4441,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="20" s="-9" terrain-type="grass">
+<tile q="-10" r="2" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4443,6 +4466,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-11" r="21" s="-10" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-25" r="17" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4453,7 +4481,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-11" r="21" s="-10" terrain-type="grass">
+<tile q="-9" r="-15" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4474,11 +4502,6 @@
 <aoes/>
 </tile>
 <tile q="5" r="-11" s="6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-9" r="-15" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4508,17 +4531,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="4" s="6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="4" r="8" s="-12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="5" r="-10" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4533,7 +4546,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="5" s="5" terrain-type="grass">
+<tile q="5" r="-10" s="5" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-10" r="4" s="6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-9" r="-13" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4573,12 +4596,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="-13" s="22" terrain-type="grass">
+<tile q="-10" r="5" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="6" s="4" terrain-type="grass">
+<tile q="-11" r="24" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4589,11 +4612,6 @@
 <aoes/>
 </tile>
 <tile q="-24" r="2" s="22" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-11" r="24" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4623,12 +4641,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="7" s="3" terrain-type="grass">
+<tile q="-10" r="6" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-25" r="21" s="4" terrain-type="grass">
+<tile q="-10" r="7" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4643,12 +4661,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="11" s="-15" terrain-type="grass">
+<tile q="-25" r="21" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-7" s="2" terrain-type="grass">
+<tile q="4" r="11" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4668,6 +4686,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="5" r="-7" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-9" r="-11" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4683,22 +4706,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="8" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-24" r="4" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="12" s="-16" terrain-type="grass">
+<tile q="-10" r="8" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-24" s="18" terrain-type="grass">
+<tile q="4" r="12" s="-16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4718,6 +4736,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-24" s="18" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-10" r="9" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4728,17 +4751,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-25" r="23" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-9" r="-9" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-25" r="23" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="4" r="13" s="-17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="5" r="-5" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4753,22 +4781,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-5" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="6" r="-23" s="17" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-9" r="-8" s="17" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-24" r="6" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4783,7 +4796,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-22" s="16" terrain-type="grass">
+<tile q="-9" r="-8" s="17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-24" r="6" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4798,6 +4816,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-22" s="16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="19" r="0" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4808,17 +4831,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="11" s="-1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-9" r="-7" s="16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-25" r="25" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4828,12 +4841,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="4" r="15" s="-19" terrain-type="grass">
+<tile q="-25" r="25" s="0" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-10" r="11" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="6" r="-21" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="4" r="15" s="-19" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="5" r="-3" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4844,11 +4872,6 @@
 <aoes/>
 </tile>
 <tile q="20" r="-17" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="5" r="-3" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4873,12 +4896,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="-2" s="-3" terrain-type="grass">
+<tile q="6" r="-20" s="14" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-20" s="14" terrain-type="water">
+<tile q="5" r="-2" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4933,7 +4956,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="-4" s="13" terrain-type="grass">
+<tile q="-10" r="14" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4943,12 +4966,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="14" s="-4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="6" r="-18" s="12" terrain-type="grass">
+<tile q="-9" r="-4" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4963,6 +4981,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-18" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="19" r="4" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -4973,7 +4996,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="15" s="-5" terrain-type="grass">
+<tile q="-9" r="-3" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4983,7 +5006,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="-3" s="12" terrain-type="grass">
+<tile q="-10" r="15" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -4993,12 +5016,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-17" s="11" terrain-type="grass">
+<tile q="5" r="1" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="5" r="1" s="-6" terrain-type="grass">
+<tile q="6" r="-17" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5013,7 +5036,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="-2" s="11" terrain-type="grass">
+<tile q="-10" r="16" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5023,17 +5046,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="16" s="-6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="6" r="-16" s="10" terrain-type="grass">
+<tile q="-9" r="-2" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="4" r="20" s="-24" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="6" r="-16" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5053,7 +5076,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="-1" s="10" terrain-type="grass">
+<tile q="-10" r="17" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5063,12 +5086,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="17" s="-7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="6" r="-15" s="9" terrain-type="grass">
+<tile q="-9" r="-1" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5083,12 +5101,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-15" s="9" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="20" r="-11" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="18" s="-8" terrain-type="grass">
+<tile q="-9" r="0" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5098,7 +5121,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="0" s="9" terrain-type="grass">
+<tile q="-10" r="18" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5118,7 +5141,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="19" s="-9" terrain-type="grass">
+<tile q="-8" r="-17" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5128,12 +5151,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="1" s="8" terrain-type="grass">
+<tile q="-10" r="19" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-17" s="25" terrain-type="grass">
+<tile q="-9" r="1" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5153,7 +5176,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-23" r="-2" s="25" terrain-type="grass">
+<tile q="-9" r="2" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5163,12 +5186,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-23" r="-2" s="25" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-10" r="20" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="2" s="7" terrain-type="grass">
+<tile q="-8" r="-16" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5188,12 +5216,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-16" s="24" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-8" r="-15" s="23" terrain-type="grass">
+<tile q="-10" r="21" s="-11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5208,17 +5231,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="21" s="-11" terrain-type="grass">
+<tile q="-8" r="-15" s="23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-9" r="3" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="5" r="7" s="-12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="6" r="-11" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5233,22 +5256,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="3" s="6" terrain-type="grass">
+<tile q="6" r="-11" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-14" s="22" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-24" r="18" s="6" terrain-type="grass">
+<tile q="-9" r="4" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-23" r="0" s="23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-24" r="18" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5278,22 +5301,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="4" s="5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-9" r="5" s="4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-24" r="19" s="5" terrain-type="grass">
+<tile q="-8" r="-14" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-23" r="1" s="22" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-24" r="19" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5308,11 +5326,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-9" s="3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="20" r="-5" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -5323,17 +5336,32 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-9" s="3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-8" r="-13" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-23" r="2" s="21" terrain-type="grass">
+<tile q="-9" r="5" s="4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-8" r="-12" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-24" r="20" s="4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-23" r="2" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5348,6 +5376,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="6" r="-8" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="20" r="-4" s="-16" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -5358,22 +5391,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-8" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-8" r="-12" s="20" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-9" r="6" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-10" r="25" s="-15" terrain-type="grass">
+<tile q="-9" r="7" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-23" r="3" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5383,7 +5411,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-23" r="3" s="20" terrain-type="grass">
+<tile q="-10" r="25" s="-15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="-25" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5403,22 +5436,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-25" s="18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="6" r="-7" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-8" r="-11" s="19" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-9" r="7" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5448,16 +5471,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="20" r="-2" s="-18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="21" r="-20" s="-1" terrain-type="water">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="6" r="-6" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -5468,7 +5481,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-9" s="17" terrain-type="grass">
+<tile q="20" r="-2" s="-18" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="21" r="-20" s="-1" terrain-type="water">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-9" r="9" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5478,7 +5501,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="9" s="0" terrain-type="grass">
+<tile q="-8" r="-9" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5489,6 +5512,11 @@
 <aoes/>
 </tile>
 <tile q="5" r="13" s="-18" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="6" r="-5" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5508,22 +5536,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-5" s="-1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-8" r="-8" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-23" r="6" s="17" terrain-type="grass">
+<tile q="-24" r="24" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-24" r="24" s="0" terrain-type="grass">
+<tile q="-23" r="6" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5578,17 +5601,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-21" s="14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="5" r="15" s="-20" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="6" r="-3" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5603,12 +5616,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-6" s="14" terrain-type="grass">
+<tile q="7" r="-21" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-23" r="8" s="15" terrain-type="grass">
+<tile q="6" r="-3" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5618,17 +5631,27 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-23" r="8" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-8" r="-6" s="14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="5" r="16" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-20" s="13" terrain-type="water">
+<tile q="6" r="-2" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="-2" s="-4" terrain-type="grass">
+<tile q="7" r="-20" s="13" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5683,7 +5706,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-4" s="12" terrain-type="grass">
+<tile q="-9" r="14" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5693,7 +5716,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="14" s="-5" terrain-type="grass">
+<tile q="-8" r="-4" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5703,12 +5726,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-18" s="11" terrain-type="grass">
+<tile q="6" r="0" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="0" s="-6" terrain-type="grass">
+<tile q="7" r="-18" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5723,7 +5746,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-3" s="11" terrain-type="grass">
+<tile q="-9" r="15" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5733,12 +5756,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="15" s="-6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="7" r="-17" s="10" terrain-type="grass">
+<tile q="-8" r="-3" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5753,6 +5771,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="7" r="-17" s="10" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="20" r="5" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -5763,7 +5786,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="16" s="-7" terrain-type="grass">
+<tile q="-8" r="-2" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5773,7 +5796,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="-2" s="10" terrain-type="grass">
+<tile q="-9" r="16" s="-7" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="-16" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5784,11 +5812,6 @@
 <aoes/>
 </tile>
 <tile q="6" r="2" s="-8" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="7" r="-16" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5828,7 +5851,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="-18" s="25" terrain-type="grass">
+<tile q="-9" r="18" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5838,7 +5861,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="18" s="-9" terrain-type="grass">
+<tile q="-7" r="-18" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5903,6 +5926,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-8" r="2" s="6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-23" r="16" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -5918,7 +5946,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="2" s="6" terrain-type="grass">
+<tile q="-7" r="-16" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5928,17 +5956,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-12" s="5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="21" r="-8" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="-16" s="23" terrain-type="grass">
+<tile q="7" r="-12" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -5988,17 +6011,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="22" s="-13" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-23" r="18" s="5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-7" r="-14" s="21" terrain-type="grass">
+<tile q="-8" r="4" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6008,12 +6021,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="4" s="4" terrain-type="grass">
+<tile q="-23" r="18" s="5" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-9" r="22" s="-13" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="-14" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="6" r="8" s="-14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="-10" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6024,11 +6052,6 @@
 <aoes/>
 </tile>
 <tile q="22" r="-24" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="7" r="-10" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6103,6 +6126,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="7" r="-8" s="1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="21" r="-4" s="-17" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -6113,17 +6141,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-8" s="1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-7" r="-12" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="7" s="1" terrain-type="grass">
+<tile q="-9" r="25" s="-16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="-11" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6138,17 +6166,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-9" r="25" s="-16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="8" r="-25" s="17" terrain-type="grass">
+<tile q="-8" r="7" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="6" r="11" s="-17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="-7" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6163,12 +6191,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-7" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-7" r="-11" s="18" terrain-type="grass">
+<tile q="8" r="-25" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6198,16 +6221,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-24" s="16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="7" r="-6" s="-1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="21" r="-2" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -6218,7 +6231,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="13" s="-19" terrain-type="grass">
+<tile q="7" r="-6" s="-1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="8" r="-24" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6238,7 +6256,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-5" s="-2" terrain-type="grass">
+<tile q="6" r="13" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6249,6 +6267,11 @@
 <aoes/>
 </tile>
 <tile q="22" r="-19" s="-3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="-5" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6283,12 +6306,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="8" r="-22" s="14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="6" r="14" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-22" s="14" terrain-type="grass">
+<tile q="7" r="-4" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6299,11 +6327,6 @@
 <aoes/>
 </tile>
 <tile q="22" r="-18" s="-4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="7" r="-4" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6328,12 +6351,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-21" s="13" terrain-type="grass">
+<tile q="6" r="15" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="6" r="15" s="-21" terrain-type="grass">
+<tile q="8" r="-21" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6373,12 +6396,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-2" s="-5" terrain-type="grass">
+<tile q="8" r="-20" s="12" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-20" s="12" terrain-type="water">
+<tile q="7" r="-2" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6413,12 +6436,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-19" s="11" terrain-type="grass">
+<tile q="7" r="-1" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="-1" s="-6" terrain-type="grass">
+<tile q="8" r="-19" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6473,7 +6496,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="-3" s="10" terrain-type="grass">
+<tile q="-8" r="15" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6483,7 +6506,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="15" s="-7" terrain-type="grass">
+<tile q="-7" r="-3" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6508,7 +6531,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="16" s="-8" terrain-type="grass">
+<tile q="-7" r="-2" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6518,7 +6541,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="-2" s="9" terrain-type="grass">
+<tile q="-8" r="16" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6573,22 +6596,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-21" r="-4" s="25" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-22" r="14" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-18" s="24" terrain-type="grass">
+<tile q="-8" r="18" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="18" s="-10" terrain-type="grass">
+<tile q="-21" r="-4" s="25" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="-18" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6613,17 +6636,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="19" s="-11" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-22" r="15" s="7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="-17" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6633,7 +6646,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="1" s="6" terrain-type="grass">
+<tile q="-8" r="19" s="-11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6653,7 +6666,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-21" r="-2" s="23" terrain-type="grass">
+<tile q="-6" r="-17" s="23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="1" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6663,12 +6681,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="20" s="-12" terrain-type="grass">
+<tile q="-6" r="-16" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-16" s="22" terrain-type="grass">
+<tile q="-21" r="-2" s="23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-8" r="20" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6693,7 +6716,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-8" r="21" s="-13" terrain-type="grass">
+<tile q="-7" r="3" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6703,7 +6726,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-15" s="21" terrain-type="grass">
+<tile q="-8" r="21" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6713,12 +6736,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="3" s="4" terrain-type="grass">
+<tile q="7" r="7" s="-14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="7" s="-14" terrain-type="grass">
+<tile q="8" r="-11" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6733,17 +6756,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-11" s="3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="-14" s="20" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-21" r="0" s="21" terrain-type="grass">
+<tile q="-6" r="-15" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6754,6 +6767,11 @@
 <aoes/>
 </tile>
 <tile q="-22" r="18" s="4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="4" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6778,17 +6796,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="4" s="3" terrain-type="grass">
+<tile q="-6" r="-14" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="5" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="-13" s="19" terrain-type="grass">
+<tile q="-21" r="0" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6798,7 +6811,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-21" r="1" s="20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-22" r="19" s="3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="-13" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6823,12 +6846,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-21" r="1" s="20" terrain-type="grass">
+<tile q="-7" r="5" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-21" r="2" s="19" terrain-type="grass">
+<tile q="-7" r="6" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6843,12 +6866,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="10" s="-17" terrain-type="grass">
+<tile q="-21" r="2" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-8" s="0" terrain-type="grass">
+<tile q="-6" r="-12" s="18" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="7" r="10" s="-17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6863,22 +6891,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="6" s="1" terrain-type="grass">
+<tile q="8" r="-8" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-12" s="18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-7" r="7" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-22" r="21" s="1" terrain-type="grass">
+<tile q="-6" r="-11" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6893,22 +6911,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-11" s="17" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="9" r="-25" s="16" terrain-type="grass">
+<tile q="-22" r="21" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="7" r="11" s="-18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="8" r="-7" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6923,7 +6931,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-10" s="16" terrain-type="grass">
+<tile q="9" r="-25" s="16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="8" r="-7" s="-1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="7" s="0" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="9" r="-24" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6948,16 +6971,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-6" s="-2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="9" r="-24" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="22" r="-2" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -6968,7 +6981,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-23" s="14" terrain-type="grass">
+<tile q="8" r="-6" s="-2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="-10" s="16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="-9" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -6978,17 +7001,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-22" r="23" s="-1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-7" r="9" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-22" r="23" s="-1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="7" r="13" s="-20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="8" r="-5" s="-3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="9" r="-23" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7003,17 +7036,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-5" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="-9" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-6" r="-8" s="14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-22" r="24" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7028,22 +7056,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-22" r="24" s="-2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="7" r="14" s="-21" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="22" r="0" s="-22" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="23" r="-18" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7058,12 +7071,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-7" s="13" terrain-type="grass">
+<tile q="22" r="0" s="-22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-22" r="25" s="-3" terrain-type="grass">
+<tile q="23" r="-18" s="-5" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="-7" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7073,12 +7091,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="11" s="-4" terrain-type="grass">
+<tile q="-22" r="25" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-21" s="12" terrain-type="grass">
+<tile q="-7" r="11" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7093,6 +7111,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="9" r="-21" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="22" r="1" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -7103,7 +7126,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="12" s="-5" terrain-type="grass">
+<tile q="-6" r="-6" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7113,7 +7136,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-6" s="12" terrain-type="grass">
+<tile q="-7" r="12" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7143,7 +7166,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-5" s="11" terrain-type="grass">
+<tile q="-7" r="13" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7153,7 +7176,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="13" s="-6" terrain-type="grass">
+<tile q="-6" r="-5" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7163,12 +7186,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-19" s="10" terrain-type="grass">
+<tile q="8" r="-1" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="-1" s="-7" terrain-type="grass">
+<tile q="9" r="-19" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7198,12 +7221,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-18" s="9" terrain-type="grass">
+<tile q="7" r="18" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="7" r="18" s="-25" terrain-type="grass">
+<tile q="9" r="-18" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7218,7 +7241,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-3" s="9" terrain-type="grass">
+<tile q="-7" r="15" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7228,7 +7251,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="15" s="-8" terrain-type="grass">
+<tile q="-6" r="-3" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7248,7 +7271,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="-2" s="8" terrain-type="grass">
+<tile q="-7" r="16" s="-9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7258,7 +7281,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="16" s="-9" terrain-type="grass">
+<tile q="-6" r="-2" s="8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7288,11 +7311,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-20" r="-5" s="25" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-5" r="-19" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -7313,12 +7331,22 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="23" r="-11" s="-12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="9" r="-15" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="23" r="-11" s="-12" terrain-type="grass">
+<tile q="-20" r="-5" s="25" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="0" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7338,12 +7366,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="4" s="-12" terrain-type="grass">
+<tile q="-5" r="-18" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="23" r="-10" s="-13" terrain-type="grass">
+<tile q="8" r="4" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7353,17 +7381,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="0" s="6" terrain-type="grass">
+<tile q="23" r="-10" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-18" s="23" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="-17" s="22" terrain-type="grass">
+<tile q="-7" r="19" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7373,7 +7396,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="19" s="-12" terrain-type="grass">
+<tile q="-6" r="1" s="5" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="-17" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7389,11 +7417,6 @@
 <aoes/>
 </tile>
 <tile q="23" r="-9" s="-14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="1" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7418,11 +7441,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="2" s="4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="8" r="6" s="-14" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -7443,22 +7461,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="3" s="3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-20" r="-1" s="21" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-21" r="17" s="4" terrain-type="grass">
+<tile q="-6" r="2" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-7" r="21" s="-14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="-15" s="20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="3" s="3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-21" r="17" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7483,7 +7506,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-15" s="20" terrain-type="grass">
+<tile q="-20" r="-1" s="21" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-7" r="22" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7498,12 +7526,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-7" r="22" s="-15" terrain-type="grass">
+<tile q="-5" r="-14" s="19" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="4" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="8" r="8" s="-16" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="9" r="-10" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7514,26 +7552,6 @@
 <aoes/>
 </tile>
 <tile q="24" r="-24" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="9" r="-10" s="1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="4" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="-14" s="19" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="5" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7558,11 +7576,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-9" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="23" r="-5" s="-18" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -7573,12 +7586,22 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="9" r="-9" s="0" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="5" s="1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-5" r="-13" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="6" s="0" terrain-type="grass">
+<tile q="-5" r="-12" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7598,12 +7621,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-12" s="17" terrain-type="grass">
+<tile q="8" r="10" s="-18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="10" s="-18" terrain-type="grass">
+<tile q="9" r="-8" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7618,7 +7641,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-8" s="-1" terrain-type="grass">
+<tile q="-6" r="6" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7628,12 +7651,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-21" r="21" s="0" terrain-type="grass">
+<tile q="-20" r="3" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-20" r="3" s="17" terrain-type="grass">
+<tile q="-21" r="21" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7648,7 +7671,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-7" s="-2" terrain-type="grass">
+<tile q="10" r="-25" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7663,7 +7686,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-25" s="15" terrain-type="grass">
+<tile q="9" r="-7" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7673,7 +7696,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="8" r="12" s="-20" terrain-type="grass">
+<tile q="-20" r="4" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7683,22 +7706,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-20" r="4" s="16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-6" r="8" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-6" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="10" r="-24" s="14" terrain-type="grass">
+<tile q="8" r="12" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7713,7 +7726,22 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="10" r="-24" s="14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="9" r="-6" s="-3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-5" r="-10" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="-9" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7758,12 +7786,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-9" s="14" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="10" s="-4" terrain-type="grass">
+<tile q="-5" r="-8" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7778,7 +7801,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-8" s="13" terrain-type="grass">
+<tile q="-6" r="10" s="-4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="10" r="-22" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7788,7 +7816,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-22" s="12" terrain-type="grass">
+<tile q="9" r="-4" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7803,12 +7831,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-4" s="-5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-6" r="11" s="-5" terrain-type="grass">
+<tile q="-5" r="-7" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7823,17 +7846,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-7" s="12" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="10" r="-21" s="11" terrain-type="grass">
+<tile q="-6" r="11" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="8" r="15" s="-23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="10" r="-21" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7868,17 +7891,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="10" r="-20" s="10" terrain-type="water">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="8" r="16" s="-24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="9" r="-2" s="-7" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="10" r="-20" s="10" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7913,12 +7936,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-19" s="9" terrain-type="grass">
+<tile q="9" r="-1" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="-1" s="-8" terrain-type="grass">
+<tile q="10" r="-19" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -7993,7 +8016,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-2" s="7" terrain-type="grass">
+<tile q="-19" r="-6" s="25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8003,17 +8026,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="-6" s="25" terrain-type="grass">
+<tile q="-4" r="-20" s="24" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-6" r="16" s="-10" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-4" r="-20" s="24" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8029,6 +8047,16 @@
 <aoes/>
 </tile>
 <tile q="10" r="-16" s="6" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="-2" s="7" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="-1" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8058,22 +8086,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="24" r="-11" s="-13" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="10" r="-15" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="-1" s="6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-19" r="-4" s="23" terrain-type="grass">
+<tile q="24" r="-11" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8083,12 +8101,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-6" r="18" s="-12" terrain-type="grass">
+<tile q="-19" r="-4" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-4" r="-18" s="22" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-6" r="18" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8128,12 +8151,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="5" s="-14" terrain-type="grass">
+<tile q="-4" r="-17" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-13" s="3" terrain-type="grass">
+<tile q="9" r="5" s="-14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8143,7 +8166,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-17" s="21" terrain-type="grass">
+<tile q="10" r="-13" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8153,12 +8176,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-20" r="16" s="4" terrain-type="grass">
+<tile q="-19" r="-2" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="-2" s="21" terrain-type="grass">
+<tile q="-20" r="16" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8168,12 +8191,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="6" s="-15" terrain-type="grass">
+<tile q="-4" r="-16" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="24" r="-8" s="-16" terrain-type="grass">
+<tile q="9" r="6" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8183,7 +8206,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-16" s="20" terrain-type="grass">
+<tile q="24" r="-8" s="-16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8193,7 +8216,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-15" s="19" terrain-type="grass">
+<tile q="-5" r="3" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8209,6 +8232,11 @@
 <aoes/>
 </tile>
 <tile q="-6" r="21" s="-15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-4" r="-15" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8233,22 +8261,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="3" s="2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="4" s="1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-19" r="0" s="19" terrain-type="grass">
+<tile q="-4" r="-14" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-20" r="18" s="2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-19" r="0" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8263,11 +8286,6 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-10" s="0" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="24" r="-6" s="-18" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -8278,7 +8296,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-14" s="18" terrain-type="grass">
+<tile q="10" r="-10" s="0" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="4" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8288,12 +8311,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-20" r="19" s="1" terrain-type="grass">
+<tile q="-19" r="1" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="1" s="18" terrain-type="grass">
+<tile q="-20" r="19" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8333,22 +8356,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="2" s="17" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="-20" r="20" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-12" s="16" terrain-type="grass">
+<tile q="-19" r="2" s="17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="6" s="-1" terrain-type="grass">
+<tile q="-4" r="-12" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8373,6 +8391,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-5" r="6" s="-1" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-6" r="25" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -8388,17 +8411,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-11" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="7" s="-2" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="9" r="11" s="-20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="11" r="-25" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8418,12 +8436,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-25" s="14" terrain-type="grass">
+<tile q="-4" r="-11" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="9" r="12" s="-21" terrain-type="grass">
+<tile q="-5" r="7" s="-2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="11" r="-24" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8443,12 +8466,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-6" s="-4" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="11" r="-24" s="13" terrain-type="grass">
+<tile q="9" r="12" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8459,6 +8477,11 @@
 <aoes/>
 </tile>
 <tile q="25" r="-20" s="-5" terrain-type="water">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="10" r="-6" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8498,17 +8521,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="11" r="-23" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="24" r="-1" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="25" r="-19" s="-6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="11" r="-23" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8533,7 +8556,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="11" r="-22" s="11" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="9" r="14" s="-23" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="10" r="-4" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8548,17 +8581,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-22" s="11" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="10" r="-4" s="-6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="11" s="-6" terrain-type="grass">
+<tile q="-4" r="-7" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8573,7 +8596,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-7" s="11" terrain-type="grass">
+<tile q="-5" r="11" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8583,7 +8606,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-21" s="10" terrain-type="grass">
+<tile q="10" r="-3" s="-7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8598,7 +8621,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-3" s="-7" terrain-type="grass">
+<tile q="11" r="-21" s="10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8623,12 +8646,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-20" s="9" terrain-type="water">
+<tile q="10" r="-2" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="-2" s="-8" terrain-type="grass">
+<tile q="11" r="-20" s="9" terrain-type="water">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8638,7 +8661,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-5" s="9" terrain-type="grass">
+<tile q="-5" r="13" s="-8" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8648,7 +8671,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="13" s="-8" terrain-type="grass">
+<tile q="-4" r="-5" s="9" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8703,12 +8726,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-21" s="24" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-19" r="11" s="8" terrain-type="grass">
+<tile q="-4" r="-3" s="7" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8718,12 +8736,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-19" r="11" s="8" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-5" r="15" s="-10" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="-3" s="7" terrain-type="grass">
+<tile q="-3" r="-21" s="24" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8733,12 +8756,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-17" s="6" terrain-type="grass">
+<tile q="25" r="-13" s="-12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="25" r="-13" s="-12" terrain-type="grass">
+<tile q="11" r="-17" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8773,12 +8796,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="25" r="-12" s="-13" terrain-type="grass">
+<tile q="11" r="-16" s="5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-16" s="5" terrain-type="grass">
+<tile q="25" r="-12" s="-13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8788,12 +8811,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="13" s="6" terrain-type="grass">
+<tile q="-18" r="-5" s="23" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="-5" s="23" terrain-type="grass">
+<tile q="-19" r="13" s="6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8823,12 +8846,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="18" s="-13" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-18" r="-4" s="22" terrain-type="grass">
+<tile q="-3" r="-18" s="21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8838,12 +8856,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="0" s="4" terrain-type="grass">
+<tile q="-18" r="-4" s="22" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-18" s="21" terrain-type="grass">
+<tile q="-5" r="18" s="-13" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-4" r="0" s="4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8853,17 +8876,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-14" s="3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="25" r="-10" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="19" s="-14" terrain-type="grass">
+<tile q="11" r="-14" s="3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-3" r="-17" s="20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8878,35 +8901,18 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-5" r="19" s="-14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-4" r="1" s="3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-17" s="20" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="10" r="5" s="-15" terrain-type="grass">
-<entities>
-<mount move-visitor="ground" movement="1" name="Entity Dave">
-<rider>
-<player move-visitor="ground" name="Mitch the Snitch">
-<stats agility="6" currentLife="136" currentMana="35" experience="17" hardiness="22" intellect="6" lives="3" movement="45" strength="15"/>
-<location direction="south" q="0" r="0" s="0"/>
-<occupation>summoner</occupation>
-<inventory>
-<items/>
-</inventory>
-<equipment/>
-<skillpoints available="0"/>
-<cash amount="0"/>
-</player>
-</rider>
-<location direction="south" q="10" r="5" s="-15"/>
-</mount>
-</entities>
+<entities/>
 <tile-items/>
 <aoes/>
 </tile>
@@ -8920,7 +8926,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="2" s="2" terrain-type="grass">
+<tile q="-5" r="20" s="-15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8935,7 +8941,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="20" s="-15" terrain-type="grass">
+<tile q="-4" r="2" s="2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8960,12 +8966,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-15" s="18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-18" r="-1" s="19" terrain-type="grass">
+<tile q="-5" r="21" s="-16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8975,7 +8976,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="21" s="-16" terrain-type="grass">
+<tile q="-18" r="-1" s="19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -8985,12 +8986,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="7" s="-17" terrain-type="grass">
+<tile q="-3" r="-15" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-11" s="0" terrain-type="grass">
+<tile q="10" r="7" s="-17" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9000,22 +9001,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-14" s="17" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-18" r="0" s="18" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-19" r="18" s="1" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-5" r="22" s="-17" terrain-type="grass">
+<tile q="11" r="-11" s="0" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9025,12 +9011,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="10" r="8" s="-18" terrain-type="grass">
+<tile q="-19" r="18" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-10" s="-1" terrain-type="grass">
+<tile q="-18" r="0" s="18" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-5" r="22" s="-17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-3" r="-14" s="17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="10" r="8" s="-18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9040,12 +9041,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-13" s="16" terrain-type="grass">
+<tile q="11" r="-10" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="1" s="17" terrain-type="grass">
+<tile q="-4" r="5" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9055,12 +9056,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-18" r="1" s="17" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-5" r="23" s="-18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="5" s="-1" terrain-type="grass">
+<tile q="-3" r="-13" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9080,7 +9086,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="24" s="-19" terrain-type="grass">
+<tile q="-18" r="2" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9090,17 +9096,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="2" s="16" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-3" r="-12" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-4" r="6" s="-2" terrain-type="grass">
+<tile q="-5" r="24" s="-19" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9110,22 +9106,22 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-8" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="25" r="-4" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="7" s="-3" terrain-type="grass">
+<tile q="11" r="-8" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="3" s="15" terrain-type="grass">
+<tile q="-4" r="6" s="-2" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-3" r="-12" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9135,12 +9131,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-5" r="25" s="-20" terrain-type="grass">
+<tile q="-18" r="3" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-11" s="14" terrain-type="grass">
+<tile q="-5" r="25" s="-20" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9155,17 +9151,27 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="25" r="-3" s="-22" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
 <tile q="11" r="-7" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-10" s="13" terrain-type="grass">
+<tile q="25" r="-3" s="-22" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-4" r="7" s="-3" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-3" r="-11" s="14" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-4" r="8" s="-4" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9180,7 +9186,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="8" s="-4" terrain-type="grass">
+<tile q="-3" r="-10" s="13" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9190,12 +9196,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="11" r="-6" s="-5" terrain-type="grass">
+<tile q="12" r="-24" s="12" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="12" r="-24" s="12" terrain-type="grass">
+<tile q="11" r="-6" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9225,6 +9231,11 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="12" r="-23" s="11" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="10" r="13" s="-23" terrain-type="grass">
 <entities/>
 <tile-items/>
@@ -9240,17 +9251,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="12" r="-23" s="11" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-4" r="10" s="-6" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-18" r="6" s="12" terrain-type="grass">
+<tile q="-3" r="-8" s="11" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9260,17 +9261,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="-8" s="11" terrain-type="grass">
+<tile q="-18" r="6" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-4" r="10" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="10" r="14" s="-24" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="25" r="0" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9285,12 +9286,17 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-19" r="25" s="-6" terrain-type="grass">
+<tile q="25" r="0" s="-25" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
 <tile q="-18" r="7" s="11" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-19" r="25" s="-6" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9620,12 +9626,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="-1" s="18" terrain-type="grass">
+<tile q="-18" r="17" s="1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="17" s="1" terrain-type="grass">
+<tile q="-17" r="-1" s="18" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9690,12 +9696,12 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-18" r="19" s="-1" terrain-type="grass">
+<tile q="-17" r="1" s="16" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-17" r="1" s="16" terrain-type="grass">
+<tile q="-18" r="19" s="-1" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9705,7 +9711,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="5" s="-2" terrain-type="grass">
+<tile q="-2" r="-13" s="15" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9720,12 +9726,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-2" r="-13" s="15" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-17" r="2" s="15" terrain-type="grass">
+<tile q="-3" r="5" s="-2" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9735,7 +9736,17 @@
 <tile-items/>
 <aoes/>
 </tile>
+<tile q="-17" r="2" s="15" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
 <tile q="-4" r="24" s="-20" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="-3" r="6" s="-3" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9755,12 +9766,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-3" r="6" s="-3" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="-17" r="3" s="14" terrain-type="grass">
+<tile q="-4" r="25" s="-21" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9770,22 +9776,7 @@
 <tile-items/>
 <aoes/>
 </tile>
-<tile q="-4" r="25" s="-21" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="11" r="11" s="-22" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="12" r="-7" s="-5" terrain-type="grass">
-<entities/>
-<tile-items/>
-<aoes/>
-</tile>
-<tile q="13" r="-25" s="12" terrain-type="grass">
+<tile q="-17" r="3" s="14" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>
@@ -9796,6 +9787,21 @@
 <aoes/>
 </tile>
 <tile q="-3" r="7" s="-4" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="13" r="-25" s="12" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="11" r="11" s="-22" terrain-type="grass">
+<entities/>
+<tile-items/>
+<aoes/>
+</tile>
+<tile q="12" r="-7" s="-5" terrain-type="grass">
 <entities/>
 <tile-items/>
 <aoes/>

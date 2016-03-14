@@ -70,7 +70,7 @@ public class EntityStats
         statsArray[0] = primaryStats.getLives() + stats.getLives();
         statsArray[1] = primaryStats.getStrength() + stats.getStrength();
         statsArray[2] = primaryStats.getAgility() + stats.getAgility();
-        statsArray[3] = primaryStats.getIntellect() + stats.getAgility();
+        statsArray[3] = primaryStats.getIntellect() + stats.getIntellect();
         statsArray[4] = primaryStats.getHardiness() + stats.getHardiness();
         statsArray[5] = primaryStats.getExperience() + stats.getExperience();
         statsArray[6] = primaryStats.getMovement() + stats.getMovement();
