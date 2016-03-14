@@ -19,10 +19,12 @@ public class DrawableTile implements Drawable, Listener {
     List<Drawable> drawableList = new ArrayList<Drawable>();
     DrawableVisitor drawableVisitor = new DrawableVisitor();
     SpriteMap spriteMap = SpriteMap.getInstance();
-    Integer landTileImageKey = 1;
-    Integer opaqueTileImageKey = 2;
-    Integer fogTileImageKey = 3;
-    Integer waterTileImageKey = 4;
+
+    Integer mountainTileKey = 203;
+    Integer landTileImageKey = 202;
+    Integer opaqueTileImageKey = 204;
+    Integer fogTileImageKey = 205;
+    Integer waterTileImageKey = 201;
 
 
 
@@ -80,6 +82,12 @@ public class DrawableTile implements Drawable, Listener {
                 case WATER:
                     key = waterTileImageKey;
                     break;
+                case GRASS:
+                    key = landTileImageKey;
+                    break;
+                case MOUNTAIN:
+                    key = mountainTileKey;
+                    break;
                 default:
                     key = landTileImageKey;
             }
@@ -95,6 +103,12 @@ public class DrawableTile implements Drawable, Listener {
             {
                 case WATER:
                     key = waterTileImageKey;
+                    break;
+                case GRASS:
+                    key = landTileImageKey;
+                    break;
+                case MOUNTAIN:
+                    key = mountainTileKey;
                     break;
                 default:
                     key = landTileImageKey;

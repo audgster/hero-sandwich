@@ -1023,7 +1023,33 @@
 <aoes/>
 </tile>
 <tile q="-1" r="1" s="0" terrain-type="grass">
-<entities/>
+<entities>
+<npc move-visitor="ground" name="moldySandwich">
+<stats agility="3" currentLife="6" currentMana="5" experience="0" hardiness="3" intellect="3" lives="1" movement="15" strength="3"/>
+<location direction="south" q="-1" r="1" s="0"/>
+<occupation>smasher</occupation>
+<inventory>
+<items/>
+</inventory>
+<equipment>
+<equipmentslot item-id="37" slot="left_hand"/>
+</equipment>
+<skillpoints>
+<skill pointAmount="5" skillName="brawl"/>
+<skill pointAmount="1" skillName="one_handed_weapon"/>
+<skill pointAmount="1" skillName="two_handed_weapon"/>
+</skillpoints>
+<cash amount="0"/>
+<sales/>
+<buys/>
+<towards-player attitude="hostile"/>
+<things-to-say>
+<npc-says text="I will destroy you!"/>
+<npc-says text="It's only a flesh wound"/>
+<npc-says text="Come here I'll bite your bread off"/>
+</things-to-say>
+</npc>
+</entities>
 <tile-items/>
 <aoes/>
 </tile>
@@ -1618,7 +1644,19 @@
 <aoes/>
 </tile>
 <tile q="0" r="0" s="0" terrain-type="grass">
-<entities/>
+<entities>
+<player move-visitor="ground" name="Dave the Avatar">
+<stats agility="5" currentLife="14" currentMana="9" experience="0" hardiness="4" intellect="3" lives="3" movement="30" strength="3"/>
+<location direction="south" q="0" r="0" s="0"/>
+<occupation>sneak</occupation>
+<inventory>
+<items/>
+</inventory>
+<equipment/>
+<skillpoints available="3"/>
+<cash amount="0"/>
+</player>
+</entities>
 <tile-items/>
 <aoes/>
 </tile>
@@ -2214,7 +2252,9 @@
 </tile>
 <tile q="1" r="-1" s="0" terrain-type="grass">
 <entities/>
-<tile-items/>
+<tile-items>
+<item item-id="47"/>
+</tile-items>
 <aoes/>
 </tile>
 <tile q="2" r="-19" s="17" terrain-type="grass">
@@ -9759,5 +9799,4 @@
 </tile>
 </tiles>
 </map>
-    <avatar-position direction="south" q="0" r="0" s="0"/>
 </hero-sandwich>
