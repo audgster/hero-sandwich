@@ -10,6 +10,7 @@ import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
+import com.herosandwich.util.visitor.EntityVisitor;
 import javafx.scene.input.KeyCode;
 
 import java.util.HashMap;
@@ -41,8 +42,6 @@ public class Controller {
         if(input == KeyCode.ESCAPE){
             areaView.doPauseTransition();
         }
-
-
 
 		// get correct enum from HashMap<KeyCode, Action>
 		Action inputAction = keyBindings.getAction(input);
@@ -179,7 +178,13 @@ public class Controller {
     }
 
     public void observation(){
-
+        HashMap tilesMaping = map.drawCircle(player.getPosition(),3, false);
+        //EntityVisitor = new EntityVisitor();
+        Set<Tile> tiles = tilesMaping.entrySet();
+        for(Tile tile: tiles){
+            //tile.acceptEntityVisitor();
+            System.out.println("The tiles are "+ tile);
+        }
     }
 
     /****************************************************************/
