@@ -148,14 +148,20 @@ public class AreaView implements Menu {
             }
         });
 
-        /** Register melee attack events **/
+        /** Register events **/
+
         EventDispatcher dispatcher = EventDispatcher.getInstance();
+
         CharacterMeleeAttacksEntityListener damageCalculator = new CombatDamageCalculator();
         dispatcher.subscribe( CharacterMeleeAttacksEntityEvent.class, damageCalculator );
-        EntityDeathHandler deathHandler = new EntityDeathHandler(map);
-        dispatcher.subscribe(EntityDeathEvent.class, deathHandler);
 
+        EntityDeathHandler entityDeathHandler = new EntityDeathHandler( map );
+        dispatcher.subscribe( EntityDeathEvent.class, entityDeathHandler );
 
+        PlayerDeathHandler playerDeathHandler = new PlayerDeathHandler( map );
+        dispatcher.subscribe( PlayerDeathEvent.class, playerDeathHandler );
+
+        /** End of register events **/
 
 //        scrollBar.setPrefSize(canvas.getWidth(), 120);
 //        scrollBar.setContent(canvas);
