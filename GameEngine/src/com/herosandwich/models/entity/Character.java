@@ -14,7 +14,9 @@ import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.util.visitor.EntityVisitor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Character extends Entity {
 
@@ -40,7 +42,6 @@ public class Character extends Entity {
     private int currency;
 
 
-    protected Listener myRender;
 
     public Character()
     {
@@ -237,13 +238,5 @@ public class Character extends Entity {
     public void accept(EntityVisitor eVisitor)
     {
         eVisitor.visitCharacter(this);
-    }
-
-    public void addListener(Listener listener) {
-        myRender = listener;
-    }
-
-    private void notifyListener() {
-        myRender.update();
     }
 }

@@ -1,5 +1,6 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.creation.GameFactory;
 import com.herosandwich.creation.entity.CharacterFactory;
 import com.herosandwich.creation.entity.PlayerFactory;
 import com.herosandwich.models.entity.*;
@@ -56,8 +57,8 @@ public class AvatarCreationMenu implements Menu{
             createPreviousBtn(smasherMenu,sneakMenu,summonerMenu);
 
         avatarCreationView.getChildren().add(content);
-        PauseMenu pm = new PauseMenu(WIDTH,HEIGHT);
-        pm.createMenu(avatarCreationView);
+//        PauseMenu pm = new PauseMenu(WIDTH,HEIGHT);
+//        pm.createMenu(avatarCreationView);
     }
     public void removeAvatarCreationView(){
         avatarCreationView.getChildren().remove(content);
@@ -272,13 +273,19 @@ class OccupationMenu extends Parent{
 	}
 
     private void createGame(Occupation occupation){
-//        CharacterFactory cf = new CharacterFactory();
-//        String name = avatarName.getCharacters().toString();
-//        Character avatar = cf.vendCustomInstance(name, 3, 5, 5, 5, 5, 0, 30, new ModiferWithWeightStatStrategy(9),occupation);
+        GameFactory factory = new GameFactory();
+        String name = avatarName.getCharacters().toString();
+        Player avatar;
 
-        PlayerFactory factory = new PlayerFactory();
-        Character avatar = factory.vendDefaultInstance();
-
+        if(occupation.toString() == "Sneak"){
+            avatar = factory.vendSneakAvatar(name);
+        }
+        else if(occupation.toString() == "Summoner"){
+            avatar = factory.vendSummonerAvatar(name);
+        }
+        else{
+            avatar = factory.vendSmasherAvatar(name);
+        }
         AreaView av = new AreaView(WIDTH, HEIGHT, avatar);
         av.createMenu(avatarCreationView);
 

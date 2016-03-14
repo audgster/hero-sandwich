@@ -2,13 +2,13 @@ package com.herosandwich.controller;
 
 import com.herosandwich.events.CharacterMeleeAttacksEntityEvent;
 import com.herosandwich.events.EventDispatcher;
+import com.herosandwich.menus.AreaView;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
-import com.herosandwich.controller.KeyBindings;
 import javafx.scene.input.KeyCode;
 
 public class Controller {
@@ -17,6 +17,7 @@ public class Controller {
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
     private boolean searchMode = false;
+    private AreaView areaView;
 
 	public static Controller getController() {
     	if(controller == null){
@@ -31,6 +32,12 @@ public class Controller {
 
 
 	public void executeUserInput(KeyCode input){
+        if(input == KeyCode.ESCAPE){
+            areaView.doPauseTransition();
+        }
+
+
+
 		// get correct enum from HashMap<KeyCode, Action>
 		Action inputAction = keyBindings.getAction(input);
         if(inputAction != null){
@@ -131,6 +138,7 @@ public class Controller {
     public void setGridView(TileGrid gridView) {
         this.gridView = gridView;
     }
+    public void setAreaView(AreaView areaView) { this.areaView = areaView;}
 
 
     /****************************************************************/
