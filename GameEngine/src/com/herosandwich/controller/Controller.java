@@ -184,9 +184,16 @@ public class Controller {
         HashMap tilesMaping = map.drawCircle(player.getPosition(),3, false);
         //EntityVisitor = new EntityVisitor();
         Set<PositionHex> hexs = tilesMaping.keySet();
+        List<Tile> tiles = new ArrayList<Tile>();
+        Tile currentTile;
         for(PositionHex hex: hexs){
-            //tile.acceptEntityVisitor();
-            System.out.println("The tiles are "+ tilesMaping.get(hex));
+            currentTile = (Tile)tilesMaping.get(hex);
+            System.out.println("The tile is " + currentTile.toString());
+            if(currentTile.getEntity() != null){
+                System.out.println("The entity is" + currentTile.getEntity().toString());
+            }
+            System.out.println(currentTile.getEntity());
+            tiles.add(currentTile);
         }
     }
 
