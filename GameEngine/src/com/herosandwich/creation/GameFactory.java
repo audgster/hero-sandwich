@@ -7,10 +7,9 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
-import com.herosandwich.util.visitor.movement.AmphibiousMovementVisitor;
-import com.herosandwich.util.visitor.movement.AquaticMovementVisitor;
-import com.herosandwich.util.visitor.movement.FlyingMovementVisitor;
-import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
+import com.herosandwich.util.visitor.movement.AmphibiousMovementCheckVisitor;
+import com.herosandwich.util.visitor.movement.FlyingMovementCheckVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
 
 import java.util.HashMap;
 
@@ -35,7 +34,7 @@ public class GameFactory
                 SummonerStats.experience,
                 SummonerStats.movement,
                 new ModiferWithWeightStatStrategy(5),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 new Summoner(),
                 3
         );
@@ -53,7 +52,7 @@ public class GameFactory
                 SmasherStats.experience,
                 SmasherStats.movement,
                 new ModiferWithWeightStatStrategy(5),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 new Smasher(),
                 3
         );
@@ -71,7 +70,7 @@ public class GameFactory
                 SneakStats.experience,
                 SneakStats.movement,
                 new ModiferWithWeightStatStrategy(5),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 new Sneak(),
                 3
         );
@@ -96,7 +95,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Smasher(),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 Attitude.HOSTILE,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -133,7 +132,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 Attitude.VERY_HOSTILE,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -171,7 +170,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Sneak(),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 Attitude.NEUTRAL,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -223,7 +222,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
-                new GroundMovementVisitor(),
+                new GroundMovementCheckVisitor(),
                 Attitude.NEUTRAL,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -272,7 +271,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
-                new FlyingMovementVisitor(),
+                new FlyingMovementCheckVisitor(),
                 Attitude.VERY_FRIENDLY,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -322,7 +321,7 @@ public class GameFactory
                 1,
                 1,
                 new ModiferWithWeightStatStrategy(1000),
-                new AmphibiousMovementVisitor()
+                new AmphibiousMovementCheckVisitor()
         );
     }
 
@@ -338,7 +337,7 @@ public class GameFactory
                 1,
                 1,
                 new ModiferWithWeightStatStrategy(1000),
-                new AmphibiousMovementVisitor()
+                new AmphibiousMovementCheckVisitor()
         );
     }
 
@@ -348,7 +347,7 @@ public class GameFactory
                 "Plate",
                 45,
                 null,
-                new GroundMovementVisitor()
+                new GroundMovementCheckVisitor()
         );
     }
 
@@ -358,7 +357,7 @@ public class GameFactory
                 "Deli Basket",
                 45,
                 null,
-                new AquaticMovementVisitor()
+                new AmphibiousMovementCheckVisitor()
         );
     }
 }

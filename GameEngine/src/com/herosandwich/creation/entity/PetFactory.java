@@ -3,7 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Pet;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 public class PetFactory
 {
@@ -19,7 +19,7 @@ public class PetFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
-            MovementVisitor visitor
+            MovementCheckVisitor visitor
     )
     {
         Entity entity = entityFactory.vendCustomInstance(

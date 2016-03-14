@@ -16,6 +16,7 @@ import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
 import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -149,9 +150,11 @@ public class AreaView implements Menu {
         Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new
                 ModiferWithWeightStatStrategy(9), new GroundMovementCheckVisitor(), new Smasher(), 1), Attitude.HOSTILE,
                 null, null, null);
+        // Pet pet = new Pet(new Entity("pet", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementCheckVisitor()));
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
+        PetAIController petAIController = new PetAIController(avatar, map);
 
         createController(map);
 

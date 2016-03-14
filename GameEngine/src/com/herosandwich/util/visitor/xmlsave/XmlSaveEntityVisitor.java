@@ -342,7 +342,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
 
     private Element retrieveVisitorType(Entity entity, Element element)
     {
-        element.setAttribute("move-visitor", entity.getMovementVisitor().toString());
+        element.setAttribute("move-visitor", entity.getMovementCheckVisitor().toString());
 
         return element;
     }

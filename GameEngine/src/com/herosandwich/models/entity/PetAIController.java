@@ -4,7 +4,10 @@ import com.herosandwich.menus.areaviewdrawables.Listener;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by adamfortier on 3/14/16.
@@ -26,7 +29,7 @@ public class PetAIController implements Listener{
     }
 
     public void initPetForOwner() {
-        pet = new Pet(new Entity("pet", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementVisitor()));
+        pet = new Pet(new Entity("pet", new PrimaryStats(), new ModiferWithWeightStatStrategy(1), new MovementCheckVisitor()));
         pet.updatePosition(new PositionHex(1,1));
         map.addEntity(pet.getPosition(), pet);
     }
@@ -49,8 +52,22 @@ public class PetAIController implements Listener{
 
     @Override
     public void update() {
-        System.out.println("We are updating PetAIController");
         DirectionHex ownerMovement = owner.getDirection();
-        pet.move(ownerMovement, map);
+        boolean moved = pet.move(ownerMovement, map);
+        if(!moved) {
+            PositionHex ownerPosition = owner.getPosition();
+            Set<PositionHex> avatarInViewTilePositions = map.drawCircle(ownerPosition, 3, true).keySet();
+            Set<PositionHex> petInViewTilePositions = map.drawCircle(pet.getPosition(), 1, true).keySet();
+
+
+            //Find first tile in direction towards entity
+            for(PositionHex position : avatarInViewTilePositions) {
+                if(petInViewTilePositions.contains(position)) {
+                    System.out.println("Trying to move pet to: " + position.getQ() + " " + position.getR() + " " + position.getS());
+                    if(pet.move(DirectionHex.makeDirectionTo(pet.getPosition(), position), map))
+                        break;
+                }
+            }
+        }
     }
 }
