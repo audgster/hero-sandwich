@@ -2,6 +2,10 @@ package com.herosandwich.events;
 
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Skill;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
+import com.herosandwich.models.occupation.Occupation;
 
 /**
  * Created by clayhausen on 3/11/16.
@@ -11,26 +15,60 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
     @Override
     public boolean characterMeleeAttacksEntity(Character attackingCharacter, Entity targetEntity) {
 
-        boolean success = false;
+        boolean successful = true;
+        int bonusDamage = 0;
 
-        // Determine whether or not the attack was successful
-        /*
+        Weapon rightWeapon = attackingCharacter.getRightHand();
+        Weapon leftWeapon = attackingCharacter.getLeftHand();
         Occupation occupation = attackingCharacter.getOccupation();
-        attackingCharacter.getRightHand();
-        occupation.successfulAction(5);
-        */
+        String occupationName = occupation.toString();
+
+        if (rightWeapon != null && leftWeapon != null) { // two weapons equipped
+
+            Skill weaponSkill = Skill.convertFromString( rightWeapon.convertToString() );
+            if ( !occupation.successfulAction( weaponSkill ) ) {
+                return !successful;
+            } else {
+                bonusDamage = occupation.getLevelOfSkill( weaponSkill );
+            }
+
+        } else if (rightWeapon != null) {
+
+            Skill weaponSkill = Skill.convertFromString( rightWeapon.convertToString() );
+            if ( !occupation.successfulAction( weaponSkill ) ) {
+                return !successful;
+            } else {
+                bonusDamage = occupation.getLevelOfSkill( weaponSkill );
+            }
+
+        } else if (leftWeapon != null) {
+
+            Skill weaponSkill = Skill.convertFromString( leftWeapon.convertToString() );
+            if ( !occupation.successfulAction( weaponSkill ) ) {
+                return !successful;
+            } else {
+                bonusDamage = occupation.getLevelOfSkill( weaponSkill );
+            }
+
+        } else { // No weapons equipped; attack failed - success is false
+
+            return !successful;
+
+        }
+
 
         // Determine the amount of damage dealt
-        int grossDamageDealt = attackingCharacter.getOffensiveRating() /*+ attackCharacter.getWeaponSkill()*/;
+        int grossDamageDealt = attackingCharacter.getOffensiveRating() + rightWeapon.;
         int damageAbsorbed = targetEntity.getArmorRating();
-        int netDamageDealt = -( grossDamageDealt - damageAbsorbed );
+        int netDamageDealt = -(grossDamageDealt - damageAbsorbed);
         // Make sure attacks deal at least 1 damage
-        if ( netDamageDealt == 0 ) {
+        if (netDamageDealt == 0) {
             --netDamageDealt;
         }
 
         // Deal the damage
-        targetEntity.modifyCurrentLife( -netDamageDealt );
+        targetEntity.modifyCurrentLife(-netDamageDealt);
+
 
         /** Test print **/
         System.out.println(attackingCharacter.getName() + " dealt " + netDamageDealt + " to " + targetEntity.getName() + "!");
@@ -40,11 +78,10 @@ public class CombatDamageCalculator implements CharacterMeleeAttacksEntityListen
         // TODO
         /* Check if target has 0 lives and 0 health remaining...if so, notify npcDeathEvent */
         EventDispatcher dispatcher = EventDispatcher.getInstance();
-        if ( targetEntity.getCurrentLife() <= 0 && targetEntity.getLives() <= 0 ) {
-            dispatcher.notify( new EntityDeathEvent(targetEntity) );
+        if (targetEntity.getCurrentLife() <= 0 && targetEntity.getLives() <= 0) {
+            dispatcher.notify(new EntityDeathEvent(targetEntity));
         }
 
         return success;
     }
-
 }
