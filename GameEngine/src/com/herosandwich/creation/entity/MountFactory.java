@@ -2,7 +2,7 @@ package com.herosandwich.creation.entity;
 
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Mount;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 public class MountFactory
 {
@@ -10,7 +10,7 @@ public class MountFactory
             String name,
             int movement,
             Character rider,
-            MovementVisitor visitor
+            MovementCheckVisitor visitor
     )
     {
         if (name == null || name.equals(""))

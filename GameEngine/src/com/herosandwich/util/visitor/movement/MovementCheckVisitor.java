@@ -20,16 +20,18 @@ import com.herosandwich.util.visitor.TileVisitor;
 /**
  * Created by Mitchell on 3/10/2016.
  */
-public class MovementVisitor implements TileVisitor, EntityVisitor, ItemVisitor{
+public class MovementCheckVisitor implements TileVisitor, EntityVisitor, ItemVisitor{
 
     private boolean canMove;
 
-    public MovementVisitor(){
+    public MovementCheckVisitor(){
         this.canMove = true;
     }
 
     public final boolean canMove(){
-        return this.canMove;
+        boolean result = canMove;
+        canMove = true;
+        return result;
     }
 
     public final void acceptRule(boolean b){

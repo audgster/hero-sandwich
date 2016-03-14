@@ -10,12 +10,12 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.map.Map;
+import com.herosandwich.models.map.MapEventHandler;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
-import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -49,7 +49,7 @@ public class AreaView implements Menu {
 
     private ScrollPane scrollBar;
 
-    public AreaView(double width, double height, Character avatar){
+    public AreaView(double width, double height, Player avatar){
         WIDTH = width;
         HEIGHT = height;
         this.avatar = avatar;
@@ -57,7 +57,7 @@ public class AreaView implements Menu {
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
-        pm = new PauseMenu(WIDTH,HEIGHT);
+        pm = new PauseMenu(WIDTH,HEIGHT,avatar);
     }
 
     @Override
@@ -145,24 +145,15 @@ public class AreaView implements Menu {
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
-      //Character avatar = factory.vendDefaultInstance();
-        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1, 1, 1, 1, 1, 1, 1, new ModiferWithWeightStatStrategy(9), new MovementVisitor(), new Smasher(), 1), Attitude.HOSTILE, null, null, null );
+//        Character avatar = factory.vendDefaultInstance();
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new
+                ModiferWithWeightStatStrategy(9), new GroundMovementCheckVisitor(), new Smasher(), 1), Attitude.HOSTILE,
+                null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
-        PetAIController petAIController = new PetAIController(avatar, map);
 
-        /** Set key press event listener for Controller **/
-        Controller controller = Controller.getController();
-        controller.setCharacter(avatar);
-        controller.setMap(map);
-        controller.setGridView(grid);
-        areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                controller.executeUserInput( event.getCode() );
-            }
-        });
+        createController(map);
 
         /** Register events **/
 
@@ -176,6 +167,12 @@ public class AreaView implements Menu {
 
         PlayerDeathHandler playerDeathHandler = new PlayerDeathHandler( map );
         dispatcher.subscribe( PlayerDeathEvent.class, playerDeathHandler );
+
+        //Hope this $#!+ works
+        MapEventHandler mapEventHandler = new MapEventHandler(map);
+        //CharacterPickUpItemListener characterPickUpItemListener = new MapEventHandler(map);
+        dispatcher.subscribe(CharacterPickUpItemEvent.class, (CharacterPickUpItemListener) mapEventHandler);
+        dispatcher.subscribe(PetPickUpItemEvent.class, (PetPickUpItemListener) mapEventHandler);
 
         /** End of register events **/
 
@@ -212,9 +209,24 @@ public class AreaView implements Menu {
         areaMenu.setMinSize(WIDTH/4,HEIGHT);
         content.getChildren().addAll(map,areaMenu);
         areaView.getChildren().add(content);
-            content.setFocusTraversable(true);
+            pm.createMenu(areaView);
+        content.setFocusTraversable(true);
     }
 
+    private void createController(Map map){
+        /** Set key press event listener for Controller **/
+        Controller controller = Controller.getController();
+        controller.setCharacter(avatar);
+        controller.setMap(map);
+        controller.setAreaView(this);
+        controller.setGridView(grid);
+        areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controller.executeUserInput( event.getCode() );
+            }
+        });
+    }
     public void gameLoop(){
         gameLoop.setCycleCount( Timeline.INDEFINITE );
         KeyFrame kf = new KeyFrame(
@@ -238,7 +250,6 @@ public class AreaView implements Menu {
 
     public void toggleStatsMenu(){
         if(content.getChildren().contains(areaMenu)){
-            System.out.println("TEsting");
             content.getChildren().remove(areaMenu);
             canvas.setWidth(WIDTH);
         }

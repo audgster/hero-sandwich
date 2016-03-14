@@ -1,5 +1,6 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.models.entity.Player;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.effect.GaussianBlur;
@@ -15,15 +16,17 @@ import javafx.scene.Node;
 
 public class PauseMenu implements Menu {
     private double WIDTH, HEIGHT;
+    private Player avatar;
     private Pane content;
     private Pane pauseMenuView;
     private Node bgMenu;
     private InventoryMenu inventoryMenu = null;
     private EquipmentMenu equipmentMenu = null;
 
-    public PauseMenu(double width, double height){
+    public PauseMenu(double width, double height, Player avatar){
         WIDTH = width;
         HEIGHT = height;
+        this.avatar = avatar;
     }
 
     public boolean getIsPause(){
@@ -38,12 +41,11 @@ public class PauseMenu implements Menu {
             bgMenu = pauseMenuView.getChildren().get(index);
             bgMenu.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ESCAPE) {
-                    doTransition();
+                    //doTransition();
                 }
             });
 
         content = createPauseMenu();
-
         pauseMenuView.getChildren().add(content);
     }
 
@@ -130,7 +132,7 @@ public class PauseMenu implements Menu {
 
     private void getInventoryMenu() {
         if(inventoryMenu == null) {
-            inventoryMenu = new InventoryMenu(WIDTH,HEIGHT);
+            inventoryMenu = new InventoryMenu(WIDTH,HEIGHT,avatar);
             inventoryMenu.createMenu(pauseMenuView);
         }
         else {

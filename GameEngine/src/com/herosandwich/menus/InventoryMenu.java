@@ -1,5 +1,6 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 
@@ -26,14 +27,16 @@ public class InventoryMenu implements Menu {
     private Pane inventoryView;
     private InventoryItem selectedItem;
 
+    private Player avatar;
     private Inventory i;
     private ArrayList<TakeableItem> inventory;
 
-    public InventoryMenu(double width, double height){
+    public InventoryMenu(double width, double height, Player avatar){
         WIDTH = width;
         HEIGHT = height;
-        i = new Inventory();
-        inventory = i.getInventory();
+        this.avatar = avatar;
+        i = avatar.getInventory();
+        this.inventory = i.getInventory();
         capacity = i.getCapacity();
         content = new BorderPane();
     }
