@@ -95,7 +95,6 @@ public class Player extends Character {
         boolean canMove = super.move(d, map);
         if (canMove){
             notifyListener();
-            return canMove;
         }
         return canMove;
     }
