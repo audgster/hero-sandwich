@@ -33,4 +33,9 @@ public class AlpineMovementVisitor extends MovementVisitor {
         }
     }
 
+    public String toString()
+    {
+        return "alpine";
+    }
+
 }

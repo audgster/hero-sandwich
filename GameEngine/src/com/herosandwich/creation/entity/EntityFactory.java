@@ -3,6 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.PrimaryStats;
+import com.herosandwich.util.visitor.movement.MovementVisitor;
 
 public class EntityFactory
 {
@@ -15,7 +16,8 @@ public class EntityFactory
             int hardiness,
             int experience,
             int movement,
-            DeriveStatStrategy statStrategy
+            DeriveStatStrategy statStrategy,
+            MovementVisitor visitor
     )
     {
         if (name == null || name.equals(""))
@@ -44,7 +46,7 @@ public class EntityFactory
 
         PrimaryStats stats = new PrimaryStats(lives, strength, agility, intellect, hardiness, experience, movement);
 
-        return new Entity(name, stats, statStrategy);
+        return new Entity(name, stats, statStrategy, visitor);
     }
 
     public Entity vendDefaultInstance()

@@ -14,7 +14,6 @@ public class Summoner extends Occupation{
         learned_skills.add(Skill.ENCHANTMENT);
         learned_skills.add(Skill.STAFF);
         //when a character is created all skill levels are zero
-        updateOccupationSkills();
     }
 
     public Summoner(Character owner){

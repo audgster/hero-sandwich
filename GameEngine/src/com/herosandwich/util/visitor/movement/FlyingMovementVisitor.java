@@ -35,4 +35,9 @@ public class FlyingMovementVisitor extends MovementVisitor {
         }
     }
 
+    public String toString()
+    {
+        return "flying";
+    }
+
 }

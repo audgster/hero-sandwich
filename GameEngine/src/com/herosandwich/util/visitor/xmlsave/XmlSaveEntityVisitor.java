@@ -28,6 +28,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     {
         Element entityElement = retrieveStats(entity, doc.createElement("entity"));
         entityElement = retrieveLocation(entity, entityElement);
+        entityElement = retrieveVisitorType(entity, entityElement);
 
         entityNode.appendChild(entityElement);
     }
@@ -37,6 +38,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     {
         Element entityElement = retrieveStats(character, doc.createElement("character"));
         entityElement = retrieveLocation(character, entityElement);
+        entityElement = retrieveVisitorType(character, entityElement);
 
         entityElement = retrieveOccupation(character, entityElement);
         entityElement = retrieveInventory(character, entityElement);
@@ -52,6 +54,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     {
         Element entityElement = retrieveStats(pet, doc.createElement("pet"));
         entityElement = retrieveLocation(pet, entityElement);
+        entityElement = retrieveVisitorType(pet, entityElement);
 
         entityNode.appendChild(entityElement);
     }
@@ -60,6 +63,8 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     public void visitNpc(Npc npc) {
         Element entityElement = retrieveStats(npc, doc.createElement("npc"));
         entityElement = retrieveLocation(npc, entityElement);
+        entityElement = retrieveVisitorType(npc, entityElement);
+
         entityElement = retrieveOccupation(npc, entityElement);
         entityElement = retrieveInventory(npc, entityElement);
         entityElement = retrieveEquipment(npc, entityElement);
@@ -77,6 +82,8 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     public void visitPlayer(Player player) {
         Element entityElement = retrieveStats(player, doc.createElement("player"));
         entityElement = retrieveLocation(player, entityElement);
+        entityElement = retrieveVisitorType(player, entityElement);
+
         entityElement = retrieveOccupation(player, entityElement);
         entityElement = retrieveInventory(player, entityElement);
         entityElement = retrieveEquipment(player, entityElement);
@@ -91,6 +98,7 @@ public class XmlSaveEntityVisitor implements EntityVisitor
     {
         Element entityElement = retrieveMountStats(mount, doc.createElement("mount"));
         entityElement = retrieveLocation(mount, entityElement);
+        entityElement = retrieveVisitorType(mount, entityElement);
 
         entityNode.appendChild(entityElement);
     }
@@ -328,6 +336,13 @@ public class XmlSaveEntityVisitor implements EntityVisitor
         }
 
         element.appendChild(talky);
+
+        return element;
+    }
+
+    private Element retrieveVisitorType(Entity entity, Element element)
+    {
+        element.setAttribute("move-visitor", entity.getMovementVisitor().toString());
 
         return element;
     }

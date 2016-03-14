@@ -4,6 +4,7 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.DeriveStatStrategy;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.occupation.Occupation;
+import com.herosandwich.util.visitor.movement.MovementVisitor;
 
 public class PlayerFactory
 {
@@ -19,6 +20,7 @@ public class PlayerFactory
             int experience,
             int movement,
             DeriveStatStrategy statStrategy,
+            MovementVisitor visitor,
             Occupation occupation,
             int availablePoints
     )
@@ -27,7 +29,7 @@ public class PlayerFactory
             throw new IllegalArgumentException("Available points cannot be null");
 
         Character character = characterFactory.vendCustomInstance(
-                name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, occupation);
+                name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, visitor, occupation);
 
         return new Player(character, availablePoints);
     }
