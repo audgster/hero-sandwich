@@ -8,6 +8,7 @@ import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
 import com.herosandwich.util.visitor.movement.AmphibiousMovementCheckVisitor;
+import com.herosandwich.util.visitor.movement.AquaticMovementCheckVisitor;
 import com.herosandwich.util.visitor.movement.FlyingMovementCheckVisitor;
 import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
 
@@ -357,7 +358,7 @@ public class GameFactory
                 "Deli Basket",
                 45,
                 null,
-                new AmphibiousMovementCheckVisitor()
+                new AquaticMovementCheckVisitor()
         );
     }
 }

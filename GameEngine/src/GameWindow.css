@@ -63,6 +63,12 @@
 	-fx-text-fill: white;
 	-fx-font-weight: bold;
 }
+#stats_text2{
+	-fx-font-family: 'DK Cool Crayon';
+	-fx-font-size: 13px;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
 #menu_bg{
 	-fx-background-image: url('res/images/chalkboard_bg.jpg');
 	-fx-background-size: cover;

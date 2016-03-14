@@ -113,4 +113,8 @@ public abstract class Occupation{
 
     public abstract String getDescription();
 
+    public List<Skill> getLearnedSkills(){
+        return learned_skills;
+    }
+
 }
