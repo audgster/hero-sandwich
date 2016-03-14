@@ -5,9 +5,9 @@ import com.herosandwich.models.map.Tile;
 /**
  * Created by Mitchell on 3/11/2016.
  */
-public class AlpineMovementVisitor extends MovementVisitor {
+public class AlpineMovementCheckVisitor extends MovementCheckVisitor {
 
-    public AlpineMovementVisitor(){
+    public AlpineMovementCheckVisitor(){
         super();
     }
 

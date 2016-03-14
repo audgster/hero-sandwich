@@ -10,11 +10,12 @@ import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.map.Map;
+import com.herosandwich.models.map.MapEventHandler;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
-import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -144,8 +145,10 @@ public class AreaView implements Menu {
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
-      //Character avatar = factory.vendDefaultInstance();
-        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
+//        Character avatar = factory.vendDefaultInstance();
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new
+                ModiferWithWeightStatStrategy(9), new GroundMovementCheckVisitor(), new Smasher(), 1), Attitude.HOSTILE,
+                null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
@@ -164,6 +167,12 @@ public class AreaView implements Menu {
 
         PlayerDeathHandler playerDeathHandler = new PlayerDeathHandler( map );
         dispatcher.subscribe( PlayerDeathEvent.class, playerDeathHandler );
+
+        //Hope this $#!+ works
+        MapEventHandler mapEventHandler = new MapEventHandler(map);
+        //CharacterPickUpItemListener characterPickUpItemListener = new MapEventHandler(map);
+        dispatcher.subscribe(CharacterPickUpItemEvent.class, (CharacterPickUpItemListener) mapEventHandler);
+        dispatcher.subscribe(PetPickUpItemEvent.class, (PetPickUpItemListener) mapEventHandler);
 
         /** End of register events **/
 
