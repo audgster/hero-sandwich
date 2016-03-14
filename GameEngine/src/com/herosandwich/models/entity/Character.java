@@ -170,7 +170,7 @@ public class Character extends Entity {
     }
 
     public Weapon getLeftHand(){
-        EquipableItem item = equipment.getEquipableItem(EquipmentSlots.RIGHT_HAND);
+        EquipableItem item = equipment.getEquipableItem(EquipmentSlots.LEFT_HAND);
         if((item != null) && (item.getEquipmentType() == EquipmentType.WEAPON)){
             return (Weapon)item;
         }
