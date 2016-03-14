@@ -11,7 +11,6 @@ public class Smasher extends Occupation {
         learned_skills.add(Skill.TWO_HANDED_WEAPON);
         learned_skills.add(Skill.BRAWL);
         //when a character is created all skill levels are zero
-        updateOccupationSkills();
     }
 
 

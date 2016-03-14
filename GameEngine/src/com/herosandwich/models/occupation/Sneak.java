@@ -20,7 +20,6 @@ public class Sneak extends Occupation{
         learned_skills.add(Skill.RANGED_WEAPON);
         creep_mode = false;
         //when a character is created all skill levels are zero
-        updateOccupationSkills();
     }
 
     public Sneak(Character owner){
