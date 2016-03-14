@@ -11,26 +11,29 @@ import java.util.ArrayList;
  */
 public class EntityDrawable implements Drawable {
     SpriteMap spriteMap = SpriteMap.getInstance();
-    Integer graphicKey = 101; //whatever the key in the sprite is
+    Integer graphicKey; //whatever the key in the sprite is
     Image avatar = spriteMap.getImageForKey(graphicKey);
     boolean isAnimating;
 
     ArrayList<Image> smasherAnimation = new ArrayList(2);
 
     public EntityDrawable(){
-        smasherAnimation.add(spriteMap.getImageForKey(400));
-        smasherAnimation.add(spriteMap.getImageForKey(401));
-        animateFrame();
+//        smasherAnimation.add(spriteMap.getImageForKey(400));
+//        smasherAnimation.add(spriteMap.getImageForKey(401));
+//        animateFrame();
 
     }
 
     public void setGraphicKey(Integer spriteMapImageID) {
+
         graphicKey = spriteMapImageID;
+        avatar = spriteMap.getImageForKey(graphicKey);
     }
 
     public void setType(String entityType) {
         if(entityType.equalsIgnoreCase("moldySandwich")) {
             graphicKey = 102;
+            avatar = spriteMap.getImageForKey(graphicKey);
         }
     }
 
