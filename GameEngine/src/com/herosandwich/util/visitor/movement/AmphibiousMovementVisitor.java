@@ -7,7 +7,7 @@ import com.herosandwich.models.map.Tile;
  */
 public class AmphibiousMovementVisitor extends MovementVisitor{
 
-    AmphibiousMovementVisitor(){
+    public AmphibiousMovementVisitor(){
         super();
     }
 
@@ -31,6 +31,11 @@ public class AmphibiousMovementVisitor extends MovementVisitor{
                 acceptRule(false);
                 break;
         }
+    }
+
+    public String toString()
+    {
+        return "amphibious";
     }
 
 }

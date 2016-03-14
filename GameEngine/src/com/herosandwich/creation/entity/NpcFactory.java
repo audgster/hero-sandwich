@@ -3,6 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.Occupation;
+import com.herosandwich.util.visitor.movement.MovementVisitor;
 
 import java.util.HashMap;
 
@@ -21,6 +22,7 @@ public class NpcFactory
             int movement,
             DeriveStatStrategy statStrategy,
             Occupation occupation,
+            MovementVisitor visitor,
             Attitude attitudeTowardsPlayer,
             HashMap<Integer, Integer> sell,
             HashMap<Integer, Integer> buy,
@@ -37,7 +39,7 @@ public class NpcFactory
             throw new IllegalArgumentException("Npc Buys cannot be null");
 
         Character character = characterFactory.vendCustomInstance(
-                name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, occupation);
+                name, lives, strength, agility, intellect, hardiness, experience, movement, statStrategy, visitor, occupation);
 
         return new Npc(character, attitudeTowardsPlayer, sell, buy, thgs2say);
     }

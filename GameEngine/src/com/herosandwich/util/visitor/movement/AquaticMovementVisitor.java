@@ -31,4 +31,9 @@ public class AquaticMovementVisitor extends MovementVisitor{
         }
     }
 
+    public String toString()
+    {
+        return "aquatic";
+    }
+
 }

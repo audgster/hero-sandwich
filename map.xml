@@ -26,30 +26,6 @@
 <XpAoE q="4" r="10" s="-14" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="1" r="0" s="-1" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="1" r="0" s="-1"/>
-<InstaDeathAoE q="1" r="0" s="-1"/>
-<InstantDamageAoETrap dmg-amt="10" q="1" r="0" s="-1"/>
-<TakeDamageAoE dmg-per-tick="10" q="1" r="0" s="-1"/>
-<TeleportAoE q="1" r="0" s="-1">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="1" r="0" s="-1" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="0" r="18" s="-18" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -72,6 +48,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="0" r="18" s="-18" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="1" r="0" s="-1" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="1" r="0" s="-1"/>
+<InstaDeathAoE q="1" r="0" s="-1"/>
+<InstantDamageAoETrap dmg-amt="10" q="1" r="0" s="-1"/>
+<TakeDamageAoE dmg-per-tick="10" q="1" r="0" s="-1"/>
+<TeleportAoE q="1" r="0" s="-1">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="1" r="0" s="-1" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="2" r="14" s="-16" terrain-type="grass">
@@ -316,7 +316,7 @@
 </tile>
 <tile q="1" r="1" s="-2" terrain-type="grass">
 <entities>
-<npc name="MerpDerp">
+<npc move-visitor="ground" name="MerpDerp">
 <stats agility="10" currentLife="6" currentMana="5" experience="10" hardiness="10" intellect="10" lives="3" movement="10" strength="10"/>
 <location direction="south" q="1" r="1" s="-2"/>
 <occupation>summoner</occupation>
@@ -556,30 +556,6 @@
 <XpAoE q="4" r="12" s="-16" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="1" r="2" s="-3" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="1" r="2" s="-3"/>
-<InstaDeathAoE q="1" r="2" s="-3"/>
-<InstantDamageAoETrap dmg-amt="10" q="1" r="2" s="-3"/>
-<TakeDamageAoE dmg-per-tick="10" q="1" r="2" s="-3"/>
-<TeleportAoE q="1" r="2" s="-3">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="1" r="2" s="-3" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="0" r="20" s="-20" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -602,6 +578,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="0" r="20" s="-20" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="1" r="2" s="-3" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="1" r="2" s="-3"/>
+<InstaDeathAoE q="1" r="2" s="-3"/>
+<InstantDamageAoETrap dmg-amt="10" q="1" r="2" s="-3"/>
+<TakeDamageAoE dmg-per-tick="10" q="1" r="2" s="-3"/>
+<TeleportAoE q="1" r="2" s="-3">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="1" r="2" s="-3" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="2" r="16" s="-18" terrain-type="grass">
@@ -820,30 +820,6 @@
 <XpAoE q="4" r="13" s="-17" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="0" r="21" s="-21" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="0" r="21" s="-21"/>
-<InstaDeathAoE q="0" r="21" s="-21"/>
-<InstantDamageAoETrap dmg-amt="10" q="0" r="21" s="-21"/>
-<TakeDamageAoE dmg-per-tick="10" q="0" r="21" s="-21"/>
-<TeleportAoE q="0" r="21" s="-21">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="0" r="21" s="-21" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="1" r="3" s="-4" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -866,6 +842,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="1" r="3" s="-4" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="0" r="21" s="-21" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="0" r="21" s="-21"/>
+<InstaDeathAoE q="0" r="21" s="-21"/>
+<InstantDamageAoETrap dmg-amt="10" q="0" r="21" s="-21"/>
+<TakeDamageAoE dmg-per-tick="10" q="0" r="21" s="-21"/>
+<TeleportAoE q="0" r="21" s="-21">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="0" r="21" s="-21" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="2" r="17" s="-19" terrain-type="grass">
@@ -1036,7 +1036,7 @@
 <XpAoE q="17" r="3" s="-20" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="3" r="0" s="-3" terrain-type="grass">
+<tile q="4" r="14" s="-18" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1050,14 +1050,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="3" r="0" s="-3"/>
-<InstaDeathAoE q="3" r="0" s="-3"/>
-<InstantDamageAoETrap dmg-amt="10" q="3" r="0" s="-3"/>
-<TakeDamageAoE dmg-per-tick="10" q="3" r="0" s="-3"/>
-<TeleportAoE q="3" r="0" s="-3">
+<HealDamageAoE heal-per-tick="10" q="4" r="14" s="-18"/>
+<InstaDeathAoE q="4" r="14" s="-18"/>
+<InstantDamageAoETrap dmg-amt="10" q="4" r="14" s="-18"/>
+<TakeDamageAoE dmg-per-tick="10" q="4" r="14" s="-18"/>
+<TeleportAoE q="4" r="14" s="-18">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="3" r="0" s="-3" xp-per-tick="5"/>
+<XpAoE q="4" r="14" s="-18" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="22" s="-22" terrain-type="grass">
@@ -1130,30 +1130,6 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="2" r="18" s="-20" xp-per-tick="5"/>
-</aoes>
-</tile>
-<tile q="4" r="14" s="-18" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="4" r="14" s="-18"/>
-<InstaDeathAoE q="4" r="14" s="-18"/>
-<InstantDamageAoETrap dmg-amt="10" q="4" r="14" s="-18"/>
-<TakeDamageAoE dmg-per-tick="10" q="4" r="14" s="-18"/>
-<TeleportAoE q="4" r="14" s="-18">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="4" r="14" s="-18" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="10" s="-16" terrain-type="grass">
@@ -1324,7 +1300,7 @@
 <XpAoE q="19" r="0" s="-19" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="3" r="1" s="-4" terrain-type="grass">
+<tile q="3" r="0" s="-3" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1338,14 +1314,38 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="3" r="1" s="-4"/>
-<InstaDeathAoE q="3" r="1" s="-4"/>
-<InstantDamageAoETrap dmg-amt="10" q="3" r="1" s="-4"/>
-<TakeDamageAoE dmg-per-tick="10" q="3" r="1" s="-4"/>
-<TeleportAoE q="3" r="1" s="-4">
+<HealDamageAoE heal-per-tick="10" q="3" r="0" s="-3"/>
+<InstaDeathAoE q="3" r="0" s="-3"/>
+<InstantDamageAoETrap dmg-amt="10" q="3" r="0" s="-3"/>
+<TakeDamageAoE dmg-per-tick="10" q="3" r="0" s="-3"/>
+<TeleportAoE q="3" r="0" s="-3">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="3" r="1" s="-4" xp-per-tick="5"/>
+<XpAoE q="3" r="0" s="-3" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="4" r="15" s="-19" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="4" r="15" s="-19"/>
+<InstaDeathAoE q="4" r="15" s="-19"/>
+<InstantDamageAoETrap dmg-amt="10" q="4" r="15" s="-19"/>
+<TakeDamageAoE dmg-per-tick="10" q="4" r="15" s="-19"/>
+<TeleportAoE q="4" r="15" s="-19">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="4" r="15" s="-19" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="23" s="-23" terrain-type="grass">
@@ -1418,30 +1418,6 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="2" r="19" s="-21" xp-per-tick="5"/>
-</aoes>
-</tile>
-<tile q="4" r="15" s="-19" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="4" r="15" s="-19"/>
-<InstaDeathAoE q="4" r="15" s="-19"/>
-<InstantDamageAoETrap dmg-amt="10" q="4" r="15" s="-19"/>
-<TakeDamageAoE dmg-per-tick="10" q="4" r="15" s="-19"/>
-<TeleportAoE q="4" r="15" s="-19">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="4" r="15" s="-19" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="11" s="-17" terrain-type="grass">
@@ -1588,6 +1564,30 @@
 <XpAoE q="19" r="1" s="-20" xp-per-tick="5"/>
 </aoes>
 </tile>
+<tile q="3" r="1" s="-4" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="3" r="1" s="-4"/>
+<InstaDeathAoE q="3" r="1" s="-4"/>
+<InstantDamageAoETrap dmg-amt="10" q="3" r="1" s="-4"/>
+<TakeDamageAoE dmg-per-tick="10" q="3" r="1" s="-4"/>
+<TeleportAoE q="3" r="1" s="-4">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="3" r="1" s="-4" xp-per-tick="5"/>
+</aoes>
+</tile>
 <tile q="4" r="16" s="-20" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -1612,7 +1612,7 @@
 <XpAoE q="4" r="16" s="-20" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="1" r="6" s="-7" terrain-type="grass">
+<tile q="2" r="20" s="-22" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1626,14 +1626,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="1" r="6" s="-7"/>
-<InstaDeathAoE q="1" r="6" s="-7"/>
-<InstantDamageAoETrap dmg-amt="10" q="1" r="6" s="-7"/>
-<TakeDamageAoE dmg-per-tick="10" q="1" r="6" s="-7"/>
-<TeleportAoE q="1" r="6" s="-7">
+<HealDamageAoE heal-per-tick="10" q="2" r="20" s="-22"/>
+<InstaDeathAoE q="2" r="20" s="-22"/>
+<InstantDamageAoETrap dmg-amt="10" q="2" r="20" s="-22"/>
+<TakeDamageAoE dmg-per-tick="10" q="2" r="20" s="-22"/>
+<TeleportAoE q="2" r="20" s="-22">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="1" r="6" s="-7" xp-per-tick="5"/>
+<XpAoE q="2" r="20" s="-22" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="24" s="-24" terrain-type="grass">
@@ -1660,7 +1660,7 @@
 <XpAoE q="0" r="24" s="-24" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="2" r="20" s="-22" terrain-type="grass">
+<tile q="3" r="2" s="-5" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1674,14 +1674,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="2" r="20" s="-22"/>
-<InstaDeathAoE q="2" r="20" s="-22"/>
-<InstantDamageAoETrap dmg-amt="10" q="2" r="20" s="-22"/>
-<TakeDamageAoE dmg-per-tick="10" q="2" r="20" s="-22"/>
-<TeleportAoE q="2" r="20" s="-22">
+<HealDamageAoE heal-per-tick="10" q="3" r="2" s="-5"/>
+<InstaDeathAoE q="3" r="2" s="-5"/>
+<InstantDamageAoETrap dmg-amt="10" q="3" r="2" s="-5"/>
+<TakeDamageAoE dmg-per-tick="10" q="3" r="2" s="-5"/>
+<TeleportAoE q="3" r="2" s="-5">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="2" r="20" s="-22" xp-per-tick="5"/>
+<XpAoE q="3" r="2" s="-5" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="12" s="-18" terrain-type="grass">
@@ -1852,7 +1852,7 @@
 <XpAoE q="19" r="2" s="-21" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="3" r="2" s="-5" terrain-type="grass">
+<tile q="1" r="6" s="-7" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1866,17 +1866,17 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="3" r="2" s="-5"/>
-<InstaDeathAoE q="3" r="2" s="-5"/>
-<InstantDamageAoETrap dmg-amt="10" q="3" r="2" s="-5"/>
-<TakeDamageAoE dmg-per-tick="10" q="3" r="2" s="-5"/>
-<TeleportAoE q="3" r="2" s="-5">
+<HealDamageAoE heal-per-tick="10" q="1" r="6" s="-7"/>
+<InstaDeathAoE q="1" r="6" s="-7"/>
+<InstantDamageAoETrap dmg-amt="10" q="1" r="6" s="-7"/>
+<TakeDamageAoE dmg-per-tick="10" q="1" r="6" s="-7"/>
+<TeleportAoE q="1" r="6" s="-7">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="3" r="2" s="-5" xp-per-tick="5"/>
+<XpAoE q="1" r="6" s="-7" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="3" r="3" s="-6" terrain-type="grass">
+<tile q="4" r="17" s="-21" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -1890,38 +1890,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="3" r="3" s="-6"/>
-<InstaDeathAoE q="3" r="3" s="-6"/>
-<InstantDamageAoETrap dmg-amt="10" q="3" r="3" s="-6"/>
-<TakeDamageAoE dmg-per-tick="10" q="3" r="3" s="-6"/>
-<TeleportAoE q="3" r="3" s="-6">
+<HealDamageAoE heal-per-tick="10" q="4" r="17" s="-21"/>
+<InstaDeathAoE q="4" r="17" s="-21"/>
+<InstantDamageAoETrap dmg-amt="10" q="4" r="17" s="-21"/>
+<TakeDamageAoE dmg-per-tick="10" q="4" r="17" s="-21"/>
+<TeleportAoE q="4" r="17" s="-21">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="3" r="3" s="-6" xp-per-tick="5"/>
-</aoes>
-</tile>
-<tile q="0" r="25" s="-25" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="0" r="25" s="-25"/>
-<InstaDeathAoE q="0" r="25" s="-25"/>
-<InstantDamageAoETrap dmg-amt="10" q="0" r="25" s="-25"/>
-<TakeDamageAoE dmg-per-tick="10" q="0" r="25" s="-25"/>
-<TeleportAoE q="0" r="25" s="-25">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="0" r="25" s="-25" xp-per-tick="5"/>
+<XpAoE q="4" r="17" s="-21" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="1" r="7" s="-8" terrain-type="grass">
@@ -1948,6 +1924,30 @@
 <XpAoE q="1" r="7" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
+<tile q="0" r="25" s="-25" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="0" r="25" s="-25"/>
+<InstaDeathAoE q="0" r="25" s="-25"/>
+<InstantDamageAoETrap dmg-amt="10" q="0" r="25" s="-25"/>
+<TakeDamageAoE dmg-per-tick="10" q="0" r="25" s="-25"/>
+<TeleportAoE q="0" r="25" s="-25">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="0" r="25" s="-25" xp-per-tick="5"/>
+</aoes>
+</tile>
 <tile q="2" r="21" s="-23" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -1970,30 +1970,6 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="2" r="21" s="-23" xp-per-tick="5"/>
-</aoes>
-</tile>
-<tile q="4" r="17" s="-21" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="4" r="17" s="-21"/>
-<InstaDeathAoE q="4" r="17" s="-21"/>
-<InstantDamageAoETrap dmg-amt="10" q="4" r="17" s="-21"/>
-<TakeDamageAoE dmg-per-tick="10" q="4" r="17" s="-21"/>
-<TeleportAoE q="4" r="17" s="-21">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="4" r="17" s="-21" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="13" s="-19" terrain-type="grass">
@@ -2046,9 +2022,9 @@
 </tile>
 <tile q="10" r="5" s="-15" terrain-type="grass">
 <entities>
-<mount movement="1" name="Entity Dave">
+<mount move-visitor="amphibious" movement="1" name="Entity Dave">
 <rider>
-<player name="Mitch the Snitch">
+<player move-visitor="alpine" name="Mitch the Snitch">
 <stats agility="6" currentLife="136" currentMana="35" experience="17" hardiness="22" intellect="6" lives="3" movement="45" strength="15"/>
 <location direction="south" q="0" r="0" s="0"/>
 <occupation>summoner</occupation>
@@ -2155,6 +2131,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="19" r="3" s="-22" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="3" r="3" s="-6" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="3" r="3" s="-6"/>
+<InstaDeathAoE q="3" r="3" s="-6"/>
+<InstantDamageAoETrap dmg-amt="10" q="3" r="3" s="-6"/>
+<TakeDamageAoE dmg-per-tick="10" q="3" r="3" s="-6"/>
+<TeleportAoE q="3" r="3" s="-6">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="3" r="3" s="-6" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="14" s="-20" terrain-type="grass">
@@ -2973,7 +2973,7 @@
 <XpAoE q="21" r="2" s="-23" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="4" r="21" s="-25" terrain-type="grass">
+<tile q="5" r="3" s="-8" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -2987,14 +2987,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="4" r="21" s="-25"/>
-<InstaDeathAoE q="4" r="21" s="-25"/>
-<InstantDamageAoETrap dmg-amt="10" q="4" r="21" s="-25"/>
-<TakeDamageAoE dmg-per-tick="10" q="4" r="21" s="-25"/>
-<TeleportAoE q="4" r="21" s="-25">
+<HealDamageAoE heal-per-tick="10" q="5" r="3" s="-8"/>
+<InstaDeathAoE q="5" r="3" s="-8"/>
+<InstantDamageAoETrap dmg-amt="10" q="5" r="3" s="-8"/>
+<TakeDamageAoE dmg-per-tick="10" q="5" r="3" s="-8"/>
+<TeleportAoE q="5" r="3" s="-8">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="4" r="21" s="-25" xp-per-tick="5"/>
+<XpAoE q="5" r="3" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="3" r="7" s="-10" terrain-type="grass">
@@ -3045,7 +3045,7 @@
 <XpAoE q="1" r="11" s="-12" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="5" r="3" s="-8" terrain-type="grass">
+<tile q="4" r="21" s="-25" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -3059,14 +3059,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="5" r="3" s="-8"/>
-<InstaDeathAoE q="5" r="3" s="-8"/>
-<InstantDamageAoETrap dmg-amt="10" q="5" r="3" s="-8"/>
-<TakeDamageAoE dmg-per-tick="10" q="5" r="3" s="-8"/>
-<TeleportAoE q="5" r="3" s="-8">
+<HealDamageAoE heal-per-tick="10" q="4" r="21" s="-25"/>
+<InstaDeathAoE q="4" r="21" s="-25"/>
+<InstantDamageAoETrap dmg-amt="10" q="4" r="21" s="-25"/>
+<TakeDamageAoE dmg-per-tick="10" q="4" r="21" s="-25"/>
+<TeleportAoE q="4" r="21" s="-25">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="5" r="3" s="-8" xp-per-tick="5"/>
+<XpAoE q="4" r="21" s="-25" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="6" r="17" s="-23" terrain-type="grass">
@@ -3477,7 +3477,7 @@
 <XpAoE q="23" r="0" s="-23" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="7" r="1" s="-8" terrain-type="grass">
+<tile q="6" r="19" s="-25" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -3491,14 +3491,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="7" r="1" s="-8"/>
-<InstaDeathAoE q="7" r="1" s="-8"/>
-<InstantDamageAoETrap dmg-amt="10" q="7" r="1" s="-8"/>
-<TakeDamageAoE dmg-per-tick="10" q="7" r="1" s="-8"/>
-<TeleportAoE q="7" r="1" s="-8">
+<HealDamageAoE heal-per-tick="10" q="6" r="19" s="-25"/>
+<InstaDeathAoE q="6" r="19" s="-25"/>
+<InstantDamageAoETrap dmg-amt="10" q="6" r="19" s="-25"/>
+<TakeDamageAoE dmg-per-tick="10" q="6" r="19" s="-25"/>
+<TeleportAoE q="6" r="19" s="-25">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="7" r="1" s="-8" xp-per-tick="5"/>
+<XpAoE q="6" r="19" s="-25" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="3" r="9" s="-12" terrain-type="grass">
@@ -3573,7 +3573,7 @@
 <XpAoE q="5" r="5" s="-10" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="6" r="19" s="-25" terrain-type="grass">
+<tile q="7" r="1" s="-8" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -3587,14 +3587,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="6" r="19" s="-25"/>
-<InstaDeathAoE q="6" r="19" s="-25"/>
-<InstantDamageAoETrap dmg-amt="10" q="6" r="19" s="-25"/>
-<TakeDamageAoE dmg-per-tick="10" q="6" r="19" s="-25"/>
-<TeleportAoE q="6" r="19" s="-25">
+<HealDamageAoE heal-per-tick="10" q="7" r="1" s="-8"/>
+<InstaDeathAoE q="7" r="1" s="-8"/>
+<InstantDamageAoETrap dmg-amt="10" q="7" r="1" s="-8"/>
+<TakeDamageAoE dmg-per-tick="10" q="7" r="1" s="-8"/>
+<TeleportAoE q="7" r="1" s="-8">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="6" r="19" s="-25" xp-per-tick="5"/>
+<XpAoE q="7" r="1" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="8" r="15" s="-23" terrain-type="grass">
@@ -5013,7 +5013,7 @@
 <XpAoE q="3" r="15" s="-18" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="1" r="19" s="-20" terrain-type="grass">
+<tile q="2" r="1" s="-3" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -5027,14 +5027,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="1" r="19" s="-20"/>
-<InstaDeathAoE q="1" r="19" s="-20"/>
-<InstantDamageAoETrap dmg-amt="10" q="1" r="19" s="-20"/>
-<TakeDamageAoE dmg-per-tick="10" q="1" r="19" s="-20"/>
-<TeleportAoE q="1" r="19" s="-20">
+<HealDamageAoE heal-per-tick="10" q="2" r="1" s="-3"/>
+<InstaDeathAoE q="2" r="1" s="-3"/>
+<InstantDamageAoETrap dmg-amt="10" q="2" r="1" s="-3"/>
+<TakeDamageAoE dmg-per-tick="10" q="2" r="1" s="-3"/>
+<TeleportAoE q="2" r="1" s="-3">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="1" r="19" s="-20" xp-per-tick="5"/>
+<XpAoE q="2" r="1" s="-3" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="5" s="-5" terrain-type="grass">
@@ -5061,7 +5061,7 @@
 <XpAoE q="0" r="5" s="-5" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="2" r="1" s="-3" terrain-type="grass">
+<tile q="1" r="19" s="-20" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -5075,14 +5075,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="2" r="1" s="-3"/>
-<InstaDeathAoE q="2" r="1" s="-3"/>
-<InstantDamageAoETrap dmg-amt="10" q="2" r="1" s="-3"/>
-<TakeDamageAoE dmg-per-tick="10" q="2" r="1" s="-3"/>
-<TeleportAoE q="2" r="1" s="-3">
+<HealDamageAoE heal-per-tick="10" q="1" r="19" s="-20"/>
+<InstaDeathAoE q="1" r="19" s="-20"/>
+<InstantDamageAoETrap dmg-amt="10" q="1" r="19" s="-20"/>
+<TakeDamageAoE dmg-per-tick="10" q="1" r="19" s="-20"/>
+<TeleportAoE q="1" r="19" s="-20">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="2" r="1" s="-3" xp-per-tick="5"/>
+<XpAoE q="1" r="19" s="-20" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="5" r="11" s="-16" terrain-type="grass">
@@ -5829,30 +5829,6 @@
 <XpAoE q="1" r="22" s="-23" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="0" r="8" s="-8" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="0" r="8" s="-8"/>
-<InstaDeathAoE q="0" r="8" s="-8"/>
-<InstantDamageAoETrap dmg-amt="10" q="0" r="8" s="-8"/>
-<TakeDamageAoE dmg-per-tick="10" q="0" r="8" s="-8"/>
-<TeleportAoE q="0" r="8" s="-8">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="0" r="8" s="-8" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="2" r="4" s="-6" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -5875,6 +5851,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="2" r="4" s="-6" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="0" r="8" s="-8" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="0" r="8" s="-8"/>
+<InstaDeathAoE q="0" r="8" s="-8"/>
+<InstantDamageAoETrap dmg-amt="10" q="0" r="8" s="-8"/>
+<TakeDamageAoE dmg-per-tick="10" q="0" r="8" s="-8"/>
+<TeleportAoE q="0" r="8" s="-8">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="0" r="8" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="5" r="14" s="-19" terrain-type="grass">
@@ -6165,30 +6165,6 @@
 <XpAoE q="1" r="23" s="-24" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="4" r="1" s="-5" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="4" r="1" s="-5"/>
-<InstaDeathAoE q="4" r="1" s="-5"/>
-<InstantDamageAoETrap dmg-amt="10" q="4" r="1" s="-5"/>
-<TakeDamageAoE dmg-per-tick="10" q="4" r="1" s="-5"/>
-<TeleportAoE q="4" r="1" s="-5">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="4" r="1" s="-5" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="5" r="15" s="-20" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -6357,6 +6333,30 @@
 <XpAoE q="20" r="1" s="-21" xp-per-tick="5"/>
 </aoes>
 </tile>
+<tile q="4" r="1" s="-5" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="4" r="1" s="-5"/>
+<InstaDeathAoE q="4" r="1" s="-5"/>
+<InstantDamageAoETrap dmg-amt="10" q="4" r="1" s="-5"/>
+<TakeDamageAoE dmg-per-tick="10" q="4" r="1" s="-5"/>
+<TeleportAoE q="4" r="1" s="-5">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="4" r="1" s="-5" xp-per-tick="5"/>
+</aoes>
+</tile>
 <tile q="3" r="20" s="-23" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -6381,30 +6381,6 @@
 <XpAoE q="3" r="20" s="-23" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="2" r="6" s="-8" terrain-type="grass">
-<entities/>
-<tile-items>
-<item item-id="0"/>
-<item item-id="2"/>
-<item item-id="5"/>
-<item item-id="8"/>
-<item item-id="13"/>
-<item item-id="23"/>
-<item item-id="38"/>
-<item item-id="46"/>
-<item item-id="50"/>
-</tile-items>
-<aoes>
-<HealDamageAoE heal-per-tick="10" q="2" r="6" s="-8"/>
-<InstaDeathAoE q="2" r="6" s="-8"/>
-<InstantDamageAoETrap dmg-amt="10" q="2" r="6" s="-8"/>
-<TakeDamageAoE dmg-per-tick="10" q="2" r="6" s="-8"/>
-<TeleportAoE q="2" r="6" s="-8">
-<destination q="2" r="2" s="-4"/>
-</TeleportAoE>
-<XpAoE q="2" r="6" s="-8" xp-per-tick="5"/>
-</aoes>
-</tile>
 <tile q="1" r="24" s="-25" terrain-type="grass">
 <entities/>
 <tile-items>
@@ -6427,6 +6403,30 @@
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
 <XpAoE q="1" r="24" s="-25" xp-per-tick="5"/>
+</aoes>
+</tile>
+<tile q="2" r="6" s="-8" terrain-type="grass">
+<entities/>
+<tile-items>
+<item item-id="0"/>
+<item item-id="2"/>
+<item item-id="5"/>
+<item item-id="8"/>
+<item item-id="13"/>
+<item item-id="23"/>
+<item item-id="38"/>
+<item item-id="46"/>
+<item item-id="50"/>
+</tile-items>
+<aoes>
+<HealDamageAoE heal-per-tick="10" q="2" r="6" s="-8"/>
+<InstaDeathAoE q="2" r="6" s="-8"/>
+<InstantDamageAoETrap dmg-amt="10" q="2" r="6" s="-8"/>
+<TakeDamageAoE dmg-per-tick="10" q="2" r="6" s="-8"/>
+<TeleportAoE q="2" r="6" s="-8">
+<destination q="2" r="2" s="-4"/>
+</TeleportAoE>
+<XpAoE q="2" r="6" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="10" s="-10" terrain-type="grass">
@@ -7461,7 +7461,7 @@
 <XpAoE q="22" r="1" s="-23" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="6" r="2" s="-8" terrain-type="grass">
+<tile q="5" r="20" s="-25" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -7475,14 +7475,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="6" r="2" s="-8"/>
-<InstaDeathAoE q="6" r="2" s="-8"/>
-<InstantDamageAoETrap dmg-amt="10" q="6" r="2" s="-8"/>
-<TakeDamageAoE dmg-per-tick="10" q="6" r="2" s="-8"/>
-<TeleportAoE q="6" r="2" s="-8">
+<HealDamageAoE heal-per-tick="10" q="5" r="20" s="-25"/>
+<InstaDeathAoE q="5" r="20" s="-25"/>
+<InstantDamageAoETrap dmg-amt="10" q="5" r="20" s="-25"/>
+<TakeDamageAoE dmg-per-tick="10" q="5" r="20" s="-25"/>
+<TeleportAoE q="5" r="20" s="-25">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="6" r="2" s="-8" xp-per-tick="5"/>
+<XpAoE q="5" r="20" s="-25" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="0" r="14" s="-14" terrain-type="grass">
@@ -7557,7 +7557,7 @@
 <XpAoE q="4" r="6" s="-10" xp-per-tick="5"/>
 </aoes>
 </tile>
-<tile q="5" r="20" s="-25" terrain-type="grass">
+<tile q="6" r="2" s="-8" terrain-type="grass">
 <entities/>
 <tile-items>
 <item item-id="0"/>
@@ -7571,14 +7571,14 @@
 <item item-id="50"/>
 </tile-items>
 <aoes>
-<HealDamageAoE heal-per-tick="10" q="5" r="20" s="-25"/>
-<InstaDeathAoE q="5" r="20" s="-25"/>
-<InstantDamageAoETrap dmg-amt="10" q="5" r="20" s="-25"/>
-<TakeDamageAoE dmg-per-tick="10" q="5" r="20" s="-25"/>
-<TeleportAoE q="5" r="20" s="-25">
+<HealDamageAoE heal-per-tick="10" q="6" r="2" s="-8"/>
+<InstaDeathAoE q="6" r="2" s="-8"/>
+<InstantDamageAoETrap dmg-amt="10" q="6" r="2" s="-8"/>
+<TakeDamageAoE dmg-per-tick="10" q="6" r="2" s="-8"/>
+<TeleportAoE q="6" r="2" s="-8">
 <destination q="2" r="2" s="-4"/>
 </TeleportAoE>
-<XpAoE q="5" r="20" s="-25" xp-per-tick="5"/>
+<XpAoE q="6" r="2" s="-8" xp-per-tick="5"/>
 </aoes>
 </tile>
 <tile q="7" r="16" s="-23" terrain-type="grass">

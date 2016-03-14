@@ -30,4 +30,9 @@ public class GroundMovementVisitor extends MovementVisitor {
                 break;
         }
     }
+
+    public String toString()
+    {
+        return "ground";
+    }
 }

@@ -14,6 +14,7 @@ import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.util.PositionHex;
 
+import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -148,7 +149,6 @@ public class AreaView implements Menu {
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
-
 
         /** Set key press event listener for Controller **/
         Controller controller = Controller.getController();

@@ -7,6 +7,10 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import com.herosandwich.models.occupation.Smasher;
 import com.herosandwich.models.occupation.Sneak;
 import com.herosandwich.models.occupation.Summoner;
+import com.herosandwich.util.visitor.movement.AmphibiousMovementVisitor;
+import com.herosandwich.util.visitor.movement.AquaticMovementVisitor;
+import com.herosandwich.util.visitor.movement.FlyingMovementVisitor;
+import com.herosandwich.util.visitor.movement.GroundMovementVisitor;
 
 import java.util.HashMap;
 
@@ -31,6 +35,7 @@ public class GameFactory
                 SummonerStats.experience,
                 SummonerStats.movement,
                 new ModiferWithWeightStatStrategy(5),
+                new GroundMovementVisitor(),
                 new Summoner(),
                 3
         );
@@ -48,6 +53,7 @@ public class GameFactory
                 SmasherStats.experience,
                 SmasherStats.movement,
                 new ModiferWithWeightStatStrategy(5),
+                new GroundMovementVisitor(),
                 new Smasher(),
                 3
         );
@@ -65,6 +71,7 @@ public class GameFactory
                 SneakStats.experience,
                 SneakStats.movement,
                 new ModiferWithWeightStatStrategy(5),
+                new GroundMovementVisitor(),
                 new Sneak(),
                 3
         );
@@ -89,6 +96,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Smasher(),
+                new GroundMovementVisitor(),
                 Attitude.HOSTILE,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -125,6 +133,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
+                new GroundMovementVisitor(),
                 Attitude.VERY_HOSTILE,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -162,6 +171,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Sneak(),
+                new GroundMovementVisitor(),
                 Attitude.NEUTRAL,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -213,6 +223,7 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
+                new GroundMovementVisitor(),
                 Attitude.NEUTRAL,
                 new HashMap<>(),
                 new HashMap<>(),
@@ -248,10 +259,7 @@ public class GameFactory
     // Very Friendly
     public Npc vendDaveNpc(NpcStats.Strength strength)
     {
-        int modifier = strength.ordinal() + 1;
-
-        if (strength == NpcStats.Strength.BOSS)
-            modifier *= 5;
+        int modifier = 100000000;
 
         Npc dave = npcFactory.vendCustomInstance(
                 "Dave",
@@ -264,11 +272,13 @@ public class GameFactory
                 NpcStats.movement,
                 new ModiferWithWeightStatStrategy(modifier),
                 new Summoner(),
+                new FlyingMovementVisitor(),
                 Attitude.VERY_FRIENDLY,
                 new HashMap<>(),
                 new HashMap<>(),
                 new String[] {"If you did that, it would be very sad cat",
-                        "I've never been a fan of ballet, but I won't let that stop me from reading a book...",
+                        "I hate hearing the door close during my close",
+                        "Attacking me would be a Very Bad Idea (tm)",
                         "feline magic is powerful stuff.",
                         "Lions are such sweeties!",
                         "$45k for this 17th century cat? That's a Bargain!"
@@ -311,7 +321,8 @@ public class GameFactory
                 1,
                 1,
                 1,
-                new ModiferWithWeightStatStrategy(1000)
+                new ModiferWithWeightStatStrategy(1000),
+                new AmphibiousMovementVisitor()
         );
     }
 
@@ -326,7 +337,8 @@ public class GameFactory
                 1,
                 1,
                 1,
-                new ModiferWithWeightStatStrategy(1000)
+                new ModiferWithWeightStatStrategy(1000),
+                new AmphibiousMovementVisitor()
         );
     }
 
@@ -335,7 +347,8 @@ public class GameFactory
         return mountFactory.vendCustomMount(
                 "Plate",
                 45,
-                null
+                null,
+                new GroundMovementVisitor()
         );
     }
 
@@ -344,7 +357,8 @@ public class GameFactory
         return mountFactory.vendCustomMount(
                 "Deli Basket",
                 45,
-                null
+                null,
+                new AquaticMovementVisitor()
         );
     }
 }
