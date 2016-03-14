@@ -141,6 +141,6 @@ public class TileGrid  implements Listener{
         Double x = ( (3/2) * 2.92*(point.getQ() - viewState.getPosition().getQ()) + 0*point.getR())*tileScale;
         Double y = ( (Math.sqrt(3)/2) * 1.92 *(point.getQ() - viewState.getPosition().getQ()) + Math.sqrt(3)*(1.92 * point.getR() - viewState.getPosition().getR()))*tileScale;
 
-        return new CanvasPoint(x + screenWidth/2 - tileWidth, y + screenHeight/2 - tileHeight);
+        return new CanvasPoint(x + screenWidth/2 - tileWidth, y + screenHeight/2 - tileHeight - viewState.getPosition().getR());
     }
 }

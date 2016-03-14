@@ -386,4 +386,7 @@ public class Entity
             listener.update();
     }
 
+    public String toString() {
+        return name;
+    }
 }
