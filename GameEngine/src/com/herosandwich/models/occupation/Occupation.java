@@ -33,9 +33,16 @@ public abstract class Occupation{
     /*
     * General Skills
     */
-    public final void bindWounds(){
-        if(successfulAction(Skill.BIND_WOUNDS) ){
 
+    // heals some damage
+    public final void bindWounds(){
+        if(owner.getCurrentMana() == owner.getMaxMana()){
+            return;
+        }
+
+        if(successfulAction(Skill.BIND_WOUNDS) ){
+            int healingAmount = (int)(1 + (getLevelOfSkill(Skill.BIND_WOUNDS)*.3));
+            owner.modifyCurrentMana(healingAmount);
         }
     }
 

@@ -11,6 +11,7 @@ import com.herosandwich.models.map.Tile;
 import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
+import javafx.geometry.Pos;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -52,13 +53,29 @@ public class XmlLoader implements Loader
     }
 
     @Override
-    public Game loadGame() {
+    public Game loadGame()
+    {
         Game game = new Game();
 
         Map map = loadMap();
         Character avatar = loadAvatar(map);
 
+        game.setMap(map);
         game.setAvatar(avatar);
+
+        return game;
+    }
+
+    @Override
+    public Game loadGame(Character newPlayer) {
+        Game game = new Game();
+
+        Map map = loadMap();
+        PositionHex pos = getAvatarPostition();
+
+        map.addEntity(pos, newPlayer);
+
+        game.setAvatar(newPlayer);
         game.setMap(map);
 
         return game;
@@ -80,11 +97,20 @@ public class XmlLoader implements Loader
         return map;
     }
 
-    public Character loadAvatar(Map map)
+    private PositionHex getAvatarPostition()
     {
         Element avatarPosition = (Element)saveDocument.getElementsByTagName("avatar-position").item(0);
 
         PositionHex pos = XmlUtil.extractPosition(avatarPosition);
+
+        return pos;
+    }
+
+    public Character loadAvatar(Map map)
+    {
+        Element avatarPosition = (Element)saveDocument.getElementsByTagName("avatar-position").item(0);
+
+        PositionHex pos = getAvatarPostition();
         DirectionHex dir = DirectionHex.convertFromString(avatarPosition.getAttribute("direction"));
 
         Tile tile = map.getTile(pos);

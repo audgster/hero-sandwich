@@ -144,8 +144,8 @@ public class AreaView implements Menu {
         gameLoop();
 
         PlayerFactory factory = new PlayerFactory();
-//        Character avatar = factory.vendDefaultInstance();
-        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new GroundMovementVisitor(), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
+      //Character avatar = factory.vendDefaultInstance();
+        Npc npc = new Npc(factory.vendCustomInstance("moldySandwich", 1,1,1,1,1,1,1, new ModiferWithWeightStatStrategy(9), new Smasher(), 1), Attitude.HOSTILE, null, null, null);
         grid.addAvatar(avatar);
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
