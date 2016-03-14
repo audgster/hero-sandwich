@@ -1,6 +1,8 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.menus.areaviewdrawables.SpriteMap;
 import com.herosandwich.models.equipment.Equipment;
+import com.herosandwich.models.entity.Character;
 
 import com.herosandwich.models.equipment.EquipmentSlots;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
@@ -26,6 +28,7 @@ import java.util.HashMap;
  */
 public class EquipmentMenu implements Menu {
     private double WIDTH,HEIGHT;
+    private Character avatar;
     private BorderPane content;
     private Pane equipmentMenu;
     private EquipmentItem selectedItem;
@@ -33,12 +36,13 @@ public class EquipmentMenu implements Menu {
     private EquipableItem[] equipment;
     private Equipment e;
 
-    public EquipmentMenu(double width, double height){
+    public EquipmentMenu(double width, double height,Character avatar){
         WIDTH = width;
         HEIGHT = height;
+        this.avatar = avatar;
         content = new BorderPane();
         equipmentMenu = new Pane();
-        e = new Equipment();
+        e = avatar.getEquipment();
         equipment = e.getEquipmentArray();
     }
 
@@ -190,14 +194,15 @@ public class EquipmentMenu implements Menu {
         public EquipmentItem(BorderPane content, EquipableItem item) {
             super("");
             this.item = item;
+            SpriteMap spriteMap = SpriteMap.getInstance();
+            ImageView image;
             if(item == null){
-                itemName = "res/images/items/item_bg.jpg";
+                image = new ImageView(new Image("res/images/items/item_bg.jpg"));
             }
             else{
-                itemName = "res/images/items/" + item.getName() + ".gif";
+                image = new ImageView(spriteMap.getImageForKey(item.getItemId()));
             }
             this.item = item;
-            ImageView image = new ImageView(new Image(itemName));
             this.setGraphic(image);
             image.setFitHeight(HEIGHT / 8);
             image.setFitWidth(HEIGHT/8);
@@ -247,7 +252,7 @@ public class EquipmentMenu implements Menu {
         private void initButtons() {
             horizontalContainer = new VBox(60);
             horizontalContainer.setMinHeight(HEIGHT / 3);
-            horizontalContainer.getChildren().add(new ImageView(new Image("res/images/smasher.gif")));
+            //horizontalContainer.getChildren().add(new ImageView(new Image("res/images/smasher.gif")));
             initUseButton(horizontalContainer);
             horizontalContainer.setAlignment(Pos.CENTER);
             horizontalContainer.setPadding(new Insets(0, 100, 0, 0));
@@ -260,9 +265,10 @@ public class EquipmentMenu implements Menu {
             useButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
                     System.out.println("Item:" + item + " unequipped!");
-                    itemUnequippedSelected();
+                    if(avatar.removeItemFromEquipment(item)){
+                        itemUnequippedSelected();
+                    }
                 }
             });
         }

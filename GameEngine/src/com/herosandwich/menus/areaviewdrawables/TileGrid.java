@@ -8,6 +8,7 @@ import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 import java.util.*;
 
@@ -23,17 +24,22 @@ public class TileGrid  implements Listener{
     Double screenWidth;
     Double screenHeight;
 
+    int rangedAttackFrameNumber = 1000;
+    boolean rangedAttack = false;
+
     boolean searchMode = false;
     Character viewState = null;
     Character lookModeAvatar = new Player();
     Character gamePlayAvatar;
     Map map;
 
-    public TileGrid(Map map, GraphicsContext graphicsContext, Double screenWidth, Double screenHeight) {
+
+    public TileGrid(Map map, GraphicsContext graphicsContext, Double screenWidth, Double screenHeight, Character gamePlayAvatar) {
         this.map = map;
         this.graphicsContext = graphicsContext;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+        addAvatar(gamePlayAvatar);
         initGridWithMap();
     }
     public void updateDimensions(){
@@ -79,8 +85,20 @@ public class TileGrid  implements Listener{
             DrawableTile drawableTile = new DrawableTile(tile);
             drawableMap.put(tile.getPosition(), drawableTile);
         }
+
+        Set<PositionHex> visibleTiles = map.drawCircle(viewState.getPosition(), 3, true).keySet();
+        makeVisible(visibleTiles);
     }
 
+
+    private void makeVisible(Set<PositionHex> visibleTiles) {
+        for(PositionHex positionHex: visibleTiles) {
+            DrawableTile tile = drawableMap.get(positionHex);
+            tile.makeVisible();
+        }
+
+        inViewTilePositions = visibleTiles;
+    }
 
     /***********************************************************************************************************/
     // For testing!!!!
@@ -129,10 +147,43 @@ public class TileGrid  implements Listener{
     public void draw() {
         //System.out.println("draw");
         updateDimensions();
+        CanvasPoint drawingPoint;
         for(PositionHex position : drawableMap.keySet()) {
             //System.out.println("draw0.2");
-            drawableMap.get(position).draw(graphicsContext, hexToCanvasPoint(position));
+            drawingPoint = hexToCanvasPoint(position);
+            drawableMap.get(position).draw(graphicsContext, new CanvasPoint(getImageCornerX(drawingPoint.getX()), getImageCornerY(drawingPoint.getY())));
+//            if(rangedAttack) {
+//                CanvasPoint avatarPoint = hexToCanvasPoint(viewState.getPosition());
+//                System.out.println("AvatarHex: " + viewState.getPosition().getQ() + " " + viewState.getPosition().getR()+ " " + viewState.getPosition().getS());
+//                //graphicsContext.moveTo(avatarPoint.getX(), avatarPoint.getY());
+//                Set<PositionHex> linePositions = map.drawLine(viewState.getPosition(), 3, viewState.getDirection(), false).keySet();
+//                int currentDistance = 0;
+//                PositionHex targetPosition =  new PositionHex(8,8);
+//                for(PositionHex positionHex : linePositions) {
+//                    int distance = PositionHex.distanceTo(viewState.getPosition(), position);
+//                    if(currentDistance < distance) {
+//                        currentDistance = distance;
+//                        targetPosition = positionHex;
+//                    }
+//                }
+//                CanvasPoint targetPoint = hexToCanvasPoint(targetPosition);
+//                System.out.println("We are Shooting: " + targetPosition.getQ() + " " + targetPosition.getR() + " " + targetPosition.getS());
+//                graphicsContext.setStroke(Color.RED);
+//                graphicsContext.setLineWidth(4);
+//                graphicsContext.strokeLine(avatarPoint.getX(), avatarPoint.getY(), targetPoint.getX(), targetPoint.getY());
+//                graphicsContext.stroke();
+//                rangedAttackFrameNumber--;
+//                if(rangedAttackFrameNumber <= 0) {
+//                    rangedAttack = false;
+//                    rangedAttackFrameNumber = 100000;
+//                }
+            //}
         }
+    }
+
+
+    public void doRangedAttack() {
+        rangedAttack = true;
     }
 
     private Double getImageCornerX(Double x)
@@ -175,9 +226,9 @@ public class TileGrid  implements Listener{
         * from the center to the top or bottom
         *
         * */
-        Double x_corner = getImageCornerX(x_center);
-        Double y_corner = getImageCornerY(y_center);
+        //Double x_corner = getImageCornerX(x_center);
+        //Double y_corner = getImageCornerY(y_center);
 
-        return new CanvasPoint(x_corner, y_corner);
+        return new CanvasPoint(x_center, y_center);
     }
 }

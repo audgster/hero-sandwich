@@ -100,6 +100,9 @@ public class Controller {
                                             gridView.activateSearchMode();
                                             gridView.scroll(DirectionHex.NORTH_WEST);
                                             break;
+                case RANGED_ATTACK:
+                                            System.out.println("TRYING TO RANGE ATTACK!!");
+                                            gridView.doRangedAttack();
 
                 default:                // key not assigned; do nothing
             }
