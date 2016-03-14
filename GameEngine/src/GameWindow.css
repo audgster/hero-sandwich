@@ -72,11 +72,11 @@
 	-fx-opacity: 0.75;
 }
 #Sneak_image{
-	-fx-image: url('res/images/old/grayscale_sneak.gif');
+	-fx-image: url('res/images/entities/sneak/grayscale_sneak.png');
 	-fx-opacity: 0.75;
 }
 #Sneak_image2{
-	-fx-image: url('res/images/old/sneak.gif');
+	-fx-image: url('res/images/entities/sneak/sneak.png');
 	-fx-opacity: 0.75;
 }
 #Summoner_image{

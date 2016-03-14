@@ -47,5 +47,5 @@ public class Smasher extends Occupation {
         return "Smasher";
     }
 
-    public String getDescription(){ return "A sandwich who loves to smash things";}
+    public String getDescription(){ return "A sandwich who loves to smash things!";}
 }
