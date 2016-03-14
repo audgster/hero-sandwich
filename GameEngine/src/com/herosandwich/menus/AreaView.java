@@ -35,15 +35,15 @@ import java.util.Collection;
 
 public class AreaView implements Menu {
     private double WIDTH,HEIGHT;
-    private Character avatar;
+    private Player avatar;
     private Pane areaView;
     private HBox content;
     private Timeline gameLoop;
     private TileGrid grid;
-    private boolean paused;
     Canvas canvas;
     Pane areaMenu;
     PauseMenu pm;
+    AreaMenu am;
 
 
 
@@ -57,7 +57,8 @@ public class AreaView implements Menu {
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
-        pm = new PauseMenu(WIDTH,HEIGHT,avatar);
+        pm = new PauseMenu(WIDTH,HEIGHT,avatar,this);
+        am = new AreaMenu(WIDTH/4,HEIGHT,avatar);
     }
 
     @Override
@@ -203,7 +204,6 @@ public class AreaView implements Menu {
         map.setId("black_bg");
         HBox.setHgrow(map, Priority.ALWAYS);
         content.setMaxSize(WIDTH,HEIGHT);
-        AreaMenu am = new AreaMenu(WIDTH/4, HEIGHT);
         areaMenu = am.createMenu();
 
         areaMenu.setMinSize(WIDTH/4,HEIGHT);
@@ -232,10 +232,9 @@ public class AreaView implements Menu {
         KeyFrame kf = new KeyFrame(
                 Duration.seconds(0.017),
                 ae->{
-                    if(!paused){
-                        //System.out.println(canvas.getWidth());
-                        render();
-                    }
+                    //System.out.println(canvas.getWidth());
+                    am.update();
+                    render();
                 }
         );
 
@@ -260,6 +259,11 @@ public class AreaView implements Menu {
     }
     public void doPauseTransition(){
         pm.doTransition();
-        paused = !paused;
+    }
+    public void play(){
+        gameLoop.play();
+    }
+    public void stop(){
+        gameLoop.stop();
     }
 }
