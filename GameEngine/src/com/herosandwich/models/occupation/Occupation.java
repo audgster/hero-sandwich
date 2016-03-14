@@ -117,4 +117,8 @@ public abstract class Occupation{
         return learned_skills;
     }
 
+    public String toString() {
+        return "Occupation";
+    }
+
 }

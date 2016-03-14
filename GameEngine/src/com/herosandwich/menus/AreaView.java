@@ -172,6 +172,7 @@ public class AreaView implements Menu {
 
     private void createController(Map map){
         /** Set key press event listener for Controller **/
+        PetAIController petAIController = new PetAIController(game.getAvatar(), map);
         Controller controller = Controller.getController();
         controller.setCharacter(game.getAvatar());
         controller.setMap(map);

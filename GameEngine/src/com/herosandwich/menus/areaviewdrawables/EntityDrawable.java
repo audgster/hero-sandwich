@@ -34,18 +34,22 @@ public class EntityDrawable implements Drawable {
 
     public void setType(Entity entityType) {
         if(entityType.toString().equalsIgnoreCase("moldySandwich")) {
-            graphicKey = 102;
+            graphicKey = 110;
             avatar = spriteMap.getImageForKey(graphicKey);
         }
         else if(entityType.toString().equalsIgnoreCase("pet")) {
             graphicKey = 102;
             avatar = spriteMap.getImageForKey(graphicKey);
         }
-//        else if(entityType.toString().equalsIgnoreCase("olive"))  {
-//            graphicKey = 140;
-//            int keyOffSet = DirectionHex.getIntRep(entityType.getDirection());
-//            avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
-//        }
+        else if(entityType.toString().equalsIgnoreCase("olive"))  {
+            graphicKey = 140;
+            int keyOffSet = DirectionHex.getIntRepresentation(entityType.getDirection());
+            avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
+        }
+        else {
+            graphicKey = 102;
+            avatar = spriteMap.getImageForKey(graphicKey);
+        }
     }
 
     @Override

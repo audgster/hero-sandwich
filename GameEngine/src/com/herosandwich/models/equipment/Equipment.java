@@ -6,6 +6,7 @@ import com.herosandwich.models.items.takeableItems.equipableItems.EquipmentType;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.Weapon;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
 import com.herosandwich.models.items.takeableItems.equipableItems.weapons.smasherWeapons.SmasherWeapon;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.sneakWeapons.SneakWeapon;
 import com.herosandwich.util.visitor.EquipmentVisitor;
 
 import java.util.*;
@@ -20,10 +21,10 @@ public class Equipment {
 
     //Please delete at the end!!!!
     private void test(){
-        insertItem(new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
-        insertItem(new Weapon("MagicAoeWand",3,new DerivedStats(1,1,1,1,1,1)));
-        insertItem(new SmasherWeapon("SuperSayanSword",2, new DerivedStats(3,3,3,40,4,4),WeaponType.TWO_HANDED_WEAPON));
-
+        //insertItem(new EquipableItem("TheBootsOfAwesome",1, EquipmentType.BOOTS));
+        //insertItem(new Weapon("MagicAoeWand",3,new DerivedStats(1,1,1,1,1,1)));
+        //insertItem(new SmasherWeapon("SuperSayanSword",2, new DerivedStats(3,3,3,40,4,4),WeaponType.TWO_HANDED_WEAPON));
+        insertItem(new SneakWeapon("TheBootsOfAwesome",2,new DerivedStats(3,3,3,40,4,4),WeaponType.RANGED_WEAPON));
     }
 
     public Equipment(Equipment equipment)

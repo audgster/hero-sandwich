@@ -5,15 +5,21 @@ import com.herosandwich.events.EventDispatcher;
 import com.herosandwich.menus.AreaView;
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.items.takeableItems.equipableItems.weapons.WeaponType;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.map.Tile;
 import com.herosandwich.util.*;
 import javafx.scene.input.KeyCode;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.*;
+
 public class Controller {
     private  Character player;
-    private  Map map;
+    private com.herosandwich.models.map.Map map;
     private KeyBindings keyBindings = new KeyBindings();
     private static Controller controller = null;
     private boolean searchMode = false;
@@ -112,11 +118,37 @@ public class Controller {
     * Need to add Attitude mutating (attack and friendly Entity and it turns hostile)
     */
     public boolean basic_attack() {
+
         boolean success = false;
+
         /** Test print **/
         System.out.println(player.getName() + " is trying to attack!");
-        Tile tile = map.getTile( player.getPosition().getPosInDirection( player.getDirection() ) );
-        Entity target = tile.getEntity();
+
+        Tile tile;
+        Entity target = null;
+
+        if ( (player.getRightHand() != null && player.getRightHand().getWeaponType() == WeaponType.RANGED_WEAPON)
+                || (player.getLeftHand() != null && player.getLeftHand().getWeaponType() == WeaponType.RANGED_WEAPON)) {
+            /** Ranged Attacks **/
+            int range = 3;
+            boolean doNotIncludeSelf = false;
+            HashMap<PositionHex, Tile> line = map.drawLine( player.getPosition(), range, player.getDirection(), doNotIncludeSelf );
+            Iterator iterator = line.entrySet().iterator();
+            while ( iterator.hasNext() ) {
+                java.util.Map.Entry pair = (java.util.Map.Entry)( iterator.next() );
+                tile = (Tile) pair.getValue();
+                target = tile.getEntity();
+                iterator.remove();
+                if ( target != null ) {
+                    break;
+                }
+            }
+        } else {
+            /** Melee attacks **/
+            tile = map.getTile(player.getPosition().getPosInDirection(player.getDirection()));
+            target = tile.getEntity();
+        }
+
         if ( !(target == null) ) {
             success = true;
             /** Test print **/

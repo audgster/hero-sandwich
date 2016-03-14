@@ -8,6 +8,7 @@ import com.herosandwich.util.visitor.EntityVisitor;
 public class Player extends Character {
 
     private int availablePoints;
+    private PetAIController petAIController;
 
     public Player()
     {
