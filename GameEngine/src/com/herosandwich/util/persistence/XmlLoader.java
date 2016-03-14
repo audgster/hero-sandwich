@@ -225,8 +225,6 @@ public class XmlLoader implements Loader
                 return processer.processHealDamageElement(aoe);
             case "instadeathaoe":
                 return processer.processInstaDeathElement(aoe);
-            case "instantdamageaoetrap":
-                return processer.processInstantDamageTrapElement(aoe);
             case "takedamageaoe":
                 return processer.processTakeDamageElement(aoe);
             case "teleportaoe":

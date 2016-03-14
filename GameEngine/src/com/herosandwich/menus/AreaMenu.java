@@ -1,19 +1,15 @@
 package com.herosandwich.menus;
 
-import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.entity.*;
 
-import com.herosandwich.models.entity.EntityStats;
-import com.herosandwich.models.entity.Player;
-import com.herosandwich.models.entity.Skill;
+import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.Occupation;
-import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
 
 import java.util.*;
 
@@ -24,12 +20,12 @@ import java.util.*;
 public class AreaMenu{
     private double WIDTH,HEIGHT;
     private Pane content;
-    private Player entity;
+    private Character entity;
     private Occupation occupation;
     private VBox textOptions;
     private boolean visible;
     private String testing = "";
-    public AreaMenu(double width, double height, Player entity){
+    public AreaMenu(double width, double height, Character entity){
         WIDTH = width;
         HEIGHT = height;
         content = new Pane();

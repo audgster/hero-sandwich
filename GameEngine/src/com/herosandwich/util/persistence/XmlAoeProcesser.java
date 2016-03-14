@@ -21,14 +21,6 @@ public class XmlAoeProcesser
         return new InstaDeathAoE(pos);
     }
 
-    public InstantDamageAoETrap processInstantDamageTrapElement(Element instaDmgTrap)
-    {
-        int instaDamage = XmlUtil.extractAttributeAsInt(instaDmgTrap, "dmg-amt");
-        PositionHex pos = XmlUtil.extractPosition(instaDmgTrap);
-
-        return new InstantDamageAoETrap(instaDamage, pos);
-    }
-
     public TakeDamageAoE processTakeDamageElement(Element takeDamage)
     {
         int damage = XmlUtil.extractAttributeAsInt(takeDamage, "dmg-per-tick");

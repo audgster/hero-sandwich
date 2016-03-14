@@ -87,4 +87,36 @@ public enum DirectionHex{
         }
     }
 
+    public static DirectionHex makeDirectionTo(PositionHex start, PositionHex end){
+        int dq = end.getQ() - start.getQ();
+        int dr = end.getR() - start.getR();
+        int ds = end.getS() - start.getS();
+
+        if(dq >= 0) {
+            if(dr >= 1){
+                return SOUTH;
+            }
+            else if(dr <= -1){
+                if(ds >=1) {
+                    return NORTH;
+                }
+                else {
+                    return NORTH_EAST;
+                }
+            }
+            else {
+                return SOUTH_EAST;
+            }
+        }
+        else {
+            if(dr >= 1){
+                return SOUTH_WEST;
+            }
+            else {
+                return NORTH_WEST;
+            }
+        }
+
+    }
+
 }

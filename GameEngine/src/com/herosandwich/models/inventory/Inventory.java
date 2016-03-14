@@ -34,6 +34,7 @@ public class Inventory {
     }
 
     public boolean insertItem(TakeableItem item) {
+        System.out.println("item is getting added");
         if (getSize() == capacity)
             return false;
         if(item != null){

@@ -1618,19 +1618,7 @@
 <aoes/>
 </tile>
 <tile q="0" r="0" s="0" terrain-type="grass">
-<entities>
-<player move-visitor="ground" name="Dave the Avatar">
-<stats agility="3" currentLife="17" currentMana="9" experience="0" hardiness="5" intellect="3" lives="3" movement="20" strength="5"/>
-<location direction="south" q="0" r="0" s="0"/>
-<occupation>smasher</occupation>
-<inventory>
-<items/>
-</inventory>
-<equipment/>
-<skillpoints available="3"/>
-<cash amount="0"/>
-</player>
-</entities>
+<entities/>
 <tile-items/>
 <aoes/>
 </tile>
@@ -2295,44 +2283,7 @@
 <aoes/>
 </tile>
 <tile q="1" r="1" s="-2" terrain-type="grass">
-<entities>
-<npc move-visitor="ground" name="Dagwood, the king of all sandwiches">
-<stats agility="3" currentLife="6" currentMana="5" experience="0" hardiness="3" intellect="3" lives="1" movement="15" strength="3"/>
-<location direction="south" q="1" r="1" s="-2"/>
-<occupation>summoner</occupation>
-<inventory>
-<items/>
-</inventory>
-<equipment>
-<equipmentslot item-id="50" slot="left_hand"/>
-</equipment>
-<skillpoints>
-<skill pointAmount="1" skillName="bane"/>
-<skill pointAmount="1" skillName="boon"/>
-<skill pointAmount="1" skillName="enchantment"/>
-</skillpoints>
-<cash amount="0"/>
-<sales>
-<sale item-id="25" price="1"/>
-<sale item-id="26" price="5"/>
-<sale item-id="27" price="10"/>
-<sale item-id="28" price="15"/>
-<sale item-id="29" price="20"/>
-</sales>
-<buys>
-<buy item-id="25" price="1"/>
-<buy item-id="26" price="2"/>
-<buy item-id="27" price="6"/>
-<buy item-id="28" price="11"/>
-<buy item-id="29" price="16"/>
-</buys>
-<towards-player attitude="neutral"/>
-<things-to-say>
-<npc-says text="I'm much too beautiful to be eaten!"/>
-<npc-says text="Beauty is in the stomach of the beholder"/>
-</things-to-say>
-</npc>
-</entities>
+<entities/>
 <tile-items/>
 <aoes/>
 </tile>

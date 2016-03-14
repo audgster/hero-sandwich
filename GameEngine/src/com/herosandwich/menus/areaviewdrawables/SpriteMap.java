@@ -17,6 +17,7 @@ public class SpriteMap {
     HashMap<Integer, Image> sprites = new HashMap<Integer, Image>();
 
 
+    private static Image waterTile = new Image("res/images/tiles/water_tile.png");
     private static Image groundTile = new Image("res/images/tiles/ground_tile.png");
     private static Image opaqueTile = new Image("res/images/tiles/opaque_tile.png");
     private static Image fogTile = new Image("res/images/tiles/fog_tile.png");
@@ -37,6 +38,7 @@ public class SpriteMap {
         sprites.put(1, groundTile);
         sprites.put(2, opaqueTile);
         sprites.put(3, fogTile);
+        sprites.put(4, waterTile);
         sprites.put(101, smasherImage);
         sprites.put(102, moldySandwichImage);
         sprites.put(140, olivePetNorth);

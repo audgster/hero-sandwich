@@ -109,5 +109,5 @@ public class Summoner extends Occupation{
 
     }
 
-    public String getDescription(){ return "A sandwich that can move around and talk? It must be magic.";}
+    public String getDescription(){ return "A sandwich that can move and talk? It must be magic.";}
 }

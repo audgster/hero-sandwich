@@ -100,25 +100,24 @@ public class Map {
         return cone;
     }
 
-    public HashMap<PositionHex, Tile> drawCircle(PositionHex origin, int range, boolean includeOrigin){
-        DirectionHex currentDir = DirectionHex.SOUTH_EAST;
-        PositionHex current = origin.getPosInDirection(DirectionHex.NORTH);
-        HashMap<PositionHex, Tile> circle = new HashMap<PositionHex, Tile>();
-        if(includeOrigin){
+    public HashMap<PositionHex, Tile> drawCircle(PositionHex origin, int range, boolean includeOrigin)
+    {
+        HashMap<PositionHex, Tile> circle = new HashMap<>();
+
+        if (includeOrigin)
             circle.put(origin, getTile(origin));
-        }
-        for(int i = 0; i < range; i++){
-            for(int j = 0; j < 6; j++){
-                for(int k = 0; k <= i; k++){
-                    if(getTile(current) != null) {
-                        circle.put(current, getTile(current));
-                        current = current.getPosInDirection(currentDir);
-                    }
-                }
-                currentDir = DirectionHex.clockwise(currentDir);
+
+        for (int i = (origin.getQ() - range); i <= (origin.getQ() + range); i++)
+        {
+            for (int j = origin.getR() - range; j <= origin.getR() + range; j++)
+            {
+                PositionHex pos = new PositionHex(i, j);
+                Tile tile = getTile(pos);
+                if (tile != null && PositionHex.distanceTo(origin, pos) <= range)
+                    circle.put(pos, tile);
             }
-            current = current.getPosInDirection(DirectionHex.NORTH);
         }
+
         return circle;
     }
 
