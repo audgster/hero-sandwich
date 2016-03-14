@@ -52,6 +52,11 @@ public class InventoryMenu implements Menu {
         inventoryView = root;
         inventoryView.getChildren().add(content);
     }
+    public void update(){
+        inventory = i.getInventory();
+        content.setCenter(null);
+        setInventoryGrid();
+    }
 
 
     private HBox getBackButton() {

@@ -142,7 +142,7 @@ public class AreaView implements Menu {
 //                canvasWrapper.setMinSize(newValue.getMaxX(), newValue.getMaxY());
 //            }
 //        });
-
+        createOccupationSkills();
         createAreaMenu();
         gameLoop();
 
@@ -194,6 +194,10 @@ public class AreaView implements Menu {
 //                canvas.setLayoutY(-new_val.doubleValue());
 //            }
 //        });
+
+    }
+
+    private void createOccupationSkills(){
 
     }
 
