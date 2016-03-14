@@ -48,7 +48,7 @@ public class AreaView implements Menu {
 
     private ScrollPane scrollBar;
 
-    public AreaView(double width, double height, Character avatar){
+    public AreaView(double width, double height, Player avatar){
         WIDTH = width;
         HEIGHT = height;
         this.avatar = avatar;
@@ -56,7 +56,7 @@ public class AreaView implements Menu {
         gameLoop = new Timeline();
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
-        pm = new PauseMenu(WIDTH,HEIGHT);
+        pm = new PauseMenu(WIDTH,HEIGHT,avatar);
     }
 
     @Override
@@ -150,17 +150,7 @@ public class AreaView implements Menu {
         map.addEntity(new PositionHex(0,0), avatar);
         map.addEntity(new PositionHex(1,-1), npc);
 
-        /** Set key press event listener for Controller **/
-        Controller controller = Controller.getController();
-        controller.setCharacter(avatar);
-        controller.setMap(map);
-        controller.setGridView(grid);
-        areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                controller.executeUserInput( event.getCode() );
-            }
-        });
+        createController(map);
 
         /** Register events **/
 
@@ -210,9 +200,24 @@ public class AreaView implements Menu {
         areaMenu.setMinSize(WIDTH/4,HEIGHT);
         content.getChildren().addAll(map,areaMenu);
         areaView.getChildren().add(content);
-            content.setFocusTraversable(true);
+            pm.createMenu(areaView);
+        content.setFocusTraversable(true);
     }
 
+    private void createController(Map map){
+        /** Set key press event listener for Controller **/
+        Controller controller = Controller.getController();
+        controller.setCharacter(avatar);
+        controller.setMap(map);
+        controller.setAreaView(this);
+        controller.setGridView(grid);
+        areaView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controller.executeUserInput( event.getCode() );
+            }
+        });
+    }
     public void gameLoop(){
         gameLoop.setCycleCount( Timeline.INDEFINITE );
         KeyFrame kf = new KeyFrame(
@@ -236,7 +241,6 @@ public class AreaView implements Menu {
 
     public void toggleStatsMenu(){
         if(content.getChildren().contains(areaMenu)){
-            System.out.println("TEsting");
             content.getChildren().remove(areaMenu);
             canvas.setWidth(WIDTH);
         }
