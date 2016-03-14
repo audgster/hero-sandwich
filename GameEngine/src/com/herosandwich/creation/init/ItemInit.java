@@ -71,6 +71,7 @@ public class ItemInit {
         ONION_RING_CHAKRAM, //Sneak Weapon[Ranged]
         KETCHUP_BLASTER, //Sneak Weapon[Ranged]
         CELERY_STAFF, //Summoner_Weapon[Two-Handed]
+        KITCHEN_STAFF //Summoner_Weapon[Two-Handed]
     }
 
     private static ItemInit instance = null;
@@ -183,6 +184,8 @@ public class ItemInit {
 
         itemMap.put(ItemNames.CELERY_STAFF.ordinal(), new SummonerWeapon("Celery Staff", ItemNames.CELERY_STAFF
                 .ordinal(), new DerivedStats(0,0,0,2,0,0), WeaponType.TWO_HANDED_WEAPON));
+        itemMap.put(ItemNames.KITCHEN_STAFF.ordinal(), new SummonerWeapon("Kitchen Staff", ItemNames.KITCHEN_STAFF
+                .ordinal(), new DerivedStats(0,0,1,3,0,0), WeaponType.TWO_HANDED_WEAPON));
     }
 
     public static ItemInit getInstance(){

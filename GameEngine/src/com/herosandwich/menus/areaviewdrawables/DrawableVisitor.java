@@ -38,14 +38,14 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitEntity(Entity entity) {
-        //1111111System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        entityDrawable.setGraphicKey(101);
         drawableList.add(entityDrawable);
     }
 
     @Override
     public void visitCharacter(Character character) {
-
-    }
+        entityDrawable.setGraphicKey(101);
+        drawableList.add(entityDrawable);    }
 
     @Override
     public void visitPet(Pet pet) {
@@ -60,7 +60,7 @@ public class DrawableVisitor implements EntityVisitor, TileVisitor, ItemVisitor,
 
     @Override
     public void visitPlayer(Player player) {
-        //System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        entityDrawable.setGraphicKey(101);
         drawableList.add(entityDrawable);
     }
 
