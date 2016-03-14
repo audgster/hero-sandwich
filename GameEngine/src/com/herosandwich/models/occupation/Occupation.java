@@ -2,11 +2,13 @@ package com.herosandwich.models.occupation;
 
 
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Npc;
 import com.herosandwich.models.entity.Skill;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Occupation{
     protected Character owner;
@@ -46,9 +48,30 @@ public abstract class Occupation{
         }
     }
 
-    public final void bargain(){
-        if(successfulAction(Skill.BARGAIN)){
+    //if successful the following two conditions will occur
+    //1) an npc that is selling will lower her prices for each item it sells!
+    //2) an npc that is buying it will offer the character more money for each of her items!
+    public final void bargain(Npc npc){
+        if(successfulAction(Skill.BARGAIN)) {
+            int bargain_skill_level = getLevelOfSkill(Skill.BARGAIN);
 
+            //lowering the price of each item the npc sells
+            HashMap<Integer, Integer> npc_selling_list = npc.getSell();
+            Set<Integer> npc_sellable_item_ids =  npc_selling_list.keySet();
+            for(int item_id : npc_sellable_item_ids){
+                int costOfItem =  npc_selling_list.get(item_id);
+                int newCostOfItem = (int)(costOfItem * (1 - bargain_skill_level*(.01)));
+                npc_selling_list.replace(item_id, newCostOfItem);
+            }
+
+            //increasing the price of each item the npc wants to buy from character
+            HashMap<Integer, Integer> npc_buying_list = npc.getBuy();
+            Set<Integer> npc_buyable_item_ids = npc_buying_list.keySet();
+            for(int item_id : npc_buyable_item_ids){
+                int costOfItem =  npc_buying_list.get(item_id);
+                int newCostOfItem = (int)(costOfItem * (1 + bargain_skill_level*(.01)));
+                npc_buying_list.replace(item_id, newCostOfItem);
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 package com.herosandwich.menus.areaviewdrawables;
 
+import com.herosandwich.models.entity.Entity;
+import com.herosandwich.util.DirectionHex;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -30,11 +32,20 @@ public class EntityDrawable implements Drawable {
         avatar = spriteMap.getImageForKey(graphicKey);
     }
 
-    public void setType(String entityType) {
-        if(entityType.equalsIgnoreCase("moldySandwich")) {
+    public void setType(Entity entityType) {
+        if(entityType.toString().equalsIgnoreCase("moldySandwich")) {
             graphicKey = 102;
             avatar = spriteMap.getImageForKey(graphicKey);
         }
+        else if(entityType.toString().equalsIgnoreCase("pet")) {
+            graphicKey = 102;
+            avatar = spriteMap.getImageForKey(graphicKey);
+        }
+//        else if(entityType.toString().equalsIgnoreCase("olive"))  {
+//            graphicKey = 140;
+//            int keyOffSet = DirectionHex.getIntRep(entityType.getDirection());
+//            avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
+//        }
     }
 
     @Override

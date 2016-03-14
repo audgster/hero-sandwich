@@ -3,7 +3,7 @@ package com.herosandwich.creation.entity;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.occupation.Occupation;
-import com.herosandwich.util.visitor.movement.MovementVisitor;
+import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 
 import java.util.HashMap;
 
@@ -22,7 +22,7 @@ public class NpcFactory
             int movement,
             DeriveStatStrategy statStrategy,
             Occupation occupation,
-            MovementVisitor visitor,
+            MovementCheckVisitor visitor,
             Attitude attitudeTowardsPlayer,
             HashMap<Integer, Integer> sell,
             HashMap<Integer, Integer> buy,

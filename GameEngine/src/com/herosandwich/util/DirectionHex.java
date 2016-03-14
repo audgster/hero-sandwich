@@ -2,12 +2,12 @@ package com.herosandwich.util;
 
 public enum DirectionHex{
 
-    NORTH(0, 1, -1),
-    NORTH_EAST(1, 0, -1),
-    SOUTH_EAST(1, -1, 0),
-    SOUTH(0, -1, 1),
-    SOUTH_WEST(-1, 0, 1),
-    NORTH_WEST(-1, 1, 0);
+    NORTH(0, -1, 1),
+    NORTH_EAST(1, -1, 0),
+    SOUTH_EAST(1, 0, -1),
+    SOUTH(0, 1, -1),
+    SOUTH_WEST(-1, 1, 0),
+    NORTH_WEST(-1, 0, 1);
 
     private final int qMod;
     private final int rMod;
@@ -63,6 +63,27 @@ public enum DirectionHex{
                 return DirectionHex.NORTH_WEST;
             default:
                 return DirectionHex.SOUTH;
+        }
+    }
+
+    /** Returns an int that represents the DirectionHex, starting from North = 0, and moving clockwise **/
+    /** Returns -1 if the input is not a valid direction **/
+    public static int getIntRepresentation( DirectionHex direction ) {
+        switch (direction) {
+            case NORTH:
+                return 0;
+            case NORTH_EAST:
+                return 1;
+            case SOUTH_EAST:
+                return 2;
+            case SOUTH:
+                return 3;
+            case SOUTH_WEST:
+                return 4;
+            case NORTH_WEST:
+                return 5;
+            default:
+                return -1;
         }
     }
 

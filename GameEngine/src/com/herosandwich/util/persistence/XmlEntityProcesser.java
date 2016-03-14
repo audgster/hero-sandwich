@@ -26,26 +26,26 @@ public class XmlEntityProcesser
     {
         String name = entity.getAttribute("name");
 
-        MovementVisitor visitor;
+        MovementCheckVisitor visitor;
 
         String visitorString = entity.getAttribute("move-visitor").toLowerCase();
 
         switch (visitorString)
         {
             case "alpine":
-                visitor = new AlpineMovementVisitor();
+                visitor = new AlpineMovementCheckVisitor();
                 break;
             case "amphibious":
-                visitor = new AmphibiousMovementVisitor();
+                visitor = new AmphibiousMovementCheckVisitor();
                 break;
             case "aquatic":
-                visitor = new AquaticMovementVisitor();
+                visitor = new AquaticMovementCheckVisitor();
                 break;
             case "flying":
-                visitor = new FlyingMovementVisitor();
+                visitor = new FlyingMovementCheckVisitor();
                 break;
             case "ground":
-                visitor = new GroundMovementVisitor();
+                visitor = new GroundMovementCheckVisitor();
                 break;
             default:
                 throw new IllegalArgumentException("String " + " could not be converted to a Movement Visitor");
@@ -249,25 +249,25 @@ public class XmlEntityProcesser
 
         int movement = Integer.parseInt(mount.getAttribute("movement"));
 
-        MovementVisitor visitor;
+        MovementCheckVisitor visitor;
         String visitorString = mount.getAttribute("move-visitor").toLowerCase();
 
         switch (visitorString)
         {
             case "alpine":
-                visitor = new AlpineMovementVisitor();
+                visitor = new AlpineMovementCheckVisitor();
                 break;
             case "amphibious":
-                visitor = new AmphibiousMovementVisitor();
+                visitor = new AmphibiousMovementCheckVisitor();
                 break;
             case "aquatic":
-                visitor = new AquaticMovementVisitor();
+                visitor = new AquaticMovementCheckVisitor();
                 break;
             case "flying":
-                visitor = new FlyingMovementVisitor();
+                visitor = new FlyingMovementCheckVisitor();
                 break;
             case "ground":
-                visitor = new GroundMovementVisitor();
+                visitor = new GroundMovementCheckVisitor();
                 break;
             default:
                 throw new IllegalArgumentException("String " + " could not be converted to a Movement Visitor");

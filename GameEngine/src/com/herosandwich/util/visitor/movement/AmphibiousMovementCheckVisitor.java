@@ -5,9 +5,9 @@ import com.herosandwich.models.map.Tile;
 /**
  * Created by Mitchell on 3/11/2016.
  */
-public class GroundMovementVisitor extends MovementVisitor {
+public class AmphibiousMovementCheckVisitor extends MovementCheckVisitor {
 
-    public GroundMovementVisitor(){
+    public AmphibiousMovementCheckVisitor(){
         super();
     }
 
@@ -20,7 +20,9 @@ public class GroundMovementVisitor extends MovementVisitor {
                 tile.acceptEntityVisitor(this);
                 break;
             case WATER:
-                acceptRule(false);
+                acceptRule(true);
+                tile.acceptItemVisitor(this);
+                tile.acceptEntityVisitor(this);
                 break;
             case MOUNTAIN:
                 acceptRule(false);
@@ -33,6 +35,7 @@ public class GroundMovementVisitor extends MovementVisitor {
 
     public String toString()
     {
-        return "ground";
+        return "alpine";
     }
+
 }

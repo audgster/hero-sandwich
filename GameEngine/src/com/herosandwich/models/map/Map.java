@@ -7,6 +7,7 @@ import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
 import com.herosandwich.util.PositionHex;
 import com.herosandwich.util.visitor.TileVisitor;
+import com.herosandwich.util.visitor.movement.MovementExecutionVisitor;
 import javafx.scene.canvas.Canvas;
 
 import java.util.Collection;
@@ -46,6 +47,7 @@ public class Map {
     public void initialize(Collection<Tile> tiles){
         for(Tile tile: tiles){
             PositionHex pos = tile.getPosition();
+
             if(PositionHex.distanceTo(new PositionHex(0,0,0), pos) > size){
                 throw new IndexOutOfBoundsException("Map size is: " + this.size + "; tried to load Tile at out of " +
                         "bounds PositionHex: " + pos.getQ() +", " + pos.getR() + ", " + pos.getS());
@@ -142,7 +144,7 @@ public class Map {
     /********************************************************************/
     /* TODO
 
-        ADD THE PickUpItemEvent to moveEntity...
+        ADD THE CharacterPickUpItemEvent to moveEntity...
 
         fires visitor?? or maybe just a notification to connect the entity the the itemList on the tile
 
@@ -154,6 +156,10 @@ public class Map {
         tileMap.get(entity.getPosition()).removeEntity(entity);
         addEntity(newPos, entity); //tileMap.get(pos).addEntity(entity);
         entity.updatePosition(newPos);
+        MovementExecutionVisitor visitor = new MovementExecutionVisitor(this, entity);
+        entity.accept(visitor);
+        tileMap.get(newPos).acceptItemVisitor(visitor);
+        tileMap.get(newPos).acceptAoEVisitor(visitor);
     }
 
     public void removeEntity(PositionHex pos, Entity entity){
