@@ -2,6 +2,7 @@ package com.herosandwich.menus.areaviewdrawables;
 
 import com.herosandwich.creation.entity.PlayerFactory;
 import com.herosandwich.models.entity.Character;
+import com.herosandwich.models.entity.Entity;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.map.Map;
 import com.herosandwich.models.map.Tile;
@@ -34,6 +35,12 @@ public class TileGrid  implements Listener{
     Map map;
 
 
+    boolean observationMode = false;
+    int observationCurrentLife = -10;
+    List<Entity> observationTargetEntityList = new ArrayList<Entity>();
+
+
+
     public TileGrid(Map map, GraphicsContext graphicsContext, Double screenWidth, Double screenHeight, Character gamePlayAvatar) {
         this.map = map;
         this.graphicsContext = graphicsContext;
@@ -60,6 +67,13 @@ public class TileGrid  implements Listener{
         lookModeAvatar.updatePosition(gamePlayAvatar.getPosition());
         viewState = lookModeAvatar;
         searchMode = true;
+    }
+
+    public void setObservation(int currentLife, Entity target) {
+        System.out.println(target.toString() + " HEALTHCALC: " + currentLife + " HEALTHACCESSED: " + target.getCurrentLife());
+        observationMode = true;
+        observationCurrentLife = currentLife;
+        observationTargetEntityList.add(target);
     }
 
 
@@ -152,6 +166,14 @@ public class TileGrid  implements Listener{
             //System.out.println("draw0.2");
             drawingPoint = hexToCanvasPoint(position);
             drawableMap.get(position).draw(graphicsContext, new CanvasPoint(getImageCornerX(drawingPoint.getX()), getImageCornerY(drawingPoint.getY())));
+
+            if(observationMode) {
+                for(Entity entity : observationTargetEntityList)
+                graphicsContext.fillText("HEALTH: " + entity.getCurrentLife(), hexToCanvasPoint(entity.getPosition()).getX() - 5, hexToCanvasPoint(entity.getPosition()).getY() - 10);
+            }
+
+
+
 //            if(rangedAttack) {
 //                CanvasPoint avatarPoint = hexToCanvasPoint(viewState.getPosition());
 //                System.out.println("AvatarHex: " + viewState.getPosition().getQ() + " " + viewState.getPosition().getR()+ " " + viewState.getPosition().getS());

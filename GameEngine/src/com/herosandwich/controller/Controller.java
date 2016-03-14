@@ -71,7 +71,7 @@ public class Controller {
                                         break;
                 case BARGAIN:           bargain();
                                         break;
-                case OBSERVATION:       observation();
+                case OBSERVATION:       observation(gridView);
                                         break;
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
@@ -182,15 +182,26 @@ public class Controller {
         return false;
     }
 
-    public boolean observation(){
+    public boolean observation(TileGrid gridView){
         if(!player.getOccupation().observation()){
             return false;
         }
         List<Tile> tiles = getTilesAroundPlayer();
         for(Tile tile: tiles){
             System.out.println(tile.toString());
+            int currentLife = getCurrentLifeObservation(tile);
+            if(currentLife != -10)
+                gridView.setObservation(currentLife, tile.getEntity());
         }
         return true;
+    }
+
+    private int getCurrentLifeObservation(Tile tile) {
+        Entity entity = tile.getEntity();
+        if(entity != null) {
+            return entity.getCurrentLife();
+        }
+        return -10;
     }
 
 
