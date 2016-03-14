@@ -16,10 +16,10 @@ public class KeyBindings {
         keyBindings.put(KeyCode.DIGIT2, Action.MOVE_SOUTH);
         keyBindings.put(KeyCode.DIGIT1, Action.MOVE_SOUTH_WEST);
         keyBindings.put(KeyCode.DIGIT7, Action.MOVE_NORTH_WEST);
-        keyBindings.put(KeyCode.Q,      Action.SKILL1);
-        keyBindings.put(KeyCode.W,      Action.SKILL2);
-        keyBindings.put(KeyCode.E,      Action.SKILL3);
-        keyBindings.put(KeyCode.R,      Action.SKILL4);
+        keyBindings.put(KeyCode.Q,      Action.ATTACK);
+        keyBindings.put(KeyCode.W,      Action.BIND_WONDS);
+        keyBindings.put(KeyCode.E,      Action.BARGAIN);
+        keyBindings.put(KeyCode.R,      Action.OBSERVATION);
         keyBindings.put(KeyCode.F,      Action.USE);
         keyBindings.put(KeyCode.A,      Action.SEARCH_MOVE_NORTH_WEST);
         keyBindings.put(KeyCode.S,      Action.SEARCH_MOVE_NORTH);
@@ -27,6 +27,7 @@ public class KeyBindings {
         keyBindings.put(KeyCode.Z,      Action.SEARCH_MOVE_SOUTH_WEST);
         keyBindings.put(KeyCode.X,      Action.SEARCH_MOVE_SOUTH);
         keyBindings.put(KeyCode.C,      Action.SEARCH_MOVE_SOUTH_EAST);
+        keyBindings.put(KeyCode.L,      Action.RANGED_ATTACK);
     }
 
     /** Return the action bound to the input key **/

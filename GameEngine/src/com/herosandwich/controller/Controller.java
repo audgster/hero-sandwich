@@ -66,7 +66,13 @@ public class Controller {
                 case MOVE_NORTH_WEST:   gridView.activateGamePlayMode();
                                         player.move(DirectionHex.NORTH_WEST, map);
                                         break;
-                case SKILL1:            basic_attack();
+                case ATTACK:            basic_attack();
+                                        break;
+                case BIND_WONDS:        bind_wounds();
+                                        break;
+                case BARGAIN:           bargain();
+                                        break;
+                case OBSERVATION:       observation();
                                         break;
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
@@ -95,6 +101,9 @@ public class Controller {
                                             gridView.activateSearchMode();
                                             gridView.scroll(DirectionHex.NORTH_WEST);
                                             break;
+                case RANGED_ATTACK:
+                                            System.out.println("TRYING TO RANGE ATTACK!!");
+                                            gridView.doRangedAttack();
 
                 default:                // key not assigned; do nothing
             }
@@ -160,6 +169,20 @@ public class Controller {
         /** Test print **/
         if (!success) { System.out.println("No adjacent enemy! Attack failed."); }
         return success;
+    }
+
+    //will heal an occupation on press!!
+    public boolean bind_wounds(){
+        return player.getOccupation().bindWounds();
+    }
+
+
+    public void bargain(){
+        //return player.getOccupation().bargain(target);
+    }
+
+    public void observation(){
+
     }
 
     /****************************************************************/

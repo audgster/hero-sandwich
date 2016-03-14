@@ -27,9 +27,8 @@ public class PlayerDrawable implements Drawable {
     }
 
     public void setType(Player player) {
-        System.out.println(player.getOccupation().toString());
+        //System.out.println(player.getOccupation().toString());
             if(player.getOccupation().toString().equalsIgnoreCase("Smasher")){
-                System.out.println("I should render!");
                 graphicKey = 102;
                 int keyOffSet = DirectionHex.getIntRepresentation(player.getDirection());
                 avatar = spriteMap.getImageForKey(graphicKey + keyOffSet);
@@ -51,7 +50,6 @@ public class PlayerDrawable implements Drawable {
 
     @Override
     public void draw(GraphicsContext graphicsContext, CanvasPoint point) {
-        System.out.println("I am here!!!");
         graphicsContext.drawImage(avatar, point.getX(), point.getY());
     }
 }

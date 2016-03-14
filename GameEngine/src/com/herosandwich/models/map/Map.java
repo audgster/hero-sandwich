@@ -1,7 +1,9 @@
 package com.herosandwich.models.map;
 
 import com.herosandwich.menus.areaviewdrawables.TileGrid;
+import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Entity;
+import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.items.Item;
 import com.herosandwich.models.map.aoe.AoE;
 import com.herosandwich.util.DirectionHex;
@@ -216,8 +218,8 @@ public class Map {
     /***********************************************************************************************************/
     // For testing!!!!
 
-    public TileGrid initMyDrawable(Canvas canvas) {
-        return new TileGrid(this, canvas.getGraphicsContext2D(), canvas.getWidth(), canvas.getHeight());
+    public TileGrid initMyDrawable(Canvas canvas, Character player) {
+        return new TileGrid(this, canvas.getGraphicsContext2D(), canvas.getWidth(), canvas.getHeight(), player);
     }
 
     /***********************************************************************************************************/
