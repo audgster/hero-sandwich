@@ -183,10 +183,10 @@ public class Controller {
     public void observation(){
         HashMap tilesMaping = map.drawCircle(player.getPosition(),3, false);
         //EntityVisitor = new EntityVisitor();
-        Set<Tile> tiles = tilesMaping.entrySet();
-        for(Tile tile: tiles){
+        Set<PositionHex> hexs = tilesMaping.keySet();
+        for(PositionHex hex: hexs){
             //tile.acceptEntityVisitor();
-            System.out.println("The tiles are "+ tile);
+            System.out.println("The tiles are "+ tilesMaping.get(hex));
         }
     }
 
