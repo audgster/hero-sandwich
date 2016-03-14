@@ -96,11 +96,6 @@ public class XmlSaver implements Saver
         for( Tile t : map.getTiles())
         {
             if (t != null) {
-                PositionHex pos = t.getPosition();
-
-                if (pos.getQ() < 0)
-                    System.out.println("Boom");
-
                 t.acceptTileVisitor(visitor);
             }
         }

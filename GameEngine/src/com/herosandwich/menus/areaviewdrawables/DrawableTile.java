@@ -22,6 +22,7 @@ public class DrawableTile implements Drawable, Listener {
     Integer landTileImageKey = 1;
     Integer opaqueTileImageKey = 2;
     Integer fogTileImageKey = 3;
+    Integer waterTileImageKey = 4;
 
 
 
@@ -72,12 +73,34 @@ public class DrawableTile implements Drawable, Listener {
         if(isInFog)
             graphicsContext.drawImage(spriteMap.getImageForKey(fogTileImageKey), point.getX(), point.getY());
         else if(isVisible) {
-            graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
+            int key;
+
+            switch (modelTile.getTerrain())
+            {
+                case WATER:
+                    key = waterTileImageKey;
+                    break;
+                default:
+                    key = landTileImageKey;
+            }
+
+            graphicsContext.drawImage(spriteMap.getImageForKey(key), point.getX(), point.getY());
             drawGraphicsInBag(graphicsContext, point);
         }
         else if(discovered) {
            //System.out.println("discoveredTile");
-            graphicsContext.drawImage(spriteMap.getImageForKey(landTileImageKey), point.getX(), point.getY());
+            int key;
+
+            switch (modelTile.getTerrain())
+            {
+                case WATER:
+                    key = waterTileImageKey;
+                    break;
+                default:
+                    key = landTileImageKey;
+            }
+
+            graphicsContext.drawImage(spriteMap.getImageForKey(key), point.getX(), point.getY());
             drawGraphicsInBag(graphicsContext, point);
             graphicsContext.drawImage(spriteMap.getImageForKey(opaqueTileImageKey), point.getX(), point.getY());
         }

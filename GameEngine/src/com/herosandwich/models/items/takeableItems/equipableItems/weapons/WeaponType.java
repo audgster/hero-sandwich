@@ -18,7 +18,7 @@ public enum WeaponType {
             case BRAWL:
                 return "brawl";
             case RANGED_WEAPON:
-                return "range_weapon";
+                return "ranged_weapon";
             default:
                 throw new IllegalArgumentException();
         }
