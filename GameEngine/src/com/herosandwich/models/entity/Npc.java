@@ -243,4 +243,9 @@ public class Npc extends Character
     {
         eVisitor.visitNpc(this);
     }
+
+    @Override
+    public String getType(){
+        return "npc";
+    }
 }

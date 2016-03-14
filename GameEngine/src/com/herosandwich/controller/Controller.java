@@ -194,7 +194,10 @@ public class Controller {
     private int getCurrentLifeObservation(Tile tile) {
         Entity entity = tile.getEntity();
         if(entity != null) {
-            return entity.getCurrentLife();
+            //this checks for only npc entities
+            if(entity.getType() == "npc" ){
+                return entity.getCurrentLife();
+            }
         }
         return -10;
     }

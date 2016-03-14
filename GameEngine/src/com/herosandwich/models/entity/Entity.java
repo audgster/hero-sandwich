@@ -389,4 +389,6 @@ public class Entity
     public String toString() {
         return name;
     }
+
+    public String getType(){ return "Entity"; }
 }
