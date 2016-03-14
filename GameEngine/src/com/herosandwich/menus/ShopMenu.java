@@ -1,6 +1,7 @@
 package  com.herosandwich.menus;
 
 import com.herosandwich.creation.init.ItemInit;
+import com.herosandwich.menus.areaviewdrawables.SpriteMap;
 import com.herosandwich.models.entity.*;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
@@ -46,15 +47,7 @@ public class ShopMenu implements Menu {
         i = avatar.getInventory();
         npcInventory = new ArrayList<ShopItem>();
         playerInventory = new ArrayList<ShopItem>();
-        for(int a = 0; a < i.getCapacity(); a++){
-            TakeableItem item = i.getInventory().get(a);
-            if(item!=null){
-                playerInventory.add(new ShopItem(item));
-            }
-            else{
-                playerInventory.add(new ShopItem());
-            }
-        }
+
         shopSellHash = shopKeeper.getSell();
         shopBuyHash = shopKeeper.getBuy();
 
@@ -68,6 +61,7 @@ public class ShopMenu implements Menu {
     }
     @Override
     public void createMenu(Pane root) {
+        createInventorys();
         StackPane shopDescription = createTopShopDescription();
         StackPane itemInfo = createItemInfo(selectedItem);
 
@@ -76,7 +70,20 @@ public class ShopMenu implements Menu {
 
         content.getChildren().addAll(shopDescription,itemInfo,inventory);
         root.getChildren().add(content);
-        content.setVisible(true);
+        content.setVisible(false);
+    }
+
+    private void createInventorys(){
+        playerInventory.clear();
+        for(int a = 0; a < i.getCapacity(); a++){
+            TakeableItem item = i.getInventory().get(a);
+            if(item!=null){
+                playerInventory.add(new ShopItem(item));
+            }
+            else{
+                playerInventory.add(new ShopItem());
+            }
+        }
     }
 
     private void updateBtn(){
@@ -114,17 +121,19 @@ public class ShopMenu implements Menu {
     }
 
     public void setVisible(){
+        createInventorys();
+        updateList();
         content.setVisible(true);
     }
 
     private StackPane createItemInfo(){
         StackPane itemInfo = createBackGround(WIDTH*3/4,HEIGHT/3.5);
         if(selectedItem!=null){
-            int itemPrice;
+            int itemPrice = shopBuyHash.get(selectedItem.item.getItemId());
             itemImg.setImage(selectedItem.itemImage);
             itemImg.setFitHeight(HEIGHT*2/7);
             itemImg.setFitWidth(WIDTH/10);
-            itemDescription.setText(selectedItem.item.getName() );
+            itemDescription.setText(selectedItem.item.getName() + "     Price: " + itemPrice);
             itemDescription.wrapTextProperty();
         }
         HBox itemHBox = new HBox();
@@ -276,7 +285,8 @@ public class ShopMenu implements Menu {
         Image itemImage;
         private ShopItem(TakeableItem item){
             this.item = item;
-            itemImage = new Image("res/images/items/" + item.getName() + ".gif");
+            SpriteMap spriteMap = SpriteMap.getInstance();
+            itemImage = spriteMap.getImageForKey(item.getItemId());
         }
         private ShopItem(){
             item = null;

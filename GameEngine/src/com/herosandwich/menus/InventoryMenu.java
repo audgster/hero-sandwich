@@ -1,5 +1,6 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.menus.areaviewdrawables.SpriteMap;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.inventory.Inventory;
@@ -209,8 +210,9 @@ public class InventoryMenu implements Menu {
 
             this.content = content;
             this.item = item;
+            SpriteMap spriteMap = SpriteMap.getInstance();
             itemName = "res/images/items/" + item.getName() + ".gif";
-            ImageView itemImg = new ImageView(new Image(itemName));
+            ImageView itemImg = new ImageView(spriteMap.getImageForKey(item.getItemId()));
             this.setGraphic(itemImg);
                 itemImg.setFitHeight(HEIGHT/8);
                 itemImg.setFitWidth(HEIGHT/8);
