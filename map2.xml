@@ -9799,4 +9799,5 @@
 </tile>
 </tiles>
 </map>
+    <avatar-position direction="south" q="0" r="0" s="0"/>
 </hero-sandwich>
