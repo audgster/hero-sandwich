@@ -16,7 +16,6 @@ public enum Skill
     ONE_HANDED_WEAPON,
     OBSERVATION,
     PICK_POCKET,
-    STAFF,
     RANGED_WEAPON,
     REMOVE_TRAP,
     TWO_HANDED_WEAPON;
@@ -49,8 +48,6 @@ public enum Skill
                 return Skill.OBSERVATION;
             case "pick_pocket":
                 return Skill.PICK_POCKET;
-            case "staff":
-                return Skill.STAFF;
             case "ranged_weapon":
                 return Skill.RANGED_WEAPON;
             case "remove_trap":
