@@ -153,11 +153,11 @@ public class ItemInit {
                 .ordinal(), new DerivedStats(0,0,0,0,5,5), EquipmentType.SHIELD));
 
         itemMap.put(ItemNames.FIST_WRAPS.ordinal(), new SmasherWeapon("Fist Wraps", ItemNames.FIST_WRAPS
-                .ordinal(), new DerivedStats(0,0,0,2,0,0), WeaponType.BRAWL_WEAPON));
+                .ordinal(), new DerivedStats(0,0,0,2,0,0), WeaponType.BRAWL));
         itemMap.put(ItemNames.JALAPENO_POPPERS.ordinal(), new SmasherWeapon("Jalape\u00f1o Poppers", ItemNames
-                .JALAPENO_POPPERS.ordinal(), new DerivedStats(0,0,0,5,0,0), WeaponType.BRAWL_WEAPON));
+                .JALAPENO_POPPERS.ordinal(), new DerivedStats(0,0,0,5,0,0), WeaponType.BRAWL));
         itemMap.put(ItemNames.KNUCKLE_SANDWICH.ordinal(), new SmasherWeapon("Knuckle Sandwich", ItemNames.KNUCKLE_SANDWICH
-                .ordinal(), new DerivedStats(0,0,0,7,0,0), WeaponType.BRAWL_WEAPON));
+                .ordinal(), new DerivedStats(0,0,0,7,0,0), WeaponType.BRAWL));
 
         itemMap.put(ItemNames.FRENCH_FRY.ordinal(), new SmasherWeapon("Limp French Fry", ItemNames.FRENCH_FRY
                 .ordinal(), new DerivedStats(0,0,0,3,0,0), WeaponType.ONE_HANDED_WEAPON));

@@ -12,7 +12,7 @@ public class Summoner extends Occupation{
         learned_skills.add(Skill.BANE);
         learned_skills.add(Skill.BOON);
         learned_skills.add(Skill.ENCHANTMENT);
-        learned_skills.add(Skill.STAFF);
+        learned_skills.add(Skill.TWO_HANDED_WEAPON);
         //when a character is created all skill levels are zero
     }
 
@@ -21,15 +21,15 @@ public class Summoner extends Occupation{
         learned_skills.add(Skill.BANE);
         learned_skills.add(Skill.BOON);
         learned_skills.add(Skill.ENCHANTMENT);
-        learned_skills.add(Skill.STAFF);
+        learned_skills.add(Skill.TWO_HANDED_WEAPON);
         //when a character is created all skill levels are zero
         updateOccupationSkills();
     }
 
     public void attackWithStaff(){
-        //if(successfulAction(this.staffSkill) ){
+        if(successfulAction(Skill.TWO_HANDED_WEAPON) ){
 
-        //}
+        }
     }
 
     // bane - magic that does damage or harm.
