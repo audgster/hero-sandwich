@@ -1035,9 +1035,9 @@
 <equipmentslot item-id="37" slot="left_hand"/>
 </equipment>
 <skillpoints>
-<skill pointAmount="1" skillName="two_handed_weapon"/>
-<skill pointAmount="1" skillName="one_handed_weapon"/>
 <skill pointAmount="5" skillName="brawl"/>
+<skill pointAmount="1" skillName="one_handed_weapon"/>
+<skill pointAmount="1" skillName="two_handed_weapon"/>
 </skillpoints>
 <cash amount="0"/>
 <sales/>
@@ -1646,9 +1646,9 @@
 <tile q="0" r="0" s="0" terrain-type="grass">
 <entities>
 <player move-visitor="ground" name="Dave the Avatar">
-<stats agility="3" currentLife="17" currentMana="4" experience="0" hardiness="5" intellect="1" lives="3" movement="20" strength="5"/>
+<stats agility="5" currentLife="14" currentMana="9" experience="0" hardiness="4" intellect="3" lives="3" movement="30" strength="3"/>
 <location direction="south" q="0" r="0" s="0"/>
-<occupation>smasher</occupation>
+<occupation>sneak</occupation>
 <inventory>
 <items/>
 </inventory>
@@ -2253,7 +2253,7 @@
 <tile q="1" r="-1" s="0" terrain-type="grass">
 <entities/>
 <tile-items>
-<item item-id="44"/>
+<item item-id="47"/>
 </tile-items>
 <aoes/>
 </tile>

@@ -138,15 +138,10 @@ public class Controller {
         if ( (player.getRightHand() != null && player.getRightHand().getWeaponType() == WeaponType.RANGED_WEAPON)
                 || (player.getLeftHand() != null && player.getLeftHand().getWeaponType() == WeaponType.RANGED_WEAPON)) {
             /** Ranged Attacks **/
-            int range = 3;
-            boolean doNotIncludeSelf = false;
-            HashMap<PositionHex, Tile> line = map.drawLine( player.getPosition(), range, player.getDirection(), doNotIncludeSelf );
-            Iterator iterator = line.entrySet().iterator();
-            while ( iterator.hasNext() ) {
-                java.util.Map.Entry pair = (java.util.Map.Entry)( iterator.next() );
-                tile = (Tile) pair.getValue();
-                target = tile.getEntity();
-                iterator.remove();
+            List<Tile> tileList = getTilesAroundPlayer();
+            for(Tile currentTile : tileList){
+                target = currentTile.getEntity();
+
                 if ( target != null ) {
                     break;
                 }
