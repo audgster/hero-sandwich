@@ -63,7 +63,7 @@ public class SpriteMap {
     // interactable
     private static Image enemybutton = new Image("res/images/items/enemybutton.png");
     private static Image lockeddoor = new Image("res/images/items/lockeddoor.png");
-    private static Image lockeddooroop = new Image("res/images/items/lockeddooroop");
+    private static Image lockeddooroop = new Image("res/images/items/lockeddooroop.png");
 
     // oneshot
     private static Image extraloaf = new Image("res/images/items/extraloaf.png");
@@ -84,7 +84,7 @@ public class SpriteMap {
     private static Image manamajor = new Image("res/images/items/manamajor.png");
 
     // equipable bread
-    private static Image wonderbread = new Image("res/images/items/wonderbread.png.png");
+    private static Image wonderbread = new Image("res/images/items/wonderbread.png");
     private static Image marblerye = new Image("res/images/items/marblerye.png");
     private static Image ciabatta = new Image("res/images/items/ciabatta.png");
     private static Image hoagie = new Image("res/images/items/hoagie.png");
