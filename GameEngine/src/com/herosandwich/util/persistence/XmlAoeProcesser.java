@@ -45,4 +45,40 @@ public class XmlAoeProcesser
 
         return new XpAoE(xpPerTick, pos);
     }
+
+    public Trap processTrapElement(Element trap){
+        PositionHex pos = XmlUtil.extractPosition(trap);
+        boolean discovered = XmlUtil.extractAttributeAsBoolean(trap, "discovered");
+        boolean activated = XmlUtil.extractAttributeAsBoolean(trap, "activated");
+
+        Element effectElement = (Element)trap.getElementsByTagName("effect").item(0);
+        XmlAoeProcesser effectProcessor = new XmlAoeProcesser();
+        String effectTagName = effectElement.getTagName().toLowerCase();
+        AoE effect;
+        switch (effectTagName){
+            case "healdamageaoe":
+                effect = effectProcessor.processHealDamageElement(effectElement);
+                break;
+            case "instadeathaoe":
+                effect = effectProcessor.processInstaDeathElement(effectElement);
+                break;
+            case "trap":
+                effect = effectProcessor.processTrapElement(effectElement);
+                break;
+            case "takedamageaoe":
+                effect = effectProcessor.processTakeDamageElement(effectElement);
+                break;
+            case "teleportaoe":
+                effect = effectProcessor.processTeleporElement(effectElement);
+                break;
+            case "xpaoe":
+                effect = effectProcessor.processXpElement(effectElement);
+                break;
+            default:
+                effect = null;
+                break;
+        }
+
+        return new Trap(pos, discovered, activated, effect);
+    }
 }

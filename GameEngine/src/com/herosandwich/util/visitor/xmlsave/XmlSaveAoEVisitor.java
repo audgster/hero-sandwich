@@ -20,6 +20,12 @@ public class XmlSaveAoEVisitor implements AoEVisitor
         aoeElement = doc.createElement("aoes");
     }
 
+    private XmlSaveAoEVisitor(Document doc, String elementName){
+        this.doc = doc;
+
+        aoeElement = doc.createElement(elementName);
+    }
+
     @Override
     public void visitAoE(AoE aoE)
     {
@@ -85,6 +91,20 @@ public class XmlSaveAoEVisitor implements AoEVisitor
         destPos.setAttribute("s", Integer.toString(aoE.getDestination().getS()));
 
         element.appendChild(destPos);
+
+        aoeElement.appendChild(element);
+    }
+
+    @Override
+    public void visitTrap(Trap aoE) {
+        Element element = retrieveNameElement(aoE);
+        element = retrievePosition(element, aoE);
+        element.setAttribute("discovered", ""+aoE.isDiscovered());
+        element.setAttribute("activated", ""+aoE.isActivated());
+
+        XmlSaveAoEVisitor visitor = new XmlSaveAoEVisitor(doc, "effect");
+        aoE.getEffect().accept(visitor);
+        element.appendChild(visitor.retrieveSavedObject());
 
         aoeElement.appendChild(element);
     }

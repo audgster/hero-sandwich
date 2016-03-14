@@ -32,4 +32,8 @@ public class XmlUtil
     {
         return Integer.parseInt(element.getAttribute(attribute));
     }
+
+    public static boolean extractAttributeAsBoolean(Element element, String attribute){
+        return Boolean.parseBoolean(element.getAttribute(attribute));
+    }
 }
