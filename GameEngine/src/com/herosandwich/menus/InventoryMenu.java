@@ -1,10 +1,12 @@
 package  com.herosandwich.menus;
 
+import com.herosandwich.menus.areaviewdrawables.SpriteMap;
 import com.herosandwich.models.entity.Character;
 import com.herosandwich.models.entity.Player;
 import com.herosandwich.models.inventory.Inventory;
 import com.herosandwich.models.items.takeableItems.TakeableItem;
 
+import com.herosandwich.models.items.takeableItems.equipableItems.EquipableItem;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -208,8 +210,9 @@ public class InventoryMenu implements Menu {
 
             this.content = content;
             this.item = item;
+            SpriteMap spriteMap = SpriteMap.getInstance();
             itemName = "res/images/items/" + item.getName() + ".gif";
-            ImageView itemImg = new ImageView(new Image(itemName));
+            ImageView itemImg = new ImageView(spriteMap.getImageForKey(item.getItemId()));
             this.setGraphic(itemImg);
                 itemImg.setFitHeight(HEIGHT/8);
                 itemImg.setFitWidth(HEIGHT/8);
@@ -271,7 +274,14 @@ public class InventoryMenu implements Menu {
                 public void handle(MouseEvent event) {
 
                     System.out.println("Item: " + item.getName() + " used!");
-                    itemUsedOrDroppedSelected();
+                    if(item.getAction().equals("Equip")){
+                        if(avatar.addToEquipment((EquipableItem)item)){
+                            itemUsedOrDroppedSelected();
+                        }
+                    }
+                    else if (item.getAction().equals("Consume")){
+                        itemUsedOrDroppedSelected();
+                    }
                 }
             });
         }

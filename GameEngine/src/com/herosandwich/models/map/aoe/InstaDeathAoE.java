@@ -19,7 +19,7 @@ public class InstaDeathAoE extends AoE
     @Override
     public void executeEffect(Entity entity)
     {
-        entity.modifyLevel(-1);
+        entity.modifyLives(-1);
     }
 
     @Override

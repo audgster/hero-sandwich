@@ -24,46 +24,57 @@ public class AreaMenu{
     private Occupation occupation;
     private VBox textOptions;
     private boolean visible;
-    private String testing = "";
-    public AreaMenu(double width, double height, Character entity){
+    private String talking = "";
+    private StackPane shop;
+    private Label areaText;
+    private StackPane entityInfo;
+    StackPane stack1,stack2;
+    AreaView areaView;
+    VBox areaMenu;
+    HBox characterInfo;
+    public AreaMenu(double width, double height, Character entity,AreaView areaView){
         WIDTH = width;
         HEIGHT = height;
+        this.areaView = areaView;
         content = new Pane();
         this.entity = entity;
         occupation = entity.getOccupation();
         textOptions = new VBox(5);
             textOptions.setMaxSize(WIDTH,HEIGHT-WIDTH);
+        entityInfo = new StackPane();
+        areaMenu = new VBox();
+        characterInfo = new HBox();
+        stack1 = new StackPane();
+        stack2 = new StackPane();
     }
     public Pane createMenu(){
-        StackPane entityInfo = createEntityInfo();
-        HBox characterInfo = new HBox();
+        createEntityInfo();
+        characterInfo = new HBox();
             characterInfo.getChildren().addAll(createEntityStats(),createOtherStatsPart());
-        VBox areaMenu = new VBox();
+        areaMenu = new VBox();
         areaMenu.getChildren().addAll(entityInfo, characterInfo, createTalkBox());
         content.getChildren().addAll(areaMenu);
-        createTesting();
+        shop = getButton("Shop");
+        shop.setOnMouseClicked(event->{
+            //update();
+            areaView.showShop();
+        });
+        createShopOption();
         return content;
     }
     public void update(){
-        testing+=".";
-        content.getChildren().clear();
-        textOptions.getChildren().clear();
-        StackPane entityInfo = createEntityInfo();
-        HBox characterInfo = new HBox();
-        characterInfo.getChildren().addAll(createEntityStats(),createOtherStatsPart());
-        VBox areaMenu = new VBox();
-        areaMenu.getChildren().addAll(entityInfo, characterInfo, createTalkBox());
-        content.getChildren().addAll(areaMenu);
-        createTesting();
+        createEntityInfo();
+        createEntityStats();
+        createOtherStatsPart();
     }
 
     private StackPane createEntityInfo(){
         ImageView avatarImg = new ImageView();
-            avatarImg.setId("Smasher_image2");
+            avatarImg.setId(occupation.toString()+"_image2");
             avatarImg.setFitWidth(WIDTH/3);
             avatarImg.setFitHeight(WIDTH/3);
 
-        Label avatarName = new Label(entity.getName());
+        Label avatarName = new Label(entity.getName()+talking);
             avatarName.setId("stats_text");
         Label avatarLvl = new Label("Lvl       "+entity.getLevel());
             avatarLvl.setId("stats_text");
@@ -77,12 +88,11 @@ public class AreaMenu{
         HBox imgAndInfo = new HBox(10);
         imgAndInfo.getChildren().addAll(avatarImg,basicInfo);
 
-        StackPane avatarInfo = new StackPane();
-            avatarInfo.getChildren().add(imgAndInfo);
-            avatarInfo.setId("stats_menu");
-            avatarInfo.setMinWidth(WIDTH);
-            avatarInfo.setMinHeight(WIDTH / 3);
-        return avatarInfo;
+            entityInfo.getChildren().add(imgAndInfo);
+            entityInfo.setId("stats_menu");
+            entityInfo.setMinWidth(WIDTH);
+            entityInfo.setMinHeight(WIDTH / 3);
+        return entityInfo;
     }
 
     private StackPane createEntityStats(){
@@ -118,12 +128,11 @@ public class AreaMenu{
             statsList.add(entityInte,2,3);
             statsList.add(entityHard,2,4);
 
-        StackPane avatarStats = new StackPane();
-            avatarStats.getChildren().add(statsList);
-            avatarStats.setId("stats_menu");
-        avatarStats.setMinWidth(WIDTH/3);
-            avatarStats.setMinHeight(WIDTH*2/3);
-        return avatarStats;
+            stack1.getChildren().add(statsList);
+        stack1.setId("stats_menu");
+        stack1.setMinWidth(WIDTH/3);
+        stack1.setMinHeight(WIDTH*2/3);
+        return stack1;
     }
     private StackPane createOtherStatsPart(){
         StackPane entitySkills = createOccupationSkills();
@@ -135,10 +144,9 @@ public class AreaMenu{
         VBox vbox = new VBox();
             vbox.getChildren().addAll(entitySkills,temp2);
 
-        StackPane temp3 = new StackPane();
-        temp3.getChildren().addAll(vbox);
-        temp3.setId("stats_menu");
-        return temp3;
+        stack2.getChildren().addAll(vbox);
+        stack2.setId("stats_menu");
+        return stack2;
     }
 
     private StackPane createOccupationSkills(){
@@ -171,12 +179,13 @@ public class AreaMenu{
         return areaMenu;
     }
 
-    private void setText(String text){
-        Label areaText = new Label(text);
+    public void setText(String text){
+        textOptions.getChildren().remove(areaText);
+        areaText = new Label(text);
             areaText.setWrapText(true);
             areaText.setId("stats_text");
         textOptions.getChildren().addAll(areaText);
-
+        createShopOption();
     }
     private StackPane getButton(String option){
         Label btnText = new Label(option);
@@ -189,8 +198,8 @@ public class AreaMenu{
             btn.getChildren().addAll(bg, btnText);
             btn.setVisible(true);
             btn.setOnMouseEntered(event -> {
-            bg.setId("button_rectangle_hover");
-            btnText.setId("button_text_hover");
+                bg.setId("button_rectangle_hover");
+                btnText.setId("button_text_hover");
         });
             btn.setOnMouseExited(event -> {
                 bg.setId("button_rectangle");
@@ -199,14 +208,12 @@ public class AreaMenu{
         return btn;
     }
 
-    private void createTesting(){
-        //setText("Hello, and welcome to my Special Sandwich Shop. How can I help you?");
-        setText(testing);
-        StackPane btn = getButton("Buy");
-        btn.setOnMouseClicked(event->{
-            update();
-        });
-        textOptions.getChildren().addAll(btn,getButton("Sell"),getButton("Exit"));
-    }
+    private void createShopOption(){
+        //setText(talking);
 
+        if(!textOptions.getChildren().contains(shop)){
+            textOptions.getChildren().add(shop);
+            setText("welcome to my shop");
+        }
+    }
 }

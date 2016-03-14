@@ -37,15 +37,18 @@ public abstract class Occupation{
     */
 
     // heals some damage
-    public final void bindWounds(){
+    public final boolean bindWounds(){
+        boolean isSuccessful = false;
         if(owner.getCurrentMana() == owner.getMaxMana()){
-            return;
+            return isSuccessful;
         }
 
         if(successfulAction(Skill.BIND_WOUNDS) ){
             int healingAmount = (int)(1 + (getLevelOfSkill(Skill.BIND_WOUNDS)*.3));
             owner.modifyCurrentMana(healingAmount);
+            isSuccessful = !isSuccessful;
         }
+        return isSuccessful;
     }
 
     //if successful the following two conditions will occur

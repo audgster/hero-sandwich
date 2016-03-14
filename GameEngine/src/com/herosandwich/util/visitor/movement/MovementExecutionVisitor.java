@@ -1,6 +1,7 @@
 package com.herosandwich.util.visitor.movement;
 
 import com.herosandwich.events.CharacterPickUpItemEvent;
+import com.herosandwich.events.EntityActivatesAoEEvent;
 import com.herosandwich.events.EventDispatcher;
 import com.herosandwich.events.PetPickUpItemEvent;
 import com.herosandwich.models.entity.*;
@@ -35,11 +36,6 @@ public class MovementExecutionVisitor implements EntityVisitor, ItemVisitor, AoE
     public MovementExecutionVisitor(Map map, Entity entity){
         this.map = map;
         this.entity = entity;
-    }
-
-    public MovementExecutionVisitor(Map map, Character character){
-        this.map = map;
-        this.entity = character;
     }
 
     @Override
@@ -77,32 +73,42 @@ public class MovementExecutionVisitor implements EntityVisitor, ItemVisitor, AoE
 
     @Override
     public void visitAoE(AoE aoE) {
-
+        EntityActivatesAoEEvent event = new EntityActivatesAoEEvent(entity, aoE);
+        EventDispatcher dispatcher = EventDispatcher.getInstance();
+        dispatcher.notify(event);
     }
 
     @Override
     public void visitInstaDeathAoE(InstaDeathAoE aoE) {
-
+        this.visitAoE(aoE);
     }
 
     @Override
     public void visitXpAoE(XpAoE aoE) {
-
+        this.visitAoE(aoE);
     }
 
     @Override
     public void visitHealDamageAoE(HealDamageAoE aoE) {
-
+        this.visitAoE(aoE);
     }
 
     @Override
     public void visitTakeDamageAoE(TakeDamageAoE aoE) {
-
+        this.visitAoE(aoE);
     }
 
     @Override
     public void visitTeleportAoE(TeleportAoE aoE) {
+        this.visitAoE(aoE);
+    }
 
+    @Override
+    public void visitTrap(Trap aoE) {
+        if(aoE.isActivated()){
+            aoE.acceptForEffect(this);
+        }
+        map.removeAoE(aoE.getPosition(), aoE);
     }
 
     @Override

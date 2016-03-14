@@ -30,7 +30,6 @@ public class Controller {
     		controller = new Controller();
     	}
     	return controller;
-
 	}
 
 	// Private constructor for Singleton pattern
@@ -38,6 +37,7 @@ public class Controller {
 
 
 	public void executeUserInput(KeyCode input){
+        areaView.updateStatsMenu();
         if(input == KeyCode.ESCAPE){
             areaView.doPauseTransition();
         }
@@ -66,7 +66,13 @@ public class Controller {
                 case MOVE_NORTH_WEST:   gridView.activateGamePlayMode();
                                         player.move(DirectionHex.NORTH_WEST, map);
                                         break;
-                case SKILL1:            basic_attack();
+                case ATTACK:            basic_attack();
+                                        break;
+                case BIND_WONDS:        bind_wounds();
+                                        break;
+                case BARGAIN:           bargain();
+                                        break;
+                case OBSERVATION:       observation();
                                         break;
                 case SEARCH_MOVE_NORTH:
                                         gridView.activateSearchMode();
@@ -163,6 +169,20 @@ public class Controller {
         /** Test print **/
         if (!success) { System.out.println("No adjacent enemy! Attack failed."); }
         return success;
+    }
+
+    //will heal an occupation on press!!
+    public boolean bind_wounds(){
+        return player.getOccupation().bindWounds();
+    }
+
+
+    public void bargain(){
+        //return player.getOccupation().bargain(target);
+    }
+
+    public void observation(){
+
     }
 
     /****************************************************************/

@@ -20,8 +20,6 @@ import com.herosandwich.util.persistence.Loader;
 import com.herosandwich.util.persistence.Saver;
 import com.herosandwich.util.persistence.XmlLoader;
 import com.herosandwich.util.persistence.XmlSaver;
-import com.herosandwich.util.visitor.movement.GroundMovementCheckVisitor;
-import com.herosandwich.util.visitor.movement.MovementCheckVisitor;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
@@ -35,6 +33,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -45,6 +45,7 @@ import java.util.Collection;
 
 public class AreaView implements Menu {
     private double WIDTH,HEIGHT;
+    private Npc talkingPerson;
     private Game game;
     private Pane areaView;
     private HBox content;
@@ -54,6 +55,8 @@ public class AreaView implements Menu {
     Pane areaMenu;
     PauseMenu pm;
     AreaMenu am;
+    Player avatar;
+    ShopMenu shop;
 
     private Stage stage;
 
@@ -65,6 +68,7 @@ public class AreaView implements Menu {
         WIDTH = width;
         HEIGHT = height;
 
+        this.avatar = avatar;
         loadGame(avatar);
 
         content = new HBox();
@@ -72,7 +76,9 @@ public class AreaView implements Menu {
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
         pm = new PauseMenu(stage, WIDTH,HEIGHT,avatar,this);
-        am = new AreaMenu(WIDTH/4,HEIGHT,avatar);
+        am = new AreaMenu(WIDTH/4,HEIGHT,avatar,this);
+        talkingPerson = new Npc();
+        shop = new ShopMenu(WIDTH,HEIGHT,talkingPerson,avatar);
     }
 
     public AreaView(Stage stage, double width, double height, File loadFile)
@@ -88,7 +94,7 @@ public class AreaView implements Menu {
         canvas = new Canvas(WIDTH*3/4,HEIGHT);
         areaMenu = new Pane();
         pm = new PauseMenu(stage, WIDTH,HEIGHT,game.getAvatar(), this);
-        am = new AreaMenu(WIDTH/4,HEIGHT,game.getAvatar());
+        am = new AreaMenu(WIDTH/4,HEIGHT,game.getAvatar(),this);
     }
 
     public void updateTileGrid()
@@ -126,8 +132,10 @@ public class AreaView implements Menu {
         MapEventHandler mapEventHandler = new MapEventHandler(game.getMap());
         dispatcher.subscribe(CharacterPickUpItemEvent.class, (CharacterPickUpItemListener) mapEventHandler);
         dispatcher.subscribe(PetPickUpItemEvent.class, (PetPickUpItemListener) mapEventHandler);
+        dispatcher.subscribe(EntityActivatesAoEEvent.class, (EntityActivatesAoEListener) mapEventHandler);
 
         /** End of register events **/
+        shop.createMenu(areaView);
     }
 
     private void createAreaMenu(){
@@ -137,6 +145,7 @@ public class AreaView implements Menu {
             map.setPrefSize(WIDTH, HEIGHT);
             map.setMinSize(WIDTH*3/4,HEIGHT);
             map.setMaxSize(WIDTH,HEIGHT);
+        //createOccupationSkills(map);
         map.setId("black_bg");
         HBox.setHgrow(map, Priority.ALWAYS);
         content.setMaxSize(WIDTH,HEIGHT);
@@ -147,6 +156,19 @@ public class AreaView implements Menu {
         areaView.getChildren().add(content);
             pm.createMenu(areaView);
         content.setFocusTraversable(true);
+    }
+
+    private void createOccupationSkills(StackPane display){
+        StackPane occupationLayout = new StackPane();
+        occupationLayout.setMaxSize(WIDTH*3/4,HEIGHT);
+        HBox occupationBoxes = new HBox(2);
+        for(int i = 0; i < avatar.getOccupation().getLearnedSkills().size(); i++){
+            Rectangle box = new Rectangle(100,100,Color.WHITE);
+                box.setOpacity(0.5);
+            occupationBoxes.getChildren().add(box);
+        }
+       // occupationLayout.getChildren().add(occupationBoxes);
+        display.getChildren().add(occupationBoxes);
     }
 
     private void createController(Map map){
@@ -169,14 +191,26 @@ public class AreaView implements Menu {
         KeyFrame kf = new KeyFrame(
                 Duration.seconds(0.017),
                 ae->{
-                    //System.out.println(canvas.getWidth());
-                    am.update();
                     render();
                 }
         );
 
         gameLoop.getKeyFrames().add( kf );
         gameLoop.play();
+    }
+
+    public void updateStatsMenu(){
+        if(talkingPerson!=null){
+            String[] thingsToSay = talkingPerson.getThingsToSay();
+            thingsToSay[0] = "Hello";
+            am.setText(thingsToSay[0]);
+            talkingPerson = null;
+        }
+        am.update();
+    }
+
+    public void showShop(){
+        shop.setVisible();
     }
 
     private void render() {
